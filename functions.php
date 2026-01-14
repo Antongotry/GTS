@@ -29,6 +29,11 @@ define( 'DONOTCACHEOBJECT', true );
 define( 'DONOTCACHEDB', true );
 
 /**
+ * Hide admin bar on frontend (keep it in admin panel)
+ */
+add_filter( 'show_admin_bar', '__return_false' );
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
