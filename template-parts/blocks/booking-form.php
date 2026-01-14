@@ -94,7 +94,7 @@
 				<!-- Consent -->
 				<div class="form-group checkbox-group checkbox-consent">
 					<label>
-						<input type="checkbox" name="email_consent" value="1" class="consent-checkbox">
+						<input type="checkbox" name="email_consent" value="1" class="consent-checkbox" checked>
 						<span>I agree to receive email communication regarding my quote request.</span>
 					</label>
 				</div>
