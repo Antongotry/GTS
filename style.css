@@ -1030,12 +1030,73 @@ textarea {
 }
 
 /*--------------------------------------------------------------
+# Blocks
+--------------------------------------------------------------*/
+/**
+ * Header Styles
+ */
+.site-header {
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1840px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo a {
+  display: inline-block;
+  text-decoration: none;
+}
+.site-logo img {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+
+/*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
 /**
  * Front Page Styles
  * Main page specific styles
  */
+/**
+ * Header Styles
+ */
+.site-header {
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1840px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo a {
+  display: inline-block;
+  text-decoration: none;
+}
+.site-logo img {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+
 /**
  * Hero Block Styles
  */
@@ -1072,6 +1133,7 @@ textarea {
   display: flex;
   gap: 40px;
   align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
   max-width: 1840px;
   margin: 0 auto;
@@ -1083,12 +1145,15 @@ textarea {
   width: 724px;
   flex-shrink: 0;
   margin-top: 130px;
+  flex: 0 0 724px;
 }
 
 .hero-right {
   width: 390px;
   flex-shrink: 0;
   margin-top: 106px;
+  flex: 0 0 390px;
+  margin-left: auto;
 }
 
 .booking-form {

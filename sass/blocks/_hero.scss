@@ -35,6 +35,7 @@
 	display: flex;
 	gap: 40px;
 	align-items: flex-start;
+	justify-content: space-between;
 	width: 100%;
 	max-width: 1840px;
 	margin: 0 auto;
@@ -46,12 +47,15 @@
 	width: 724px;
 	flex-shrink: 0;
 	margin-top: 130px;
+	flex: 0 0 724px;
 }
 
 .hero-right {
 	width: 390px;
 	flex-shrink: 0;
 	margin-top: 106px;
+	flex: 0 0 390px;
+	margin-left: auto;
 }
 
 // Booking form styles inside hero

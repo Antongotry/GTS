@@ -1,0 +1,32 @@
+/**
+ * Header Styles
+ */
+
+.site-header {
+	width: 100%;
+	padding: 20px 0;
+	position: relative;
+	z-index: 100;
+}
+
+.header-container {
+	max-width: 1840px;
+	margin: 0 auto;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.site-logo {
+	a {
+		display: inline-block;
+		text-decoration: none;
+	}
+
+	img {
+		height: 24px;
+		width: auto;
+		display: block;
+	}
+}

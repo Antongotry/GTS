@@ -19,3 +19,13 @@
 <?php wp_body_open(); ?>
 
 <div id="page" class="site">
+
+<header class="site-header">
+	<div class="header-container">
+		<div class="site-logo">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/GTS.svg' ); ?>" alt="<?php bloginfo( 'name' ); ?>">
+			</a>
+		</div>
+	</div>
+</header>
