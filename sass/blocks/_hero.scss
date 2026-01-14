@@ -8,15 +8,20 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	margin-top: 0; // Прилегает к верху экрана
+	margin: 0;
+	padding: 0;
+	display: block;
+	min-height: 780px;
 
 	// Tablet (1024px)
 	@include tablet {
 		height: 600px;
+		min-height: 600px;
 	}
 
 	// Mobile (375px)
 	@include mobile {
 		height: 400px;
+		min-height: 400px;
 	}
 }

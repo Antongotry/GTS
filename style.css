@@ -1043,15 +1043,20 @@ textarea {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  min-height: 780px;
 }
 @media (max-width: 1024px) {
   .hero-block {
     height: 600px;
+    min-height: 600px;
   }
 }
 @media (max-width: 375px) {
   .hero-block {
     height: 400px;
+    min-height: 400px;
   }
 }
