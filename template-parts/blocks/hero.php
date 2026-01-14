@@ -50,73 +50,36 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 		<!-- Right side with form -->
 		<div class="hero-right">
 			<form class="booking-form" id="booking-form">
-				<div class="form-columns">
-					<!-- Left Column -->
-					<div class="form-column form-column-left">
-						<div class="form-group">
-							<input type="text" id="full-name" name="full_name" placeholder="First and Last name" required>
-						</div>
-
-						<div class="form-group">
-							<input type="email" id="email" name="email" placeholder="E-mail" required>
-						</div>
-
-						<div class="form-group">
-							<select id="vehicle" name="vehicle" required>
-								<option value="">Select vehicle</option>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="Pick-up time" required>
-						</div>
-
-						<div class="form-group">
-							<input type="text" id="dropoff-location" name="dropoff_location" placeholder="Drop-off location" required>
-						</div>
+				<!-- Row 1: First and Last name и Phone -->
+				<div class="form-row">
+					<div class="form-group">
+						<input type="text" id="full-name" name="full_name" placeholder="First and Last name" required>
 					</div>
-
-					<!-- Right Column -->
-					<div class="form-column form-column-right">
-						<div class="form-group">
-							<input type="tel" id="phone" name="phone" placeholder="Phone" required>
-						</div>
-
-						<div class="form-group">
-							<select id="service-type" name="service_type" required>
-								<option value="">Select service type</option>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<select id="passengers" name="passengers" required>
-								<option value="">Number of passengers</option>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
-						</div>
-
-						<div class="form-group">
-							<a href="#" class="add-stop-link">+ Add Stop</a>
-						</div>
-
-						<div class="form-group">
-							<textarea id="additional-notes" name="additional_notes" placeholder="Additional Notes" rows="4"></textarea>
-						</div>
+					<div class="form-group">
+						<input type="tel" id="phone" name="phone" placeholder="Phone" required>
 					</div>
 				</div>
 
-				<!-- Checkboxes -->
-				<div class="form-checkboxes" style="margin-top: 32px;">
+				<!-- Row 2: E-mail и Select service type -->
+				<div class="form-row">
+					<div class="form-group">
+						<input type="email" id="email" name="email" placeholder="E-mail" required>
+					</div>
+					<div class="form-group">
+						<select id="service-type" name="service_type" required>
+							<option value="">Select service type</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- Checkboxes: Book a Jet и Book a Helicopter -->
+				<div class="form-checkboxes">
 					<div class="form-group checkbox-group">
 						<label>
 							<input type="checkbox" name="book_jet" value="jet" checked>
 							<span>Book a Jet</span>
 						</label>
 					</div>
-
 					<div class="form-group checkbox-group">
 						<label>
 							<input type="checkbox" name="book_helicopter" value="helicopter">
@@ -125,7 +88,47 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 					</div>
 				</div>
 
-				<!-- Consent -->
+				<!-- Row 3: Select vehicle и Number of passengers (32px после чекбоксов) -->
+				<div class="form-row form-row-after-checkboxes">
+					<div class="form-group">
+						<select id="vehicle" name="vehicle" required>
+							<option value="">Select vehicle</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select id="passengers" name="passengers" required>
+							<option value="">Number of passengers</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- Row 4: Pick-up time и Pick-up location с Add Stop -->
+				<div class="form-row">
+					<div class="form-group">
+						<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="Pick-up time" required>
+					</div>
+					<div class="form-group form-group-with-add-stop">
+						<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
+						<a href="#" class="add-stop-link">
+							<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+							</svg>
+							Add Stop
+						</a>
+					</div>
+				</div>
+
+				<!-- Row 5: Drop-off location и Additional Notes (24px после предыдущего ряда) -->
+				<div class="form-row form-row-dropoff-notes">
+					<div class="form-group">
+						<input type="text" id="dropoff-location" name="dropoff_location" placeholder="Drop-off location" required>
+					</div>
+					<div class="form-group">
+						<textarea id="additional-notes" name="additional_notes" placeholder="Additional Notes" rows="1"></textarea>
+					</div>
+				</div>
+
+				<!-- Consent (24px после предыдущего ряда) -->
 				<div class="form-group checkbox-group checkbox-consent">
 					<label>
 						<input type="checkbox" name="email_consent" value="1" class="consent-checkbox" checked>
@@ -133,7 +136,7 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 					</label>
 				</div>
 
-				<!-- Submit Button -->
+				<!-- Submit Button (24px после consent) -->
 				<button type="submit" class="booking-submit-btn">Get My Quote</button>
 			</form>
 
