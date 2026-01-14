@@ -191,9 +191,24 @@
 		display: inline-block;
 	}
 
-	.language-arrow {
-		font-size: 10px;
-		display: inline-block;
+	.dropdown-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 4px;
+		position: relative;
+		top: -2px;
+		transition: transform 0.3s ease;
+
+		img {
+			width: 7px;
+			height: auto;
+			display: block;
+		}
+	}
+
+	&:hover .dropdown-icon {
+		transform: rotate(180deg);
 	}
 }
 

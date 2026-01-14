@@ -57,7 +57,9 @@
 		<div class="header-right">
 			<div class="language-selector">
 				<span class="language-text">EN</span>
-				<span class="language-arrow">▼</span>
+				<span class="dropdown-icon">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="">
+				</span>
 			</div>
 			<a href="mailto:info@gmail.com" class="header-email">info@gmail.com</a>
 			<a href="#" class="whatsapp-button" aria-label="WhatsApp">

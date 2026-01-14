@@ -218,11 +218,13 @@
 
 	select {
 		appearance: none;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+		background-image: url("/wp-content/uploads/2026/01/Vector-2.svg");
 		background-repeat: no-repeat;
 		background-position: right 0 center;
+		background-size: 7px auto;
 		padding-right: 20px;
 		cursor: pointer;
+		position: relative;
 	}
 
 	textarea {
@@ -241,31 +243,34 @@
 		margin-bottom: 0;
 
 		input[type="checkbox"] {
-			width: 18px;
-			height: 18px;
+			width: 20px;
+			height: 20px;
 			margin-right: 10px;
 			cursor: pointer;
 			appearance: none;
-			border: 2px solid #ddd;
+			border: 1px solid rgba(0, 0, 0, 0.32);
 			border-radius: 2px;
 			position: relative;
 			flex-shrink: 0;
 			transition: all 0.2s ease;
+			background: transparent;
 
 			&:checked {
-				background: #000;
-				border-color: #000;
+				border-color: #000000;
+				background: transparent;
 
 				&::after {
 					content: '';
 					position: absolute;
-					left: 4px;
-					top: 1px;
-					width: 5px;
-					height: 10px;
-					border: solid #fff;
-					border-width: 0 2px 2px 0;
-					transform: rotate(45deg);
+					left: 50%;
+					top: 50%;
+					width: 20px;
+					height: 20px;
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7 10l2 2 4-4' stroke='%23000' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					transform: translate(-50%, -50%);
 				}
 			}
 		}
