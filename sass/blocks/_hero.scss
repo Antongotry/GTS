@@ -353,7 +353,7 @@
 	height: 56px;
 	padding: 0;
 	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
-	color: #000000;
+	color: #000000 !important;
 	border: none;
 	border-radius: 50px;
 	font-size: 14px;
@@ -367,6 +367,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	&:visited,
+	&:link,
+	&:focus,
+	&:active {
+		color: #000000 !important;
+	}
 
 	&::before {
 		content: '';
