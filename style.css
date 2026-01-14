@@ -1073,23 +1073,10 @@ textarea {
   gap: 40px;
   align-items: flex-start;
   width: 100%;
-  max-width: 1920px;
+  max-width: 1840px;
   margin: 0 auto;
   padding: 0 20px;
   height: 100%;
-}
-@media (max-width: 1024px) {
-  .hero-container {
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 15px;
-  }
-}
-@media (max-width: 375px) {
-  .hero-container {
-    gap: 20px;
-    padding: 0 10px;
-  }
 }
 
 .hero-left {
@@ -1097,33 +1084,11 @@ textarea {
   flex-shrink: 0;
   margin-top: 130px;
 }
-@media (max-width: 1024px) {
-  .hero-left {
-    width: 100%;
-    margin-top: 60px;
-  }
-}
-@media (max-width: 375px) {
-  .hero-left {
-    margin-top: 40px;
-  }
-}
 
 .hero-right {
   width: 390px;
   flex-shrink: 0;
   margin-top: 106px;
-}
-@media (max-width: 1024px) {
-  .hero-right {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-@media (max-width: 375px) {
-  .hero-right {
-    margin-top: 0;
-  }
 }
 
 .booking-form {
@@ -1132,11 +1097,7 @@ textarea {
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-@media (max-width: 375px) {
-  .booking-form {
-    padding: 20px;
-  }
+  margin-bottom: 20px;
 }
 
 .form-section {
@@ -1239,4 +1200,47 @@ textarea {
 }
 .booking-submit-btn:active {
   opacity: 0.8;
+}
+
+.world-map-section {
+  width: 100%;
+  background: #1a1d2e;
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.world-map-image {
+  flex-shrink: 0;
+}
+.world-map-image img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.world-map-text {
+  flex: 1;
+  color: #fff;
+}
+
+.world-map-label {
+  font-size: 14px;
+  margin: 0;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.world-map-number {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.world-map-label:last-child {
+  margin-top: 0;
 }

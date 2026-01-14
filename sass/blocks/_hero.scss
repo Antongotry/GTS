@@ -36,57 +36,22 @@
 	gap: 40px;
 	align-items: flex-start;
 	width: 100%;
-	max-width: 1920px;
+	max-width: 1840px;
 	margin: 0 auto;
 	padding: 0 20px;
 	height: 100%;
-
-	// Tablet (1024px)
-	@include tablet {
-		flex-direction: column;
-		gap: 30px;
-		padding: 0 15px;
-	}
-
-	// Mobile (375px)
-	@include mobile {
-		gap: 20px;
-		padding: 0 10px;
-	}
 }
 
 .hero-left {
 	width: 724px;
 	flex-shrink: 0;
 	margin-top: 130px;
-
-	// Tablet (1024px)
-	@include tablet {
-		width: 100%;
-		margin-top: 60px;
-	}
-
-	// Mobile (375px)
-	@include mobile {
-		margin-top: 40px;
-	}
 }
 
 .hero-right {
 	width: 390px;
 	flex-shrink: 0;
 	margin-top: 106px;
-
-	// Tablet (1024px)
-	@include tablet {
-		width: 100%;
-		margin-top: 0;
-	}
-
-	// Mobile (375px)
-	@include mobile {
-		margin-top: 0;
-	}
 }
 
 // Booking form styles inside hero
@@ -96,11 +61,7 @@
 	padding: 30px;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-
-	// Mobile (375px)
-	@include mobile {
-		padding: 20px;
-	}
+	margin-bottom: 20px;
 }
 
 .form-section {
@@ -211,4 +172,49 @@
 	&:active {
 		opacity: 0.8;
 	}
+}
+
+// World map section
+.world-map-section {
+	width: 100%;
+	background: #1a1d2e;
+	padding: 30px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.world-map-image {
+	flex-shrink: 0;
+
+	img {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		display: block;
+	}
+}
+
+.world-map-text {
+	flex: 1;
+	color: #fff;
+}
+
+.world-map-label {
+	font-size: 14px;
+	margin: 0;
+	color: #fff;
+	opacity: 0.8;
+}
+
+.world-map-number {
+	font-size: 32px;
+	font-weight: 700;
+	margin: 5px 0;
+	color: #fff;
+}
+
+.world-map-label:last-child {
+	margin-top: 0;
 }
