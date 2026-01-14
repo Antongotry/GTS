@@ -43,7 +43,9 @@ if ( ! defined( 'DONOTCACHEPAGE' ) ) {
 }
 
 // Disable object cache
-wp_cache_flush();
+if ( function_exists( 'wp_cache_flush' ) ) {
+	wp_cache_flush();
+}
 
 /**
  * Disable caching plugins (WP Super Cache, W3 Total Cache, etc.)
