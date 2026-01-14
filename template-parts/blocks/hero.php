@@ -54,14 +54,16 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 				<div class="form-section">
 					<h3 class="form-section-title">Contact Information</h3>
 					
-					<div class="form-group">
-						<label for="full-name">First and Last name</label>
-						<input type="text" id="full-name" name="full_name" required>
-					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<label for="full-name">First and Last name</label>
+							<input type="text" id="full-name" name="full_name" placeholder="First and Last name" required>
+						</div>
 
-					<div class="form-group">
-						<label for="phone">Phone</label>
-						<input type="tel" id="phone" name="phone" required>
+						<div class="form-group">
+							<label for="phone">Phone</label>
+							<input type="tel" id="phone" name="phone" placeholder="Phone" required>
+						</div>
 					</div>
 
 					<div class="form-group">
