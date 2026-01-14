@@ -50,6 +50,96 @@
 	flex: 0 0 724px;
 }
 
+.hero-content {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.hero-subtitle {
+	font-size: 16px;
+	font-weight: 400;
+	color: #fff;
+	margin: 0;
+	opacity: 0.9;
+}
+
+.hero-title {
+	font-size: 48px;
+	font-weight: 700;
+	color: #fff;
+	margin: 0;
+	line-height: 1.2;
+}
+
+.hero-buttons {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+}
+
+.btn {
+	padding: 15px 30px;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+	display: inline-block;
+	transition: opacity 0.3s ease;
+	font-family: $font__main;
+
+	&:hover {
+		opacity: 0.9;
+	}
+
+	&:active {
+		opacity: 0.8;
+	}
+}
+
+.btn-primary {
+	background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+	color: #fff;
+	border: none;
+}
+
+.btn-secondary {
+	background: #fff;
+	color: #000;
+	border: none;
+}
+
+.hero-features {
+	display: flex;
+	gap: 30px;
+	margin-top: 20px;
+	padding-top: 30px;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-feature {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	flex: 1;
+}
+
+.hero-feature-icon {
+	width: 24px;
+	height: 24px;
+	flex-shrink: 0;
+	// Icon will be added via background-image or SVG
+}
+
+.hero-feature-text {
+	font-size: 14px;
+	font-weight: 400;
+	color: #fff;
+	margin: 0;
+	line-height: 1.4;
+	opacity: 0.9;
+}
+
 .hero-right {
 	width: 390px;
 	flex-shrink: 0;

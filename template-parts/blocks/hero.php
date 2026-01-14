@@ -13,7 +13,38 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 	<div class="hero-container">
 		<!-- Left side -->
 		<div class="hero-left">
-			<!-- Left content will be added here -->
+			<div class="hero-content">
+				<p class="hero-subtitle">Your route. Our responsibility.</p>
+				<h1 class="hero-title">Premium transfers for corporate and private clients – 24/7 coordination</h1>
+				
+				<div class="hero-buttons">
+					<a href="#" class="btn btn-primary">Book a transfer</a>
+					<a href="#" class="btn btn-secondary">Explore services</a>
+				</div>
+
+				<div class="hero-features">
+					<div class="hero-feature">
+						<div class="hero-feature-icon">
+							<!-- Icon will be added here -->
+						</div>
+						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+					</div>
+
+					<div class="hero-feature">
+						<div class="hero-feature-icon">
+							<!-- Icon will be added here -->
+						</div>
+						<p class="hero-feature-text">Since 2010, trusted by corporate & VIP clients</p>
+					</div>
+
+					<div class="hero-feature">
+						<div class="hero-feature-icon">
+							<!-- Icon will be added here -->
+						</div>
+						<p class="hero-feature-text">From simple rides to complex itineraries</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- Right side with form -->
