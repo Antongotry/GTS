@@ -153,7 +153,7 @@
 	width: 100%;
 	background: #fff;
 	padding: 24px 20px;
-	border-radius: 8px;
+	border-radius: 0;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	margin-bottom: 20px;
 }
@@ -161,7 +161,7 @@
 .form-columns {
 	display: flex;
 	gap: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 32px;
 }
 
 .form-column {
@@ -177,7 +177,7 @@
 }
 
 .form-group {
-	margin-bottom: 12px;
+	margin-bottom: 24px;
 
 	&:last-child {
 		margin-bottom: 0;
@@ -216,17 +216,28 @@
 
 	select {
 		appearance: none;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='4' viewBox='0 0 7 4'%3E%3Cpath d='M3.5 4L0 0h7z' fill='%23000'/%3E%3C/svg%3E");
+		background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/Vector-2-gre.svg");
 		background-repeat: no-repeat;
 		background-position: right 0 center;
-		background-size: 7px auto;
+		background-size: 8px auto;
 		padding-right: 20px;
 		cursor: pointer;
 		position: relative;
 		transition: background-image 0.3s ease;
+		color: rgba(0, 0, 0, 0.56);
 
-		&:focus {
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='4' viewBox='0 0 7 4'%3E%3Cpath d='M3.5 0L7 4H0z' fill='%23000'/%3E%3C/svg%3E");
+		&:focus,
+		&:not([value=""]) {
+			background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/Vector-2.svg");
+			color: #000000;
+		}
+
+		option {
+			color: #000000;
+		}
+
+		option[value=""] {
+			color: rgba(0, 0, 0, 0.56);
 		}
 	}
 

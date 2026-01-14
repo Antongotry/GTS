@@ -75,7 +75,7 @@
 				</div>
 
 				<!-- Checkboxes -->
-				<div class="form-checkboxes">
+				<div class="form-checkboxes" style="margin-top: 32px;">
 					<div class="form-group checkbox-group">
 						<label>
 							<input type="checkbox" name="book_jet" value="jet" checked>
