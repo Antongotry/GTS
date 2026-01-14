@@ -9,3 +9,36 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// ==========================================================================
+// Media Queries (Desktop-First Approach)
+// Usage: @include laptop { ... }
+// ==========================================================================
+
+// Max 1440px (laptop and below)
+@mixin laptop {
+	@media (max-width: #{$breakpoint-laptop}) {
+		@content;
+	}
+}
+
+// Max 1024px (tablet and below)
+@mixin tablet {
+	@media (max-width: #{$breakpoint-tablet}) {
+		@content;
+	}
+}
+
+// Max 375px (mobile)
+@mixin mobile {
+	@media (max-width: #{$breakpoint-mobile}) {
+		@content;
+	}
+}
+
+// Custom breakpoint
+@mixin breakpoint($width) {
+	@media (max-width: #{$width}) {
+		@content;
+	}
+}

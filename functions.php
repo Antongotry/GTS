@@ -8,9 +8,25 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	// Use timestamp for cache busting during development
+	define( '_S_VERSION', time() );
 }
+
+/**
+ * Disable all caching during development
+ */
+function gts_disable_caching() {
+	// Disable browser caching
+	header( 'Cache-Control: no-cache, no-store, must-revalidate' );
+	header( 'Pragma: no-cache' );
+	header( 'Expires: 0' );
+}
+add_action( 'send_headers', 'gts_disable_caching' );
+
+// Disable WordPress caching
+define( 'DONOTCACHEPAGE', true );
+define( 'DONOTCACHEOBJECT', true );
+define( 'DONOTCACHEDB', true );
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
