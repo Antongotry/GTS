@@ -573,8 +573,10 @@ big {
 
 /* Elements
 --------------------------------------------- */
+html,
 body {
   background: #0C0F17;
+  color: #fff;
 }
 
 hr {
