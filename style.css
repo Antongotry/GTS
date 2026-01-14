@@ -1773,6 +1773,13 @@ textarea {
   padding-right: 20px;
   cursor: pointer;
   position: relative;
+  transition: background-image 0.3s ease;
+}
+.form-group select:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='4' viewBox='0 0 7 4'%3E%3Cpath d='M3.5 0L7 4H0z' fill='%23000'/%3E%3C/svg%3E");
+}
+.form-group select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='4' viewBox='0 0 7 4'%3E%3Cpath d='M3.5 0L7 4H0z' fill='%23000'/%3E%3C/svg%3E");
 }
 .form-group textarea {
   resize: vertical;
@@ -1794,7 +1801,7 @@ textarea {
   cursor: pointer;
   appearance: none;
   border: 1px solid rgba(0, 0, 0, 0.32);
-  border-radius: 2px;
+  border-radius: 0;
   position: relative;
   flex-shrink: 0;
   transition: all 0.2s ease;
