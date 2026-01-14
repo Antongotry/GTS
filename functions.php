@@ -208,7 +208,10 @@ function gts_theme_scripts() {
 	// TODO: Change to static version before production
 	$version = time(); // Development: always new version
 	
-	wp_enqueue_style( 'gts-theme-style', get_stylesheet_uri(), array(), $version );
+	// Enqueue Google Fonts (Manrope)
+	wp_enqueue_style( 'gts-manrope-font', 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap', array(), null );
+	
+	wp_enqueue_style( 'gts-theme-style', get_stylesheet_uri(), array( 'gts-manrope-font' ), $version );
 	wp_style_add_data( 'gts-theme-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $version, true );
