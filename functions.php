@@ -7,6 +7,11 @@
  * @package GTS
  */
 
+// ==========================================================================
+// DEVELOPMENT MODE - CACHE DISABLED
+// TODO: Remove this section before production deployment
+// ==========================================================================
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Use timestamp for cache busting during development
 	define( '_S_VERSION', time() );
@@ -14,12 +19,15 @@ if ( ! defined( '_S_VERSION' ) ) {
 
 /**
  * Disable all caching during development
+ * TODO: Remove this function before production
  */
 function gts_disable_caching() {
 	// Disable browser caching
-	header( 'Cache-Control: no-cache, no-store, must-revalidate' );
+	header( 'Cache-Control: no-cache, no-store, must-revalidate, max-age=0' );
 	header( 'Pragma: no-cache' );
 	header( 'Expires: 0' );
+	header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' );
+	header( 'ETag: ' . md5( time() ) );
 }
 add_action( 'send_headers', 'gts_disable_caching' );
 
@@ -27,6 +35,41 @@ add_action( 'send_headers', 'gts_disable_caching' );
 define( 'DONOTCACHEPAGE', true );
 define( 'DONOTCACHEOBJECT', true );
 define( 'DONOTCACHEDB', true );
+define( 'WP_CACHE', false );
+
+// Disable caching plugins
+if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+	define( 'DONOTCACHEPAGE', true );
+}
+
+// Disable object cache
+wp_cache_flush();
+
+/**
+ * Disable caching plugins (WP Super Cache, W3 Total Cache, etc.)
+ * TODO: Remove before production
+ */
+add_filter( 'do_rocket_generate_caching_files', '__return_false', 999 );
+add_filter( 'rocket_cache_reject_uri', '__return_true', 999 );
+add_filter( 'wp_cache_ob_callback_filter', '__return_false' );
+add_filter( 'w3tc_can_print_comment', '__return_false' );
+
+/**
+ * Disable browser caching for CSS/JS files
+ * TODO: Remove before production
+ */
+function gts_disable_asset_caching( $src ) {
+	if ( strpos( $src, '.css' ) !== false || strpos( $src, '.js' ) !== false ) {
+		$src = add_query_arg( 'v', time(), $src );
+	}
+	return $src;
+}
+add_filter( 'style_loader_src', 'gts_disable_asset_caching', 10, 1 );
+add_filter( 'script_loader_src', 'gts_disable_asset_caching', 10, 1 );
+
+// ==========================================================================
+// END DEVELOPMENT MODE
+// ==========================================================================
 
 /**
  * Hide admin bar on frontend (keep it in admin panel)
@@ -159,10 +202,14 @@ add_action( 'widgets_init', 'gts_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function gts_theme_scripts() {
-	wp_enqueue_style( 'gts-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
+	// DEVELOPMENT MODE: Use timestamp for cache busting
+	// TODO: Change to static version before production
+	$version = time(); // Development: always new version
+	
+	wp_enqueue_style( 'gts-theme-style', get_stylesheet_uri(), array(), $version );
 	wp_style_add_data( 'gts-theme-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
