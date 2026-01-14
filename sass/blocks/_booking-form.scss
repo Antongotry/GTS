@@ -1,0 +1,188 @@
+/**
+ * Booking Form Block Styles
+ */
+
+.booking-form-block {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.booking-form-container {
+	display: flex;
+	gap: 40px; // Space between left and right blocks
+	align-items: flex-start;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 0 20px;
+
+	// Tablet (1024px)
+	@include tablet {
+		flex-direction: column;
+		gap: 30px;
+		padding: 0 15px;
+	}
+
+	// Mobile (375px)
+	@include mobile {
+		gap: 20px;
+		padding: 0 10px;
+	}
+}
+
+.booking-form-left {
+	width: 724px;
+	flex-shrink: 0;
+	margin-top: 130px;
+
+	// Tablet (1024px)
+	@include tablet {
+		width: 100%;
+		margin-top: 60px;
+	}
+
+	// Mobile (375px)
+	@include mobile {
+		margin-top: 40px;
+	}
+}
+
+.booking-form-right {
+	width: 390px;
+	flex-shrink: 0;
+	margin-top: 106px;
+
+	// Tablet (1024px)
+	@include tablet {
+		width: 100%;
+		margin-top: 0;
+	}
+
+	// Mobile (375px)
+	@include mobile {
+		margin-top: 0;
+	}
+}
+
+.booking-form {
+	width: 100%;
+	background: #fff;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+	// Mobile (375px)
+	@include mobile {
+		padding: 20px;
+	}
+}
+
+.form-section {
+	margin-bottom: 25px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.form-section-title {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 15px;
+	color: #000;
+}
+
+.form-group {
+	margin-bottom: 15px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+		font-size: 14px;
+		font-weight: 400;
+		color: #333;
+	}
+
+	input[type="text"],
+	input[type="tel"],
+	input[type="email"],
+	input[type="datetime-local"],
+	select,
+	textarea {
+		width: 100%;
+		padding: 10px 12px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		font-size: 14px;
+		font-family: $font__main;
+		background: #fff;
+		color: #000;
+		box-sizing: border-box;
+
+		&:focus {
+			outline: none;
+			border-color: #007bff;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 80px;
+	}
+}
+
+.checkbox-group {
+	label {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		margin-bottom: 0;
+
+		input[type="checkbox"] {
+			width: auto;
+			margin-right: 8px;
+			cursor: pointer;
+		}
+
+		span {
+			font-size: 14px;
+			color: #333;
+		}
+	}
+}
+
+.add-stop-link {
+	color: #007bff;
+	text-decoration: none;
+	font-size: 14px;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.booking-submit-btn {
+	width: 100%;
+	padding: 15px 30px;
+	background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: $font__main;
+	cursor: pointer;
+	transition: opacity 0.3s ease;
+
+	&:hover {
+		opacity: 0.9;
+	}
+
+	&:active {
+		opacity: 0.8;
+	}
+}
