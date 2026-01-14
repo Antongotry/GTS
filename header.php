@@ -38,7 +38,11 @@
 						</span>
 					</a>
 					<ul class="sub-menu">
-						<!-- Dropdown items will be added here -->
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 1</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 2</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 3</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 4</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 5</a></li>
 					</ul>
 				</li>
 				<li class="menu-item"><a href="#" class="menu-link">Events</a></li>
