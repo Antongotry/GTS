@@ -4,9 +4,13 @@
 
 .site-header {
 	width: 100%;
-	padding: 20px 0;
-	position: relative;
-	z-index: 100;
+	padding: 0;
+	position: fixed;
+	top: 10px;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	pointer-events: none;
 }
 
 .header-container {
@@ -16,12 +20,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	pointer-events: auto;
 }
 
 .site-logo {
 	a {
 		display: inline-block;
 		text-decoration: none;
+		pointer-events: auto;
 	}
 
 	img {
