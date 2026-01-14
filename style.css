@@ -1843,7 +1843,7 @@ textarea {
 }
 .checkbox-consent label input[type=checkbox].consent-checkbox:checked {
   border-color: #000000;
-  background: #000000;
+  background: transparent;
 }
 .checkbox-consent label input[type=checkbox].consent-checkbox:checked::after {
   content: "";
@@ -1852,7 +1852,7 @@ textarea {
   top: 50%;
   width: 14px;
   height: 14px;
-  background-color: #ffffff;
+  background-color: #000000;
   transform: translate(-50%, -50%);
 }
 .checkbox-group label span {
