@@ -504,7 +504,7 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
+  color: #fff;
   font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -574,7 +574,7 @@ big {
 /* Elements
 --------------------------------------------- */
 body {
-  background: #fff;
+  background: #0C0F17;
 }
 
 hr {
@@ -1034,5 +1034,3 @@ textarea {
  * Front Page Styles
  * Main page specific styles
  */
-
-/*# sourceMappingURL=style.css.map */
