@@ -342,21 +342,25 @@
 }
 
 .booking-submit-btn {
-	width: 100%;
-	padding: 16px 30px;
+	width: 153px;
+	height: 56px;
+	padding: 0;
 	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
 	color: #000000;
 	border: none;
 	border-radius: 50px;
 	font-size: 16px;
-	font-weight: 600;
-	font-family: $font__main;
+	font-weight: 400;
+	font-family: "Manrope", $font__main;
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	margin-top: 10px;
 	position: relative;
 	overflow: hidden;
 	box-shadow: 0 4px 15px rgba(244, 197, 139, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&::before {
 		content: '';
