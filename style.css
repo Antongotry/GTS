@@ -1876,22 +1876,42 @@ textarea {
 .booking-submit-btn {
   width: 100%;
   padding: 16px 30px;
-  background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
-  color: #fff;
+  background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
+  color: #000000;
   border: none;
   border-radius: 50px;
   font-size: 16px;
   font-weight: 600;
   font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(244, 197, 139, 0.3);
+}
+.booking-submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
 .booking-submit-btn:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 197, 139, 0.4);
+  background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+}
+.booking-submit-btn:hover::before {
+  left: 100%;
 }
 .booking-submit-btn:active {
-  opacity: 0.8;
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(244, 197, 139, 0.3);
+  background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
 }
 
 .world-map-section {
