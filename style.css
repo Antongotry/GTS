@@ -1049,11 +1049,14 @@ textarea {
 .header-container {
   max-width: 1840px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 5px 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   pointer-events: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .site-logo a {
@@ -1091,11 +1094,14 @@ textarea {
 .header-container {
   max-width: 1840px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 5px 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   pointer-events: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .site-logo a {
