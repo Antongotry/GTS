@@ -163,3 +163,92 @@
 		background-color: rgba(0, 0, 0, 0.05);
 	}
 }
+
+.header-right {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	flex-shrink: 0;
+	margin-left: 20px;
+}
+
+.language-selector {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	cursor: pointer;
+	font-family: "Manrope", $font__main;
+	font-size: 14px;
+	font-weight: 400;
+	color: #000000;
+	transition: opacity 0.3s ease;
+
+	&:hover {
+		opacity: 0.7;
+	}
+
+	.language-text {
+		display: inline-block;
+	}
+
+	.language-arrow {
+		font-size: 10px;
+		display: inline-block;
+	}
+}
+
+.header-email {
+	font-family: "Manrope", $font__main;
+	font-size: 14px;
+	font-weight: 400;
+	color: #000000;
+	text-decoration: none;
+	transition: opacity 0.3s ease;
+	white-space: nowrap;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.whatsapp-button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #25D366;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	flex-shrink: 0;
+
+	&:hover {
+		transform: scale(1.05);
+		box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+	}
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+.phone-button {
+	padding: 8px 16px;
+	border-radius: 20px;
+	background-color: #F5E6D3;
+	border: 1px solid #fff;
+	font-family: "Manrope", $font__main;
+	font-size: 14px;
+	font-weight: 400;
+	color: #000000;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+
+	&:hover {
+		opacity: 0.8;
+		transform: translateY(-1px);
+	}
+}
