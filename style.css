@@ -1037,7 +1037,7 @@ textarea {
  */
 .site-header {
   width: 100%;
-  padding: 0;
+  padding: 0 20px;
   position: fixed;
   top: 10px;
   left: 0;
@@ -1048,6 +1048,7 @@ textarea {
 
 .header-container {
   max-width: 1840px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 5px 0 20px;
   display: flex;
@@ -1202,7 +1203,7 @@ textarea {
  */
 .site-header {
   width: 100%;
-  padding: 0;
+  padding: 0 20px;
   position: fixed;
   top: 10px;
   left: 0;
@@ -1213,6 +1214,7 @@ textarea {
 
 .header-container {
   max-width: 1840px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 5px 0 20px;
   display: flex;
