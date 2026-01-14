@@ -16,39 +16,66 @@
 		<!-- Right side with form -->
 		<div class="booking-form-right">
 			<form class="booking-form" id="booking-form">
-				<!-- Contact Information -->
-				<div class="form-section">
-					<h3 class="form-section-title">Contact Information</h3>
-					
-					<div class="form-row">
+				<div class="form-columns">
+					<!-- Left Column -->
+					<div class="form-column form-column-left">
 						<div class="form-group">
-							<label for="full-name">First and Last name</label>
 							<input type="text" id="full-name" name="full_name" placeholder="First and Last name" required>
 						</div>
 
 						<div class="form-group">
-							<label for="phone">Phone</label>
-							<input type="tel" id="phone" name="phone" placeholder="Phone" required>
+							<input type="email" id="email" name="email" placeholder="E-mail" required>
+						</div>
+
+						<div class="form-group">
+							<select id="vehicle" name="vehicle" required>
+								<option value="">Select vehicle</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="Pick-up time" required>
+						</div>
+
+						<div class="form-group">
+							<input type="text" id="dropoff-location" name="dropoff_location" placeholder="Drop-off location" required>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="email">E-mail</label>
-						<input type="email" id="email" name="email" required>
-					</div>
+					<!-- Right Column -->
+					<div class="form-column form-column-right">
+						<div class="form-group">
+							<input type="tel" id="phone" name="phone" placeholder="Phone" required>
+						</div>
 
-					<div class="form-group">
-						<label for="service-type">Select service type</label>
-						<select id="service-type" name="service_type" required>
-							<option value="">Select...</option>
-						</select>
+						<div class="form-group">
+							<select id="service-type" name="service_type" required>
+								<option value="">Select service type</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<select id="passengers" name="passengers" required>
+								<option value="">Number of passengers</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
+						</div>
+
+						<div class="form-group">
+							<a href="#" class="add-stop-link">+ Add Stop</a>
+						</div>
+
+						<div class="form-group">
+							<textarea id="additional-notes" name="additional_notes" placeholder="Additional Notes" rows="4"></textarea>
+						</div>
 					</div>
 				</div>
 
-				<!-- Service Selection -->
-				<div class="form-section">
-					<h3 class="form-section-title">Service Selection</h3>
-					
+				<!-- Checkboxes -->
+				<div class="form-checkboxes">
 					<div class="form-group checkbox-group">
 						<label>
 							<input type="checkbox" name="book_jet" value="jet" checked>
@@ -64,63 +91,16 @@
 					</div>
 				</div>
 
-				<!-- Travel Details -->
-				<div class="form-section">
-					<h3 class="form-section-title">Travel Details</h3>
-					
-					<div class="form-group">
-						<label for="vehicle">Select vehicle</label>
-						<select id="vehicle" name="vehicle" required>
-							<option value="">Select...</option>
-						</select>
-					</div>
-
-					<div class="form-group">
-						<label for="passengers">Number of passengers</label>
-						<select id="passengers" name="passengers" required>
-							<option value="">Select...</option>
-						</select>
-					</div>
-
-					<div class="form-group">
-						<label for="pickup-time">Pick-up time</label>
-						<input type="datetime-local" id="pickup-time" name="pickup_time" required>
-					</div>
-
-					<div class="form-group">
-						<label for="pickup-location">Pick-up location</label>
-						<input type="text" id="pickup-location" name="pickup_location" required>
-					</div>
-
-					<div class="form-group">
-						<a href="#" class="add-stop-link">+ Add Stop</a>
-					</div>
-
-					<div class="form-group">
-						<label for="dropoff-location">Drop-off location</label>
-						<input type="text" id="dropoff-location" name="dropoff_location" required>
-					</div>
-
-					<div class="form-group">
-						<label for="additional-notes">Additional Notes</label>
-						<textarea id="additional-notes" name="additional_notes" rows="4"></textarea>
-					</div>
-				</div>
-
 				<!-- Consent -->
-				<div class="form-section">
-					<div class="form-group checkbox-group checkbox-consent">
-						<label>
-							<input type="checkbox" name="email_consent" value="1" class="consent-checkbox">
-							<span>I agree to receive email communication regarding my quote request.</span>
-						</label>
-					</div>
+				<div class="form-group checkbox-group checkbox-consent">
+					<label>
+						<input type="checkbox" name="email_consent" value="1" class="consent-checkbox">
+						<span>I agree to receive email communication regarding my quote request.</span>
+					</label>
 				</div>
 
 				<!-- Submit Button -->
-				<div class="form-section">
-					<button type="submit" class="booking-submit-btn">Get My Quote</button>
-				</div>
+				<button type="submit" class="booking-submit-btn">Get My Quote</button>
 			</form>
 		</div>
 	</div>
