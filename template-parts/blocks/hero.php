@@ -141,9 +141,9 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 
 				<!-- Consent -->
 				<div class="form-section">
-					<div class="form-group checkbox-group">
+					<div class="form-group checkbox-group checkbox-consent">
 						<label>
-							<input type="checkbox" name="email_consent" value="1">
+							<input type="checkbox" name="email_consent" value="1" class="consent-checkbox">
 							<span>I agree to receive email communication regarding my quote request.</span>
 						</label>
 					</div>

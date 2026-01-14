@@ -268,6 +268,51 @@
 
 			&:checked {
 				border-color: #000000;
+				background: transparent;
+
+				&::after {
+					content: '';
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					width: 20px;
+					height: 20px;
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M5 10l2 2 4-4' stroke='%23000' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+
+		span {
+			font-size: 14px;
+			color: #333;
+			line-height: 1.4;
+		}
+	}
+}
+
+.checkbox-consent {
+	label {
+		input[type="checkbox"].consent-checkbox {
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			cursor: pointer;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			border: 1px solid rgba(0, 0, 0, 0.32);
+			border-radius: 0 !important;
+			position: relative;
+			flex-shrink: 0;
+			transition: all 0.2s ease;
+			background: transparent;
+
+			&:checked {
+				border-color: #000000;
 				background: #000000;
 
 				&::after {
@@ -284,12 +329,6 @@
 					transform: translate(-50%, -50%);
 				}
 			}
-		}
-
-		span {
-			font-size: 14px;
-			color: #333;
-			line-height: 1.4;
 		}
 	}
 }
