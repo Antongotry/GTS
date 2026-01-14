@@ -4,37 +4,36 @@
  */
 (function() {
 	const selects = document.querySelectorAll('select');
-	const defaultIcon = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/Vector-2-gre.svg';
-	const selectedIcon = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/Vector-2.svg';
 
-	function updateSelectIcon(select) {
+	function updateSelectState(select) {
 		if (select.value === '') {
-			select.style.backgroundImage = `url("${defaultIcon}")`;
 			select.style.color = 'rgba(0, 0, 0, 0.56)';
+			select.classList.remove('selected');
 		} else {
-			select.style.backgroundImage = `url("${selectedIcon}")`;
 			select.style.color = '#000000';
+			select.classList.add('selected');
 		}
 	}
 
 	// Initialize all selects
 	selects.forEach(function(select) {
-		updateSelectIcon(select);
+		updateSelectState(select);
 
 		// Update on change
 		select.addEventListener('change', function() {
-			updateSelectIcon(select);
+			updateSelectState(select);
 		});
 
-		// Update on focus/blur
+		// Update on focus
 		select.addEventListener('focus', function() {
 			if (select.value === '') {
-				select.style.backgroundImage = `url("${selectedIcon}")`;
+				select.style.color = '#000000';
 			}
 		});
 
+		// Update on blur
 		select.addEventListener('blur', function() {
-			updateSelectIcon(select);
+			updateSelectState(select);
 		});
 	});
 })();

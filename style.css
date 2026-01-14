@@ -1765,20 +1765,32 @@ textarea {
 }
 .form-group select {
   appearance: none;
-  background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/Vector-2-gre.svg");
-  background-repeat: no-repeat;
-  background-position: right 0 center;
-  background-size: 8px auto;
   padding-right: 20px;
   cursor: pointer;
   position: relative;
-  transition: background-image 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
   color: rgba(0, 0, 0, 0.56);
 }
+.form-group select::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid rgba(0, 0, 0, 0.56);
+  pointer-events: none;
+}
 .form-group select:focus,
-.form-group select:not([value=""]) {
-  background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/Vector-2.svg");
+.form-group select.selected {
   color: #000000;
+}
+.form-group select:focus::after,
+.form-group select.selected::after {
+  border-top-color: #000000;
 }
 .form-group select option {
   color: #000000;
