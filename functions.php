@@ -215,6 +215,7 @@ function gts_theme_scripts() {
 	wp_style_add_data( 'gts-theme-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $version, true );
+	wp_enqueue_script( 'gts-form-selects', get_template_directory_uri() . '/js/form-selects.js', array(), $version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
