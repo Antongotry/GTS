@@ -534,12 +534,13 @@
 .world-map-text {
 	flex: 1;
 	color: #fff;
-	padding-left: 0;
+	padding: 14px 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
+	margin: 0 auto;
 }
 
 .world-map-label-top {
