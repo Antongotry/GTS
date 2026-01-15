@@ -20,6 +20,8 @@ get_header();
 
 	<?php get_template_part( 'template-parts/blocks/services' ); ?>
 
+	<?php get_template_part( 'template-parts/blocks/custom-itinerary' ); ?>
+
 </main><!-- #primary -->
 
 <?php
