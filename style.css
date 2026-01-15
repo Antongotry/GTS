@@ -1772,7 +1772,6 @@ a.phone-button:focus,
 	justify-self: end;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
 }
 
 .footer-button {
@@ -1792,6 +1791,7 @@ a.phone-button:focus,
 .footer-button-primary {
 	background: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
 	color: #000;
+	margin-bottom: 10px;
 }
 
 .footer-button-primary:hover {
@@ -1813,13 +1813,26 @@ a.phone-button:focus,
 	text-decoration: none;
 }
 
+.footer-social {
+	margin-top: 40px;
+}
+
 .footer-social-title,
 .footer-email-title {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	color: rgba(255, 255, 255, 0.6);
+	line-height: 100%;
+	letter-spacing: 0%;
 	margin: 0 0 12px 0;
+}
+
+.footer-social-title {
+	color: #fff;
+}
+
+.footer-email-title {
+	color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-social-icons {
