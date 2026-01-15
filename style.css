@@ -1971,30 +1971,17 @@ a.phone-button:focus,
 	justify-content: center;
 	transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	color: #000 !important;
+	color: #000;
 	border: none;
 	position: relative;
 	z-index: 1;
-}
-
-.btn:hover {
-	color: #000 !important;
-}
-
-.btn:active {
-	color: #000 !important;
-}
-
-.btn:visited,
-.btn:focus,
-.btn:active {
-	color: #000 !important;
 }
 
 .btn-primary {
 	background: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
 	position: relative;
 	overflow: hidden;
+	color: #000;
 }
 
 .btn-primary::after {
@@ -2008,6 +1995,16 @@ a.phone-button:focus,
 	opacity: 0;
 	transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	pointer-events: none;
+	z-index: 0;
+}
+
+.btn-primary > * {
+	position: relative;
+	z-index: 1;
+}
+
+.btn-primary:hover {
+	color: #000;
 }
 
 .btn-primary:hover::after {
@@ -2016,6 +2013,7 @@ a.phone-button:focus,
 
 .btn-primary:active {
 	background: linear-gradient(to right, #fcd9a4 0%, #f3c17b 50%, #f6c88b 100%);
+	color: #000;
 }
 
 .btn-primary:active::after {

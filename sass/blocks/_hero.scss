@@ -88,33 +88,20 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+	transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
 	            box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	font-family: "Manrope", $font__main;
-	color: #000000 !important;
+	color: #000000;
 	border: none;
 	position: relative;
 	z-index: 1;
-
-	&:hover {
-		color: #000000 !important;
-	}
-
-	&:active {
-		color: #000000 !important;
-	}
-
-	&:visited,
-	&:focus,
-	&:active {
-		color: #000000 !important;
-	}
 }
 
 .btn-primary {
 	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
 	position: relative;
 	overflow: hidden;
+	color: #000000;
 
 	&::after {
 		content: '';
@@ -127,9 +114,17 @@
 		opacity: 0;
 		transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		pointer-events: none;
+		z-index: 0;
+	}
+
+	& > * {
+		position: relative;
+		z-index: 1;
 	}
 
 	&:hover {
+		color: #000000;
+
 		&::after {
 			opacity: 1;
 		}
@@ -137,7 +132,8 @@
 
 	&:active {
 		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
-		
+		color: #000000;
+
 		&::after {
 			opacity: 0;
 		}
