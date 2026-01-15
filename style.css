@@ -1491,6 +1491,10 @@ a.phone-button:focus,
  * Front Page Styles
  * Main page specific styles
  */
+.home .site-main,
+.front-page .site-main {
+	overflow: visible;
+}
 
 /**
  * Header Styles

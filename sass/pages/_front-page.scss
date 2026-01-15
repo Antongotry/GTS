@@ -3,6 +3,12 @@
  * Main page specific styles
  */
 
+// Override site-main overflow for front page
+.home .site-main,
+.front-page .site-main {
+	overflow: visible;
+}
+
 @import "../blocks/header";
 @import "../blocks/hero";
 @import "../blocks/why-us";
