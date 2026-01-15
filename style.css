@@ -1675,7 +1675,7 @@ a.phone-button:focus,
 	color: #fff;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	gap: 2px;
 }
 
 .footer-language-item a {
@@ -1692,7 +1692,6 @@ a.phone-button:focus,
 	display: block;
 	width: 20px;
 	height: 20px;
-	margin-left: 2px;
 	flex-shrink: 0;
 }
 
