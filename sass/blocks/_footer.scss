@@ -182,9 +182,10 @@
 	grid-column: 7 / span 3; // Начинается с колонки 7, занимает 3 колонки (7, 8, 9)
 	grid-row: 1 / span 2; // Начинается со строки 1, занимает 2 строки (1 и 2)
 	display: grid;
-	grid-template-columns: 1fr 80px 1fr; // Три колонки: заголовок+левый список, отступ, правый список
+	grid-template-columns: auto auto; // Две колонки для списков
 	grid-template-rows: auto auto; // Две строки: заголовок, списки
-	gap: 0;
+	column-gap: 80px; // 80px отступ между колонками
+	row-gap: 0;
 	align-items: start;
 }
 
@@ -227,7 +228,7 @@
 }
 
 .footer-services-list-right {
-	grid-column: 3; // Третья колонка (80px от первой)
+	grid-column: 2; // Вторая колонка (80px от первой через column-gap)
 	grid-row: 2; // Вторая строка
 }
 
