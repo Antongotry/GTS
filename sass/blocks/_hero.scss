@@ -56,6 +56,8 @@
 	margin-top: 130px;
 	min-height: calc(100vh - 130px - 64px);
 	height: 100%;
+	padding-bottom: 32px;
+	box-sizing: border-box;
 }
 
 .hero-subtitle {
@@ -165,6 +167,7 @@
 	display: flex;
 	gap: 30px;
 	margin-top: auto;
+	margin-bottom: 0;
 	padding-top: 30px;
 	border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -201,6 +204,8 @@
 	display: flex;
 	flex-direction: column;
 	min-height: calc(100vh - 130px - 64px);
+	padding-bottom: 32px;
+	box-sizing: border-box;
 }
 
 // Booking form styles inside hero
@@ -550,7 +555,7 @@
 	align-items: stretch;
 	gap: 0;
 	margin-top: auto;
-	margin-bottom: 32px;
+	margin-bottom: 0;
 	overflow: hidden;
 }
 
