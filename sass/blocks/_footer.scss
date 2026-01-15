@@ -12,12 +12,14 @@
 .footer-container {
 	@include container($container-max-width-content);
 	display: grid;
-	grid-template-columns: 200px 150px 150px 1fr 350px;
-	gap: 40px;
+	grid-template-columns: 70px 165px auto 160px auto 160px auto 80px auto 1fr;
+	gap: 0;
 	align-items: start;
 }
 
 .footer-left {
+	grid-column: 1; // Первая колонка (логотип)
+	grid-row: 1 / -1; // От первой до последней строки
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -70,26 +72,35 @@
 	font-family: $font__manrope;
 	font-size: 14px;
 	font-weight: 400;
-	color: rgba(255, 255, 255, 0.6);
-	margin: 0 0 20px 0;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+	line-height: 1; // 100%
+	letter-spacing: 0;
+	color: rgba(255, 255, 255, 0.4); // #FFFFFF66
+	margin: 0 0 16px 0; // 16px между лейблом и первым пунктом
 }
 
 .footer-menu {
+	grid-column: 3; // 235px от логотипа (70px + 165px)
+	grid-row: 1;
+
 	.footer-menu-list {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
+		gap: 16px; // 16px между пунктами
+
+		li {
+			margin: 0;
+		}
 
 		a {
 			font-family: $font__manrope;
-			font-size: 16px;
+			font-size: 14px;
 			font-weight: 400;
-			color: #ffffff;
+			line-height: 1; // 100%
+			letter-spacing: 0;
+			color: #ffffff; // Белый непрозрачный
 			text-decoration: none;
 			transition: opacity 0.2s ease;
 
@@ -100,23 +111,34 @@
 	}
 }
 
+.footer-language {
+	grid-column: 5; // 160px от menu
+	grid-row: 1;
+}
+
 .footer-language-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: 16px; // 16px между пунктами
 }
 
 .footer-language-item {
 	font-family: $font__manrope;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 400;
+	line-height: 1; // 100%
+	letter-spacing: 0;
 	color: #ffffff;
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	justify-content: space-between;
+
+	> span {
+		// Текст языка
+	}
 
 	a {
 		color: #ffffff;
@@ -130,20 +152,22 @@
 
 	&.footer-language-item-active {
 		.footer-language-check {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			width: 16px;
-			height: 16px;
-			color: #ffffff;
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin-left: 2px; // 2px от пункта
+			flex-shrink: 0;
 		}
+	}
+
+	.footer-language-check {
+		display: none; // Скрыта по умолчанию
 	}
 }
 
-.footer-services-columns {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 40px;
+.footer-services-title {
+	grid-column: 7; // 160px от language
+	grid-row: 1;
 }
 
 .footer-services-list {
@@ -152,12 +176,19 @@
 	padding: 0;
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: 16px; // 16px между пунктами
+	grid-row: 2; // Под лейблом
+
+	li {
+		margin: 0;
+	}
 
 	a {
 		font-family: $font__manrope;
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 400;
+		line-height: 1; // 100%
+		letter-spacing: 0;
 		color: #ffffff;
 		text-decoration: none;
 		transition: opacity 0.2s ease;
@@ -168,7 +199,17 @@
 	}
 }
 
+.footer-services-list-left {
+	grid-column: 7; // Та же колонка что и лейбл
+}
+
+.footer-services-list-right {
+	grid-column: 9; // 80px от первой колонки сервисов
+}
+
 .footer-right {
+	grid-column: 10; // Последняя колонка
+	grid-row: 1 / -1; // От первой до последней строки
 	display: flex;
 	flex-direction: column;
 	gap: 24px;

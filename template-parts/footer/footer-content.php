@@ -56,8 +56,8 @@
 			<h3 class="footer-title">Site language</h3>
 			<ul class="footer-language-list">
 				<li class="footer-language-item footer-language-item-active">
-					<span class="footer-language-check">✓</span>
 					<span>English</span>
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/check.svg' ); ?>" alt="Selected" class="footer-language-check" width="20" height="20">
 				</li>
 				<li class="footer-language-item"><a href="#">French</a></li>
 				<li class="footer-language-item"><a href="#">German</a></li>
@@ -68,28 +68,24 @@
 			</ul>
 		</div>
 
-		<div class="footer-services">
-			<h3 class="footer-title">Services</h3>
-			<div class="footer-services-columns">
-				<ul class="footer-services-list footer-services-list-left">
-					<li><a href="#">Book a Flight</a></li>
-					<li><a href="#">City-to-City Rides</a></li>
-					<li><a href="#">Airport Transfers</a></li>
-					<li><a href="#">Hourly Hire</a></li>
-					<li><a href="#">Chauffeur Service</a></li>
-					<li><a href="#">Limousine Service</a></li>
-					<li><a href="#">Corporations</a></li>
-					<li><a href="#">Travel Agencies</a></li>
-					<li><a href="#">Mobility Partnerships</a></li>
-				</ul>
-				<ul class="footer-services-list footer-services-list-right">
-					<li><a href="#">Medical Transportation</a></li>
-					<li><a href="#">Concierge Support</a></li>
-					<li><a href="#">Travel Personal Interpreter</a></li>
-					<li><a href="#">Travel Planning</a></li>
-				</ul>
-			</div>
-		</div>
+		<h3 class="footer-title footer-services-title">Services</h3>
+		<ul class="footer-services-list footer-services-list-left">
+			<li><a href="#">Book a Flight</a></li>
+			<li><a href="#">City-to-City Rides</a></li>
+			<li><a href="#">Airport Transfers</a></li>
+			<li><a href="#">Hourly Hire</a></li>
+			<li><a href="#">Chauffeur Service</a></li>
+			<li><a href="#">Limousine Service</a></li>
+			<li><a href="#">Corporations</a></li>
+			<li><a href="#">Travel Agencies</a></li>
+			<li><a href="#">Mobility Partnerships</a></li>
+		</ul>
+		<ul class="footer-services-list footer-services-list-right">
+			<li><a href="#">Medical Transportation</a></li>
+			<li><a href="#">Concierge Support</a></li>
+			<li><a href="#">Travel Personal Interpreter</a></li>
+			<li><a href="#">Travel Planning</a></li>
+		</ul>
 
 		<div class="footer-right">
 			<a href="#" class="footer-button footer-button-primary">Book a transfer</a>
