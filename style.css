@@ -2051,7 +2051,8 @@ a.phone-button:focus,
 
 .hero-features {
 	display: flex;
-	gap: 30px;
+	align-items: center;
+	gap: 0;
 	margin-top: auto;
 	margin-bottom: 0;
 	padding-top: 30px;
@@ -2066,9 +2067,48 @@ a.phone-button:focus,
 }
 
 .hero-feature-icon {
-	width: 24px;
-	height: 24px;
+	width: 32px;
+	height: 32px;
 	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-feature-icon img {
+	width: 32px;
+	height: 32px;
+	display: block;
+}
+
+.hero-feature-divider {
+	width: 1px;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.16);
+	margin: 0 30px;
+	flex-shrink: 0;
+	position: relative;
+}
+
+.hero-feature-divider::before,
+.hero-feature-divider::after {
+	content: "";
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.16);
+}
+
+.hero-feature-divider::before {
+	width: 1px;
+	height: 16px;
+	top: -8px;
+	left: 0;
+}
+
+.hero-feature-divider::after {
+	width: 16px;
+	height: 1px;
+	top: 0;
+	left: -8px;
 }
 
 .hero-feature-text {

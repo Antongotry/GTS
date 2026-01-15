@@ -25,21 +25,25 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 				<div class="hero-features">
 					<div class="hero-feature">
 						<div class="hero-feature-icon">
-							<!-- Icon will be added here -->
+							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg' ); ?>" alt="Premium fleet">
 						</div>
 						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 					</div>
 
+					<div class="hero-feature-divider"></div>
+
 					<div class="hero-feature">
 						<div class="hero-feature-icon">
-							<!-- Icon will be added here -->
+							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg' ); ?>" alt="Trusted since 2010">
 						</div>
 						<p class="hero-feature-text">Since 2010, trusted by corporate & VIP clients</p>
 					</div>
 
+					<div class="hero-feature-divider"></div>
+
 					<div class="hero-feature">
 						<div class="hero-feature-icon">
-							<!-- Icon will be added here -->
+							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg' ); ?>" alt="Complex itineraries">
 						</div>
 						<p class="hero-feature-text">From simple rides to complex itineraries</p>
 					</div>
