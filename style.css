@@ -2735,7 +2735,8 @@ a.phone-button:focus,
 	font-weight: 500;
 	color: #fff;
 	margin: 0 0 16px 0;
-	line-height: 1.2;
+	line-height: 110%;
+	letter-spacing: -0.02em;
 	position: relative;
 	z-index: 1;
 	text-align: left;
@@ -2747,7 +2748,8 @@ a.phone-button:focus,
 	font-weight: 400;
 	color: #fff;
 	margin: 0;
-	line-height: 1.5;
+	line-height: 100%;
+	letter-spacing: 0;
 	opacity: 0.9;
 	position: relative;
 	z-index: 1;
