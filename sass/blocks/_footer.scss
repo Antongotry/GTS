@@ -177,7 +177,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 16px; // 16px между пунктами
-	grid-row: 2; // Под лейблом
 
 	li {
 		margin: 0;
@@ -201,10 +200,14 @@
 
 .footer-services-list-left {
 	grid-column: 7; // Та же колонка что и лейбл
+	grid-row: 2; // Под лейблом
+	align-self: start; // Выравнивание по верху
 }
 
 .footer-services-list-right {
 	grid-column: 9; // 80px от первой колонки сервисов
+	grid-row: 2; // Под лейблом, на той же строке что и левый список
+	align-self: start; // Выравнивание по верху
 }
 
 .footer-right {

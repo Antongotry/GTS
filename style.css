@@ -1710,7 +1710,6 @@ a.phone-button:focus,
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	grid-row: 2;
 }
 
 .footer-services-list li {
@@ -1734,10 +1733,14 @@ a.phone-button:focus,
 
 .footer-services-list-left {
 	grid-column: 7;
+	grid-row: 2;
+	align-self: start;
 }
 
 .footer-services-list-right {
 	grid-column: 9;
+	grid-row: 2;
+	align-self: start;
 }
 
 .footer-right {
