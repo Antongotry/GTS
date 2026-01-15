@@ -14,13 +14,6 @@
 					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/GTS-white.svg' ); ?>" alt="<?php bloginfo( 'name' ); ?>" width="70" height="auto">
 				</a>
 			</div>
-			<div class="footer-bottom-links">
-				<a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">Privacy policy</a>
-				<span class="footer-bottom-separator">•</span>
-				<a href="<?php echo esc_url( home_url( '/terms' ) ); ?>">Terms</a>
-				<span class="footer-bottom-separator">•</span>
-				<span class="footer-copyright">© <?php echo esc_html( date( 'Y' ) ); ?> GTS</span>
-			</div>
 		</div>
 
 		<div class="footer-menu">
@@ -118,9 +111,16 @@
 				<h4 class="footer-email-title">E-mail</h4>
 				<a href="mailto:info@gmail.com" class="footer-email-link">info@gmail.com</a>
 			</div>
-			<div class="footer-developed">
-				<span>Developed by Artko</span>
-			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="footer-bottom-links">
+			<a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">Privacy policy</a>
+			<a href="<?php echo esc_url( home_url( '/terms' ) ); ?>">Terms</a>
+			<span class="footer-copyright">© <?php echo esc_html( date( 'Y' ) ); ?> GTS</span>
+		</div>
+		<div class="footer-developed">
+			<span>Developed by Artko</span>
 		</div>
 	</div>
 </footer>

@@ -1593,12 +1593,22 @@ a.phone-button:focus,
 	display: block;
 }
 
+.footer-bottom {
+	width: 100%;
+	max-width: 1840px;
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 90px;
+}
+
 .footer-bottom-links {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	margin-top: auto;
-	padding-top: 40px;
+	gap: 16px;
 	flex-wrap: wrap;
 }
 
@@ -1607,18 +1617,16 @@ a.phone-button:focus,
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	color: rgba(255, 255, 255, 0.6);
+	line-height: 100%;
+	letter-spacing: 0%;
+	color: rgba(255, 255, 255, 0.4);
 	text-decoration: none;
 	transition: color 0.2s ease;
 }
 
 .footer-bottom-links a:hover,
 .footer-bottom-links .footer-copyright:hover {
-	color: rgba(255, 255, 255, 0.9);
-}
-
-.footer-bottom-links .footer-bottom-separator {
-	color: rgba(255, 255, 255, 0.6);
+	color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-title {
@@ -1886,16 +1894,13 @@ a.phone-button:focus,
 	opacity: 0.7;
 }
 
-.footer-developed {
-	margin-top: auto;
-	padding-top: 40px;
-}
-
 .footer-developed span {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	color: rgba(255, 255, 255, 0.6);
+	line-height: 100%;
+	letter-spacing: 0%;
+	color: rgba(255, 255, 255, 0.4);
 }
 
 /*--------------------------------------------------------------

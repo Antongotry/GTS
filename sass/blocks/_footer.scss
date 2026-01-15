@@ -55,12 +55,18 @@
 	}
 }
 
+.footer-bottom {
+	@include container($container-max-width-content);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 90px; // 90px отступ от footer-container
+}
+
 .footer-bottom-links {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	margin-top: auto;
-	padding-top: 40px;
+	gap: 16px; // 16px между элементами
 	flex-wrap: wrap;
 
 	a,
@@ -68,17 +74,15 @@
 		font-family: $font__manrope;
 		font-size: 14px;
 		font-weight: 400;
-		color: rgba(255, 255, 255, 0.6);
+		line-height: 100%;
+		letter-spacing: 0%;
+		color: rgba(255, 255, 255, 0.4); // #FFFFFF66 (102/255 = 0.4)
 		text-decoration: none;
 		transition: color 0.2s ease;
 
 		&:hover {
-			color: rgba(255, 255, 255, 0.9);
+			color: rgba(255, 255, 255, 0.7);
 		}
-	}
-
-	.footer-bottom-separator {
-		color: rgba(255, 255, 255, 0.6);
 	}
 }
 
@@ -354,13 +358,12 @@
 }
 
 .footer-developed {
-	margin-top: auto;
-	padding-top: 40px;
-
 	span {
 		font-family: $font__manrope;
 		font-size: 14px;
 		font-weight: 400;
-		color: rgba(255, 255, 255, 0.6);
+		line-height: 100%;
+		letter-spacing: 0%;
+		color: rgba(255, 255, 255, 0.4); // #FFFFFF66 (102/255 = 0.4)
 	}
 }
