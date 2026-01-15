@@ -2390,8 +2390,10 @@ a.phone-button:focus,
 	font-size: 32px;
 	font-weight: 500;
 	margin: 0;
+	padding: 0;
 	color: #fff;
 	text-align: center;
+	line-height: 1;
 }
 
 .world-map-label-bottom {
@@ -2399,7 +2401,9 @@ a.phone-button:focus,
 	font-size: 14px;
 	font-weight: 400;
 	margin: 0;
+	padding: 0;
 	color: #fff;
 	opacity: 0.8;
 	text-align: center;
+	line-height: 1;
 }
