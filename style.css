@@ -1286,6 +1286,8 @@ textarea {
 	font-weight: 400;
 	color: #000;
 	transition: opacity 0.3s ease;
+	margin: 0;
+	padding: 0;
 }
 
 .language-selector:hover {
@@ -1324,6 +1326,8 @@ textarea {
 	text-decoration: none;
 	transition: opacity 0.3s ease;
 	white-space: nowrap;
+	margin: 0;
+	padding: 0;
 }
 
 .header-email:hover {
@@ -1633,6 +1637,8 @@ a.phone-button:focus,
 	font-weight: 400;
 	color: #000;
 	transition: opacity 0.3s ease;
+	margin: 0;
+	padding: 0;
 }
 
 .language-selector:hover {
@@ -1671,6 +1677,8 @@ a.phone-button:focus,
 	text-decoration: none;
 	transition: opacity 0.3s ease;
 	white-space: nowrap;
+	margin: 0;
+	padding: 0;
 }
 
 .header-email:hover {
