@@ -198,6 +198,9 @@
 	margin-top: 130px;
 	flex: 0 0 390px;
 	margin-left: auto;
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 130px - 64px);
 }
 
 // Booking form styles inside hero
@@ -239,11 +242,16 @@
 	&.form-group-with-add-stop {
 		position: relative;
 		display: flex;
-		align-items: flex-end;
-		gap: 8px;
+		flex-direction: column;
+		gap: 0;
 
 		input {
-			flex: 1;
+			width: 100%;
+		}
+
+		.add-stop-link {
+			margin-top: 4px;
+			align-self: flex-start;
 		}
 	}
 
@@ -541,7 +549,8 @@
 	display: flex;
 	align-items: stretch;
 	gap: 0;
-	margin-top: 0;
+	margin-top: auto;
+	margin-bottom: 32px;
 	overflow: hidden;
 }
 
