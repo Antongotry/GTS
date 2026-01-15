@@ -47,7 +47,7 @@
 .services-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: $spacing-lg; // 20px
+	gap: $spacing-lg; // 20px between columns and rows
 	width: 100%;
 	margin-top: $spacing-4xl; // 80px
 }
@@ -60,6 +60,7 @@
 	border-radius: 0;
 	overflow: hidden;
 	align-items: stretch;
+	height: 335px;
 }
 
 .services-card-content {
@@ -103,6 +104,12 @@
 	text-decoration: underline;
 	text-underline-offset: 4px; // 4px offset before underline
 	margin: 0;
+	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.services-card-link:hover {
+	opacity: 0.7;
+	text-decoration-color: rgba(0, 0, 0, 0.5);
 }
 
 .services-card-image {
@@ -118,4 +125,23 @@
 	object-fit: cover;
 	object-position: center;
 	display: block;
+}
+
+.services-show-more {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5; // 150%
+	letter-spacing: 0;
+	color: #000000;
+	text-decoration: underline;
+	text-underline-offset: 4px; // 4px offset before underline
+	margin-top: 40px;
+	display: inline-block;
+	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.services-show-more:hover {
+	opacity: 0.7;
+	text-decoration-color: rgba(0, 0, 0, 0.5);
 }

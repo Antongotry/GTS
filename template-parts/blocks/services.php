@@ -62,5 +62,7 @@ $services = array(
 				</div>
 			<?php endforeach; ?>
 		</div>
+
+		<a href="#" class="services-show-more">Show more services</a>
 	</div>
 </section>

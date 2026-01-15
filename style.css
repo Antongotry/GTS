@@ -3252,6 +3252,7 @@ a.phone-button:focus,
 	border-radius: 0;
 	overflow: hidden;
 	align-items: stretch;
+	height: 335px;
 }
 
 .services-card-content {
@@ -3295,6 +3296,12 @@ a.phone-button:focus,
 	text-decoration: underline;
 	text-underline-offset: 4px;
 	margin: 0;
+	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.services-card-link:hover {
+	opacity: 0.7;
+	text-decoration-color: rgba(0, 0, 0, 0.5);
 }
 
 .services-card-image {
@@ -3310,4 +3317,23 @@ a.phone-button:focus,
 	object-fit: cover;
 	object-position: center;
 	display: block;
+}
+
+.services-show-more {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #000;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	margin-top: 40px;
+	display: inline-block;
+	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.services-show-more:hover {
+	opacity: 0.7;
+	text-decoration-color: rgba(0, 0, 0, 0.5);
 }
