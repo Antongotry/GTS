@@ -48,7 +48,6 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 
 					<div class="hero-feature-divider hero-feature-divider-center"></div>
 					<div class="hero-feature-divider hero-feature-divider-vertical"></div>
-					<div class="hero-feature-divider hero-feature-divider-horizontal"></div>
 				</div>
 			</div>
 		</div>
