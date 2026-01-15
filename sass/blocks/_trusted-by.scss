@@ -49,15 +49,19 @@
 	overflow: visible;
 }
 
-.trusted-by-card {
+.trusted-by-slider .swiper-wrapper {
+	align-items: stretch;
+}
+
+.trusted-by-card.swiper-slide {
 	background: #f5f5f5;
 	border: 1px solid rgba(255, 255, 255, 0.16);
 	border-radius: 0;
 	padding: 40px;
 	box-sizing: border-box;
 	text-align: left;
-	display: flex;
-	flex-direction: column;
+	display: flex !important;
+	flex-direction: column !important;
 }
 
 .trusted-by-card-content {
@@ -94,7 +98,7 @@
 	display: flex;
 	align-items: center;
 	gap: 16px;
-	margin-top: auto;
+	margin-top: auto !important;
 }
 
 .trusted-by-avatar {
