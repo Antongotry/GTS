@@ -2841,7 +2841,7 @@ a.phone-button:focus,
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
-	padding-bottom: 80px;
+	padding-bottom: 0;
 }
 
 .how-it-works-left {
@@ -2849,6 +2849,7 @@ a.phone-button:focus,
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 32px;
+	padding-bottom: 80px;
 }
 
 .how-it-works-pill {
