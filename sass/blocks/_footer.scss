@@ -291,11 +291,11 @@
 	font-weight: 400;
 	line-height: 100%;
 	letter-spacing: 0%;
-	margin: 0 0 12px 0;
 }
 
 .footer-social-title {
 	color: #ffffff; // #FFFFFF для лейбла Social networks
+	margin: 0 0 12px 0;
 }
 
 .footer-email {
@@ -304,6 +304,7 @@
 
 .footer-email-title {
 	color: rgba(255, 255, 255, 0.4); // 40% белый цвет
+	margin: 0 0 16px 0; // 16px отступ до ссылки email
 }
 
 .footer-social-icons {
@@ -339,8 +340,10 @@
 
 .footer-email-link {
 	font-family: $font__manrope;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 400;
+	line-height: 100%;
+	letter-spacing: 0%;
 	color: #ffffff;
 	text-decoration: none;
 	transition: opacity 0.2s ease;
