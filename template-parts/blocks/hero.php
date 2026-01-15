@@ -46,8 +46,6 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 						<p class="hero-feature-text">From simple rides to complex itineraries</p>
 					</div>
 
-					<div class="hero-feature-divider hero-feature-divider-center"></div>
-					<div class="hero-feature-divider hero-feature-divider-vertical"></div>
 				</div>
 			</div>
 		</div>

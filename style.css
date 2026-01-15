@@ -2105,53 +2105,6 @@ a.phone-button:focus,
 	display: block;
 }
 
-.hero-feature-divider {
-	position: absolute;
-	background-color: rgba(255, 255, 255, 0.16);
-	pointer-events: none;
-}
-
-.hero-feature-divider-center {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 1px;
-	height: 1px;
-}
-
-.hero-feature-divider-center::before,
-.hero-feature-divider-center::after {
-	content: "";
-	position: absolute;
-	background-color: rgba(255, 255, 255, 0.16);
-}
-
-.hero-feature-divider-center::before {
-	width: 1px;
-	height: 16px;
-	top: -8px;
-	left: 0;
-}
-
-.hero-feature-divider-center::after {
-	width: 16px;
-	height: 1px;
-	top: 0;
-	left: -8px;
-}
-
-.hero-feature-divider-vertical {
-	top: 0;
-	left: 50%;
-	width: 1px;
-	height: 100%;
-	transform: translateX(-50%);
-}
-
-.hero-feature-divider-horizontal {
-	display: none;
-}
-
 .hero-feature-text {
 	font-size: 14px;
 	font-weight: 400;
