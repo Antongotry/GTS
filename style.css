@@ -3366,7 +3366,7 @@ a.phone-button:focus,
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	color: #000;
-	margin: 0 0 16px 0;
+	margin: 0 0 8px 0;
 	text-align: center;
 }
 
@@ -3377,12 +3377,14 @@ a.phone-button:focus,
 	line-height: 1.5;
 	letter-spacing: 0;
 	color: #000;
-	margin: 0 0 32px 0;
+	margin: 0;
 	text-align: center;
 }
 
 .custom-itinerary-button {
-	margin: 0;
+	margin-top: auto;
+	width: 238px;
+	height: 56px;
 	box-shadow: none;
 }
 
