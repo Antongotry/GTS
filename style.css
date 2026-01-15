@@ -3343,21 +3343,23 @@ a.phone-button:focus,
  */
 .custom-itinerary-block {
 	width: 100%;
-	background: #fff;
+	background: #fcdcaa;
 	padding-top: 80px;
 	padding-bottom: 80px;
 }
 
-.custom-itinerary-container {
+.custom-itinerary-wrapper {
 	max-width: 1840px;
 	margin: 0 auto;
-	background: #fcdcaa;
 	padding: 24px;
+	box-sizing: border-box;
+}
+
+.custom-itinerary-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	box-sizing: border-box;
 }
 
 .custom-itinerary-title {

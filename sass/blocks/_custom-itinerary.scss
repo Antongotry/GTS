@@ -4,21 +4,23 @@
 
 .custom-itinerary-block {
 	width: 100%;
-	background: #fff;
+	background: #fcdcaa; // Фон на всю ширину
 	padding-top: $spacing-4xl; // 80px from previous block
 	padding-bottom: $spacing-4xl; // 80px bottom
 }
 
-.custom-itinerary-container {
+.custom-itinerary-wrapper {
 	max-width: #{$container-max-width-content}; // 1840px
 	margin: 0 auto;
-	background: #fcdcaa;
 	padding: $spacing-xl; // 24px
+	box-sizing: border-box;
+}
+
+.custom-itinerary-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	box-sizing: border-box;
 }
 
 .custom-itinerary-title {
