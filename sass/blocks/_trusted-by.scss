@@ -58,12 +58,10 @@
 	text-align: left;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 }
 
 .trusted-by-card-content {
-	display: flex;
-	flex-direction: column;
+	flex: 0 0 auto;
 }
 
 .trusted-by-stars {
