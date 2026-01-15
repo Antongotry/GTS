@@ -2086,8 +2086,8 @@ a.phone-button:focus,
 
 .hero-feature {
 	display: flex;
-	align-items: flex-start;
-	gap: 12px;
+	align-items: center;
+	gap: 24px;
 	padding: 0;
 }
 
@@ -2138,6 +2138,7 @@ a.phone-button:focus,
 }
 
 .hero-feature-text {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	color: #fff;

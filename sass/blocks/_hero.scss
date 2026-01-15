@@ -206,8 +206,8 @@
 
 .hero-feature {
 	display: flex;
-	align-items: flex-start;
-	gap: 12px;
+	align-items: center;
+	gap: 24px;
 	padding: 0;
 }
 
@@ -259,6 +259,7 @@
 
 
 .hero-feature-text {
+	font-family: "Manrope", $font__main;
 	font-size: 14px;
 	font-weight: 400;
 	color: #fff;
