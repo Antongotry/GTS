@@ -70,6 +70,7 @@
 	align-items: flex-start;
 	text-align: left;
 	box-sizing: border-box;
+	justify-content: space-between;
 }
 
 .services-card-title {
@@ -79,7 +80,7 @@
 	line-height: 1.2; // 120%
 	letter-spacing: -0.02em; // -2%
 	color: #000000;
-	margin: 0 0 $spacing-md 0;
+	margin: 0;
 }
 
 .services-card-description {
@@ -89,8 +90,7 @@
 	line-height: 1.5; // 150%
 	letter-spacing: 0;
 	color: #000000;
-	margin: 0 0 $spacing-md 0;
-	flex: 1;
+	margin: 0 0 $spacing-md 0; // 16px gap before button
 }
 
 .services-card-link {
@@ -101,7 +101,8 @@
 	letter-spacing: 0;
 	color: #000000;
 	text-decoration: underline;
-	margin-top: auto;
+	text-underline-offset: 4px; // 4px offset before underline
+	margin: 0;
 }
 
 .services-card-image {

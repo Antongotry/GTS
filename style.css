@@ -3262,6 +3262,7 @@ a.phone-button:focus,
 	align-items: flex-start;
 	text-align: left;
 	box-sizing: border-box;
+	justify-content: space-between;
 }
 
 .services-card-title {
@@ -3271,7 +3272,7 @@ a.phone-button:focus,
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	color: #000;
-	margin: 0 0 16px 0;
+	margin: 0;
 }
 
 .services-card-description {
@@ -3282,7 +3283,6 @@ a.phone-button:focus,
 	letter-spacing: 0;
 	color: #000;
 	margin: 0 0 16px 0;
-	flex: 1;
 }
 
 .services-card-link {
@@ -3293,7 +3293,8 @@ a.phone-button:focus,
 	letter-spacing: 0;
 	color: #000;
 	text-decoration: underline;
-	margin-top: auto;
+	text-underline-offset: 4px;
+	margin: 0;
 }
 
 .services-card-image {
