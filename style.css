@@ -1942,8 +1942,18 @@ a.phone-button:focus,
 	font-size: 18px;
 	font-weight: 400;
 	color: #fff;
-	margin: 0;
+	margin: 0 0 12px 0;
 	opacity: 0.9;
+}
+
+.hero-title {
+	font-family: "Visby CF", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 54px;
+	font-weight: 500;
+	color: #fff;
+	margin: 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
 }
 
 .hero-title {
