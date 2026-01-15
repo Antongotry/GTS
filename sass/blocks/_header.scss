@@ -307,7 +307,6 @@ a.phone-button,
 	color: #000000 !important;
 	text-decoration: none !important;
 	white-space: nowrap !important;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
@@ -317,13 +316,34 @@ a.phone-button,
 	line-height: 1 !important;
 	margin: 0 !important;
 	vertical-align: middle !important;
+	position: relative !important;
+	overflow: hidden !important;
+	z-index: 1 !important;
+
+	&::after {
+		content: '' !important;
+		position: absolute !important;
+		top: 0 !important;
+		left: 0 !important;
+		right: 0 !important;
+		bottom: 0 !important;
+		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%) !important;
+		opacity: 0 !important;
+		transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+		pointer-events: none !important;
+		z-index: -1 !important;
+	}
 
 	&:hover {
 		color: #000000 !important;
-		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%) !important;
+		background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%) !important;
 		background-color: transparent !important;
 		transform: none !important;
 		opacity: 1 !important;
+
+		&::after {
+			opacity: 1 !important;
+		}
 	}
 
 	&:active {
@@ -331,6 +351,10 @@ a.phone-button,
 		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%) !important;
 		background-color: transparent !important;
 		transform: none !important;
+
+		&::after {
+			opacity: 0 !important;
+		}
 	}
 
 	&:visited,

@@ -88,10 +88,13 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+	            box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	font-family: "Manrope", $font__main;
 	color: #000000 !important;
 	border: none;
+	position: relative;
+	z-index: 1;
 
 	&:hover {
 		color: #000000 !important;
@@ -110,13 +113,34 @@
 
 .btn-primary {
 	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+		opacity: 0;
+		transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		pointer-events: none;
+	}
 
 	&:hover {
-		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+		&::after {
+			opacity: 1;
+		}
 	}
 
 	&:active {
 		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
+		
+		&::after {
+			opacity: 0;
+		}
 	}
 }
 
@@ -125,6 +149,8 @@
 	color: #000;
 	border: none;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	position: relative;
+	z-index: 1;
 
 	&:hover {
 		background: #e8e8e8;
