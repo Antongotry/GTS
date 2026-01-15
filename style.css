@@ -1819,8 +1819,8 @@ a.phone-button:focus,
  */
 .hero-block {
 	width: 100% !important;
-	height: 780px !important;
 	min-height: 780px !important;
+	height: auto !important;
 	background-size: cover !important;
 	background-position: center !important;
 	background-repeat: no-repeat !important;
@@ -1830,14 +1830,13 @@ a.phone-button:focus,
 	display: flex !important;
 	align-items: flex-start;
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
 	z-index: 1;
 }
 
 @media (max-width: 1024px) {
 
 	.hero-block {
-		height: 600px !important;
 		min-height: 600px !important;
 	}
 }
@@ -1845,7 +1844,6 @@ a.phone-button:focus,
 @media (max-width: 375px) {
 
 	.hero-block {
-		height: 400px !important;
 		min-height: 400px !important;
 	}
 }
@@ -1858,8 +1856,8 @@ a.phone-button:focus,
 	width: 100%;
 	max-width: 1840px;
 	margin: 0 auto;
-	padding: 0 20px;
-	height: 100%;
+	padding: 0 20px 40px 20px;
+	min-height: 100%;
 }
 
 .hero-left {
@@ -1979,7 +1977,7 @@ a.phone-button:focus,
 .hero-right {
 	width: 390px;
 	flex-shrink: 0;
-	margin-top: 106px;
+	margin-top: 130px;
 	flex: 0 0 390px;
 	margin-left: auto;
 }
