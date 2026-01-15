@@ -2057,9 +2057,7 @@ a.phone-button:focus,
 	margin-top: auto;
 	margin-bottom: 0;
 	padding-top: 30px;
-	border-top: 1px solid rgba(255, 255, 255, 0.2);
 	position: relative;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .hero-feature {
