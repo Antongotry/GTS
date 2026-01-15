@@ -13,6 +13,8 @@
 	@include container($container-max-width-content);
 	display: grid;
 	grid-template-columns: 70px 165px auto 160px auto 160px auto 80px auto 1fr;
+	grid-template-rows: auto auto; // Две строки: первая для заголовков, вторая для списков
+	grid-auto-flow: row;
 	gap: 0;
 	align-items: start;
 }
@@ -165,9 +167,19 @@
 	}
 }
 
+.footer-services {
+	grid-column: 7 / span 3; // Начинается с колонки 7, занимает 3 колонки (7, 8, 9)
+	grid-row: 1 / span 2; // Начинается со строки 1, занимает 2 строки (1 и 2)
+	display: grid;
+	grid-template-columns: 1fr 80px 1fr; // Три колонки: заголовок+левый список, отступ, правый список
+	grid-template-rows: auto auto; // Две строки: заголовок, списки
+	gap: 0;
+	align-items: start;
+}
+
 .footer-services-title {
-	grid-column: 7; // 160px от language
-	grid-row: 1;
+	grid-column: 1; // Первая колонка
+	grid-row: 1; // Первая строка
 }
 
 .footer-services-list {
@@ -199,15 +211,13 @@
 }
 
 .footer-services-list-left {
-	grid-column: 7; // Та же колонка что и лейбл
-	grid-row: 2; // Под лейблом
-	align-self: start; // Выравнивание по верху
+	grid-column: 1; // Та же колонка что и заголовок
+	grid-row: 2; // Вторая строка
 }
 
 .footer-services-list-right {
-	grid-column: 9; // 80px от первой колонки сервисов
-	grid-row: 2; // Под лейблом, на той же строке что и левый список
-	align-self: start; // Выравнивание по верху
+	grid-column: 3; // Третья колонка (80px от первой)
+	grid-row: 2; // Вторая строка
 }
 
 .footer-right {

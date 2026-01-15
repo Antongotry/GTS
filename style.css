@@ -1551,6 +1551,8 @@ a.phone-button:focus,
 	box-sizing: border-box;
 	display: grid;
 	grid-template-columns: 70px 165px auto 160px auto 160px auto 80px auto 1fr;
+	grid-template-rows: auto auto;
+	grid-auto-flow: row;
 	gap: 0;
 	align-items: start;
 }
@@ -1698,8 +1700,18 @@ a.phone-button:focus,
 	display: none;
 }
 
+.footer-services {
+	grid-column: 7/span 3;
+	grid-row: 1/span 2;
+	display: grid;
+	grid-template-columns: 1fr 80px 1fr;
+	grid-template-rows: auto auto;
+	gap: 0;
+	align-items: start;
+}
+
 .footer-services-title {
-	grid-column: 7;
+	grid-column: 1;
 	grid-row: 1;
 }
 
@@ -1732,15 +1744,13 @@ a.phone-button:focus,
 }
 
 .footer-services-list-left {
-	grid-column: 7;
+	grid-column: 1;
 	grid-row: 2;
-	align-self: start;
 }
 
 .footer-services-list-right {
-	grid-column: 9;
+	grid-column: 3;
 	grid-row: 2;
-	align-self: start;
 }
 
 .footer-right {

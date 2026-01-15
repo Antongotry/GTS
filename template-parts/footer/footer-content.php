@@ -68,24 +68,26 @@
 			</ul>
 		</div>
 
-		<h3 class="footer-title footer-services-title">Services</h3>
-		<ul class="footer-services-list footer-services-list-left">
-			<li><a href="#">Book a Flight</a></li>
-			<li><a href="#">City-to-City Rides</a></li>
-			<li><a href="#">Airport Transfers</a></li>
-			<li><a href="#">Hourly Hire</a></li>
-			<li><a href="#">Chauffeur Service</a></li>
-			<li><a href="#">Limousine Service</a></li>
-			<li><a href="#">Corporations</a></li>
-			<li><a href="#">Travel Agencies</a></li>
-			<li><a href="#">Mobility Partnerships</a></li>
-		</ul>
-		<ul class="footer-services-list footer-services-list-right">
-			<li><a href="#">Medical Transportation</a></li>
-			<li><a href="#">Concierge Support</a></li>
-			<li><a href="#">Travel Personal Interpreter</a></li>
-			<li><a href="#">Travel Planning</a></li>
-		</ul>
+		<div class="footer-services">
+			<h3 class="footer-title footer-services-title">Services</h3>
+			<ul class="footer-services-list footer-services-list-left">
+				<li><a href="#">Book a Flight</a></li>
+				<li><a href="#">City-to-City Rides</a></li>
+				<li><a href="#">Airport Transfers</a></li>
+				<li><a href="#">Hourly Hire</a></li>
+				<li><a href="#">Chauffeur Service</a></li>
+				<li><a href="#">Limousine Service</a></li>
+				<li><a href="#">Corporations</a></li>
+				<li><a href="#">Travel Agencies</a></li>
+				<li><a href="#">Mobility Partnerships</a></li>
+			</ul>
+			<ul class="footer-services-list footer-services-list-right">
+				<li><a href="#">Medical Transportation</a></li>
+				<li><a href="#">Concierge Support</a></li>
+				<li><a href="#">Travel Personal Interpreter</a></li>
+				<li><a href="#">Travel Planning</a></li>
+			</ul>
+		</div>
 
 		<div class="footer-right">
 			<a href="#" class="footer-button footer-button-primary">Book a transfer</a>
