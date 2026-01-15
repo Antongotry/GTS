@@ -6,6 +6,8 @@
  */
 
 $avatar_url = get_site_url() . '/wp-content/uploads/2026/01/rewievs-ic_result.webp';
+$arrow_left_url = get_site_url() . '/wp-content/uploads/2026/01/left.svg';
+$arrow_right_url = get_site_url() . '/wp-content/uploads/2026/01/right.svg';
 
 $testimonials = array(
 	array(
@@ -70,8 +72,12 @@ $heights = array( 348, 326, 392 );
 
 	<div class="trusted-by-container">
 		<div class="trusted-by-controls">
-			<button class="trusted-by-button trusted-by-prev" type="button" aria-label="<?php echo esc_attr( 'Previous' ); ?>">←</button>
-			<button class="trusted-by-button trusted-by-next" type="button" aria-label="<?php echo esc_attr( 'Next' ); ?>">→</button>
+			<button class="trusted-by-button trusted-by-prev" type="button" aria-label="<?php echo esc_attr( 'Previous' ); ?>">
+				<img src="<?php echo esc_url( $arrow_left_url ); ?>" alt="" width="11" height="12" class="trusted-by-button-icon">
+			</button>
+			<button class="trusted-by-button trusted-by-next" type="button" aria-label="<?php echo esc_attr( 'Next' ); ?>">
+				<img src="<?php echo esc_url( $arrow_right_url ); ?>" alt="" width="11" height="12" class="trusted-by-button-icon">
+			</button>
 		</div>
 	</div>
 </section>
