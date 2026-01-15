@@ -39,6 +39,7 @@
 	margin: 0 auto;
 	padding: 0 20px 40px 20px;
 	min-height: 100%;
+	box-sizing: border-box;
 }
 
 .hero-left {
@@ -500,28 +501,43 @@
 	background: rgba(255, 255, 255, 0.08);
 	backdrop-filter: blur(40px);
 	-webkit-backdrop-filter: blur(40px);
-	padding: 30px;
+	padding: 0;
 	border-radius: 8px;
 	display: flex;
-	align-items: center;
-	gap: 20px;
+	align-items: stretch;
+	gap: 0;
 	margin-top: 0;
+	overflow: hidden;
 }
 
 .world-map-image {
 	flex-shrink: 0;
+	padding: 14px 0 4px 32px;
+	display: flex;
+	align-items: flex-start;
 
 	img {
-		width: auto;
+		width: 200px;
 		height: auto;
-		max-width: 100%;
 		display: block;
 	}
+}
+
+.world-map-divider {
+	width: 1px;
+	background: rgba(255, 255, 255, 0.16);
+	flex-shrink: 0;
+	margin: 16px 35px 16px 0;
+	align-self: stretch;
 }
 
 .world-map-text {
 	flex: 1;
 	color: #fff;
+	padding-left: 28px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .world-map-label {

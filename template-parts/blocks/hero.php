@@ -145,6 +145,7 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 				<div class="world-map-image">
 					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp' ); ?>" alt="World Map">
 				</div>
+				<div class="world-map-divider"></div>
 				<div class="world-map-text">
 					<p class="world-map-label">clients in</p>
 					<p class="world-map-number">100+</p>

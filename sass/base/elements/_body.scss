@@ -2,4 +2,6 @@ html,
 body {
 	background: $color__background-body;
 	color: $color__text-main;
+	overflow-x: hidden;
+	max-width: 100%;
 }
