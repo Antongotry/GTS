@@ -34,8 +34,8 @@
 
 	function isSectionLocked() {
 		const rect = section.getBoundingClientRect();
-		const fullyInView = rect.top <= 0 && rect.bottom >= window.innerHeight - 1;
-		return fullyInView && steps.scrollHeight > steps.clientHeight;
+		const inView = rect.top <= 0 && rect.bottom > 0;
+		return inView && steps.scrollHeight > steps.clientHeight;
 	}
 
 	let stepScrollTarget = 0;
