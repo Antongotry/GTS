@@ -6,6 +6,7 @@
 	width: 100%;
 	background: #fff;
 	padding: $spacing-4xl 0 $spacing-4xl 0;
+	overflow: visible;
 }
 
 .trusted-by-container {
@@ -14,6 +15,7 @@
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	overflow: visible;
 }
 
 .trusted-by-pill {
@@ -46,11 +48,12 @@
 .trusted-by-slider {
 	width: 100%;
 	margin-top: $spacing-4xl;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .trusted-by-slider .swiper-wrapper {
 	align-items: stretch;
+	overflow: visible;
 }
 
 .trusted-by-card.swiper-slide {
