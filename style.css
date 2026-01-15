@@ -1281,6 +1281,13 @@ textarea {
 	margin-right: 0 !important;
 }
 
+.header-buttons {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
 .language-selector {
 	display: flex;
 	align-items: center;
@@ -1635,6 +1642,13 @@ a.phone-button:focus,
 .header-right > * {
 	margin-left: 0 !important;
 	margin-right: 0 !important;
+}
+
+.header-buttons {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
 }
 
 .language-selector {
