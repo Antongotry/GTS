@@ -10,7 +10,8 @@
 
 	/* eslint-disable no-new */
 	new Swiper(slider, {
-		slidesPerView: 3,
+		slidesPerView: 4,
+		slidesPerGroup: 1,
 		spaceBetween: 20,
 		loop: false,
 		navigation: {
@@ -18,8 +19,14 @@
 			prevEl: '.trusted-by-prev',
 		},
 		breakpoints: {
-			1024: {
+			1920: {
+				slidesPerView: 4,
+			},
+			1440: {
 				slidesPerView: 3,
+			},
+			1024: {
+				slidesPerView: 2,
 			},
 			768: {
 				slidesPerView: 2,
