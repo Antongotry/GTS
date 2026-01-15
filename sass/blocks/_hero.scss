@@ -483,7 +483,6 @@
 	}
 
 	&:hover {
-		transform: translateY(-2px);
 		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
 
 		&::before {
@@ -492,7 +491,6 @@
 	}
 
 	&:active {
-		transform: translateY(0);
 		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
 	}
 }
