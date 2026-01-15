@@ -127,8 +127,9 @@
 
 .sub-menu {
 	position: absolute;
-	top: calc(100% + 30px); // Отступ от пункта меню вниз
+	top: 100%;
 	left: 0;
+	margin-top: 0;
 	background: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -136,7 +137,7 @@
 	list-style: none;
 	opacity: 0;
 	visibility: hidden;
-	transform: translateY(-10px);
+	transform: translateY(60px); // Явный большой отступ вниз
 	transition: all 0.3s ease;
 	pointer-events: none;
 	min-width: 160px;
@@ -146,7 +147,7 @@
 .menu-item-has-children:hover .sub-menu {
 	opacity: 1;
 	visibility: visible;
-	transform: translateY(0);
+	transform: translateY(60px);
 	pointer-events: auto;
 	display: block !important;
 }

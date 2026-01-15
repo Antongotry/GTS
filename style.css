@@ -1269,8 +1269,9 @@ textarea {
 
 .sub-menu {
 	position: absolute;
-	top: calc(100% + 30px);
+	top: 100%;
 	left: 0;
+	margin-top: 0;
 	background: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -1278,7 +1279,7 @@ textarea {
 	list-style: none;
 	opacity: 0;
 	visibility: hidden;
-	transform: translateY(-10px);
+	transform: translateY(60px);
 	transition: all 0.3s ease;
 	pointer-events: none;
 	min-width: 160px;
@@ -1288,7 +1289,7 @@ textarea {
 .menu-item-has-children:hover .sub-menu {
 	opacity: 1;
 	visibility: visible;
-	transform: translateY(0);
+	transform: translateY(60px);
 	pointer-events: auto;
 	display: block !important;
 }
@@ -1674,8 +1675,9 @@ a.phone-button:focus,
 
 .sub-menu {
 	position: absolute;
-	top: calc(100% + 30px);
+	top: 100%;
 	left: 0;
+	margin-top: 0;
 	background: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -1683,7 +1685,7 @@ a.phone-button:focus,
 	list-style: none;
 	opacity: 0;
 	visibility: hidden;
-	transform: translateY(-10px);
+	transform: translateY(60px);
 	transition: all 0.3s ease;
 	pointer-events: none;
 	min-width: 160px;
@@ -1693,7 +1695,7 @@ a.phone-button:focus,
 .menu-item-has-children:hover .sub-menu {
 	opacity: 1;
 	visibility: visible;
-	transform: translateY(0);
+	transform: translateY(60px);
 	pointer-events: auto;
 	display: block !important;
 }
