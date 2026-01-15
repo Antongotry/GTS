@@ -3344,11 +3344,10 @@ a.phone-button:focus,
 .custom-itinerary-block {
 	width: 100%;
 	background: #fff;
-	padding: 80px 0;
+	padding: 80px 20px;
 }
 
 .custom-itinerary-container {
-	width: 100%;
 	max-width: 1840px;
 	margin: 0 auto;
 	padding: 24px;
@@ -3384,12 +3383,10 @@ a.phone-button:focus,
 
 .custom-itinerary-button {
 	margin: 0;
-}
-
-.custom-itinerary-button:hover {
 	box-shadow: none;
 }
 
+.custom-itinerary-button:hover,
 .custom-itinerary-button:active {
 	box-shadow: none;
 }

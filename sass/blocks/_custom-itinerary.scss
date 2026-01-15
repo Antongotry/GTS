@@ -5,11 +5,10 @@
 .custom-itinerary-block {
 	width: 100%;
 	background: #fff; // Белый фон секции
-	padding: $spacing-4xl 0; // 80px сверху и снизу
+	padding: $spacing-4xl $spacing-lg; // 80px сверху/снизу, 20px по бокам
 }
 
 .custom-itinerary-container {
-	width: 100%;
 	max-width: #{$container-max-width-content}; // 1840px
 	margin: 0 auto;
 	padding: $spacing-xl; // 24px со всех сторон
@@ -45,12 +44,10 @@
 
 .custom-itinerary-button {
 	margin: 0;
+	box-shadow: none; // Убираем тень
 }
 
-.custom-itinerary-button:hover {
-	box-shadow: none; // Remove shadow on hover
-}
-
+.custom-itinerary-button:hover,
 .custom-itinerary-button:active {
-	box-shadow: none; // Remove shadow on active
+	box-shadow: none;
 }
