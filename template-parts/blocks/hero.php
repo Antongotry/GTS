@@ -36,7 +36,7 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_resul
 						<div class="hero-feature-icon">
 							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg' ); ?>" alt="Trusted since 2010">
 						</div>
-						<p class="hero-feature-text">Since 2010, trusted by corporate & VIP clients</p>
+						<p class="hero-feature-text">Since 2010, trusted by corporate<br>& VIP clients</p>
 					</div>
 
 					<div class="hero-feature hero-feature-bottom-right">
