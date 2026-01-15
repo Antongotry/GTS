@@ -11,6 +11,8 @@
 
 .custom-itinerary-container {
 	width: 100%;
+	max-width: #{$container-max-width-content}; // 1840px
+	margin: 0 auto;
 	background: #fcdcaa;
 	padding: $spacing-xl; // 24px
 	display: flex;
@@ -44,4 +46,12 @@
 
 .custom-itinerary-button {
 	margin: 0;
+}
+
+.custom-itinerary-button:hover {
+	box-shadow: none; // Remove shadow on hover
+}
+
+.custom-itinerary-button:active {
+	box-shadow: none; // Remove shadow on active
 }

@@ -3350,6 +3350,8 @@ a.phone-button:focus,
 
 .custom-itinerary-container {
 	width: 100%;
+	max-width: 1840px;
+	margin: 0 auto;
 	background: #fcdcaa;
 	padding: 24px;
 	display: flex;
@@ -3383,4 +3385,12 @@ a.phone-button:focus,
 
 .custom-itinerary-button {
 	margin: 0;
+}
+
+.custom-itinerary-button:hover {
+	box-shadow: none;
+}
+
+.custom-itinerary-button:active {
+	box-shadow: none;
 }
