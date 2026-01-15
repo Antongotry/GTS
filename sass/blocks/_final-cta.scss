@@ -67,19 +67,7 @@
 .final-cta-item {
 	padding-bottom: 24px; // 24px от описания до разделителя
 	margin-bottom: 24px;
-	position: relative;
-
-	// Разделитель 606px как контент
-	&::after {
-		content: "";
-		display: block;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 606px;
-		height: 1px;
-		background: rgba(255, 255, 255, 0.16); // #FFFFFF29
-	}
+	border-bottom: 1px solid rgba(255, 255, 255, 0.16); // #FFFFFF29 на 100% ширины
 
 	&:first-child {
 		padding-top: 0;
@@ -88,10 +76,7 @@
 	&:last-child {
 		margin-bottom: 0;
 		padding-bottom: 0;
-
-		&::after {
-			display: none;
-		}
+		border-bottom: none;
 	}
 }
 
