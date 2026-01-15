@@ -10,7 +10,7 @@
 
 	/* eslint-disable no-new */
 	new Swiper(slider, {
-		slidesPerView: 'auto',
+		slidesPerView: 4,
 		slidesPerGroup: 1,
 		spaceBetween: 20,
 		loop: false,

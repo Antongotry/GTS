@@ -6,7 +6,6 @@
 	width: 100%;
 	background: #fff;
 	padding: $spacing-4xl 0 $spacing-4xl 0;
-	overflow: visible;
 }
 
 .trusted-by-container {
@@ -15,7 +14,6 @@
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	overflow: visible;
 }
 
 .trusted-by-pill {
@@ -46,25 +44,13 @@
 }
 
 .trusted-by-slider {
-	width: 100vw;
-	max-width: 100vw;
-	margin-left: calc(-50vw + 50%);
+	width: 100%;
 	margin-top: $spacing-4xl;
-	overflow: visible;
-	padding: 0 $spacing-lg;
-	box-sizing: border-box;
+	overflow: hidden;
 }
 
 .trusted-by-slider .swiper-wrapper {
 	align-items: stretch;
-}
-
-.trusted-by-slider .swiper {
-	overflow: visible;
-}
-
-.trusted-by-slider .swiper-container {
-	overflow: visible;
 }
 
 .trusted-by-card.swiper-slide {
@@ -76,10 +62,7 @@
 	text-align: left;
 	display: flex !important;
 	flex-direction: column !important;
-	width: calc((100vw - 100px) / 4);
-	max-width: 435px;
 	height: auto;
-	flex-shrink: 0;
 }
 
 .trusted-by-card-content {
