@@ -25,3 +25,8 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+// Glass effect colors (for backdrop blur)
+$color__glass-bg: rgba(255, 255, 255, 0.14);
+$color__glass-border: rgba(255, 255, 255, 0.16);
+$color__glass-divider: rgba(255, 255, 255, 0.16);

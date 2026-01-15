@@ -42,3 +42,38 @@
 		@content;
 	}
 }
+
+// ==========================================================================
+// Glass Effect (Backdrop Blur)
+// Usage: @include glass-effect($blur: 40px);
+// ==========================================================================
+@mixin glass-effect($blur: 40px, $bg: $color__glass-bg) {
+	background: $bg;
+	backdrop-filter: blur($blur);
+	-webkit-backdrop-filter: blur($blur);
+}
+
+// ==========================================================================
+// Pill Shape Container
+// Usage: @include pill($width, $height);
+// ==========================================================================
+@mixin pill($width, $height) {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: $width;
+	height: $height;
+	border-radius: 999px;
+}
+
+// ==========================================================================
+// Container
+// Usage: @include container($max-width: $container-max-width-content);
+// ==========================================================================
+@mixin container($max-width: $container-max-width-content) {
+	width: 100%;
+	max-width: $max-width;
+	margin: 0 auto;
+	padding: 0 $container-padding;
+	box-sizing: border-box;
+}

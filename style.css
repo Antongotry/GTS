@@ -2622,8 +2622,9 @@ a.phone-button:focus,
 	width: 103px;
 	height: 43px;
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.0784313725);
+	background: rgba(255, 255, 255, 0.14);
 	backdrop-filter: blur(40px);
+	-webkit-backdrop-filter: blur(40px);
 }
 
 .why-us-heading-text {
@@ -2638,7 +2639,7 @@ a.phone-button:focus,
 .why-us-heading-line {
 	flex: 1;
 	height: 1px;
-	background: rgba(255, 255, 255, 0.1607843137);
+	background: rgba(255, 255, 255, 0.16);
 }
 
 .why-us-grid {
@@ -2713,7 +2714,7 @@ a.phone-button:focus,
 	width: 66px;
 	height: 38px;
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.0784313725);
+	background: rgba(255, 255, 255, 0.14);
 	backdrop-filter: blur(40px);
 	-webkit-backdrop-filter: blur(40px);
 	margin: 0 0 24px 0;
@@ -2728,7 +2729,7 @@ a.phone-button:focus,
 }
 
 .why-us-item-title {
-	font-family: "Visby CF", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 24px;
 	font-weight: 500;
 	color: #fff;
