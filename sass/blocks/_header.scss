@@ -95,7 +95,7 @@
 		left: 0;
 		right: 0;
 		top: 100%;
-		height: 60px;
+		height: 74px; // 60px + 14px
 	}
 
 	.menu-link {
@@ -146,7 +146,7 @@
 .menu-item-has-children:hover .sub-menu {
 	opacity: 1;
 	visibility: visible;
-	transform: translateY(10px); // 10px от хедера при hover
+	transform: translateY(24px); // 24px от хедера при hover (10px + 14px)
 	pointer-events: auto;
 	display: block !important;
 }
