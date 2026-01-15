@@ -67,7 +67,7 @@
 .why-us-item-1 {
 	grid-column: 1 / span 2;
 	grid-row: 1;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: flex-start;
 }
 
@@ -102,14 +102,15 @@
 .why-us-item-6 {
 	grid-column: 3 / span 2;
 	grid-row: 2;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: flex-start;
 }
 
 .why-us-item-icon-wrapper {
 	@include pill(66px, 38px);
 	@include glass-effect();
-	margin: 0 0 $spacing-xl 0;
+	margin: 0;
+	flex-shrink: 0;
 }
 
 .why-us-item-icon {
@@ -143,6 +144,16 @@
 	position: relative;
 	z-index: 1;
 	text-align: left;
+}
+
+// Text content wrapper for narrow blocks (icon top, text bottom)
+.why-us-item-2,
+.why-us-item-3,
+.why-us-item-4,
+.why-us-item-5 {
+	.why-us-item-title {
+		margin-top: auto;
+	}
 }
 
 // Tablet (1024px)

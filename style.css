@@ -2668,7 +2668,7 @@ a.phone-button:focus,
 .why-us-item-1 {
 	grid-column: 1/span 2;
 	grid-row: 1;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: flex-start;
 }
 
@@ -2703,7 +2703,7 @@ a.phone-button:focus,
 .why-us-item-6 {
 	grid-column: 3/span 2;
 	grid-row: 2;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: flex-start;
 }
 
@@ -2717,7 +2717,8 @@ a.phone-button:focus,
 	background: rgba(255, 255, 255, 0.14);
 	backdrop-filter: blur(40px);
 	-webkit-backdrop-filter: blur(40px);
-	margin: 0 0 24px 0;
+	margin: 0;
+	flex-shrink: 0;
 }
 
 .why-us-item-icon {
@@ -2751,6 +2752,13 @@ a.phone-button:focus,
 	position: relative;
 	z-index: 1;
 	text-align: left;
+}
+
+.why-us-item-2 .why-us-item-title,
+.why-us-item-3 .why-us-item-title,
+.why-us-item-4 .why-us-item-title,
+.why-us-item-5 .why-us-item-title {
+	margin-top: auto;
 }
 
 @media (max-width: 1024px) {
