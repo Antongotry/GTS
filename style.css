@@ -1270,10 +1270,15 @@ textarea {
 .header-right {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 8px !important;
 	flex-shrink: 0;
 	margin-left: 20px;
 	height: 100%;
+}
+
+.header-right > * {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
 
 .language-selector {
@@ -1621,10 +1626,15 @@ a.phone-button:focus,
 .header-right {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 8px !important;
 	flex-shrink: 0;
 	margin-left: 20px;
 	height: 100%;
+}
+
+.header-right > * {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
 
 .language-selector {
