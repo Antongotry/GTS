@@ -52,27 +52,34 @@
 
 .final-cta-right {
 	width: 910px;
+	max-height: calc(890px - 80px); // Высота блока минус padding
 	background: rgba(255, 255, 255, 0.06); // 6% белый
 	backdrop-filter: blur(100px);
 	padding: 32px;
 	display: flex;
 	flex-direction: column;
 	gap: 0;
+	box-sizing: border-box;
 }
 
 .final-cta-item {
-	padding: $spacing-xl 0; // 24px сверху/снизу
+	padding: 20px 0; // Уменьшено для влезания
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Разделитель
+
+	&:first-child {
+		padding-top: 0;
+	}
 
 	&:last-child {
 		border-bottom: none;
+		padding-bottom: 0;
 	}
 }
 
 .final-cta-icon {
 	width: 26px;
 	height: 26px;
-	margin-bottom: $spacing-md; // 16px
+	margin-bottom: 12px;
 }
 
 .final-cta-item-title {
@@ -82,7 +89,7 @@
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	color: #ffffff;
-	margin: 0 0 $spacing-md 0; // 16px до описания
+	margin: 0 0 12px 0;
 }
 
 .final-cta-item-description {
