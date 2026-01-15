@@ -3059,15 +3059,15 @@ a.phone-button:focus,
 
 .trusted-by-slider {
 	width: 100%;
-	margin-top: 80px;
-	overflow: visible;
-	padding-left: max(20px, (100vw - 1840px) / 2 + 20px);
+	max-width: 1840px;
+	margin: 80px auto 0;
+	padding: 0 20px;
 	box-sizing: border-box;
+	overflow: visible;
 }
 
 .trusted-by-slider .swiper-wrapper {
 	align-items: stretch;
-	overflow: visible;
 }
 
 .trusted-by-card.swiper-slide {
