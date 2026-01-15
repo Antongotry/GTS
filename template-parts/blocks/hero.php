@@ -1,7 +1,7 @@
 <?php
 /**
  * Hero Block Template
- * 
+ *
  * @package GTS
  */
 
@@ -16,7 +16,7 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 			<div class="hero-content">
 				<p class="hero-subtitle">Your route. Our responsibility.</p>
 				<h1 class="hero-title">Premium transfers for corporate and private clients – 24/7 coordination</h1>
-				
+
 				<div class="hero-buttons">
 					<a href="#" class="btn btn-primary">Book a transfer</a>
 					<a href="#" class="btn btn-secondary">Explore services</a>

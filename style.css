@@ -2352,14 +2352,14 @@ a.phone-button:focus,
 	width: 1px;
 	background: rgba(255, 255, 255, 0.16);
 	flex-shrink: 0;
-	margin: 16px 35px 16px 0;
+	margin: 16px 28px 16px 34px;
 	align-self: stretch;
 }
 
 .world-map-text {
 	flex: 1;
 	color: #fff;
-	padding-left: 28px;
+	padding-left: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
