@@ -5,7 +5,7 @@
 .custom-itinerary-block {
 	width: 100%;
 	background: #fff; // Белый фон секции
-	padding: $spacing-4xl $spacing-lg; // 80px сверху/снизу, 20px по бокам
+	padding: 0 $spacing-lg $spacing-4xl; // 0 сверху, 20px по бокам, 80px снизу
 }
 
 .custom-itinerary-container {
