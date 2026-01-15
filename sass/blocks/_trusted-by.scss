@@ -49,6 +49,8 @@
 	width: 100%;
 	margin-top: $spacing-4xl;
 	overflow: visible;
+	padding-left: max(#{$spacing-lg}, calc((100vw - #{$container-max-width-content}) / 2 + #{$spacing-lg}));
+	box-sizing: border-box;
 }
 
 .trusted-by-slider .swiper-wrapper {

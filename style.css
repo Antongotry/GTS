@@ -3061,6 +3061,8 @@ a.phone-button:focus,
 	width: 100%;
 	margin-top: 80px;
 	overflow: visible;
+	padding-left: max(20px, (100vw - 1840px) / 2 + 20px);
+	box-sizing: border-box;
 }
 
 .trusted-by-slider .swiper-wrapper {

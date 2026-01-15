@@ -42,31 +42,33 @@ $heights = array( 348, 326, 392 );
 		<h2 class="trusted-by-title">
 			<?php echo esc_html( 'Corporations, executives and private travellers rely on GTS for punctuality, comfort and flawless service.' ); ?>
 		</h2>
+	</div>
 
-		<div class="trusted-by-slider swiper">
-			<div class="swiper-wrapper">
-				<?php foreach ( $testimonials as $index => $testimonial ) : ?>
-					<?php $card_height = $heights[ $index % count( $heights ) ]; ?>
-					<div class="swiper-slide trusted-by-card" style="height: <?php echo esc_attr( $card_height ); ?>px;">
-						<div class="trusted-by-card-content">
-							<div class="trusted-by-stars">
-								<span class="trusted-by-star">★</span>
-								<span class="trusted-by-star">★</span>
-								<span class="trusted-by-star">★</span>
-								<span class="trusted-by-star">★</span>
-								<span class="trusted-by-star">★</span>
-							</div>
-							<p class="trusted-by-card-text"><?php echo esc_html( $testimonial['text'] ); ?></p>
+	<div class="trusted-by-slider swiper">
+		<div class="swiper-wrapper">
+			<?php foreach ( $testimonials as $index => $testimonial ) : ?>
+				<?php $card_height = $heights[ $index % count( $heights ) ]; ?>
+				<div class="swiper-slide trusted-by-card" style="height: <?php echo esc_attr( $card_height ); ?>px;">
+					<div class="trusted-by-card-content">
+						<div class="trusted-by-stars">
+							<span class="trusted-by-star">★</span>
+							<span class="trusted-by-star">★</span>
+							<span class="trusted-by-star">★</span>
+							<span class="trusted-by-star">★</span>
+							<span class="trusted-by-star">★</span>
 						</div>
-						<div class="trusted-by-author">
-							<img src="<?php echo esc_url( $avatar_url ); ?>" alt="" class="trusted-by-avatar" width="56" height="56">
-							<span class="trusted-by-name"><?php echo esc_html( $testimonial['name'] ); ?></span>
-						</div>
+						<p class="trusted-by-card-text"><?php echo esc_html( $testimonial['text'] ); ?></p>
 					</div>
-				<?php endforeach; ?>
-			</div>
+					<div class="trusted-by-author">
+						<img src="<?php echo esc_url( $avatar_url ); ?>" alt="" class="trusted-by-avatar" width="56" height="56">
+						<span class="trusted-by-name"><?php echo esc_html( $testimonial['name'] ); ?></span>
+					</div>
+				</div>
+			<?php endforeach; ?>
 		</div>
+	</div>
 
+	<div class="trusted-by-container">
 		<div class="trusted-by-controls">
 			<button class="trusted-by-button trusted-by-prev" type="button" aria-label="<?php echo esc_attr( 'Previous' ); ?>">←</button>
 			<button class="trusted-by-button trusted-by-next" type="button" aria-label="<?php echo esc_attr( 'Next' ); ?>">→</button>
