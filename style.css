@@ -3496,7 +3496,18 @@ a.phone-button:focus,
 .final-cta-item {
 	padding-bottom: 24px;
 	margin-bottom: 24px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+	position: relative;
+}
+
+.final-cta-item::after {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 606px;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.16);
 }
 
 .final-cta-item:first-child {
@@ -3504,9 +3515,12 @@ a.phone-button:focus,
 }
 
 .final-cta-item:last-child {
-	border-bottom: none;
 	margin-bottom: 0;
 	padding-bottom: 0;
+}
+
+.final-cta-item:last-child::after {
+	display: none;
 }
 
 .final-cta-item-header {
