@@ -88,6 +88,15 @@
 
 .menu-item-has-children {
 	position: relative;
+	// Hover buffer so submenu can sit lower without closing
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+		height: 30px;
+	}
 
 	.menu-link {
 		display: flex;
@@ -118,8 +127,7 @@
 
 .sub-menu {
 	position: absolute;
-	top: 100%;
-	margin-top: 30px; // Отступ от пункта меню вниз
+	top: calc(100% + 30px); // Отступ от пункта меню вниз
 	left: 0;
 	background: #fff;
 	border-radius: 8px;
