@@ -2085,8 +2085,7 @@ a.phone-button:focus,
 	margin-left: auto;
 	display: flex;
 	flex-direction: column;
-	flex: 1;
-	min-height: 0;
+	height: 100%;
 	padding-bottom: 32px;
 	box-sizing: border-box;
 }
