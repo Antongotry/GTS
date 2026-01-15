@@ -2362,23 +2362,43 @@ a.phone-button:focus,
 	padding-left: 0;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
 }
 
-.world-map-label {
+.world-map-label-top {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
+	font-weight: 400;
 	margin: 0;
 	color: #fff;
 	opacity: 0.8;
+	text-align: center;
+}
+
+.world-map-bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 0;
 }
 
 .world-map-number {
 	font-size: 32px;
 	font-weight: 700;
-	margin: 5px 0;
+	margin: 0;
 	color: #fff;
+	text-align: center;
 }
 
-.world-map-label:last-child {
-	margin-top: 0;
+.world-map-label-bottom {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 0;
+	color: #fff;
+	opacity: 0.8;
+	text-align: center;
 }

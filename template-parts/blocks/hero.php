@@ -147,9 +147,11 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 				</div>
 				<div class="world-map-divider"></div>
 				<div class="world-map-text">
-					<p class="world-map-label">clients in</p>
-					<p class="world-map-number">100+</p>
-					<p class="world-map-label">countries</p>
+					<p class="world-map-label world-map-label-top">clients in</p>
+					<div class="world-map-bottom">
+						<p class="world-map-number">100+</p>
+						<p class="world-map-label world-map-label-bottom">countries</p>
+					</div>
 				</div>
 			</div>
 		</div>
