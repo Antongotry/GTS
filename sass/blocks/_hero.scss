@@ -32,7 +32,7 @@
 .hero-container {
 	display: flex;
 	gap: 40px;
-	align-items: flex-start;
+	align-items: stretch;
 	justify-content: space-between;
 	width: 100%;
 	max-width: 1840px;
@@ -47,6 +47,9 @@
 	flex-shrink: 0;
 	margin-top: 0;
 	flex: 0 0 724px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .hero-content {
@@ -54,8 +57,8 @@
 	flex-direction: column;
 	gap: 0;
 	margin-top: 130px;
-	min-height: calc(100vh - 130px - 64px);
-	height: 100%;
+	flex: 1;
+	min-height: 0;
 	padding-bottom: 32px;
 	box-sizing: border-box;
 }
@@ -203,7 +206,8 @@
 	margin-left: auto;
 	display: flex;
 	flex-direction: column;
-	min-height: calc(100vh - 130px - 64px);
+	flex: 1;
+	min-height: 0;
 	padding-bottom: 32px;
 	box-sizing: border-box;
 }
