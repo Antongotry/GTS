@@ -1755,6 +1755,8 @@ a.phone-button:focus,
 .footer-right {
 	grid-column: 10;
 	grid-row: 1/-1;
+	width: 325px;
+	justify-self: end;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;

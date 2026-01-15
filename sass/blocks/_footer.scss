@@ -222,6 +222,8 @@
 .footer-right {
 	grid-column: 10; // Последняя колонка
 	grid-row: 1 / -1; // От первой до последней строки
+	width: 325px; // Фиксированная ширина 325px
+	justify-self: end; // Прижата к правому краю
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
