@@ -4,7 +4,10 @@
 	if (window.Lenis && !window.gtsLenis) {
 		window.gtsLenis = new Lenis({
 			smoothWheel: true,
-			smoothTouch: false,
+			smoothTouch: true,
+			wheelMultiplier: 0.85,
+			touchMultiplier: 1.1,
+			lerp: 0.075,
 		});
 
 		const raf = (time) => {
@@ -36,6 +39,27 @@
 		return inView && atBottom && steps.scrollHeight > steps.clientHeight;
 	}
 
+	let stepScrollTarget = 0;
+	let stepScrollRAF = null;
+
+	const smoothStepScroll = () => {
+		stepScrollRAF = null;
+		steps.scrollTop += (stepScrollTarget - steps.scrollTop) * 0.12;
+		if (Math.abs(stepScrollTarget - steps.scrollTop) > 0.5) {
+			stepScrollRAF = window.requestAnimationFrame(smoothStepScroll);
+		}
+	};
+
+	function queueStepScroll(delta) {
+		stepScrollTarget = Math.max(
+			0,
+			Math.min(steps.scrollTop + delta, steps.scrollHeight - steps.clientHeight)
+		);
+		if (!stepScrollRAF) {
+			stepScrollRAF = window.requestAnimationFrame(smoothStepScroll);
+		}
+	}
+
 	function handleWheel(event) {
 		if (!isSectionLocked()) {
 			return;
@@ -47,7 +71,7 @@
 
 		if ((delta > 0 && !atBottom) || (delta < 0 && !atTop)) {
 			event.preventDefault();
-			steps.scrollTop += delta;
+			queueStepScroll(delta);
 		}
 	}
 
@@ -72,7 +96,7 @@
 
 		if ((delta > 0 && !atBottom) || (delta < 0 && !atTop)) {
 			event.preventDefault();
-			steps.scrollTop += delta;
+			queueStepScroll(delta);
 			touchStartY = currentY;
 		}
 	}

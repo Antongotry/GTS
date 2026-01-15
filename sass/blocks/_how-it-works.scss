@@ -54,12 +54,12 @@
 
 .how-it-works-right {
 	display: flex;
-	align-items: flex-start;
+	align-items: flex-end;
 	height: 100%;
 	flex: 0 0 690px;
 	max-width: 690px;
 	margin-left: auto;
-	padding: $spacing-4xl 100px $spacing-4xl 0;
+	padding: $spacing-4xl 100px 0 0;
 	box-sizing: border-box;
 }
 
@@ -74,6 +74,13 @@
 	padding-right: $spacing-sm;
 	box-sizing: border-box;
 	scrollbar-gutter: stable;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.how-it-works-steps::-webkit-scrollbar {
+	width: 0;
+	height: 0;
 }
 
 .how-it-works-step {

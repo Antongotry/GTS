@@ -2884,12 +2884,12 @@ a.phone-button:focus,
 
 .how-it-works-right {
 	display: flex;
-	align-items: flex-start;
+	align-items: flex-end;
 	height: 100%;
 	flex: 0 0 690px;
 	max-width: 690px;
 	margin-left: auto;
-	padding: 80px 100px 80px 0;
+	padding: 80px 100px 0 0;
 	box-sizing: border-box;
 }
 
@@ -2904,6 +2904,13 @@ a.phone-button:focus,
 	padding-right: 12px;
 	box-sizing: border-box;
 	scrollbar-gutter: stable;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.how-it-works-steps::-webkit-scrollbar {
+	width: 0;
+	height: 0;
 }
 
 .how-it-works-step {
