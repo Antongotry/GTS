@@ -39,54 +39,44 @@
 	// Check if section is fully in viewport
 	function isSectionFullyInView() {
 		const rect = section.getBoundingClientRect();
-		return rect.top <= 0 && rect.bottom >= window.innerHeight - 1;
+		// Block top is at or above viewport top, AND block bottom is at or below viewport bottom
+		return rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
 	}
 
 	// Check scroll boundaries
 	function isAtTop() {
-		return steps.scrollTop <= 0;
+		return steps.scrollTop <= 1;
 	}
 
 	function isAtBottom() {
 		return steps.scrollTop + steps.clientHeight >= steps.scrollHeight - 1;
 	}
 
-	// Smooth scroll animation for steps
-	let stepScrollTarget = 0;
-	let stepScrollRAF = null;
-
-	const smoothStepScroll = () => {
-		stepScrollRAF = null;
-		const diff = stepScrollTarget - steps.scrollTop;
-		steps.scrollTop += diff * 0.15;
-
-		if (Math.abs(diff) > 0.5) {
-			stepScrollRAF = window.requestAnimationFrame(smoothStepScroll);
-		}
-	};
-
-	function scrollSteps(delta) {
-		const maxScroll = steps.scrollHeight - steps.clientHeight;
-		stepScrollTarget = Math.max(0, Math.min(steps.scrollTop + delta, maxScroll));
-
-		if (!stepScrollRAF) {
-			stepScrollRAF = window.requestAnimationFrame(smoothStepScroll);
-		}
-	}
-
-	// Lock scroll to steps
+	// Lock scroll - disable page scroll completely
 	function lockScroll() {
-		if (!isLocked && lenis) {
+		if (!isLocked) {
 			isLocked = true;
-			lenis.stop();
+			// Stop Lenis
+			if (lenis) {
+				lenis.stop();
+			}
+			// Also block native scroll by adding overflow hidden to body
+			document.body.style.overflow = 'hidden';
+			document.documentElement.style.overflow = 'hidden';
 		}
 	}
 
-	// Unlock scroll back to page
+	// Unlock scroll - re-enable page scroll
 	function unlockScroll() {
-		if (isLocked && lenis) {
+		if (isLocked) {
 			isLocked = false;
-			lenis.start();
+			// Start Lenis
+			if (lenis) {
+				lenis.start();
+			}
+			// Remove overflow hidden
+			document.body.style.overflow = '';
+			document.documentElement.style.overflow = '';
 		}
 	}
 
@@ -101,24 +91,29 @@
 
 		// If section is fully in view
 		if (fullyInView) {
-			// Lock if not already locked
-			if (!isLocked) {
-				lockScroll();
+			// Check if we need to unlock (reached edge of steps)
+			if (isLocked) {
+				if ((scrollingDown && atBottom) || (scrollingUp && atTop)) {
+					// Unlock and allow page to scroll
+					unlockScroll();
+					return; // Let the event propagate to scroll the page
+				}
 			}
 
-			// If locked, handle step scrolling
-			if (isLocked) {
-				// Check if we should unlock
-				if ((scrollingDown && atBottom) || (scrollingUp && atTop)) {
-					// Unlock and let page scroll
-					unlockScroll();
-					return;
+			// Lock if not already locked and steps have scroll room
+			if (!isLocked) {
+				const hasScrollRoom = steps.scrollHeight > steps.clientHeight;
+				if (hasScrollRoom) {
+					lockScroll();
 				}
+			}
 
-				// Scroll steps instead of page
+			// If locked, scroll the steps
+			if (isLocked) {
 				event.preventDefault();
 				event.stopPropagation();
-				scrollSteps(delta);
+				// Direct scroll - no animation needed, just scroll
+				steps.scrollTop += delta;
 			}
 		} else {
 			// Section not fully in view - ensure unlocked
@@ -145,18 +140,23 @@
 		const atBottom = isAtBottom();
 
 		if (fullyInView) {
-			if (!isLocked) {
-				lockScroll();
-			}
-
 			if (isLocked) {
 				if ((scrollingDown && atBottom) || (scrollingUp && atTop)) {
 					unlockScroll();
 					return;
 				}
+			}
 
+			if (!isLocked) {
+				const hasScrollRoom = steps.scrollHeight > steps.clientHeight;
+				if (hasScrollRoom) {
+					lockScroll();
+				}
+			}
+
+			if (isLocked) {
 				event.preventDefault();
-				scrollSteps(delta);
+				steps.scrollTop += delta;
 				touchStartY = currentY;
 			}
 		} else {
@@ -166,15 +166,22 @@
 		}
 	}
 
-	// Listen to wheel and touch events with capture to intercept before Lenis
+	// Listen to wheel and touch events with capture to intercept FIRST
 	window.addEventListener('wheel', handleWheel, { passive: false, capture: true });
 	window.addEventListener('touchstart', handleTouchStart, { passive: true });
 	window.addEventListener('touchmove', handleTouchMove, { passive: false });
 
-	// Also check on scroll to handle edge cases
+	// Safety: unlock on scroll if section leaves viewport
+	let scrollCheckTimeout = null;
 	window.addEventListener('scroll', () => {
-		if (!isSectionFullyInView() && isLocked) {
-			unlockScroll();
+		if (scrollCheckTimeout) {
+			return;
 		}
+		scrollCheckTimeout = setTimeout(() => {
+			scrollCheckTimeout = null;
+			if (!isSectionFullyInView() && isLocked) {
+				unlockScroll();
+			}
+		}, 50);
 	}, { passive: true });
 }());
