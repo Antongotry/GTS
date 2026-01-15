@@ -2070,22 +2070,32 @@ a.phone-button:focus,
 .hero-feature-top-left {
 	grid-column: 1;
 	grid-row: 1;
+	padding-top: 6px;
+	padding-bottom: 32px;
+	justify-content: flex-start;
 }
 
 .hero-feature-top-right {
 	grid-column: 2;
 	grid-row: 1;
-	display: none;
+	display: block;
+	padding: 0;
 }
 
 .hero-feature-bottom-left {
 	grid-column: 1;
 	grid-row: 2;
+	padding-top: 32px;
+	padding-bottom: 6px;
+	justify-content: flex-start;
 }
 
 .hero-feature-bottom-right {
 	grid-column: 2;
 	grid-row: 2;
+	padding-top: 32px;
+	padding-bottom: 6px;
+	justify-content: flex-start;
 }
 
 .hero-feature-icon {
