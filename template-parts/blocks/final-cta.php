@@ -11,9 +11,9 @@ $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-ho
 <section class="final-cta-block" style="background-image: url('<?php echo esc_url( $background_image ); ?>');">
 	<div class="final-cta-container">
 		<div class="final-cta-left">
-			<h2 class="final-cta-title"><?php echo esc_html( 'Most transfer companies offer cars.' ); ?></h2>
+			<h2 class="final-cta-title"><?php echo wp_kses_post( 'Most transfer<br>companies offer cars.' ); ?></h2>
 			<p class="final-cta-description">
-				<?php echo wp_kses_post( 'We offer <strong>peace of mind</strong> — through control,<br>consistency, and a truly global standard.' ); ?>
+				<?php echo wp_kses_post( 'We offer peace of mind — through control,<br>consistency, and a truly global standard.' ); ?>
 			</p>
 			<a href="#" class="btn btn-primary final-cta-button">Book a transfer</a>
 		</div>

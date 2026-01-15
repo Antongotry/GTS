@@ -15,15 +15,13 @@
 
 .final-cta-container {
 	@include container($container-max-width-content);
-	display: grid;
-	grid-template-columns: 410px 910px;
-	gap: $spacing-2xl;
+	display: flex;
 	justify-content: space-between;
 	align-items: flex-end; // Прижимаем к низу
 }
 
 .final-cta-left {
-	width: 410px;
+	width: 910px;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start; // Кнопка не растягивается
