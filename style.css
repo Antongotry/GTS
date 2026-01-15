@@ -1411,6 +1411,7 @@ a.phone-button,
 	color: #000 !important;
 	text-decoration: none !important;
 	white-space: nowrap !important;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
@@ -1774,6 +1775,7 @@ a.phone-button,
 	color: #000 !important;
 	text-decoration: none !important;
 	white-space: nowrap !important;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
@@ -1949,12 +1951,12 @@ a.phone-button:focus,
 }
 
 .btn-secondary:hover {
-	background: #f5f5f5;
-	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+	background: #e8e8e8;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
 .btn-secondary:active {
-	background: #eee;
+	background: #dcdcdc;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
