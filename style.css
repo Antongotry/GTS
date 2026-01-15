@@ -2612,7 +2612,7 @@ a.phone-button:focus,
 	display: flex;
 	align-items: center;
 	gap: 35px;
-	margin-bottom: 24px;
+	margin-bottom: 40px;
 }
 
 .why-us-heading-pill {
