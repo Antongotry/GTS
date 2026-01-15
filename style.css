@@ -3445,14 +3445,17 @@ a.phone-button:focus,
 	padding: 0 20px;
 	box-sizing: border-box;
 	display: grid;
-	grid-template-columns: 1fr 910px;
+	grid-template-columns: 410px 910px;
 	gap: 32px;
+	justify-content: space-between;
 	align-items: flex-end;
 }
 
 .final-cta-left {
+	width: 410px;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 }
 
 .final-cta-title {
@@ -3477,6 +3480,7 @@ a.phone-button:focus,
 
 .final-cta-button {
 	margin: 0;
+	width: auto;
 }
 
 .final-cta-right {

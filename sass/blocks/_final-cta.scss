@@ -16,14 +16,17 @@
 .final-cta-container {
 	@include container($container-max-width-content);
 	display: grid;
-	grid-template-columns: 1fr 910px;
+	grid-template-columns: 410px 910px;
 	gap: $spacing-2xl;
+	justify-content: space-between;
 	align-items: flex-end; // Прижимаем к низу
 }
 
 .final-cta-left {
+	width: 410px;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start; // Кнопка не растягивается
 }
 
 .final-cta-title {
@@ -48,6 +51,7 @@
 
 .final-cta-button {
 	margin: 0;
+	width: auto; // Не растягивать кнопку
 }
 
 .final-cta-right {
