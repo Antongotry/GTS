@@ -1,187 +1,65 @@
-/* global Lenis */
+/* global gsap, ScrollTrigger */
 
 (function () {
-	// Initialize Lenis for smooth scrolling
-	if (window.Lenis && !window.gtsLenis) {
-		window.gtsLenis = new Lenis({
-			smoothWheel: true,
-			smoothTouch: true,
-			wheelMultiplier: 0.85,
-			touchMultiplier: 1.1,
-			lerp: 0.075,
-		});
+	'use strict';
 
-		const raf = (time) => {
-			window.gtsLenis.raf(time);
-			window.requestAnimationFrame(raf);
-		};
-		window.requestAnimationFrame(raf);
-	}
-
-	// Set correct viewport height CSS variable
+	// Set viewport height CSS variable
 	const setViewportHeight = () => {
 		document.documentElement.style.setProperty('--gts-vh', `${window.innerHeight}px`);
 	};
-
 	setViewportHeight();
 	window.addEventListener('resize', setViewportHeight);
 
-	const section = document.querySelector('.how-it-works-block');
-	const steps = document.querySelector('.how-it-works-steps');
-
-	if (!section || !steps) {
-		return;
-	}
-
-	const lenis = window.gtsLenis;
-	let isLocked = false;
-
-	// Check if section is fully in viewport
-	function isSectionFullyInView() {
-		const rect = section.getBoundingClientRect();
-		// Block top is at or above viewport top, AND block bottom is at or below viewport bottom
-		return rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
-	}
-
-	// Check scroll boundaries
-	function isAtTop() {
-		return steps.scrollTop <= 1;
-	}
-
-	function isAtBottom() {
-		return steps.scrollTop + steps.clientHeight >= steps.scrollHeight - 1;
-	}
-
-	// Lock scroll - disable page scroll completely
-	function lockScroll() {
-		if (!isLocked) {
-			isLocked = true;
-			// Stop Lenis
-			if (lenis) {
-				lenis.stop();
-			}
-			// Also block native scroll by adding overflow hidden to body
-			document.body.style.overflow = 'hidden';
-			document.documentElement.style.overflow = 'hidden';
-		}
-	}
-
-	// Unlock scroll - re-enable page scroll
-	function unlockScroll() {
-		if (isLocked) {
-			isLocked = false;
-			// Start Lenis
-			if (lenis) {
-				lenis.start();
-			}
-			// Remove overflow hidden
-			document.body.style.overflow = '';
-			document.documentElement.style.overflow = '';
-		}
-	}
-
-	// Handle wheel events
-	function handleWheel(event) {
-		const fullyInView = isSectionFullyInView();
-		const delta = event.deltaY;
-		const scrollingDown = delta > 0;
-		const scrollingUp = delta < 0;
-		const atTop = isAtTop();
-		const atBottom = isAtBottom();
-
-		// If section is fully in view
-		if (fullyInView) {
-			// Check if we need to unlock (reached edge of steps)
-			if (isLocked) {
-				if ((scrollingDown && atBottom) || (scrollingUp && atTop)) {
-					// Unlock and allow page to scroll
-					unlockScroll();
-					return; // Let the event propagate to scroll the page
-				}
-			}
-
-			// Lock if not already locked and steps have scroll room
-			if (!isLocked) {
-				const hasScrollRoom = steps.scrollHeight > steps.clientHeight;
-				if (hasScrollRoom) {
-					lockScroll();
-				}
-			}
-
-			// If locked, scroll the steps
-			if (isLocked) {
-				event.preventDefault();
-				event.stopPropagation();
-				// Direct scroll - no animation needed, just scroll
-				steps.scrollTop += delta;
-			}
-		} else {
-			// Section not fully in view - ensure unlocked
-			if (isLocked) {
-				unlockScroll();
-			}
-		}
-	}
-
-	// Handle touch events
-	let touchStartY = 0;
-
-	function handleTouchStart(event) {
-		touchStartY = event.touches[0].clientY;
-	}
-
-	function handleTouchMove(event) {
-		const fullyInView = isSectionFullyInView();
-		const currentY = event.touches[0].clientY;
-		const delta = touchStartY - currentY;
-		const scrollingDown = delta > 0;
-		const scrollingUp = delta < 0;
-		const atTop = isAtTop();
-		const atBottom = isAtBottom();
-
-		if (fullyInView) {
-			if (isLocked) {
-				if ((scrollingDown && atBottom) || (scrollingUp && atTop)) {
-					unlockScroll();
-					return;
-				}
-			}
-
-			if (!isLocked) {
-				const hasScrollRoom = steps.scrollHeight > steps.clientHeight;
-				if (hasScrollRoom) {
-					lockScroll();
-				}
-			}
-
-			if (isLocked) {
-				event.preventDefault();
-				steps.scrollTop += delta;
-				touchStartY = currentY;
-			}
-		} else {
-			if (isLocked) {
-				unlockScroll();
-			}
-		}
-	}
-
-	// Listen to wheel and touch events with capture to intercept FIRST
-	window.addEventListener('wheel', handleWheel, { passive: false, capture: true });
-	window.addEventListener('touchstart', handleTouchStart, { passive: true });
-	window.addEventListener('touchmove', handleTouchMove, { passive: false });
-
-	// Safety: unlock on scroll if section leaves viewport
-	let scrollCheckTimeout = null;
-	window.addEventListener('scroll', () => {
-		if (scrollCheckTimeout) {
+	// Wait for DOM and GSAP to be ready
+	document.addEventListener('DOMContentLoaded', () => {
+		// Check if GSAP and ScrollTrigger are available
+		if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+			console.warn('GSAP or ScrollTrigger not loaded');
 			return;
 		}
-		scrollCheckTimeout = setTimeout(() => {
-			scrollCheckTimeout = null;
-			if (!isSectionFullyInView() && isLocked) {
-				unlockScroll();
-			}
-		}, 50);
-	}, { passive: true });
+
+		// Register ScrollTrigger plugin
+		gsap.registerPlugin(ScrollTrigger);
+
+		const section = document.querySelector('.how-it-works-block');
+		const stepsContainer = document.querySelector('.how-it-works-steps');
+
+		if (!section || !stepsContainer) {
+			return;
+		}
+
+		const steps = stepsContainer.querySelectorAll('.how-it-works-step');
+		if (steps.length === 0) {
+			return;
+		}
+
+		// Calculate how much we need to scroll the cards
+		// Total scroll = (number of cards - visible cards) * (card height + gap)
+		const cardHeight = 320;
+		const gap = 20;
+		const totalCardsHeight = steps.length * cardHeight + (steps.length - 1) * gap;
+		const visibleHeight = window.innerHeight;
+		const scrollDistance = totalCardsHeight - visibleHeight + 100; // extra padding
+
+		// Pin the section and scroll the cards
+		ScrollTrigger.create({
+			trigger: section,
+			start: 'top top',
+			end: `+=${scrollDistance}`,
+			pin: true,
+			pinSpacing: true,
+			scrub: 1,
+			onUpdate: (self) => {
+				// Calculate scroll position for the cards container
+				const progress = self.progress;
+				const maxScroll = stepsContainer.scrollHeight - stepsContainer.clientHeight;
+				stepsContainer.scrollTop = progress * maxScroll;
+			},
+		});
+
+		// Refresh ScrollTrigger on resize
+		window.addEventListener('resize', () => {
+			ScrollTrigger.refresh();
+		});
+	});
 }());

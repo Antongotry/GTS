@@ -62,18 +62,17 @@
 	padding-right: 100px;
 	box-sizing: border-box;
 	height: 100%;
+	display: flex;
+	align-items: flex-end;
 }
 
 .how-it-works-steps {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 100px;
-	top: 0;
+	width: 100%;
+	height: calc(100% - 40px);
 	display: flex;
 	flex-direction: column;
 	gap: $spacing-lg;
-	overflow-y: scroll;
+	overflow-y: hidden;
 	overflow-x: hidden;
 	box-sizing: border-box;
 	-ms-overflow-style: none;
