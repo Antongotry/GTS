@@ -57,7 +57,8 @@
 }
 
 .hero-subtitle {
-	font-size: 16px;
+	font-family: "Manrope", $font__main;
+	font-size: 18px;
 	font-weight: 400;
 	color: #fff;
 	margin: 0;
@@ -65,11 +66,13 @@
 }
 
 .hero-title {
-	font-size: 48px;
-	font-weight: 700;
+	font-family: "Visby CF", $font__main;
+	font-size: 54px;
+	font-weight: 500;
 	color: #fff;
 	margin: 0;
-	line-height: 1.2;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
 }
 
 .hero-buttons {
