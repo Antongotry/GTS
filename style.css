@@ -1615,7 +1615,6 @@ a.phone-button:focus,
 	letter-spacing: 0;
 	color: rgba(255, 255, 255, 0.4);
 	margin: 0 0 16px 0;
-	text-transform: uppercase;
 }
 
 .footer-menu {
