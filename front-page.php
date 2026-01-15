@@ -22,6 +22,8 @@ get_header();
 
 	<?php get_template_part( 'template-parts/blocks/custom-itinerary' ); ?>
 
+	<?php get_template_part( 'template-parts/blocks/final-cta' ); ?>
+
 </main><!-- #primary -->
 
 <?php
