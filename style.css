@@ -2060,6 +2060,30 @@ a.phone-button:focus,
 	position: relative;
 }
 
+.hero-features::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 1px;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.16);
+	transform: translateX(-50%);
+	pointer-events: none;
+}
+
+.hero-features::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.16);
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
 .hero-feature {
 	display: flex;
 	align-items: flex-start;
@@ -2096,6 +2120,38 @@ a.phone-button:focus,
 	padding-top: 32px;
 	padding-bottom: 6px;
 	justify-content: flex-start;
+}
+
+.hero-feature-divider-cross {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 1px;
+	height: 1px;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.hero-feature-divider-cross::before,
+.hero-feature-divider-cross::after {
+	content: "";
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.16);
+}
+
+.hero-feature-divider-cross::before {
+	width: 1px;
+	height: 16px;
+	top: -8px;
+	left: 0;
+}
+
+.hero-feature-divider-cross::after {
+	width: 16px;
+	height: 1px;
+	top: 0;
+	left: -8px;
 }
 
 .hero-feature-icon {
