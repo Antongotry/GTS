@@ -1824,28 +1824,28 @@ a.phone-button:focus,
 
 .footer-social-icons {
 	display: flex;
-	gap: 12px;
+	gap: 10px;
 }
 
 .footer-social-icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 40px;
-	height: 40px;
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.16);
 	transition: all 0.2s ease;
 }
 
 .footer-social-icon:hover {
-	border-color: rgba(255, 255, 255, 0.6);
+	border-color: rgba(255, 255, 255, 0.3);
 	background: rgba(255, 255, 255, 0.1);
 }
 
 .footer-social-icon img {
-	width: 20px;
-	height: 20px;
+	width: 25px;
+	height: 25px;
 	display: block;
 }
 
