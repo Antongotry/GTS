@@ -1798,10 +1798,13 @@ textarea {
   color: #000000;
 }
 .form-group select option {
-  color: #000000;
+  color: #000000 !important;
 }
 .form-group select option[value=""] {
-  color: rgba(0, 0, 0, 0.56);
+  color: rgba(0, 0, 0, 0.56) !important;
+}
+.form-group select option:checked {
+  color: #000000 !important;
 }
 .form-group textarea {
   resize: none;
@@ -1901,7 +1904,7 @@ textarea {
   display: flex;
   align-items: center;
   gap: 4px;
-  color: rgba(0, 0, 0, 0.56);
+  color: rgba(0, 0, 0, 0.56) !important;
   font-size: 14px;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 400;
@@ -1916,8 +1919,14 @@ textarea {
   height: 9px;
   flex-shrink: 0;
 }
+.add-stop-link:visited,
+.add-stop-link:focus,
+.add-stop-link:active {
+  color: rgba(0, 0, 0, 0.56) !important;
+  text-decoration: none;
+}
 .add-stop-link:hover {
-  color: #000000;
+  color: #000000 !important;
   text-decoration: none;
 }
 
