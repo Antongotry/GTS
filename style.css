@@ -3348,6 +3348,7 @@ a.phone-button:focus,
 }
 
 .custom-itinerary-container {
+	width: 100%;
 	max-width: 1840px;
 	margin: 0 auto;
 	padding: 0 20px;

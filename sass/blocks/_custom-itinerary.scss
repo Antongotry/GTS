@@ -9,6 +9,7 @@
 }
 
 .custom-itinerary-container {
+	width: 100%;
 	max-width: #{$container-max-width-content}; // 1840px
 	margin: 0 auto;
 	padding: 0 $spacing-lg; // padding по бокам
