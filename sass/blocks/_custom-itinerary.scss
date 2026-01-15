@@ -4,7 +4,7 @@
 
 .custom-itinerary-block {
 	width: 100%;
-	background: #fcdcaa; // Фон на всю ширину
+	background: #fff; // Белый фон секции
 	padding: $spacing-4xl 0; // 80px сверху и снизу
 }
 
@@ -12,7 +12,8 @@
 	width: 100%;
 	max-width: #{$container-max-width-content}; // 1840px
 	margin: 0 auto;
-	padding: 0 $spacing-lg; // padding по бокам
+	padding: $spacing-xl; // 24px со всех сторон
+	background: #fcdcaa; // Фон контейнера
 	display: flex;
 	flex-direction: column;
 	align-items: center;
