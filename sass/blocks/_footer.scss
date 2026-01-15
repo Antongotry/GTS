@@ -17,6 +17,18 @@
 	grid-auto-flow: row;
 	gap: 0;
 	align-items: start;
+	position: relative;
+	padding-top: 0;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1200px;
+		height: 1px;
+		background: rgba(255, 255, 255, 0.16); // #FFFFFF29
+	}
 }
 
 .footer-left {
