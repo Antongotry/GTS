@@ -98,19 +98,19 @@
 				<h4 class="footer-social-title">Social networks:</h4>
 				<div class="footer-social-icons">
 					<a href="#" class="footer-social-icon" aria-label="Telegram">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/telegram-icon.svg' ); ?>" alt="Telegram" width="24" height="24">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/telegram-icon.svg' ); ?>" alt="Telegram" width="25" height="25">
 					</a>
 					<a href="#" class="footer-social-icon" aria-label="Call">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/call-icon.svg' ); ?>" alt="Call" width="24" height="24">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/call-icon.svg' ); ?>" alt="Call" width="25" height="25">
 					</a>
 					<a href="#" class="footer-social-icon" aria-label="WhatsApp">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/whatsapp-icon.svg' ); ?>" alt="WhatsApp" width="24" height="24">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/Whatsapp.svg' ); ?>" alt="WhatsApp" width="25" height="25">
 					</a>
 					<a href="#" class="footer-social-icon" aria-label="Facebook">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/facebook-icon.svg' ); ?>" alt="Facebook" width="24" height="24">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/facebook-icon.svg' ); ?>" alt="Facebook" width="25" height="25">
 					</a>
 					<a href="#" class="footer-social-icon" aria-label="Instagram">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/instagram-icon.svg' ); ?>" alt="Instagram" width="24" height="24">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/instagram-icon.svg' ); ?>" alt="Instagram" width="25" height="25">
 					</a>
 				</div>
 			</div>
