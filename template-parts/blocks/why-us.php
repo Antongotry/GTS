@@ -17,9 +17,8 @@ $image_6_url = get_site_url() . '/wp-content/uploads/2026/01/home-2-block-2_resu
 <section class="why-us-block">
 	<div class="why-us-container">
 		<div class="why-us-grid">
-			<!-- Element 1: Image -->
-			<div class="why-us-item why-us-item-1">
-				<img src="<?php echo esc_url( $image_1_url ); ?>" alt="Available worldwide" class="why-us-item-image">
+			<!-- Element 1: Image as background -->
+			<div class="why-us-item why-us-item-1" style="background-image: url('<?php echo esc_url( $image_1_url ); ?>');">
 				<h3 class="why-us-item-title"><?php echo esc_html( 'Available worldwide' ); ?></h3>
 				<p class="why-us-item-description"><?php echo esc_html( 'Consistent excellence in executive and luxury transfers – wherever your journey takes you.' ); ?></p>
 			</div>
@@ -52,9 +51,8 @@ $image_6_url = get_site_url() . '/wp-content/uploads/2026/01/home-2-block-2_resu
 				<p class="why-us-item-description"><?php echo esc_html( 'Book directly on the website or through your personal manager – 24/7 via messenger, email or phone.' ); ?></p>
 			</div>
 
-			<!-- Element 6: Image -->
-			<div class="why-us-item why-us-item-6">
-				<img src="<?php echo esc_url( $image_6_url ); ?>" alt="Seamless coordination" class="why-us-item-image">
+			<!-- Element 6: Image as background -->
+			<div class="why-us-item why-us-item-6" style="background-image: url('<?php echo esc_url( $image_6_url ); ?>');">
 				<h3 class="why-us-item-title"><?php echo esc_html( 'Seamless coordination' ); ?></h3>
 				<p class="why-us-item-description"><?php echo esc_html( 'We work directly with your planner or venue to synchronise every detail – from arrivals to final departures.' ); ?></p>
 			</div>

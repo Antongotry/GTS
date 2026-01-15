@@ -20,10 +20,10 @@
 
 .why-us-grid {
 	display: grid;
-	grid-template-columns: 445px 445px;
-	grid-template-rows: repeat(3, auto);
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
 	gap: 20px;
-	justify-content: center;
+	width: 100%;
 }
 
 .why-us-item {
@@ -31,7 +31,15 @@
 	border: 1px inset rgba(255, 255, 255, 0.16);
 	border-radius: 0;
 	background: transparent;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	box-sizing: border-box;
+	position: relative;
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
 .why-us-item-1,
@@ -43,15 +51,7 @@
 .why-us-item-3,
 .why-us-item-4,
 .why-us-item-5 {
-	// Width is controlled by grid column (445px)
-}
-
-.why-us-item-image {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-	display: block;
-	margin-bottom: 24px;
+	grid-column: span 1;
 }
 
 .why-us-item-icon {
@@ -68,6 +68,8 @@
 	color: #fff;
 	margin: 0 0 12px 0;
 	line-height: 1.2;
+	position: relative;
+	z-index: 1;
 }
 
 .why-us-item-description {
@@ -78,12 +80,14 @@
 	margin: 0;
 	line-height: 1.5;
 	opacity: 0.9;
+	position: relative;
+	z-index: 1;
 }
 
 // Tablet (1024px)
 @include tablet {
 	.why-us-grid {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
 		gap: 16px;
 	}
 
