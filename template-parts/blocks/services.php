@@ -45,7 +45,7 @@ $services = array(
 			<span class="services-pill-text"><?php echo esc_html( 'Every journey, perfectly organized.' ); ?></span>
 		</div>
 		<h2 class="services-title">
-			<?php echo esc_html( 'From executive roadshows to private celebrations — GTS provides end-to-end transport solutions worldwide.' ); ?>
+			<?php echo wp_kses_post( 'From executive roadshows to private celebrations —<br>GTS provides end-to-end transport solutions worldwide.' ); ?>
 		</h2>
 
 		<div class="services-grid">
