@@ -23,30 +23,32 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/26_result-scaled.webp
 				</div>
 
 				<div class="hero-features">
-					<div class="hero-feature">
+					<div class="hero-feature hero-feature-top-left">
 						<div class="hero-feature-icon">
 							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg' ); ?>" alt="Premium fleet">
 						</div>
 						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 					</div>
 
-					<div class="hero-feature-divider"></div>
+					<div class="hero-feature hero-feature-top-right"></div>
 
-					<div class="hero-feature">
+					<div class="hero-feature hero-feature-bottom-left">
 						<div class="hero-feature-icon">
 							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg' ); ?>" alt="Trusted since 2010">
 						</div>
 						<p class="hero-feature-text">Since 2010, trusted by corporate & VIP clients</p>
 					</div>
 
-					<div class="hero-feature-divider"></div>
-
-					<div class="hero-feature">
+					<div class="hero-feature hero-feature-bottom-right">
 						<div class="hero-feature-icon">
 							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg' ); ?>" alt="Complex itineraries">
 						</div>
 						<p class="hero-feature-text">From simple rides to complex itineraries</p>
 					</div>
+
+					<div class="hero-feature-divider hero-feature-divider-center"></div>
+					<div class="hero-feature-divider hero-feature-divider-vertical"></div>
+					<div class="hero-feature-divider hero-feature-divider-horizontal"></div>
 				</div>
 			</div>
 		</div>
