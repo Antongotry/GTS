@@ -59,7 +59,7 @@
 	border: 1px solid rgba(255, 255, 255, 0.16);
 	border-radius: 0;
 	overflow: hidden;
-	min-height: 300px;
+	align-items: stretch;
 }
 
 .services-card-content {
@@ -105,14 +105,14 @@
 .services-card-image {
 	flex: 0 0 50%;
 	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: block;
+	height: 100%;
 }
 
 .services-image {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	object-position: center;
 	display: block;
 }
