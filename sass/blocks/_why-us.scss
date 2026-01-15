@@ -20,7 +20,7 @@
 
 .why-us-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto;
 	gap: 20px;
 	width: 100%;
@@ -36,15 +36,16 @@
 	background-repeat: no-repeat;
 	box-sizing: border-box;
 	position: relative;
-	min-height: 300px;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
 }
 
 .why-us-item-1,
 .why-us-item-6 {
 	grid-column: span 2;
+	min-height: 300px;
+	justify-content: flex-end;
+	align-items: flex-start;
 }
 
 .why-us-item-2,
@@ -52,13 +53,15 @@
 .why-us-item-4,
 .why-us-item-5 {
 	grid-column: span 1;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
 
 .why-us-item-icon {
 	width: auto;
 	height: auto;
 	display: block;
-	margin-bottom: 24px;
+	margin: 0 0 24px 0;
 }
 
 .why-us-item-title {
@@ -70,6 +73,7 @@
 	line-height: 1.2;
 	position: relative;
 	z-index: 1;
+	text-align: left;
 }
 
 .why-us-item-description {
@@ -82,12 +86,13 @@
 	opacity: 0.9;
 	position: relative;
 	z-index: 1;
+	text-align: left;
 }
 
 // Tablet (1024px)
 @include tablet {
 	.why-us-grid {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 1fr 1fr;
 		gap: 16px;
 	}
 
