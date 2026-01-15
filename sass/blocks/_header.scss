@@ -118,8 +118,9 @@
 
 .sub-menu {
 	position: absolute;
-	top: calc(100% + 30px);
+	top: calc(100% + 20px); // Отступ от пункта меню
 	left: 0;
+	margin-top: 10px; // Дополнительный отступ
 	background: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
