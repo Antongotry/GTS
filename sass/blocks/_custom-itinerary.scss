@@ -10,6 +10,7 @@
 
 .custom-itinerary-container {
 	max-width: #{$container-max-width-content}; // 1840px
+	height: 208px;
 	margin: 0 auto;
 	padding: $spacing-xl; // 24px со всех сторон
 	background: #fcdcaa; // Фон контейнера

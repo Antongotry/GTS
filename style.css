@@ -3349,6 +3349,7 @@ a.phone-button:focus,
 
 .custom-itinerary-container {
 	max-width: 1840px;
+	height: 208px;
 	margin: 0 auto;
 	padding: 24px;
 	background: #fcdcaa;
