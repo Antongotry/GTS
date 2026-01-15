@@ -210,6 +210,7 @@ function gts_theme_scripts() {
 	
 	// Enqueue Google Fonts (Manrope)
 	wp_enqueue_style( 'gts-manrope-font', 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap', array(), null );
+	wp_enqueue_style( 'gts-onest-font', 'https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap', array(), null );
 	
 	wp_enqueue_style( 'gts-theme-style', get_stylesheet_uri(), array( 'gts-manrope-font' ), $version );
 	wp_style_add_data( 'gts-theme-style', 'rtl', 'replace' );
