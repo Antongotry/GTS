@@ -3232,7 +3232,7 @@ a.phone-button:focus,
 	letter-spacing: -0.02em;
 	color: #000;
 	margin: 32px 0 0 0;
-	max-width: 920px;
+	max-width: 100%;
 	text-align: center;
 }
 

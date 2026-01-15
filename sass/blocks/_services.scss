@@ -40,7 +40,7 @@
 	letter-spacing: -0.02em;
 	color: #000;
 	margin: $spacing-2xl 0 0 0;
-	max-width: 920px;
+	max-width: 100%; // Убираем ограничение для 2 строк
 	text-align: center;
 }
 
