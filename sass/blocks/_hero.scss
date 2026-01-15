@@ -4,7 +4,7 @@
 
 .hero-block {
 	width: 100% !important;
-	min-height: 780px !important;
+	min-height: 100vh !important;
 	height: auto !important;
 	background-size: cover !important;
 	background-position: center !important;
@@ -13,7 +13,7 @@
 	margin: 0 !important;
 	padding: 0 !important;
 	display: flex !important;
-	align-items: flex-start;
+	align-items: stretch;
 	position: relative;
 	overflow: visible;
 	z-index: 1;
@@ -37,8 +37,8 @@
 	width: 100%;
 	max-width: 1840px;
 	margin: 0 auto;
-	padding: 0 20px 40px 20px;
-	min-height: 100%;
+	padding: 0 20px;
+	min-height: 100vh;
 	box-sizing: border-box;
 }
 
@@ -204,12 +204,11 @@
 .hero-right {
 	width: 390px;
 	flex-shrink: 0;
-	margin-top: 130px;
 	flex: 0 0 390px;
 	margin-left: auto;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	padding-top: 130px;
 	padding-bottom: 32px;
 	box-sizing: border-box;
 }
