@@ -16,9 +16,14 @@
 .final-cta-container {
 	@include container($container-max-width-content);
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 910px;
 	gap: $spacing-2xl;
-	align-items: center;
+	align-items: flex-end; // Прижимаем к низу
+}
+
+.final-cta-left {
+	display: flex;
+	flex-direction: column;
 }
 
 .final-cta-title {
@@ -46,5 +51,46 @@
 }
 
 .final-cta-right {
-	// Правая часть будет добавлена позже
+	width: 910px;
+	background: rgba(255, 255, 255, 0.06); // 6% белый
+	backdrop-filter: blur(100px);
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.final-cta-item {
+	padding: $spacing-xl 0; // 24px сверху/снизу
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Разделитель
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.final-cta-icon {
+	width: 26px;
+	height: 26px;
+	margin-bottom: $spacing-md; // 16px
+}
+
+.final-cta-item-title {
+	font-family: $font__main;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #ffffff;
+	margin: 0 0 $spacing-md 0; // 16px до описания
+}
+
+.final-cta-item-description {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #ffffff;
+	margin: 0;
 }
