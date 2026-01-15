@@ -2131,7 +2131,7 @@ a.phone-button:focus,
 
 .form-group.form-group-with-add-stop .add-stop-link {
 	margin-top: 4px;
-	align-self: flex-start;
+	align-self: flex-end;
 }
 
 .form-group input[type="text"],
