@@ -2885,23 +2885,24 @@ a.phone-button:focus,
 }
 
 .how-it-works-right {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	height: 100%;
-	flex: 0 0 590px;
-	max-width: 590px;
+	position: relative;
+	width: 590px;
+	flex-shrink: 0;
 	margin-left: auto;
 	padding-right: 100px;
 	box-sizing: border-box;
+	height: 100%;
 }
 
 .how-it-works-steps {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 100px;
+	top: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	width: 100%;
-	max-height: calc(var(--gts-vh, 100vh) - 40px);
 	overflow-y: scroll;
 	overflow-x: hidden;
 	box-sizing: border-box;
