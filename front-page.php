@@ -16,6 +16,8 @@ get_header();
 
 	<?php get_template_part( 'template-parts/blocks/how-it-works' ); ?>
 
+	<?php get_template_part( 'template-parts/blocks/trusted-by' ); ?>
+
 </main><!-- #primary -->
 
 <?php
