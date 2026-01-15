@@ -16,6 +16,12 @@ $image_6_url = get_site_url() . '/wp-content/uploads/2026/01/home-2-block-2_resu
 
 <section class="why-us-block">
 	<div class="why-us-container">
+		<div class="why-us-heading">
+			<div class="why-us-heading-pill">
+				<span class="why-us-heading-text"><?php echo esc_html( 'Why us?' ); ?></span>
+			</div>
+			<div class="why-us-heading-line" aria-hidden="true"></div>
+		</div>
 		<div class="why-us-grid">
 			<!-- Element 1: Image as background -->
 			<div class="why-us-item why-us-item-1" style="background-image: url('<?php echo esc_url( $image_1_url ); ?>');">

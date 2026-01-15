@@ -18,6 +18,39 @@
 	box-sizing: border-box;
 }
 
+.why-us-heading {
+	display: flex;
+	align-items: center;
+	gap: 35px;
+	margin-bottom: 24px;
+}
+
+.why-us-heading-pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 103px;
+	height: 43px;
+	border-radius: 999px;
+	background: #ffffff14;
+	backdrop-filter: blur(40px);
+}
+
+.why-us-heading-text {
+	font-family: "Manrope", $font__main;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0;
+	color: #fff;
+}
+
+.why-us-heading-line {
+	flex: 1;
+	height: 1px;
+	background: #ffffff29;
+}
+
 .why-us-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
