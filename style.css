@@ -3050,7 +3050,7 @@ a.phone-button:focus,
 .trusted-by-block {
 	width: 100%;
 	background: #fff;
-	padding: 80px 0 80px 0;
+	padding: 80px 0 0 0;
 	overflow: visible;
 }
 
@@ -3348,6 +3348,7 @@ a.phone-button:focus,
 }
 
 .custom-itinerary-container {
+	position: relative;
 	max-width: 1840px;
 	height: 208px;
 	margin: 0 auto;
@@ -3358,6 +3359,35 @@ a.phone-button:focus,
 	align-items: center;
 	text-align: center;
 	box-sizing: border-box;
+}
+
+.custom-itinerary-line {
+	position: absolute;
+	border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.custom-itinerary-line--top-left {
+	top: 48px;
+	left: 0;
+	width: 370px;
+}
+
+.custom-itinerary-line--top-right {
+	top: 48px;
+	right: 0;
+	width: 370px;
+}
+
+.custom-itinerary-line--bottom-left {
+	bottom: 48px;
+	left: 0;
+	width: 461px;
+}
+
+.custom-itinerary-line--bottom-right {
+	bottom: 48px;
+	right: 0;
+	width: 461px;
 }
 
 .custom-itinerary-title {

@@ -9,6 +9,7 @@
 }
 
 .custom-itinerary-container {
+	position: relative;
 	max-width: #{$container-max-width-content}; // 1840px
 	height: 208px;
 	margin: 0 auto;
@@ -19,6 +20,38 @@
 	align-items: center;
 	text-align: center;
 	box-sizing: border-box;
+}
+
+// Декоративные линии
+.custom-itinerary-line {
+	position: absolute;
+	border-top: 1px solid rgba(0, 0, 0, 0.16); // #00000029
+}
+
+// Верхние линии - 370px ширина, 48px от верха
+.custom-itinerary-line--top-left {
+	top: 48px;
+	left: 0;
+	width: 370px;
+}
+
+.custom-itinerary-line--top-right {
+	top: 48px;
+	right: 0;
+	width: 370px;
+}
+
+// Нижние линии - 461px ширина, 48px от низа
+.custom-itinerary-line--bottom-left {
+	bottom: 48px;
+	left: 0;
+	width: 461px;
+}
+
+.custom-itinerary-line--bottom-right {
+	bottom: 48px;
+	right: 0;
+	width: 461px;
 }
 
 .custom-itinerary-title {

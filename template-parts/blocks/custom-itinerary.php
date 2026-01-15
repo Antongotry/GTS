@@ -8,6 +8,10 @@
 
 <section class="custom-itinerary-block">
 	<div class="custom-itinerary-container">
+		<span class="custom-itinerary-line custom-itinerary-line--top-left"></span>
+		<span class="custom-itinerary-line custom-itinerary-line--top-right"></span>
+		<span class="custom-itinerary-line custom-itinerary-line--bottom-left"></span>
+		<span class="custom-itinerary-line custom-itinerary-line--bottom-right"></span>
 		<h2 class="custom-itinerary-title"><?php echo esc_html( "Didn't find your format?" ); ?></h2>
 		<p class="custom-itinerary-description">
 			<?php echo esc_html( "We'll tailor the journey to your exact needs — any vehicle, any destination, any time." ); ?>

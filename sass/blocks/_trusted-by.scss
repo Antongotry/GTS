@@ -5,7 +5,7 @@
 .trusted-by-block {
 	width: 100%;
 	background: #fff;
-	padding: $spacing-4xl 0 $spacing-4xl 0;
+	padding: $spacing-4xl 0 0 0; // 80px сверху, 0 снизу
 	overflow: visible;
 }
 
