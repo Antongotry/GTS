@@ -3494,8 +3494,9 @@ a.phone-button:focus,
 }
 
 .final-cta-item {
-	padding: 20px 0;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	padding-bottom: 24px;
+	margin-bottom: 24px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .final-cta-item:first-child {
@@ -3504,6 +3505,7 @@ a.phone-button:focus,
 
 .final-cta-item:last-child {
 	border-bottom: none;
+	margin-bottom: 0;
 	padding-bottom: 0;
 }
 
@@ -3512,6 +3514,7 @@ a.phone-button:focus,
 	align-items: center;
 	gap: 12px;
 	margin-bottom: 24px;
+	max-width: 606px;
 }
 
 .final-cta-icon {
@@ -3538,6 +3541,7 @@ a.phone-button:focus,
 	letter-spacing: 0;
 	color: #fff;
 	margin: 0;
+	max-width: 606px;
 }
 
 .final-cta-item-description-extra {

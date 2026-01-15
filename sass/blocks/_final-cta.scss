@@ -65,8 +65,9 @@
 }
 
 .final-cta-item {
-	padding: 20px 0; // Уменьшено для влезания
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Разделитель
+	padding-bottom: 24px; // 24px от описания до разделителя
+	margin-bottom: 24px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.16); // #FFFFFF29
 
 	&:first-child {
 		padding-top: 0;
@@ -74,6 +75,7 @@
 
 	&:last-child {
 		border-bottom: none;
+		margin-bottom: 0;
 		padding-bottom: 0;
 	}
 }
@@ -83,6 +85,7 @@
 	align-items: center;
 	gap: 12px;
 	margin-bottom: 24px; // 24px от header до описания
+	max-width: 606px; // Ширина контента
 }
 
 .final-cta-icon {
@@ -109,6 +112,7 @@
 	letter-spacing: 0;
 	color: #ffffff;
 	margin: 0;
+	max-width: 606px; // Ширина контента 606px
 }
 
 .final-cta-item-description-extra {
