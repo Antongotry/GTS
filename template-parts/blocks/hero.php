@@ -45,8 +45,6 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_resul
 						</div>
 						<p class="hero-feature-text">From simple rides to complex itineraries</p>
 					</div>
-
-					<div class="hero-feature-divider-cross"></div>
 				</div>
 			</div>
 		</div>
