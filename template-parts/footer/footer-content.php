@@ -10,17 +10,9 @@
 	<div class="footer-container">
 		<div class="footer-left">
 			<div class="footer-logo">
-				<?php
-				if ( has_custom_logo() ) {
-					the_custom_logo();
-				} else {
-					?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<span class="footer-logo-text"><?php bloginfo( 'name' ); ?></span>
-					</a>
-					<?php
-				}
-				?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/GTS-white.svg' ); ?>" alt="<?php bloginfo( 'name' ); ?>" width="70" height="auto">
+				</a>
 			</div>
 			<div class="footer-bottom-links">
 				<a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">Privacy policy</a>
