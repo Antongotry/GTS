@@ -1415,7 +1415,6 @@ a.phone-button,
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
-	transition: opacity 0.3s ease, background 0.3s ease !important;
 	box-sizing: border-box !important;
 	flex-shrink: 0 !important;
 	flex-grow: 0 !important;
@@ -1779,7 +1778,6 @@ a.phone-button,
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
-	transition: opacity 0.3s ease, background 0.3s ease !important;
 	box-sizing: border-box !important;
 	flex-shrink: 0 !important;
 	flex-grow: 0 !important;
