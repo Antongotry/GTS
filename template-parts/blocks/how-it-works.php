@@ -15,26 +15,26 @@ $steps = array(
 	array(
 		'number' => '01',
 		'icon' => $step_icon_1,
-		'title' => 'Book the way you prefer',
-		'description' => 'Reserve instantly on our website or send a request directly to our support team.',
+		'title' => 'Book the way<br>you prefer',
+		'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.',
 	),
 	array(
 		'number' => '02',
 		'icon' => $step_icon_2,
 		'title' => 'Receive confirmation',
-		'description' => 'All details arrive by email — your itinerary, photo of the car, driver info and contacts.',
+		'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.',
 	),
 	array(
 		'number' => '03',
 		'icon' => $step_icon_3,
 		'title' => 'Meet your driver',
-		'description' => 'Your chauffeur meets you on site and assists with arrival and coordination.',
+		'description' => 'A professional chauffeur arrives on time, helps<br>with luggage and ensures comfort.',
 	),
 	array(
 		'number' => '04',
 		'icon' => $step_icon_4,
-		'title' => 'Enjoy the ride',
-		'description' => 'Relax in comfort while we handle timing, routes and any changes.',
+		'title' => 'Travel with<br>confidence',
+		'description' => 'Transparent pricing, insured rides and real<br>24/7 assistance worldwide.',
 	),
 );
 ?>
@@ -54,7 +54,7 @@ $steps = array(
 				<?php foreach ( $steps as $step ) : ?>
 					<div class="how-it-works-step">
 						<div class="how-it-works-step-header">
-							<h3 class="how-it-works-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
+						<h3 class="how-it-works-step-title"><?php echo wp_kses_post( $step['title'] ); ?></h3>
 							<div class="how-it-works-step-badge">
 								<span class="how-it-works-step-number"><?php echo esc_html( $step['number'] ); ?></span>
 								<span class="how-it-works-step-icon">
@@ -62,7 +62,7 @@ $steps = array(
 								</span>
 							</div>
 						</div>
-						<p class="how-it-works-step-description"><?php echo esc_html( $step['description'] ); ?></p>
+						<p class="how-it-works-step-description"><?php echo wp_kses_post( $step['description'] ); ?></p>
 					</div>
 				<?php endforeach; ?>
 			</div>
