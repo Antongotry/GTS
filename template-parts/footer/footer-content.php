@@ -24,7 +24,7 @@
 		</div>
 
 		<div class="footer-menu">
-			<h3 class="footer-title"><?php echo esc_html__( 'Меню', 'gts-theme' ); ?></h3>
+			<h3 class="footer-title">Menu</h3>
 			<nav class="footer-navigation">
 				<?php
 				if ( has_nav_menu( 'footer-menu' ) ) {
