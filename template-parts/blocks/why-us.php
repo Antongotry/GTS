@@ -31,28 +31,36 @@ $image_6_url = get_site_url() . '/wp-content/uploads/2026/01/home-2-block-2_resu
 
 			<!-- Element 2: Icon -->
 			<div class="why-us-item why-us-item-2">
-				<img src="<?php echo esc_url( $icon_2_url ); ?>" alt="World-class fleet" class="why-us-item-icon">
+				<div class="why-us-item-icon-wrapper">
+					<img src="<?php echo esc_url( $icon_2_url ); ?>" alt="World-class fleet" class="why-us-item-icon">
+				</div>
 				<h3 class="why-us-item-title"><?php echo esc_html( 'World-class fleet' ); ?></h3>
 				<p class="why-us-item-description"><?php echo esc_html( 'Late-model business, premium and VIP vehicles, perfectly maintained for comfort, style and safety.' ); ?></p>
 			</div>
 
 			<!-- Element 3: Icon -->
 			<div class="why-us-item why-us-item-3">
-				<img src="<?php echo esc_url( $icon_3_url ); ?>" alt="Qualified chauffeurs" class="why-us-item-icon">
+				<div class="why-us-item-icon-wrapper">
+					<img src="<?php echo esc_url( $icon_3_url ); ?>" alt="Qualified chauffeurs" class="why-us-item-icon">
+				</div>
 				<h3 class="why-us-item-title"><?php echo esc_html( 'Qualified chauffeurs' ); ?></h3>
 				<p class="why-us-item-description"><?php echo esc_html( 'Licensed, experienced and discreet professionals trained to meet the highest service standards.' ); ?></p>
 			</div>
 
 			<!-- Element 4: Icon -->
 			<div class="why-us-item why-us-item-4">
-				<img src="<?php echo esc_url( $icon_4_url ); ?>" alt="Security & discretion" class="why-us-item-icon">
+				<div class="why-us-item-icon-wrapper">
+					<img src="<?php echo esc_url( $icon_4_url ); ?>" alt="Security & discretion" class="why-us-item-icon">
+				</div>
 				<h3 class="why-us-item-title"><?php echo esc_html( 'Security & discretion' ); ?></h3>
 				<p class="why-us-item-description"><?php echo esc_html( 'Strict safety protocols, discreet coordination, and confidential service for corporate & VIP clients.' ); ?></p>
 			</div>
 
 			<!-- Element 5: Icon -->
 			<div class="why-us-item why-us-item-5">
-				<img src="<?php echo esc_url( $icon_5_url ); ?>" alt="24/7 Human Support" class="why-us-item-icon">
+				<div class="why-us-item-icon-wrapper">
+					<img src="<?php echo esc_url( $icon_5_url ); ?>" alt="24/7 Human Support" class="why-us-item-icon">
+				</div>
 				<h3 class="why-us-item-title"><?php echo esc_html( '24/7 Human Support' ); ?></h3>
 				<p class="why-us-item-description"><?php echo esc_html( 'Book directly on the website or through your personal manager – 24/7 via messenger, email or phone.' ); ?></p>
 			</div>

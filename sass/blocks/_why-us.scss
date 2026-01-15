@@ -116,11 +116,25 @@
 	align-items: flex-start;
 }
 
+.why-us-item-icon-wrapper {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 66px;
+	height: 38px;
+	border-radius: 999px;
+	background: #ffffff14;
+	backdrop-filter: blur(40px);
+	-webkit-backdrop-filter: blur(40px);
+	margin: 0 0 24px 0;
+}
+
 .why-us-item-icon {
 	width: auto;
 	height: auto;
+	max-width: 26px;
+	max-height: 26px;
 	display: block;
-	margin: 0 0 24px 0;
 }
 
 .why-us-item-title {
