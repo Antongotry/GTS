@@ -298,8 +298,12 @@
 	color: #ffffff; // #FFFFFF для лейбла Social networks
 }
 
+.footer-email {
+	margin-top: 40px; // 40px отступ от иконок социальных сетей
+}
+
 .footer-email-title {
-	color: rgba(255, 255, 255, 0.6);
+	color: rgba(255, 255, 255, 0.4); // 40% белый цвет
 }
 
 .footer-social-icons {
