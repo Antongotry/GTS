@@ -2883,5 +2883,104 @@ a.phone-button:focus,
 }
 
 .how-it-works-right {
-	flex: 1;
+	display: flex;
+	align-items: flex-start;
+	height: 100%;
+	flex: 0 0 620px;
+	max-width: 620px;
+	margin-left: auto;
+	padding: 80px 100px 80px 0;
+	box-sizing: border-box;
+}
+
+.how-it-works-steps {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 100%;
+	max-height: 100%;
+	overflow-y: auto;
+	padding-right: 12px;
+	box-sizing: border-box;
+}
+
+.how-it-works-step {
+	background: #fff;
+	border: 1px solid rgba(12, 15, 23, 0.16);
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 220px;
+	box-sizing: border-box;
+}
+
+.how-it-works-step-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.how-it-works-step-title {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 110%;
+	letter-spacing: -0.02em;
+	color: #0c0f17;
+	margin: 0;
+}
+
+.how-it-works-step-description {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 120%;
+	letter-spacing: 0;
+	color: #0c0f17;
+	margin: 0;
+}
+
+.how-it-works-step-badge {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.how-it-works-step-number {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 66px;
+	height: 38px;
+	border-radius: 999px;
+	background: #fff;
+	border: 1px solid rgba(12, 15, 23, 0.16);
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0;
+	color: #0c0f17;
+}
+
+.how-it-works-step-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 66px;
+	height: 38px;
+	border-radius: 999px;
+	background: #fcdcaa;
+	margin-left: -12px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.how-it-works-step-icon img {
+	width: 26px;
+	height: 26px;
+	display: block;
 }
