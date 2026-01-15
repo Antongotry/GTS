@@ -36,7 +36,7 @@
 	font-family: $font__main;
 	font-size: 40px;
 	font-weight: 500;
-	line-height: 120%;
+	line-height: 1.2;
 	letter-spacing: -0.02em;
 	color: #000;
 	margin: $spacing-2xl 0 0 0;
@@ -46,49 +46,73 @@
 .trusted-by-slider {
 	width: 100%;
 	margin-top: $spacing-4xl;
+	overflow: visible;
 }
 
 .trusted-by-card {
 	background: #f5f5f5;
-	padding: $spacing-2xl;
-	min-height: 320px;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 0;
+	padding: 40px;
 	box-sizing: border-box;
 	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.trusted-by-card-content {
+	display: flex;
+	flex-direction: column;
 }
 
 .trusted-by-stars {
-	font-size: 14px;
-	color: $color__background-body;
-	letter-spacing: 2px;
+	display: flex;
+	gap: 3px;
+}
+
+.trusted-by-star {
+	font-size: 16px;
+	line-height: 1;
+	color: #0c0f17;
+	width: 16px;
+	height: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .trusted-by-card-text {
-	margin: $spacing-lg 0 $spacing-2xl 0;
+	margin: 32px 0 0 0;
 	font-family: $font__manrope;
 	font-size: 16px;
 	font-weight: 400;
-	line-height: 150%;
+	line-height: 1.5;
+	letter-spacing: 0;
 	color: #000;
 }
 
 .trusted-by-author {
 	display: flex;
 	align-items: center;
-	gap: $spacing-md;
+	gap: 16px;
+	margin-top: auto;
 }
 
 .trusted-by-avatar {
-	width: 36px;
-	height: 36px;
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
-	background: #d9d9d9;
-	display: inline-block;
+	display: block;
+	object-fit: cover;
 }
 
 .trusted-by-name {
 	font-family: $font__manrope;
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0;
 	color: #000;
 }
 
@@ -107,4 +131,14 @@
 	color: #000;
 	font-size: 16px;
 	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.trusted-by-button:hover {
+	background: #e0e0e0;
+}
+
+.trusted-by-button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
 }
