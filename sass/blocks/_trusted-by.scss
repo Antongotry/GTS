@@ -76,8 +76,10 @@
 	text-align: left;
 	display: flex !important;
 	flex-direction: column !important;
-	width: auto;
+	width: calc((100vw - 100px) / 4);
+	max-width: 435px;
 	height: auto;
+	flex-shrink: 0;
 }
 
 .trusted-by-card-content {
