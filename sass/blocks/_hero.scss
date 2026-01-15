@@ -54,6 +54,8 @@
 	flex-direction: column;
 	gap: 0;
 	margin-top: 130px;
+	min-height: calc(100vh - 130px - 64px);
+	height: 100%;
 }
 
 .hero-subtitle {
@@ -79,7 +81,7 @@
 	display: flex;
 	gap: 8px;
 	flex-wrap: wrap;
-	margin-bottom: 30px;
+	margin-bottom: 0;
 }
 
 .btn {
