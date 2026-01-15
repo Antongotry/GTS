@@ -20,7 +20,7 @@
 
 .why-us-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto;
 	gap: 20px;
 	width: 100%;
@@ -40,8 +40,7 @@
 	flex-direction: column;
 }
 
-.why-us-item-1,
-.why-us-item-6 {
+.why-us-item-1 {
 	grid-column: span 2;
 	min-height: 300px;
 	justify-content: flex-end;
@@ -49,11 +48,23 @@
 }
 
 .why-us-item-2,
-.why-us-item-3,
+.why-us-item-3 {
+	grid-column: span 1;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
 .why-us-item-4,
 .why-us-item-5 {
 	grid-column: span 1;
 	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.why-us-item-6 {
+	grid-column: span 2;
+	min-height: 300px;
+	justify-content: flex-end;
 	align-items: flex-start;
 }
 
@@ -92,11 +103,14 @@
 // Tablet (1024px)
 @include tablet {
 	.why-us-grid {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
 		gap: 16px;
 	}
 
-	.why-us-item-1,
+	.why-us-item-1 {
+		grid-column: span 2;
+	}
+
 	.why-us-item-6 {
 		grid-column: span 2;
 	}
