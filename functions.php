@@ -218,10 +218,13 @@ function gts_theme_scripts() {
 	wp_enqueue_script( 'gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $version, true );
 	wp_enqueue_script( 'gts-form-selects', get_template_directory_uri() . '/js/form-selects.js', array(), $version, true );
 
+	// Lenis for smooth scroll
+	wp_enqueue_script( 'lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true );
+
 	// GSAP for scroll animations
 	wp_enqueue_script( 'gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', true );
 	wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array( 'gsap' ), '3.12.5', true );
-	wp_enqueue_script( 'gts-how-it-works-scroll', get_template_directory_uri() . '/js/how-it-works-scroll.js', array( 'gsap', 'gsap-scrolltrigger' ), $version, true );
+	wp_enqueue_script( 'gts-how-it-works-scroll', get_template_directory_uri() . '/js/how-it-works-scroll.js', array( 'lenis', 'gsap', 'gsap-scrolltrigger' ), $version, true );
 
 	wp_enqueue_style( 'gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), $version );
 	wp_enqueue_script( 'gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), $version, true );

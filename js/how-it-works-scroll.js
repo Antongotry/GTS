@@ -1,4 +1,4 @@
-/* global gsap, ScrollTrigger */
+/* global gsap, ScrollTrigger, Lenis */
 
 (function () {
 	'use strict';
@@ -10,9 +10,9 @@
 	setViewportHeight();
 	window.addEventListener('resize', setViewportHeight);
 
-	// Wait for DOM and GSAP to be ready
+	// Wait for DOM to be ready
 	document.addEventListener('DOMContentLoaded', () => {
-		// Check if GSAP and ScrollTrigger are available
+		// Check dependencies
 		if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
 			console.warn('GSAP or ScrollTrigger not loaded');
 			return;
@@ -20,6 +20,35 @@
 
 		// Register ScrollTrigger plugin
 		gsap.registerPlugin(ScrollTrigger);
+
+		// Initialize Lenis for smooth scrolling
+		let lenis = null;
+		if (typeof Lenis !== 'undefined') {
+			lenis = new Lenis({
+				duration: 1.2,
+				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+				orientation: 'vertical',
+				gestureOrientation: 'vertical',
+				smoothWheel: true,
+				wheelMultiplier: 1,
+				touchMultiplier: 2,
+				infinite: false,
+			});
+
+			// Connect Lenis to ScrollTrigger
+			lenis.on('scroll', ScrollTrigger.update);
+
+			// Use GSAP ticker for Lenis
+			gsap.ticker.add((time) => {
+				lenis.raf(time * 1000);
+			});
+
+			// Disable GSAP's lag smoothing for better sync
+			gsap.ticker.lagSmoothing(0);
+
+			// Store globally for debugging
+			window.gtsLenis = lenis;
+		}
 
 		const section = document.querySelector('.how-it-works-block');
 		const stepsContainer = document.querySelector('.how-it-works-steps');
@@ -33,13 +62,12 @@
 			return;
 		}
 
-		// Calculate how much we need to scroll the cards
-		// Total scroll = (number of cards - visible cards) * (card height + gap)
+		// Calculate scroll distance based on cards
 		const cardHeight = 320;
 		const gap = 20;
 		const totalCardsHeight = steps.length * cardHeight + (steps.length - 1) * gap;
 		const visibleHeight = window.innerHeight;
-		const scrollDistance = totalCardsHeight - visibleHeight + 100; // extra padding
+		const scrollDistance = Math.max(0, totalCardsHeight - visibleHeight + 100);
 
 		// Pin the section and scroll the cards
 		ScrollTrigger.create({
@@ -50,16 +78,22 @@
 			pinSpacing: true,
 			scrub: 1,
 			onUpdate: (self) => {
-				// Calculate scroll position for the cards container
+				// Scroll the cards container based on scroll progress
 				const progress = self.progress;
 				const maxScroll = stepsContainer.scrollHeight - stepsContainer.clientHeight;
-				stepsContainer.scrollTop = progress * maxScroll;
+				if (maxScroll > 0) {
+					stepsContainer.scrollTop = progress * maxScroll;
+				}
 			},
 		});
 
 		// Refresh ScrollTrigger on resize
+		let resizeTimeout;
 		window.addEventListener('resize', () => {
-			ScrollTrigger.refresh();
+			clearTimeout(resizeTimeout);
+			resizeTimeout = setTimeout(() => {
+				ScrollTrigger.refresh();
+			}, 250);
 		});
 	});
 }());
