@@ -18,6 +18,8 @@ get_header();
 
 	<?php get_template_part( 'template-parts/blocks/trusted-by' ); ?>
 
+	<?php get_template_part( 'template-parts/blocks/services' ); ?>
+
 </main><!-- #primary -->
 
 <?php

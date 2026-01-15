@@ -1,0 +1,119 @@
+/**
+ * Services Block Styles
+ */
+
+.services-block {
+	width: 100%;
+	background: #fff;
+	padding: $spacing-4xl 0 $spacing-4xl 0;
+	margin-top: $spacing-5xl; // 150px
+}
+
+.services-container {
+	@include container($container-max-width-content);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.services-pill {
+	@include pill(232px, 43px);
+	background: #f5f5f5;
+	backdrop-filter: blur(40px);
+	-webkit-backdrop-filter: blur(40px);
+}
+
+.services-pill-text {
+	font-family: $font__manrope;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0;
+	color: $color__background-body;
+}
+
+.services-title {
+	font-family: $font__main;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #000;
+	margin: $spacing-2xl 0 0 0;
+	max-width: 920px;
+	text-align: center;
+}
+
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: $spacing-lg; // 20px
+	width: 100%;
+	margin-top: $spacing-4xl; // 80px
+}
+
+.services-card {
+	display: flex;
+	gap: $spacing-lg; // 20px between content and image
+	background: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 0;
+	overflow: hidden;
+	min-height: 300px;
+}
+
+.services-card-content {
+	flex: 1;
+	padding: $spacing-xl; // 24px
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+.services-card-title {
+	font-family: $font__main;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #000;
+	margin: 0 0 $spacing-md 0;
+}
+
+.services-card-description {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #000;
+	margin: 0 0 $spacing-md 0;
+	flex: 1;
+}
+
+.services-card-link {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	color: #000;
+	text-decoration: underline;
+	margin-top: auto;
+}
+
+.services-card-image {
+	flex: 0 0 50%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.services-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
