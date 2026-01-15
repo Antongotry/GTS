@@ -5,6 +5,7 @@
  * @package GTS
  */
 
+get_template_part( 'template-parts/footer/footer-content' );
 ?>
 
 </div><!-- #page -->
