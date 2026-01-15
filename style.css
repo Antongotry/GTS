@@ -2886,8 +2886,8 @@ a.phone-button:focus,
 	display: flex;
 	align-items: flex-start;
 	height: 100%;
-	flex: 0 0 590px;
-	max-width: 590px;
+	flex: 0 0 690px;
+	max-width: 690px;
 	margin-left: auto;
 	padding: 80px 100px 80px 0;
 	box-sizing: border-box;
@@ -2900,6 +2900,7 @@ a.phone-button:focus,
 	width: 100%;
 	max-height: 100%;
 	overflow-y: auto;
+	overflow-x: hidden;
 	padding-right: 12px;
 	box-sizing: border-box;
 }
@@ -2912,7 +2913,7 @@ a.phone-button:focus,
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 320px;
-	width: 590px;
+	width: 100%;
 	box-sizing: border-box;
 }
 
