@@ -1945,6 +1945,35 @@ a.phone-button:focus,
 	background: #fff;
 	color: #000;
 	border: none;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-secondary::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+	transition: left 0.5s ease;
+}
+
+.btn-secondary:hover {
+	background: #f8f8f8;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+	transform: translateY(-2px);
+}
+
+.btn-secondary:hover::before {
+	left: 100%;
+}
+
+.btn-secondary:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hero-features {
