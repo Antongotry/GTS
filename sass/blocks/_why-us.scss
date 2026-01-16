@@ -16,6 +16,11 @@
 
 .why-us-container {
 	@include container($container-max-width-content);
+
+	@include lg {
+		max-width: 984px;
+		padding: 0 20px;
+	}
 }
 
 .why-us-heading {
@@ -55,6 +60,11 @@
 	grid-template-rows: auto;
 	gap: $spacing-lg;
 	width: 100%;
+
+	@include lg {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
+	}
 }
 
 .why-us-item {

@@ -3602,6 +3602,14 @@ a.phone-button:focus,
 	box-sizing: border-box;
 }
 
+@media (max-width: 1024px) {
+
+	.why-us-container {
+		max-width: 984px;
+		padding: 0 20px;
+	}
+}
+
 .why-us-heading {
 	display: flex;
 	align-items: center;
@@ -3652,6 +3660,14 @@ a.phone-button:focus,
 	grid-template-rows: auto;
 	gap: 20px;
 	width: 100%;
+}
+
+@media (max-width: 1024px) {
+
+	.why-us-grid {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
+	}
 }
 
 .why-us-item {
