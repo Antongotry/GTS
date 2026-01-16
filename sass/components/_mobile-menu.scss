@@ -1,0 +1,214 @@
+/**
+ * Mobile Menu Drawer
+ * Bottom sheet style menu for tablet/mobile
+ */
+
+// Overlay
+.mobile-menu-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(12, 15, 23, 0.6);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	z-index: 9998;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+	            visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+	&.is-active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+// Drawer
+.mobile-menu-drawer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 55vh;
+	min-height: 400px;
+	max-height: 600px;
+	background: linear-gradient(180deg, #1A1D26 0%, #0C0F17 100%);
+	border-radius: 32px 32px 0 0;
+	z-index: 9999;
+	transform: translateY(100%);
+	transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+	display: none;
+	flex-direction: column;
+	padding: 0 32px 40px;
+	box-sizing: border-box;
+	overflow: hidden;
+
+	@include lg {
+		display: flex;
+	}
+
+	&.is-active {
+		transform: translateY(0);
+	}
+
+	// Decorative top glow
+	&::before {
+		content: '';
+		position: absolute;
+		top: -100px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 300px;
+		height: 200px;
+		background: radial-gradient(ellipse, rgba(244, 197, 139, 0.15) 0%, transparent 70%);
+		pointer-events: none;
+	}
+}
+
+// Handle bar
+.mobile-menu-handle {
+	width: 48px;
+	height: 5px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 3px;
+	margin: 16px auto 32px;
+	flex-shrink: 0;
+	cursor: grab;
+	transition: background 0.3s ease, width 0.3s ease;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.5);
+		width: 64px;
+	}
+}
+
+// Menu list
+.mobile-menu-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	overflow-y: auto;
+}
+
+// Menu item
+.mobile-menu-item {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.4s ease, transform 0.4s ease;
+
+	.mobile-menu-drawer.is-active & {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	// Staggered animation
+	@for $i from 1 through 7 {
+		&:nth-child(#{$i}) {
+			transition-delay: #{0.1 + ($i * 0.05)}s;
+		}
+	}
+}
+
+// Menu link
+.mobile-menu-link {
+	display: flex;
+	align-items: center;
+	padding: 16px 20px;
+	font-family: "Manrope", $font__main;
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+	position: relative;
+	overflow: hidden;
+
+	// Gradient hover effect
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, rgba(244, 197, 139, 0.1) 0%, rgba(244, 197, 139, 0) 50%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(244, 197, 139, 0.3);
+		transform: translateX(8px);
+
+		&::before {
+			opacity: 1;
+		}
+	}
+
+	&:active {
+		transform: translateX(8px) scale(0.98);
+	}
+}
+
+// Social icons section
+.mobile-menu-socials {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	margin-top: auto;
+	padding-top: 32px;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+
+	.mobile-menu-drawer.is-active & {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// Social link
+.mobile-social-link {
+	width: 52px;
+	height: 52px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+	img {
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+		transition: transform 0.3s ease;
+	}
+
+	&:hover {
+		background: rgba(244, 197, 139, 0.15);
+		border-color: rgba(244, 197, 139, 0.4);
+		transform: translateY(-4px);
+
+		img {
+			transform: scale(1.1);
+		}
+	}
+
+	&:active {
+		transform: translateY(-2px) scale(0.95);
+	}
+}
+
+// Body lock when menu is open
+body.mobile-menu-open {
+	overflow: hidden;
+}

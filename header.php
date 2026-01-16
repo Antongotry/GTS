@@ -77,3 +77,49 @@
 		</div>
 	</div>
 </header>
+
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
+<nav class="mobile-menu-drawer" aria-hidden="true">
+	<div class="mobile-menu-handle"></div>
+	<ul class="mobile-menu-list">
+		<li class="mobile-menu-item">
+			<a href="#" class="mobile-menu-link">Services</a>
+		</li>
+		<li class="mobile-menu-item">
+			<a href="#" class="mobile-menu-link">Events</a>
+		</li>
+		<li class="mobile-menu-item">
+			<a href="#" class="mobile-menu-link">For Business</a>
+		</li>
+		<li class="mobile-menu-item">
+			<a href="#" class="mobile-menu-link">Fleet</a>
+		</li>
+		<li class="mobile-menu-item">
+			<a href="#" class="mobile-menu-link">Blog</a>
+		</li>
+		<li class="mobile-menu-item">
+			<a href="#" class="mobile-menu-link">Contacts</a>
+		</li>
+		<li class="mobile-menu-item">
+			<a href="#" class="mobile-menu-link">About Us</a>
+		</li>
+	</ul>
+	<div class="mobile-menu-socials">
+		<a href="#" class="mobile-social-link" aria-label="Facebook">
+			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/fb.svg' ); ?>" alt="Facebook">
+		</a>
+		<a href="#" class="mobile-social-link" aria-label="Instagram">
+			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/inst.svg' ); ?>" alt="Instagram">
+		</a>
+		<a href="#" class="mobile-social-link" aria-label="Telegram">
+			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/telegram.svg' ); ?>" alt="Telegram">
+		</a>
+		<a href="#" class="mobile-social-link" aria-label="Viber">
+			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/viber.svg' ); ?>" alt="Viber">
+		</a>
+		<a href="#" class="mobile-social-link" aria-label="WhatsApp">
+			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/whats.svg' ); ?>" alt="WhatsApp">
+		</a>
+	</div>
+</nav>
