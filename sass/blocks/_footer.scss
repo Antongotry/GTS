@@ -18,6 +18,10 @@
 		width: 1200px;
 		height: 1px;
 		background: rgba(255, 255, 255, 0.16); // #FFFFFF29 (41/255 = 0.16)
+
+		@include lg {
+			width: 944px; // 984px - 40px padding
+		}
 	}
 }
 
@@ -35,6 +39,14 @@
 		// 70px (логотип) + 206px (отступ) = 276px до Menu
 		// 250px отступ от Menu до Services
 		grid-template-columns: 70px 206px auto 250px auto 1fr;
+	}
+
+	@include lg {
+		// На 1024px: упрощённая сетка
+		max-width: 984px;
+		padding: 0 20px;
+		grid-template-columns: 70px 60px auto 80px auto 160px auto 1fr;
+		grid-template-rows: auto;
 	}
 }
 
@@ -117,6 +129,11 @@
 		grid-row: 1;
 	}
 
+	@include lg {
+		grid-column: 3;
+		grid-row: 1;
+	}
+
 	.footer-menu-list {
 		list-style: none;
 		margin: 0;
@@ -154,6 +171,12 @@
 		grid-column: 3; // Под Menu
 		grid-row: 2; // Вторая строка
 		margin-top: 40px;
+	}
+
+	@include lg {
+		grid-column: 5;
+		grid-row: 1;
+		margin-top: 0;
 	}
 }
 
@@ -220,6 +243,13 @@
 		grid-row: 1 / span 2;
 		grid-template-columns: auto; // Один столбец
 	}
+
+	@include lg {
+		grid-column: 7;
+		grid-row: 1;
+		grid-template-columns: auto auto; // Две колонки
+		column-gap: 40px;
+	}
 }
 
 .footer-services-title {
@@ -269,6 +299,12 @@
 		grid-row: 3; // Третья строка (после левого списка)
 		margin-top: 16px;
 	}
+
+	@include lg {
+		grid-column: 2;
+		grid-row: 2;
+		margin-top: 0;
+	}
 }
 
 .footer-right {
@@ -281,6 +317,12 @@
 
 	@include laptop {
 		grid-column: 6; // Последняя колонка в новом grid
+	}
+
+	@include lg {
+		grid-column: 8;
+		grid-row: 1;
+		width: 280px;
 	}
 }
 
