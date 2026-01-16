@@ -2838,6 +2838,7 @@ a.phone-button:focus,
 
 	.hero-block {
 		min-height: 750px !important;
+		background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/1024-banner-home_result.webp") !important;
 	}
 }
 
@@ -2861,6 +2862,15 @@ a.phone-button:focus,
 	box-sizing: border-box;
 }
 
+@media (max-width: 1024px) {
+
+	.hero-container {
+		gap: 20px;
+		max-width: 984px;
+		min-height: 750px;
+	}
+}
+
 .hero-left {
 	width: 724px;
 	flex-shrink: 0;
@@ -2871,6 +2881,15 @@ a.phone-button:focus,
 	height: 100%;
 	padding-top: 130px;
 	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+
+	.hero-left {
+		width: 512px;
+		flex: 0 0 512px;
+		padding-top: 130px;
+	}
 }
 
 .hero-content {
@@ -3110,6 +3129,15 @@ a.phone-button:focus,
 	padding-top: 130px;
 	padding-bottom: 32px;
 	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+
+	.hero-right {
+		width: 390px;
+		flex: 0 0 390px;
+		margin-left: 0;
+	}
 }
 
 .booking-form {

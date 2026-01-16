@@ -21,6 +21,7 @@
 	// Tablet (1024px)
 	@include lg {
 		min-height: 750px !important;
+		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/1024-banner-home_result.webp') !important;
 	}
 
 	// Mobile (375px)
@@ -40,6 +41,12 @@
 	padding: 0 20px;
 	min-height: 100vh;
 	box-sizing: border-box;
+
+	@include lg {
+		gap: 20px;
+		max-width: 984px;
+		min-height: 750px;
+	}
 }
 
 .hero-left {
@@ -52,6 +59,12 @@
 	height: 100%;
 	padding-top: 130px;
 	box-sizing: border-box;
+
+	@include lg {
+		width: 512px;
+		flex: 0 0 512px;
+		padding-top: 130px;
+	}
 }
 
 .hero-content {
@@ -287,6 +300,12 @@
 	padding-top: 130px;
 	padding-bottom: 32px;
 	box-sizing: border-box;
+
+	@include lg {
+		width: 390px;
+		flex: 0 0 390px;
+		margin-left: 0;
+	}
 }
 
 // Booking form styles inside hero

@@ -1,6 +1,6 @@
 /**
  * Mobile Menu - Sliding Doors Effect
- * 
+ *
  * When clicking Services:
  * - Main menu slides DOWN (back where it came from)
  * - Submenu slides in from TOP (mirror effect)
