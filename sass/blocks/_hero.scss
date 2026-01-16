@@ -107,6 +107,7 @@
 
 	@include lg {
 		font-size: 36px;
+		max-width: 380px; // Для правильных переносов
 	}
 }
 
@@ -292,6 +293,10 @@
 	margin: 0;
 	line-height: 1.4;
 	opacity: 0.9;
+
+	@include lg {
+		font-size: 12px;
+	}
 }
 
 .hero-right {
