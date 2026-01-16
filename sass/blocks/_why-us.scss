@@ -32,6 +32,10 @@
 	font-weight: 400;
 	line-height: 1;
 	letter-spacing: 0;
+
+	@include tablet {
+		font-size: 12px;
+	}
 	color: $color__text-main;
 }
 
@@ -136,6 +140,10 @@
 	position: relative;
 	z-index: 1;
 	text-align: left;
+
+	@include tablet {
+		font-size: 20px;
+	}
 }
 
 .why-us-item-description {
@@ -150,6 +158,10 @@
 	position: relative;
 	z-index: 1;
 	text-align: left;
+
+	@include tablet {
+		font-size: 14px;
+	}
 }
 
 // Text content wrapper for narrow blocks (icon top, text bottom)

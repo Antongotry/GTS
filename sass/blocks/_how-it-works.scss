@@ -42,6 +42,10 @@
 	line-height: 1;
 	letter-spacing: 0;
 	color: $color__text-main;
+
+	@include tablet {
+		font-size: 12px;
+	}
 }
 
 .how-it-works-title {
@@ -52,6 +56,10 @@
 	letter-spacing: -0.02em;
 	color: $color__text-main;
 	margin: 0;
+
+	@include tablet {
+		font-size: 33px;
+	}
 }
 
 .how-it-works-right {
@@ -68,6 +76,11 @@
 	@include laptop {
 		width: 450px; // 390px card + 60px padding
 		padding-right: 60px;
+	}
+
+	@include tablet {
+		width: 410px; // 390px card + 20px padding
+		padding-right: 20px;
 	}
 }
 
@@ -101,6 +114,11 @@
 	flex-shrink: 0;
 	width: 100%;
 	box-sizing: border-box;
+
+	@include tablet {
+		height: 269px;
+		min-height: 269px;
+	}
 }
 
 .how-it-works-step-header {
@@ -118,6 +136,10 @@
 	letter-spacing: -0.02em;
 	color: $color__background-body;
 	margin: 0;
+
+	@include tablet {
+		font-size: 20px;
+	}
 }
 
 .how-it-works-step-description {

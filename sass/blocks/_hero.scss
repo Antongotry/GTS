@@ -20,7 +20,7 @@
 
 	// Tablet (1024px)
 	@include tablet {
-		min-height: 600px !important;
+		min-height: 750px !important;
 	}
 
 	// Mobile (375px)
@@ -73,6 +73,10 @@
 	color: #fff;
 	margin: 0 0 12px 0;
 	opacity: 0.9;
+
+	@include tablet {
+		font-size: 14px;
+	}
 }
 
 .hero-title {
@@ -83,6 +87,10 @@
 	margin: 0 0 24px 0;
 	line-height: 1.1;
 	letter-spacing: -0.02em;
+
+	@include tablet {
+		font-size: 36px;
+	}
 }
 
 .hero-buttons {

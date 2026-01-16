@@ -2414,7 +2414,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.hero-block {
-		min-height: 600px !important;
+		min-height: 750px !important;
 	}
 }
 
@@ -2471,6 +2471,13 @@ a.phone-button:focus,
 	opacity: 0.9;
 }
 
+@media (max-width: 1024px) {
+
+	.hero-subtitle {
+		font-size: 14px;
+	}
+}
+
 .hero-title {
 	font-family: "Visby CF", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 54px;
@@ -2479,6 +2486,13 @@ a.phone-button:focus,
 	margin: 0 0 24px 0;
 	line-height: 1.1;
 	letter-spacing: -0.02em;
+}
+
+@media (max-width: 1024px) {
+
+	.hero-title {
+		font-size: 36px;
+	}
 }
 
 .hero-buttons {
@@ -3148,6 +3162,16 @@ a.phone-button:focus,
 	font-weight: 400;
 	line-height: 1;
 	letter-spacing: 0;
+}
+
+@media (max-width: 1024px) {
+
+	.why-us-heading-text {
+		font-size: 12px;
+	}
+}
+
+.why-us-heading-text {
 	color: #fff;
 }
 
@@ -3264,6 +3288,13 @@ a.phone-button:focus,
 	text-align: left;
 }
 
+@media (max-width: 1024px) {
+
+	.why-us-item-title {
+		font-size: 20px;
+	}
+}
+
 .why-us-item-description {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 16px;
@@ -3276,6 +3307,13 @@ a.phone-button:focus,
 	position: relative;
 	z-index: 1;
 	text-align: left;
+}
+
+@media (max-width: 1024px) {
+
+	.why-us-item-description {
+		font-size: 14px;
+	}
 }
 
 .why-us-item-2 .why-us-item-title,
@@ -3396,6 +3434,13 @@ a.phone-button:focus,
 	color: #fff;
 }
 
+@media (max-width: 1024px) {
+
+	.how-it-works-pill-text {
+		font-size: 12px;
+	}
+}
+
 .how-it-works-title {
 	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 40px;
@@ -3404,6 +3449,13 @@ a.phone-button:focus,
 	letter-spacing: -0.02em;
 	color: #fff;
 	margin: 0;
+}
+
+@media (max-width: 1024px) {
+
+	.how-it-works-title {
+		font-size: 33px;
+	}
 }
 
 .how-it-works-right {
@@ -3423,6 +3475,14 @@ a.phone-button:focus,
 	.how-it-works-right {
 		width: 450px;
 		padding-right: 60px;
+	}
+}
+
+@media (max-width: 1024px) {
+
+	.how-it-works-right {
+		width: 410px;
+		padding-right: 20px;
 	}
 }
 
@@ -3458,6 +3518,14 @@ a.phone-button:focus,
 	box-sizing: border-box;
 }
 
+@media (max-width: 1024px) {
+
+	.how-it-works-step {
+		height: 269px;
+		min-height: 269px;
+	}
+}
+
 .how-it-works-step-header {
 	display: flex;
 	align-items: flex-start;
@@ -3473,6 +3541,13 @@ a.phone-button:focus,
 	letter-spacing: -0.02em;
 	color: #0c0f17;
 	margin: 0;
+}
+
+@media (max-width: 1024px) {
+
+	.how-it-works-step-title {
+		font-size: 20px;
+	}
 }
 
 .how-it-works-step-description {
@@ -3571,6 +3646,13 @@ a.phone-button:focus,
 	color: #0c0f17;
 }
 
+@media (max-width: 1024px) {
+
+	.trusted-by-pill-text {
+		font-size: 12px;
+	}
+}
+
 .trusted-by-title {
 	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 40px;
@@ -3580,6 +3662,13 @@ a.phone-button:focus,
 	color: #000;
 	margin: 32px 0 0 0;
 	max-width: 920px;
+}
+
+@media (max-width: 1024px) {
+
+	.trusted-by-title {
+		font-size: 33px;
+	}
 }
 
 .trusted-by-slider {
@@ -3706,6 +3795,13 @@ a.phone-button:focus,
 	color: #0c0f17;
 }
 
+@media (max-width: 1024px) {
+
+	.services-pill-text {
+		font-size: 12px;
+	}
+}
+
 .services-title {
 	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 40px;
@@ -3716,6 +3812,13 @@ a.phone-button:focus,
 	margin: 32px 0 0 0;
 	max-width: 100%;
 	text-align: center;
+}
+
+@media (max-width: 1024px) {
+
+	.services-title {
+		font-size: 33px;
+	}
 }
 
 .services-grid {

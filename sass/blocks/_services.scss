@@ -29,6 +29,10 @@
 	line-height: 1;
 	letter-spacing: 0;
 	color: $color__background-body;
+
+	@include tablet {
+		font-size: 12px;
+	}
 }
 
 .services-title {
@@ -41,6 +45,10 @@
 	margin: $spacing-2xl 0 0 0;
 	max-width: 100%; // Убираем ограничение для 2 строк
 	text-align: center;
+
+	@include tablet {
+		font-size: 33px;
+	}
 }
 
 .services-grid {
