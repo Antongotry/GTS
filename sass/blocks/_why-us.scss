@@ -8,6 +8,10 @@
 	margin-bottom: 0;
 	padding: 0;
 	background: transparent;
+
+	@include lg {
+		margin-top: 60px;
+	}
 }
 
 .why-us-container {

@@ -3587,6 +3587,13 @@ a.phone-button:focus,
 	background: transparent;
 }
 
+@media (max-width: 1024px) {
+
+	.why-us-block {
+		margin-top: 60px;
+	}
+}
+
 .why-us-container {
 	width: 100%;
 	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
