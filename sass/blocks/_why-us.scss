@@ -18,10 +18,11 @@
 	@include container($container-max-width-content);
 
 	@include lg {
-		width: 944px; // 984px - 40px для выравнивания с hero
-		max-width: 944px;
-		padding: 0;
+		width: 100%;
+		max-width: 944px; // 984px - 40px padding
+		padding: 0 20px;
 		margin: 0 auto;
+		box-sizing: content-box; // padding не входит в max-width
 	}
 }
 

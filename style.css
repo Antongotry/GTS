@@ -3675,10 +3675,11 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.why-us-container {
-		width: 944px;
+		width: 100%;
 		max-width: 944px;
-		padding: 0;
+		padding: 0 20px;
 		margin: 0 auto;
+		box-sizing: content-box;
 	}
 }
 
