@@ -76,4 +76,8 @@
 	margin: 0 auto;
 	padding: 0 $container-padding;
 	box-sizing: border-box;
+
+	@include laptop {
+		max-width: $container-max-width-laptop;
+	}
 }

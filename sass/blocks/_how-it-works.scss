@@ -64,6 +64,10 @@
 	height: 100%;
 	display: flex;
 	align-items: flex-end;
+
+	@include laptop {
+		width: 490px; // 390px card + 100px padding
+	}
 }
 
 .how-it-works-steps {

@@ -29,6 +29,11 @@
 	grid-auto-flow: row;
 	gap: 0;
 	align-items: start;
+
+	@include laptop {
+		// На 1440px: Menu и Site language в одной колонке, Services в 1 столбец
+		grid-template-columns: 70px 100px auto 100px auto 1fr;
+	}
 }
 
 .footer-left {
@@ -69,6 +74,11 @@
 	gap: 16px; // 16px между элементами
 	flex-wrap: wrap;
 
+	@include laptop {
+		flex-direction: column; // В колонку на 1440px
+		align-items: flex-start;
+	}
+
 	a,
 	.footer-copyright {
 		font-family: $font__manrope;
@@ -99,6 +109,11 @@
 .footer-menu {
 	grid-column: 3; // 235px от начала (70px + 165px)
 	grid-row: 1;
+
+	@include laptop {
+		grid-column: 3;
+		grid-row: 1;
+	}
 
 	.footer-menu-list {
 		list-style: none;
@@ -132,6 +147,12 @@
 .footer-language {
 	grid-column: 5; // 160px от menu
 	grid-row: 1;
+
+	@include laptop {
+		grid-column: 3; // Под Menu
+		grid-row: 2; // Вторая строка
+		margin-top: 40px;
+	}
 }
 
 .footer-language-list {
@@ -191,6 +212,12 @@
 	column-gap: 80px; // 80px отступ между колонками
 	row-gap: 0;
 	align-items: start;
+
+	@include laptop {
+		grid-column: 5; // Перемещается в колонку 5
+		grid-row: 1 / span 2;
+		grid-template-columns: auto; // Один столбец
+	}
 }
 
 .footer-services-title {
@@ -234,6 +261,12 @@
 .footer-services-list-right {
 	grid-column: 2; // Вторая колонка (80px от первой через column-gap)
 	grid-row: 2; // Вторая строка
+
+	@include laptop {
+		grid-column: 1; // В один столбец
+		grid-row: 3; // Третья строка (после левого списка)
+		margin-top: 16px;
+	}
 }
 
 .footer-right {
@@ -243,6 +276,10 @@
 	justify-self: end; // Прижата к правому краю
 	display: flex;
 	flex-direction: column;
+
+	@include laptop {
+		grid-column: 6; // Последняя колонка в новом grid
+	}
 }
 
 .footer-button {
