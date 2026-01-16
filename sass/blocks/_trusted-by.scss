@@ -47,9 +47,9 @@
 
 .trusted-by-slider {
 	width: 100%;
-	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - 40px));
+	max-width: 100%; // На всю ширину без ограничений
 	margin: $spacing-4xl auto 0;
-	padding: 0 $spacing-lg;
+	padding: 0; // Без padding — на всю ширину
 	box-sizing: border-box;
 	overflow: visible;
 }

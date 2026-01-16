@@ -3574,9 +3574,9 @@ a.phone-button:focus,
 
 .trusted-by-slider {
 	width: 100%;
-	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+	max-width: 100%;
 	margin: 80px auto 0;
-	padding: 0 20px;
+	padding: 0;
 	box-sizing: border-box;
 	overflow: visible;
 }
