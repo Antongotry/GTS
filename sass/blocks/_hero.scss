@@ -35,7 +35,7 @@
 	align-items: stretch;
 	justify-content: space-between;
 	width: 100%;
-	max-width: min(1840px, calc(100vw - 40px));
+	max-width: min(1840px, calc(100vw - var(--scrollbar-width) - 40px));
 	margin: 0 auto;
 	padding: 0 20px;
 	min-height: 100vh;

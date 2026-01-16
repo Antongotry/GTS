@@ -1,3 +1,8 @@
+html {
+	// Автоматически вычисляет ширину scrollbar (100vw включает scrollbar, 100% - нет)
+	--scrollbar-width: calc(100vw - 100%);
+}
+
 html,
 body {
 	background: $color__background-body;

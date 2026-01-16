@@ -47,7 +47,7 @@
 
 .trusted-by-slider {
 	width: 100%;
-	max-width: min(#{$container-max-width-content}, calc(100vw - 40px));
+	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - 40px));
 	margin: $spacing-4xl auto 0;
 	padding: 0 $spacing-lg;
 	box-sizing: border-box;

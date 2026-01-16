@@ -623,6 +623,10 @@ big {
 
 /* Elements
 --------------------------------------------- */
+html {
+	--scrollbar-width: calc(100vw - 100%);
+}
+
 html,
 body {
 	background: #0c0f17;
@@ -1174,7 +1178,7 @@ textarea {
 }
 
 .header-container {
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 5px 0 20px;
@@ -1575,7 +1579,7 @@ a.phone-button:focus,
 
 .footer-container {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
@@ -1620,7 +1624,7 @@ a.phone-button:focus,
 
 .footer-bottom {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
@@ -2006,7 +2010,7 @@ a.phone-button:focus,
 }
 
 .header-container {
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 5px 0 20px;
@@ -2423,7 +2427,7 @@ a.phone-button:focus,
 	align-items: stretch;
 	justify-content: space-between;
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	min-height: 100vh;
@@ -3109,7 +3113,7 @@ a.phone-button:focus,
 
 .why-us-container {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
@@ -3341,7 +3345,7 @@ a.phone-button:focus,
 
 .how-it-works-container {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
@@ -3525,7 +3529,7 @@ a.phone-button:focus,
 
 .trusted-by-container {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
@@ -3570,7 +3574,7 @@ a.phone-button:focus,
 
 .trusted-by-slider {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 80px auto 0;
 	padding: 0 20px;
 	box-sizing: border-box;
@@ -3663,7 +3667,7 @@ a.phone-button:focus,
 
 .services-container {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
@@ -3819,7 +3823,7 @@ a.phone-button:focus,
 
 .custom-itinerary-container {
 	position: relative;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	height: 208px;
 	margin: 0 auto;
 	padding: 24px;
@@ -3910,7 +3914,7 @@ a.phone-button:focus,
 
 .final-cta-container {
 	width: 100%;
-	max-width: min(1840px, 100vw - 40px);
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;

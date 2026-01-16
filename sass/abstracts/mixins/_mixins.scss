@@ -69,11 +69,12 @@
 // ==========================================================================
 // Container (Fluid approach - no breakpoint jumps)
 // Usage: @include container($max-width: $container-max-width-content);
-// Container is always $max-width OR viewport - padding, whichever is smaller
+// Container is always $max-width OR viewport - scrollbar - padding, whichever is smaller
+// Uses --scrollbar-width CSS variable defined in html element
 // ==========================================================================
 @mixin container($max-width: $container-max-width-content) {
 	width: 100%;
-	max-width: min(#{$max-width}, calc(100vw - #{$container-padding * 2}));
+	max-width: min(#{$max-width}, calc(100vw - var(--scrollbar-width) - #{$container-padding * 2}));
 	margin: 0 auto;
 	padding: 0 $container-padding;
 	box-sizing: border-box;
