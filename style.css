@@ -3733,6 +3733,7 @@ a.phone-button:focus,
 	width: 100%;
 	background: #fff;
 	padding: 150px 0 80px 0;
+	margin-top: -1px;
 }
 
 .services-container {
