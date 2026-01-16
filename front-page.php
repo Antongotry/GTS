@@ -16,11 +16,13 @@ get_header();
 
 	<?php get_template_part( 'template-parts/blocks/how-it-works' ); ?>
 
-	<?php get_template_part( 'template-parts/blocks/trusted-by' ); ?>
+	<div class="white-sections-wrapper">
+		<?php get_template_part( 'template-parts/blocks/trusted-by' ); ?>
 
-	<?php get_template_part( 'template-parts/blocks/services' ); ?>
+		<?php get_template_part( 'template-parts/blocks/services' ); ?>
 
-	<?php get_template_part( 'template-parts/blocks/custom-itinerary' ); ?>
+		<?php get_template_part( 'template-parts/blocks/custom-itinerary' ); ?>
+	</div>
 
 	<?php get_template_part( 'template-parts/blocks/final-cta' ); ?>
 

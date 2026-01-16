@@ -9,6 +9,11 @@
 	overflow: visible;
 }
 
+// Wrapper для секций с белым фоном (убирает стыки между блоками)
+.white-sections-wrapper {
+	background: #fff;
+}
+
 @import "../blocks/header";
 @import "../blocks/hero";
 @import "../blocks/why-us";
