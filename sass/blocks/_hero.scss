@@ -44,11 +44,11 @@
 
 	@include lg {
 		gap: 20px;
-		width: 984px;
-		max-width: 984px;
+		width: 100%;
+		max-width: 944px; // 984px - 40px (2*20px padding)
 		padding: 0 20px;
 		min-height: 750px;
-		box-sizing: border-box;
+		box-sizing: content-box; // padding не входит в max-width
 	}
 }
 

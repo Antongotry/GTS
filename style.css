@@ -2931,11 +2931,11 @@ a.phone-button:focus,
 
 	.hero-container {
 		gap: 20px;
-		width: 984px;
-		max-width: 984px;
+		width: 100%;
+		max-width: 944px;
 		padding: 0 20px;
 		min-height: 750px;
-		box-sizing: border-box;
+		box-sizing: content-box;
 	}
 }
 
