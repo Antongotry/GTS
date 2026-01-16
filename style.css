@@ -4424,6 +4424,13 @@ a.phone-button:focus,
 	margin-top: 80px;
 }
 
+@media (max-width: 1024px) {
+
+	.services-grid {
+		gap: 20px 14px;
+	}
+}
+
 .services-card {
 	display: flex;
 	gap: 20px;
@@ -4433,6 +4440,14 @@ a.phone-button:focus,
 	overflow: hidden;
 	align-items: stretch;
 	height: 335px;
+}
+
+@media (max-width: 1024px) {
+
+	.services-card {
+		gap: 0;
+		height: 335px;
+	}
 }
 
 .services-card-content {
@@ -4446,6 +4461,13 @@ a.phone-button:focus,
 	justify-content: space-between;
 }
 
+@media (max-width: 1024px) {
+
+	.services-card-content {
+		padding: 20px;
+	}
+}
+
 .services-card-title {
 	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 24px;
@@ -4456,6 +4478,13 @@ a.phone-button:focus,
 	margin: 0;
 }
 
+@media (max-width: 1024px) {
+
+	.services-card-title {
+		font-size: 20px;
+	}
+}
+
 .services-card-description {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 16px;
@@ -4464,6 +4493,13 @@ a.phone-button:focus,
 	letter-spacing: 0;
 	color: #000;
 	margin: 0 0 16px 0;
+}
+
+@media (max-width: 1024px) {
+
+	.services-card-description {
+		font-size: 14px;
+	}
 }
 
 .services-card-link {
@@ -4479,6 +4515,13 @@ a.phone-button:focus,
 	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
 }
 
+@media (max-width: 1024px) {
+
+	.services-card-link {
+		font-size: 16px;
+	}
+}
+
 .services-card-link:hover {
 	opacity: 0.7;
 	text-decoration-color: rgba(0, 0, 0, 0.5);
@@ -4489,6 +4532,14 @@ a.phone-button:focus,
 	overflow: hidden;
 	display: block;
 	height: 100%;
+}
+
+@media (max-width: 1024px) {
+
+	.services-card-image {
+		flex: 0 0 209px;
+		width: 209px;
+	}
 }
 
 .services-image {
