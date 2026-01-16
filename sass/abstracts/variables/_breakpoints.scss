@@ -1,0 +1,34 @@
+/**
+ * Breakpoints
+ * Desktop-first responsive breakpoints and mixins
+ *
+ * Логика:
+ * 1920px = базовые стили (без медиа-запроса)
+ * 1440px = @include xl { } — большой десктоп
+ * 1024px = @include lg { } — планшет ландшафт
+ * 768px  = @include md { } — мобильные устройства
+ */
+
+// Desktop-first брейкпоинты
+$breakpoint-xl: 1440px;
+$breakpoint-lg: 1024px;
+$breakpoint-md: 768px;
+
+// Миксины для медиа-запросов (desktop-first: max-width)
+@mixin xl {
+	@media (max-width: #{$breakpoint-xl}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (max-width: #{$breakpoint-lg}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (max-width: #{$breakpoint-md}) {
+		@content;
+	}
+}

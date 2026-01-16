@@ -1,0 +1,20 @@
+/**
+ * SCSS Functions
+ * Utility functions for responsive design
+ */
+
+// Конвертация px в rem (базовый размер 16px)
+@function rem($px) {
+	@return calc($px / 16) * 1rem;
+}
+
+// Флюидная типографика: плавно меняет размер от min до max
+// Использование: font-size: fluid(16, 24); // от 16px на 375px до 24px на 1920px
+@function fluid($min-px, $max-px, $min-vw: 375, $max-vw: 1920) {
+	$min-rem: calc($min-px / 16);
+	$max-rem: calc($max-px / 16);
+	$slope: calc(($max-px - $min-px) / ($max-vw - $min-vw));
+	$y-intercept: calc(-1 * $min-vw * $slope + $min-px);
+
+	@return clamp(#{$min-rem}rem, #{$y-intercept / 16}rem + #{$slope * 100}vw, #{$max-rem}rem);
+}

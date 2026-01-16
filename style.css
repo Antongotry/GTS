@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*!
 Theme Name: GTS
 Theme URI: http://underscores.me/
@@ -49,6 +51,22 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+
+/**
+ * SCSS Functions
+ * Utility functions for responsive design
+ */
+
+/**
+ * Breakpoints
+ * Desktop-first responsive breakpoints and mixins
+ *
+ * Логика:
+ * 1920px = базовые стили (без медиа-запроса)
+ * 1440px = @include xl { } — большой десктоп
+ * 1024px = @include lg { } — планшет ландшафт
+ * 768px  = @include md { } — мобильные устройства
+ */
 
 /*--------------------------------------------------------------
 # Generic
