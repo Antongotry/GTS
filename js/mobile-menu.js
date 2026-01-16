@@ -1,6 +1,6 @@
 /**
  * Mobile Menu Drawer
- * 
+ *
  * Bottom sheet style menu for tablet/mobile devices
  */
 
@@ -45,7 +45,7 @@
 		mobileMenuOverlay.setAttribute('aria-hidden', 'true');
 		body.classList.remove('mobile-menu-open');
 		hamburgerButton.setAttribute('aria-expanded', 'false');
-		
+
 		// Reset transform
 		mobileMenuDrawer.style.transform = '';
 	}
@@ -79,7 +79,7 @@
 
 	// Touch drag to close (swipe down)
 	const handle = mobileMenuDrawer.querySelector('.mobile-menu-handle');
-	
+
 	function handleTouchStart(e) {
 		startY = e.touches[0].clientY;
 		isDragging = true;
@@ -88,10 +88,10 @@
 
 	function handleTouchMove(e) {
 		if (!isDragging) return;
-		
+
 		currentY = e.touches[0].clientY;
 		const deltaY = currentY - startY;
-		
+
 		// Only allow dragging down
 		if (deltaY > 0) {
 			mobileMenuDrawer.style.transform = `translateY(${deltaY}px)`;
@@ -100,12 +100,12 @@
 
 	function handleTouchEnd() {
 		if (!isDragging) return;
-		
+
 		isDragging = false;
 		mobileMenuDrawer.style.transition = '';
-		
+
 		const deltaY = currentY - startY;
-		
+
 		// If dragged more than 100px down, close the menu
 		if (deltaY > 100) {
 			closeMenu();
