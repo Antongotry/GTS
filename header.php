@@ -22,6 +22,10 @@
 
 <header class="site-header">
 	<div class="header-container">
+		<button class="hamburger-button" aria-label="<?php esc_attr_e( 'Menu', 'gts-theme' ); ?>">
+			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hamb.svg' ); ?>" alt="" class="hamburger-icon" width="28" height="15">
+		</button>
+
 		<div class="site-logo">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/GTS.svg' ); ?>" alt="<?php bloginfo( 'name' ); ?>">

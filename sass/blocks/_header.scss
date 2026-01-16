@@ -27,6 +27,43 @@
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	height: 64px;
 	min-height: 64px;
+
+	@include tablet {
+		padding: 0 4px;
+	}
+}
+
+// Hamburger menu button (tablet and mobile only)
+.hamburger-button {
+	display: none;
+	width: 56px;
+	height: 56px;
+	min-width: 56px;
+	min-height: 56px;
+	border-radius: 50%;
+	background-color: #F4C58B;
+	border: none;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	transition: background-color 0.3s ease;
+	margin: 0;
+	padding: 0;
+
+	&:hover {
+		background-color: #F0B870;
+	}
+
+	.hamburger-icon {
+		width: 28px;
+		height: auto;
+		display: block;
+	}
+
+	@include tablet {
+		display: flex;
+	}
 }
 
 .site-logo {
@@ -44,11 +81,20 @@
 		height: auto;
 		display: block;
 	}
+
+	@include tablet {
+		margin-right: 0;
+		margin-left: 16px;
+	}
 }
 
 .main-navigation {
 	flex: 1;
 	pointer-events: auto;
+
+	@include tablet {
+		display: none;
+	}
 }
 
 .menu {
@@ -238,6 +284,10 @@
 	&:hover .dropdown-icon {
 		transform: rotate(180deg);
 	}
+
+	@include tablet {
+		display: none;
+	}
 }
 
 .header-email {
@@ -253,6 +303,10 @@
 
 	&:hover {
 		opacity: 0.7;
+	}
+
+	@include tablet {
+		display: none;
 	}
 }
 
@@ -294,6 +348,25 @@ a.whatsapp-button,
 		max-height: 24px !important;
 		display: block !important;
 		flex-shrink: 0 !important;
+	}
+
+	@include tablet {
+		background-color: #FDDFAE !important;
+
+		&:hover {
+			background-color: #F5D5A0 !important;
+		}
+
+		svg {
+			width: 28px !important;
+			height: 28px !important;
+			max-width: 28px !important;
+			max-height: 28px !important;
+
+			path {
+				fill: #0C0F17 !important;
+			}
+		}
 	}
 }
 
@@ -370,5 +443,35 @@ a.phone-button,
 		color: #000000 !important;
 		background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%) !important;
 		background-color: transparent !important;
+	}
+
+	// Tablet: круглая кнопка с иконкой телефона
+	@include tablet {
+		width: 56px !important;
+		min-width: 56px !important;
+		max-width: 56px !important;
+		padding: 0 !important;
+		border-radius: 50% !important;
+		background: #F7CE95 !important;
+		font-size: 0 !important; // Скрыть текст
+
+		&::before {
+			content: '';
+			display: block;
+			width: 28px;
+			height: 28px;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%230C0F17' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'%3E%3C/path%3E%3C/svg%3E");
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		&::after {
+			display: none !important;
+		}
+
+		&:hover {
+			background: #F0C485 !important;
+		}
 	}
 }
