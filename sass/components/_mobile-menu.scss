@@ -1,6 +1,6 @@
 /**
  * Mobile Menu Drawer
- * Bottom sheet style menu with submenu animation
+ * Sliding doors effect - main goes down, submenu comes from top
  */
 
 // Overlay
@@ -13,8 +13,7 @@
 	z-index: 9998;
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-	            visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: opacity 0.4s ease, visibility 0.4s ease;
 
 	&.is-active {
 		opacity: 1;
@@ -22,216 +21,148 @@
 	}
 }
 
-// Drawer
+// Drawer container
 .mobile-menu-drawer {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	height: auto;
-	max-height: 70vh;
+	height: 380px;
 	background: linear-gradient(180deg, #1A1D26 0%, #0C0F17 100%);
 	border-radius: 24px 24px 0 0;
 	z-index: 9999;
 	transform: translateY(100%);
 	transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 	display: none;
-	flex-direction: column;
-	padding: 0;
-	box-sizing: border-box;
 	overflow: hidden;
 
 	@include lg {
-		display: flex;
+		display: block;
 	}
 
 	&.is-active {
 		transform: translateY(0);
 	}
 
-	// Decorative top glow
+	// Top glow
 	&::before {
 		content: '';
 		position: absolute;
-		top: -80px;
+		top: -60px;
 		left: 50%;
 		transform: translateX(-50%);
 		width: 200px;
-		height: 150px;
-		background: radial-gradient(ellipse, rgba(244, 197, 139, 0.1) 0%, transparent 70%);
+		height: 120px;
+		background: radial-gradient(ellipse, rgba(244, 197, 139, 0.12) 0%, transparent 70%);
 		pointer-events: none;
 		z-index: 1;
 	}
 }
 
-// Handle bar
+// Handle bar - always visible
 .mobile-menu-handle {
+	position: absolute;
+	top: 12px;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 40px;
 	height: 4px;
 	background: rgba(255, 255, 255, 0.25);
 	border-radius: 2px;
-	margin: 12px auto 16px;
-	flex-shrink: 0;
+	z-index: 100;
 	cursor: grab;
-	transition: background 0.3s ease;
-	position: relative;
-	z-index: 10;
 
 	&:hover {
 		background: rgba(255, 255, 255, 0.4);
 	}
 }
 
-// Panel container
+// Panels wrapper
 .mobile-menu-panel {
-	padding: 0 24px 32px;
-	transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
-	            opacity 0.3s ease;
-}
-
-// Main menu panel
-.mobile-menu-main {
-	transform: translateY(0);
-	opacity: 1;
-
-	.mobile-menu-drawer.submenu-open & {
-		transform: translateY(100%);
-		opacity: 0;
-		position: absolute;
-		pointer-events: none;
-	}
-}
-
-// Submenu panel (comes from top)
-.mobile-menu-submenu {
 	position: absolute;
-	top: 0;
+	top: 32px;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	transform: translateY(-100%);
-	opacity: 0;
-	pointer-events: none;
-	padding-top: 40px;
+	padding: 0 24px 24px;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+	will-change: transform;
+}
+
+// Main panel - slides DOWN when submenu opens
+.mobile-menu-main {
+	transform: translateY(0);
+
+	.mobile-menu-drawer.submenu-open & {
+		transform: translateY(110%);
+	}
+}
+
+// Submenu panel - slides from TOP
+.mobile-menu-submenu {
+	transform: translateY(-110%);
 
 	.mobile-menu-drawer.submenu-open & {
 		transform: translateY(0);
-		opacity: 1;
-		pointer-events: auto;
 	}
 }
 
-// Back button
-.mobile-submenu-back {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	background: none;
-	border: none;
-	color: rgba(255, 255, 255, 0.6);
-	font-family: "Manrope", $font__main;
-	font-size: 13px;
-	font-weight: 500;
-	cursor: pointer;
-	padding: 8px 0;
-	margin-bottom: 12px;
-	transition: color 0.25s ease;
-
-	svg {
-		opacity: 0.6;
-		transition: transform 0.25s ease, opacity 0.25s ease;
-	}
-
-	&:hover {
-		color: rgba(255, 255, 255, 0.9);
-
-		svg {
-			opacity: 1;
-			transform: translateX(-4px);
-		}
-	}
-}
-
-// Submenu title
-.mobile-submenu-title {
-	font-family: "Manrope", $font__main;
-	font-size: 16px;
-	font-weight: 600;
-	color: #fff;
-	margin: 0 0 16px;
-	padding-bottom: 12px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-// Submenu list - 2 columns for services
-.mobile-submenu-list {
-	grid-template-columns: 1fr 1fr;
-	gap: 8px 12px;
-}
-
-// Menu list - two columns
+// Menu list grid
 .mobile-menu-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 8px 12px;
+	gap: 10px;
 }
 
-// Menu item
+// Menu item with stagger
 .mobile-menu-item {
 	margin: 0;
 	padding: 0;
 	opacity: 0;
-	transform: translateY(12px);
-	transition: opacity 0.3s ease, transform 0.3s ease;
+	transform: translateY(15px);
+	transition: opacity 0.35s ease, transform 0.35s ease;
 
 	.mobile-menu-drawer.is-active & {
 		opacity: 1;
 		transform: translateY(0);
 	}
 
-	// Staggered animation
 	@for $i from 1 through 10 {
 		&:nth-child(#{$i}) {
-			transition-delay: #{0.05 + ($i * 0.03)}s;
-		}
-	}
-
-	// Item with submenu indicator
-	&.mobile-menu-item-has-submenu {
-		.mobile-menu-link {
-			position: relative;
-			padding-right: 28px;
+			transition-delay: #{0.08 + ($i * 0.04)}s;
 		}
 	}
 }
 
-// Menu link - minimal style
+// Menu link button
 .mobile-menu-link {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 6px;
 	width: 100%;
-	padding: 12px 8px;
+	padding: 14px 10px;
 	font-family: "Manrope", $font__main;
 	font-size: 14px;
 	font-weight: 500;
-	color: rgba(255, 255, 255, 0.85);
+	color: rgba(255, 255, 255, 0.9);
 	text-decoration: none;
-	border-radius: 12px;
-	background: transparent;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.04);
 	border: 1px solid rgba(255, 255, 255, 0.08);
-	transition: all 0.25s ease;
-	text-align: center;
 	cursor: pointer;
 	box-sizing: border-box;
+	transition: all 0.2s ease;
 
 	&:hover {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(244, 197, 139, 0.35);
 		color: #fff;
-		background: rgba(255, 255, 255, 0.06);
-		border-color: rgba(244, 197, 139, 0.3);
 	}
 
 	&:active {
@@ -239,58 +170,103 @@
 	}
 }
 
-// Submenu trigger with arrow
-.mobile-submenu-trigger {
-	gap: 6px;
-	
-	.mobile-menu-arrow {
-		flex-shrink: 0;
-		opacity: 0.5;
-		transition: transform 0.25s ease, opacity 0.25s ease;
-	}
+// Arrow icon for submenu
+.mobile-menu-arrow {
+	width: 14px;
+	height: 14px;
+	opacity: 0.5;
+	transition: transform 0.2s ease, opacity 0.2s ease;
 
-	&:hover .mobile-menu-arrow {
+	.mobile-menu-link:hover & {
 		opacity: 1;
-		transform: translateX(3px);
+		transform: translateX(2px);
 	}
 }
 
-// Social icons section
+// Back button in submenu
+.mobile-submenu-back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: none;
+	border: none;
+	color: rgba(255, 255, 255, 0.5);
+	font-family: "Manrope", $font__main;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 6px 0;
+	margin-bottom: 12px;
+	transition: color 0.2s ease;
+
+	svg {
+		transition: transform 0.2s ease;
+	}
+
+	&:hover {
+		color: rgba(255, 255, 255, 0.9);
+
+		svg {
+			transform: translateX(-3px);
+		}
+	}
+}
+
+// Submenu title
+.mobile-submenu-title {
+	font-family: "Manrope", $font__main;
+	font-size: 15px;
+	font-weight: 600;
+	color: #fff;
+	margin: 0 0 14px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// Submenu specific list
+.mobile-submenu-list {
+	flex: 1;
+	overflow-y: auto;
+	
+	.mobile-menu-item {
+		opacity: 1;
+		transform: none;
+		transition-delay: 0s;
+	}
+}
+
+// Social icons
 .mobile-menu-socials {
 	display: flex;
 	justify-content: center;
-	gap: 12px;
-	margin-top: 20px;
-	padding-top: 20px;
+	gap: 10px;
+	margin-top: auto;
+	padding-top: 16px;
 	border-top: 1px solid rgba(255, 255, 255, 0.06);
 	opacity: 0;
-	transform: translateY(12px);
-	transition: opacity 0.4s ease 0.25s, transform 0.4s ease 0.25s;
+	transition: opacity 0.4s ease 0.3s;
 
 	.mobile-menu-drawer.is-active & {
 		opacity: 1;
-		transform: translateY(0);
 	}
 }
 
-// Social link
 .mobile-social-link {
-	width: 44px;
-	height: 44px;
+	width: 42px;
+	height: 42px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background: rgba(255, 255, 255, 0.04);
 	border: 1px solid rgba(255, 255, 255, 0.08);
 	border-radius: 50%;
-	transition: all 0.25s ease;
+	transition: all 0.2s ease;
 
 	img {
-		width: 20px;
-		height: 20px;
-		object-fit: contain;
-		opacity: 0.7;
-		transition: opacity 0.25s ease;
+		width: 18px;
+		height: 18px;
+		opacity: 0.6;
+		transition: opacity 0.2s ease;
 	}
 
 	&:hover {
@@ -301,13 +277,9 @@
 			opacity: 1;
 		}
 	}
-
-	&:active {
-		transform: scale(0.95);
-	}
 }
 
-// Body lock when menu is open
+// Body lock
 body.mobile-menu-open {
 	overflow: hidden;
 }
