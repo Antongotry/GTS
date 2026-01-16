@@ -44,8 +44,11 @@
 
 	@include lg {
 		gap: 20px;
+		width: 984px;
 		max-width: 984px;
+		padding: 0 20px;
 		min-height: 750px;
+		box-sizing: border-box;
 	}
 }
 
@@ -61,8 +64,9 @@
 	box-sizing: border-box;
 
 	@include lg {
-		width: 512px;
-		flex: 0 0 512px;
+		width: auto;
+		flex: 1 1 512px;
+		max-width: 512px;
 		padding-top: 130px;
 	}
 }

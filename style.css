@@ -1179,7 +1179,7 @@ textarea {
 	margin: 0;
 	padding: 0;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 10px;
 }
 
@@ -1242,7 +1242,8 @@ textarea {
 	justify-content: center;
 	gap: 6px;
 	width: 100%;
-	padding: 14px 10px;
+	height: 48px;
+	padding: 0 12px;
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
 	font-weight: 500;
@@ -1270,6 +1271,8 @@ textarea {
 	width: 14px;
 	height: 14px;
 	opacity: 0.5;
+	flex-shrink: 0;
+	margin-left: 4px;
 	transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -2866,8 +2869,11 @@ a.phone-button:focus,
 
 	.hero-container {
 		gap: 20px;
+		width: 984px;
 		max-width: 984px;
+		padding: 0 20px;
 		min-height: 750px;
+		box-sizing: border-box;
 	}
 }
 
@@ -2886,8 +2892,9 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.hero-left {
-		width: 512px;
-		flex: 0 0 512px;
+		width: auto;
+		flex: 1 1 512px;
+		max-width: 512px;
 		padding-top: 130px;
 	}
 }
