@@ -5,6 +5,10 @@
 .services-block {
 	width: 100%;
 	padding: $spacing-5xl 0 $spacing-4xl 0; // 150px top, 80px bottom
+
+	@include lg {
+		padding-top: 120px;
+	}
 }
 
 .services-container {

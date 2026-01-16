@@ -1977,10 +1977,12 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-container {
-		max-width: 984px;
+		max-width: 944px;
 		padding: 0 20px;
-		grid-template-columns: 70px 60px auto 80px auto 160px auto 1fr;
+		box-sizing: content-box;
+		grid-template-columns: 70px 90px auto 90px auto auto auto 1fr;
 		grid-template-rows: auto;
+		gap: 0 20px;
 	}
 }
 
@@ -2078,7 +2080,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-menu {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 1;
 	}
 }
@@ -2128,7 +2130,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-language {
-		grid-column: 5;
+		grid-column: 3;
 		grid-row: 1;
 		margin-top: 0;
 	}
@@ -2199,10 +2201,10 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-services {
-		grid-column: 7;
+		grid-column: 4/span 3;
 		grid-row: 1;
 		grid-template-columns: auto auto;
-		column-gap: 40px;
+		column-gap: 60px;
 	}
 }
 
@@ -2286,9 +2288,11 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-right {
-		grid-column: 8;
+		grid-column: 7/-1;
 		grid-row: 1;
-		width: 280px;
+		width: auto;
+		max-width: 340px;
+		justify-self: end;
 	}
 }
 
@@ -4290,6 +4294,13 @@ a.phone-button:focus,
 .services-block {
 	width: 100%;
 	padding: 150px 0 80px 0;
+}
+
+@media (max-width: 1024px) {
+
+	.services-block {
+		padding-top: 120px;
+	}
 }
 
 .services-container {

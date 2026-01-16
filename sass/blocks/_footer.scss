@@ -42,11 +42,13 @@
 	}
 
 	@include lg {
-		// На 1024px: упрощённая сетка
-		max-width: 984px;
+		// На 1024px: Logo | Menu | Site lang | Services (2 cols) | Right
+		max-width: 944px;
 		padding: 0 20px;
-		grid-template-columns: 70px 60px auto 80px auto 160px auto 1fr;
+		box-sizing: content-box;
+		grid-template-columns: 70px 90px auto 90px auto auto auto 1fr;
 		grid-template-rows: auto;
+		gap: 0 20px;
 	}
 }
 
@@ -130,7 +132,7 @@
 	}
 
 	@include lg {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 1;
 	}
 
@@ -174,7 +176,7 @@
 	}
 
 	@include lg {
-		grid-column: 5;
+		grid-column: 3;
 		grid-row: 1;
 		margin-top: 0;
 	}
@@ -245,10 +247,10 @@
 	}
 
 	@include lg {
-		grid-column: 7;
+		grid-column: 4 / span 3; // Колонки 4, 5, 6
 		grid-row: 1;
-		grid-template-columns: auto auto; // Две колонки
-		column-gap: 40px;
+		grid-template-columns: auto auto; // Две колонки Services
+		column-gap: 60px;
 	}
 }
 
@@ -320,9 +322,11 @@
 	}
 
 	@include lg {
-		grid-column: 8;
+		grid-column: 7 / -1; // Последние колонки
 		grid-row: 1;
-		width: 280px;
+		width: auto;
+		max-width: 340px;
+		justify-self: end;
 	}
 }
 
