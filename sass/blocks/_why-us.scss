@@ -18,8 +18,10 @@
 	@include container($container-max-width-content);
 
 	@include lg {
-		max-width: 984px;
-		padding: 0 20px;
+		width: 944px; // 984px - 40px для выравнивания с hero
+		max-width: 944px;
+		padding: 0;
+		margin: 0 auto;
 	}
 }
 
@@ -62,8 +64,10 @@
 	width: 100%;
 
 	@include lg {
+		// 4 equal columns: wide items span 2, regular span 1
+		// With 20px gap: 231 + 20 + 231 = 482 (wide), 231 (regular)
 		grid-template-columns: repeat(4, 1fr);
-		gap: 16px;
+		gap: 20px;
 	}
 }
 

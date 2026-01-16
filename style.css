@@ -3667,8 +3667,10 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.why-us-container {
-		max-width: 984px;
-		padding: 0 20px;
+		width: 944px;
+		max-width: 944px;
+		padding: 0;
+		margin: 0 auto;
 	}
 }
 
@@ -3728,7 +3730,7 @@ a.phone-button:focus,
 
 	.why-us-grid {
 		grid-template-columns: repeat(4, 1fr);
-		gap: 16px;
+		gap: 20px;
 	}
 }
 
