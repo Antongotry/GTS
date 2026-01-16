@@ -65,8 +65,8 @@
 
 	@include lg {
 		width: auto;
-		flex: 1 1 512px;
-		max-width: 512px;
+		flex: 1 1 534px; // 944 - 390 (right) - 20 (gap) = 534px
+		max-width: 534px;
 		padding-top: 130px;
 	}
 }
@@ -107,7 +107,7 @@
 
 	@include lg {
 		font-size: 36px;
-		max-width: 380px; // Для правильных переносов
+		max-width: 460px; // Для 3 строк: Premium transfers for / corporate and private clients – / 24/7 coordination
 	}
 }
 
