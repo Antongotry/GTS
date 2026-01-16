@@ -1070,7 +1070,7 @@ textarea {
 
 /**
  * Mobile Menu Drawer
- * Bottom sheet style menu for tablet/mobile
+ * Bottom sheet style menu with submenu animation
  */
 .mobile-menu-overlay {
 	position: fixed;
@@ -1103,7 +1103,7 @@ textarea {
 	transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 	display: none;
 	flex-direction: column;
-	padding: 0 24px 32px;
+	padding: 0;
 	box-sizing: border-box;
 	overflow: hidden;
 }
@@ -1129,6 +1129,7 @@ textarea {
 	height: 150px;
 	background: radial-gradient(ellipse, rgba(244, 197, 139, 0.1) 0%, transparent 70%);
 	pointer-events: none;
+	z-index: 1;
 }
 
 .mobile-menu-handle {
@@ -1136,14 +1137,96 @@ textarea {
 	height: 4px;
 	background: rgba(255, 255, 255, 0.25);
 	border-radius: 2px;
-	margin: 12px auto 20px;
+	margin: 12px auto 16px;
 	flex-shrink: 0;
 	cursor: grab;
 	transition: background 0.3s ease;
+	position: relative;
+	z-index: 10;
 }
 
 .mobile-menu-handle:hover {
 	background: rgba(255, 255, 255, 0.4);
+}
+
+.mobile-menu-panel {
+	padding: 0 24px 32px;
+	transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.3s ease;
+}
+
+.mobile-menu-main {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.mobile-menu-drawer.submenu-open .mobile-menu-main {
+	transform: translateY(100%);
+	opacity: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.mobile-menu-submenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: translateY(-100%);
+	opacity: 0;
+	pointer-events: none;
+	padding-top: 40px;
+}
+
+.mobile-menu-drawer.submenu-open .mobile-menu-submenu {
+	transform: translateY(0);
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.mobile-submenu-back {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: none;
+	border: none;
+	color: rgba(255, 255, 255, 0.6);
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 8px 0;
+	margin-bottom: 12px;
+	transition: color 0.25s ease;
+}
+
+.mobile-submenu-back svg {
+	opacity: 0.6;
+	transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-submenu-back:hover {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.mobile-submenu-back:hover svg {
+	opacity: 1;
+	transform: translateX(-4px);
+}
+
+.mobile-submenu-title {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	margin: 0 0 16px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-submenu-list {
+	grid-template-columns: 1fr 1fr;
+	gap: 8px 12px;
 }
 
 .mobile-menu-list {
@@ -1200,10 +1283,24 @@ textarea {
 	transition-delay: 0.29s;
 }
 
+.mobile-menu-item:nth-child(9) {
+	transition-delay: 0.32s;
+}
+
+.mobile-menu-item:nth-child(10) {
+	transition-delay: 0.35s;
+}
+
+.mobile-menu-item.mobile-menu-item-has-submenu .mobile-menu-link {
+	position: relative;
+	padding-right: 28px;
+}
+
 .mobile-menu-link {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 	padding: 12px 8px;
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
@@ -1215,6 +1312,8 @@ textarea {
 	border: 1px solid rgba(255, 255, 255, 0.08);
 	transition: all 0.25s ease;
 	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
 }
 
 .mobile-menu-link:hover {
@@ -1225,6 +1324,21 @@ textarea {
 
 .mobile-menu-link:active {
 	transform: scale(0.97);
+}
+
+.mobile-submenu-trigger {
+	gap: 6px;
+}
+
+.mobile-submenu-trigger .mobile-menu-arrow {
+	flex-shrink: 0;
+	opacity: 0.5;
+	transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-submenu-trigger:hover .mobile-menu-arrow {
+	opacity: 1;
+	transform: translateX(3px);
 }
 
 .mobile-menu-socials {

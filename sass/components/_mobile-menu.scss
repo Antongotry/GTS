@@ -1,6 +1,6 @@
 /**
  * Mobile Menu Drawer
- * Bottom sheet style menu for tablet/mobile
+ * Bottom sheet style menu with submenu animation
  */
 
 // Overlay
@@ -37,7 +37,7 @@
 	transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 	display: none;
 	flex-direction: column;
-	padding: 0 24px 32px;
+	padding: 0;
 	box-sizing: border-box;
 	overflow: hidden;
 
@@ -60,6 +60,7 @@
 		height: 150px;
 		background: radial-gradient(ellipse, rgba(244, 197, 139, 0.1) 0%, transparent 70%);
 		pointer-events: none;
+		z-index: 1;
 	}
 }
 
@@ -69,14 +70,103 @@
 	height: 4px;
 	background: rgba(255, 255, 255, 0.25);
 	border-radius: 2px;
-	margin: 12px auto 20px;
+	margin: 12px auto 16px;
 	flex-shrink: 0;
 	cursor: grab;
 	transition: background 0.3s ease;
+	position: relative;
+	z-index: 10;
 
 	&:hover {
 		background: rgba(255, 255, 255, 0.4);
 	}
+}
+
+// Panel container
+.mobile-menu-panel {
+	padding: 0 24px 32px;
+	transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+	            opacity 0.3s ease;
+}
+
+// Main menu panel
+.mobile-menu-main {
+	transform: translateY(0);
+	opacity: 1;
+
+	.mobile-menu-drawer.submenu-open & {
+		transform: translateY(100%);
+		opacity: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+}
+
+// Submenu panel (comes from top)
+.mobile-menu-submenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: translateY(-100%);
+	opacity: 0;
+	pointer-events: none;
+	padding-top: 40px;
+
+	.mobile-menu-drawer.submenu-open & {
+		transform: translateY(0);
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+// Back button
+.mobile-submenu-back {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: none;
+	border: none;
+	color: rgba(255, 255, 255, 0.6);
+	font-family: "Manrope", $font__main;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 8px 0;
+	margin-bottom: 12px;
+	transition: color 0.25s ease;
+
+	svg {
+		opacity: 0.6;
+		transition: transform 0.25s ease, opacity 0.25s ease;
+	}
+
+	&:hover {
+		color: rgba(255, 255, 255, 0.9);
+
+		svg {
+			opacity: 1;
+			transform: translateX(-4px);
+		}
+	}
+}
+
+// Submenu title
+.mobile-submenu-title {
+	font-family: "Manrope", $font__main;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	margin: 0 0 16px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// Submenu list - 2 columns for services
+.mobile-submenu-list {
+	grid-template-columns: 1fr 1fr;
+	gap: 8px 12px;
 }
 
 // Menu list - two columns
@@ -103,9 +193,17 @@
 	}
 
 	// Staggered animation
-	@for $i from 1 through 8 {
+	@for $i from 1 through 10 {
 		&:nth-child(#{$i}) {
 			transition-delay: #{0.05 + ($i * 0.03)}s;
+		}
+	}
+
+	// Item with submenu indicator
+	&.mobile-menu-item-has-submenu {
+		.mobile-menu-link {
+			position: relative;
+			padding-right: 28px;
 		}
 	}
 }
@@ -115,6 +213,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 	padding: 12px 8px;
 	font-family: "Manrope", $font__main;
 	font-size: 14px;
@@ -126,6 +225,8 @@
 	border: 1px solid rgba(255, 255, 255, 0.08);
 	transition: all 0.25s ease;
 	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
 
 	&:hover {
 		color: #fff;
@@ -135,6 +236,22 @@
 
 	&:active {
 		transform: scale(0.97);
+	}
+}
+
+// Submenu trigger with arrow
+.mobile-submenu-trigger {
+	gap: 6px;
+	
+	.mobile-menu-arrow {
+		flex-shrink: 0;
+		opacity: 0.5;
+		transition: transform 0.25s ease, opacity 0.25s ease;
+	}
+
+	&:hover .mobile-menu-arrow {
+		opacity: 1;
+		transform: translateX(3px);
 	}
 }
 

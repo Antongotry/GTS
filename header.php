@@ -82,44 +82,74 @@
 <div class="mobile-menu-overlay" aria-hidden="true"></div>
 <nav class="mobile-menu-drawer" aria-hidden="true">
 	<div class="mobile-menu-handle"></div>
-	<ul class="mobile-menu-list">
-		<li class="mobile-menu-item">
-			<a href="#" class="mobile-menu-link">Services</a>
-		</li>
-		<li class="mobile-menu-item">
-			<a href="#" class="mobile-menu-link">Events</a>
-		</li>
-		<li class="mobile-menu-item">
-			<a href="#" class="mobile-menu-link">For Business</a>
-		</li>
-		<li class="mobile-menu-item">
-			<a href="#" class="mobile-menu-link">Fleet</a>
-		</li>
-		<li class="mobile-menu-item">
-			<a href="#" class="mobile-menu-link">Blog</a>
-		</li>
-		<li class="mobile-menu-item">
-			<a href="#" class="mobile-menu-link">Contacts</a>
-		</li>
-		<li class="mobile-menu-item">
-			<a href="#" class="mobile-menu-link">About Us</a>
-		</li>
-	</ul>
-	<div class="mobile-menu-socials">
-		<a href="#" class="mobile-social-link" aria-label="Facebook">
-			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/fb.svg' ); ?>" alt="Facebook">
-		</a>
-		<a href="#" class="mobile-social-link" aria-label="Instagram">
-			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/inst.svg' ); ?>" alt="Instagram">
-		</a>
-		<a href="#" class="mobile-social-link" aria-label="Telegram">
-			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/telegram.svg' ); ?>" alt="Telegram">
-		</a>
-		<a href="#" class="mobile-social-link" aria-label="Viber">
-			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/viber.svg' ); ?>" alt="Viber">
-		</a>
-		<a href="#" class="mobile-social-link" aria-label="WhatsApp">
-			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/whats.svg' ); ?>" alt="WhatsApp">
-		</a>
+	
+	<!-- Main Menu Panel -->
+	<div class="mobile-menu-panel mobile-menu-main">
+		<ul class="mobile-menu-list">
+			<li class="mobile-menu-item mobile-menu-item-has-submenu">
+				<button class="mobile-menu-link mobile-submenu-trigger" data-submenu="services">
+					Services
+					<svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M9 18l6-6-6-6"/>
+					</svg>
+				</button>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">Events</a>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">For Business</a>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">Fleet</a>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">Blog</a>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">Contacts</a>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">About Us</a>
+			</li>
+		</ul>
+		<div class="mobile-menu-socials">
+			<a href="#" class="mobile-social-link" aria-label="Facebook">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/fb.svg' ); ?>" alt="Facebook">
+			</a>
+			<a href="#" class="mobile-social-link" aria-label="Instagram">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/inst.svg' ); ?>" alt="Instagram">
+			</a>
+			<a href="#" class="mobile-social-link" aria-label="Telegram">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/telegram.svg' ); ?>" alt="Telegram">
+			</a>
+			<a href="#" class="mobile-social-link" aria-label="Viber">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/viber.svg' ); ?>" alt="Viber">
+			</a>
+			<a href="#" class="mobile-social-link" aria-label="WhatsApp">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/whats.svg' ); ?>" alt="WhatsApp">
+			</a>
+		</div>
+	</div>
+	
+	<!-- Services Submenu Panel (comes from top) -->
+	<div class="mobile-menu-panel mobile-menu-submenu" data-submenu-id="services">
+		<button class="mobile-submenu-back">
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M15 18l-6-6 6-6"/>
+			</svg>
+			Back
+		</button>
+		<h3 class="mobile-submenu-title">Services</h3>
+		<ul class="mobile-menu-list mobile-submenu-list">
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Book a Flight</a></li>
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">City-to-City Rides</a></li>
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Airport Transfers</a></li>
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Hourly Hire</a></li>
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Chauffeur Service</a></li>
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Limousine Service</a></li>
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Medical Transportation</a></li>
+			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Travel Planning</a></li>
+		</ul>
 	</div>
 </nav>
