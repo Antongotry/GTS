@@ -29,7 +29,7 @@
 	min-height: 64px;
 
 	@include lg {
-		padding: 0 4px;
+		padding: 0 4px 0 4px;
 	}
 }
 
@@ -83,7 +83,7 @@
 	}
 
 	@include lg {
-		margin-right: 0;
+		margin-right: auto;
 		margin-left: 16px;
 	}
 }
@@ -284,10 +284,6 @@
 	&:hover .dropdown-icon {
 		transform: rotate(180deg);
 	}
-
-	@include lg {
-		display: none;
-	}
 }
 
 .header-email {
@@ -303,10 +299,6 @@
 
 	&:hover {
 		opacity: 0.7;
-	}
-
-	@include lg {
-		display: none;
 	}
 }
 
@@ -348,25 +340,6 @@ a.whatsapp-button,
 		max-height: 24px !important;
 		display: block !important;
 		flex-shrink: 0 !important;
-	}
-
-	@include lg {
-		background-color: #FDDFAE !important;
-
-		&:hover {
-			background-color: #F5D5A0 !important;
-		}
-
-		svg {
-			width: 28px !important;
-			height: 28px !important;
-			max-width: 28px !important;
-			max-height: 28px !important;
-
-			path {
-				fill: #0C0F17 !important;
-			}
-		}
 	}
 }
 
@@ -443,35 +416,5 @@ a.phone-button,
 		color: #000000 !important;
 		background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%) !important;
 		background-color: transparent !important;
-	}
-
-	// Tablet: круглая кнопка с иконкой телефона
-	@include lg {
-		width: 56px !important;
-		min-width: 56px !important;
-		max-width: 56px !important;
-		padding: 0 !important;
-		border-radius: 50% !important;
-		background: #F7CE95 !important;
-		font-size: 0 !important; // Скрыть текст
-
-		&::before {
-			content: '';
-			display: block;
-			width: 28px;
-			height: 28px;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%230C0F17' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'%3E%3C/path%3E%3C/svg%3E");
-			background-size: contain;
-			background-repeat: no-repeat;
-			background-position: center;
-		}
-
-		&::after {
-			display: none !important;
-		}
-
-		&:hover {
-			background: #F0C485 !important;
-		}
 	}
 }
