@@ -28,7 +28,7 @@
 	height: 64px;
 	min-height: 64px;
 
-	@include tablet {
+	@include lg {
 		padding: 0 4px;
 	}
 }
@@ -61,7 +61,7 @@
 		display: block;
 	}
 
-	@include tablet {
+	@include lg {
 		display: flex;
 	}
 }
@@ -82,7 +82,7 @@
 		display: block;
 	}
 
-	@include tablet {
+	@include lg {
 		margin-right: 0;
 		margin-left: 16px;
 	}
@@ -92,7 +92,7 @@
 	flex: 1;
 	pointer-events: auto;
 
-	@include tablet {
+	@include lg {
 		display: none;
 	}
 }
@@ -285,7 +285,7 @@
 		transform: rotate(180deg);
 	}
 
-	@include tablet {
+	@include lg {
 		display: none;
 	}
 }
@@ -305,7 +305,7 @@
 		opacity: 0.7;
 	}
 
-	@include tablet {
+	@include lg {
 		display: none;
 	}
 }
@@ -350,7 +350,7 @@ a.whatsapp-button,
 		flex-shrink: 0 !important;
 	}
 
-	@include tablet {
+	@include lg {
 		background-color: #FDDFAE !important;
 
 		&:hover {
@@ -446,7 +446,7 @@ a.phone-button,
 	}
 
 	// Tablet: круглая кнопка с иконкой телефона
-	@include tablet {
+	@include lg {
 		width: 56px !important;
 		min-width: 56px !important;
 		max-width: 56px !important;

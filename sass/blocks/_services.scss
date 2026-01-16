@@ -30,7 +30,7 @@
 	letter-spacing: 0;
 	color: $color__background-body;
 
-	@include tablet {
+	@include lg {
 		font-size: 12px;
 	}
 }
@@ -46,7 +46,7 @@
 	max-width: 100%; // Убираем ограничение для 2 строк
 	text-align: center;
 
-	@include tablet {
+	@include lg {
 		font-size: 33px;
 	}
 }

@@ -17,7 +17,7 @@
 	padding: 0 20px;
 
 	// Tablet (1024px)
-	@include tablet {
+	@include lg {
 		flex-direction: column;
 		gap: 30px;
 		padding: 0 15px;
@@ -36,7 +36,7 @@
 	margin-top: 130px;
 
 	// Tablet (1024px)
-	@include tablet {
+	@include lg {
 		width: 100%;
 		margin-top: 60px;
 	}
@@ -53,7 +53,7 @@
 	margin-top: 106px;
 
 	// Tablet (1024px)
-	@include tablet {
+	@include lg {
 		width: 100%;
 		margin-top: 0;
 	}

@@ -33,7 +33,7 @@
 	line-height: 1;
 	letter-spacing: 0;
 
-	@include tablet {
+	@include lg {
 		font-size: 12px;
 	}
 	color: $color__text-main;
@@ -67,7 +67,7 @@
 	flex-direction: column;
 	height: 380px;
 
-	@include tablet {
+	@include lg {
 		height: 284px;
 	}
 }
@@ -141,7 +141,7 @@
 	z-index: 1;
 	text-align: left;
 
-	@include tablet {
+	@include lg {
 		font-size: 20px;
 	}
 }
@@ -159,7 +159,7 @@
 	z-index: 1;
 	text-align: left;
 
-	@include tablet {
+	@include lg {
 		font-size: 14px;
 	}
 }
@@ -175,7 +175,7 @@
 }
 
 // Tablet (1024px)
-@include tablet {
+@include lg {
 	.why-us-grid {
 		grid-template-columns: 1fr 1fr;
 		gap: $spacing-md;

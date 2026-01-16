@@ -32,7 +32,7 @@
 	letter-spacing: 0;
 	color: $color__background-body;
 
-	@include tablet {
+	@include lg {
 		font-size: 12px;
 	}
 }
@@ -47,7 +47,7 @@
 	margin: $spacing-2xl 0 0 0;
 	max-width: 920px;
 
-	@include tablet {
+	@include lg {
 		font-size: 33px;
 	}
 }

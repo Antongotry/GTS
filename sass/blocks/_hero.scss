@@ -19,7 +19,7 @@
 	z-index: 1;
 
 	// Tablet (1024px)
-	@include tablet {
+	@include lg {
 		min-height: 750px !important;
 	}
 
@@ -74,7 +74,7 @@
 	margin: 0 0 12px 0;
 	opacity: 0.9;
 
-	@include tablet {
+	@include lg {
 		font-size: 14px;
 	}
 }
@@ -88,7 +88,7 @@
 	line-height: 1.1;
 	letter-spacing: -0.02em;
 
-	@include tablet {
+	@include lg {
 		font-size: 36px;
 	}
 }

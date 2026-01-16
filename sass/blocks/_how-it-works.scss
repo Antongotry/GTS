@@ -43,7 +43,7 @@
 	letter-spacing: 0;
 	color: $color__text-main;
 
-	@include tablet {
+	@include lg {
 		font-size: 12px;
 	}
 }
@@ -57,7 +57,7 @@
 	color: $color__text-main;
 	margin: 0;
 
-	@include tablet {
+	@include lg {
 		font-size: 33px;
 	}
 }
@@ -78,7 +78,7 @@
 		padding-right: 60px;
 	}
 
-	@include tablet {
+	@include lg {
 		width: 410px; // 390px card + 20px padding
 		padding-right: 20px;
 	}
@@ -115,7 +115,7 @@
 	width: 100%;
 	box-sizing: border-box;
 
-	@include tablet {
+	@include lg {
 		height: 269px;
 		min-height: 269px;
 	}
@@ -137,7 +137,7 @@
 	color: $color__background-body;
 	margin: 0;
 
-	@include tablet {
+	@include lg {
 		font-size: 20px;
 	}
 }
