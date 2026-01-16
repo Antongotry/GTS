@@ -194,30 +194,7 @@
 	}
 }
 
-// Tablet (1024px)
-@include lg {
-	.why-us-grid {
-		grid-template-columns: 1fr 1fr;
-		gap: $spacing-md;
-	}
-
-	.why-us-item-1,
-	.why-us-item-6 {
-		grid-column: span 2;
-	}
-
-	.why-us-item {
-		padding: $spacing-lg;
-	}
-
-	.why-us-item-title {
-		font-size: 22px;
-	}
-
-	.why-us-item-description {
-		font-size: 15px;
-	}
-}
+// Удалён дублирующий @include lg блок - стили теперь в основных классах
 
 // Mobile (375px)
 @include mobile {

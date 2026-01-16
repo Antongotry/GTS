@@ -3878,31 +3878,6 @@ a.phone-button:focus,
 	margin-top: auto;
 }
 
-@media (max-width: 1024px) {
-
-	.why-us-grid {
-		grid-template-columns: 1fr 1fr;
-		gap: 16px;
-	}
-
-	.why-us-item-1,
-	.why-us-item-6 {
-		grid-column: span 2;
-	}
-
-	.why-us-item {
-		padding: 20px;
-	}
-
-	.why-us-item-title {
-		font-size: 22px;
-	}
-
-	.why-us-item-description {
-		font-size: 15px;
-	}
-}
-
 @media (max-width: 375px) {
 
 	.why-us-block {
