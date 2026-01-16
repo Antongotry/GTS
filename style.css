@@ -3180,6 +3180,13 @@ a.phone-button:focus,
 	height: 380px;
 }
 
+@media (max-width: 1440px) {
+
+	.why-us-item {
+		height: 284px;
+	}
+}
+
 .why-us-item-1 {
 	grid-column: 1/span 2;
 	grid-row: 1;
