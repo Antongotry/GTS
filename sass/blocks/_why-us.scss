@@ -95,6 +95,10 @@
 	grid-row: 1;
 	justify-content: flex-start;
 	align-items: flex-start;
+
+	@include lg {
+		grid-column: 1 / span 2; // Занимает 2 колонки
+	}
 }
 
 .why-us-item-2 {
@@ -102,6 +106,10 @@
 	grid-row: 1;
 	justify-content: flex-start;
 	align-items: flex-start;
+
+	@include lg {
+		grid-column: 3; // 1 колонка
+	}
 }
 
 .why-us-item-3 {
@@ -109,6 +117,10 @@
 	grid-row: 1;
 	justify-content: flex-start;
 	align-items: flex-start;
+
+	@include lg {
+		grid-column: 4; // 1 колонка
+	}
 }
 
 .why-us-item-4 {
@@ -116,6 +128,10 @@
 	grid-row: 2;
 	justify-content: flex-start;
 	align-items: flex-start;
+
+	@include lg {
+		grid-column: 1; // 1 колонка
+	}
 }
 
 .why-us-item-5 {
@@ -123,6 +139,10 @@
 	grid-row: 2;
 	justify-content: flex-start;
 	align-items: flex-start;
+
+	@include lg {
+		grid-column: 2; // 1 колонка
+	}
 }
 
 .why-us-item-6 {
@@ -130,6 +150,10 @@
 	grid-row: 2;
 	justify-content: flex-start;
 	align-items: flex-start;
+
+	@include lg {
+		grid-column: 3 / span 2; // Занимает 2 колонки
+	}
 }
 
 .why-us-item-icon-wrapper {
