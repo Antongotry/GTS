@@ -52,6 +52,10 @@
 	padding: 0 $spacing-lg;
 	box-sizing: border-box;
 	overflow: visible;
+
+	@include laptop {
+		max-width: $container-max-width-laptop; // 1360px
+	}
 }
 
 .trusted-by-slider .swiper-wrapper {

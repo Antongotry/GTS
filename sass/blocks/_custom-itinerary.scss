@@ -20,6 +20,10 @@
 	align-items: center;
 	text-align: center;
 	box-sizing: border-box;
+
+	@include laptop {
+		max-width: $container-max-width-laptop; // 1360px
+	}
 }
 
 // Декоративные линии

@@ -2464,6 +2464,13 @@ a.phone-button:focus,
 	box-sizing: border-box;
 }
 
+@media (max-width: 1440px) {
+
+	.hero-container {
+		max-width: 1360px;
+	}
+}
+
 .hero-left {
 	width: 724px;
 	flex-shrink: 0;
@@ -3638,6 +3645,13 @@ a.phone-button:focus,
 	overflow: visible;
 }
 
+@media (max-width: 1440px) {
+
+	.trusted-by-slider {
+		max-width: 1360px;
+	}
+}
+
 .trusted-by-slider .swiper-wrapper {
 	align-items: stretch;
 }
@@ -3899,6 +3913,13 @@ a.phone-button:focus,
 	align-items: center;
 	text-align: center;
 	box-sizing: border-box;
+}
+
+@media (max-width: 1440px) {
+
+	.custom-itinerary-container {
+		max-width: 1360px;
+	}
 }
 
 .custom-itinerary-line {
