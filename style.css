@@ -3457,7 +3457,8 @@ a.phone-button:focus,
 @media (max-width: 1440px) {
 
 	.how-it-works-right {
-		width: 490px;
+		width: 450px;
+		padding-right: 60px;
 	}
 }
 
