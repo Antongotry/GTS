@@ -11,6 +11,11 @@
 	padding: 40px 0;
 	display: flex;
 	align-items: center;
+
+	@include lg {
+		height: 890px;
+		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/home-last-1024_result.webp') !important;
+	}
 }
 
 .final-cta-container {
@@ -25,6 +30,10 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start; // Кнопка не растягивается
+
+	@include lg {
+		width: 384px;
+	}
 }
 
 .final-cta-title {
@@ -35,6 +44,10 @@
 	letter-spacing: -0.02em; // -2%
 	color: #ffffff;
 	margin: 0 0 16px 0;
+
+	@include lg {
+		font-size: 33px;
+	}
 }
 
 .final-cta-description {
@@ -45,6 +58,10 @@
 	letter-spacing: 0;
 	color: #ffffff;
 	margin: 0 0 24px 0;
+
+	@include lg {
+		font-size: 14px;
+	}
 }
 
 .final-cta-button {
@@ -62,6 +79,10 @@
 	flex-direction: column;
 	gap: 0;
 	box-sizing: border-box;
+
+	@include lg {
+		width: 485px;
+	}
 }
 
 .final-cta-item {
@@ -78,6 +99,10 @@
 		margin-bottom: 0;
 		padding-bottom: 0;
 		border-bottom: none;
+	}
+
+	@include lg {
+		width: 100%; // На 1024px растягиваем на всю ширину контейнера
 	}
 }
 
@@ -102,6 +127,10 @@
 	letter-spacing: -0.02em; // -2%
 	color: #ffffff;
 	margin: 0;
+
+	@include lg {
+		font-size: 20px;
+	}
 }
 
 .final-cta-item-description {
@@ -112,6 +141,10 @@
 	letter-spacing: 0;
 	color: #ffffff;
 	margin: 0;
+
+	@include lg {
+		font-size: 14px;
+	}
 }
 
 .final-cta-item-description-extra {

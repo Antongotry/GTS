@@ -4603,6 +4603,14 @@ a.phone-button:focus,
 	align-items: center;
 }
 
+@media (max-width: 1024px) {
+
+	.final-cta-block {
+		height: 890px;
+		background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/home-last-1024_result.webp") !important;
+	}
+}
+
 .final-cta-container {
 	width: 100%;
 	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
@@ -4621,6 +4629,13 @@ a.phone-button:focus,
 	align-items: flex-start;
 }
 
+@media (max-width: 1024px) {
+
+	.final-cta-left {
+		width: 384px;
+	}
+}
+
 .final-cta-title {
 	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 40px;
@@ -4631,6 +4646,13 @@ a.phone-button:focus,
 	margin: 0 0 16px 0;
 }
 
+@media (max-width: 1024px) {
+
+	.final-cta-title {
+		font-size: 33px;
+	}
+}
+
 .final-cta-description {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 16px;
@@ -4639,6 +4661,13 @@ a.phone-button:focus,
 	letter-spacing: 0;
 	color: #fff;
 	margin: 0 0 24px 0;
+}
+
+@media (max-width: 1024px) {
+
+	.final-cta-description {
+		font-size: 14px;
+	}
 }
 
 .final-cta-button {
@@ -4658,6 +4687,13 @@ a.phone-button:focus,
 	box-sizing: border-box;
 }
 
+@media (max-width: 1024px) {
+
+	.final-cta-right {
+		width: 485px;
+	}
+}
+
 .final-cta-item {
 	width: 606px;
 	padding-bottom: 24px;
@@ -4673,6 +4709,13 @@ a.phone-button:focus,
 	margin-bottom: 0;
 	padding-bottom: 0;
 	border-bottom: none;
+}
+
+@media (max-width: 1024px) {
+
+	.final-cta-item {
+		width: 100%;
+	}
 }
 
 .final-cta-item-header {
@@ -4698,6 +4741,13 @@ a.phone-button:focus,
 	margin: 0;
 }
 
+@media (max-width: 1024px) {
+
+	.final-cta-item-title {
+		font-size: 20px;
+	}
+}
+
 .final-cta-item-description {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 16px;
@@ -4706,6 +4756,13 @@ a.phone-button:focus,
 	letter-spacing: 0;
 	color: #fff;
 	margin: 0;
+}
+
+@media (max-width: 1024px) {
+
+	.final-cta-item-description {
+		font-size: 14px;
+	}
 }
 
 .final-cta-item-description-extra {
