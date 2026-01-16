@@ -67,17 +67,14 @@
 }
 
 // ==========================================================================
-// Container
+// Container (Fluid approach - no breakpoint jumps)
 // Usage: @include container($max-width: $container-max-width-content);
+// Container is always $max-width OR viewport - padding, whichever is smaller
 // ==========================================================================
 @mixin container($max-width: $container-max-width-content) {
 	width: 100%;
-	max-width: $max-width;
+	max-width: min(#{$max-width}, calc(100vw - #{$container-padding * 2}));
 	margin: 0 auto;
 	padding: 0 $container-padding;
 	box-sizing: border-box;
-
-	@include laptop {
-		max-width: $container-max-width-laptop;
-	}
 }

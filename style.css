@@ -1174,7 +1174,7 @@ textarea {
 }
 
 .header-container {
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 5px 0 20px;
@@ -1187,13 +1187,6 @@ textarea {
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	height: 64px;
 	min-height: 64px;
-}
-
-@media (max-width: 1440px) {
-
-	.header-container {
-		max-width: 1360px;
-	}
 }
 
 .site-logo {
@@ -1582,20 +1575,10 @@ a.phone-button:focus,
 
 .footer-container {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.footer-container {
-		max-width: 1360px;
-	}
-}
-
-.footer-container {
 	display: grid;
 	grid-template-columns: 70px 165px auto 160px auto 160px auto 80px auto 1fr;
 	grid-template-rows: auto auto;
@@ -1637,20 +1620,10 @@ a.phone-button:focus,
 
 .footer-bottom {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.footer-bottom {
-		max-width: 1360px;
-	}
-}
-
-.footer-bottom {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -2033,7 +2006,7 @@ a.phone-button:focus,
 }
 
 .header-container {
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 5px 0 20px;
@@ -2046,13 +2019,6 @@ a.phone-button:focus,
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	height: 64px;
 	min-height: 64px;
-}
-
-@media (max-width: 1440px) {
-
-	.header-container {
-		max-width: 1360px;
-	}
 }
 
 .site-logo {
@@ -2457,18 +2423,11 @@ a.phone-button:focus,
 	align-items: stretch;
 	justify-content: space-between;
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	min-height: 100vh;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.hero-container {
-		max-width: 1360px;
-	}
 }
 
 .hero-left {
@@ -3150,17 +3109,10 @@ a.phone-button:focus,
 
 .why-us-container {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.why-us-container {
-		max-width: 1360px;
-	}
 }
 
 .why-us-heading {
@@ -3389,20 +3341,10 @@ a.phone-button:focus,
 
 .how-it-works-container {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.how-it-works-container {
-		max-width: 1360px;
-	}
-}
-
-.how-it-works-container {
 	height: 100%;
 	display: flex;
 	align-items: flex-end;
@@ -3583,20 +3525,10 @@ a.phone-button:focus,
 
 .trusted-by-container {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.trusted-by-container {
-		max-width: 1360px;
-	}
-}
-
-.trusted-by-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -3638,18 +3570,11 @@ a.phone-button:focus,
 
 .trusted-by-slider {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 80px auto 0;
 	padding: 0 20px;
 	box-sizing: border-box;
 	overflow: visible;
-}
-
-@media (max-width: 1440px) {
-
-	.trusted-by-slider {
-		max-width: 1360px;
-	}
 }
 
 .trusted-by-slider .swiper-wrapper {
@@ -3738,20 +3663,10 @@ a.phone-button:focus,
 
 .services-container {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.services-container {
-		max-width: 1360px;
-	}
-}
-
-.services-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -3904,7 +3819,7 @@ a.phone-button:focus,
 
 .custom-itinerary-container {
 	position: relative;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	height: 208px;
 	margin: 0 auto;
 	padding: 24px;
@@ -3914,13 +3829,6 @@ a.phone-button:focus,
 	align-items: center;
 	text-align: center;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.custom-itinerary-container {
-		max-width: 1360px;
-	}
 }
 
 .custom-itinerary-line {
@@ -4002,20 +3910,10 @@ a.phone-button:focus,
 
 .final-cta-container {
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, 100vw - 40px);
 	margin: 0 auto;
 	padding: 0 20px;
 	box-sizing: border-box;
-}
-
-@media (max-width: 1440px) {
-
-	.final-cta-container {
-		max-width: 1360px;
-	}
-}
-
-.final-cta-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;

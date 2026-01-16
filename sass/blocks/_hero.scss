@@ -35,15 +35,11 @@
 	align-items: stretch;
 	justify-content: space-between;
 	width: 100%;
-	max-width: 1840px;
+	max-width: min(1840px, calc(100vw - 40px));
 	margin: 0 auto;
 	padding: 0 20px;
 	min-height: 100vh;
 	box-sizing: border-box;
-
-	@include laptop {
-		max-width: $container-max-width-laptop; // 1360px
-	}
 }
 
 .hero-left {
