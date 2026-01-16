@@ -32,7 +32,9 @@
 
 	@include laptop {
 		// На 1440px: Menu и Site language в одной колонке, Services в 1 столбец
-		grid-template-columns: 70px 100px auto 100px auto 1fr;
+		// 70px (логотип) + 206px (отступ) = 276px до Menu
+		// 250px отступ от Menu до Services
+		grid-template-columns: 70px 206px auto 250px auto 1fr;
 	}
 }
 

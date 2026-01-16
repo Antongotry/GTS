@@ -1607,7 +1607,7 @@ a.phone-button:focus,
 @media (max-width: 1440px) {
 
 	.footer-container {
-		grid-template-columns: 70px 100px auto 100px auto 1fr;
+		grid-template-columns: 70px 206px auto 250px auto 1fr;
 	}
 }
 
