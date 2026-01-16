@@ -63,7 +63,7 @@
 	flex-direction: column;
 	height: 380px;
 
-	@include laptop {
+	@include tablet {
 		height: 284px;
 	}
 }

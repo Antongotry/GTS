@@ -3180,7 +3180,7 @@ a.phone-button:focus,
 	height: 380px;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1024px) {
 
 	.why-us-item {
 		height: 284px;
