@@ -138,4 +138,24 @@
 // Navigation arrows container spacing for trusted-by block
 .trusted-by-container .nav-arrows {
 	margin-top: 60px;
+
+	@include md {
+		margin-top: 100px; // От services-pill до стрелочек
+		margin-bottom: 40px; // От стрелочек до отзывов
+	}
+}
+
+// Mobile styles (<=768px)
+@include md {
+	.trusted-by-block {
+		margin-top: 100px;
+		padding-top: 0;
+	}
+
+	.trusted-by-slider {
+		// По одному отзыву на экран
+		.swiper-slide {
+			width: 100% !important;
+		}
+	}
 }

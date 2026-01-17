@@ -69,6 +69,11 @@
 	@include lg {
 		gap: 20px 14px; // row 20px, column 14px
 	}
+
+	@include md {
+		grid-template-columns: 1fr; // По одной карточке на ряд
+		gap: 20px;
+	}
 }
 
 .services-card {

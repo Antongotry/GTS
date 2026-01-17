@@ -5219,6 +5219,26 @@ a.phone-button:focus,
 	margin-top: 60px;
 }
 
+@media (max-width: 768px) {
+
+	.trusted-by-container .nav-arrows {
+		margin-top: 100px;
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.trusted-by-block {
+		margin-top: 100px;
+		padding-top: 0;
+	}
+
+	.trusted-by-slider .swiper-slide {
+		width: 100% !important;
+	}
+}
+
 /**
  * Services Block Styles
  */
@@ -5312,6 +5332,14 @@ a.phone-button:focus,
 
 	.services-grid {
 		gap: 20px 14px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.services-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
 	}
 }
 
