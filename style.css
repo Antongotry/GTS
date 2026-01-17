@@ -2246,11 +2246,8 @@ a.phone-button:focus,
 .footer-language-list li {
   margin: 0;
   padding: 0;
-  height: 14px;
-  min-height: 14px;
-  max-height: 14px;
+  line-height: 1;
   box-sizing: border-box;
-  overflow: visible;
 }
 
 .footer-language-item {
@@ -2265,32 +2262,24 @@ a.phone-button:focus,
   gap: 2px;
   margin: 0;
   padding: 0;
-  height: 14px;
-  min-height: 14px;
-  max-height: 14px;
   box-sizing: border-box;
-  overflow: visible;
 }
 .footer-language-item > span {
   line-height: 1;
   margin: 0;
   padding: 0;
-  display: inline-block;
-  height: 14px;
 }
 .footer-language-item a {
   color: #ffffff;
   text-decoration: none;
   transition: opacity 0.2s ease;
-  line-height: 1;
+  line-height: 1 !important;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
   margin: 0;
   padding: 0;
-  display: inline-block;
-  height: 14px;
-  vertical-align: top;
+  display: block;
 }
 .footer-language-item a:hover {
   opacity: 0.7;
