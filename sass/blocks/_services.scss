@@ -56,9 +56,9 @@
 
 	@include md {
 		font-size: 28px;
-		max-width: 280px; // Для переноса на 5 строк: From executive roadshows / to private celebrations — / GTS provides end-to-end / transport solutions / worldwide.
-		margin-left: auto;
-		margin-right: auto;
+		max-width: 100%; // На всю ширину контейнера
+		width: 100%;
+		text-align: left; // Выравнивание по левому краю для правильных переносов
 	}
 }
 
