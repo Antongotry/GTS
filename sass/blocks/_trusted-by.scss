@@ -139,9 +139,26 @@
 .trusted-by-container .nav-arrows {
 	margin-top: 60px;
 
+	@include lg {
+		margin-top: 60px;
+	}
+
 	@include md {
 		margin-top: 0 !important; // Убрали отступ сверху
 		margin-bottom: 40px; // От стрелочек до отзывов
+	}
+}
+
+// Второй контейнер (только с nav-arrows) - центрировать на всех разрешениях
+.trusted-by-container:last-of-type {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@include lg {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 

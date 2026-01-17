@@ -5314,11 +5314,33 @@ a.phone-button:focus,
 	margin-top: 60px;
 }
 
+@media (max-width: 1024px) {
+
+	.trusted-by-container .nav-arrows {
+		margin-top: 60px;
+	}
+}
+
 @media (max-width: 768px) {
 
 	.trusted-by-container .nav-arrows {
 		margin-top: 0 !important;
 		margin-bottom: 40px;
+	}
+}
+
+.trusted-by-container:last-of-type {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (max-width: 1024px) {
+
+	.trusted-by-container:last-of-type {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
