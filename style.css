@@ -1078,7 +1078,7 @@ textarea {
 	background: rgba(12, 15, 23, 0.6);
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
-	z-index: 9998;
+	z-index: 10000;
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.4s ease, visibility 0.4s ease;
@@ -1097,7 +1097,7 @@ textarea {
 	height: 380px;
 	background: linear-gradient(180deg, #1a1d26 0%, #0c0f17 100%);
 	border-radius: 24px 24px 0 0;
-	z-index: 9999;
+	z-index: 10001;
 	transform: translateY(100%);
 	transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 	display: none;
@@ -1363,12 +1363,18 @@ textarea {
 .mobile-submenu-list {
 	flex: 1;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
 }
 
 .mobile-submenu-list .mobile-menu-item {
 	opacity: 1;
 	transform: none;
 	transition-delay: 0s;
+	margin: 0;
 }
 
 .mobile-menu-socials {
