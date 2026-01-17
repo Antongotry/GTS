@@ -371,6 +371,7 @@
 	padding: 24px 20px;
 	border-radius: 0;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	margin-top: auto; // Push form + world-map to bottom
 	margin-bottom: 0;
 
 	@include md {
