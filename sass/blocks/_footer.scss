@@ -46,7 +46,7 @@
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
-		grid-template-columns: 70px 120px 140px 160px 160px 294px;
+		grid-template-columns: 70px 110px 120px 140px 140px 364px;
 		grid-template-rows: auto;
 		gap: 0;
 	}
@@ -250,7 +250,7 @@
 		grid-column: 4 / span 2; // Колонки 4 и 5
 		grid-row: 1;
 		grid-template-columns: auto auto; // Две колонки Services
-		column-gap: 40px;
+		column-gap: 20px;
 	}
 }
 
@@ -325,7 +325,7 @@
 		grid-column: 6; // Правая колонка
 		grid-row: 1;
 		width: auto;
-		max-width: 294px;
+		max-width: 364px;
 		justify-self: end;
 	}
 }
