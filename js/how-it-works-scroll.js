@@ -12,6 +12,15 @@
 
 	// Wait for DOM to be ready
 	document.addEventListener('DOMContentLoaded', () => {
+		// Проверка является ли устройство мобильным (≤768px)
+		// Используем тот же breakpoint что и в SCSS ($breakpoint-md: 768px)
+		const isMobile = window.innerWidth <= 768;
+
+		// На мобильных отключаем Lenis и ScrollTrigger - используем нативную прокрутку
+		if (isMobile) {
+			return;
+		}
+
 		// Check dependencies
 		if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
 			console.warn('GSAP or ScrollTrigger not loaded');
@@ -21,7 +30,7 @@
 		// Register ScrollTrigger plugin
 		gsap.registerPlugin(ScrollTrigger);
 
-		// Initialize Lenis for smooth scrolling
+		// Initialize Lenis for smooth scrolling (только на десктопе)
 		let lenis = null;
 		if (typeof Lenis !== 'undefined') {
 			lenis = new Lenis({
