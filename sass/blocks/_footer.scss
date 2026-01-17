@@ -386,7 +386,7 @@
 		grid-column: auto; // В flex контейнере
 		grid-row: auto; // В flex контейнере
 		order: 1; // Заголовок первым
-		margin-bottom: 16px; // Отступ до списков
+		margin-bottom: 0; // Убираем margin-bottom, так как .footer-title уже имеет margin-bottom: 16px
 	}
 }
 
