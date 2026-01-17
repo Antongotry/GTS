@@ -2208,7 +2208,7 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .footer-language {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 4;
     align-self: start;
     position: relative;
     width: 100%;
