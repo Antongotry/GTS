@@ -2496,12 +2496,23 @@ a.phone-button:focus,
 		column-gap: 0;
 		display: flex;
 		flex-direction: column;
+		gap: 0;
 	}
 }
 
 .footer-services-title {
 	grid-column: 1;
 	grid-row: 1;
+}
+
+@media (max-width: 768px) {
+
+	.footer-services-title {
+		grid-column: auto;
+		grid-row: auto;
+		order: 1;
+		margin-bottom: 16px;
+	}
 }
 
 .footer-services-list {
@@ -2537,6 +2548,15 @@ a.phone-button:focus,
 	grid-row: 2;
 }
 
+@media (max-width: 768px) {
+
+	.footer-services-list-left {
+		grid-column: auto;
+		grid-row: auto;
+		order: 2;
+	}
+}
+
 .footer-services-list-right {
 	grid-column: 2;
 	grid-row: 2;
@@ -2563,9 +2583,10 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.footer-services-list-right {
-		grid-column: 1;
-		grid-row: 3;
-		margin-top: 16px;
+		grid-column: auto;
+		grid-row: auto;
+		margin-top: 0;
+		order: 2;
 	}
 }
 

@@ -337,12 +337,20 @@
 		column-gap: 0;
 		display: flex;
 		flex-direction: column;
+		gap: 0; // Убираем gap между списками
 	}
 }
 
 .footer-services-title {
 	grid-column: 1; // Первая колонка
 	grid-row: 1; // Первая строка
+
+	@include md {
+		grid-column: auto; // В flex контейнере
+		grid-row: auto; // В flex контейнере
+		order: 1; // Заголовок первым
+		margin-bottom: 16px; // Отступ до списков
+	}
 }
 
 .footer-services-list {
@@ -376,6 +384,12 @@
 .footer-services-list-left {
 	grid-column: 1; // Та же колонка что и заголовок
 	grid-row: 2; // Вторая строка
+
+	@include md {
+		grid-column: auto; // В flex контейнере
+		grid-row: auto; // В flex контейнере
+		order: 2; // Первый список после заголовка
+	}
 }
 
 .footer-services-list-right {
@@ -395,9 +409,10 @@
 	}
 
 	@include md {
-		grid-column: 1;
-		grid-row: 3;
-		margin-top: 16px;
+		grid-column: auto; // В flex контейнере
+		grid-row: auto; // В flex контейнере
+		margin-top: 0; // Убираем margin-top, gap управляет отступами
+		order: 2; // Второй список после первого
 	}
 }
 
