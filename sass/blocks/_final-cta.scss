@@ -16,6 +16,12 @@
 		min-height: 890px;
 		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/home-last-1024_result.webp') !important;
 	}
+
+	@include md {
+		min-height: 527px !important;
+		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/last-banner-375-new.png') !important;
+		padding: 0;
+	}
 }
 
 .final-cta-container {
@@ -23,6 +29,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end; // keep left block aligned to bottom like 1440
+
+	@include md {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0 20px;
+		max-width: 100%;
+		box-sizing: border-box;
+	}
 }
 
 .final-cta-left {
@@ -33,6 +47,11 @@
 
 	@include lg {
 		width: 384px;
+	}
+
+	@include md {
+		width: 100%;
+		padding-top: 0;
 	}
 }
 
@@ -82,6 +101,16 @@
 	@include lg {
 		width: 485px;
 		max-height: none; // allow content to grow on 1024px
+	}
+
+	@include md {
+		width: 100%;
+		margin-top: -100px; // Наложение на блок с фоном на 100px
+		padding: 16px;
+		background: rgba(255, 255, 255, 0.06);
+		backdrop-filter: blur(100px);
+		position: relative;
+		z-index: 2;
 	}
 }
 
