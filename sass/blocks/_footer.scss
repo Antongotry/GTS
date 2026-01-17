@@ -246,18 +246,21 @@
 
 		li {
 			margin: 0;
-			padding: 0; // Убираем padding у элементов списка
+			padding: 0; // ИДЕНТИЧНО .footer-language-list li и .footer-services-list li
+			// НЕ устанавливаем фиксированную высоту - пусть содержимое определяет высоту
 		}
 
 		a {
 			font-family: $font__manrope;
 			font-size: 14px;
 			font-weight: 400;
-			line-height: 1; // 100%
+			line-height: 1; // 100% - ИДЕНТИЧНО .footer-language-item и .footer-services-list a
 			letter-spacing: 0;
 			color: #ffffff; // Белый непрозрачный
 			text-decoration: none;
 			transition: opacity 0.2s ease;
+			margin: 0; // Явно убираем margin для консистентности
+			padding: 0; // Явно убираем padding для консистентности
 
 			&:hover {
 				opacity: 0.7;
@@ -266,7 +269,7 @@
 
 		@include lg {
 			a {
-				font-size: 13px;
+				font-size: 13px; // ИДЕНТИЧНО .footer-language-item a и .footer-services-list a на lg
 			}
 		}
 	}
@@ -452,21 +455,30 @@
 
 	li {
 		margin: 0;
-		padding: 0; // Убираем padding у элементов списка
+		padding: 0; // ИДЕНТИЧНО .footer-menu-list li и .footer-language-list li
+		// НЕ устанавливаем фиксированную высоту - пусть содержимое определяет высоту
 	}
 
 	a {
 		font-family: $font__manrope;
 		font-size: 14px;
 		font-weight: 400;
-		line-height: 1; // 100%
+		line-height: 1; // 100% - ИДЕНТИЧНО .footer-menu-list a и .footer-language-item
 		letter-spacing: 0;
-		color: #ffffff;
+		color: #ffffff; // ИДЕНТИЧНО .footer-menu-list a и .footer-language-item a
 		text-decoration: none;
 		transition: opacity 0.2s ease;
+		margin: 0; // Явно убираем margin для консистентности
+		padding: 0; // Явно убираем padding для консистентности
 
 		&:hover {
-			opacity: 0.7;
+			opacity: 0.7; // ИДЕНТИЧНО .footer-menu-list a:hover и .footer-language-item a:hover
+		}
+	}
+
+	@include lg {
+		a {
+			font-size: 13px; // ИДЕНТИЧНО .footer-menu-list a и .footer-language-item a на lg
 		}
 	}
 }

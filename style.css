@@ -2190,6 +2190,8 @@ a.phone-button:focus,
   color: #ffffff;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  margin: 0;
+  padding: 0;
 }
 .footer-menu .footer-menu-list a:hover {
   opacity: 0.7;
@@ -2374,9 +2376,16 @@ a.phone-button:focus,
   color: #ffffff;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  margin: 0;
+  padding: 0;
 }
 .footer-services-list a:hover {
   opacity: 0.7;
+}
+@media (max-width: 1024px) {
+  .footer-services-list a {
+    font-size: 13px;
+  }
 }
 
 .footer-services-list-left {
