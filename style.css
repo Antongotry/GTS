@@ -5331,9 +5331,12 @@ a.phone-button:focus,
 	}
 
 	.trusted-by-container {
-		margin-bottom: 0;
+		margin-bottom: 0 !important;
 		padding-top: 0 !important;
 		margin-top: 0 !important;
+		padding-bottom: 0 !important;
+		height: auto !important;
+		min-height: 0 !important;
 	}
 
 	.trusted-by-slider .swiper-slide {
