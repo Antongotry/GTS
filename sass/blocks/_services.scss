@@ -19,11 +19,11 @@
 	text-align: center;
 
 	@include lg {
-		max-width: 944px; // Как и другие блоки на 1024px
-		padding: 0 20px;
-		box-sizing: content-box;
-		width: 100%;
-		margin: 0 auto; // Центрировать контейнер
+		max-width: 944px !important; // Как и другие блоки на 1024px
+		padding: 0 20px !important;
+		box-sizing: content-box !important;
+		width: 100% !important;
+		margin: 0 auto !important; // Центрировать контейнер
 		align-items: center; // Центрировать содержимое
 		text-align: center; // Центрировать текст
 	}
