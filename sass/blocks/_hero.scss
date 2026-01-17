@@ -249,6 +249,18 @@
 		transform: translateY(-50%);
 		pointer-events: none;
 	}
+
+	@include md {
+		display: none;
+	}
+}
+
+.hero-features--mobile {
+	display: none;
+
+	@include md {
+		display: grid;
+	}
 }
 
 .hero-feature {

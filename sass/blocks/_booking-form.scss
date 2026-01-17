@@ -50,6 +50,46 @@
 .booking-form-block--mobile .world-map-section {
 	@include md {
 		margin-top: 0;
+		background: #0c0f17;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
+}
+
+.booking-form-block--mobile .hero-features--mobile {
+	@include md {
+		margin-top: 0;
+		background: #0c0f17;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-map {
+	@include md {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding-left: 20px;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-map .world-map-image {
+	@include md {
+		padding: 0;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-map .world-map-image img {
+	@include md {
+		width: 110px;
+		height: auto;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-map .world-map-text {
+	@include md {
+		padding: 0;
+		align-items: flex-start;
+		text-align: left;
 	}
 }
 

@@ -3564,6 +3564,24 @@ a.phone-button:focus,
 	pointer-events: none;
 }
 
+@media (max-width: 768px) {
+
+	.hero-features {
+		display: none;
+	}
+}
+
+.hero-features--mobile {
+	display: none;
+}
+
+@media (max-width: 768px) {
+
+	.hero-features--mobile {
+		display: grid;
+	}
+}
+
 .hero-feature {
 	display: flex;
 	align-items: center;
@@ -4191,6 +4209,51 @@ a.phone-button:focus,
 
 	.booking-form-block--mobile .world-map-section {
 		margin-top: 0;
+		background: #0c0f17;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.booking-form-block--mobile .hero-features--mobile {
+		margin-top: 0;
+		background: #0c0f17;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.booking-form-block--mobile .hero-feature-map {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding-left: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.booking-form-block--mobile .hero-feature-map .world-map-image {
+		padding: 0;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.booking-form-block--mobile .hero-feature-map .world-map-image img {
+		width: 110px;
+		height: auto;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.booking-form-block--mobile .hero-feature-map .world-map-text {
+		padding: 0;
+		align-items: flex-start;
+		text-align: left;
 	}
 }
 
