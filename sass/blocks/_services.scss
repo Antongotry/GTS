@@ -23,6 +23,9 @@
 		padding: 0 20px;
 		box-sizing: content-box;
 		width: 100%;
+		margin: 0 auto; // Центрировать контейнер
+		align-items: center; // Центрировать содержимое
+		text-align: center; // Центрировать текст
 	}
 }
 
@@ -56,9 +59,14 @@
 	margin: $spacing-2xl 0 0 0;
 	max-width: 100%; // Убираем ограничение для 2 строк
 	text-align: center;
+	width: 100%; // На всю ширину контейнера
 
 	@include lg {
 		font-size: 33px;
+		text-align: center !important; // Принудительно центрировать
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	@include md {

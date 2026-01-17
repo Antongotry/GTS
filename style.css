@@ -5429,6 +5429,9 @@ a.phone-button:focus,
 		padding: 0 20px;
 		box-sizing: content-box;
 		width: 100%;
+		margin: 0 auto;
+		align-items: center;
+		text-align: center;
 	}
 }
 
@@ -5470,12 +5473,17 @@ a.phone-button:focus,
 	margin: 32px 0 0 0;
 	max-width: 100%;
 	text-align: center;
+	width: 100%;
 }
 
 @media (max-width: 1024px) {
 
 	.services-title {
 		font-size: 33px;
+		text-align: center !important;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
