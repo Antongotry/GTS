@@ -145,7 +145,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr; // Две колонки: левая (links) и правая (developed)
 		grid-template-rows: auto;
-		align-items: flex-start;
+		align-items: flex-end; // Выровнять элементы по низу
 		gap: 0;
 		margin-top: 40px;
 		padding: 0 20px !important;
@@ -689,6 +689,8 @@
 		align-self: flex-end; // Прижать снизу
 		justify-self: flex-end; // Прижать к правому краю
 		text-align: right; // Выровнять текст по правому краю
+		// Убеждаемся что элемент прижат к низу
+		margin-top: auto; // Прижать к низу контейнера
 	}
 }
 

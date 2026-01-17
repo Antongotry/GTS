@@ -2073,7 +2073,7 @@ a.phone-button:focus,
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 0;
     margin-top: 40px;
     padding: 0 20px !important;
@@ -2613,6 +2613,7 @@ a.phone-button:focus,
     align-self: flex-end;
     justify-self: flex-end;
     text-align: right;
+    margin-top: auto;
   }
 }
 
