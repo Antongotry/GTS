@@ -1,13 +1,19 @@
 /**
  * DateTime Local Placeholder Handler
- * Manages placeholder visibility for datetime-local inputs on mobile devices
+ * Manages placeholder visibility for datetime-local inputs on mobile and desktop devices
  */
 (function() {
 	'use strict';
 
+	// Проверка является ли устройство touch-устройством
+	function isTouchDevice() {
+		return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+	}
+
 	// Функция инициализации - вызывается при загрузке и когда DOM готов
 	function initDateTimePlaceholders() {
 		const datetimeInputs = document.querySelectorAll('input[type="datetime-local"]');
+		const touchDevice = isTouchDevice();
 
 		datetimeInputs.forEach(function(input) {
 			const placeholder = input.nextElementSibling;
@@ -70,10 +76,14 @@
 				updatePlaceholderVisibility();
 			});
 
-			// При фокусе - скрыть placeholder
+			// При фокусе - скрыть placeholder (только на десктопе, на мобильных браузер сам управляет)
 			input.addEventListener('focus', function() {
-				placeholder.style.opacity = '0';
-				placeholder.style.display = 'none';
+				// На мобильных не скрываем автоматически - браузер сам обработает
+				// На десктопе скрываем сразу
+				if (!touchDevice) {
+					placeholder.style.opacity = '0';
+					placeholder.style.display = 'none';
+				}
 			});
 
 			// При потере фокуса - показать если пустое, скрыть если заполнено
@@ -93,25 +103,8 @@
 				}, 100);
 			});
 
-			// Также слушать событие при клике (для мобильных и десктопа)
+			// Обработчик клика - для обновления видимости placeholder
 			input.addEventListener('click', function(e) {
-				// На десктопе открываем календарь при клике на любое место input
-				// Это обходит проблему когда webkit-datetime-edit блокирует клики
-				if (input.type === 'datetime-local') {
-					// Программно открываем календарь через focus и showPicker (если доступен)
-					setTimeout(function() {
-						input.focus();
-						// Попытка открыть календарь программно (поддерживается в некоторых браузерах)
-						if (input.showPicker) {
-							try {
-								input.showPicker();
-							} catch (err) {
-								// Если showPicker не поддерживается, просто focus
-							}
-						}
-					}, 10);
-				}
-
 				setTimeout(function() {
 					if (input.value !== '') {
 						input.classList.add('has-value');
@@ -120,29 +113,43 @@
 				}, 100);
 			});
 
-			// Дополнительный обработчик для области input (не только иконки)
-			// Используем mousedown для более надежного срабатывания
-			input.addEventListener('mousedown', function(e) {
-				// Если клик не на иконке календаря (справа), открываем календарь
-				const rect = input.getBoundingClientRect();
-				const clickX = e.clientX - rect.left;
-				const inputWidth = rect.width;
+			// Обработчик для десктопа - открываем календарь при клике на любое место input
+			if (!touchDevice) {
+				// Для десктопа используем mousedown для более надежного срабатывания
+				input.addEventListener('mousedown', function(e) {
+					// Если клик не на иконке календаря (справа), открываем календарь
+					const rect = input.getBoundingClientRect();
+					const clickX = e.clientX - rect.left;
+					const inputWidth = rect.width;
 
-				// Если клик не в последних 30px (где иконка), открываем календарь
-				if (clickX < inputWidth - 30) {
-					e.preventDefault(); // Предотвращаем стандартное поведение
-					setTimeout(function() {
-						input.focus();
-						if (input.showPicker) {
-							try {
-								input.showPicker();
-							} catch (err) {
-								// Если showPicker не поддерживается, просто focus
+					// Если клик не в последних 30px (где иконка), открываем календарь
+					if (clickX < inputWidth - 30) {
+						e.preventDefault(); // Предотвращаем стандартное поведение только на десктопе
+						setTimeout(function() {
+							input.focus();
+							// Попытка открыть календарь программно (поддерживается в современных браузерах)
+							if (input.showPicker) {
+								try {
+									input.showPicker();
+								} catch (err) {
+									// Если showPicker не поддерживается, просто focus - браузер сам откроет календарь
+								}
 							}
-						}
-					}, 10);
-				}
-			});
+						}, 10);
+					}
+				});
+			}
+
+			// Обработчик для мобильных - используем touchstart вместо mousedown
+			if (touchDevice) {
+				input.addEventListener('touchstart', function(e) {
+					// На мобильных не используем preventDefault - пусть браузер обрабатывает стандартно
+					// Просто обновляем видимость placeholder после касания
+					setTimeout(function() {
+						updatePlaceholderVisibility();
+					}, 100);
+				});
+			}
 
 			// Слушать событие при закрытии календаря (для десктопа)
 			input.addEventListener('close', function() {
