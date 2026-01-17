@@ -188,3 +188,67 @@
 	height: 26px;
 	display: block;
 }
+
+// Mobile styles (<=768px)
+@include md {
+	.how-it-works-block {
+		height: auto;
+		margin-top: 0;
+		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/banner-home-375-4_result.webp') !important;
+		background-size: cover;
+		background-position: center top;
+	}
+
+	.how-it-works-container {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0 20px;
+		max-width: 100%;
+	}
+
+	.how-it-works-left {
+		width: 100%;
+		padding: 40px 0 0 0;
+		gap: 16px;
+		order: 1;
+	}
+
+	// Background image area on mobile
+	.how-it-works-block::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 426px;
+	}
+
+	.how-it-works-right {
+		width: 100%;
+		padding-right: 0;
+		margin-left: 0;
+		height: auto;
+		order: 3;
+		background: #fff;
+		margin-top: 426px;
+	}
+
+	.how-it-works-steps {
+		height: auto;
+		overflow: visible;
+		gap: 10px;
+		padding: 0;
+	}
+
+	.how-it-works-step {
+		height: 200px;
+		min-height: 200px;
+		padding: 16px;
+	}
+
+	.how-it-works-step-title {
+		font-size: 18px;
+	}
+
+	.how-it-works-step-description {
+		font-size: 14px;
+	}
+}
