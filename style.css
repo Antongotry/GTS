@@ -1980,9 +1980,9 @@ a.phone-button:focus,
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
-		grid-template-columns: 70px 90px auto 90px auto auto auto 1fr;
+		grid-template-columns: 70px 120px 140px 160px 160px 294px;
 		grid-template-rows: auto;
-		gap: 0 20px;
+		gap: 0;
 	}
 }
 
@@ -2201,10 +2201,10 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-services {
-		grid-column: 4/span 3;
+		grid-column: 4/span 2;
 		grid-row: 1;
 		grid-template-columns: auto auto;
-		column-gap: 60px;
+		column-gap: 40px;
 	}
 }
 
@@ -2288,10 +2288,10 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-right {
-		grid-column: 7/-1;
+		grid-column: 6;
 		grid-row: 1;
 		width: auto;
-		max-width: 340px;
+		max-width: 294px;
 		justify-self: end;
 	}
 }

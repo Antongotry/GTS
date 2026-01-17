@@ -46,9 +46,9 @@
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
-		grid-template-columns: 70px 90px auto 90px auto auto auto 1fr;
+		grid-template-columns: 70px 120px 140px 160px 160px 294px;
 		grid-template-rows: auto;
-		gap: 0 20px;
+		gap: 0;
 	}
 }
 
@@ -247,10 +247,10 @@
 	}
 
 	@include lg {
-		grid-column: 4 / span 3; // Колонки 4, 5, 6
+		grid-column: 4 / span 2; // Колонки 4 и 5
 		grid-row: 1;
 		grid-template-columns: auto auto; // Две колонки Services
-		column-gap: 60px;
+		column-gap: 40px;
 	}
 }
 
@@ -322,10 +322,10 @@
 	}
 
 	@include lg {
-		grid-column: 7 / -1; // Последние колонки
+		grid-column: 6; // Правая колонка
 		grid-row: 1;
 		width: auto;
-		max-width: 340px;
+		max-width: 294px;
 		justify-self: end;
 	}
 }
