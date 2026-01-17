@@ -472,7 +472,8 @@
 			cursor: pointer;
 			width: 20px;
 			height: 20px;
-			margin-left: 8px;
+			margin-left: 0; // Убрать margin чтобы не влиял на ширину
+			margin-right: 0;
 			position: relative;
 			z-index: 21 !important; // Выше самого input для кликабельности
 		}
@@ -599,6 +600,8 @@
 			padding-right: 20px !important; // Потом добавляем padding-right как у select
 			box-sizing: border-box !important; // Учесть padding в ширине
 			margin: 0 !important; // Убрать любые margin
+			border: none !important; // Убедиться что нет border который влияет на ширину
+			outline: none !important; // Убрать outline
 
 			// Убедиться что все внутренние части кликабельны
 			&::-webkit-datetime-edit {

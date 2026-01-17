@@ -4103,7 +4103,8 @@ a.phone-button:focus,
 	cursor: pointer;
 	width: 20px;
 	height: 20px;
-	margin-left: 8px;
+	margin-left: 0;
+	margin-right: 0;
 	position: relative;
 	z-index: 21 !important;
 }
@@ -4233,6 +4234,8 @@ a.phone-button:focus,
 	padding-right: 20px !important;
 	box-sizing: border-box !important;
 	margin: 0 !important;
+	border: none !important;
+	outline: none !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit {

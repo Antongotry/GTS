@@ -111,7 +111,7 @@
 						}
 					}, 10);
 				}
-				
+
 				setTimeout(function() {
 					if (input.value !== '') {
 						input.classList.add('has-value');
@@ -127,7 +127,7 @@
 				const rect = input.getBoundingClientRect();
 				const clickX = e.clientX - rect.left;
 				const inputWidth = rect.width;
-				
+
 				// Если клик не в последних 30px (где иконка), открываем календарь
 				if (clickX < inputWidth - 30) {
 					e.preventDefault(); // Предотвращаем стандартное поведение
