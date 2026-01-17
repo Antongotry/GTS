@@ -17,6 +17,8 @@ $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-ho
 			</p>
 			<a href="#" class="btn btn-primary final-cta-button">Book a transfer</a>
 		</div>
+	</div>
+	<div class="final-cta-right-wrapper">
 		<div class="final-cta-right">
 			<div class="final-cta-item">
 				<div class="final-cta-item-header">

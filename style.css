@@ -5332,7 +5332,7 @@ a.phone-button:focus,
 
 	.trusted-by-container {
 		margin-bottom: 0 !important;
-		padding-top: 0 !important;
+		padding-top: 40px !important;
 		margin-top: 0 !important;
 		padding-bottom: 0 !important;
 		height: auto !important;
@@ -5342,8 +5342,11 @@ a.phone-button:focus,
 	.trusted-by-container:last-of-type {
 		height: auto !important;
 		min-height: 0 !important;
-		padding: 0 !important;
+		padding: 40px 0 0 0 !important;
 		margin: 0 !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.trusted-by-slider .swiper-slide {
@@ -5927,6 +5930,18 @@ a.phone-button:focus,
 	width: auto;
 }
 
+@media (max-width: 768px) {
+
+	.final-cta-right-wrapper {
+		width: 100%;
+		margin-top: -100px;
+		position: relative;
+		z-index: 2;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+}
+
 .final-cta-right {
 	width: 910px;
 	background: rgba(255, 255, 255, 0.06);
@@ -5950,12 +5965,9 @@ a.phone-button:focus,
 
 	.final-cta-right {
 		width: 100%;
-		margin-top: -100px;
 		padding: 16px;
 		background: rgba(255, 255, 255, 0.06);
 		backdrop-filter: blur(100px);
-		position: relative;
-		z-index: 2;
 	}
 }
 

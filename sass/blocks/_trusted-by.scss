@@ -155,18 +155,21 @@
 
 	.trusted-by-container {
 		margin-bottom: 0 !important;
-		padding-top: 0 !important;
+		padding-top: 40px !important; // Вернули padding-top 40px
 		margin-top: 0 !important;
 		padding-bottom: 0 !important;
 		height: auto !important;
 		min-height: 0 !important;
 
-		// Второй контейнер (только с nav-arrows) - убрать все отступы
+		// Второй контейнер (только с nav-arrows) - центрировать и добавить padding-top
 		&:last-of-type {
 			height: auto !important;
 			min-height: 0 !important;
-			padding: 0 !important;
+			padding: 40px 0 0 0 !important;
 			margin: 0 !important;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 

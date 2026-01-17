@@ -88,6 +88,17 @@
 	width: auto; // Не растягивать кнопку
 }
 
+.final-cta-right-wrapper {
+	@include md {
+		width: 100%;
+		margin-top: -100px; // Наложение на блок с фоном на 100px
+		position: relative;
+		z-index: 2;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+}
+
 .final-cta-right {
 	width: 910px;
 	background: rgba(255, 255, 255, 0.06); // 6% белый
@@ -105,12 +116,9 @@
 
 	@include md {
 		width: 100%;
-		margin-top: -100px; // Наложение на блок с фоном на 100px
 		padding: 16px;
 		background: rgba(255, 255, 255, 0.06);
 		backdrop-filter: blur(100px);
-		position: relative;
-		z-index: 2;
 	}
 }
 
