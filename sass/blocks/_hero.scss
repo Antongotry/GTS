@@ -456,36 +456,62 @@
 		}
 	}
 
-	// Специальные стили для datetime-local на мобильном
+	// Специальные стили для datetime-local - работает на ВСЕХ разрешениях
 	input[type="datetime-local"] {
-		@include md {
-			// Убедиться, что datetime-local виден и выровнен
-			-webkit-appearance: none;
-			-moz-appearance: textfield;
-			appearance: none;
-			color: rgba(0, 0, 0, 0.56) !important; // Цвет placeholder пока не выбрано
-			position: relative;
+		// Убедиться, что datetime-local виден и выровнен на всех устройствах
+		-webkit-appearance: none;
+		-moz-appearance: textfield;
+		appearance: none;
+		color: transparent !important; // Сделать текст прозрачным, чтобы placeholder был виден
+		position: relative;
+		background: transparent !important; // Прозрачный фон
 
-			&::-webkit-calendar-picker-indicator {
-				opacity: 1 !important;
-				cursor: pointer;
-				width: 20px;
-				height: 20px;
-				margin-left: 8px;
-				position: relative;
-				z-index: 2;
-			}
+		&::-webkit-calendar-picker-indicator {
+			opacity: 1 !important;
+			cursor: pointer;
+			width: 20px;
+			height: 20px;
+			margin-left: 8px;
+			position: relative;
+			z-index: 21 !important; // Выше самого input для кликабельности
+		}
+
+		&::-webkit-datetime-edit {
+			color: transparent !important; // Прозрачный текст чтобы placeholder был виден
+		}
+
+		&::-webkit-datetime-edit-fields-wrapper {
+			color: transparent !important; // Прозрачный текст
+		}
+
+		&::-webkit-datetime-edit-text {
+			color: transparent !important; // Прозрачный текст
+		}
+
+		&::-webkit-datetime-edit-month-field,
+		&::-webkit-datetime-edit-day-field,
+		&::-webkit-datetime-edit-year-field,
+		&::-webkit-datetime-edit-hour-field,
+		&::-webkit-datetime-edit-minute-field {
+			color: transparent !important; // Прозрачный текст
+		}
+
+		// Когда выбрано значение - показать текст на всех разрешениях
+		&:not(:placeholder-shown),
+		&:valid,
+		&.has-value {
+			color: #000000 !important;
 
 			&::-webkit-datetime-edit {
-				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет
+				color: #000000 !important;
 			}
 
 			&::-webkit-datetime-edit-fields-wrapper {
-				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет
+				color: #000000 !important;
 			}
 
 			&::-webkit-datetime-edit-text {
-				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет для разделителей
+				color: #000000 !important;
 			}
 
 			&::-webkit-datetime-edit-month-field,
@@ -493,44 +519,19 @@
 			&::-webkit-datetime-edit-year-field,
 			&::-webkit-datetime-edit-hour-field,
 			&::-webkit-datetime-edit-minute-field {
-				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет для полей
-			}
-
-			// Когда выбрано значение
-			&:not(:placeholder-shown),
-			&:valid {
 				color: #000000 !important;
-
-				&::-webkit-datetime-edit {
-					color: #000000 !important;
-				}
-
-				&::-webkit-datetime-edit-fields-wrapper {
-					color: #000000 !important;
-				}
-
-				&::-webkit-datetime-edit-text {
-					color: #000000 !important;
-				}
-
-				&::-webkit-datetime-edit-month-field,
-				&::-webkit-datetime-edit-day-field,
-				&::-webkit-datetime-edit-year-field,
-				&::-webkit-datetime-edit-hour-field,
-				&::-webkit-datetime-edit-minute-field {
-					color: #000000 !important;
-				}
 			}
+		}
 
-			// Для Firefox
-			&::-moz-placeholder {
-				color: rgba(0, 0, 0, 0.56);
-				opacity: 1;
-			}
+		// Для Firefox
+		&::-moz-placeholder {
+			color: rgba(0, 0, 0, 0.56);
+			opacity: 1;
 		}
 	}
 
 	// Визуальный placeholder для datetime-local (когда поле пустое)
+	// Работает на ВСЕХ разрешениях
 	.form-group-datetime {
 		position: relative;
 
@@ -544,22 +545,27 @@
 			font-size: 14px;
 			font-family: "Manrope", $font__main;
 			font-weight: 400;
-			pointer-events: none;
-			z-index: 1;
-			opacity: 1;
-			transition: opacity 0.3s ease;
+			pointer-events: none; // Пропускает клики к input ниже
+			z-index: 1; // НИЗКИЙ z-index - ниже input, но виден через прозрачный input
+			opacity: 1 !important; // Всегда видим по умолчанию
+			transition: opacity 0.3s ease, display 0.3s ease;
+			display: block !important; // Убедиться что видим
+			width: calc(100% - 30px); // Оставить место для иконки календаря
 		}
 
 		input[type="datetime-local"] {
 			position: relative;
-			z-index: 2;
+			z-index: 20 !important; // ВЫСОКИЙ z-index - выше placeholder, получает клики первым
+			background: transparent !important; // Прозрачный фон чтобы placeholder был виден
 		}
 
 		// Скрыть placeholder когда поле заполнено или в фокусе
 		input[type="datetime-local"]:focus ~ .datetime-placeholder,
-		input[type="datetime-local"]:not(:invalid) ~ .datetime-placeholder,
-		input[type="datetime-local"]:valid ~ .datetime-placeholder {
-			opacity: 0;
+		input[type="datetime-local"]:not(:invalid):not(:placeholder-shown) ~ .datetime-placeholder,
+		input[type="datetime-local"]:valid ~ .datetime-placeholder,
+		input[type="datetime-local"].has-value ~ .datetime-placeholder {
+			opacity: 0 !important;
+			display: none !important;
 		}
 	}
 
