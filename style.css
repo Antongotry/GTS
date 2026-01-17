@@ -4127,27 +4127,47 @@ a.phone-button:focus,
 	color: transparent !important;
 }
 
-.form-group input[type="datetime-local"]:not(:placeholder-shown),
-.form-group input[type="datetime-local"]:valid,
 .form-group input[type="datetime-local"].has-value {
 	color: #000 !important;
 }
 
-.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit,
-.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit,
 .form-group input[type="datetime-local"].has-value::-webkit-datetime-edit {
 	color: #000 !important;
 }
 
-.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-fields-wrapper,
-.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-fields-wrapper,
 .form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-fields-wrapper {
 	color: #000 !important;
 }
 
-.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-text,
-.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-text,
 .form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-text {
+	color: #000 !important;
+}
+
+.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-month-field,
+.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-day-field,
+.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-year-field,
+.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-hour-field,
+.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-minute-field {
+	color: #000 !important;
+}
+
+.form-group input[type="datetime-local"]:not(:placeholder-shown),
+.form-group input[type="datetime-local"]:valid {
+	color: #000 !important;
+}
+
+.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit,
+.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit {
+	color: #000 !important;
+}
+
+.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-fields-wrapper,
+.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-fields-wrapper {
+	color: #000 !important;
+}
+
+.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-text,
+.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-text {
 	color: #000 !important;
 }
 
@@ -4160,12 +4180,7 @@ a.phone-button:focus,
 .form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-day-field,
 .form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-year-field,
 .form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-hour-field,
-.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-minute-field,
-.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-month-field,
-.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-day-field,
-.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-year-field,
-.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-hour-field,
-.form-group input[type="datetime-local"].has-value::-webkit-datetime-edit-minute-field {
+.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-minute-field {
 	color: #000 !important;
 }
 

@@ -497,9 +497,33 @@
 		}
 
 		// Когда выбрано значение - показать текст на всех разрешениях
-		&:not(:placeholder-shown),
-		&:valid,
+		// Важно: &.has-value должен быть первым для надежности
 		&.has-value {
+			color: #000000 !important;
+
+			&::-webkit-datetime-edit {
+				color: #000000 !important;
+			}
+
+			&::-webkit-datetime-edit-fields-wrapper {
+				color: #000000 !important;
+			}
+
+			&::-webkit-datetime-edit-text {
+				color: #000000 !important;
+			}
+
+			&::-webkit-datetime-edit-month-field,
+			&::-webkit-datetime-edit-day-field,
+			&::-webkit-datetime-edit-year-field,
+			&::-webkit-datetime-edit-hour-field,
+			&::-webkit-datetime-edit-minute-field {
+				color: #000000 !important;
+			}
+		}
+
+		&:not(:placeholder-shown),
+		&:valid {
 			color: #000000 !important;
 
 			&::-webkit-datetime-edit {

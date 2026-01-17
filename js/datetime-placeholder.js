@@ -42,11 +42,33 @@
 				input.classList.remove('has-value');
 			}
 
-			// При изменении значения
-			input.addEventListener('change', updatePlaceholderVisibility);
+			// При изменении значения - ВАЖНО для datetime-local
+			input.addEventListener('change', function() {
+				// Добавить класс has-value если есть значение
+				if (input.value !== '') {
+					input.classList.add('has-value');
+				} else {
+					input.classList.remove('has-value');
+				}
+				updatePlaceholderVisibility();
+				// Повторная проверка с задержкой для надежности
+				setTimeout(function() {
+					if (input.value !== '') {
+						input.classList.add('has-value');
+					}
+					updatePlaceholderVisibility();
+				}, 200);
+			});
 
 			// При вводе
-			input.addEventListener('input', updatePlaceholderVisibility);
+			input.addEventListener('input', function() {
+				if (input.value !== '') {
+					input.classList.add('has-value');
+				} else {
+					input.classList.remove('has-value');
+				}
+				updatePlaceholderVisibility();
+			});
 
 			// При фокусе - скрыть placeholder
 			input.addEventListener('focus', function() {
@@ -54,12 +76,41 @@
 				placeholder.style.display = 'none';
 			});
 
-			// При потере фокуса - показать если пустое
-			input.addEventListener('blur', updatePlaceholderVisibility);
+			// При потере фокуса - показать если пустое, скрыть если заполнено
+			input.addEventListener('blur', function() {
+				if (input.value !== '') {
+					input.classList.add('has-value');
+				} else {
+					input.classList.remove('has-value');
+				}
+				updatePlaceholderVisibility();
+				// Повторная проверка после blur
+				setTimeout(function() {
+					if (input.value !== '') {
+						input.classList.add('has-value');
+					}
+					updatePlaceholderVisibility();
+				}, 100);
+			});
 
-			// Также слушать событие при клике (для мобильных)
+			// Также слушать событие при клике (для мобильных и десктопа)
 			input.addEventListener('click', function() {
-				setTimeout(updatePlaceholderVisibility, 100);
+				setTimeout(function() {
+					if (input.value !== '') {
+						input.classList.add('has-value');
+					}
+					updatePlaceholderVisibility();
+				}, 100);
+			});
+
+			// Слушать событие при закрытии календаря (для десктопа)
+			input.addEventListener('close', function() {
+				setTimeout(function() {
+					if (input.value !== '') {
+						input.classList.add('has-value');
+					}
+					updatePlaceholderVisibility();
+				}, 100);
 			});
 		});
 	}
