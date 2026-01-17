@@ -135,10 +135,16 @@
 	width: 100%; // Явно установить ширину
 	box-sizing: border-box; // Учитывать padding в ширине
 
+	@include laptop {
+		// На 1440px footer-bottom-links становится колонкой, поэтому выравниваем по низу
+		align-items: flex-end; // Прижать элементы к низу
+	}
+
 	@include lg {
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
+		align-items: center; // Вернуть выравнивание по центру для планшета
 	}
 
 	@include md {

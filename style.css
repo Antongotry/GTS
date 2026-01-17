@@ -2061,11 +2061,17 @@ a.phone-button:focus,
   width: 100%;
   box-sizing: border-box;
 }
+@media (max-width: 1440px) {
+  .footer-bottom {
+    align-items: flex-end;
+  }
+}
 @media (max-width: 1024px) {
   .footer-bottom {
     max-width: 944px;
     padding: 0 20px;
     box-sizing: content-box;
+    align-items: center;
   }
 }
 @media (max-width: 768px) {
