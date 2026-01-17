@@ -131,6 +131,10 @@
 	@include lg {
 		font-size: 20px;
 	}
+
+	@include md {
+		font-size: 18px;
+	}
 }
 
 .final-cta-item-description {

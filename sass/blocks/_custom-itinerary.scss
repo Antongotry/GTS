@@ -78,6 +78,10 @@
 	color: #000000;
 	margin: 0 0 8px 0; // 8px до описания
 	text-align: center;
+
+	@include md {
+		font-size: 28px;
+	}
 }
 
 .custom-itinerary-description {

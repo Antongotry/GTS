@@ -109,6 +109,11 @@
 		font-size: 36px;
 		max-width: 460px; // Для 3 строк: Premium transfers for / corporate and private clients – / 24/7 coordination
 	}
+
+	@include md {
+		font-size: 27px;
+		max-width: 246px;
+	}
 }
 
 .hero-buttons {

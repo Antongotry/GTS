@@ -3333,6 +3333,14 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.hero-title {
+		font-size: 27px;
+		max-width: 246px;
+	}
+}
+
 .hero-buttons {
 	display: flex;
 	gap: 8px;
@@ -4314,6 +4322,13 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.how-it-works-title {
+		font-size: 28px;
+	}
+}
+
 .how-it-works-right {
 	position: relative;
 	width: 590px;
@@ -4527,6 +4542,13 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.trusted-by-title {
+		font-size: 28px;
+	}
+}
+
 .trusted-by-slider {
 	width: 100%;
 	max-width: 100%;
@@ -4681,6 +4703,13 @@ a.phone-button:focus,
 
 	.services-title {
 		font-size: 33px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.services-title {
+		font-size: 28px;
 	}
 }
 
@@ -4927,6 +4956,13 @@ a.phone-button:focus,
 	text-align: center;
 }
 
+@media (max-width: 768px) {
+
+	.custom-itinerary-title {
+		font-size: 28px;
+	}
+}
+
 .custom-itinerary-description {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 16px;
@@ -5106,6 +5142,13 @@ a.phone-button:focus,
 
 	.final-cta-item-title {
 		font-size: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.final-cta-item-title {
+		font-size: 18px;
 	}
 }
 

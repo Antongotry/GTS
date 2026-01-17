@@ -53,6 +53,10 @@
 	@include lg {
 		font-size: 33px;
 	}
+
+	@include md {
+		font-size: 28px;
+	}
 }
 
 .services-grid {

@@ -50,6 +50,10 @@
 	@include lg {
 		font-size: 33px;
 	}
+
+	@include md {
+		font-size: 28px;
+	}
 }
 
 .trusted-by-slider {
