@@ -191,39 +191,68 @@
 
 // Mobile styles (<=768px)
 @include md {
+	// Remove pin-spacer effect on mobile
+	.pin-spacer {
+		height: auto !important;
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+
 	.how-it-works-block {
 		height: auto !important;
 		min-height: auto !important;
 		margin-top: 0;
-		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/banner-home-375-4_result.webp') !important;
-		background-size: 100% 420px;
-		background-position: top center;
-		background-repeat: no-repeat;
+		padding-top: 40px;
 		position: relative !important;
 		top: auto !important;
+		left: auto !important;
+		right: auto !important;
+		bottom: auto !important;
 		transform: none !important;
+		translate: none !important;
+		rotate: none !important;
+		scale: none !important;
+		background-color: #0c0f17;
+	}
+
+	// Background image as pseudo-element
+	.how-it-works-block::before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 420px;
+		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/banner-home-375-4_result.webp');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		order: 2;
 	}
 
 	.how-it-works-container {
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 0;
+		padding: 0 20px;
 		max-width: 100%;
 		height: auto;
 	}
 
 	.how-it-works-left {
-		display: none; // Hide pill and title on mobile - they're part of the bg image
+		display: flex;
+		width: 100%;
+		padding: 0 0 32px 0;
+		gap: 16px;
+		order: 1;
 	}
 
 	.how-it-works-right {
 		width: 100%;
-		padding: 0 20px;
+		padding: 0;
 		margin-left: 0;
-		margin-top: 420px; // Below the background image
+		margin-top: 0;
 		height: auto;
 		background: transparent;
 		box-sizing: border-box;
+		order: 3;
 	}
 
 	.how-it-works-steps {
