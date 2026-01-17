@@ -464,6 +464,7 @@
 			-moz-appearance: textfield;
 			appearance: none;
 			color: rgba(0, 0, 0, 0.56) !important; // Цвет placeholder пока не выбрано
+			position: relative;
 
 			&::-webkit-calendar-picker-indicator {
 				opacity: 1 !important;
@@ -471,6 +472,8 @@
 				width: 20px;
 				height: 20px;
 				margin-left: 8px;
+				position: relative;
+				z-index: 2;
 			}
 
 			&::-webkit-datetime-edit {
@@ -524,6 +527,39 @@
 				color: rgba(0, 0, 0, 0.56);
 				opacity: 1;
 			}
+		}
+	}
+
+	// Визуальный placeholder для datetime-local (когда поле пустое)
+	.form-group-datetime {
+		position: relative;
+
+		.datetime-placeholder {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 40px;
+			line-height: 40px;
+			color: rgba(0, 0, 0, 0.56);
+			font-size: 14px;
+			font-family: "Manrope", $font__main;
+			font-weight: 400;
+			pointer-events: none;
+			z-index: 1;
+			opacity: 1;
+			transition: opacity 0.3s ease;
+		}
+
+		input[type="datetime-local"] {
+			position: relative;
+			z-index: 2;
+		}
+
+		// Скрыть placeholder когда поле заполнено или в фокусе
+		input[type="datetime-local"]:focus ~ .datetime-placeholder,
+		input[type="datetime-local"]:not(:invalid) ~ .datetime-placeholder,
+		input[type="datetime-local"]:valid ~ .datetime-placeholder {
+			opacity: 0;
 		}
 	}
 

@@ -107,8 +107,9 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_resul
 
 				<!-- Row 4: Pick-up time и Pick-up location с Add Stop -->
 				<div class="form-row">
-					<div class="form-group">
+					<div class="form-group form-group-datetime">
 						<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="Pick-up time" required>
+						<span class="datetime-placeholder">Pick-up time</span>
 					</div>
 					<div class="form-group form-group-with-add-stop">
 						<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
