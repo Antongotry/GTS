@@ -4192,6 +4192,8 @@ a.phone-button:focus,
 .form-group .form-group-datetime {
 	position: relative;
 	flex: 1;
+	min-width: 0;
+	max-width: 100%;
 }
 
 .form-group .form-group-datetime .datetime-placeholder {
@@ -4226,8 +4228,9 @@ a.phone-button:focus,
 	pointer-events: auto !important;
 	display: block !important;
 	width: 100% !important;
-	padding-right: 20px !important;
+	padding: 8px 20px 8px 0 !important;
 	box-sizing: border-box !important;
+	margin: 0 !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit {
