@@ -202,7 +202,8 @@
 		height: auto !important;
 		min-height: auto !important;
 		margin-top: 0;
-		padding-top: 40px;
+		background-image: none !important;
+		background-color: transparent;
 		position: relative !important;
 		top: auto !important;
 		left: auto !important;
@@ -212,11 +213,23 @@
 		translate: none !important;
 		rotate: none !important;
 		scale: none !important;
-		background-color: #0c0f17;
+		display: flex;
+		flex-direction: column;
 	}
 
-	// Background image as pseudo-element
-	.how-it-works-block::before {
+	.how-it-works-container {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0;
+		max-width: 100%;
+		height: auto;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	// Background image block - between pill+title and cards
+	.how-it-works-container::after {
 		content: '';
 		display: block;
 		width: 100%;
@@ -226,33 +239,31 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		order: 2;
-	}
-
-	.how-it-works-container {
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 0 20px;
-		max-width: 100%;
-		height: auto;
+		margin: 0;
 	}
 
 	.how-it-works-left {
 		display: flex;
+		flex-direction: column;
 		width: 100%;
-		padding: 0 0 32px 0;
+		padding: 40px 20px 32px 20px;
 		gap: 16px;
 		order: 1;
+		position: relative;
+		z-index: 1;
 	}
 
 	.how-it-works-right {
 		width: 100%;
-		padding: 0;
+		padding: 0 20px;
 		margin-left: 0;
 		margin-top: 0;
 		height: auto;
 		background: transparent;
 		box-sizing: border-box;
 		order: 3;
+		position: relative;
+		z-index: 1;
 	}
 
 	.how-it-works-steps {
