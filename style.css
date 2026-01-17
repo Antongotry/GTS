@@ -6027,6 +6027,7 @@ a.phone-button:focus,
 		display: block;
 		width: 100%;
 		margin-top: -100px;
+		margin-bottom: 80px;
 		position: relative;
 		z-index: 2;
 		padding: 0 20px;
