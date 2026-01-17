@@ -5,6 +5,10 @@
 .custom-itinerary-block {
 	width: 100%;
 	padding: 0 $spacing-lg 40px; // 0 сверху, 20px по бокам, 40px снизу
+
+	@include md {
+		padding-bottom: 10px; // Только 10px снизу на мобильном
+	}
 }
 
 .custom-itinerary-container {
@@ -24,6 +28,7 @@
 		padding: 24px 20px; // 24px сверху/снизу, 20px по бокам
 		max-width: 100% !important;
 		width: 100% !important;
+		height: 212px !important; // Высота 212px на мобильном
 		box-sizing: border-box !important;
 	}
 }
