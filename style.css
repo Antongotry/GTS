@@ -1512,6 +1512,13 @@ body.mobile-menu-open {
 	}
 }
 
+@media (max-width: 768px) {
+
+	.header-container {
+		padding: 0 20px;
+	}
+}
+
 .hamburger-button {
 	display: none;
 	width: 56px;
@@ -1547,6 +1554,26 @@ body.mobile-menu-open {
 	}
 }
 
+@media (max-width: 768px) {
+
+	.hamburger-button {
+		display: flex;
+		order: 3;
+		width: 28px;
+		height: 20px;
+		min-width: 28px;
+		min-height: 20px;
+		border-radius: 0;
+		background: transparent;
+		padding: 0;
+	}
+
+	.hamburger-button .hamburger-icon {
+		width: 28px;
+		height: 18px;
+	}
+}
+
 .site-logo {
 	flex-shrink: 0;
 	margin-right: 40px;
@@ -1569,6 +1596,14 @@ body.mobile-menu-open {
 	.site-logo {
 		margin-right: auto;
 		margin-left: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.site-logo {
+		order: 1;
+		margin: 0;
 	}
 }
 
@@ -1724,6 +1759,15 @@ body.mobile-menu-open {
 	margin-right: 0 !important;
 }
 
+@media (max-width: 768px) {
+
+	.header-right {
+		order: 2;
+		margin-left: auto;
+		gap: 12px !important;
+	}
+}
+
 .header-buttons {
 	display: flex;
 	align-items: center;
@@ -1773,6 +1817,13 @@ body.mobile-menu-open {
 	transform: rotate(180deg);
 }
 
+@media (max-width: 768px) {
+
+	.language-selector {
+		display: none;
+	}
+}
+
 .header-email {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
@@ -1787,6 +1838,13 @@ body.mobile-menu-open {
 
 .header-email:hover {
 	opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+
+	.header-email {
+		display: none;
+	}
 }
 
 .header-right .whatsapp-button,
@@ -1832,6 +1890,15 @@ a.whatsapp-button svg,
 	max-height: 24px !important;
 	display: block !important;
 	flex-shrink: 0 !important;
+}
+
+@media (max-width: 768px) {
+
+	.header-right .whatsapp-button,
+	a.whatsapp-button,
+	.whatsapp-button {
+		display: none !important;
+	}
 }
 
 .header-right .phone-button,
@@ -1922,6 +1989,19 @@ a.phone-button:focus,
 	color: #000 !important;
 	background: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%) !important;
 	background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+
+	.header-right .phone-button,
+	a.phone-button,
+	.phone-button {
+		height: 48px !important;
+		min-height: 48px !important;
+		max-height: 48px !important;
+		padding: 0 18px !important;
+		font-size: 13px !important;
+	}
 }
 
 /**
@@ -2547,6 +2627,13 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.header-container {
+		padding: 0 20px;
+	}
+}
+
 .hamburger-button {
 	display: none;
 	width: 56px;
@@ -2582,6 +2669,26 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.hamburger-button {
+		display: flex;
+		order: 3;
+		width: 28px;
+		height: 20px;
+		min-width: 28px;
+		min-height: 20px;
+		border-radius: 0;
+		background: transparent;
+		padding: 0;
+	}
+
+	.hamburger-button .hamburger-icon {
+		width: 28px;
+		height: 18px;
+	}
+}
+
 .site-logo {
 	flex-shrink: 0;
 	margin-right: 40px;
@@ -2604,6 +2711,14 @@ a.phone-button:focus,
 	.site-logo {
 		margin-right: auto;
 		margin-left: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.site-logo {
+		order: 1;
+		margin: 0;
 	}
 }
 
@@ -2759,6 +2874,15 @@ a.phone-button:focus,
 	margin-right: 0 !important;
 }
 
+@media (max-width: 768px) {
+
+	.header-right {
+		order: 2;
+		margin-left: auto;
+		gap: 12px !important;
+	}
+}
+
 .header-buttons {
 	display: flex;
 	align-items: center;
@@ -2808,6 +2932,13 @@ a.phone-button:focus,
 	transform: rotate(180deg);
 }
 
+@media (max-width: 768px) {
+
+	.language-selector {
+		display: none;
+	}
+}
+
 .header-email {
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
@@ -2822,6 +2953,13 @@ a.phone-button:focus,
 
 .header-email:hover {
 	opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+
+	.header-email {
+		display: none;
+	}
 }
 
 .header-right .whatsapp-button,
@@ -2867,6 +3005,15 @@ a.whatsapp-button svg,
 	max-height: 24px !important;
 	display: block !important;
 	flex-shrink: 0 !important;
+}
+
+@media (max-width: 768px) {
+
+	.header-right .whatsapp-button,
+	a.whatsapp-button,
+	.whatsapp-button {
+		display: none !important;
+	}
 }
 
 .header-right .phone-button,
@@ -2957,6 +3104,19 @@ a.phone-button:focus,
 	color: #000 !important;
 	background: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%) !important;
 	background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+
+	.header-right .phone-button,
+	a.phone-button,
+	.phone-button {
+		height: 48px !important;
+		min-height: 48px !important;
+		max-height: 48px !important;
+		padding: 0 18px !important;
+		font-size: 13px !important;
+	}
 }
 
 /**
