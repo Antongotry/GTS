@@ -32,6 +32,12 @@
 		@include lg {
 			width: 944px; // 984px - 40px padding
 		}
+
+		@include md {
+			// На мобильном border должен учитывать padding по 20px с каждой стороны
+			// footer-container имеет padding: 0 20px, поэтому border должен быть на всю ширину контейнера
+			width: calc(100% - 40px); // 100% минус padding по 20px с каждой стороны
+		}
 	}
 }
 
@@ -302,7 +308,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 16px !important; // 16px между пунктами (важно для переопределения)
-	
+
 	li {
 		margin: 0; // Убираем margin у элементов списка
 		padding: 0; // Убираем padding у элементов списка

@@ -1955,6 +1955,11 @@ a.phone-button:focus,
     width: 944px;
   }
 }
+@media (max-width: 768px) {
+  .site-footer::before {
+    width: calc(100% - 40px);
+  }
+}
 
 .footer-container {
   width: 100%;
