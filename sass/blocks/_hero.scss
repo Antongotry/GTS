@@ -587,21 +587,22 @@
 			background: transparent !important; // Прозрачный фон чтобы placeholder был виден
 			cursor: pointer !important; // Курсор указатель для всей области input
 			pointer-events: auto !important; // Убедиться что input получает клики
+			display: block !important; // Переопределить display: flex из общих стилей
 			
 			// Убедиться что все внутренние части кликабельны
 			&::-webkit-datetime-edit {
-				cursor: pointer;
-				pointer-events: auto;
+				cursor: pointer !important;
+				pointer-events: auto !important;
 			}
 
 			&::-webkit-datetime-edit-fields-wrapper {
-				cursor: pointer;
-				pointer-events: auto;
+				cursor: pointer !important;
+				pointer-events: auto !important;
 			}
 
 			&::-webkit-datetime-edit-text {
-				cursor: pointer;
-				pointer-events: auto;
+				cursor: pointer !important;
+				pointer-events: auto !important;
 			}
 
 			&::-webkit-datetime-edit-month-field,
@@ -609,8 +610,8 @@
 			&::-webkit-datetime-edit-year-field,
 			&::-webkit-datetime-edit-hour-field,
 			&::-webkit-datetime-edit-minute-field {
-				cursor: pointer;
-				pointer-events: auto;
+				cursor: pointer !important;
+				pointer-events: auto !important;
 			}
 		}
 

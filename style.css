@@ -4221,21 +4221,22 @@ a.phone-button:focus,
 	background: transparent !important;
 	cursor: pointer !important;
 	pointer-events: auto !important;
+	display: block !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit {
-	cursor: pointer;
-	pointer-events: auto;
+	cursor: pointer !important;
+	pointer-events: auto !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
-	cursor: pointer;
-	pointer-events: auto;
+	cursor: pointer !important;
+	pointer-events: auto !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-text {
-	cursor: pointer;
-	pointer-events: auto;
+	cursor: pointer !important;
+	pointer-events: auto !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-month-field,
@@ -4243,8 +4244,8 @@ a.phone-button:focus,
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-year-field,
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
-	cursor: pointer;
-	pointer-events: auto;
+	cursor: pointer !important;
+	pointer-events: auto !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]:focus ~ .datetime-placeholder,
