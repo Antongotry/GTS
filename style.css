@@ -3296,10 +3296,11 @@ a.phone-button:focus,
 	}
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
 
 	.hero-block {
-		min-height: 400px !important;
+		min-height: 630px !important;
+		background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/hero-banner-375_result.webp") !important;
 	}
 }
 
@@ -3328,6 +3329,18 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.hero-container {
+		flex-direction: column;
+		gap: 24px;
+		max-width: 100%;
+		min-height: 630px;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+}
+
 .hero-left {
 	width: 724px;
 	flex-shrink: 0;
@@ -3347,6 +3360,15 @@ a.phone-button:focus,
 		flex: 1 1 534px;
 		max-width: 534px;
 		padding-top: 130px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.hero-left {
+		width: 100%;
+		max-width: 100%;
+		padding-top: 90px;
 	}
 }
 
@@ -3614,6 +3636,17 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.hero-right {
+		width: 100%;
+		flex: 0 0 auto;
+		margin-left: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
 .booking-form {
 	width: 100%;
 	background: #fff;
@@ -3621,6 +3654,13 @@ a.phone-button:focus,
 	border-radius: 0;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+
+	.booking-form {
+		width: 100%;
+	}
 }
 
 .form-row {
@@ -3970,6 +4010,17 @@ a.phone-button:focus,
 	overflow: hidden;
 }
 
+@media (max-width: 768px) {
+
+	.world-map-section {
+		width: calc(100% + 40px);
+		margin-left: -20px;
+		margin-right: -20px;
+		margin-top: 24px;
+		margin-bottom: -150px;
+	}
+}
+
 .world-map-image {
 	flex-shrink: 0;
 	padding: 14px 0 4px 32px;
@@ -3981,6 +4032,17 @@ a.phone-button:focus,
 	width: 200px;
 	height: auto;
 	display: block;
+}
+
+@media (max-width: 768px) {
+
+	.world-map-image {
+		padding: 14px 0 14px 20px;
+	}
+
+	.world-map-image img {
+		width: 180px;
+	}
 }
 
 .world-map-divider {

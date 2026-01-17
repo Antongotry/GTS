@@ -25,8 +25,9 @@
 	}
 
 	// Mobile (375px)
-	@include mobile {
-		min-height: 400px !important;
+	@include md {
+		min-height: 630px !important;
+		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/hero-banner-375_result.webp') !important;
 	}
 }
 
@@ -50,6 +51,15 @@
 		min-height: 750px;
 		box-sizing: content-box; // padding не входит в max-width
 	}
+
+	@include md {
+		flex-direction: column;
+		gap: 24px;
+		max-width: 100%;
+		min-height: 630px;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
 }
 
 .hero-left {
@@ -68,6 +78,12 @@
 		flex: 1 1 534px; // 944 - 390 (right) - 20 (gap) = 534px
 		max-width: 534px;
 		padding-top: 130px;
+	}
+
+	@include md {
+		width: 100%;
+		max-width: 100%;
+		padding-top: 90px;
 	}
 }
 
@@ -320,6 +336,14 @@
 		flex: 0 0 390px;
 		margin-left: 0;
 	}
+
+	@include md {
+		width: 100%;
+		flex: 0 0 auto;
+		margin-left: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
 }
 
 // Booking form styles inside hero
@@ -330,6 +354,10 @@
 	border-radius: 0;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	margin-bottom: 0;
+
+	@include md {
+		width: 100%;
+	}
 }
 
 .form-row {
@@ -671,6 +699,14 @@
 	margin-top: auto;
 	margin-bottom: 0;
 	overflow: hidden;
+
+	@include md {
+		width: calc(100% + 40px);
+		margin-left: -20px;
+		margin-right: -20px;
+		margin-top: 24px;
+		margin-bottom: -150px;
+	}
 }
 
 .world-map-image {
@@ -683,6 +719,14 @@
 		width: 200px;
 		height: auto;
 		display: block;
+	}
+
+	@include md {
+		padding: 14px 0 14px 20px;
+
+		img {
+			width: 180px;
+		}
 	}
 }
 
