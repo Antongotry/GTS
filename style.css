@@ -1588,6 +1588,7 @@ body.mobile-menu-open {
 		width: calc(100vw - 40px);
 		margin: 0 auto;
 		padding: 0 16px 0 9px;
+		height: 48px;
 	}
 }
 
@@ -2077,9 +2078,9 @@ a.phone-button:focus,
 	.header-right .phone-button,
 	a.phone-button,
 	.phone-button {
-		height: 48px !important;
-		min-height: 48px !important;
-		max-height: 48px !important;
+		height: 40px !important;
+		min-height: 40px !important;
+		max-height: 40px !important;
 		width: 138px !important;
 		min-width: 138px !important;
 		max-width: 138px !important;
@@ -2788,6 +2789,7 @@ a.phone-button:focus,
 		width: calc(100vw - 40px);
 		margin: 0 auto;
 		padding: 0 16px 0 9px;
+		height: 48px;
 	}
 }
 
@@ -3277,9 +3279,9 @@ a.phone-button:focus,
 	.header-right .phone-button,
 	a.phone-button,
 	.phone-button {
-		height: 48px !important;
-		min-height: 48px !important;
-		max-height: 48px !important;
+		height: 40px !important;
+		min-height: 40px !important;
+		max-height: 40px !important;
 		width: 138px !important;
 		min-width: 138px !important;
 		max-width: 138px !important;
