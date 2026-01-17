@@ -111,6 +111,11 @@
 		align-items: flex-start;
 	}
 
+	@include lg {
+		flex-direction: row;
+		align-items: center;
+	}
+
 	a,
 	.footer-copyright {
 		font-family: $font__manrope;
@@ -358,6 +363,11 @@
 	font-weight: 400;
 	transition: all 0.3s ease;
 	text-align: center;
+
+	@include lg {
+		padding: 14px 20px;
+		font-size: 13px;
+	}
 }
 
 .footer-button-primary {
@@ -382,6 +392,14 @@
 		font-weight: 400;
 		color: #000000;
 		text-decoration: none;
+	}
+
+	@include lg {
+		padding: 14px 20px;
+
+		a {
+			font-size: 13px;
+		}
 	}
 }
 
@@ -415,6 +433,10 @@
 .footer-social-icons {
 	display: flex;
 	gap: 10px; // 10px между иконками
+
+	@include lg {
+		gap: 8px;
+	}
 }
 
 .footer-social-icon {
@@ -440,6 +462,16 @@
 
 	&:hover img {
 		transform: scale(0.9); // Уменьшить иконку при hover
+	}
+
+	@include lg {
+		width: 48px;
+		height: 48px;
+
+		img {
+			width: 22px;
+			height: 22px;
+		}
 	}
 }
 
