@@ -3993,26 +3993,73 @@ a.phone-button:focus,
 		-webkit-appearance: none;
 		-moz-appearance: textfield;
 		appearance: none;
-		color: #000;
+		color: rgba(0, 0, 0, 0.56) !important;
 	}
 
 	.form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-		opacity: 1;
+		opacity: 1 !important;
 		cursor: pointer;
 		width: 20px;
 		height: 20px;
+		margin-left: 8px;
 	}
 
 	.form-group input[type="datetime-local"]::-webkit-datetime-edit {
-		color: #000;
+		color: rgba(0, 0, 0, 0.56) !important;
 	}
 
 	.form-group input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
-		color: #000;
+		color: rgba(0, 0, 0, 0.56) !important;
 	}
 
 	.form-group input[type="datetime-local"]::-webkit-datetime-edit-text {
+		color: rgba(0, 0, 0, 0.56) !important;
+	}
+
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
+		color: rgba(0, 0, 0, 0.56) !important;
+	}
+
+	.form-group input[type="datetime-local"]:not(:placeholder-shown),
+	.form-group input[type="datetime-local"]:valid {
+		color: #000 !important;
+	}
+
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit {
+		color: #000 !important;
+	}
+
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-fields-wrapper,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-fields-wrapper {
+		color: #000 !important;
+	}
+
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-text,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-text {
+		color: #000 !important;
+	}
+
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-month-field,
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-day-field,
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-year-field,
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-hour-field,
+	.form-group input[type="datetime-local"]:not(:placeholder-shown)::-webkit-datetime-edit-minute-field,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-month-field,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-day-field,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-year-field,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-hour-field,
+	.form-group input[type="datetime-local"]:valid::-webkit-datetime-edit-minute-field {
+		color: #000 !important;
+	}
+
+	.form-group input[type="datetime-local"]::-moz-placeholder {
 		color: rgba(0, 0, 0, 0.56);
+		opacity: 1;
 	}
 }
 
