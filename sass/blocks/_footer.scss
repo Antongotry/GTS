@@ -286,12 +286,12 @@
 		margin-bottom: 0; // Убираем margin-bottom
 		margin-left: 0; // Убираем margin-left
 		margin-right: 0; // Убираем margin-right
+		padding-top: 0; // Убираем padding-top
 		// Компенсируем разницу: строка 3 имеет высоту services (~518px)
 		// Menu имеет высоту ~254px + margin-bottom 40px = 294px
-		// Нужно поднять language вверх на разницу между высотой строки 3 и позицией под menu
-		// -518px (высота строки 3) + 294px (menu + margin) = -224px
-		margin-top: -224px; // Поднимаем вверх на разницу
-		padding-top: 294px; // Отступ от конца menu (254px высота menu + 40px margin-bottom)
+		// Нужно поднять language вверх на разницу, затем добавить отступ 40px от menu
+		// -518px (высота строки 3) + 294px (menu + margin) + 40px (отступ) = -184px
+		margin-top: -184px; // Поднимаем вверх на разницу с учетом отступа
 	}
 }
 

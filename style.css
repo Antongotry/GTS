@@ -2218,8 +2218,8 @@ a.phone-button:focus,
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-    margin-top: -224px;
-    padding-top: 294px;
+    padding-top: 0;
+    margin-top: -184px;
   }
 }
 
