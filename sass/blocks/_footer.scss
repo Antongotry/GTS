@@ -68,6 +68,7 @@
 		grid-template-columns: 1fr 1fr; // Две колонки: меню/языки и сервисы
 		grid-template-rows: auto auto auto auto; // Логотип, кнопки+social, меню+сервисы, языки
 		gap: 0;
+		row-gap: 0; // Убеждаемся что нет отступа между строками
 		padding: 0 20px !important;
 		max-width: 100vw !important; // Явно ограничить viewport шириной
 		width: 100% !important;
@@ -275,16 +276,19 @@
 
 	@include md {
 		grid-column: 1; // Левая колонка (под меню)
-		grid-row: 4; // Четвертая строка (отдельная строка под меню)
-		margin-top: 40px !important; // Отступ 40px от меню (важно для переопределения)
+		grid-row: 3; // Третья строка (та же строка что и menu, позиционируется ниже через margin-top)
 		align-self: start; // Выровнять по верху
-		position: relative; // Для правильного позиционирования
+		position: relative; // Относительное позиционирование
 		width: 100%; // Занимает всю ширину левой колонки
 		max-width: 100%; // Не выходит за границы
 		box-sizing: border-box; // Учитываем padding
 		margin-bottom: 0; // Убираем margin-bottom
 		margin-left: 0; // Убираем margin-left
 		margin-right: 0; // Убираем margin-right
+		// Используем отрицательный margin-top чтобы поднять к menu, компенсируя разницу в высоте строки
+		// Высота menu (254px) + отступ (40px) - высота services (518px) = -224px
+		margin-top: -224px; // Поднимаем вверх на разницу между высотой services и menu
+		padding-top: calc(254px + 40px); // Добавляем padding-top чтобы создать правильный отступ от конца menu (254px высота + 40px отступ)
 	}
 }
 
