@@ -2246,6 +2246,11 @@ a.phone-button:focus,
 .footer-language-list li {
   margin: 0;
   padding: 0;
+  height: 14px;
+  min-height: 14px;
+  max-height: 14px;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .footer-language-item {
@@ -2260,9 +2265,11 @@ a.phone-button:focus,
   gap: 2px;
   margin: 0;
   padding: 0;
-  min-height: 0;
-  height: auto;
+  height: 14px;
   min-height: 14px;
+  max-height: 14px;
+  box-sizing: border-box;
+  overflow: visible;
 }
 .footer-language-item > span {
   line-height: 1;
