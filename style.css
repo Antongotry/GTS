@@ -1980,8 +1980,8 @@ a.phone-button:focus,
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
-		grid-template-columns: 70px 110px 120px 140px 140px 320px;
-		grid-template-rows: auto;
+		grid-template-columns: 120px 140px 160px 160px 320px;
+		grid-template-rows: auto auto;
 		gap: 0;
 	}
 }
@@ -1993,6 +1993,16 @@ a.phone-button:focus,
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 100%;
+}
+
+@media (max-width: 1024px) {
+
+	.footer-left {
+		grid-column: 1;
+		grid-row: 1;
+		justify-content: flex-start;
+		min-height: 0;
+	}
 }
 
 .footer-logo {
@@ -2080,8 +2090,8 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-menu {
-		grid-column: 2;
-		grid-row: 1;
+		grid-column: 1;
+		grid-row: 2;
 	}
 }
 
@@ -2130,7 +2140,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-language {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 1;
 		margin-top: 0;
 	}
@@ -2201,7 +2211,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-services {
-		grid-column: 4/span 2;
+		grid-column: 3/span 2;
 		grid-row: 1;
 		grid-template-columns: auto auto;
 		column-gap: 20px;
@@ -2288,7 +2298,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.footer-right {
-		grid-column: 6;
+		grid-column: 5;
 		grid-row: 1;
 		width: auto;
 		max-width: 320px;
