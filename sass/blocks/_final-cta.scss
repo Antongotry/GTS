@@ -4,7 +4,7 @@
 
 .final-cta-block {
 	width: 100%;
-	height: 890px;
+	min-height: 890px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -13,7 +13,7 @@
 	align-items: center;
 
 	@include lg {
-		height: 890px;
+		min-height: 890px;
 		background-image: url('https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/home-last-1024_result.webp') !important;
 	}
 }
@@ -22,7 +22,7 @@
 	@include container($container-max-width-content);
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-end; // Прижимаем к низу
+	align-items: flex-start;
 }
 
 .final-cta-left {

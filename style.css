@@ -4633,7 +4633,7 @@ a.phone-button:focus,
  */
 .final-cta-block {
 	width: 100%;
-	height: 890px;
+	min-height: 890px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -4645,7 +4645,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.final-cta-block {
-		height: 890px;
+		min-height: 890px;
 		background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/home-last-1024_result.webp") !important;
 	}
 }
@@ -4658,7 +4658,7 @@ a.phone-button:focus,
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-end;
+	align-items: flex-start;
 }
 
 .final-cta-left {
