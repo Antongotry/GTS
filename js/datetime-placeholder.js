@@ -94,13 +94,54 @@
 			});
 
 			// Также слушать событие при клике (для мобильных и десктопа)
-			input.addEventListener('click', function() {
+			input.addEventListener('click', function(e) {
+				// На десктопе открываем календарь при клике на любое место input
+				// Это обходит проблему когда webkit-datetime-edit блокирует клики
+				if (input.type === 'datetime-local') {
+					// Программно открываем календарь через focus и showPicker (если доступен)
+					setTimeout(function() {
+						input.focus();
+						// Попытка открыть календарь программно (поддерживается в некоторых браузерах)
+						if (input.showPicker) {
+							try {
+								input.showPicker();
+							} catch (err) {
+								// Если showPicker не поддерживается, просто focus
+							}
+						}
+					}, 10);
+				}
+				
 				setTimeout(function() {
 					if (input.value !== '') {
 						input.classList.add('has-value');
 					}
 					updatePlaceholderVisibility();
 				}, 100);
+			});
+
+			// Дополнительный обработчик для области input (не только иконки)
+			// Используем mousedown для более надежного срабатывания
+			input.addEventListener('mousedown', function(e) {
+				// Если клик не на иконке календаря (справа), открываем календарь
+				const rect = input.getBoundingClientRect();
+				const clickX = e.clientX - rect.left;
+				const inputWidth = rect.width;
+				
+				// Если клик не в последних 30px (где иконка), открываем календарь
+				if (clickX < inputWidth - 30) {
+					e.preventDefault(); // Предотвращаем стандартное поведение
+					setTimeout(function() {
+						input.focus();
+						if (input.showPicker) {
+							try {
+								input.showPicker();
+							} catch (err) {
+								// Если showPicker не поддерживается, просто focus
+							}
+						}
+					}, 10);
+				}
 			});
 
 			// Слушать событие при закрытии календаря (для десктопа)
