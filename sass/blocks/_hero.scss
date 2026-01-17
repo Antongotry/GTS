@@ -465,6 +465,7 @@
 		color: transparent !important; // Сделать текст прозрачным, чтобы placeholder был виден
 		position: relative;
 		background: transparent !important; // Прозрачный фон
+		padding: 8px 0 !important; // Переопределить общий padding сначала
 
 		&::-webkit-calendar-picker-indicator {
 			opacity: 1 !important;
@@ -594,7 +595,8 @@
 			pointer-events: auto !important; // Убедиться что input получает клики
 			display: block !important; // Переопределить display: flex из общих стилей
 			width: 100% !important; // Такая же ширина как у select
-			padding: 8px 20px 8px 0 !important; // Точно такой же padding как у select (8px 0 + padding-right: 20px)
+			padding: 8px 0 !important; // Сначала базовый padding как у select
+			padding-right: 20px !important; // Потом добавляем padding-right как у select
 			box-sizing: border-box !important; // Учесть padding в ширине
 			margin: 0 !important; // Убрать любые margin
 
