@@ -4792,6 +4792,7 @@ a.phone-button:focus,
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto;
 		gap: 16px;
+		grid-auto-flow: row dense;
 	}
 
 	.why-us-item-1,
@@ -4802,6 +4803,7 @@ a.phone-button:focus,
 	.why-us-item {
 		padding: 16px;
 		height: 278px;
+		grid-column: auto;
 	}
 
 	.why-us-item-title {
