@@ -440,6 +440,10 @@
 		color: #000000;
 		box-sizing: border-box;
 		transition: border-color 0.3s ease;
+		height: 40px; // Фиксированная высота для выравнивания
+		min-height: 40px; // Минимальная высота
+		display: flex;
+		align-items: center;
 
 		&:focus {
 			outline: none;
@@ -449,6 +453,36 @@
 		&::placeholder {
 			color: rgba(0, 0, 0, 0.56);
 			opacity: 1;
+		}
+	}
+
+	// Специальные стили для datetime-local на мобильном
+	input[type="datetime-local"] {
+		@include md {
+			// Убедиться, что datetime-local виден и выровнен
+			-webkit-appearance: none;
+			-moz-appearance: textfield;
+			appearance: none;
+			color: #000000;
+			
+			&::-webkit-calendar-picker-indicator {
+				opacity: 1;
+				cursor: pointer;
+				width: 20px;
+				height: 20px;
+			}
+			
+			&::-webkit-datetime-edit {
+				color: #000000;
+			}
+			
+			&::-webkit-datetime-edit-fields-wrapper {
+				color: #000000;
+			}
+			
+			&::-webkit-datetime-edit-text {
+				color: rgba(0, 0, 0, 0.56);
+			}
 		}
 	}
 

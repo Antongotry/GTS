@@ -439,10 +439,11 @@
 	@include md {
 		grid-column: 1 / -1; // Кнопки и social networks на всю ширину
 		grid-row: 2;
-		width: 100%;
-		max-width: 100%;
+		width: 100% !important;
+		max-width: 100% !important;
 		justify-self: auto;
 		margin-bottom: 40px; // Отступ от social networks до меню/сервисов
+		box-sizing: border-box; // Учитываем padding в ширине
 	}
 }
 
@@ -476,7 +477,9 @@
 
 	@include md {
 		margin-bottom: 10px; // Отступ до второй кнопки (10px gap)
-		width: 100%; // Кнопка на всю ширину
+		width: 100% !important; // Кнопка на всю ширину
+		max-width: 100% !important; // Убираем ограничения
+		box-sizing: border-box; // Учитываем padding в ширине
 	}
 }
 
@@ -488,7 +491,9 @@
 		background: #ffffff;
 		color: #000000;
 		margin-bottom: 40px; // Отступ до Social networks
-		width: 100%; // Кнопка на всю ширину
+		width: 100% !important; // Кнопка на всю ширину
+		max-width: 100% !important; // Убираем ограничения
+		box-sizing: border-box; // Учитываем padding в ширине
 	}
 }
 

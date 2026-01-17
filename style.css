@@ -2622,10 +2622,11 @@ a.phone-button:focus,
 	.footer-right {
 		grid-column: 1/-1;
 		grid-row: 2;
-		width: 100%;
-		max-width: 100%;
+		width: 100% !important;
+		max-width: 100% !important;
 		justify-self: auto;
 		margin-bottom: 40px;
+		box-sizing: border-box;
 	}
 }
 
@@ -2665,7 +2666,9 @@ a.phone-button:focus,
 
 	.footer-button-primary {
 		margin-bottom: 10px;
-		width: 100%;
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box;
 	}
 }
 
@@ -2680,7 +2683,9 @@ a.phone-button:focus,
 		background: #fff;
 		color: #000;
 		margin-bottom: 40px;
-		width: 100%;
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box;
 	}
 }
 
@@ -3956,6 +3961,10 @@ a.phone-button:focus,
 	color: #000;
 	box-sizing: border-box;
 	transition: border-color 0.3s ease;
+	height: 40px;
+	min-height: 40px;
+	display: flex;
+	align-items: center;
 }
 
 .form-group input[type="text"]:focus,
@@ -3976,6 +3985,35 @@ a.phone-button:focus,
 .form-group textarea::placeholder {
 	color: rgba(0, 0, 0, 0.56);
 	opacity: 1;
+}
+
+@media (max-width: 768px) {
+
+	.form-group input[type="datetime-local"] {
+		-webkit-appearance: none;
+		-moz-appearance: textfield;
+		appearance: none;
+		color: #000;
+	}
+
+	.form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+		opacity: 1;
+		cursor: pointer;
+		width: 20px;
+		height: 20px;
+	}
+
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit {
+		color: #000;
+	}
+
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
+		color: #000;
+	}
+
+	.form-group input[type="datetime-local"]::-webkit-datetime-edit-text {
+		color: rgba(0, 0, 0, 0.56);
+	}
 }
 
 .form-group select {
