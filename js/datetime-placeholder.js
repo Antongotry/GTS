@@ -10,7 +10,7 @@
 
 	function updatePlaceholderVisibility(input) {
 		const placeholder = input.nextElementSibling;
-		
+
 		if (!placeholder || !placeholder.classList.contains('datetime-placeholder')) {
 			return;
 		}
