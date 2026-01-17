@@ -4262,12 +4262,19 @@ a.phone-button:focus,
 	pointer-events: auto !important;
 }
 
-.form-group .form-group-datetime input[type="datetime-local"]:focus ~ .datetime-placeholder,
 .form-group .form-group-datetime input[type="datetime-local"]:not(:invalid):not(:placeholder-shown) ~ .datetime-placeholder,
 .form-group .form-group-datetime input[type="datetime-local"]:valid ~ .datetime-placeholder,
 .form-group .form-group-datetime input[type="datetime-local"].has-value ~ .datetime-placeholder {
 	opacity: 0 !important;
 	display: none !important;
+}
+
+@media (max-width: 1024px) {
+
+	.form-group .form-group-datetime input[type="datetime-local"]:focus ~ .datetime-placeholder {
+		opacity: 0 !important;
+		display: none !important;
+	}
 }
 
 .form-group select {

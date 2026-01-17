@@ -629,13 +629,22 @@
 			}
 		}
 
-		// Скрыть placeholder когда поле заполнено или в фокусе
-		input[type="datetime-local"]:focus ~ .datetime-placeholder,
+		// Скрыть placeholder когда поле заполнено
+		// НЕ скрываем при focus на мобильных - там браузер сам управляет
 		input[type="datetime-local"]:not(:invalid):not(:placeholder-shown) ~ .datetime-placeholder,
 		input[type="datetime-local"]:valid ~ .datetime-placeholder,
 		input[type="datetime-local"].has-value ~ .datetime-placeholder {
 			opacity: 0 !important;
 			display: none !important;
+		}
+
+		// На десктопе скрывать при focus (через JavaScript или CSS)
+		// На мобильных placeholder должен оставаться видимым до выбора значения
+		@include lg {
+			input[type="datetime-local"]:focus ~ .datetime-placeholder {
+				opacity: 0 !important;
+				display: none !important;
+			}
 		}
 	}
 

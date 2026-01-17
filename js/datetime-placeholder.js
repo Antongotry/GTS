@@ -24,18 +24,33 @@
 
 			// Функция обновления видимости placeholder
 			function updatePlaceholderVisibility(forceShow) {
-				// Показать placeholder всегда, если поле пустое и не в фокусе
-				if (forceShow || (input.value === '' && document.activeElement !== input)) {
-					placeholder.style.opacity = '1';
-					placeholder.style.display = 'block';
-					placeholder.style.visibility = 'visible';
-					input.classList.remove('has-value');
+				// На мобильных показываем placeholder всегда если поле пустое (независимо от фокуса)
+				// На десктопе скрываем при фокусе
+				if (forceShow || input.value === '') {
+					if (touchDevice) {
+						// На мобильных всегда показываем если пустое
+						placeholder.style.opacity = '1';
+						placeholder.style.display = 'block';
+						placeholder.style.visibility = 'visible';
+						input.classList.remove('has-value');
+					} else {
+						// На десктопе показываем только если не в фокусе
+						if (document.activeElement !== input) {
+							placeholder.style.opacity = '1';
+							placeholder.style.display = 'block';
+							placeholder.style.visibility = 'visible';
+							input.classList.remove('has-value');
+						} else {
+							placeholder.style.opacity = '0';
+							placeholder.style.display = 'none';
+							input.classList.remove('has-value');
+						}
+					}
 				} else {
+					// Поле заполнено - скрываем placeholder
 					placeholder.style.opacity = '0';
 					placeholder.style.display = 'none';
-					if (input.value !== '') {
-						input.classList.add('has-value');
-					}
+					input.classList.add('has-value');
 				}
 			}
 
