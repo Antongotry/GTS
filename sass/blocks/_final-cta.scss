@@ -89,13 +89,30 @@
 }
 
 .final-cta-right-wrapper {
+	display: none; // По умолчанию скрыт (для десктопа)
+
 	@include md {
+		display: block;
 		width: 100%;
 		margin-top: -100px; // Наложение на блок с фоном на 100px
 		position: relative;
 		z-index: 2;
 		padding: 0 20px;
 		box-sizing: border-box;
+	}
+}
+
+.final-cta-right--desktop {
+	@include md {
+		display: none; // Скрыть desktop версию на мобильном
+	}
+}
+
+.final-cta-right--mobile {
+	display: none; // По умолчанию скрыт (для десктопа)
+
+	@include md {
+		display: block;
 	}
 }
 
