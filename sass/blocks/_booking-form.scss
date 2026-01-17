@@ -65,12 +65,39 @@
 	}
 }
 
+// Mobile hero feature items - icon top-left, text bottom
+.booking-form-block--mobile .hero-feature {
+	@include md {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+		padding: 10px;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-top-left,
+.booking-form-block--mobile .hero-feature-top-right {
+	@include md {
+		padding-bottom: 16px;
+		padding-top: 10px;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-bottom-left,
+.booking-form-block--mobile .hero-feature-bottom-right {
+	@include md {
+		padding-top: 16px;
+		padding-bottom: 10px;
+	}
+}
+
 .booking-form-block--mobile .hero-feature-map {
 	@include md {
 		display: flex;
+		flex-direction: row;
 		align-items: center;
 		gap: 12px;
-		padding-left: 20px;
+		padding: 10px 10px 10px 20px;
 	}
 }
 
@@ -82,7 +109,7 @@
 
 .booking-form-block--mobile .hero-feature-map .world-map-image img {
 	@include md {
-		width: 110px;
+		width: 95px;
 		height: auto;
 	}
 }
@@ -92,6 +119,18 @@
 		padding: 0;
 		align-items: flex-start;
 		text-align: left;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-map .world-map-number {
+	@include md {
+		font-size: 27px;
+	}
+}
+
+.booking-form-block--mobile .hero-feature-map .world-map-label {
+	@include md {
+		font-size: 12px;
 	}
 }
 
