@@ -83,9 +83,11 @@
 	gap: $spacing-lg; // 20px between columns and rows
 	width: 100%;
 	margin-top: $spacing-4xl; // 80px
+	box-sizing: border-box; // Учитывать padding
 
 	@include lg {
 		gap: 20px 14px; // row 20px, column 14px
+		width: 100%; // На всю ширину контейнера (с учетом padding)
 	}
 
 	@include md {

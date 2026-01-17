@@ -5503,12 +5503,14 @@ a.phone-button:focus,
 	gap: 20px;
 	width: 100%;
 	margin-top: 80px;
+	box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
 
 	.services-grid {
 		gap: 20px 14px;
+		width: 100%;
 	}
 }
 
