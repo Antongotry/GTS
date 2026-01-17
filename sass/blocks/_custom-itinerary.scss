@@ -19,6 +19,10 @@
 	align-items: center;
 	text-align: center;
 	box-sizing: border-box;
+
+	@include md {
+		padding: 24px;
+	}
 }
 
 // Декоративные линии
@@ -36,6 +40,10 @@
 	@include lg {
 		width: 222px;
 	}
+
+	@include md {
+		display: none; // Скрыть на мобильном
+	}
 }
 
 .custom-itinerary-line--top-right {
@@ -45,6 +53,10 @@
 
 	@include lg {
 		width: 222px;
+	}
+
+	@include md {
+		display: none; // Скрыть на мобильном
 	}
 }
 
@@ -57,6 +69,10 @@
 	@include lg {
 		width: 262px;
 	}
+
+	@include md {
+		width: 50px;
+	}
 }
 
 .custom-itinerary-line--bottom-right {
@@ -66,6 +82,10 @@
 
 	@include lg {
 		width: 262px;
+	}
+
+	@include md {
+		width: 50px;
 	}
 }
 
@@ -93,6 +113,11 @@
 	color: #000000;
 	margin: 0;
 	text-align: center;
+
+	@include md {
+		font-size: 14px;
+		max-width: 300px; // Для переноса текста на 2 строки
+	}
 }
 
 .custom-itinerary-button {

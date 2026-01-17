@@ -72,7 +72,7 @@
 
 	@include md {
 		grid-template-columns: 1fr; // По одной карточке на ряд
-		gap: 20px;
+		gap: 10px;
 	}
 }
 
@@ -89,6 +89,10 @@
 	@include lg {
 		gap: 0; // No gap, content and image touch
 		height: 335px;
+	}
+
+	@include md {
+		height: 278px;
 	}
 }
 
@@ -119,6 +123,10 @@
 	@include lg {
 		font-size: 20px;
 	}
+
+	@include md {
+		font-size: 18px;
+	}
 }
 
 .services-card-description {
@@ -132,6 +140,10 @@
 
 	@include lg {
 		font-size: 14px;
+	}
+
+	@include md {
+		font-size: 12px;
 	}
 }
 
@@ -149,6 +161,10 @@
 
 	@include lg {
 		font-size: 16px; // остаётся 16px
+	}
+
+	@include md {
+		font-size: 12px;
 	}
 }
 
@@ -194,4 +210,10 @@
 .services-show-more:hover {
 	opacity: 0.7;
 	text-decoration-color: rgba(0, 0, 0, 0.5);
+}
+
+@include md {
+	.services-show-more {
+		font-size: 12px;
+	}
 }
