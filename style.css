@@ -5230,12 +5230,36 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.trusted-by-block {
-		margin-top: 100px;
+		margin-top: 50px;
 		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.trusted-by-container {
+		margin-bottom: 0;
 	}
 
 	.trusted-by-slider .swiper-slide {
 		width: 100% !important;
+	}
+
+	.trusted-by-slider {
+		margin-bottom: 0;
+	}
+
+	.trusted-by-card.swiper-slide:nth-child(1) {
+		min-height: 270px;
+		height: 270px;
+	}
+
+	.trusted-by-card.swiper-slide:nth-child(2) {
+		min-height: 346px;
+		height: 346px;
+	}
+
+	.trusted-by-card.swiper-slide:nth-child(3) {
+		min-height: 289px;
+		height: 289px;
 	}
 }
 

@@ -148,14 +148,39 @@
 // Mobile styles (<=768px)
 @include md {
 	.trusted-by-block {
-		margin-top: 100px;
+		margin-top: 50px; // Сократили в два раза (было 100px)
 		padding-top: 0;
+		padding-bottom: 0; // Убрали отступ снизу
+	}
+
+	.trusted-by-container {
+		margin-bottom: 0;
 	}
 
 	.trusted-by-slider {
 		// По одному отзыву на экран
 		.swiper-slide {
 			width: 100% !important;
+		}
+
+		margin-bottom: 0; // Убрали отступ снизу
+	}
+
+	// Высоты карточек отзывов на мобильном
+	.trusted-by-card.swiper-slide {
+		&:nth-child(1) {
+			min-height: 270px;
+			height: 270px;
+		}
+
+		&:nth-child(2) {
+			min-height: 346px;
+			height: 346px;
+		}
+
+		&:nth-child(3) {
+			min-height: 289px;
+			height: 289px;
 		}
 	}
 }
