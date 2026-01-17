@@ -464,22 +464,22 @@
 			-moz-appearance: textfield;
 			appearance: none;
 			color: #000000;
-			
+
 			&::-webkit-calendar-picker-indicator {
 				opacity: 1;
 				cursor: pointer;
 				width: 20px;
 				height: 20px;
 			}
-			
+
 			&::-webkit-datetime-edit {
 				color: #000000;
 			}
-			
+
 			&::-webkit-datetime-edit-fields-wrapper {
 				color: #000000;
 			}
-			
+
 			&::-webkit-datetime-edit-text {
 				color: rgba(0, 0, 0, 0.56);
 			}

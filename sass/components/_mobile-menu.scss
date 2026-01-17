@@ -256,8 +256,8 @@
 .mobile-submenu-list {
 	flex: 1;
 	overflow-y: auto;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); // Две колонки на планшете и телефоне
 	gap: 8px; // Нормальный отступ между элементами
 	margin: 0;
 	padding: 0;

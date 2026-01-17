@@ -1363,8 +1363,8 @@ textarea {
 .mobile-submenu-list {
 	flex: 1;
 	overflow-y: auto;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 8px;
 	margin: 0;
 	padding: 0;
