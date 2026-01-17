@@ -4327,7 +4327,7 @@ a.phone-button:focus,
 	}
 }
 
-.booking-form {
+.booking-form-block .booking-form {
 	width: 100%;
 	background: #fff;
 	padding: 30px;
@@ -4337,35 +4337,35 @@ a.phone-button:focus,
 
 @media (max-width: 375px) {
 
-	.booking-form {
+	.booking-form-block .booking-form {
 		padding: 20px;
 	}
 }
 
-.form-section {
+.booking-form-block .form-section {
 	margin-bottom: 25px;
 }
 
-.form-section:last-child {
+.booking-form-block .form-section:last-child {
 	margin-bottom: 0;
 }
 
-.form-section-title {
+.booking-form-block .form-section-title {
 	font-size: 18px;
 	font-weight: 600;
 	margin-bottom: 15px;
 	color: #000;
 }
 
-.form-group {
+.booking-form-block .form-group {
 	margin-bottom: 15px;
 }
 
-.form-group:last-child {
+.booking-form-block .form-group:last-child {
 	margin-bottom: 0;
 }
 
-.form-group label {
+.booking-form-block .form-group label {
 	display: block;
 	margin-bottom: 5px;
 	font-size: 14px;
@@ -4373,12 +4373,12 @@ a.phone-button:focus,
 	color: #333;
 }
 
-.form-group input[type="text"],
-.form-group input[type="tel"],
-.form-group input[type="email"],
-.form-group input[type="datetime-local"],
-.form-group select,
-.form-group textarea {
+.booking-form-block .form-group input[type="text"],
+.booking-form-block .form-group input[type="tel"],
+.booking-form-block .form-group input[type="email"],
+.booking-form-block .form-group input[type="datetime-local"],
+.booking-form-block .form-group select,
+.booking-form-block .form-group textarea {
 	width: 100%;
 	padding: 10px 12px;
 	border: 1px solid #ddd;
@@ -4390,50 +4390,50 @@ a.phone-button:focus,
 	box-sizing: border-box;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="tel"]:focus,
-.form-group input[type="email"]:focus,
-.form-group input[type="datetime-local"]:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.booking-form-block .form-group input[type="text"]:focus,
+.booking-form-block .form-group input[type="tel"]:focus,
+.booking-form-block .form-group input[type="email"]:focus,
+.booking-form-block .form-group input[type="datetime-local"]:focus,
+.booking-form-block .form-group select:focus,
+.booking-form-block .form-group textarea:focus {
 	outline: none;
 	border-color: #007bff;
 }
 
-.form-group textarea {
+.booking-form-block .form-group textarea {
 	resize: vertical;
 	min-height: 80px;
 }
 
-.checkbox-group label {
+.booking-form-block .checkbox-group label {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
 	margin-bottom: 0;
 }
 
-.checkbox-group label input[type="checkbox"] {
+.booking-form-block .checkbox-group label input[type="checkbox"] {
 	width: auto;
 	margin-right: 8px;
 	cursor: pointer;
 }
 
-.checkbox-group label span {
+.booking-form-block .checkbox-group label span {
 	font-size: 14px;
 	color: #333;
 }
 
-.add-stop-link {
+.booking-form-block .add-stop-link {
 	color: #007bff;
 	text-decoration: none;
 	font-size: 14px;
 }
 
-.add-stop-link:hover {
+.booking-form-block .add-stop-link:hover {
 	text-decoration: underline;
 }
 
-.booking-submit-btn {
+.booking-form-block .booking-submit-btn {
 	width: 153px;
 	height: 56px;
 	padding: 0;
@@ -4453,7 +4453,7 @@ a.phone-button:focus,
 	justify-content: center;
 }
 
-.booking-submit-btn::before {
+.booking-form-block .booking-submit-btn::before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -4464,15 +4464,15 @@ a.phone-button:focus,
 	transition: left 0.5s ease;
 }
 
-.booking-submit-btn:hover {
+.booking-form-block .booking-submit-btn:hover {
 	background: linear-gradient(to right, #fee5c0 0%, #f5ce9b 50%, #f8d5a5 100%);
 }
 
-.booking-submit-btn:hover::before {
+.booking-form-block .booking-submit-btn:hover::before {
 	left: 100%;
 }
 
-.booking-submit-btn:active {
+.booking-form-block .booking-submit-btn:active {
 	background: linear-gradient(to right, #fcd9a4 0%, #f3c17b 50%, #f6c88b 100%);
 }
 

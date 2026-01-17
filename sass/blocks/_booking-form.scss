@@ -151,7 +151,9 @@
 	}
 }
 
-.booking-form {
+// These styles are only for standalone booking-form-block (not hero form)
+// Hero form uses styles from _hero.scss
+.booking-form-block .booking-form {
 	width: 100%;
 	background: #fff;
 	padding: 30px;
@@ -164,7 +166,7 @@
 	}
 }
 
-.form-section {
+.booking-form-block .form-section {
 	margin-bottom: 25px;
 
 	&:last-child {
@@ -172,14 +174,14 @@
 	}
 }
 
-.form-section-title {
+.booking-form-block .form-section-title {
 	font-size: 18px;
 	font-weight: 600;
 	margin-bottom: 15px;
 	color: #000;
 }
 
-.form-group {
+.booking-form-block .form-group {
 	margin-bottom: 15px;
 
 	&:last-child {
@@ -222,7 +224,7 @@
 	}
 }
 
-.checkbox-group {
+.booking-form-block .checkbox-group {
 	label {
 		display: flex;
 		align-items: center;
@@ -242,7 +244,7 @@
 	}
 }
 
-.add-stop-link {
+.booking-form-block .add-stop-link {
 	color: #007bff;
 	text-decoration: none;
 	font-size: 14px;
@@ -252,7 +254,7 @@
 	}
 }
 
-.booking-submit-btn {
+.booking-form-block .booking-submit-btn {
 	width: 153px;
 	height: 56px;
 	padding: 0;
