@@ -11,6 +11,10 @@
 	right: 0;
 	z-index: 1000;
 	pointer-events: none;
+
+	@include md {
+		padding: 0;
+	}
 }
 
 .header-container {
@@ -33,6 +37,9 @@
 	}
 
 	@include md {
+		max-width: none;
+		width: calc(100vw - 40px);
+		margin: 0 auto;
 		padding: 0 16px 0 9px;
 	}
 }

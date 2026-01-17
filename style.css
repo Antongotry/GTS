@@ -1551,6 +1551,13 @@ body.mobile-menu-open {
 	pointer-events: none;
 }
 
+@media (max-width: 768px) {
+
+	.site-header {
+		padding: 0;
+	}
+}
+
 .header-container {
 	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	width: 100%;
@@ -1577,6 +1584,9 @@ body.mobile-menu-open {
 @media (max-width: 768px) {
 
 	.header-container {
+		max-width: none;
+		width: calc(100vw - 40px);
+		margin: 0 auto;
 		padding: 0 16px 0 9px;
 	}
 }
@@ -2741,6 +2751,13 @@ a.phone-button:focus,
 	pointer-events: none;
 }
 
+@media (max-width: 768px) {
+
+	.site-header {
+		padding: 0;
+	}
+}
+
 .header-container {
 	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
 	width: 100%;
@@ -2767,6 +2784,9 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.header-container {
+		max-width: none;
+		width: calc(100vw - 40px);
+		margin: 0 auto;
 		padding: 0 16px 0 9px;
 	}
 }
