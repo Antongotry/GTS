@@ -71,7 +71,6 @@
 
 .final-cta-right {
 	width: 910px;
-	max-height: calc(890px - 80px); // Высота блока минус padding
 	background: rgba(255, 255, 255, 0.06); // 6% белый
 	backdrop-filter: blur(100px);
 	padding: 32px;
@@ -82,6 +81,7 @@
 
 	@include lg {
 		width: 485px;
+		max-height: none; // allow content to grow on 1024px
 	}
 }
 

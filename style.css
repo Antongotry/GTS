@@ -4716,7 +4716,6 @@ a.phone-button:focus,
 
 .final-cta-right {
 	width: 910px;
-	max-height: 810px;
 	background: rgba(255, 255, 255, 0.06);
 	backdrop-filter: blur(100px);
 	padding: 32px;
@@ -4730,6 +4729,7 @@ a.phone-button:focus,
 
 	.final-cta-right {
 		width: 485px;
+		max-height: none;
 	}
 }
 
