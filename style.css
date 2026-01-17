@@ -4548,10 +4548,24 @@ a.phone-button:focus,
 	width: 370px;
 }
 
+@media (max-width: 1024px) {
+
+	.custom-itinerary-line--top-left {
+		width: 222px;
+	}
+}
+
 .custom-itinerary-line--top-right {
 	top: 48px;
 	right: 0;
 	width: 370px;
+}
+
+@media (max-width: 1024px) {
+
+	.custom-itinerary-line--top-right {
+		width: 222px;
+	}
 }
 
 .custom-itinerary-line--bottom-left {
@@ -4560,10 +4574,24 @@ a.phone-button:focus,
 	width: 461px;
 }
 
+@media (max-width: 1024px) {
+
+	.custom-itinerary-line--bottom-left {
+		width: 262px;
+	}
+}
+
 .custom-itinerary-line--bottom-right {
 	bottom: 48px;
 	right: 0;
 	width: 461px;
+}
+
+@media (max-width: 1024px) {
+
+	.custom-itinerary-line--bottom-right {
+		width: 262px;
+	}
 }
 
 .custom-itinerary-title {
