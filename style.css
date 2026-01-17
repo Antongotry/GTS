@@ -4684,19 +4684,19 @@ a.phone-button:focus,
 		grid-auto-flow: row;
 	}
 
-	.why-us-item-1,
-	.why-us-item-6 {
-		grid-column: 1/-1;
-	}
-
 	.why-us-item {
 		padding: 16px;
 		height: 278px;
-		grid-column: auto;
 	}
 
 	.why-us-item-1 {
 		grid-row: 1;
+		grid-column: 1/-1;
+	}
+
+	.why-us-item-6 {
+		grid-row: 4;
+		grid-column: 1/-1;
 	}
 
 	.why-us-item-2 {
@@ -4717,10 +4717,6 @@ a.phone-button:focus,
 	.why-us-item-5 {
 		grid-row: 3;
 		grid-column: 2;
-	}
-
-	.why-us-item-6 {
-		grid-row: 4;
 	}
 
 	.why-us-item-title {
