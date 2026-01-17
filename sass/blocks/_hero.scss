@@ -472,14 +472,19 @@
 			cursor: pointer;
 			width: 20px;
 			height: 20px;
-			margin-left: 0; // Убрать margin чтобы не влиял на ширину
-			margin-right: 0;
-			position: relative;
-			z-index: 21 !important; // Выше самого input для кликабельности
+			margin: 0; // Убрать все margin
+			padding: 0;
+			position: absolute; // Абсолютное позиционирование
+			right: 0; // Прижать к правому краю
+			top: 50%; // Центрировать по вертикали
+			transform: translateY(-50%); // Центрировать по вертикали
+			z-index: 25 !important; // Выше всего для кликабельности
 		}
 
 		&::-webkit-datetime-edit {
 			color: transparent !important; // Прозрачный текст чтобы placeholder был виден
+			text-align: left; // Выровнять текст слева
+			padding-left: 0; // Без отступа слева
 		}
 
 		&::-webkit-datetime-edit-fields-wrapper {
@@ -573,15 +578,18 @@
 			background: transparent !important; // Прозрачный фон чтобы placeholder был виден
 			cursor: pointer !important; // Курсор указатель для всей области input
 			pointer-events: auto !important; // Убедиться что input получает клики
-			display: block !important; // Переопределить display: flex из общих стилей
+			display: flex !important; // Flex для выравнивания иконки справа
+			align-items: center !important; // Центрировать по вертикали
+			justify-content: space-between !important; // Текст слева, иконка справа
 			width: 100% !important; // Такая же ширина как у select
 			padding: 8px 0 !important; // Сначала базовый padding как у select
-			padding-right: 20px !important; // Потом добавляем padding-right как у select
+			padding-right: 25px !important; // Место для иконки календаря справа
 			box-sizing: border-box !important; // Учесть padding в ширине
 			margin: 0 !important; // Убрать любые margin
 			border: none !important; // Убрать все borders
 			border-bottom: 1px solid rgba(0, 0, 0, 0.32) !important; // Добавить border-bottom как у других полей
 			outline: none !important; // Убрать outline
+			text-align: left !important; // Текст слева
 
 			// Убедиться что все внутренние части кликабельны
 			&::-webkit-datetime-edit {
