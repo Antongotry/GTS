@@ -558,6 +558,7 @@
 	// Работает на ВСЕХ разрешениях
 	.form-group-datetime {
 		position: relative;
+		flex: 1; // Такая же ширина как у обычных form-group (как select)
 
 		.datetime-placeholder {
 			position: absolute;
@@ -588,7 +589,8 @@
 			cursor: pointer !important; // Курсор указатель для всей области input
 			pointer-events: auto !important; // Убедиться что input получает клики
 			display: block !important; // Переопределить display: flex из общих стилей
-			
+			width: 100% !important; // Такая же ширина как у select
+
 			// Убедиться что все внутренние части кликабельны
 			&::-webkit-datetime-edit {
 				cursor: pointer !important;
