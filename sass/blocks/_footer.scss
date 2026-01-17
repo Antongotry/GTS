@@ -48,7 +48,8 @@
 		box-sizing: content-box;
 		grid-template-columns: 120px 140px 160px 160px 320px;
 		grid-template-rows: auto auto;
-		gap: 0;
+		column-gap: 11px; // 4 gaps * 11px = 44px to reach 944px grid
+		row-gap: 0;
 	}
 }
 
@@ -65,6 +66,8 @@
 		grid-row: 1;
 		justify-content: flex-start;
 		min-height: 0;
+		width: 70px;
+		margin-bottom: 32px; // отступ от логотипа до контента
 	}
 }
 
@@ -89,6 +92,12 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 90px; // 90px отступ от footer-container
+
+	@include lg {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
+	}
 }
 
 .footer-bottom-links {

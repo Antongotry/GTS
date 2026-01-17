@@ -1982,7 +1982,8 @@ a.phone-button:focus,
 		box-sizing: content-box;
 		grid-template-columns: 120px 140px 160px 160px 320px;
 		grid-template-rows: auto auto;
-		gap: 0;
+		column-gap: 11px;
+		row-gap: 0;
 	}
 }
 
@@ -2002,6 +2003,8 @@ a.phone-button:focus,
 		grid-row: 1;
 		justify-content: flex-start;
 		min-height: 0;
+		width: 70px;
+		margin-bottom: 32px;
 	}
 }
 
@@ -2030,6 +2033,15 @@ a.phone-button:focus,
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 90px;
+}
+
+@media (max-width: 1024px) {
+
+	.footer-bottom {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
+	}
 }
 
 .footer-bottom-links {
