@@ -212,16 +212,12 @@
 
 // Удалён дублирующий @include lg блок - стили теперь в основных классах
 
-// Mobile (375px)
-@include mobile {
-	.why-us-block {
-		margin-top: $spacing-4xl;
-	}
-
+// Mobile (<=768px)
+@include md {
 	.why-us-grid {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto;
-		gap: $spacing-md;
+		gap: 20px;
 		grid-auto-flow: row;
 	}
 
@@ -231,7 +227,7 @@
 	}
 
 	.why-us-item {
-		padding: $spacing-md;
+		padding: 16px;
 		height: 278px;
 		grid-column: auto;
 	}

@@ -4675,16 +4675,12 @@ a.phone-button:focus,
 	margin-top: auto;
 }
 
-@media (max-width: 375px) {
-
-	.why-us-block {
-		margin-top: 80px;
-	}
+@media (max-width: 768px) {
 
 	.why-us-grid {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto;
-		gap: 16px;
+		gap: 20px;
 		grid-auto-flow: row;
 	}
 
