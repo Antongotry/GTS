@@ -97,7 +97,7 @@
 						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/viber.svg' ); ?>" alt="Viber" width="25" height="25">
 					</a>
 					<a href="#" class="footer-social-icon" aria-label="WhatsApp">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg' ); ?>" alt="WhatsApp" width="25" height="25">
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2' ); ?>" alt="WhatsApp" width="25" height="25">
 					</a>
 					<a href="#" class="footer-social-icon" aria-label="Facebook">
 						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/fb.svg' ); ?>" alt="Facebook" width="25" height="25">

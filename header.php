@@ -68,7 +68,7 @@
 			<a href="mailto:info@gmail.com" class="header-email">info@gmail.com</a>
 			<div class="header-buttons">
 				<a href="#" class="whatsapp-button" aria-label="WhatsApp">
-					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg' ); ?>" alt="WhatsApp" width="24" height="24">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg?v=2' ); ?>" alt="WhatsApp" width="24" height="24">
 				</a>
 				<a href="tel:+440011112222" class="phone-button">+44 00 1111 2222</a>
 			</div>
@@ -125,7 +125,7 @@
 				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/viber.svg' ); ?>" alt="Viber">
 			</a>
 			<a href="#" class="mobile-social-link" aria-label="WhatsApp">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg' ); ?>" alt="WhatsApp">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2' ); ?>" alt="WhatsApp">
 			</a>
 		</div>
 	</div>

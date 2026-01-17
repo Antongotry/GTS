@@ -33,7 +33,7 @@
 	}
 
 	@include md {
-		padding: 0 20px;
+		padding: 0 16px 0 9px;
 	}
 }
 
@@ -115,6 +115,10 @@
 	@include md {
 		order: 1;
 		margin: 0;
+
+		img {
+			width: 53px;
+		}
 	}
 }
 
@@ -269,7 +273,7 @@
 	@include md {
 		order: 2;
 		margin-left: auto;
-		gap: 12px !important;
+		gap: 16px !important;
 	}
 }
 
@@ -470,7 +474,10 @@ a.phone-button,
 		height: 48px !important;
 		min-height: 48px !important;
 		max-height: 48px !important;
-		padding: 0 18px !important;
-		font-size: 13px !important;
+		width: 138px !important;
+		min-width: 138px !important;
+		max-width: 138px !important;
+		padding: 0 !important;
+		font-size: 12px !important;
 	}
 }

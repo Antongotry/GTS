@@ -1577,7 +1577,7 @@ body.mobile-menu-open {
 @media (max-width: 768px) {
 
 	.header-container {
-		padding: 0 20px;
+		padding: 0 16px 0 9px;
 	}
 }
 
@@ -1670,6 +1670,10 @@ body.mobile-menu-open {
 	.site-logo {
 		order: 1;
 		margin: 0;
+	}
+
+	.site-logo img {
+		width: 53px;
 	}
 }
 
@@ -1830,7 +1834,7 @@ body.mobile-menu-open {
 	.header-right {
 		order: 2;
 		margin-left: auto;
-		gap: 12px !important;
+		gap: 16px !important;
 	}
 }
 
@@ -2065,8 +2069,11 @@ a.phone-button:focus,
 		height: 48px !important;
 		min-height: 48px !important;
 		max-height: 48px !important;
-		padding: 0 18px !important;
-		font-size: 13px !important;
+		width: 138px !important;
+		min-width: 138px !important;
+		max-width: 138px !important;
+		padding: 0 !important;
+		font-size: 12px !important;
 	}
 }
 
@@ -2696,7 +2703,7 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.header-container {
-		padding: 0 20px;
+		padding: 0 16px 0 9px;
 	}
 }
 
@@ -2789,6 +2796,10 @@ a.phone-button:focus,
 	.site-logo {
 		order: 1;
 		margin: 0;
+	}
+
+	.site-logo img {
+		width: 53px;
 	}
 }
 
@@ -2949,7 +2960,7 @@ a.phone-button:focus,
 	.header-right {
 		order: 2;
 		margin-left: auto;
-		gap: 12px !important;
+		gap: 16px !important;
 	}
 }
 
@@ -3184,8 +3195,11 @@ a.phone-button:focus,
 		height: 48px !important;
 		min-height: 48px !important;
 		max-height: 48px !important;
-		padding: 0 18px !important;
-		font-size: 13px !important;
+		width: 138px !important;
+		min-width: 138px !important;
+		max-width: 138px !important;
+		padding: 0 !important;
+		font-size: 12px !important;
 	}
 }
 
