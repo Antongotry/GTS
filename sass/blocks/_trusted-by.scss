@@ -140,7 +140,7 @@
 	margin-top: 60px;
 
 	@include md {
-		margin-top: 100px; // От services-pill до стрелочек
+		margin-top: 0 !important; // Убрали отступ сверху
 		margin-bottom: 40px; // От стрелочек до отзывов
 	}
 }
@@ -160,6 +160,14 @@
 		padding-bottom: 0 !important;
 		height: auto !important;
 		min-height: 0 !important;
+
+		// Второй контейнер (только с nav-arrows) - убрать все отступы
+		&:last-of-type {
+			height: auto !important;
+			min-height: 0 !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
 	}
 
 	.trusted-by-slider {
