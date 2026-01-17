@@ -277,7 +277,7 @@
 
 	@include md {
 		grid-column: 1; // Левая колонка (под меню)
-		grid-row: 4; // Четвертая строка (отдельная строка под меню)
+		grid-row: 3; // Третья строка (та же строка что и menu)
 		align-self: start; // Выровнять по верху
 		position: relative; // Относительное позиционирование
 		width: 100%; // Занимает всю ширину левой колонки
@@ -287,12 +287,11 @@
 		margin-left: 0; // Убираем margin-left
 		margin-right: 0; // Убираем margin-right
 		padding-top: 0; // Убираем padding-top
-		// Menu top=111px, height=254px, заканчивается на 365px
-		// Language должен начинаться на 365px + 40px = 405px
-		// Строка 4 начинается на 518px (из-за высоты строки 3 - services)
-		// Нужно поднять language вверх: 518px - 405px = 113px
-		// margin-top: -113px
-		margin-top: -113px; // Поднимаем вверх чтобы language был сразу после menu с отступом 40px
+		// Menu находится в той же строке (grid-row: 3), имеет margin-bottom: 40px
+		// Language должен быть сразу после menu с отступом 40px
+		// Используем margin-top чтобы позиционировать language относительно начала строки 3
+		// Высота menu (254px) + margin-bottom menu (40px) = 294px
+		margin-top: 294px; // Позиционируем language под menu с учетом его высоты и отступа
 	}
 }
 
