@@ -2101,6 +2101,13 @@ a.phone-button:focus,
 	position: relative;
 }
 
+@media (max-width: 768px) {
+
+	.site-footer {
+		padding-bottom: 24px;
+	}
+}
+
 .site-footer::before {
 	content: "";
 	position: absolute;
@@ -2156,11 +2163,12 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.footer-container {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto auto auto;
+		gap: 0;
 		padding: 0 20px;
 		max-width: 100%;
-		gap: 40px;
 	}
 }
 
@@ -2188,9 +2196,10 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.footer-left {
-		order: 1;
+		grid-column: 1/-1;
+		grid-row: 1;
 		width: auto;
-		margin-bottom: 0;
+		margin-bottom: 40px;
 	}
 }
 
@@ -2233,9 +2242,11 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.footer-bottom {
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
 		align-items: flex-start;
-		gap: 16px;
+		gap: 0;
 		margin-top: 40px;
 		padding: 0 20px;
 		max-width: 100%;
@@ -2262,6 +2273,16 @@ a.phone-button:focus,
 	.footer-bottom-links {
 		flex-direction: row;
 		align-items: center;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.footer-bottom-links {
+		grid-column: 1;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
 	}
 }
 
@@ -2310,6 +2331,14 @@ a.phone-button:focus,
 	.footer-menu {
 		grid-column: 1;
 		grid-row: 2;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.footer-menu {
+		grid-column: 1;
+		grid-row: 3;
 	}
 }
 
@@ -2367,6 +2396,15 @@ a.phone-button:focus,
 	.footer-language {
 		grid-column: 2;
 		grid-row: 2;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.footer-language {
+		grid-column: 1;
+		grid-row: 4;
 		margin-top: 0;
 	}
 }
@@ -2446,9 +2484,12 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.footer-services {
-		order: 5;
+		grid-column: 2;
+		grid-row: 3;
 		grid-template-columns: 1fr;
 		column-gap: 0;
+		display: flex;
+		flex-direction: column;
 	}
 }
 
@@ -2552,10 +2593,12 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.footer-right {
-		order: 2;
+		grid-column: 1/-1;
+		grid-row: 2;
 		width: 100%;
 		max-width: 100%;
 		justify-self: auto;
+		margin-bottom: 40px;
 	}
 }
 
@@ -2594,7 +2637,8 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.footer-button-primary {
-		margin-bottom: 16px;
+		margin-bottom: 10px;
+		width: 100%;
 	}
 }
 
@@ -2609,6 +2653,7 @@ a.phone-button:focus,
 		background: #fff;
 		color: #000;
 		margin-bottom: 40px;
+		width: 100%;
 	}
 }
 
@@ -2647,6 +2692,13 @@ a.phone-button:focus,
 
 .footer-social {
 	margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+
+	.footer-social {
+		margin-top: 0;
+	}
 }
 
 .footer-social-title,
@@ -2752,6 +2804,14 @@ a.phone-button:focus,
 	line-height: 100%;
 	letter-spacing: 0%;
 	color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+
+	.footer-developed {
+		grid-column: 2;
+		align-self: flex-end;
+	}
 }
 
 .whatsapp-float {
