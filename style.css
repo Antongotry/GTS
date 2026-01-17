@@ -2105,12 +2105,18 @@ a.phone-button:focus,
 	color: #fff;
 	padding: 40px 0 50px;
 	position: relative;
+	box-sizing: border-box;
+	overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
 
 	.site-footer {
-		padding-bottom: 24px;
+		padding: 40px 0 24px;
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		overflow-x: hidden;
 	}
 }
 
@@ -2171,10 +2177,15 @@ a.phone-button:focus,
 	.footer-container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: auto auto auto auto;
+		grid-template-rows: auto auto auto;
 		gap: 0;
-		padding: 0 20px;
-		max-width: 100%;
+		padding: 0 20px !important;
+		max-width: 100vw !important;
+		width: 100% !important;
+		min-width: 0 !important;
+		box-sizing: border-box !important;
+		align-items: start;
+		margin: 0 auto;
 	}
 }
 
@@ -2345,6 +2356,8 @@ a.phone-button:focus,
 	.footer-menu {
 		grid-column: 1;
 		grid-row: 3;
+		align-self: start;
+		margin-bottom: 0;
 	}
 }
 
@@ -2410,8 +2423,13 @@ a.phone-button:focus,
 
 	.footer-language {
 		grid-column: 1;
-		grid-row: 4;
-		margin-top: 0;
+		grid-row: 3;
+		margin-top: 40px;
+		align-self: start;
+		position: relative;
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
 	}
 }
 
@@ -2497,6 +2515,7 @@ a.phone-button:focus,
 		display: flex;
 		flex-direction: column;
 		gap: 0;
+		align-self: start;
 	}
 }
 
@@ -2622,11 +2641,16 @@ a.phone-button:focus,
 	.footer-right {
 		grid-column: 1/-1;
 		grid-row: 2;
-		width: 100% !important;
+		width: auto !important;
 		max-width: 100% !important;
-		justify-self: auto;
+		min-width: 0 !important;
+		box-sizing: border-box !important;
+		justify-self: stretch !important;
 		margin-bottom: 40px;
-		box-sizing: border-box;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding: 0 !important;
+		overflow: hidden;
 	}
 }
 

@@ -8,9 +8,15 @@
 	color: #ffffff;
 	padding: 40px 0 50px; // 40px сверху, 50px снизу
 	position: relative;
+	box-sizing: border-box;
+	overflow-x: hidden; // Предотвратить горизонтальный скролл
 
 	@include md {
-		padding-bottom: 24px; // 24px снизу на мобильном
+		padding: 40px 0 24px; // 40px сверху, 24px снизу на мобильном
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		overflow-x: hidden; // Предотвратить горизонтальный скролл
 	}
 
 	&::before {
@@ -60,10 +66,15 @@
 		// Мобильная версия: вертикальная компоновка с grid для меню/языков и сервисов
 		display: grid;
 		grid-template-columns: 1fr 1fr; // Две колонки: меню/языки и сервисы
-		grid-template-rows: auto auto auto auto; // Логотип, кнопки+social, меню+сервисы, языки
+		grid-template-rows: auto auto auto; // Логотип, кнопки+social, меню+сервисы+языки
 		gap: 0;
-		padding: 0 20px;
-		max-width: 100%;
+		padding: 0 20px !important;
+		max-width: 100vw !important; // Явно ограничить viewport шириной
+		width: 100% !important;
+		min-width: 0 !important; // Разрешить сжатие grid-контейнера
+		box-sizing: border-box !important;
+		align-items: start; // Выровнять все элементы по верху
+		margin: 0 auto; // Центрирование
 	}
 }
 
@@ -199,6 +210,8 @@
 	@include md {
 		grid-column: 1; // Левая колонка
 		grid-row: 3; // Третья строка (после кнопок+social)
+		align-self: start; // Выровнять по верху
+		margin-bottom: 0; // Убираем отступ снизу, так как языки идут сразу после
 	}
 
 	.footer-menu-list {
@@ -254,8 +267,13 @@
 
 	@include md {
 		grid-column: 1; // Левая колонка (под меню)
-		grid-row: 4; // Четвертая строка
-		margin-top: 0; // Убираем margin-top на мобильном
+		grid-row: 3; // Третья строка (та же что и меню, но ниже)
+		margin-top: 40px; // Отступ 40px от меню
+		align-self: start; // Выровнять по верху
+		position: relative; // Для правильного позиционирования
+		width: 100%; // Занимает всю ширину левой колонки
+		max-width: 100%; // Не выходит за границы
+		box-sizing: border-box; // Учитываем padding
 	}
 }
 
@@ -338,6 +356,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0; // Убираем gap между списками
+		align-self: start; // Выровнять по верху
 	}
 }
 
@@ -439,11 +458,16 @@
 	@include md {
 		grid-column: 1 / -1; // Кнопки и social networks на всю ширину
 		grid-row: 2;
-		width: 100% !important;
-		max-width: 100% !important;
-		justify-self: auto;
+		width: auto !important; // Grid сам растянет элемент на всю ширину ячейки
+		max-width: 100% !important; // Ограничить максимальной шириной ячейки
+		min-width: 0 !important; // Разрешить сжатие в grid
+		box-sizing: border-box !important;
+		justify-self: stretch !important; // Растянуть на всю ширину ячейки
 		margin-bottom: 40px; // Отступ от social networks до меню/сервисов
-		box-sizing: border-box; // Учитываем padding в ширине
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding: 0 !important; // Убираем внутренние отступы
+		overflow: hidden; // Предотвратить переполнение
 	}
 }
 
