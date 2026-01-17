@@ -4200,20 +4200,22 @@ a.phone-button:focus,
 	top: 0;
 	height: 40px;
 	line-height: 40px;
-	color: rgba(0, 0, 0, 0.56);
+	color: rgba(0, 0, 0, 0.56) !important;
 	font-size: 14px;
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-weight: 400;
 	pointer-events: none !important;
 	z-index: 1;
 	opacity: 1 !important;
-	transition: opacity 0.3s ease, display 0.3s ease;
+	transition: opacity 0.3s ease, display 0.3s ease, color 0.3s ease;
 	display: block !important;
-	width: calc(100% - 30px);
+	width: 100%;
 	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
+	padding-right: 20px;
+	box-sizing: border-box;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"] {
@@ -4224,6 +4226,8 @@ a.phone-button:focus,
 	pointer-events: auto !important;
 	display: block !important;
 	width: 100% !important;
+	padding-right: 20px !important;
+	box-sizing: border-box !important;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit {
