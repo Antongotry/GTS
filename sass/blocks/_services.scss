@@ -9,6 +9,10 @@
 	@include lg {
 		padding-top: 120px;
 	}
+
+	@include md {
+		padding-top: 110px; // Уменьшили на 40px (было 150px)
+	}
 }
 
 .services-container {

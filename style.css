@@ -5086,7 +5086,7 @@ a.phone-button:focus,
 	.how-it-works-container {
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 0 20px !important;
+		padding: 0 !important;
 		max-width: 100% !important;
 		width: 100% !important;
 		height: auto;
@@ -5138,8 +5138,10 @@ a.phone-button:focus,
 		overflow: visible;
 		gap: 10px;
 		padding: 0;
+		margin: 0;
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 
 	.how-it-works-step {
@@ -5147,6 +5149,9 @@ a.phone-button:focus,
 		min-height: 200px;
 		padding: 16px;
 		flex-shrink: 0;
+		width: 100%;
+		margin: 0;
+		box-sizing: border-box;
 	}
 
 	.how-it-works-step-title {
@@ -5411,6 +5416,13 @@ a.phone-button:focus,
 
 	.services-block {
 		padding-top: 120px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.services-block {
+		padding-top: 110px;
 	}
 }
 

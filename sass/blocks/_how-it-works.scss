@@ -220,7 +220,7 @@
 	.how-it-works-container {
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 0 20px !important; // Паддинги 20px по бокам на мобильном
+		padding: 0 !important; // Убрать паддинги по бокам (они у контента внутри)
 		max-width: 100% !important;
 		width: 100% !important;
 		height: auto;
@@ -273,8 +273,10 @@
 		overflow: visible;
 		gap: 10px;
 		padding: 0;
+		margin: 0; // Убрать лишние отступы
 		display: flex;
 		flex-direction: column;
+		width: 100%; // На всю ширину
 	}
 
 	.how-it-works-step {
@@ -282,6 +284,9 @@
 		min-height: 200px;
 		padding: 16px;
 		flex-shrink: 0;
+		width: 100%; // На всю ширину
+		margin: 0; // Убрать лишние отступы
+		box-sizing: border-box;
 	}
 
 	.how-it-works-step-title {
