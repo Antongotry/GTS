@@ -125,6 +125,6 @@
 	</div>
 
 	<a href="#" class="whatsapp-float" aria-label="WhatsApp">
-		<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2' ); ?>" alt="WhatsApp" width="22" height="22">
+		<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg?v=2' ); ?>" alt="WhatsApp" width="22" height="22">
 	</a>
 </footer>
