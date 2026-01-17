@@ -1589,6 +1589,7 @@ body.mobile-menu-open {
 		margin: 0 auto;
 		padding: 0 16px 0 9px;
 		height: 48px;
+		min-height: 48px;
 	}
 }
 
@@ -2790,6 +2791,7 @@ a.phone-button:focus,
 		margin: 0 auto;
 		padding: 0 16px 0 9px;
 		height: 48px;
+		min-height: 48px;
 	}
 }
 
