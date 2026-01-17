@@ -2229,7 +2229,11 @@ a.phone-button:focus,
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 16px !important;
+}
+.footer-language-list li {
+  margin: 0;
+  padding: 0;
 }
 
 .footer-language-item {

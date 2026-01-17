@@ -301,7 +301,12 @@
 	padding: 0;
 	display: flex;
 	flex-direction: column;
-	gap: 16px; // 16px между пунктами
+	gap: 16px !important; // 16px между пунктами (важно для переопределения)
+	
+	li {
+		margin: 0; // Убираем margin у элементов списка
+		padding: 0; // Убираем padding у элементов списка
+	}
 }
 
 .footer-language-item {
