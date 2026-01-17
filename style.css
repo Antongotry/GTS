@@ -4789,18 +4789,19 @@ a.phone-button:focus,
 	}
 
 	.why-us-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto;
 		gap: 16px;
 	}
 
 	.why-us-item-1,
 	.why-us-item-6 {
-		grid-column: span 1;
+		grid-column: 1/-1;
 	}
 
 	.why-us-item {
 		padding: 16px;
+		height: 278px;
 	}
 
 	.why-us-item-title {
