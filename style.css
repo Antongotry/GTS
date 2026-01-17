@@ -1628,6 +1628,7 @@ body.mobile-menu-open {
 		border-radius: 0;
 		background: transparent;
 		padding: 0;
+		margin-left: 16px;
 	}
 
 	.hamburger-button .hamburger-icon {
@@ -2754,6 +2755,7 @@ a.phone-button:focus,
 		border-radius: 0;
 		background: transparent;
 		padding: 0;
+		margin-left: 16px;
 	}
 
 	.hamburger-button .hamburger-icon {
