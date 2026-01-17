@@ -326,15 +326,24 @@
 	display: flex;
 	align-items: center;
 	gap: 2px; // 2px между текстом и галочкой
+	margin: 0; // Убеждаемся что нет margin, который может влиять на gap
+	padding: 0; // Убеждаемся что нет padding, который может влиять на gap
+	min-height: 0; // Разрешить сжатие flex-элемента
+	height: auto; // Автоматическая высота для соответствия другим элементам
 
 	> span {
 		// Текст языка
+		line-height: 1; // Обеспечиваем такой же line-height как у <a> элементов
 	}
 
 	a {
 		color: #ffffff;
 		text-decoration: none;
 		transition: opacity 0.2s ease;
+		line-height: 1; // Обеспечиваем такой же line-height как у других <a> элементов
+		font-family: $font__manrope; // Явно указываем шрифт для консистентности
+		font-size: 14px; // Явно указываем размер шрифта для консистентности
+		font-weight: 400; // Явно указываем вес шрифта для консистентности
 
 		&:hover {
 			opacity: 0.7;
