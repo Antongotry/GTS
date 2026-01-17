@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Booking Form Block Template
  *
@@ -77,7 +78,7 @@
 						<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
 						<a href="#" class="add-stop-link">
 							<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+								<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
 							</svg>
 							Add Stop
 						</a>
@@ -109,14 +110,14 @@
 			<div class="hero-features hero-features--mobile">
 				<div class="hero-feature hero-feature-top-left">
 					<div class="hero-feature-icon">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg' ); ?>" alt="Premium fleet">
+						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg'); ?>" alt="Premium fleet">
 					</div>
 					<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 				</div>
 
 				<div class="hero-feature hero-feature-top-right hero-feature-map">
 					<div class="world-map-image">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp' ); ?>" alt="World Map">
+						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map">
 					</div>
 					<div class="world-map-text">
 						<p class="world-map-label world-map-label-top">clients in</p>
@@ -129,14 +130,14 @@
 
 				<div class="hero-feature hero-feature-bottom-left">
 					<div class="hero-feature-icon">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg' ); ?>" alt="Trusted since 2010">
+						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg'); ?>" alt="Trusted since 2010">
 					</div>
 					<p class="hero-feature-text">Since 2010, trusted by corporate<br>& VIP clients</p>
 				</div>
 
 				<div class="hero-feature hero-feature-bottom-right">
 					<div class="hero-feature-icon">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg' ); ?>" alt="Complex itineraries">
+						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg'); ?>" alt="Complex itineraries">
 					</div>
 					<p class="hero-feature-text">From simple rides to complex itineraries</p>
 				</div>

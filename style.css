@@ -4168,6 +4168,8 @@ a.phone-button:focus,
 	.booking-form-block--mobile {
 		display: block;
 		margin-top: -150px;
+		position: relative;
+		z-index: 5;
 	}
 }
 
