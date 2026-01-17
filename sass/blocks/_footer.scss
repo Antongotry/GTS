@@ -42,7 +42,7 @@
 	}
 
 	@include lg {
-		// На 1024px: Logo над Menu | Site lang | Services (2 cols) | Right
+		// На 1024px: Logo в отдельной строке, ниже весь контент
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
@@ -61,7 +61,7 @@
 	min-height: 100%;
 
 	@include lg {
-		grid-column: 1;
+		grid-column: 1 / -1;
 		grid-row: 1;
 		justify-content: flex-start;
 		min-height: 0;
@@ -184,7 +184,7 @@
 
 	@include lg {
 		grid-column: 2;
-		grid-row: 1;
+		grid-row: 2;
 		margin-top: 0;
 	}
 }
@@ -255,7 +255,7 @@
 
 	@include lg {
 		grid-column: 3 / span 2; // Колонки 3 и 4
-		grid-row: 1;
+		grid-row: 2;
 		grid-template-columns: auto auto; // Две колонки Services
 		column-gap: 20px;
 	}
@@ -330,7 +330,7 @@
 
 	@include lg {
 		grid-column: 5; // Правая колонка
-		grid-row: 1;
+		grid-row: 2;
 		width: auto;
 		max-width: 320px;
 		justify-self: end;
