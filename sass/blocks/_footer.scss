@@ -51,6 +51,15 @@
 		column-gap: 11px; // 4 gaps * 11px = 44px to reach 944px grid
 		row-gap: 0;
 	}
+
+	@include md {
+		// Мобильная версия: вертикальная компоновка
+		display: flex;
+		flex-direction: column;
+		padding: 0 20px;
+		max-width: 100%;
+		gap: 40px;
+	}
 }
 
 .footer-left {
@@ -68,6 +77,12 @@
 		min-height: 0;
 		width: 70px;
 		margin-bottom: 32px; // отступ от логотипа до контента
+	}
+
+	@include md {
+		order: 1;
+		width: auto;
+		margin-bottom: 0;
 	}
 }
 
@@ -97,6 +112,15 @@
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
+	}
+
+	@include md {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+		margin-top: 40px;
+		padding: 0 20px;
+		max-width: 100%;
 	}
 }
 
@@ -279,6 +303,12 @@
 		grid-template-columns: auto auto; // Две колонки Services
 		column-gap: 20px;
 	}
+
+	@include md {
+		order: 5;
+		grid-template-columns: 1fr;
+		column-gap: 0;
+	}
 }
 
 .footer-services-title {
@@ -334,6 +364,12 @@
 		grid-row: 2;
 		margin-top: 0;
 	}
+
+	@include md {
+		grid-column: 1;
+		grid-row: 3;
+		margin-top: 16px;
+	}
 }
 
 .footer-right {
@@ -354,6 +390,13 @@
 		width: auto;
 		max-width: 320px;
 		justify-self: end;
+	}
+
+	@include md {
+		order: 2;
+		width: 100%;
+		max-width: 100%;
+		justify-self: auto;
 	}
 }
 
@@ -384,6 +427,21 @@
 	&:hover {
 		opacity: 0.9;
 	}
+
+	@include md {
+		margin-bottom: 16px; // Отступ до второй кнопки
+	}
+}
+
+.footer-button-secondary {
+	display: none; // Скрыта на десктопе
+
+	@include md {
+		display: inline-flex;
+		background: #ffffff;
+		color: #000000;
+		margin-bottom: 40px; // Отступ до Social networks
+	}
 }
 
 .footer-phone {
@@ -407,6 +465,10 @@
 			font-size: 13px;
 		}
 	}
+
+	@include md {
+		display: none; // Скрыть телефон на мобильном
+	}
 }
 
 .footer-social {
@@ -429,6 +491,10 @@
 
 .footer-email {
 	margin-top: 40px; // 40px отступ от иконок социальных сетей
+
+	@include md {
+		display: none; // Скрыть email на мобильном
+	}
 }
 
 .footer-email-title {

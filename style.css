@@ -2153,6 +2153,17 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.footer-container {
+		display: flex;
+		flex-direction: column;
+		padding: 0 20px;
+		max-width: 100%;
+		gap: 40px;
+	}
+}
+
 .footer-left {
 	grid-column: 1;
 	grid-row: 1/-1;
@@ -2171,6 +2182,15 @@ a.phone-button:focus,
 		min-height: 0;
 		width: 70px;
 		margin-bottom: 32px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.footer-left {
+		order: 1;
+		width: auto;
+		margin-bottom: 0;
 	}
 }
 
@@ -2207,6 +2227,18 @@ a.phone-button:focus,
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.footer-bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+		margin-top: 40px;
+		padding: 0 20px;
+		max-width: 100%;
 	}
 }
 
@@ -2411,6 +2443,15 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.footer-services {
+		order: 5;
+		grid-template-columns: 1fr;
+		column-gap: 0;
+	}
+}
+
 .footer-services-title {
 	grid-column: 1;
 	grid-row: 1;
@@ -2472,6 +2513,15 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.footer-services-list-right {
+		grid-column: 1;
+		grid-row: 3;
+		margin-top: 16px;
+	}
+}
+
 .footer-right {
 	grid-column: 10;
 	grid-row: 1/-1;
@@ -2496,6 +2546,16 @@ a.phone-button:focus,
 		width: auto;
 		max-width: 320px;
 		justify-self: end;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.footer-right {
+		order: 2;
+		width: 100%;
+		max-width: 100%;
+		justify-self: auto;
 	}
 }
 
@@ -2531,6 +2591,27 @@ a.phone-button:focus,
 	opacity: 0.9;
 }
 
+@media (max-width: 768px) {
+
+	.footer-button-primary {
+		margin-bottom: 16px;
+	}
+}
+
+.footer-button-secondary {
+	display: none;
+}
+
+@media (max-width: 768px) {
+
+	.footer-button-secondary {
+		display: inline-flex;
+		background: #fff;
+		color: #000;
+		margin-bottom: 40px;
+	}
+}
+
 .footer-phone {
 	background: #fff;
 	border-radius: 50px;
@@ -2557,6 +2638,13 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.footer-phone {
+		display: none;
+	}
+}
+
 .footer-social {
 	margin-top: 40px;
 }
@@ -2577,6 +2665,13 @@ a.phone-button:focus,
 
 .footer-email {
 	margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+
+	.footer-email {
+		display: none;
+	}
 }
 
 .footer-email-title {
@@ -5237,6 +5332,7 @@ a.phone-button:focus,
 
 	.trusted-by-container {
 		margin-bottom: 0;
+		padding-top: 40px;
 	}
 
 	.trusted-by-slider .swiper-slide {
