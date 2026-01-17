@@ -5435,6 +5435,15 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.services-container {
+		padding: 0 !important;
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+}
+
 .services-pill {
 	display: inline-flex;
 	align-items: center;

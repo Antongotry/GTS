@@ -27,6 +27,12 @@
 		align-items: center; // Центрировать содержимое
 		text-align: center; // Центрировать текст
 	}
+
+	@include md {
+		padding: 0 !important; // Убрать паддинги по бокам на мобильном
+		max-width: 100% !important;
+		width: 100% !important;
+	}
 }
 
 .services-pill {
