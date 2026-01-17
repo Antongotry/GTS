@@ -172,11 +172,13 @@
 
 	.trusted-by-container {
 		margin-bottom: 0 !important;
-		padding-top: 40px !important; // Вернули padding-top 40px
+		padding: 40px 20px 0 20px !important; // padding-top 40px, боковые 20px
 		margin-top: 0 !important;
-		padding-bottom: 0 !important;
 		height: auto !important;
 		min-height: 0 !important;
+		max-width: 100% !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
 
 		// Второй контейнер (только с nav-arrows) - центрировать и добавить padding-top
 		&:last-of-type {

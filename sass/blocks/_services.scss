@@ -29,9 +29,10 @@
 	}
 
 	@include md {
-		padding: 0 !important; // Убрать паддинги по бокам на мобильном
+		padding: 0 20px !important; // Паддинги 20px по бокам на мобильном
 		max-width: 100% !important;
 		width: 100% !important;
+		box-sizing: border-box !important;
 	}
 }
 

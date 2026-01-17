@@ -5086,12 +5086,14 @@ a.phone-button:focus,
 	.how-it-works-container {
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 0;
-		max-width: 100%;
+		padding: 0 20px !important;
+		max-width: 100% !important;
+		width: 100% !important;
 		height: auto;
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		box-sizing: border-box !important;
 	}
 
 	.how-it-works-container::after {
@@ -5354,11 +5356,13 @@ a.phone-button:focus,
 
 	.trusted-by-container {
 		margin-bottom: 0 !important;
-		padding-top: 40px !important;
+		padding: 40px 20px 0 20px !important;
 		margin-top: 0 !important;
-		padding-bottom: 0 !important;
 		height: auto !important;
 		min-height: 0 !important;
+		max-width: 100% !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
 	}
 
 	.trusted-by-container:last-of-type {
@@ -5438,9 +5442,10 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.services-container {
-		padding: 0 !important;
+		padding: 0 20px !important;
 		max-width: 100% !important;
 		width: 100% !important;
+		box-sizing: border-box !important;
 	}
 }
 
@@ -5732,7 +5737,10 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.custom-itinerary-container {
-		padding: 24px;
+		padding: 24px 20px;
+		max-width: 100% !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
 	}
 }
 

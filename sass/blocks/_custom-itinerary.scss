@@ -21,7 +21,10 @@
 	box-sizing: border-box;
 
 	@include md {
-		padding: 24px;
+		padding: 24px 20px; // 24px сверху/снизу, 20px по бокам
+		max-width: 100% !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
 	}
 }
 
