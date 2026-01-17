@@ -2246,11 +2246,6 @@ a.phone-button:focus,
 .footer-language-list li {
   margin: 0;
   padding: 0;
-  line-height: 1;
-  box-sizing: border-box;
-  height: 14px;
-  max-height: 14px;
-  overflow: visible;
 }
 
 .footer-language-item {
@@ -2265,10 +2260,6 @@ a.phone-button:focus,
   gap: 2px;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  height: 14px;
-  max-height: 14px;
-  overflow: visible;
 }
 .footer-language-item > span {
   line-height: 1;
@@ -2276,19 +2267,24 @@ a.phone-button:focus,
   padding: 0;
 }
 .footer-language-item a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-  line-height: 1 !important;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
   margin: 0;
   padding: 0;
-  display: block;
 }
 .footer-language-item a:hover {
   opacity: 0.7;
+}
+@media (max-width: 1024px) {
+  .footer-language-item a {
+    font-size: 13px;
+  }
 }
 .footer-language-item.footer-language-item-active .footer-language-check {
   display: block;

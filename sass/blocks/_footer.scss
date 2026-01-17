@@ -317,60 +317,59 @@
 	gap: 16px !important; // 16px между пунктами (важно для переопределения)
 
 	li {
-		margin: 0; // Убираем margin у элементов списка
-		padding: 0; // Убираем padding у элементов списка
-		line-height: 1; // Одинаковый line-height как у <a> в других списках
-		box-sizing: border-box; // Учитываем padding и border в высоте
-		// КРИТИЧНО: ограничиваем высоту li до высоты текста (14px)
-		// Это гарантирует, что gap будет визуально одинаковым во всех списках
-		height: 14px; // Фиксированная высота равная line-height: 1 * font-size: 14px
-		max-height: 14px; // Максимальная высота
-		overflow: visible; // Разрешаем видимость изображения галочки (20px) за пределами li
+		margin: 0;
+		padding: 0; // Убираем padding у элементов списка - ИДЕНТИЧНО .footer-menu-list li
+		// НЕ устанавливаем фиксированную высоту - пусть содержимое определяет высоту
+		// ИДЕНТИЧНО структуре .footer-menu-list li
 	}
 }
 
 .footer-language-item {
+	// ИДЕНТИЧНО стилям .footer-menu-list a
 	font-family: $font__manrope;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 1; // 100% - КРИТИЧНО: такой же как у <a> в других списках
+	line-height: 1; // 100% - ИДЕНТИЧНО .footer-menu-list a
 	letter-spacing: 0;
 	color: #ffffff;
 	display: flex;
 	align-items: center;
 	gap: 2px; // 2px между текстом и галочкой
-	margin: 0; // Убеждаемся что нет margin, который может влиять на gap
-	padding: 0; // Убеждаемся что нет padding, который может влиять на gap
-	box-sizing: border-box; // Учитываем padding и border в высоте
-	// КРИТИЧНО: ограничиваем высоту flex-контейнера до высоты текста (14px)
-	// Это гарантирует одинаковую высоту с <a> элементами в других списках
-	height: 14px; // Фиксированная высота равная line-height: 1 * font-size: 14px
-	max-height: 14px; // Максимальная высота
-	overflow: visible; // Разрешаем видимость изображения галочки (20px) за пределами контейнера
+	margin: 0;
+	padding: 0;
+	// НЕ устанавливаем фиксированную высоту - пусть line-height: 1 определяет высоту естественным образом
+	// ИДЕНТИЧНО поведению .footer-menu-list a
 
 	> span {
 		// Текст языка
-		line-height: 1; // Обеспечиваем такой же line-height как у <a> элементов
-		margin: 0; // Убираем margin у span
-		padding: 0; // Убираем padding у span
-		// НЕ устанавливаем фиксированную высоту - пусть line-height определяет высоту
+		line-height: 1; // ИДЕНТИЧНО .footer-menu-list a
+		margin: 0;
+		padding: 0;
 	}
 
 	a {
-		color: #ffffff;
+		// ИДЕНТИЧНО стилям .footer-menu-list a
+		font-family: $font__manrope;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1; // 100% - ИДЕНТИЧНО .footer-menu-list a
+		letter-spacing: 0;
+		color: #ffffff; // Белый непрозрачный - ИДЕНТИЧНО .footer-menu-list a
 		text-decoration: none;
 		transition: opacity 0.2s ease;
-		line-height: 1 !important; // КРИТИЧНО: такой же line-height как у <a> в других списках (!important для гарантии)
-		font-family: $font__manrope; // Явно указываем шрифт для консистентности
-		font-size: 14px; // Явно указываем размер шрифта для консистентности
-		font-weight: 400; // Явно указываем вес шрифта для консистентности
-		margin: 0; // Убираем margin у ссылок
-		padding: 0; // Убираем padding у ссылок
-		// НЕ устанавливаем фиксированную высоту - пусть line-height определяет высоту
-		display: block; // Блочный элемент для правильного выравнивания в flex
+		margin: 0;
+		padding: 0;
+		// НЕ устанавливаем display: block - пусть будет inline как в .footer-menu-list a
 
 		&:hover {
-			opacity: 0.7;
+			opacity: 0.7; // ИДЕНТИЧНО .footer-menu-list a:hover
+		}
+	}
+
+	@include lg {
+		// ИДЕНТИЧНО .footer-menu-list a на lg
+		a {
+			font-size: 13px;
 		}
 	}
 
