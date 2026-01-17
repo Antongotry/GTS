@@ -4203,18 +4203,48 @@ a.phone-button:focus,
 	font-size: 14px;
 	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-weight: 400;
-	pointer-events: none;
+	pointer-events: none !important;
 	z-index: 1;
 	opacity: 1 !important;
 	transition: opacity 0.3s ease, display 0.3s ease;
 	display: block !important;
 	width: calc(100% - 30px);
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"] {
 	position: relative;
 	z-index: 20 !important;
 	background: transparent !important;
+	cursor: pointer !important;
+	pointer-events: auto !important;
+}
+
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit {
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-text {
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+.form-group .form-group-datetime input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
+	cursor: pointer;
+	pointer-events: auto;
 }
 
 .form-group .form-group-datetime input[type="datetime-local"]:focus ~ .datetime-placeholder,

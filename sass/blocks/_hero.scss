@@ -569,18 +569,49 @@
 			font-size: 14px;
 			font-family: "Manrope", $font__main;
 			font-weight: 400;
-			pointer-events: none; // Пропускает клики к input ниже
+			pointer-events: none !important; // Пропускает клики к input ниже - ОБЯЗАТЕЛЬНО!
 			z-index: 1; // НИЗКИЙ z-index - ниже input, но виден через прозрачный input
 			opacity: 1 !important; // Всегда видим по умолчанию
 			transition: opacity 0.3s ease, display 0.3s ease;
 			display: block !important; // Убедиться что видим
 			width: calc(100% - 30px); // Оставить место для иконки календаря
+			user-select: none; // Нельзя выделить текст placeholder
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
 		}
 
 		input[type="datetime-local"] {
 			position: relative;
 			z-index: 20 !important; // ВЫСОКИЙ z-index - выше placeholder, получает клики первым
 			background: transparent !important; // Прозрачный фон чтобы placeholder был виден
+			cursor: pointer !important; // Курсор указатель для всей области input
+			pointer-events: auto !important; // Убедиться что input получает клики
+			
+			// Убедиться что все внутренние части кликабельны
+			&::-webkit-datetime-edit {
+				cursor: pointer;
+				pointer-events: auto;
+			}
+
+			&::-webkit-datetime-edit-fields-wrapper {
+				cursor: pointer;
+				pointer-events: auto;
+			}
+
+			&::-webkit-datetime-edit-text {
+				cursor: pointer;
+				pointer-events: auto;
+			}
+
+			&::-webkit-datetime-edit-month-field,
+			&::-webkit-datetime-edit-day-field,
+			&::-webkit-datetime-edit-year-field,
+			&::-webkit-datetime-edit-hour-field,
+			&::-webkit-datetime-edit-minute-field {
+				cursor: pointer;
+				pointer-events: auto;
+			}
 		}
 
 		// Скрыть placeholder когда поле заполнено или в фокусе
