@@ -2143,6 +2143,13 @@ a.phone-button:focus,
 	opacity: 0.7;
 }
 
+@media (max-width: 1024px) {
+
+	.footer-menu .footer-menu-list a {
+		font-size: 13px;
+	}
+}
+
 .footer-language {
 	grid-column: 5;
 	grid-row: 1;
