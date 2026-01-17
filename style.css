@@ -5866,6 +5866,8 @@ a.phone-button:focus,
 		padding: 0 20px;
 		max-width: 100%;
 		box-sizing: border-box;
+		height: auto;
+		min-height: 0;
 	}
 }
 
@@ -5950,7 +5952,12 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.final-cta-right--desktop {
-		display: none;
+		display: none !important;
+		width: 0 !important;
+		height: 0 !important;
+		overflow: hidden !important;
+		padding: 0 !important;
+		margin: 0 !important;
 	}
 }
 
