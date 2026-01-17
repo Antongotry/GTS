@@ -2073,7 +2073,7 @@ a.phone-button:focus,
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    align-items: flex-end;
+    align-items: end;
     gap: 0;
     margin-top: 40px;
     padding: 0 20px !important;
@@ -2610,10 +2610,9 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .footer-developed {
     grid-column: 2;
-    align-self: flex-end;
-    justify-self: flex-end;
+    align-self: end;
+    justify-self: end;
     text-align: right;
-    margin-top: auto;
   }
 }
 
