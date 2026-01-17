@@ -1980,7 +1980,7 @@ a.phone-button:focus,
 		max-width: 944px;
 		padding: 0 20px;
 		box-sizing: content-box;
-		grid-template-columns: 70px 110px 120px 140px 140px 364px;
+		grid-template-columns: 70px 110px 120px 140px 140px 320px;
 		grid-template-rows: auto;
 		gap: 0;
 	}
@@ -2291,7 +2291,7 @@ a.phone-button:focus,
 		grid-column: 6;
 		grid-row: 1;
 		width: auto;
-		max-width: 364px;
+		max-width: 320px;
 		justify-self: end;
 	}
 }
