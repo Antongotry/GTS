@@ -2843,6 +2843,8 @@ a.phone-button:focus,
 	.footer-developed {
 		grid-column: 2;
 		align-self: flex-end;
+		justify-self: flex-end;
+		text-align: right;
 	}
 }
 

@@ -464,7 +464,7 @@
 			-moz-appearance: textfield;
 			appearance: none;
 			color: rgba(0, 0, 0, 0.56) !important; // Цвет placeholder пока не выбрано
-			
+
 			&::-webkit-calendar-picker-indicator {
 				opacity: 1 !important;
 				cursor: pointer;
@@ -472,19 +472,19 @@
 				height: 20px;
 				margin-left: 8px;
 			}
-			
+
 			&::-webkit-datetime-edit {
 				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет
 			}
-			
+
 			&::-webkit-datetime-edit-fields-wrapper {
 				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет
 			}
-			
+
 			&::-webkit-datetime-edit-text {
 				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет для разделителей
 			}
-			
+
 			&::-webkit-datetime-edit-month-field,
 			&::-webkit-datetime-edit-day-field,
 			&::-webkit-datetime-edit-year-field,
@@ -492,24 +492,24 @@
 			&::-webkit-datetime-edit-minute-field {
 				color: rgba(0, 0, 0, 0.56) !important; // Placeholder цвет для полей
 			}
-			
+
 			// Когда выбрано значение
 			&:not(:placeholder-shown),
 			&:valid {
 				color: #000000 !important;
-				
+
 				&::-webkit-datetime-edit {
 					color: #000000 !important;
 				}
-				
+
 				&::-webkit-datetime-edit-fields-wrapper {
 					color: #000000 !important;
 				}
-				
+
 				&::-webkit-datetime-edit-text {
 					color: #000000 !important;
 				}
-				
+
 				&::-webkit-datetime-edit-month-field,
 				&::-webkit-datetime-edit-day-field,
 				&::-webkit-datetime-edit-year-field,
@@ -518,7 +518,7 @@
 					color: #000000 !important;
 				}
 			}
-			
+
 			// Для Firefox
 			&::-moz-placeholder {
 				color: rgba(0, 0, 0, 0.56);

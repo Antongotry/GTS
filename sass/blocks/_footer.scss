@@ -632,6 +632,8 @@
 	@include md {
 		grid-column: 2; // Правая колонка
 		align-self: flex-end; // Прижать снизу
+		justify-self: flex-end; // Прижать к правому краю
+		text-align: right; // Выровнять текст по правому краю
 	}
 }
 
