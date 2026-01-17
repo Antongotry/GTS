@@ -12,6 +12,10 @@
 	@include lg {
 		margin-top: 60px;
 	}
+
+	@include md {
+		margin-top: 32px;
+	}
 }
 
 .why-us-container {
@@ -24,6 +28,14 @@
 		margin: 0 auto;
 		box-sizing: content-box; // padding не входит в max-width
 	}
+
+	@include md {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 20px;
+		margin: 0;
+		box-sizing: border-box;
+	}
 }
 
 .why-us-heading {
@@ -31,6 +43,10 @@
 	align-items: center;
 	gap: 35px;
 	margin-bottom: $spacing-3xl;
+
+	@include md {
+		gap: 16px;
+	}
 }
 
 .why-us-heading-pill {

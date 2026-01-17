@@ -4436,6 +4436,13 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.why-us-block {
+		margin-top: 32px;
+	}
+}
+
 .why-us-container {
 	width: 100%;
 	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
@@ -4455,11 +4462,29 @@ a.phone-button:focus,
 	}
 }
 
+@media (max-width: 768px) {
+
+	.why-us-container {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 20px;
+		margin: 0;
+		box-sizing: border-box;
+	}
+}
+
 .why-us-heading {
 	display: flex;
 	align-items: center;
 	gap: 35px;
 	margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+
+	.why-us-heading {
+		gap: 16px;
+	}
 }
 
 .why-us-heading-pill {
