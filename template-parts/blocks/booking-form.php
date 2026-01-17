@@ -6,7 +6,7 @@
  */
 ?>
 
-<section class="booking-form-block">
+<section class="booking-form-block booking-form-block--mobile">
 	<div class="booking-form-container">
 		<!-- Left side -->
 		<div class="booking-form-left">
@@ -15,7 +15,7 @@
 
 		<!-- Right side with form -->
 		<div class="booking-form-right">
-			<form class="booking-form" id="booking-form">
+			<form class="booking-form" id="booking-form-mobile">
 				<!-- Row 1: First and Last name и Phone -->
 				<div class="form-row">
 					<div class="form-group">
@@ -105,6 +105,21 @@
 				<!-- Submit Button (24px после consent) -->
 				<button type="submit" class="booking-submit-btn">Get My Quote</button>
 			</form>
+
+			<!-- World map section -->
+			<div class="world-map-section">
+				<div class="world-map-image">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp' ); ?>" alt="World Map">
+				</div>
+				<div class="world-map-divider"></div>
+				<div class="world-map-text">
+					<p class="world-map-label world-map-label-top">clients in</p>
+					<div class="world-map-bottom">
+						<p class="world-map-number">100+</p>
+						<p class="world-map-label world-map-label-bottom">countries</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

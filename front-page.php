@@ -12,6 +12,8 @@ get_header();
 
 	<?php get_template_part( 'template-parts/blocks/hero' ); ?>
 
+	<?php get_template_part( 'template-parts/blocks/booking-form' ); ?>
+
 	<?php get_template_part( 'template-parts/blocks/why-us' ); ?>
 
 	<?php get_template_part( 'template-parts/blocks/how-it-works' ); ?>

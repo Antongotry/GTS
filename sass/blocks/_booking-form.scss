@@ -8,6 +8,51 @@
 	margin: 0;
 }
 
+.booking-form-block--mobile {
+	display: none;
+
+	@include md {
+		display: block;
+		margin-top: -150px;
+	}
+}
+
+.booking-form-block--mobile .booking-form-container {
+	@include md {
+		flex-direction: column;
+		gap: 0;
+		max-width: 100%;
+		padding: 0 20px;
+	}
+}
+
+.booking-form-block--mobile .booking-form-left {
+	@include md {
+		display: none;
+	}
+}
+
+.booking-form-block--mobile .booking-form-right {
+	@include md {
+		width: 100%;
+		margin-top: 0;
+	}
+}
+
+.booking-form-block--mobile .booking-form {
+	@include md {
+		border-radius: 0;
+		padding: 24px 20px;
+		box-sizing: border-box;
+	}
+}
+
+.booking-form-block--mobile .world-map-section {
+	@include md {
+		margin-top: 0;
+	}
+}
+
 .booking-form-container {
 	display: flex;
 	gap: 40px; // Space between left and right blocks
