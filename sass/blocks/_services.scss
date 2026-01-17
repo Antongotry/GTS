@@ -17,6 +17,13 @@
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+
+	@include lg {
+		max-width: 944px; // Как и другие блоки на 1024px
+		padding: 0 20px;
+		box-sizing: content-box;
+		width: 100%;
+	}
 }
 
 .services-pill {
@@ -108,9 +115,12 @@
 	text-align: left;
 	box-sizing: border-box;
 	justify-content: space-between;
+	min-width: 0; // Позволяет flex-элементу сжиматься
 
 	@include lg {
 		padding: 20px;
+		flex: 1 1 auto; // Занимает оставшееся пространство
+		min-width: 0;
 	}
 }
 
@@ -183,8 +193,8 @@
 	height: 100%;
 
 	@include lg {
-		flex: 0 0 209px; // 209px ширина
-		width: 209px;
+		flex: 0 0 175px; // 175px ширина
+		width: 175px;
 	}
 }
 

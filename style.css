@@ -5400,6 +5400,16 @@ a.phone-button:focus,
 	text-align: center;
 }
 
+@media (max-width: 1024px) {
+
+	.services-container {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
+		width: 100%;
+	}
+}
+
 .services-pill {
 	display: inline-flex;
 	align-items: center;
@@ -5515,12 +5525,15 @@ a.phone-button:focus,
 	text-align: left;
 	box-sizing: border-box;
 	justify-content: space-between;
+	min-width: 0;
 }
 
 @media (max-width: 1024px) {
 
 	.services-card-content {
 		padding: 20px;
+		flex: 1 1 auto;
+		min-width: 0;
 	}
 }
 
@@ -5614,8 +5627,8 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
 
 	.services-card-image {
-		flex: 0 0 209px;
-		width: 209px;
+		flex: 0 0 175px;
+		width: 175px;
 	}
 }
 
@@ -5889,7 +5902,7 @@ a.phone-button:focus,
 
 	.final-cta-left {
 		width: 100%;
-		padding-top: 0;
+		padding-top: 10px;
 	}
 }
 
