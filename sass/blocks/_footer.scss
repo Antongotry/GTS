@@ -76,6 +76,7 @@
 		box-sizing: border-box !important;
 		align-items: start; // Выровнять все элементы по верху
 		margin: 0 auto; // Центрирование
+		grid-auto-rows: auto; // Автоматическая высота строк
 	}
 }
 
@@ -285,12 +286,12 @@
 		margin-bottom: 0; // Убираем margin-bottom
 		margin-left: 0; // Убираем margin-left
 		margin-right: 0; // Убираем margin-right
-		// Используем отрицательный margin-top чтобы поднять language вверх
-		// Компенсируем разницу между высотой строки 3 (определяется services ~518px)
-		// и высотой menu + margin-bottom menu (254px + 40px = 294px)
-		// -518px + 294px = -224px
-		margin-top: -224px; // Поднимаем вверх на разницу между высотой строки 3 и menu+отступ
-		padding-top: 294px; // Добавляем padding-top для правильного отступа от конца menu (254px + 40px)
+		// Компенсируем разницу: строка 3 имеет высоту services (~518px)
+		// Menu имеет высоту ~254px + margin-bottom 40px = 294px
+		// Нужно поднять language вверх на разницу между высотой строки 3 и позицией под menu
+		// -518px (высота строки 3) + 294px (menu + margin) = -224px
+		margin-top: -224px; // Поднимаем вверх на разницу
+		padding-top: 294px; // Отступ от конца menu (254px высота menu + 40px margin-bottom)
 	}
 }
 
@@ -372,7 +373,7 @@
 		column-gap: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0; // Убираем gap между списками
+		gap: 16px; // Gap 16px между списками (такой же как между пунктами внутри)
 		align-self: start; // Выровнять по верху
 	}
 }

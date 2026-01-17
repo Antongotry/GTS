@@ -1999,6 +1999,7 @@ a.phone-button:focus,
     box-sizing: border-box !important;
     align-items: start;
     margin: 0 auto;
+    grid-auto-rows: auto;
   }
 }
 
@@ -2293,7 +2294,7 @@ a.phone-button:focus,
     column-gap: 0;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 16px;
     align-self: start;
   }
 }
