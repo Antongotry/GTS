@@ -4964,42 +4964,38 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.how-it-works-block {
-		height: auto;
+		height: auto !important;
+		min-height: auto !important;
 		margin-top: 0;
 		background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/banner-home-375-4_result.webp") !important;
-		background-size: cover;
-		background-position: center top;
+		background-size: 100% 420px;
+		background-position: top center;
+		background-repeat: no-repeat;
+		position: relative !important;
+		top: auto !important;
+		transform: none !important;
 	}
 
 	.how-it-works-container {
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 0 20px;
+		padding: 0;
 		max-width: 100%;
+		height: auto;
 	}
 
 	.how-it-works-left {
-		width: 100%;
-		padding: 40px 0 0 0;
-		gap: 16px;
-		order: 1;
-	}
-
-	.how-it-works-block::after {
-		content: "";
-		display: block;
-		width: 100%;
-		height: 426px;
+		display: none;
 	}
 
 	.how-it-works-right {
 		width: 100%;
-		padding-right: 0;
+		padding: 0 20px;
 		margin-left: 0;
+		margin-top: 420px;
 		height: auto;
-		order: 3;
-		background: #fff;
-		margin-top: 426px;
+		background: transparent;
+		box-sizing: border-box;
 	}
 
 	.how-it-works-steps {
@@ -5007,12 +5003,15 @@ a.phone-button:focus,
 		overflow: visible;
 		gap: 10px;
 		padding: 0;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.how-it-works-step {
 		height: 200px;
 		min-height: 200px;
 		padding: 16px;
+		flex-shrink: 0;
 	}
 
 	.how-it-works-step-title {
