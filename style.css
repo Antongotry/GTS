@@ -4658,7 +4658,7 @@ a.phone-button:focus,
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: flex-end;
 }
 
 .final-cta-left {
