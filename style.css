@@ -4235,6 +4235,7 @@ a.phone-button:focus,
 	box-sizing: border-box !important;
 	margin: 0 !important;
 	border: none !important;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.32) !important;
 	outline: none !important;
 }
 

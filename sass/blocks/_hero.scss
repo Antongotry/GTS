@@ -601,7 +601,8 @@
 			padding-right: 20px !important; // Потом добавляем padding-right как у select
 			box-sizing: border-box !important; // Учесть padding в ширине
 			margin: 0 !important; // Убрать любые margin
-			border: none !important; // Убедиться что нет border который влияет на ширину
+			border: none !important; // Убрать все borders
+			border-bottom: 1px solid rgba(0, 0, 0, 0.32) !important; // Добавить border-bottom как у других полей
 			outline: none !important; // Убрать outline
 
 			// Убедиться что все внутренние части кликабельны
