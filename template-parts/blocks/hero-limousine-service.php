@@ -18,7 +18,7 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 	background-image: url('<?php echo esc_url($image_mobile); ?>');
 }
 /* Tablet: 1024px */
-@media (min-width: 769px) {
+@media (min-width: 376px) {
 	.hero-block { background-image: url('<?php echo esc_url($image_tablet); ?>'); }
 }
 /* Desktop: 1440px and 1920px - same image */
