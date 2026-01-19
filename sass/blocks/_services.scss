@@ -40,40 +40,12 @@
 	}
 }
 
-.services-pill {
-	@include pill(270px, 43px);
-	background: #f5f5f5;
-	backdrop-filter: blur(40px);
-	-webkit-backdrop-filter: blur(40px);
-}
-
-.services-pill-text {
-	font-family: $font__manrope;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1;
-	letter-spacing: 0;
-	color: $color__background-body;
-
-	@include lg {
-		font-size: 12px;
-	}
-}
-
+// Services pill and title use components from _pills.scss and _typography.scss
+// Additional styles for services-title spacing
 .services-title {
-	font-family: $font__main;
-	font-size: 40px;
-	font-weight: 500;
-	line-height: 1.2;
-	letter-spacing: -0.02em;
-	color: #000;
 	margin: $spacing-2xl 0 0 0;
-	max-width: 100%; // Убираем ограничение для 2 строк
-	text-align: center;
-	width: 100%; // На всю ширину контейнера
 
 	@include lg {
-		font-size: 33px;
 		text-align: center !important; // Принудительно центрировать
 		width: 100%;
 		margin-left: auto;
@@ -81,7 +53,6 @@
 	}
 
 	@include md {
-		font-size: 28px;
 		max-width: 100%; // На всю ширину контейнера
 		width: 100%;
 		text-align: left; // Выравнивание по левому краю для правильных переносов

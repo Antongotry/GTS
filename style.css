@@ -1343,6 +1343,10 @@ textarea {
 	}
 }
 
+.final-cta-description {
+	margin: 0 0 24px 0;
+}
+
 @media (max-width: 1024px) {
 
 	.final-cta-description {
@@ -6069,51 +6073,13 @@ a.phone-button:focus,
 	}
 }
 
-.services-pill {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 270px;
-	height: 43px;
-	border-radius: 999px;
-	background: #f5f5f5;
-	backdrop-filter: blur(40px);
-	-webkit-backdrop-filter: blur(40px);
-}
-
-.services-pill-text {
-	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1;
-	letter-spacing: 0;
-	color: #0c0f17;
-}
-
-@media (max-width: 1024px) {
-
-	.services-pill-text {
-		font-size: 12px;
-	}
-}
-
 .services-title {
-	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 40px;
-	font-weight: 500;
-	line-height: 1.2;
-	letter-spacing: -0.02em;
-	color: #000;
 	margin: 32px 0 0 0;
-	max-width: 100%;
-	text-align: center;
-	width: 100%;
 }
 
 @media (max-width: 1024px) {
 
 	.services-title {
-		font-size: 33px;
 		text-align: center !important;
 		width: 100%;
 		margin-left: auto;
@@ -6124,7 +6090,6 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.services-title {
-		font-size: 28px;
 		max-width: 100%;
 		width: 100%;
 		text-align: left;

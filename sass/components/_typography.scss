@@ -146,6 +146,7 @@
 .final-cta-description {
 	@extend .section-description;
 	@extend .section-description--light;
+	margin: 0 0 $spacing-xl 0; // 24px отступ снизу до кнопки
 
 	@include lg {
 		font-size: 14px;
