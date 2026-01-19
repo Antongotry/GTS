@@ -237,8 +237,8 @@ function gts_theme_scripts()
 	wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
 	wp_enqueue_script('gts-lenis-init', get_template_directory_uri() . '/js/lenis-init.js', array('lenis'), $version, true);
 
-	// GSAP and ScrollTrigger - only on front page for animations
-	if (is_front_page()) {
+	// GSAP and ScrollTrigger - on front page and Limousine Service page for animations
+	if (is_front_page() || is_page_template('page-limousine-service.php')) {
 		wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', true);
 		wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', true);
 		wp_enqueue_script('gts-how-it-works-scroll', get_template_directory_uri() . '/js/how-it-works-scroll.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), $version, true);

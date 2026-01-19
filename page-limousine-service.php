@@ -17,6 +17,8 @@ get_header();
 
 	<?php get_template_part('template-parts/blocks/why-us'); ?>
 
+	<?php get_template_part('template-parts/blocks/how-it-works'); ?>
+
 </main><!-- #primary -->
 
 <?php
