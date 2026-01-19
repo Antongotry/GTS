@@ -35,15 +35,23 @@
 
 		if (lenis) {
 			// Connect Lenis to ScrollTrigger
+			// Connect Lenis to ScrollTrigger
 			lenis.on('scroll', ScrollTrigger.update);
 
-			// Use GSAP ticker for Lenis
+			// STOP! duplicate Lenis update loop.
+			// lenis-init.js already runs a requestAnimationFrame loop calling lenis.raf().
+			// Adding it here via gsap.ticker causes Lenis to update TWICE per frame, creating scroll jitter.
+
+			// We only need to ensure ScrollTrigger updates when Lenis scrolls (line above).
+
+			/*
+			// CONFLICTING CODE REMOVED:
 			gsap.ticker.add((time) => {
 				lenis.raf(time * 1000);
 			});
 
-			// Disable GSAP's lag smoothing for better sync
 			gsap.ticker.lagSmoothing(0);
+			*/
 		}
 
 		const section = document.querySelector('.how-it-works-block');
