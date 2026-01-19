@@ -21,27 +21,26 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-	<!-- Preload critical fonts -->
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"></noscript>
+	<!-- Preload critical fonts with optional display for faster FCP -->
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=optional"></noscript>
 
-	<!-- Preload hero image for LCP optimization - responsive for mobile -->
+	<!-- Preload hero image for LCP optimization - mobile first -->
 	<?php if ( is_front_page() ) : ?>
-	<link rel="preload" as="image" fetchpriority="high"
+	<link rel="preload" as="image" type="image/webp" fetchpriority="high"
 		href="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-banner-375_result.webp' ); ?>"
-		imagesrcset="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-banner-375_result.webp' ); ?> 375w,
-					 <?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/banner-home-375-4_result.webp' ); ?> 768w,
-					 <?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/1024-banner-home_result.webp' ); ?> 1024w,
-					 <?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp' ); ?> 1920w"
-		imagesizes="100vw">
+		media="(max-width: 767px)">
+	<link rel="preload" as="image" type="image/webp"
+		href="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp' ); ?>"
+		media="(min-width: 768px)">
 	<?php endif; ?>
 
 	<!-- Critical CSS inline for above-the-fold content -->
 	<style id="critical-css">
 		/* Critical CSS for fast FCP/LCP */
 		*,*::before,*::after{box-sizing:border-box}
-		html{-webkit-text-size-adjust:100%}
-		body{margin:0;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;background:#1a1a2e}
+		html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+		body{margin:0;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;background:#1a1a2e;text-rendering:optimizeSpeed}
 		img{max-width:100%;height:auto;display:block}
 		/* Header */
 		.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:transparent;padding:20px 40px}

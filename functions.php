@@ -249,25 +249,23 @@ function gts_theme_scripts()
 add_action('wp_enqueue_scripts', 'gts_theme_scripts');
 
 /**
- * Add defer attribute to scripts for non-blocking loading
+ * Add defer attribute to ALL scripts for non-blocking loading
+ * This reduces TBT (Total Blocking Time)
  */
 function gts_defer_scripts($tag, $handle, $src)
 {
-	// Scripts that should be deferred for performance
-	$defer_scripts = array(
-		'gts-swiper',
-		'gts-trusted-by-slider',
-		'lenis',
-		'gsap',
-		'gsap-scrolltrigger',
-		'gts-how-it-works-scroll',
-	);
-
-	if (in_array($handle, $defer_scripts, true)) {
-		return str_replace(' src', ' defer src', $tag);
+	// Skip admin scripts and jQuery
+	if (is_admin() || strpos($handle, 'jquery') !== false) {
+		return $tag;
 	}
 
-	return $tag;
+	// Skip if already has defer or async
+	if (strpos($tag, 'defer') !== false || strpos($tag, 'async') !== false) {
+		return $tag;
+	}
+
+	// Add defer to all theme scripts
+	return str_replace(' src', ' defer src', $tag);
 }
 add_filter('script_loader_tag', 'gts_defer_scripts', 10, 3);
 
@@ -276,15 +274,52 @@ add_filter('script_loader_tag', 'gts_defer_scripts', 10, 3);
  */
 function gts_optimize_styles($html, $handle, $href, $media)
 {
-	// Swiper CSS is not critical - load asynchronously
-	if ('gts-swiper' === $handle) {
+	// Non-critical CSS - load asynchronously
+	$async_styles = array('gts-swiper');
+
+	if (in_array($handle, $async_styles, true)) {
 		return '<link rel="stylesheet" id="' . esc_attr($handle) . '-css" href="' . esc_url($href) . '" media="print" onload="this.media=\'all\'">' . "\n" .
+			'<noscript><link rel="stylesheet" href="' . esc_url($href) . '"></noscript>' . "\n";
+	}
+
+	// Add preload hint for main stylesheet
+	if ('gts-theme-style' === $handle) {
+		return '<link rel="preload" href="' . esc_url($href) . '" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n" .
 			'<noscript><link rel="stylesheet" href="' . esc_url($href) . '"></noscript>' . "\n";
 	}
 
 	return $html;
 }
 add_filter('style_loader_tag', 'gts_optimize_styles', 10, 4);
+
+/**
+ * Remove WordPress emoji scripts - they add to TBT
+ */
+function gts_disable_emojis()
+{
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('admin_print_scripts', 'print_emoji_detection_script');
+	remove_action('wp_print_styles', 'print_emoji_styles');
+	remove_action('admin_print_styles', 'print_emoji_styles');
+	remove_filter('the_content_feed', 'wp_staticize_emoji');
+	remove_filter('comment_text_rss', 'wp_staticize_emoji');
+	remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+}
+add_action('init', 'gts_disable_emojis');
+
+/**
+ * Remove unnecessary WordPress head items
+ */
+function gts_cleanup_head()
+{
+	remove_action('wp_head', 'wp_generator');
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wp_shortlink_wp_head');
+	remove_action('wp_head', 'rest_output_link_wp_head');
+	remove_action('wp_head', 'wp_oembed_add_discovery_links');
+}
+add_action('init', 'gts_cleanup_head');
 
 /**
  * Implement the Custom Header feature.
