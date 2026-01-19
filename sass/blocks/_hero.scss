@@ -339,9 +339,11 @@
 	margin-left: auto;
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end; // Прижать форму и world-map к низу
 	padding-top: 130px;
 	padding-bottom: 32px;
 	box-sizing: border-box;
+	min-height: 100%; // Растянуть на всю высоту
 
 	@include lg {
 		width: 390px;
@@ -355,6 +357,8 @@
 		margin-left: 0;
 		padding-top: 0;
 		padding-bottom: 0;
+		justify-content: flex-start; // На мобильном сверху
+		min-height: auto;
 	}
 }
 

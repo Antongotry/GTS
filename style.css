@@ -3952,9 +3952,11 @@ a.phone-button:focus,
 	margin-left: auto;
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
 	padding-top: 130px;
 	padding-bottom: 32px;
 	box-sizing: border-box;
+	min-height: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -3974,6 +3976,8 @@ a.phone-button:focus,
 		margin-left: 0;
 		padding-top: 0;
 		padding-bottom: 0;
+		justify-content: flex-start;
+		min-height: auto;
 	}
 }
 
