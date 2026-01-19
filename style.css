@@ -3657,10 +3657,10 @@ a.phone-button:focus,
 	width: 724px;
 	flex-shrink: 0;
 	margin-top: 0;
-	flex: 1 0 724px;
+	flex: 0 0 724px;
 	display: flex;
 	flex-direction: column;
-	min-height: 100%;
+	align-self: stretch;
 	padding-top: 130px;
 	padding-bottom: 32px;
 	box-sizing: border-box;
@@ -3681,9 +3681,10 @@ a.phone-button:focus,
 	.hero-left {
 		width: 100%;
 		max-width: 100%;
+		flex: 0 0 auto;
 		padding-top: 95px;
-		min-height: auto;
 		padding-bottom: 0;
+		align-self: auto;
 	}
 }
 
@@ -3693,11 +3694,9 @@ a.phone-button:focus,
 	gap: 0;
 	margin-top: 0;
 	flex: 1;
-	padding-bottom: 32px;
 	box-sizing: border-box;
 	justify-content: flex-start;
 	align-items: flex-start;
-	height: 100%;
 }
 
 .hero-subtitle {
