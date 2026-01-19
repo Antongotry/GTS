@@ -45,12 +45,12 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 				</div>
 
 				<div class="hero-features">
-					<div class="hero-feature hero-feature-top-left">
-						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg'); ?>" alt="Premium fleet" width="24" height="24" loading="lazy">
-						</div>
-						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+				<div class="hero-feature hero-feature-top-left">
+					<div class="hero-feature-icon">
+						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-1-l.svg'); ?>" alt="Premium fleet" width="24" height="24" loading="lazy">
 					</div>
+					<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+				</div>
 
 					<div class="hero-feature hero-feature-top-right"></div>
 
@@ -61,12 +61,12 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 						<p class="hero-feature-text">Since 2010, trusted by corporate<br>& VIP clients</p>
 					</div>
 
-					<div class="hero-feature hero-feature-bottom-right">
-						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg'); ?>" alt="Complex itineraries" width="24" height="24" loading="lazy">
-						</div>
-						<p class="hero-feature-text">From simple rides to complex itineraries</p>
+				<div class="hero-feature hero-feature-bottom-right">
+					<div class="hero-feature-icon">
+						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-3-l.svg'); ?>" alt="Complex itineraries" width="24" height="24" loading="lazy">
 					</div>
+					<p class="hero-feature-text">From simple rides to complex itineraries</p>
+				</div>
 				</div>
 			</div>
 		</div>
