@@ -98,11 +98,14 @@
 						</span>
 					</a>
 					<ul class="sub-menu">
-						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 1</a></li>
-						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 2</a></li>
-						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 3</a></li>
-						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 4</a></li>
-						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Services 5</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Book a Flight</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">City-to-City Rides</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Airport Transfers</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Hourly Hire</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Chauffeur Service</a></li>
+						<li class="sub-menu-item"><a href="<?php echo esc_url( get_site_url() . '/limousine-service/' ); ?>" class="sub-menu-link">Limousine Service</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Medical Transportation</a></li>
+						<li class="sub-menu-item"><a href="#" class="sub-menu-link">Travel Planning</a></li>
 					</ul>
 				</li>
 				<li class="menu-item"><a href="#" class="menu-link">Events</a></li>
@@ -201,7 +204,7 @@
 			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Airport Transfers</a></li>
 			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Hourly Hire</a></li>
 			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Chauffeur Service</a></li>
-			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Limousine Service</a></li>
+			<li class="mobile-menu-item"><a href="<?php echo esc_url( get_site_url() . '/limousine-service/' ); ?>" class="mobile-menu-link">Limousine Service</a></li>
 			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Medical Transportation</a></li>
 			<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Travel Planning</a></li>
 		</ul>

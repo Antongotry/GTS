@@ -233,10 +233,12 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
 	wp_enqueue_script('gts-trusted-by-slider', get_template_directory_uri() . '/js/trusted-by-slider.js', array('gts-swiper'), $version, true);
 
-	// GSAP and Lenis - only on front page and only for desktop (loaded via JS check)
-	// These are heavy libraries, conditionally load them
+	// Lenis - smooth scrolling for entire site (only desktop, loaded via JS check)
+	wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
+	wp_enqueue_script('gts-lenis-init', get_template_directory_uri() . '/js/lenis-init.js', array('lenis'), $version, true);
+
+	// GSAP and ScrollTrigger - only on front page for animations
 	if (is_front_page()) {
-		wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
 		wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', true);
 		wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', true);
 		wp_enqueue_script('gts-how-it-works-scroll', get_template_directory_uri() . '/js/how-it-works-scroll.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), $version, true);
@@ -258,6 +260,7 @@ function gts_defer_scripts($tag, $handle, $src)
 		'gts-swiper',
 		'gts-trusted-by-slider',
 		'lenis',
+		'gts-lenis-init',
 		'gsap',
 		'gsap-scrolltrigger',
 		'gts-how-it-works-scroll',

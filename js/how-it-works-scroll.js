@@ -30,20 +30,10 @@
 		// Register ScrollTrigger plugin
 		gsap.registerPlugin(ScrollTrigger);
 
-		// Initialize Lenis for smooth scrolling (только на десктопе)
-		let lenis = null;
-		if (typeof Lenis !== 'undefined') {
-			lenis = new Lenis({
-				duration: 1.2,
-				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-				orientation: 'vertical',
-				gestureOrientation: 'vertical',
-				smoothWheel: true,
-				wheelMultiplier: 1,
-				touchMultiplier: 2,
-				infinite: false,
-			});
+		// Use global Lenis instance from lenis-init.js (for entire site smooth scrolling)
+		const lenis = window.lenis || window.gtsLenis;
 
+		if (lenis) {
 			// Connect Lenis to ScrollTrigger
 			lenis.on('scroll', ScrollTrigger.update);
 
@@ -54,9 +44,6 @@
 
 			// Disable GSAP's lag smoothing for better sync
 			gsap.ticker.lagSmoothing(0);
-
-			// Store globally for debugging
-			window.gtsLenis = lenis;
 		}
 
 		const section = document.querySelector('.how-it-works-block');
