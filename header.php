@@ -12,6 +12,37 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<!-- DNS prefetch and preconnect for faster external resource loading -->
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+	<!-- Preload critical fonts -->
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"></noscript>
+
+	<!-- Preload hero image for LCP optimization -->
+	<?php if ( is_front_page() ) : ?>
+	<link rel="preload" href="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp' ); ?>" as="image" fetchpriority="high">
+	<?php endif; ?>
+
+	<!-- Critical CSS inline for above-the-fold content -->
+	<style id="critical-css">
+		/* Critical CSS for fast FCP */
+		*,*::before,*::after{box-sizing:border-box}
+		body{margin:0;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+		.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:transparent;padding:20px 40px}
+		.hero-block{min-height:100vh;background-size:cover;background-position:center;display:flex;align-items:center}
+		.hero-container{max-width:1440px;margin:0 auto;width:100%;display:flex;justify-content:space-between;padding:0 40px}
+		.hero-title{font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;margin:0 0 24px}
+		.hero-subtitle{font-size:16px;color:rgba(255,255,255,0.8);margin:0 0 16px}
+		@media(max-width:768px){.hero-container{flex-direction:column;padding:0 20px}.site-header{padding:16px 20px}}
+	</style>
+
 	<?php wp_head(); ?>
 </head>
 
@@ -23,7 +54,7 @@
 <header class="site-header">
 	<div class="header-container">
 		<button class="hamburger-button" aria-label="<?php esc_attr_e( 'Menu', 'gts-theme' ); ?>">
-			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hamb.svg' ); ?>" alt="" class="hamburger-icon" width="28" height="15">
+			<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hamb.svg' ); ?>" alt="" class="hamburger-icon" width="28" height="15" fetchpriority="low">
 		</button>
 
 		<div class="site-logo">

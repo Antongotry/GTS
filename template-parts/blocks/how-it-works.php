@@ -58,7 +58,7 @@ $steps = array(
 							<div class="how-it-works-step-badge">
 								<span class="how-it-works-step-number"><?php echo esc_html( $step['number'] ); ?></span>
 								<span class="how-it-works-step-icon">
-									<img src="<?php echo esc_url( $step['icon'] ); ?>" alt="" aria-hidden="true">
+									<img src="<?php echo esc_url( $step['icon'] ); ?>" alt="" aria-hidden="true" loading="lazy" width="24" height="24">
 								</span>
 							</div>
 						</div>

@@ -21,14 +21,14 @@ $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-ho
 		<div class="final-cta-right final-cta-right--desktop">
 			<div class="final-cta-item">
 				<div class="final-cta-item-header">
-					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-1.svg'); ?>" alt="Precision logistics" class="final-cta-icon" width="26" height="26">
+					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-1.svg'); ?>" alt="Precision logistics" class="final-cta-icon" width="26" height="26" loading="lazy">
 					<h3 class="final-cta-item-title">Precision logistics</h3>
 				</div>
 				<p class="final-cta-item-description"><?php echo wp_kses_post('Every transfer is planned with accuracy — routes, timing, and coordination handled<br>seamlessly, no matter the complexity.'); ?></p>
 			</div>
 			<div class="final-cta-item">
 				<div class="final-cta-item-header">
-					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-2.svg'); ?>" alt="Human-first service" class="final-cta-icon" width="26" height="26">
+					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-2.svg'); ?>" alt="Human-first service" class="final-cta-icon" width="26" height="26" loading="lazy">
 					<h3 class="final-cta-item-title">Human-first service</h3>
 				</div>
 				<p class="final-cta-item-description"><?php echo wp_kses_post('Behind every booking is a personal coordinator who knows your preferences and<br>ensures everything runs to plan.'); ?></p>
@@ -36,21 +36,21 @@ $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-ho
 			</div>
 			<div class="final-cta-item">
 				<div class="final-cta-item-header">
-					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-3.svg'); ?>" alt="Consistency across the globe" class="final-cta-icon" width="26" height="26">
+					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-3.svg'); ?>" alt="Consistency across the globe" class="final-cta-icon" width="26" height="26" loading="lazy">
 					<h3 class="final-cta-item-title">Consistency across the globe</h3>
 				</div>
 				<p class="final-cta-item-description"><?php echo wp_kses_post('The same GTS standard in every destination — from major capitals to remote<br>regions. One global system, one quality of service.'); ?></p>
 			</div>
 			<div class="final-cta-item">
 				<div class="final-cta-item-header">
-					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-4.svg'); ?>" alt="True premium fleet" class="final-cta-icon" width="26" height="26">
+					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-4.svg'); ?>" alt="True premium fleet" class="final-cta-icon" width="26" height="26" loading="lazy">
 					<h3 class="final-cta-item-title">True premium fleet</h3>
 				</div>
 				<p class="final-cta-item-description"><?php echo wp_kses_post('Business, premium and VIP-class vehicles, regularly renewed and immaculately<br>maintained.'); ?></p>
 			</div>
 			<div class="final-cta-item">
 				<div class="final-cta-item-header">
-					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-5.svg'); ?>" alt="Tailored logistics" class="final-cta-icon" width="26" height="26">
+					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-5.svg'); ?>" alt="Tailored logistics" class="final-cta-icon" width="26" height="26" loading="lazy">
 					<h3 class="final-cta-item-title">Tailored logistics</h3>
 				</div>
 				<p class="final-cta-item-description"><?php echo wp_kses_post('No templates — every trip is planned to match your timing, priorities and comfort<br>preferences. From a single airport pickup to a week-long corporate tour.'); ?></p>
@@ -62,14 +62,14 @@ $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-ho
 	<div class="final-cta-right final-cta-right--mobile">
 		<div class="final-cta-item">
 			<div class="final-cta-item-header">
-				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-1.svg'); ?>" alt="Precision logistics" class="final-cta-icon" width="26" height="26">
+				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-1.svg'); ?>" alt="Precision logistics" class="final-cta-icon" width="26" height="26" loading="lazy">
 				<h3 class="final-cta-item-title">Precision logistics</h3>
 			</div>
 			<p class="final-cta-item-description"><?php echo wp_kses_post('Every transfer is planned with accuracy — routes, timing, and coordination handled<br>seamlessly, no matter the complexity.'); ?></p>
 		</div>
 		<div class="final-cta-item">
 			<div class="final-cta-item-header">
-				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-2.svg'); ?>" alt="Human-first service" class="final-cta-icon" width="26" height="26">
+				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-2.svg'); ?>" alt="Human-first service" class="final-cta-icon" width="26" height="26" loading="lazy">
 				<h3 class="final-cta-item-title">Human-first service</h3>
 			</div>
 			<p class="final-cta-item-description"><?php echo wp_kses_post('Behind every booking is a personal coordinator who knows your preferences and<br>ensures everything runs to plan.'); ?></p>
@@ -77,21 +77,21 @@ $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-ho
 		</div>
 		<div class="final-cta-item">
 			<div class="final-cta-item-header">
-				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-3.svg'); ?>" alt="Consistency across the globe" class="final-cta-icon" width="26" height="26">
+				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-3.svg'); ?>" alt="Consistency across the globe" class="final-cta-icon" width="26" height="26" loading="lazy">
 				<h3 class="final-cta-item-title">Consistency across the globe</h3>
 			</div>
 			<p class="final-cta-item-description"><?php echo wp_kses_post('The same GTS standard in every destination — from major capitals to remote<br>regions. One global system, one quality of service.'); ?></p>
 		</div>
 		<div class="final-cta-item">
 			<div class="final-cta-item-header">
-				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-4.svg'); ?>" alt="True premium fleet" class="final-cta-icon" width="26" height="26">
+				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-4.svg'); ?>" alt="True premium fleet" class="final-cta-icon" width="26" height="26" loading="lazy">
 				<h3 class="final-cta-item-title">True premium fleet</h3>
 			</div>
 			<p class="final-cta-item-description"><?php echo wp_kses_post('Business, premium and VIP-class vehicles, regularly renewed and immaculately<br>maintained.'); ?></p>
 		</div>
 		<div class="final-cta-item">
 			<div class="final-cta-item-header">
-				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-5.svg'); ?>" alt="Tailored logistics" class="final-cta-icon" width="26" height="26">
+				<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/last-i-5.svg'); ?>" alt="Tailored logistics" class="final-cta-icon" width="26" height="26" loading="lazy">
 				<h3 class="final-cta-item-title">Tailored logistics</h3>
 			</div>
 			<p class="final-cta-item-description"><?php echo wp_kses_post('No templates — every trip is planned to match your timing, priorities and comfort<br>preferences. From a single airport pickup to a week-long corporate tour.'); ?></p>

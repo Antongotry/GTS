@@ -60,7 +60,7 @@ $heights = array( 348, 326, 392 );
 						<p class="trusted-by-card-text"><?php echo esc_html( $testimonial['text'] ); ?></p>
 					</div>
 					<div class="trusted-by-author">
-						<img src="<?php echo esc_url( $avatar_url ); ?>" alt="" class="trusted-by-avatar" width="56" height="56">
+						<img src="<?php echo esc_url( $avatar_url ); ?>" alt="" class="trusted-by-avatar" width="56" height="56" loading="lazy">
 						<span class="trusted-by-name"><?php echo esc_html( $testimonial['name'] ); ?></span>
 					</div>
 				</div>

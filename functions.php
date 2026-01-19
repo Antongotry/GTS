@@ -215,35 +215,76 @@ function gts_theme_scripts()
 	// TODO: Change to static version before production
 	$version = time(); // Development: always new version
 
-	// Enqueue Google Fonts (Manrope)
-	wp_enqueue_style('gts-manrope-font', 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap', array(), null);
-	wp_enqueue_style('gts-onest-font', 'https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap', array(), null);
+	// Google Fonts are preloaded in header.php - no need to enqueue here
+	// This prevents render-blocking
 
-	wp_enqueue_style('gts-theme-style', get_stylesheet_uri(), array('gts-manrope-font'), $version);
+	// Main stylesheet - critical CSS is inlined in header.php
+	wp_enqueue_style('gts-theme-style', get_stylesheet_uri(), array(), $version);
 	wp_style_add_data('gts-theme-style', 'rtl', 'replace');
 
+	// Essential scripts - loaded with defer
 	wp_enqueue_script('gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $version, true);
 	wp_enqueue_script('gts-form-selects', get_template_directory_uri() . '/js/form-selects.js', array(), $version, true);
 	wp_enqueue_script('gts-datetime-placeholder', get_template_directory_uri() . '/js/datetime-placeholder.js', array(), $version, true);
-
-	// Lenis for smooth scroll
-	wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
-
-	// GSAP for scroll animations
-	wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', true);
-	wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', true);
-	wp_enqueue_script('gts-how-it-works-scroll', get_template_directory_uri() . '/js/how-it-works-scroll.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), $version, true);
-
-	wp_enqueue_style('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), $version);
-	wp_enqueue_script('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), $version, true);
-	wp_enqueue_script('gts-trusted-by-slider', get_template_directory_uri() . '/js/trusted-by-slider.js', array('gts-swiper'), $version, true);
 	wp_enqueue_script('gts-mobile-menu', get_template_directory_uri() . '/js/mobile-menu.js', array(), $version, true);
+
+	// Swiper for sliders - lower priority, deferred
+	wp_enqueue_style('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
+	wp_enqueue_script('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
+	wp_enqueue_script('gts-trusted-by-slider', get_template_directory_uri() . '/js/trusted-by-slider.js', array('gts-swiper'), $version, true);
+
+	// GSAP and Lenis - only on front page and only for desktop (loaded via JS check)
+	// These are heavy libraries, conditionally load them
+	if (is_front_page()) {
+		wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
+		wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', true);
+		wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', true);
+		wp_enqueue_script('gts-how-it-works-scroll', get_template_directory_uri() . '/js/how-it-works-scroll.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), $version, true);
+	}
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 }
 add_action('wp_enqueue_scripts', 'gts_theme_scripts');
+
+/**
+ * Add defer attribute to scripts for non-blocking loading
+ */
+function gts_defer_scripts($tag, $handle, $src)
+{
+	// Scripts that should be deferred for performance
+	$defer_scripts = array(
+		'gts-swiper',
+		'gts-trusted-by-slider',
+		'lenis',
+		'gsap',
+		'gsap-scrolltrigger',
+		'gts-how-it-works-scroll',
+	);
+
+	if (in_array($handle, $defer_scripts, true)) {
+		return str_replace(' src', ' defer src', $tag);
+	}
+
+	return $tag;
+}
+add_filter('script_loader_tag', 'gts_defer_scripts', 10, 3);
+
+/**
+ * Add media="print" onload trick for non-critical CSS
+ */
+function gts_optimize_styles($html, $handle, $href, $media)
+{
+	// Swiper CSS is not critical - load asynchronously
+	if ('gts-swiper' === $handle) {
+		return '<link rel="stylesheet" id="' . esc_attr($handle) . '-css" href="' . esc_url($href) . '" media="print" onload="this.media=\'all\'">' . "\n" .
+			'<noscript><link rel="stylesheet" href="' . esc_url($href) . '"></noscript>' . "\n";
+	}
+
+	return $html;
+}
+add_filter('style_loader_tag', 'gts_optimize_styles', 10, 4);
 
 /**
  * Implement the Custom Header feature.

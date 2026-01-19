@@ -57,7 +57,7 @@ $services = array(
 						<a href="#" class="services-card-link">Read more</a>
 					</div>
 					<div class="services-card-image">
-						<img src="<?php echo esc_url( $service['image'] ); ?>" alt="<?php echo esc_attr( $service['title'] ); ?>" class="services-image">
+						<img src="<?php echo esc_url( $service['image'] ); ?>" alt="<?php echo esc_attr( $service['title'] ); ?>" class="services-image" loading="lazy" width="300" height="200">
 					</div>
 				</div>
 			<?php endforeach; ?>

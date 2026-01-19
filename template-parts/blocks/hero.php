@@ -26,7 +26,7 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_resul
 				<div class="hero-features">
 					<div class="hero-feature hero-feature-top-left">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg'); ?>" alt="Premium fleet">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg'); ?>" alt="Premium fleet" width="24" height="24" loading="lazy">
 						</div>
 						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 					</div>
@@ -35,14 +35,14 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_resul
 
 					<div class="hero-feature hero-feature-bottom-left">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg'); ?>" alt="Trusted since 2010">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg'); ?>" alt="Trusted since 2010" width="24" height="24" loading="lazy">
 						</div>
 						<p class="hero-feature-text">Since 2010, trusted by corporate<br>& VIP clients</p>
 					</div>
 
 					<div class="hero-feature hero-feature-bottom-right">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg'); ?>" alt="Complex itineraries">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg'); ?>" alt="Complex itineraries" width="24" height="24" loading="lazy">
 						</div>
 						<p class="hero-feature-text">From simple rides to complex itineraries</p>
 					</div>
@@ -147,7 +147,7 @@ $image_url = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_resul
 			<!-- World map section -->
 			<div class="world-map-section">
 				<div class="world-map-image">
-					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map">
+					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" loading="lazy" width="100" height="100">
 				</div>
 				<div class="world-map-divider"></div>
 				<div class="world-map-text">
