@@ -21,9 +21,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-	<!-- Preload critical fonts with optional display for faster FCP -->
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=optional"></noscript>
+	<!-- Preload critical fonts -->
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"></noscript>
 
 	<!-- Preload hero image for LCP optimization - mobile first -->
 	<?php if ( is_front_page() ) : ?>

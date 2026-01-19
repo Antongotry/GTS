@@ -249,42 +249,37 @@ function gts_theme_scripts()
 add_action('wp_enqueue_scripts', 'gts_theme_scripts');
 
 /**
- * Add defer attribute to ALL scripts for non-blocking loading
- * This reduces TBT (Total Blocking Time)
+ * Add defer attribute to heavy scripts for non-blocking loading
  */
 function gts_defer_scripts($tag, $handle, $src)
 {
-	// Skip admin scripts and jQuery
-	if (is_admin() || strpos($handle, 'jquery') !== false) {
-		return $tag;
+	// Only defer heavy/non-critical scripts
+	$defer_scripts = array(
+		'gts-swiper',
+		'gts-trusted-by-slider',
+		'lenis',
+		'gsap',
+		'gsap-scrolltrigger',
+		'gts-how-it-works-scroll',
+	);
+
+	if (in_array($handle, $defer_scripts, true)) {
+		return str_replace(' src', ' defer src', $tag);
 	}
 
-	// Skip if already has defer or async
-	if (strpos($tag, 'defer') !== false || strpos($tag, 'async') !== false) {
-		return $tag;
-	}
-
-	// Add defer to all theme scripts
-	return str_replace(' src', ' defer src', $tag);
+	return $tag;
 }
 add_filter('script_loader_tag', 'gts_defer_scripts', 10, 3);
 
 /**
  * Add media="print" onload trick for non-critical CSS
+ * NOTE: Main stylesheet loads normally - async breaks rendering!
  */
 function gts_optimize_styles($html, $handle, $href, $media)
 {
-	// Non-critical CSS - load asynchronously
-	$async_styles = array('gts-swiper');
-
-	if (in_array($handle, $async_styles, true)) {
+	// Only Swiper CSS is non-critical - load asynchronously
+	if ('gts-swiper' === $handle) {
 		return '<link rel="stylesheet" id="' . esc_attr($handle) . '-css" href="' . esc_url($href) . '" media="print" onload="this.media=\'all\'">' . "\n" .
-			'<noscript><link rel="stylesheet" href="' . esc_url($href) . '"></noscript>' . "\n";
-	}
-
-	// Add preload hint for main stylesheet
-	if ('gts-theme-style' === $handle) {
-		return '<link rel="preload" href="' . esc_url($href) . '" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n" .
 			'<noscript><link rel="stylesheet" href="' . esc_url($href) . '"></noscript>' . "\n";
 	}
 
