@@ -35,11 +35,10 @@ $image_large = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-sc
 			<div class="hero-content">
 				<h1 class="hero-title">Chauffeur-driven<br>luxury limousine service</h1>
 
-				<p class="hero-description">for business leaders and private clients who expect comfort, style, and flawless coordination.</p>
+				<p class="hero-description">for business leaders and private clients who expect<br>comfort, style, and flawless coordination.</p>
 
 				<div class="hero-buttons">
 					<a href="#" class="btn btn-primary">Book a transfer</a>
-					<a href="#" class="btn btn-secondary">Explore services</a>
 				</div>
 
 				<div class="hero-features">
