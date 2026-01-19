@@ -10,21 +10,20 @@
 $image_mobile = get_site_url() . '/wp-content/uploads/2026/01/375-lm-1_result.webp';
 $image_tablet = get_site_url() . '/wp-content/uploads/2026/01/1024-lm-1_result.webp';
 $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-scaled.webp';
-$image_large = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-scaled.webp';
 ?>
 <style>
 /* Hero responsive backgrounds - optimized for LCP */
+/* Mobile: 375px */
 .hero-block {
 	background-image: url('<?php echo esc_url($image_mobile); ?>');
 }
+/* Tablet: 1024px */
 @media (min-width: 769px) {
 	.hero-block { background-image: url('<?php echo esc_url($image_tablet); ?>'); }
 }
+/* Desktop: 1440px and 1920px - same image */
 @media (min-width: 1025px) {
 	.hero-block { background-image: url('<?php echo esc_url($image_desktop); ?>'); }
-}
-@media (min-width: 1441px) {
-	.hero-block { background-image: url('<?php echo esc_url($image_large); ?>'); }
 }
 </style>
 
