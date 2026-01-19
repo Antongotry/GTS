@@ -3692,7 +3692,7 @@ a.phone-button:focus,
 	flex: 1;
 	padding-bottom: 32px;
 	box-sizing: border-box;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: flex-start;
 }
 

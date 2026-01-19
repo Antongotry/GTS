@@ -95,7 +95,7 @@
 	flex: 1;
 	padding-bottom: 32px;
 	box-sizing: border-box;
-	justify-content: flex-start;
+	justify-content: space-between; // Прижать features к низу
 	align-items: flex-start;
 }
 
