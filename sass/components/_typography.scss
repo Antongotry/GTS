@@ -1,0 +1,153 @@
+/**
+ * Typography Components
+ * Unified typography system for headings and text
+ */
+
+// Section title (h2) - 40px default
+.section-title {
+	font-family: $font__main;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #000;
+	margin: 0;
+
+	@include lg {
+		font-size: 33px;
+	}
+
+	@include md {
+		font-size: 28px;
+	}
+}
+
+// Hero title (h1) - 54px default
+.hero-title {
+	font-family: "Visby CF", $font__main;
+	font-size: 54px;
+	font-weight: 500;
+	color: #fff;
+	margin: 0 0 $spacing-xl 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+
+	@include lg {
+		font-size: 36px;
+		max-width: 460px;
+	}
+
+	@include md {
+		font-size: 27px;
+	}
+}
+
+// Section title with center alignment
+.section-title--center {
+	@extend .section-title;
+	text-align: center;
+	width: 100%;
+}
+
+// Section title with light color (white)
+.section-title--light {
+	@extend .section-title;
+	color: #ffffff;
+}
+
+// Section title with tight line-height
+.section-title--tight {
+	@extend .section-title;
+	line-height: 1.1;
+}
+
+// Section description text
+.section-description {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #000000;
+	margin: 0;
+
+	@include md {
+		font-size: 14px;
+	}
+}
+
+// Section description with light color (white)
+.section-description--light {
+	@extend .section-description;
+	color: #ffffff;
+}
+
+// Specific title components (for backwards compatibility)
+.services-title {
+	@extend .section-title;
+	@extend .section-title--center;
+	margin: $spacing-2xl 0 0 0;
+	max-width: 100%;
+
+	@include lg {
+		text-align: center !important;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@include md {
+		font-size: 28px;
+	}
+}
+
+.final-cta-title {
+	@extend .section-title;
+	@extend .section-title--light;
+	@extend .section-title--tight;
+	margin: 0 0 $spacing-md 0;
+
+	@include lg {
+		font-size: 33px;
+	}
+}
+
+.custom-itinerary-title {
+	@extend .section-title;
+	@extend .section-title--center;
+	margin: 0 0 $spacing-xs 0;
+
+	@include md {
+		font-size: 28px;
+	}
+}
+
+.how-it-works-title {
+	@extend .section-title;
+	@extend .section-title--light;
+	color: $color__text-main;
+	line-height: 110%;
+
+	@include lg {
+		font-size: 33px;
+	}
+}
+
+.custom-itinerary-description {
+	@extend .section-description;
+	text-align: center;
+
+	@include md {
+		font-size: 14px;
+		max-width: 300px;
+	}
+}
+
+.final-cta-description {
+	@extend .section-description;
+	@extend .section-description--light;
+
+	@include lg {
+		font-size: 14px;
+	}
+}

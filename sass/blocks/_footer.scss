@@ -554,55 +554,7 @@
 	}
 }
 
-.footer-button {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: 16px 24px;
-	border-radius: 50px;
-	text-decoration: none;
-	font-family: $font__manrope;
-	font-size: 14px;
-	font-weight: 400;
-	transition: all 0.3s ease;
-	text-align: center;
-
-	@include lg {
-		padding: 14px 20px;
-		font-size: 13px;
-	}
-}
-
-.footer-button-primary {
-	background: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
-	color: #000000;
-	margin-bottom: 10px; // 10px отступ до телефона
-
-	&:hover {
-		opacity: 0.9;
-	}
-
-	@include md {
-		margin-bottom: 10px; // Отступ до второй кнопки (10px gap)
-		width: 100% !important; // Кнопка на всю ширину
-		max-width: 100% !important; // Убираем ограничения
-		box-sizing: border-box; // Учитываем padding в ширине
-	}
-}
-
-.footer-button-secondary {
-	display: none; // Скрыта на десктопе
-
-	@include md {
-		display: inline-flex;
-		background: #ffffff;
-		color: #000000;
-		margin-bottom: 40px; // Отступ до Social networks
-		width: 100% !important; // Кнопка на всю ширину
-		max-width: 100% !important; // Убираем ограничения
-		box-sizing: border-box; // Учитываем padding в ширине
-	}
-}
+// Footer buttons use components from _buttons.scss
 
 .footer-phone {
 	background: #ffffff;

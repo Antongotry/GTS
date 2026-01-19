@@ -97,45 +97,4 @@
 	}
 }
 
-.custom-itinerary-title {
-	font-family: $font__main;
-	font-size: 40px;
-	font-weight: 500;
-	line-height: 1.2; // 120%
-	letter-spacing: -0.02em; // -2%
-	color: #000000;
-	margin: 0 0 8px 0; // 8px до описания
-	text-align: center;
-
-	@include md {
-		font-size: 28px;
-	}
-}
-
-.custom-itinerary-description {
-	font-family: $font__manrope;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 1.5; // 150%
-	letter-spacing: 0;
-	color: #000000;
-	margin: 0;
-	text-align: center;
-
-	@include md {
-		font-size: 14px;
-		max-width: 300px; // Для переноса текста на 2 строки
-	}
-}
-
-.custom-itinerary-button {
-	margin-top: auto; // Прижимаем к низу
-	width: 238px;
-	height: 56px;
-	box-shadow: none;
-}
-
-.custom-itinerary-button:hover,
-.custom-itinerary-button:active {
-	box-shadow: none;
-}
+// Custom itinerary title, description and button use components from _typography.scss and _buttons.scss

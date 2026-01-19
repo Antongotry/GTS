@@ -60,38 +60,7 @@
 	}
 }
 
-.final-cta-title {
-	font-family: $font__main;
-	font-size: 40px;
-	font-weight: 500;
-	line-height: 1.1; // 110%
-	letter-spacing: -0.02em; // -2%
-	color: #ffffff;
-	margin: 0 0 16px 0;
-
-	@include lg {
-		font-size: 33px;
-	}
-}
-
-.final-cta-description {
-	font-family: $font__manrope;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 1.5; // 150%
-	letter-spacing: 0;
-	color: #ffffff;
-	margin: 0 0 24px 0;
-
-	@include lg {
-		font-size: 14px;
-	}
-}
-
-.final-cta-button {
-	margin: 0;
-	width: auto; // Не растягивать кнопку
-}
+// Final CTA title, description and button use components from _typography.scss and _buttons.scss
 
 .final-cta-right-wrapper {
 	display: none; // По умолчанию скрыт (для десктопа)

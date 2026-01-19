@@ -1,0 +1,90 @@
+/**
+ * Pill Components
+ * Unified pill elements system
+ */
+
+// Base pill component
+.pill {
+	@include pill(auto, 43px); // Default height 43px, width auto
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// Pill text
+.pill-text {
+	font-family: $font__manrope;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0;
+	color: $color__text-main;
+
+	@include lg {
+		font-size: 12px;
+	}
+}
+
+// Glass effect pill variant
+.pill--glass {
+	@extend .pill;
+	@include glass-effect();
+}
+
+// Light background pill variant
+.pill--light {
+	@extend .pill;
+	background: #f5f5f5;
+	backdrop-filter: blur(40px);
+	-webkit-backdrop-filter: blur(40px);
+}
+
+// Pill with specific width
+.pill--wide {
+	@extend .pill;
+	width: 270px;
+}
+
+.pill--narrow {
+	@extend .pill;
+	width: 103px;
+}
+
+// Specific pill components (for backwards compatibility)
+.services-pill {
+	@extend .pill--wide;
+	@extend .pill--light;
+}
+
+.services-pill-text {
+	@extend .pill-text;
+	color: $color__background-body; // Black text on light background
+}
+
+.why-us-heading-pill {
+	@extend .pill--narrow;
+	@extend .pill--glass;
+}
+
+.why-us-heading-text {
+	@extend .pill-text;
+}
+
+.how-it-works-pill {
+	@extend .pill--narrow;
+	@extend .pill--glass;
+}
+
+.how-it-works-pill-text {
+	@extend .pill-text;
+}
+
+.trusted-by-pill {
+	@include pill(232px, 43px);
+	@extend .pill--light;
+}
+
+.trusted-by-pill-text {
+	@extend .pill-text;
+	color: $color__background-body; // Black text on light background
+}

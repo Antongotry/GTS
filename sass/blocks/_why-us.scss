@@ -50,23 +50,7 @@
 	}
 }
 
-.why-us-heading-pill {
-	@include pill(103px, 43px);
-	@include glass-effect();
-}
-
-.why-us-heading-text {
-	font-family: $font__manrope;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1;
-	letter-spacing: 0;
-
-	@include lg {
-		font-size: 12px;
-	}
-	color: $color__text-main;
-}
+// Why us pill uses component from _pills.scss
 
 .why-us-heading-line {
 	flex: 1;

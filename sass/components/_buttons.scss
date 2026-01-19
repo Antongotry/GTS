@@ -1,0 +1,226 @@
+/**
+ * Button Components
+ * Unified button system for all buttons across the theme
+ */
+
+// Base button styles
+.btn {
+	padding: 0 24px;
+	height: 56px;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 400;
+	font-family: "Manrope", $font__main;
+	color: #000000;
+	border: none;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+	            box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	box-sizing: border-box;
+	background: transparent;
+	outline: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+}
+
+// Primary button with gradient background
+.btn-primary {
+	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
+	color: #000000;
+	overflow: hidden;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+		opacity: 0;
+		transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	&:hover {
+		color: #000000;
+
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	&:active {
+		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
+		color: #000000;
+
+		&::after {
+			opacity: 0;
+		}
+	}
+
+	// Shine effect variant (for submit buttons)
+	&.btn-shine {
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+			transition: left 0.5s ease;
+			z-index: 2;
+		}
+
+		&:hover {
+			background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+
+			&::before {
+				left: 100%;
+			}
+		}
+
+		&:active {
+			background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
+		}
+	}
+}
+
+// Secondary button with white background
+.btn-secondary {
+	background: #fff;
+	color: #000;
+	border: none;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	position: relative;
+
+	&:hover {
+		background: #e8e8e8;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+	}
+
+	&:active {
+		background: #dcdcdc;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+}
+
+// Button groups
+.btn-group {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+// Size variants
+.btn-sm {
+	height: 48px;
+	padding: 0 20px;
+	font-size: 13px;
+
+	@include lg {
+		padding: 14px 20px;
+		font-size: 13px;
+	}
+}
+
+.btn-full {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+// Width variants
+.btn-width-auto {
+	width: auto;
+}
+
+// Spacing variants
+.btn-no-margin {
+	margin: 0;
+}
+
+// Shadow variants
+.btn-no-shadow {
+	box-shadow: none;
+
+	&:hover,
+	&:active {
+		box-shadow: none;
+	}
+}
+
+// Footer button variant (slightly different padding)
+.footer-button {
+	@extend .btn;
+	padding: 16px 24px;
+
+	@include lg {
+		padding: 14px 20px;
+		font-size: 13px;
+	}
+}
+
+.footer-button-primary {
+	@extend .footer-button;
+	@extend .btn-primary;
+	margin-bottom: 10px;
+
+	@include md {
+		margin-bottom: 10px;
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box;
+	}
+}
+
+.footer-button-secondary {
+	@extend .footer-button;
+	@extend .btn-secondary;
+	display: none;
+
+	@include md {
+		display: inline-flex;
+		background: #ffffff;
+		color: #000000;
+		margin-bottom: 40px;
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box;
+	}
+}
+
+// Booking form submit button (extends btn-primary with shine effect)
+.booking-submit-btn {
+	@extend .btn;
+	@extend .btn-primary;
+	@extend .btn-shine;
+	width: 153px;
+}
+
+// Custom itinerary button (extends btn-secondary with no shadow)
+.custom-itinerary-button {
+	@extend .btn;
+	@extend .btn-secondary;
+	@extend .btn-no-shadow;
+	margin-top: auto;
+	width: 238px;
+}
+
+// Final CTA button (extends btn-primary with auto width)
+.final-cta-button {
+	@extend .btn;
+	@extend .btn-primary;
+	margin: 0;
+	width: auto;
+}

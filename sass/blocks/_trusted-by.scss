@@ -17,25 +17,7 @@
 	overflow: visible;
 }
 
-.trusted-by-pill {
-	@include pill(232px, 43px);
-	background: #f5f5f5;
-	backdrop-filter: blur(40px);
-	-webkit-backdrop-filter: blur(40px);
-}
-
-.trusted-by-pill-text {
-	font-family: $font__manrope;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1;
-	letter-spacing: 0;
-	color: $color__background-body;
-
-	@include lg {
-		font-size: 12px;
-	}
-}
+// Trusted by pill uses component from _pills.scss
 
 .trusted-by-title {
 	font-family: $font__main;
