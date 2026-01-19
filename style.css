@@ -5110,29 +5110,9 @@ a.phone-button:focus,
 
 @media (max-width: 768px) {
 
-	.page-template-page-limousine-service .booking-form-block--mobile .booking-form-right {
-		position: relative;
-	}
-}
-
-@media (max-width: 768px) {
-
 	.page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 10;
-		margin-top: 0;
-		background: transparent;
-		pointer-events: none;
-	}
-}
-
-@media (max-width: 768px) {
-
-	.page-template-page-limousine-service .booking-form-block--mobile .hero-feature {
-		pointer-events: auto;
+		margin-bottom: 24px;
+		background: #0c0f17;
 	}
 }
 

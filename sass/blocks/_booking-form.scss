@@ -65,29 +65,11 @@
 	}
 }
 
-// Limousine Service page: hero-features overlay form on mobile
-.page-template-page-limousine-service .booking-form-block--mobile .booking-form-right {
-	@include md {
-		position: relative;
-	}
-}
-
+// Limousine Service page: hero-features above form on mobile
 .page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile {
 	@include md {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 10;
-		margin-top: 0;
-		background: transparent;
-		pointer-events: none; // Allow clicking through to form below
-	}
-}
-
-.page-template-page-limousine-service .booking-form-block--mobile .hero-feature {
-	@include md {
-		pointer-events: auto; // Re-enable clicks on feature items
+		margin-bottom: 24px; // Space between hero-features and form
+		background: #0c0f17;
 	}
 }
 
