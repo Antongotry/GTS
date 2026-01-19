@@ -19,6 +19,10 @@ get_header();
 
 	<?php get_template_part('template-parts/blocks/how-it-works'); ?>
 
+	<div class="white-sections-wrapper">
+		<?php get_template_part('template-parts/blocks/trusted-by'); ?>
+	</div>
+
 </main><!-- #primary -->
 
 <?php
