@@ -13,7 +13,8 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1024-banner-home_
 $image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp';
 ?>
 
-<style>
+<?php if (is_front_page()) : ?>
+<style id="hero-main-bg">
 /* Hero responsive backgrounds - optimized for LCP */
 .hero-block {
 	background-image: url('<?php echo esc_url($image_mobile); ?>');
@@ -28,6 +29,7 @@ $image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_res
 	.hero-block { background-image: url('<?php echo esc_url($image_large); ?>'); }
 }
 </style>
+<?php endif; ?>
 
 <section class="hero-block">
 	<div class="hero-container">
