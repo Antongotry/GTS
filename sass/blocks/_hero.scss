@@ -66,11 +66,12 @@
 	width: 724px;
 	flex-shrink: 0;
 	margin-top: 0;
-	flex: 0 0 724px;
+	flex: 1 0 724px; // flex-grow: 1 чтобы занять всю высоту
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	min-height: 100%; // Минимальная высота - вся высота контейнера
 	padding-top: 130px;
+	padding-bottom: 32px; // Отступ снизу для features
 	box-sizing: border-box;
 
 	@include lg {
@@ -84,6 +85,8 @@
 		width: 100%;
 		max-width: 100%;
 		padding-top: 95px;
+		min-height: auto;
+		padding-bottom: 0;
 	}
 }
 
@@ -95,8 +98,9 @@
 	flex: 1;
 	padding-bottom: 32px;
 	box-sizing: border-box;
-	justify-content: space-between; // Прижать features к низу
+	justify-content: flex-start; // Контент сверху, features прижаты через margin-top: auto
 	align-items: flex-start;
+	height: 100%; // Нужно для работы margin-top: auto в hero-features
 }
 
 .hero-subtitle {
