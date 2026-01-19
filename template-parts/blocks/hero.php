@@ -6,11 +6,30 @@
  * @package GTS
  */
 
-// Get image URL from WordPress media library
-$image_url = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp';
+// Responsive hero images - different sizes for different devices
+$image_mobile = get_site_url() . '/wp-content/uploads/2026/01/hero-banner-375_result.webp';
+$image_tablet = get_site_url() . '/wp-content/uploads/2026/01/banner-home-375-4_result.webp';
+$image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1024-banner-home_result.webp';
+$image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp';
 ?>
 
-<section class="hero-block" style="background-image: url('<?php echo esc_url($image_url); ?>');">
+<style>
+/* Hero responsive backgrounds - optimized for LCP */
+.hero-block {
+	background-image: url('<?php echo esc_url($image_mobile); ?>');
+}
+@media (min-width: 376px) {
+	.hero-block { background-image: url('<?php echo esc_url($image_tablet); ?>'); }
+}
+@media (min-width: 769px) {
+	.hero-block { background-image: url('<?php echo esc_url($image_desktop); ?>'); }
+}
+@media (min-width: 1025px) {
+	.hero-block { background-image: url('<?php echo esc_url($image_large); ?>'); }
+}
+</style>
+
+<section class="hero-block">
 	<div class="hero-container">
 		<!-- Left side -->
 		<div class="hero-left">

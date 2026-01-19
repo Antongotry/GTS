@@ -25,22 +25,48 @@
 	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"></noscript>
 
-	<!-- Preload hero image for LCP optimization -->
+	<!-- Preload hero image for LCP optimization - responsive for mobile -->
 	<?php if ( is_front_page() ) : ?>
-	<link rel="preload" href="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp' ); ?>" as="image" fetchpriority="high">
+	<link rel="preload" as="image" fetchpriority="high"
+		href="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-banner-375_result.webp' ); ?>"
+		imagesrcset="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-banner-375_result.webp' ); ?> 375w,
+					 <?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/banner-home-375-4_result.webp' ); ?> 768w,
+					 <?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/1024-banner-home_result.webp' ); ?> 1024w,
+					 <?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp' ); ?> 1920w"
+		imagesizes="100vw">
 	<?php endif; ?>
 
 	<!-- Critical CSS inline for above-the-fold content -->
 	<style id="critical-css">
-		/* Critical CSS for fast FCP */
+		/* Critical CSS for fast FCP/LCP */
 		*,*::before,*::after{box-sizing:border-box}
-		body{margin:0;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+		html{-webkit-text-size-adjust:100%}
+		body{margin:0;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;background:#1a1a2e}
+		img{max-width:100%;height:auto;display:block}
+		/* Header */
 		.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:transparent;padding:20px 40px}
-		.hero-block{min-height:100vh;background-size:cover;background-position:center;display:flex;align-items:center}
-		.hero-container{max-width:1440px;margin:0 auto;width:100%;display:flex;justify-content:space-between;padding:0 40px}
-		.hero-title{font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;margin:0 0 24px}
-		.hero-subtitle{font-size:16px;color:rgba(255,255,255,0.8);margin:0 0 16px}
-		@media(max-width:768px){.hero-container{flex-direction:column;padding:0 20px}.site-header{padding:16px 20px}}
+		.header-container{display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:0 auto}
+		.site-logo img{height:32px;width:auto}
+		/* Hero - LCP critical */
+		.hero-block{min-height:100vh;background-size:cover;background-position:center top;display:flex;align-items:center;position:relative}
+		.hero-container{max-width:1440px;margin:0 auto;width:100%;display:flex;justify-content:space-between;padding:0 40px;gap:40px}
+		.hero-left{flex:1;display:flex;flex-direction:column;justify-content:center;padding:120px 0}
+		.hero-title{font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 24px}
+		.hero-subtitle{font-size:16px;color:rgba(255,255,255,0.8);margin:0 0 16px;text-transform:uppercase;letter-spacing:0.5px}
+		.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+		.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:8px;font-weight:600;text-decoration:none;transition:all 0.2s}
+		.btn-primary{background:#00C853;color:#fff}
+		.btn-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3)}
+		/* Mobile */
+		@media(max-width:768px){
+			.site-header{padding:16px 20px}
+			.hero-container{flex-direction:column;padding:0 20px;gap:24px}
+			.hero-left{padding:100px 0 40px}
+			.hero-right--desktop{display:none}
+			.main-navigation,.header-right{display:none}
+		}
+		/* Content visibility for below-fold */
+		.why-us-block,.how-it-works-block,.trusted-by-block,.services-block{content-visibility:auto;contain-intrinsic-size:auto 800px}
 	</style>
 
 	<?php wp_head(); ?>

@@ -11,6 +11,9 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	overflow: hidden;
+	// Performance: skip rendering until in viewport
+	content-visibility: auto;
+	contain-intrinsic-size: auto 100vh;
 }
 
 .how-it-works-container {

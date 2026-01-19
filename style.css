@@ -4884,6 +4884,8 @@ a.phone-button:focus,
 	margin-bottom: 0;
 	padding: 0;
 	background: transparent;
+	content-visibility: auto;
+	contain-intrinsic-size: auto 800px;
 }
 
 @media (max-width: 1024px) {
@@ -5198,6 +5200,8 @@ a.phone-button:focus,
 	background-position: center;
 	background-repeat: no-repeat;
 	overflow: hidden;
+	content-visibility: auto;
+	contain-intrinsic-size: auto 100vh;
 }
 
 .how-it-works-container {
@@ -5532,6 +5536,8 @@ a.phone-button:focus,
 	width: 100%;
 	padding: 80px 0 0 0;
 	overflow: visible;
+	content-visibility: auto;
+	contain-intrinsic-size: auto 600px;
 }
 
 .trusted-by-container {
@@ -5772,6 +5778,8 @@ a.phone-button:focus,
 .services-block {
 	width: 100%;
 	padding: 150px 0 80px 0;
+	content-visibility: auto;
+	contain-intrinsic-size: auto 1200px;
 }
 
 @media (max-width: 1024px) {
