@@ -37,10 +37,12 @@
 
 	<!-- Critical CSS inline for above-the-fold content -->
 	<style id="critical-css">
-		/* Critical CSS for fast FCP/LCP */
+		/* Critical CSS for fast FCP/LCP - CLS prevention */
 		*,*::before,*::after{box-sizing:border-box}
-		html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-		body{margin:0;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;background:#1a1a2e;text-rendering:optimizeSpeed}
+		html{-webkit-text-size-adjust:100%}
+		body{margin:0;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;background:#1a1a2e;font-size-adjust:0.5}
+		/* Prevent font-swap CLS */
+		@font-face{font-family:'Manrope';font-display:swap;size-adjust:100%;ascent-override:95%;descent-override:25%;line-gap-override:0%}
 		img{max-width:100%;height:auto;display:block}
 		/* Header */
 		.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:transparent;padding:20px 40px}
@@ -64,8 +66,6 @@
 			.hero-right--desktop{display:none}
 			.main-navigation,.header-right{display:none}
 		}
-		/* Content visibility for below-fold */
-		.why-us-block,.how-it-works-block,.trusted-by-block,.services-block{content-visibility:auto;contain-intrinsic-size:auto 800px}
 	</style>
 
 	<?php wp_head(); ?>
@@ -84,7 +84,7 @@
 
 		<div class="site-logo">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/GTS.svg' ); ?>" alt="<?php bloginfo( 'name' ); ?>">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/GTS.svg' ); ?>" alt="<?php bloginfo( 'name' ); ?>" width="80" height="32">
 			</a>
 		</div>
 
@@ -94,7 +94,7 @@
 					<a href="#" class="menu-link">
 						Services
 						<span class="dropdown-icon">
-							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="">
+							<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="" width="10" height="6">
 						</span>
 					</a>
 					<ul class="sub-menu">
@@ -118,7 +118,7 @@
 			<div class="language-selector">
 				<span class="language-text">EN</span>
 				<span class="dropdown-icon">
-					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="" width="10" height="6">
 				</span>
 			</div>
 			<a href="mailto:info@gmail.com" class="header-email">info@gmail.com</a>
@@ -169,19 +169,19 @@
 		</ul>
 		<div class="mobile-menu-socials">
 			<a href="#" class="mobile-social-link" aria-label="Facebook">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/fb.svg' ); ?>" alt="Facebook">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/fb.svg' ); ?>" alt="Facebook" width="24" height="24">
 			</a>
 			<a href="#" class="mobile-social-link" aria-label="Instagram">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/inst.svg' ); ?>" alt="Instagram">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/inst.svg' ); ?>" alt="Instagram" width="24" height="24">
 			</a>
 			<a href="#" class="mobile-social-link" aria-label="Telegram">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/telegram.svg' ); ?>" alt="Telegram">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/telegram.svg' ); ?>" alt="Telegram" width="24" height="24">
 			</a>
 			<a href="#" class="mobile-social-link" aria-label="Viber">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/viber.svg' ); ?>" alt="Viber">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/viber.svg' ); ?>" alt="Viber" width="24" height="24">
 			</a>
 			<a href="#" class="mobile-social-link" aria-label="WhatsApp">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2' ); ?>" alt="WhatsApp">
+				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2' ); ?>" alt="WhatsApp" width="24" height="24">
 			</a>
 		</div>
 	</div>

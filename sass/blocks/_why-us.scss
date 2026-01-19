@@ -8,9 +8,6 @@
 	margin-bottom: 0;
 	padding: 0;
 	background: transparent;
-	// Performance: skip rendering until in viewport
-	content-visibility: auto;
-	contain-intrinsic-size: auto 800px;
 
 	@include lg {
 		margin-top: 60px;

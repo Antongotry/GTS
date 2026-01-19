@@ -6,9 +6,6 @@
 	width: 100%;
 	padding: $spacing-4xl 0 0 0; // 80px сверху, 0 снизу
 	overflow: visible;
-	// Performance: skip rendering until in viewport
-	content-visibility: auto;
-	contain-intrinsic-size: auto 600px;
 }
 
 .trusted-by-container {
