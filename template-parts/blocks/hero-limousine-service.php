@@ -12,18 +12,25 @@ $image_tablet = get_site_url() . '/wp-content/uploads/2026/01/1024-lm-1_result.w
 $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-scaled.webp';
 ?>
 <style>
-/* Hero responsive backgrounds - optimized for LCP */
+/* Hero responsive backgrounds for Limousine Service page - optimized for LCP */
 /* Mobile: 375px */
-.hero-block {
-	background-image: url('<?php echo esc_url($image_mobile); ?>');
+.page-template-page-limousine-service .hero-block,
+body.page-template-page-limousine-service .hero-block {
+	background-image: url('<?php echo esc_url($image_mobile); ?>') !important;
 }
 /* Tablet: 1024px */
 @media (min-width: 769px) {
-	.hero-block { background-image: url('<?php echo esc_url($image_tablet); ?>'); }
+	.page-template-page-limousine-service .hero-block,
+	body.page-template-page-limousine-service .hero-block {
+		background-image: url('<?php echo esc_url($image_tablet); ?>') !important;
+	}
 }
 /* Desktop: 1440px and 1920px - same image */
 @media (min-width: 1025px) {
-	.hero-block { background-image: url('<?php echo esc_url($image_desktop); ?>'); }
+	.page-template-page-limousine-service .hero-block,
+	body.page-template-page-limousine-service .hero-block {
+		background-image: url('<?php echo esc_url($image_desktop); ?>') !important;
+	}
 }
 </style>
 
