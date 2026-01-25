@@ -320,6 +320,42 @@ function gts_cleanup_head()
 add_action('init', 'gts_cleanup_head');
 
 /**
+ * Handle Contacts page form submission.
+ */
+function gts_handle_contact_form() {
+	if ( ! is_page_template( 'page-contacts.php' ) || empty( $_SERVER['REQUEST_METHOD'] ) || 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
+		return;
+	}
+	if ( empty( $_POST['gts_contact_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['gts_contact_nonce'] ) ), 'gts_contact_form' ) ) {
+		return;
+	}
+	$first = isset( $_POST['gts_first_name'] ) ? sanitize_text_field( wp_unslash( $_POST['gts_first_name'] ) ) : '';
+	$last  = isset( $_POST['gts_last_name'] ) ? sanitize_text_field( wp_unslash( $_POST['gts_last_name'] ) ) : '';
+	$phone = isset( $_POST['gts_phone'] ) ? sanitize_text_field( wp_unslash( $_POST['gts_phone'] ) ) : '';
+	$email = isset( $_POST['gts_email'] ) ? sanitize_email( wp_unslash( $_POST['gts_email'] ) ) : '';
+	$details = isset( $_POST['gts_details'] ) ? sanitize_textarea_field( wp_unslash( $_POST['gts_details'] ) ) : '';
+	if ( ! $first || ! $last || ! $phone || ! $email || ! is_email( $email ) ) {
+		return;
+	}
+	$to      = get_option( 'admin_email' );
+	$subject = sprintf( /* translators: 1: site name */ __( '[%1$s] New contact request', 'gts-theme' ), get_bloginfo( 'name' ) );
+	$body    = sprintf(
+		"First name: %s\nLast name: %s\nPhone: %s\nEmail: %s\n\nDetails:\n%s",
+		$first,
+		$last,
+		$phone,
+		$email,
+		$details
+	);
+	$headers = array( 'Content-Type: text/plain; charset=UTF-8' );
+	wp_mail( $to, $subject, $body, $headers );
+	$redirect = add_query_arg( 'gts_contact_sent', '1', get_permalink() );
+	wp_safe_redirect( $redirect );
+	exit;
+}
+add_action( 'template_redirect', 'gts_handle_contact_form' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

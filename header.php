@@ -112,7 +112,7 @@
 				<li class="menu-item"><a href="#" class="menu-link">For Business</a></li>
 				<li class="menu-item"><a href="#" class="menu-link">Fleet</a></li>
 				<li class="menu-item"><a href="#" class="menu-link">Blog</a></li>
-				<li class="menu-item"><a href="#" class="menu-link">Contacts</a></li>
+				<li class="menu-item"><a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="menu-link">Contacts</a></li>
 				<li class="menu-item"><a href="#" class="menu-link">About Us</a></li>
 			</ul>
 		</nav>
@@ -164,7 +164,7 @@
 				<a href="#" class="mobile-menu-link">Blog</a>
 			</li>
 			<li class="mobile-menu-item">
-				<a href="#" class="mobile-menu-link">Contacts</a>
+				<a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="mobile-menu-link">Contacts</a>
 			</li>
 			<li class="mobile-menu-item">
 				<a href="#" class="mobile-menu-link">About Us</a>
