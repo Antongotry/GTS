@@ -5,7 +5,7 @@
  * @package GTS
  */
 
-$whatsapp_number = '+44 30 80 2222';
+$whatsapp_number = '+44 00 1111 2222';
 $whatsapp_url   = 'https://wa.me/' . preg_replace( '/[\s+]/', '', $whatsapp_number );
 $contact_email  = 'info@gmail.com';
 ?>
@@ -13,29 +13,33 @@ $contact_email  = 'info@gmail.com';
 <section class="contacts-main" id="contacts-main">
 	<div class="contacts-main__container">
 
-		<div class="contacts-main__col contacts-main__col--whatsapp">
-			<div class="contacts-main__icon contacts-main__icon--whatsapp">
-				<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg?v=2' ); ?>" alt="" width="48" height="48" loading="lazy">
+		<div class="contacts-main__card contacts-main__card--whatsapp">
+			<div class="contacts-main__card-header">
+				<h3 class="contacts-main__channel"><?php esc_html_e( 'WhatsApp', 'gts-theme' ); ?></h3>
+				<div class="contacts-main__icon-wrap contacts-main__icon-wrap--whatsapp">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg?v=2' ); ?>" alt="" width="24" height="24" loading="lazy">
+				</div>
 			</div>
-			<h3 class="contacts-main__channel"><?php esc_html_e( 'WhatsApp', 'gts-theme' ); ?></h3>
 			<p class="contacts-main__desc"><?php esc_html_e( 'For quick questions, urgent requests, and real-time coordination.', 'gts-theme' ); ?></p>
-			<a href="<?php echo esc_url( $whatsapp_url ); ?>" class="contacts-main__link" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $whatsapp_number ); ?></a>
+			<a href="<?php echo esc_url( $whatsapp_url ); ?>" class="contacts-main__link contacts-main__link--underline" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $whatsapp_number ); ?></a>
 		</div>
 
-		<div class="contacts-main__col contacts-main__col--email">
-			<div class="contacts-main__icon contacts-main__icon--email">
-				<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<path d="M8 14L24 26L40 14M8 14V34H40V14M8 14H40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
+		<div class="contacts-main__card contacts-main__card--email">
+			<div class="contacts-main__card-header">
+				<h3 class="contacts-main__channel"><?php esc_html_e( 'Email', 'gts-theme' ); ?></h3>
+				<div class="contacts-main__icon-wrap contacts-main__icon-wrap--email">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M4 7L12 13L20 7M4 7V17H20V7M4 7H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
 			</div>
-			<h3 class="contacts-main__channel"><?php esc_html_e( 'Email', 'gts-theme' ); ?></h3>
-			<p class="contacts-main__desc"><?php esc_html_e( 'For detailed inquiries, proposals, and documentation.', 'gts-theme' ); ?></p>
-			<a href="<?php echo esc_url( 'mailto:' . $contact_email ); ?>" class="contacts-main__link"><?php echo esc_html( $contact_email ); ?></a>
+			<p class="contacts-main__desc"><?php esc_html_e( 'For detailed enquiries, proposals, and documentation.', 'gts-theme' ); ?></p>
+			<a href="<?php echo esc_url( 'mailto:' . $contact_email ); ?>" class="contacts-main__link contacts-main__link--underline"><?php echo esc_html( $contact_email ); ?></a>
 		</div>
 
-		<div class="contacts-main__col contacts-main__col--form">
+		<div class="contacts-main__card contacts-main__card--form">
 			<div class="contacts-main__form-wrap">
-				<p class="contacts-main__form-intro"><?php esc_html_e( 'Share a few details, and our team will get back to you with next steps.', 'gts-theme' ); ?></p>
+				<p class="contacts-main__form-intro"><?php esc_html_e( 'Share a few details, and our team will get back to you with clear next steps.', 'gts-theme' ); ?></p>
 				<?php if ( isset( $_GET['gts_contact_sent'] ) && '1' === $_GET['gts_contact_sent'] ) : ?>
 					<p class="contacts-main__form-success"><?php esc_html_e( 'Thank you. We will get back to you shortly.', 'gts-theme' ); ?></p>
 				<?php else : ?>
@@ -65,7 +69,7 @@ $contact_email  = 'info@gmail.com';
 					<div class="contacts-form__consent">
 						<label>
 							<input type="checkbox" name="gts_consent" required>
-							<span><?php esc_html_e( 'I agree to receive email communication regarding my quote/request.', 'gts-theme' ); ?></span>
+							<span><?php esc_html_e( 'I agree to receive ', 'gts-theme' ); ?><span class="contacts-form__consent-link"><?php esc_html_e( 'email communication regarding my quote request.', 'gts-theme' ); ?></span></span>
 						</label>
 					</div>
 					<button type="submit" class="contacts-form__submit"><?php esc_html_e( 'Get My Quote', 'gts-theme' ); ?></button>
