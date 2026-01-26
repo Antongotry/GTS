@@ -355,18 +355,18 @@
 	}
 }
 
-// Get My Quote — main .btn-primary gradient, white text, rounded ~8px (ref)
+// Get My Quote — orange/peach bg, black text, rounded ~5-8px (ref)
 .contacts-form__submit {
 	@extend .btn;
 	width: 100%;
 	max-width: 200px;
-	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
-	color: #fff;
+	background: #FAD9A9;
 	border: none;
-	border-radius: 8px;
+	border-radius: 6px;
 	font-size: 14px;
 	font-weight: 600;
 	font-family: $font__manrope;
+	color: #000;
 	cursor: pointer;
 	transition: all 0.2s;
 	display: flex;
@@ -374,7 +374,7 @@
 	justify-content: center;
 
 	&:hover {
-		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
-		color: #fff;
+		background: #FBE5B9;
+		color: #000;
 	}
 }
