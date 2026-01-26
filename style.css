@@ -3061,7 +3061,8 @@ a.phone-button:focus,
   }
 }
 /**
- * Contacts Page — reference: 3 cols, subtle radius, pill submit
+ * Contacts Page — ref: pill CTA, sharp cards/form, rounded submit.
+ * Uses main styles: .btn, container, Manrope, gradients.
  */
 .site-main--contacts {
   padding-top: 0;
@@ -3098,7 +3099,7 @@ a.phone-button:focus,
 
 .contacts-hero__cta {
   background: #363636;
-  border-radius: 0 !important;
+  border-radius: 50px;
   border: none;
   color: #fff;
   margin-bottom: 24px;
@@ -3408,10 +3409,10 @@ a.phone-button:focus,
 .contacts-form__submit {
   width: 100%;
   max-width: 200px;
-  background: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
+  background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
   color: #fff;
   border: none;
-  border-radius: 0 !important;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -3422,7 +3423,7 @@ a.phone-button:focus,
   justify-content: center;
 }
 .contacts-form__submit:hover {
-  background: linear-gradient(to right, #fee5c0 0%, #f5ce9b 50%, #f8d5a5 100%);
+  background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
   color: #fff;
 }
 

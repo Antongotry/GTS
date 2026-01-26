@@ -1,5 +1,6 @@
 /**
- * Contacts Page — reference: 3 cols, subtle radius, pill submit
+ * Contacts Page — ref: pill CTA, sharp cards/form, rounded submit.
+ * Uses main styles: .btn, container, Manrope, gradients.
  */
 
 .site-main--contacts {
@@ -8,7 +9,7 @@
 }
 
 // -----------------------------------------------------------------------------
-// Hero — CTA: dark gray, subtle radius (4–6px) like ref
+// Hero — CTA pill (like main .btn), dark gray
 // -----------------------------------------------------------------------------
 
 .contacts-hero {
@@ -33,11 +34,11 @@
 	margin-right: auto;
 }
 
-// Dark gray bg, no rounding (override .btn)
+// Pill-shaped CTA (same as main .btn), dark gray — ref
 .contacts-hero__cta {
 	@extend .btn;
 	background: #363636;
-	border-radius: 0 !important;
+	border-radius: 50px;
 	border: none;
 	color: #fff;
 	margin-bottom: 24px;
@@ -354,15 +355,15 @@
 	}
 }
 
-// Get My Quote — orange, white text, no rounding (override .btn)
+// Get My Quote — main .btn-primary gradient, white text, rounded ~8px (ref)
 .contacts-form__submit {
 	@extend .btn;
 	width: 100%;
 	max-width: 200px;
-	background: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
+	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
 	color: #fff;
 	border: none;
-	border-radius: 0 !important;
+	border-radius: 8px;
 	font-size: 14px;
 	font-weight: 600;
 	font-family: $font__manrope;
@@ -373,7 +374,7 @@
 	justify-content: center;
 
 	&:hover {
-		background: linear-gradient(to right, #fee5c0 0%, #f5ce9b 50%, #f8d5a5 100%);
+		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
 		color: #fff;
 	}
 }
