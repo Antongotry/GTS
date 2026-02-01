@@ -44,24 +44,29 @@
 	align-items: flex-start;
 }
 
-// Airport Limousine — no border, no white bg, text #0C0F17, icon wrapper #FCDCAA, text at bottom
+// Airport Limousine — same styles as row3-card: white bg, thin dark border, icon top, text bottom
 .occasions-block .why-us-item-2 {
 	grid-column: 3;
 	grid-row: 1;
-	border: none;
-	background: transparent;
-	justify-content: flex-end;
+	border: 1px solid rgba(12, 15, 23, 0.15);
+	background: #fff;
+	justify-content: flex-start;
 	align-items: flex-start;
 
-	.why-us-item-title,
-	.why-us-item-description {
-		color: #0c0f17;
-	}
-
 	.why-us-item-icon-wrapper {
+		flex-shrink: 0;
 		background: #fcdcaa;
 		box-shadow: none;
 		border: none;
+	}
+
+	.why-us-item-title {
+		margin-top: auto;
+		color: #0c0f17;
+	}
+
+	.why-us-item-description {
+		color: #0c0f17;
 	}
 }
 
@@ -107,20 +112,25 @@
 	display: flex;
 	flex-direction: column;
 	box-sizing: border-box;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: flex-start;
 	border: none;
 	background: #fff;
 
-	.why-us-item-title,
-	.why-us-item-description {
-		color: #0c0f17;
-	}
-
 	.why-us-item-icon-wrapper {
+		flex-shrink: 0;
 		background: #fcdcaa;
 		box-shadow: none;
 		border: none;
+	}
+
+	.why-us-item-title {
+		margin-top: auto;
+		color: #0c0f17;
+	}
+
+	.why-us-item-description {
+		color: #0c0f17;
 	}
 
 	@include lg {
