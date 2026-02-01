@@ -21,6 +21,23 @@
 	}
 }
 
+// В варианте Limousine — отступ снизу перед следующим блоком (Services)
+.custom-itinerary-block--limousine {
+	margin-bottom: 150px; // 1920, 1440
+
+	@include xl {
+		margin-bottom: 150px; // 1440
+	}
+
+	@include lg {
+		margin-bottom: 120px; // 1024
+	}
+
+	@include md {
+		margin-bottom: 100px; // телефон
+	}
+}
+
 .custom-itinerary-container {
 	position: relative;
 	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - 40px));

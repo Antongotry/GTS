@@ -25,6 +25,7 @@ get_header();
 		<?php get_template_part('template-parts/blocks/trusted-by'); ?>
 		<?php get_template_part('template-parts/blocks/faq'); ?>
 		<?php get_template_part('template-parts/blocks/custom-itinerary', 'limousine'); ?>
+		<?php get_template_part('template-parts/blocks/services', 'limousine'); ?>
 	</div>
 
 </main><!-- #primary -->

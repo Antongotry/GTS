@@ -222,3 +222,16 @@
 		font-size: 12px;
 	}
 }
+
+// Limousine page: block sits below custom-itinerary (which has margin-bottom 150/120/100)
+.services-block--limousine {
+	padding-top: 0;
+
+	@include lg {
+		padding-top: 0;
+	}
+
+	@include md {
+		padding-top: 0;
+	}
+}
