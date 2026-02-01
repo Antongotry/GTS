@@ -5263,11 +5263,17 @@ a.phone-button:focus,
   }
 }
 
-.occasions-block .why-us-item-1 {
+.occasions-block .why-us-item.why-us-item-1 {
   grid-column: 1/span 2;
   grid-row: 1;
   justify-content: flex-start;
   align-items: flex-start;
+}
+.occasions-block .why-us-item.why-us-item-1 .why-us-item-icon-wrapper {
+  flex-shrink: 0;
+}
+.occasions-block .why-us-item.why-us-item-1 .why-us-item-title {
+  margin-top: auto;
 }
 
 .occasions-block .why-us-item.why-us-item-2 {

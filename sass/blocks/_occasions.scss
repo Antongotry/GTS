@@ -36,12 +36,20 @@
 	}
 }
 
-// Row 1: Executive (wide) — icon on top, then title and description
-.occasions-block .why-us-item-1 {
+// Row 1: Executive (wide) — icon on top, text at bottom (same layout as item-2 / row3-card)
+.occasions-block .why-us-item.why-us-item-1 {
 	grid-column: 1 / span 2;
 	grid-row: 1;
 	justify-content: flex-start;
 	align-items: flex-start;
+
+	.why-us-item-icon-wrapper {
+		flex-shrink: 0;
+	}
+
+	.why-us-item-title {
+		margin-top: auto;
+	}
 }
 
 // Airport Limousine — same styles as row3-card (higher specificity so it overrides .why-us-item:not())
