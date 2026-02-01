@@ -110,7 +110,7 @@
 	justify-content: flex-end;
 	align-items: flex-start;
 	border: none;
-	background: transparent;
+	background: #fff;
 
 	.why-us-item-title,
 	.why-us-item-description {
@@ -205,9 +205,9 @@
 	}
 }
 
-// Light background only when not overridden by occasions-block (e.g. other pages)
-.occasions-block .occasions-split-card--light {
-	background: transparent;
+// Row 3 card: white background so block is visible after row3-image
+.occasions-block .occasions-split-card--light.occasions-row3-card {
+	background: #fff;
 }
 
 

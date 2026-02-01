@@ -5333,7 +5333,7 @@ a.phone-button:focus,
   justify-content: flex-end;
   align-items: flex-start;
   border: none;
-  background: transparent;
+  background: #fff;
 }
 .occasions-block .occasions-row3-card .why-us-item-title,
 .occasions-block .occasions-row3-card .why-us-item-description {
@@ -5430,8 +5430,8 @@ a.phone-button:focus,
   }
 }
 
-.occasions-block .occasions-split-card--light {
-  background: transparent;
+.occasions-block .occasions-split-card--light.occasions-row3-card {
+  background: #fff;
 }
 
 .occasions-card-title--dark {
