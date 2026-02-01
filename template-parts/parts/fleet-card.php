@@ -100,7 +100,7 @@ $book_url = $product->is_purchasable() && $product->is_in_stock()
 			</div>
 		<?php endif; ?>
 		<div class="fleet-card-actions">
-			<a class="btn btn-primary btn-sm fleet-card-action" href="<?php echo esc_url( $book_url ); ?>">
+			<a class="btn btn-primary btn-sm fleet-card-action fleet-book-trigger" href="<?php echo esc_url( $book_url ); ?>" data-vehicle="<?php echo esc_attr( $product->get_name() ); ?>" data-product-id="<?php echo esc_attr( $product_id ); ?>">
 				<?php echo esc_html__( 'Book a transfer', 'gts-theme' ); ?>
 			</a>
 			<a class="btn btn-secondary btn-sm fleet-card-action" href="<?php echo esc_url( $product->get_permalink() ); ?>">

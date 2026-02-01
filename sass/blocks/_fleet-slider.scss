@@ -177,6 +177,148 @@
 	pointer-events: all;
 }
 
+.fleet-booking-modal,
+.fleet-success-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+.fleet-booking-modal.is-open,
+.fleet-success-modal.is-open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.fleet-booking-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(12, 15, 23, 0.72);
+	backdrop-filter: blur(6px);
+}
+
+.fleet-booking-dialog {
+	position: relative;
+	z-index: 2;
+	width: min(520px, 92vw);
+	background: rgba(12, 15, 23, 0.96);
+	border: 1px solid $color__glass-border;
+	border-radius: 32px;
+	padding: $spacing-2xl;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+	animation: fleetPop 0.35s ease;
+}
+
+.fleet-booking-close {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	border: 1px solid $color__glass-border;
+	background: rgba(255, 255, 255, 0.06);
+	color: $color__text-main;
+	font-size: 24px;
+	line-height: 1;
+}
+
+.fleet-booking-title {
+	font-family: $font__main;
+	font-size: 28px;
+	font-weight: 500;
+	margin: 0 0 $spacing-sm 0;
+	color: $color__text-main;
+}
+
+.fleet-booking-subtitle {
+	font-family: $font__manrope;
+	font-size: 15px;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.7);
+	margin: 0 0 $spacing-lg 0;
+}
+
+.fleet-booking-form {
+	display: grid;
+	gap: $spacing-md;
+}
+
+.fleet-form-row {
+	display: grid;
+	gap: 8px;
+}
+
+.fleet-form-row label {
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.fleet-form-row input,
+.fleet-form-row textarea {
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 16px;
+	padding: 12px 14px;
+	color: $color__text-main;
+	font-family: $font__manrope;
+	font-size: 15px;
+}
+
+.fleet-form-row input:focus,
+.fleet-form-row textarea:focus {
+	outline: none;
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+.fleet-form-submit {
+	margin-top: $spacing-sm;
+}
+
+.fleet-success-dialog {
+	text-align: center;
+}
+
+.fleet-success-content {
+	display: grid;
+	gap: $spacing-md;
+	justify-items: center;
+}
+
+.fleet-success-icon {
+	width: 72px;
+	height: 72px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: rgba(37, 197, 138, 0.15);
+	border: 1px solid rgba(37, 197, 138, 0.35);
+	color: #25c58a;
+	font-size: 34px;
+}
+
+.fleet-success-button {
+	min-width: 160px;
+}
+
+@keyframes fleetPop {
+	from {
+		transform: translateY(20px) scale(0.98);
+		opacity: 0.7;
+	}
+	to {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+}
+
 @include lg {
 	.fleet-slider-title {
 		font-size: 32px;
@@ -222,5 +364,10 @@
 @media (max-width: 600px) {
 	.fleet-slider-wrapper {
 		padding: 0 0 $spacing-xl;
+	}
+
+	.fleet-booking-dialog {
+		padding: $spacing-xl;
+		border-radius: 24px;
 	}
 }
