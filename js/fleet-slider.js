@@ -169,17 +169,29 @@
 		datetimeInput.addEventListener('input', syncDatetimeState);
 		datetimeInput.addEventListener('change', syncDatetimeState);
 
-		datetimeRow.addEventListener('click', (event) => {
-			if (event.target !== datetimeInput) {
-				datetimeInput.focus();
-				if (typeof datetimeInput.showPicker === 'function') {
-					try {
-						datetimeInput.showPicker();
-					} catch (error) {
-						// Ignore if browser blocks programmatic picker.
-					}
+		const openPicker = () => {
+			datetimeInput.focus();
+			if (typeof datetimeInput.showPicker === 'function') {
+				try {
+					datetimeInput.showPicker();
+				} catch (error) {
+					// Ignore if browser blocks programmatic picker.
 				}
 			}
+		};
+
+		// Клик по строке (placeholder/область) — открыть пикер
+		datetimeRow.addEventListener('click', (event) => {
+			if (event.target === datetimeInput) {
+				return;
+			}
+			event.preventDefault();
+			openPicker();
+		});
+
+		// Клик по полю ввода — открыть пикер и на десктопе
+		datetimeInput.addEventListener('click', () => {
+			openPicker();
 		});
 	}
 
