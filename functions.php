@@ -280,6 +280,10 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
 	wp_enqueue_script('gts-trusted-by-slider', get_template_directory_uri() . '/js/trusted-by-slider.js', array('gts-swiper'), $version, true);
 
+	if (is_page_template('page-limousine-service.php') || is_page('limousine-service') || is_page('Limousine Service')) {
+		wp_enqueue_script('gts-fleet-slider', get_template_directory_uri() . '/js/fleet-slider.js', array('gts-swiper'), $version, true);
+	}
+
 	// Lenis - smooth scrolling for entire site (only desktop, loaded via JS check)
 	wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
 	wp_enqueue_script('gts-lenis-init', get_template_directory_uri() . '/js/lenis-init.js', array('lenis'), $version, true);
@@ -306,6 +310,7 @@ function gts_defer_scripts($tag, $handle, $src)
 	$defer_scripts = array(
 		'gts-swiper',
 		'gts-trusted-by-slider',
+		'gts-fleet-slider',
 		'lenis',
 		'gts-lenis-init',
 		'gsap',
