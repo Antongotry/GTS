@@ -309,13 +309,19 @@
 .fleet-booking-form input,
 .fleet-booking-form textarea,
 .fleet-booking-form select {
-	color: $color__text-main;
+	color: $color__text-main !important;
+}
+
+.fleet-booking-form input:focus,
+.fleet-booking-form textarea:focus,
+.fleet-booking-form select:focus {
+	color: $color__text-main !important;
 }
 
 .fleet-booking-form input:-webkit-autofill,
 .fleet-booking-form textarea:-webkit-autofill,
 .fleet-booking-form select:-webkit-autofill {
-	-webkit-text-fill-color: $color__text-main;
+	-webkit-text-fill-color: $color__text-main !important;
 	box-shadow: 0 0 0px 1000px rgba(12, 15, 23, 0.96) inset;
 	transition: background-color 9999s ease-out 0s;
 }
