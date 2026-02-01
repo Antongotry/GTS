@@ -253,6 +253,11 @@
 	display: block;
 }
 
+// Mobile-only footer text in heading — hidden on desktop
+.occasions-block .why-us-heading .occasions-footer-text-mobile {
+	display: none;
+}
+
 .occasions-block .why-us-heading {
 	// Add title between pill and line (same flex flow as why-us)
 	.occasions-title-wrapper {
@@ -312,6 +317,35 @@
 
 // Occasions mobile layout — like why-us: first row = two columns (item-2 + image), then item-1 full width
 @include md {
+	// Heading: pill + line on first row, then title, then footer text (mobile only)
+	.occasions-block .why-us-heading {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.occasions-block .why-us-heading .occasions-title-wrapper {
+		flex-basis: 100%;
+		order: 2;
+	}
+
+	.occasions-block .why-us-heading .occasions-footer-text-mobile {
+		display: block;
+		flex-basis: 100%;
+		order: 3;
+		margin-top: 0.5em;
+		margin-bottom: 0;
+	}
+
+	// Hide original footer block on mobile (text is in heading)
+	.occasions-block .why-us-item-6.occasions-footer-item {
+		display: none;
+	}
+
+	// Hide item-1 description on mobile
+	.occasions-block .why-us-item-1 .why-us-item-description {
+		display: none;
+	}
+
 	.occasions-block .why-us-grid {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto;

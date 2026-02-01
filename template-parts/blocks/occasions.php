@@ -22,9 +22,11 @@ $icon_events_url = $site_url . '/wp-content/uploads/2026/02/icon-l-5.svg';
 			<div class="why-us-heading-pill">
 				<span class="why-us-heading-text"><?php echo esc_html__( 'Full Service', 'gts-theme' ); ?></span>
 			</div>
+			<div class="why-us-heading-line" aria-hidden="true"></div>
 			<div class="occasions-title-wrapper">
 				<h2 class="occasions-title"><?php echo esc_html__( 'Perfect for Every Occasion', 'gts-theme' ); ?></h2>
 			</div>
+			<p class="why-us-item-description occasions-footer-text occasions-footer-text-mobile"><?php echo esc_html__( 'Whether it\'s a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.', 'gts-theme' ); ?></p>
 		</div>
 		<div class="why-us-grid">
 			<!-- Row 1: Executive (wide), Airport text, Airport image -->
