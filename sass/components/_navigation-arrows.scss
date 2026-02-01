@@ -35,7 +35,10 @@
 	background: #e0e0e0;
 }
 
-.nav-arrow:disabled {
+.nav-arrow:disabled,
+.nav-arrow.swiper-button-disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
+	pointer-events: none;
+	visibility: visible;
 }

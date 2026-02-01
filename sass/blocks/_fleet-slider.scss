@@ -70,7 +70,11 @@
 
 .fleet-slider-wrapper {
 	position: relative;
-	padding: 0 0 $spacing-2xl;
+	width: 100%;
+	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - #{$container-padding * 2}));
+	margin: 0 auto;
+	padding: 0 $container-padding $spacing-2xl;
+	box-sizing: border-box;
 }
 
 .fleet-slider {
@@ -353,7 +357,7 @@
 	}
 
 	.fleet-slider-wrapper {
-		padding: 0 0 $spacing-xl;
+		padding: 0 $container-padding $spacing-xl;
 	}
 
 	.fleet-slider-wrapper .nav-arrows {
@@ -363,7 +367,7 @@
 
 @media (max-width: 600px) {
 	.fleet-slider-wrapper {
-		padding: 0 0 $spacing-xl;
+		padding: 0 $container-padding-mobile $spacing-xl;
 	}
 
 	.fleet-booking-dialog {
