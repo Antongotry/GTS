@@ -231,6 +231,11 @@
 	color: $color__text-main;
 	font-size: 24px;
 	line-height: 1;
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+	z-index: 3;
+	appearance: none;
 }
 
 .fleet-booking-title {
@@ -275,6 +280,12 @@
 	color: $color__text-main;
 	font-family: $font__manrope;
 	font-size: 15px;
+	caret-color: $color__text-main;
+}
+
+.fleet-form-row input::placeholder,
+.fleet-form-row textarea::placeholder {
+	color: rgba(255, 255, 255, 0.35);
 }
 
 .fleet-form-row--full {
@@ -291,6 +302,20 @@
 .fleet-form-row textarea:focus {
 	outline: none;
 	border-color: rgba(255, 255, 255, 0.3);
+}
+
+.fleet-form-row input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.fleet-form-row input[type="number"]::-webkit-outer-spin-button,
+.fleet-form-row input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.fleet-form-row input[type="datetime-local"] {
+	color-scheme: dark;
 }
 
 .fleet-form-submit {
