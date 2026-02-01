@@ -7222,8 +7222,8 @@ a.phone-button:focus,
   position: absolute;
   top: 18px;
   right: 18px;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.06);
@@ -7244,7 +7244,7 @@ a.phone-button:focus,
 .fleet-booking-close::before {
   content: "×";
   font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1;
   display: block;
   transform: translateY(-1px);
@@ -7341,6 +7341,18 @@ a.phone-button:focus,
 
 .fleet-form-row input[type=datetime-local] {
   color-scheme: dark;
+  color: #fff;
+}
+
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-fields-wrapper,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-text,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-month-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-day-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-year-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-hour-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-minute-field {
+  color: #fff;
 }
 
 .fleet-form-submit {
