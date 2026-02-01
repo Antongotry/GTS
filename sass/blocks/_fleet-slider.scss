@@ -19,8 +19,11 @@
 }
 
 .fleet-slider-container {
-	@include container($container-max-width-content);
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 .fleet-slider-heading {
@@ -167,7 +170,7 @@
 	transform: translateY(-50%);
 	justify-content: space-between;
 	pointer-events: none;
-	padding: 0 6px;
+	padding: 0 $spacing-xl;
 }
 
 .fleet-slider-wrapper .nav-arrow {
@@ -208,10 +211,16 @@
 	}
 
 	.fleet-slider-wrapper {
-		padding: 0 12px $spacing-xl;
+		padding: 0 $spacing-sm $spacing-xl;
 	}
 
 	.fleet-slider-wrapper .nav-arrows {
 		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.fleet-slider-wrapper {
+		padding: 0 0 $spacing-xl;
 	}
 }
