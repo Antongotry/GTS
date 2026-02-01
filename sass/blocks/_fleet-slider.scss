@@ -258,7 +258,7 @@
 	font-size: 30px;
 	line-height: 1;
 	display: block;
-	transform: translateY(-1px);
+	transform: translateY(-2px);
 }
 
 .fleet-booking-title {
@@ -310,6 +310,7 @@
 .fleet-booking-form textarea,
 .fleet-booking-form select {
 	color: $color__text-main !important;
+	-webkit-text-fill-color: $color__text-main;
 }
 
 .fleet-booking-form input:focus,

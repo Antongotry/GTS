@@ -7247,7 +7247,7 @@ a.phone-button:focus,
   font-size: 30px;
   line-height: 1;
   display: block;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 .fleet-booking-title {
   font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -7298,6 +7298,7 @@ a.phone-button:focus,
 .fleet-booking-form textarea,
 .fleet-booking-form select {
   color: #fff !important;
+  -webkit-text-fill-color: #fff;
 }
 
 .fleet-booking-form input:focus,

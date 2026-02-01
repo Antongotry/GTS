@@ -18,28 +18,22 @@
 			<form class="fleet-booking-form" id="fleet-booking-form">
 				<input type="hidden" name="vehicle" id="fleet-vehicle-field" value="">
 				<div class="fleet-form-row fleet-form-row--full">
-					<label for="fleet-name"><?php echo esc_html__('Name', 'gts-theme'); ?></label>
-					<input type="text" id="fleet-name" name="name" placeholder="<?php echo esc_attr__('Your name', 'gts-theme'); ?>" required>
+					<input type="text" id="fleet-name" name="name" placeholder="<?php echo esc_attr__('Name', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Name', 'gts-theme'); ?>" required>
 				</div>
 				<div class="fleet-form-row">
-					<label for="fleet-phone"><?php echo esc_html__('Phone', 'gts-theme'); ?></label>
-					<input type="tel" id="fleet-phone" name="phone" placeholder="<?php echo esc_attr__('Phone number', 'gts-theme'); ?>" required>
+					<input type="tel" id="fleet-phone" name="phone" placeholder="<?php echo esc_attr__('Phone', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Phone', 'gts-theme'); ?>" required>
 				</div>
 				<div class="fleet-form-row">
-					<label for="fleet-email"><?php echo esc_html__('Email', 'gts-theme'); ?></label>
-					<input type="email" id="fleet-email" name="email" placeholder="<?php echo esc_attr__('Email address', 'gts-theme'); ?>" required>
+					<input type="email" id="fleet-email" name="email" placeholder="<?php echo esc_attr__('Email', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Email', 'gts-theme'); ?>" required>
 				</div>
 				<div class="fleet-form-row">
-					<label for="fleet-passengers"><?php echo esc_html__('Number of passengers', 'gts-theme'); ?></label>
-					<input type="number" id="fleet-passengers" name="passengers" min="1" placeholder="<?php echo esc_attr__('Passengers', 'gts-theme'); ?>">
+					<input type="number" id="fleet-passengers" name="passengers" min="1" placeholder="<?php echo esc_attr__('Number of passengers', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Number of passengers', 'gts-theme'); ?>">
 				</div>
 				<div class="fleet-form-row">
-					<label for="fleet-pickup"><?php echo esc_html__('Pick-up time', 'gts-theme'); ?></label>
-					<input type="datetime-local" id="fleet-pickup" name="pickup_time">
+					<input type="datetime-local" id="fleet-pickup" name="pickup_time" aria-label="<?php echo esc_attr__('Pick-up time', 'gts-theme'); ?>">
 				</div>
 				<div class="fleet-form-row fleet-form-row--full">
-					<label for="fleet-comment"><?php echo esc_html__('Comment', 'gts-theme'); ?></label>
-					<textarea id="fleet-comment" name="comment" rows="3" placeholder="<?php echo esc_attr__('Additional details', 'gts-theme'); ?>"></textarea>
+					<textarea id="fleet-comment" name="comment" rows="3" placeholder="<?php echo esc_attr__('Comment', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Comment', 'gts-theme'); ?>"></textarea>
 				</div>
 				<button class="btn btn-primary fleet-form-submit" type="submit"><?php echo esc_html__('Send request', 'gts-theme'); ?></button>
 			</form>
