@@ -4174,10 +4174,12 @@ a.phone-button:focus,
   align-items: center;
   justify-content: center;
 }
-.hero-feature-icon img {
+.hero-feature-icon img,
+.hero-feature-icon object.hero-feature-icon-svg {
   width: 32px;
   height: 32px;
   display: block;
+  pointer-events: none;
 }
 
 .hero-feature-text {

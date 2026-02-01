@@ -47,7 +47,7 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 				<div class="hero-features">
 					<div class="hero-feature hero-feature-top-left">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url( content_url( 'uploads/2026/01/icon-1-l.svg' ) ); ?>" alt="<?php esc_attr_e( 'Available in 100+ countries', 'gts-theme' ); ?>" width="24" height="24" loading="eager">
+							<object data="<?php echo esc_url( content_url( 'uploads/2026/01/icon-1-l.svg' ) ); ?>" type="image/svg+xml" width="32" height="32" class="hero-feature-icon-svg" role="img" aria-label="<?php echo esc_attr( __( 'Available in 100+ countries', 'gts-theme' ) ); ?>"></object>
 						</div>
 						<p class="hero-feature-text">Available in 100+ countries</p>
 					</div>
@@ -56,14 +56,14 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 
 					<div class="hero-feature hero-feature-bottom-left">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url( content_url( 'uploads/2026/01/icon-2-home.svg' ) ); ?>" alt="<?php esc_attr_e( 'Operated by licensed chauffeurs', 'gts-theme' ); ?>" width="24" height="24" loading="eager">
+							<object data="<?php echo esc_url( content_url( 'uploads/2026/01/icon-2-home.svg' ) ); ?>" type="image/svg+xml" width="32" height="32" class="hero-feature-icon-svg" role="img" aria-label="<?php echo esc_attr( __( 'Operated by licensed chauffeurs', 'gts-theme' ) ); ?>"></object>
 						</div>
 						<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
 					</div>
 
 					<div class="hero-feature hero-feature-bottom-right">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url( content_url( 'uploads/2026/01/icon-3-l.svg' ) ); ?>" alt="<?php esc_attr_e( 'Licensed & insured, premium fleet', 'gts-theme' ); ?>" width="24" height="24" loading="eager">
+							<object data="<?php echo esc_url( content_url( 'uploads/2026/01/icon-3-l.svg' ) ); ?>" type="image/svg+xml" width="32" height="32" class="hero-feature-icon-svg" role="img" aria-label="<?php echo esc_attr( __( 'Licensed & insured, premium fleet', 'gts-theme' ) ); ?>"></object>
 						</div>
 						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 					</div>
