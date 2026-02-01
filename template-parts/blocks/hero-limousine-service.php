@@ -47,7 +47,7 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 				<div class="hero-features">
 					<div class="hero-feature hero-feature-top-left">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-1-l.svg'); ?>" alt="Available in 100+ countries" width="24" height="24" loading="lazy">
+							<img src="<?php echo esc_url( content_url( 'uploads/2026/01/icon-1-l.svg' ) ); ?>" alt="<?php esc_attr_e( 'Available in 100+ countries', 'gts-theme' ); ?>" width="24" height="24" loading="eager">
 						</div>
 						<p class="hero-feature-text">Available in 100+ countries</p>
 					</div>
@@ -56,14 +56,14 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 
 					<div class="hero-feature hero-feature-bottom-left">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg'); ?>" alt="Operated by licensed chauffeurs" width="24" height="24" loading="lazy">
+							<img src="<?php echo esc_url( content_url( 'uploads/2026/01/icon-2-home.svg' ) ); ?>" alt="<?php esc_attr_e( 'Operated by licensed chauffeurs', 'gts-theme' ); ?>" width="24" height="24" loading="eager">
 						</div>
 						<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
 					</div>
 
 					<div class="hero-feature hero-feature-bottom-right">
 						<div class="hero-feature-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-3-l.svg'); ?>" alt="Licensed & insured, premium fleet" width="24" height="24" loading="lazy">
+							<img src="<?php echo esc_url( content_url( 'uploads/2026/01/icon-3-l.svg' ) ); ?>" alt="<?php esc_attr_e( 'Licensed & insured, premium fleet', 'gts-theme' ); ?>" width="24" height="24" loading="eager">
 						</div>
 						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 					</div>
