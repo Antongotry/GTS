@@ -30,7 +30,7 @@
 	text-align: center;
 }
 
-// Pill at top (same shape as trusted-by)
+// Pill at top — same styles as trusted-by-pill
 .faq-pill {
 	@include pill(70px, 43px);
 	@extend .pill--light;
@@ -38,20 +38,27 @@
 
 .faq-pill-text {
 	@extend .pill-text;
-	color: $color__text-main;
+	color: $color__background-body; // same as trusted-by-pill-text (black on light)
 }
 
-// Title: Manrope 400, 16px, line-height 150%, letter-spacing 0%
+// Title — same styles as trusted-by-title
 .faq-title {
-	font-family: $font__manrope;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 16px;
-	line-height: 150%;
-	letter-spacing: 0;
+	font-family: $font__main;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
 	color: #000;
 	margin: $spacing-2xl 0 0 0;
-	max-width: 100%;
+	max-width: 920px;
+
+	@include lg {
+		font-size: 33px;
+	}
+
+	@include md {
+		font-size: 28px;
+	}
 }
 
 // 80px below title: two accordion columns
@@ -127,7 +134,7 @@
 .faq-item__content-wrapper {
 	display: grid;
 	grid-template-rows: 0fr;
-	transition: grid-template-rows 0.3s ease;
+	transition: grid-template-rows 0.35s ease-out;
 
 	.faq-item[open] & {
 		grid-template-rows: 1fr;
@@ -137,8 +144,9 @@
 .faq-item__content {
 	overflow: hidden;
 	min-height: 0;
-	padding: 0 $spacing-xl $spacing-xl $spacing-xl;
+	padding: 0 $spacing-xl $spacing-xl 0; // без отступа слева
 	box-sizing: border-box;
+	text-align: left;
 
 	p {
 		font-family: $font__manrope;
@@ -146,7 +154,7 @@
 		font-weight: 400;
 		line-height: 1.5;
 		letter-spacing: 0;
-		color: #000;
+		color: rgba(0, 0, 0, 0.75); // приглушённый цвет — видно, что это ответ
 		margin: 0;
 		padding-top: 0;
 	}
