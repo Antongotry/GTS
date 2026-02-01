@@ -77,6 +77,52 @@ add_filter('script_loader_src', 'gts_disable_asset_caching', 10, 1);
 // ==========================================================================
 
 /**
+ * Allowed HTML for inline SVG in hero (theme icons).
+ *
+ * @return array Allowed tags and attributes for wp_kses.
+ */
+function gts_allowed_svg_hero() {
+	return array(
+		'svg'       => array(
+			'xmlns'       => true,
+			'viewbox'     => true,
+			'viewBox'     => true,
+			'width'       => true,
+			'height'      => true,
+			'fill'        => true,
+			'aria-hidden' => true,
+		),
+		'g'         => array(
+			'clip-path' => true,
+		),
+		'defs'      => array(),
+		'clipPath'  => array(
+			'id' => true,
+			'clipPathUnits' => true,
+		),
+		'rect'      => array(
+			'width' => true,
+			'height' => true,
+			'fill' => true,
+		),
+		'path'      => array(
+			'd'     => true,
+			'fill'  => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		),
+		'circle'    => array(
+			'cx' => true,
+			'cy' => true,
+			'r'  => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		),
+	);
+}
+
+/**
  * Hide admin bar on frontend (keep it in admin panel)
  */
 add_filter('show_admin_bar', '__return_false');

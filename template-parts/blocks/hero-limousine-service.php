@@ -10,6 +10,11 @@
 $image_mobile = get_site_url() . '/wp-content/uploads/2026/01/375-lm-1_result.webp';
 $image_tablet = get_site_url() . '/wp-content/uploads/2026/01/1024-lm-1_result.webp';
 $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-scaled.webp';
+
+// Hero feature icons from theme assets (your icons) — inline for reliable display on all devices
+$hero_icon_1 = file_get_contents( get_template_directory() . '/assets/icons/icon-1-l.svg' );
+$hero_icon_2 = file_get_contents( get_template_directory() . '/assets/icons/icon-2-l.svg' );
+$hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon-3-l.svg' );
 ?>
 <style id="hero-limousine-service-bg">
 /* Hero responsive backgrounds for Limousine Service page - optimized for LCP */
@@ -47,7 +52,7 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 				<div class="hero-features">
 					<div class="hero-feature hero-feature-top-left">
 						<div class="hero-feature-icon" role="img" aria-label="<?php echo esc_attr( __( 'Available in 100+ countries', 'gts-theme' ) ); ?>">
-							<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M16 4c-2 4-2 8 0 12-2-4-2-8 0-12zM16 16c4 2 8 2 12 0-4-2-8-2-12 0 4 2 8 2 12 0-4-2-8-2-12 0z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+							<?php echo $hero_icon_1 ? wp_kses( $hero_icon_1, gts_allowed_svg_hero() ) : ''; ?>
 						</div>
 						<p class="hero-feature-text">Available in 100+ countries</p>
 					</div>
@@ -56,14 +61,14 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 
 					<div class="hero-feature hero-feature-bottom-left">
 						<div class="hero-feature-icon" role="img" aria-label="<?php echo esc_attr( __( 'Operated by licensed chauffeurs', 'gts-theme' ) ); ?>">
-							<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+							<?php echo $hero_icon_2 ? wp_kses( $hero_icon_2, gts_allowed_svg_hero() ) : ''; ?>
 						</div>
 						<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
 					</div>
 
 					<div class="hero-feature hero-feature-bottom-right">
 						<div class="hero-feature-icon" role="img" aria-label="<?php echo esc_attr( __( 'Licensed & insured, premium fleet', 'gts-theme' ) ); ?>">
-							<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 4L6 8v8c0 6 4 10 10 12 6-2 10-6 10-12V8L16 4z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+							<?php echo $hero_icon_3 ? wp_kses( $hero_icon_3, gts_allowed_svg_hero() ) : ''; ?>
 						</div>
 						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 					</div>
