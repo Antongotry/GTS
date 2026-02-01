@@ -85,7 +85,7 @@
 .fleet-slider-wrapper {
 	position: relative;
 	width: 100%;
-	padding: 0 0 $spacing-2xl 0;
+	padding: 0;
 	box-sizing: border-box;
 	isolation: isolate;
 }
@@ -99,6 +99,7 @@
 	margin-right: 0;
 	max-width: 100%;
 	box-sizing: border-box;
+	margin-bottom: $spacing-2xl;
 }
 
 // Слайды ниже стрелок по стеку, иначе карточки перекрывают стрелки
@@ -180,7 +181,7 @@
 .fleet-card-actions {
 	display: flex;
 	align-items: stretch;
-	gap: $spacing-md;
+	gap: 10px;
 	margin-top: auto;
 	position: relative;
 	z-index: 2;
