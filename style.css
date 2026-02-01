@@ -3523,7 +3523,7 @@ a.phone-button:focus,
   overflow: hidden;
   box-sizing: border-box;
 }
-.faq-item[open] .faq-item__icon {
+.faq-item.faq-item--open .faq-item__icon {
   transform: rotate(180deg);
 }
 
@@ -3532,17 +3532,20 @@ a.phone-button:focus,
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  width: 100%;
   padding: 24px;
-  list-style: none;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
   cursor: pointer;
   text-align: left;
   box-sizing: border-box;
+  appearance: none;
 }
-.faq-item__summary::-webkit-details-marker {
-  display: none;
-}
-.faq-item__summary::marker {
-  display: none;
+.faq-item__summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .faq-item__question {

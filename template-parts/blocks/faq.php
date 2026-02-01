@@ -56,33 +56,37 @@ $faq_column_2 = array(
 
 		<div class="faq-accordions">
 			<div class="faq-accordion-col">
-				<?php foreach ( $faq_column_1 as $item ) : ?>
-					<details class="faq-item">
-						<summary class="faq-item__summary">
+				<?php foreach ( $faq_column_1 as $i => $item ) :
+					$id = 'faq-content-1-' . $i;
+					?>
+					<div class="faq-item" data-faq-item>
+						<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>" id="faq-trigger-1-<?php echo esc_attr( $i ); ?>">
 							<span class="faq-item__question"><?php echo esc_html( $item['question'] ); ?></span>
 							<img src="<?php echo esc_url( $chevron_url ); ?>" alt="" class="faq-item__icon" width="20" height="20" aria-hidden="true">
-						</summary>
-						<div class="faq-item__content-wrapper">
+						</button>
+						<div class="faq-item__content-wrapper" id="<?php echo esc_attr( $id ); ?>" role="region" aria-labelledby="faq-trigger-1-<?php echo esc_attr( $i ); ?>">
 							<div class="faq-item__content">
 								<p><?php echo esc_html( $item['answer'] ); ?></p>
 							</div>
 						</div>
-					</details>
+					</div>
 				<?php endforeach; ?>
 			</div>
 			<div class="faq-accordion-col">
-				<?php foreach ( $faq_column_2 as $item ) : ?>
-					<details class="faq-item">
-						<summary class="faq-item__summary">
+				<?php foreach ( $faq_column_2 as $i => $item ) :
+					$id = 'faq-content-2-' . $i;
+					?>
+					<div class="faq-item" data-faq-item>
+						<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>" id="faq-trigger-2-<?php echo esc_attr( $i ); ?>">
 							<span class="faq-item__question"><?php echo esc_html( $item['question'] ); ?></span>
 							<img src="<?php echo esc_url( $chevron_url ); ?>" alt="" class="faq-item__icon" width="20" height="20" aria-hidden="true">
-						</summary>
-						<div class="faq-item__content-wrapper">
+						</button>
+						<div class="faq-item__content-wrapper" id="<?php echo esc_attr( $id ); ?>" role="region" aria-labelledby="faq-trigger-2-<?php echo esc_attr( $i ); ?>">
 							<div class="faq-item__content">
 								<p><?php echo esc_html( $item['answer'] ); ?></p>
 							</div>
 						</div>
-					</details>
+					</div>
 				<?php endforeach; ?>
 			</div>
 		</div>
