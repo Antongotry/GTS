@@ -81,6 +81,12 @@
 
 .fleet-slider {
 	overflow: visible;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.fleet-slider .swiper-wrapper {
+	margin-left: 0;
 }
 
 .fleet-card {
@@ -180,10 +186,13 @@
 	justify-content: space-between;
 	pointer-events: none;
 	padding: 0;
+	z-index: 10;
 }
 
 .fleet-slider-wrapper .nav-arrow {
 	pointer-events: all;
+	position: relative;
+	z-index: 10;
 }
 
 .fleet-booking-modal,
