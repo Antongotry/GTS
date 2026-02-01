@@ -11,23 +11,37 @@
 // Get block data passed from single-service.php
 $block = isset($args['block']) ? $args['block'] : array();
 
+// Default background images (same as Limousine Service page)
+$default_bg_mobile  = get_site_url() . '/wp-content/uploads/2026/01/375-lm-1_result.webp';
+$default_bg_tablet  = get_site_url() . '/wp-content/uploads/2026/01/1024-lm-1_result.webp';
+$default_bg_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-scaled.webp';
+
 // Extract fields with defaults
 $title              = ! empty($block['title']) ? $block['title'] : get_the_title();
 $subtitle           = ! empty($block['subtitle']) ? $block['subtitle'] : '';
-$background_mobile  = ! empty($block['background_mobile']) ? $block['background_mobile'] : '';
-$background_tablet  = ! empty($block['background_tablet']) ? $block['background_tablet'] : '';
-$background_desktop = ! empty($block['background_desktop']) ? $block['background_desktop'] : '';
+$background_mobile  = ! empty($block['background_mobile']) ? $block['background_mobile'] : $default_bg_mobile;
+$background_tablet  = ! empty($block['background_tablet']) ? $block['background_tablet'] : $default_bg_tablet;
+$background_desktop = ! empty($block['background_desktop']) ? $block['background_desktop'] : $default_bg_desktop;
 $cta_text           = ! empty($block['cta_text']) ? $block['cta_text'] : __('Book a transfer', 'gts-theme');
 $cta_link           = ! empty($block['cta_link']) ? $block['cta_link'] : '#';
 $features           = ! empty($block['features']) ? $block['features'] : array();
-$stats_number       = ! empty($block['stats_number']) ? $block['stats_number'] : '';
-$stats_label        = ! empty($block['stats_label']) ? $block['stats_label'] : '';
+$stats_number       = ! empty($block['stats_number']) ? $block['stats_number'] : '100+';
+$stats_label        = ! empty($block['stats_label']) ? $block['stats_label'] : 'countries';
 
 // Get hero feature icons from theme assets as fallback
 $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-1-l.svg');
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
 $default_icons = array($hero_icon_1, $hero_icon_2, $hero_icon_3);
+
+// Default features if none set
+if (empty($features)) {
+	$features = array(
+		array('icon' => '', 'text' => 'Available in 100+ countries'),
+		array('icon' => '', 'text' => 'Operated by licensed chauffeurs with 24/7 support'),
+		array('icon' => '', 'text' => 'Licensed & insured, premium fleet'),
+	);
+}
 ?>
 
 <?php if ($background_mobile || $background_tablet || $background_desktop) : ?>
