@@ -318,7 +318,7 @@
 
 .fleet-form-row input::placeholder,
 .fleet-form-row textarea::placeholder {
-	color: rgba(255, 255, 255, 0.35);
+	color: rgba(255, 255, 255, 0.35) !important;
 }
 
 .fleet-form-row--full {
