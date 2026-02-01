@@ -273,6 +273,7 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-form-selects', get_template_directory_uri() . '/js/form-selects.js', array(), $version, true);
 	wp_enqueue_script('gts-datetime-placeholder', get_template_directory_uri() . '/js/datetime-placeholder.js', array(), $version, true);
 	wp_enqueue_script('gts-mobile-menu', get_template_directory_uri() . '/js/mobile-menu.js', array(), $version, true);
+	wp_enqueue_script('gts-faq-accordion', get_template_directory_uri() . '/js/faq-accordion.js', array(), $version, true);
 
 	// Swiper for sliders - lower priority, deferred
 	wp_enqueue_style('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
