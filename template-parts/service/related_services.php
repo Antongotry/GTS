@@ -8,53 +8,71 @@
 
 $block = isset($args['block']) ? $args['block'] : array();
 
-$pill_text = ! empty($block['pill_text']) ? $block['pill_text'] : '';
-$title     = ! empty($block['title']) ? $block['title'] : '';
-$services  = ! empty($block['services']) ? $block['services'] : array();
+// Default values
+$pill_text = ! empty($block['pill_text']) ? $block['pill_text'] : __('Related Services', 'gts-theme');
+$title     = ! empty($block['title']) ? $block['title'] : __("Explore our other services", 'gts-theme');
 
+// Get services from ACF or auto-fetch related services
+$services = ! empty($block['services']) ? $block['services'] : array();
+
+// If no services set, get other services from the CPT (excluding current)
+if (empty($services)) {
+	$current_id = get_the_ID();
+	$args_query = array(
+		'post_type'      => 'service',
+		'posts_per_page' => 3,
+		'post_status'    => 'publish',
+		'post__not_in'   => array($current_id),
+	);
+	$related_posts = get_posts($args_query);
+
+	foreach ($related_posts as $post) {
+		$services[] = array(
+			'title' => $post->post_title,
+			'description' => wp_trim_words($post->post_excerpt, 15, '...'),
+			'link' => get_permalink($post->ID),
+			'image' => get_the_post_thumbnail_url($post->ID, 'medium'),
+		);
+	}
+}
+
+// Return if no services
 if (empty($services)) {
 	return;
 }
 ?>
 
-<section class="services-block services-block--limousine">
-	<div class="services-container">
-		<?php if ($pill_text) : ?>
-			<div class="services-pill">
-				<span class="services-pill-text"><?php echo esc_html($pill_text); ?></span>
+<section class="related-services-block">
+	<div class="related-services-container">
+		<div class="related-services-heading">
+			<div class="related-services-pill">
+				<span class="related-services-pill-text"><?php echo esc_html($pill_text); ?></span>
 			</div>
-		<?php endif; ?>
-
-		<?php if ($title) : ?>
-			<h2 class="services-title"><?php echo wp_kses_post($title); ?></h2>
-		<?php endif; ?>
-
-		<div class="services-grid">
+			<h2 class="related-services-title"><?php echo esc_html($title); ?></h2>
+		</div>
+		<div class="related-services-grid">
 			<?php foreach ($services as $service) :
 				$service_title = ! empty($service['title']) ? $service['title'] : '';
-				$service_desc  = ! empty($service['description']) ? $service['description'] : '';
+				$service_desc = ! empty($service['description']) ? $service['description'] : '';
+				$service_link = ! empty($service['link']) ? $service['link'] : '#';
 				$service_image = ! empty($service['image']) ? $service['image'] : '';
-				$service_link  = ! empty($service['link']) ? $service['link'] : '#';
 			?>
-				<div class="services-card">
-					<div class="services-card-content">
-						<?php if ($service_title) : ?>
-							<h3 class="services-card-title"><?php echo esc_html($service_title); ?></h3>
+				<div class="related-services-card">
+					<a href="<?php echo esc_url($service_link); ?>" class="related-services-card-link">
+						<?php if ($service_image) : ?>
+							<div class="related-services-card-image-wrapper">
+								<img src="<?php echo esc_url($service_image); ?>" alt="<?php echo esc_attr($service_title); ?>" class="related-services-card-image" loading="lazy">
+							</div>
 						<?php endif; ?>
-						<?php if ($service_desc) : ?>
-							<p class="services-card-description"><?php echo esc_html($service_desc); ?></p>
-						<?php endif; ?>
-						<a href="<?php echo esc_url($service_link); ?>" class="services-card-link"><?php esc_html_e('Read more', 'gts-theme'); ?></a>
-					</div>
-					<?php if ($service_image) : ?>
-						<div class="services-card-image">
-							<img src="<?php echo esc_url($service_image); ?>" alt="<?php echo esc_attr($service_title); ?>" class="services-image" loading="lazy" width="300" height="200">
+						<div class="related-services-card-content">
+							<h3 class="related-services-card-title"><?php echo esc_html($service_title); ?></h3>
+							<?php if ($service_desc) : ?>
+								<p class="related-services-card-description"><?php echo esc_html($service_desc); ?></p>
+							<?php endif; ?>
 						</div>
-					<?php endif; ?>
+					</a>
 				</div>
 			<?php endforeach; ?>
 		</div>
-
-		<a href="<?php echo esc_url(home_url('/services/')); ?>" class="services-show-more"><?php esc_html_e('Show more services', 'gts-theme'); ?></a>
 	</div>
 </section>
