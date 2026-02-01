@@ -72,7 +72,7 @@ if ( empty( $products ) ) {
 				</p>
 				<form class="fleet-booking-form" id="fleet-booking-form">
 					<input type="hidden" name="vehicle" id="fleet-vehicle-field" value="">
-					<div class="fleet-form-row">
+					<div class="fleet-form-row fleet-form-row--full">
 						<label for="fleet-name"><?php echo esc_html__( 'Name', 'gts-theme' ); ?></label>
 						<input type="text" id="fleet-name" name="name" placeholder="<?php echo esc_attr__( 'Your name', 'gts-theme' ); ?>" required>
 					</div>
@@ -92,7 +92,7 @@ if ( empty( $products ) ) {
 						<label for="fleet-pickup"><?php echo esc_html__( 'Pick-up time', 'gts-theme' ); ?></label>
 						<input type="datetime-local" id="fleet-pickup" name="pickup_time">
 					</div>
-					<div class="fleet-form-row">
+					<div class="fleet-form-row fleet-form-row--full">
 						<label for="fleet-comment"><?php echo esc_html__( 'Comment', 'gts-theme' ); ?></label>
 						<textarea id="fleet-comment" name="comment" rows="3" placeholder="<?php echo esc_attr__( 'Additional details', 'gts-theme' ); ?>"></textarea>
 					</div>

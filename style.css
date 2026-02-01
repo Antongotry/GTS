@@ -7206,7 +7206,7 @@ a.phone-button:focus,
   background: rgba(12, 15, 23, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 32px;
-  padding: 40px;
+  padding: 32px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
   animation: fleetPop 0.35s ease;
 }
@@ -7243,6 +7243,7 @@ a.phone-button:focus,
 
 .fleet-booking-form {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -7268,6 +7269,16 @@ a.phone-button:focus,
   font-size: 15px;
 }
 
+.fleet-form-row--full {
+  grid-column: 1/-1;
+}
+
+.fleet-form-row textarea {
+  min-height: 72px;
+  max-height: 72px;
+  resize: none;
+}
+
 .fleet-form-row input:focus,
 .fleet-form-row textarea:focus {
   outline: none;
@@ -7276,6 +7287,7 @@ a.phone-button:focus,
 
 .fleet-form-submit {
   margin-top: 12px;
+  grid-column: 1/-1;
 }
 
 .fleet-success-dialog {
@@ -7363,7 +7375,11 @@ a.phone-button:focus,
   }
 
   .fleet-booking-dialog {
-    padding: 32px;
+    padding: 20px;
     border-radius: 24px;
+  }
+
+  .fleet-booking-form {
+    grid-template-columns: 1fr;
   }
 }
