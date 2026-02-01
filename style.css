@@ -4273,7 +4273,7 @@ a.phone-button:focus,
     width: auto;
     flex: 1 1 534px;
     max-width: 534px;
-    padding-top: 130px;
+    padding-top: 200px;
   }
 }
 @media (max-width: 768px) {
@@ -4478,6 +4478,7 @@ a.phone-button:focus,
     width: 390px;
     flex: 0 0 390px;
     margin-left: 0;
+    padding-top: 200px;
   }
 }
 @media (max-width: 768px) {

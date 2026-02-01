@@ -82,7 +82,7 @@
 		width: auto;
 		flex: 1 1 534px;
 		max-width: 534px;
-		padding-top: 130px;
+		padding-top: 200px; // 1024px — опустили, в одну линию с формой
 	}
 
 	@include md {
@@ -290,6 +290,7 @@
 		width: 390px;
 		flex: 0 0 390px;
 		margin-left: 0;
+		padding-top: 200px; // 1024px — в одну линию с левым контентом
 	}
 
 	@include md {
