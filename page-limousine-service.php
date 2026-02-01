@@ -24,6 +24,7 @@ get_header();
 	<div class="white-sections-wrapper">
 		<?php get_template_part('template-parts/blocks/trusted-by'); ?>
 		<?php get_template_part('template-parts/blocks/faq'); ?>
+		<?php get_template_part('template-parts/blocks/custom-itinerary'); ?>
 	</div>
 
 </main><!-- #primary -->

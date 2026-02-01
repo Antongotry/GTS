@@ -4,9 +4,19 @@
 
 .custom-itinerary-block {
 	width: 100%;
+	margin-top: 80px; // отступ от предыдущего блока (1920, 1440)
 	padding: 0 $spacing-lg 40px; // 0 сверху, 20px по бокам, 40px снизу
 
+	@include xl {
+		margin-top: 80px; // 1440
+	}
+
+	@include lg {
+		margin-top: 60px; // 1024
+	}
+
 	@include md {
+		margin-top: 40px; // телефон
 		padding-bottom: 10px; // Только 10px снизу на мобильном
 	}
 }
@@ -14,7 +24,7 @@
 .custom-itinerary-container {
 	position: relative;
 	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - 40px));
-	height: 208px;
+	min-height: 208px;
 	margin: 0 auto;
 	padding: $spacing-xl; // 24px со всех сторон
 	background: #fcdcaa; // Фон контейнера
@@ -28,9 +38,64 @@
 		padding: 24px 20px; // 24px сверху/снизу, 20px по бокам
 		max-width: 100% !important;
 		width: 100% !important;
-		height: 212px !important; // Высота 212px на мобильном
+		min-height: 212px !important;
 		box-sizing: border-box !important;
 	}
+}
+
+// Ряд: кнопка — 16px — «or contact via» — 16px — иконки (10px между иконками)
+.custom-itinerary-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 16px; // между кнопкой, текстом и блоком иконок
+	margin-top: auto;
+}
+
+.custom-itinerary-contact-label {
+	font-family: $font__manrope;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 150%;
+	letter-spacing: 0;
+	color: #000;
+}
+
+.custom-itinerary-icons {
+	display: flex;
+	align-items: center;
+	gap: 10px; // между иконками
+}
+
+.custom-itinerary-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	flex-shrink: 0;
+	box-sizing: border-box;
+
+	img {
+		width: 24px;
+		height: 24px;
+		display: block;
+	}
+
+	&--phone {
+		background: #25d366; // WhatsApp/phone shape
+	}
+
+	&--mail {
+		background: #4997f6; // Mail shape
+	}
+}
+
+.custom-itinerary-block .custom-itinerary-button {
+	margin-top: 0;
 }
 
 // Декоративные линии
@@ -97,4 +162,13 @@
 	}
 }
 
-// Custom itinerary title, description and button use components from _typography.scss and _buttons.scss
+// Текст блока: Manrope 400, 14px, 150%, чёрный
+.custom-itinerary-block .custom-itinerary-description {
+	font-family: $font__manrope;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 150%;
+	letter-spacing: 0;
+	color: #000;
+}

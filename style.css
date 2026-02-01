@@ -6545,10 +6545,22 @@ a.phone-button:focus,
  */
 .custom-itinerary-block {
   width: 100%;
+  margin-top: 80px;
   padding: 0 20px 40px;
+}
+@media (max-width: 1440px) {
+  .custom-itinerary-block {
+    margin-top: 80px;
+  }
+}
+@media (max-width: 1024px) {
+  .custom-itinerary-block {
+    margin-top: 60px;
+  }
 }
 @media (max-width: 768px) {
   .custom-itinerary-block {
+    margin-top: 40px;
     padding-bottom: 10px;
   }
 }
@@ -6556,7 +6568,7 @@ a.phone-button:focus,
 .custom-itinerary-container {
   position: relative;
   max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
-  height: 208px;
+  min-height: 208px;
   margin: 0 auto;
   padding: 24px;
   background: #fcdcaa;
@@ -6571,9 +6583,60 @@ a.phone-button:focus,
     padding: 24px 20px;
     max-width: 100% !important;
     width: 100% !important;
-    height: 212px !important;
+    min-height: 212px !important;
     box-sizing: border-box !important;
   }
+}
+
+.custom-itinerary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.custom-itinerary-contact-label {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: #000;
+}
+
+.custom-itinerary-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-itinerary-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.custom-itinerary-icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.custom-itinerary-icon--phone {
+  background: #25d366;
+}
+.custom-itinerary-icon--mail {
+  background: #4997f6;
+}
+
+.custom-itinerary-block .custom-itinerary-button {
+  margin-top: 0;
 }
 
 .custom-itinerary-line {
@@ -6643,6 +6706,16 @@ a.phone-button:focus,
   .custom-itinerary-line--bottom-right {
     width: 50px;
   }
+}
+
+.custom-itinerary-block .custom-itinerary-description {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: #000;
 }
 
 /**
