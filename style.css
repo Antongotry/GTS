@@ -5707,13 +5707,13 @@ a.phone-button:focus,
   position: absolute;
   top: 18px;
   right: 18px;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.06);
   color: #fff;
-  font-size: 26px;
+  font-size: 0;
   line-height: 1;
   padding: 0;
   text-align: center;
@@ -5725,6 +5725,17 @@ a.phone-button:focus,
   z-index: 3;
   appearance: none;
   pointer-events: auto;
+}
+
+.fleet-booking-close::before {
+  content: "×";
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .fleet-booking-title {
@@ -5800,7 +5811,7 @@ a.phone-button:focus,
 
 .fleet-form-row input::placeholder,
 .fleet-form-row textarea::placeholder {
-  color: rgba(255, 255, 255, 0.32) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .fleet-form-row--full {
@@ -5939,13 +5950,13 @@ a.phone-button:focus,
     border-radius: 24px;
   }
   .fleet-booking-close {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     top: 14px;
     right: 14px;
   }
-  .fleet-booking-close {
-    font-size: 20px;
+  .fleet-booking-close::before {
+    font-size: 22px;
   }
 }
 @media (max-width: 520px) {
