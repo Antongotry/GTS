@@ -172,12 +172,12 @@
 	}
 }
 
-// Mobile: один столбец, паддинг 16px, шрифт 14px, отступы 10px
+// Mobile: один столбец, паддинг 16px, шрифт 14px, отступы 10px, 40px между заголовком и аккордеонами
 @include md {
 	.faq-accordions {
 		grid-template-columns: 1fr;
 		gap: 10px;
-		margin-top: 80px;
+		margin-top: 40px; // 40px между заголовком и аккордеонами на телефоне
 		width: 100%;
 	}
 
