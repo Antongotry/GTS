@@ -169,7 +169,13 @@
 		datetimeInput.addEventListener('input', syncDatetimeState);
 		datetimeInput.addEventListener('change', syncDatetimeState);
 
+		let lastOpenAt = 0;
 		const openPicker = () => {
+			const now = Date.now();
+			if (now - lastOpenAt < 400) {
+				return;
+			}
+			lastOpenAt = now;
 			datetimeInput.focus();
 			if (typeof datetimeInput.showPicker === 'function') {
 				try {
@@ -189,7 +195,7 @@
 			openPicker();
 		});
 
-		// Клик по полю ввода — открыть пикер и на десктопе
+		// Клик по полю ввода — открыть пикер на десктопе; на iOS защита от двойного открытия
 		datetimeInput.addEventListener('click', () => {
 			openPicker();
 		});

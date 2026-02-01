@@ -368,6 +368,14 @@
 	caret-color: $color__text-main;
 	width: 100%;
 	min-width: 0;
+	box-sizing: border-box;
+}
+
+// Одинаковая высота для однострочных полей (имя, телефон, email, число, дата)
+.fleet-form-row input {
+	height: 48px;
+	min-height: 48px;
+	line-height: 24px;
 }
 
 .fleet-booking-form input,
@@ -407,12 +415,11 @@
 	position: relative;
 }
 
-// Высота как у поля «Имя»: те же padding 12px 14px по вертикали
+// Высота как у поля «Имя»: 48px, те же отступы; на iOS без конфликтов
 .fleet-form-row--datetime input {
 	padding: 12px 44px 12px 14px;
-	min-height: 0;
-	height: auto;
-	box-sizing: border-box;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
 .fleet-datetime-placeholder {
