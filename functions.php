@@ -281,7 +281,7 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
 	wp_enqueue_script('gts-trusted-by-slider', get_template_directory_uri() . '/js/trusted-by-slider.js', array('gts-swiper'), $version, true);
 
-	if (is_page_template('page-limousine-service.php') || is_page('limousine-service') || is_page('Limousine Service')) {
+	if (is_page_template('page-limousine-service.php') || is_page('limousine-service') || is_page('Limousine Service') || is_singular('service')) {
 		wp_enqueue_script('gts-fleet-slider', get_template_directory_uri() . '/js/fleet-slider.js', array('gts-swiper'), $version, true);
 	}
 
@@ -289,8 +289,8 @@ function gts_theme_scripts()
 	wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
 	wp_enqueue_script('gts-lenis-init', get_template_directory_uri() . '/js/lenis-init.js', array('lenis'), $version, true);
 
-	// GSAP and ScrollTrigger - on front page and Limousine Service page for animations
-	if (is_front_page() || is_page_template('page-limousine-service.php') || is_page('limousine-service') || is_page('Limousine Service')) {
+	// GSAP and ScrollTrigger - on front page, Limousine Service page, and Service CPT pages for animations
+	if (is_front_page() || is_page_template('page-limousine-service.php') || is_page('limousine-service') || is_page('Limousine Service') || is_singular('service')) {
 		wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', true);
 		wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', true);
 		wp_enqueue_script('gts-how-it-works-scroll', get_template_directory_uri() . '/js/how-it-works-scroll.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), $version, true);
@@ -447,3 +447,10 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Service CPT and ACF fields
+ */
+require get_template_directory() . '/inc/cpt-service.php';
+require get_template_directory() . '/inc/acf-fields-service.php';
+require get_template_directory() . '/inc/service-defaults.php';
