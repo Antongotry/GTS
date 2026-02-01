@@ -219,6 +219,10 @@
 	animation: fleetPop 0.35s ease;
 }
 
+.fleet-booking-dialog * {
+	pointer-events: auto;
+}
+
 .fleet-booking-close {
 	position: absolute;
 	top: 18px;
@@ -236,6 +240,7 @@
 	cursor: pointer;
 	z-index: 3;
 	appearance: none;
+	pointer-events: auto;
 }
 
 .fleet-booking-title {
@@ -281,6 +286,12 @@
 	font-family: $font__manrope;
 	font-size: 15px;
 	caret-color: $color__text-main;
+}
+
+.fleet-booking-form input,
+.fleet-booking-form textarea,
+.fleet-booking-form select {
+	color: $color__text-main;
 }
 
 .fleet-form-row input::placeholder,

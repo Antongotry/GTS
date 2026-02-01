@@ -7211,6 +7211,10 @@ a.phone-button:focus,
   animation: fleetPop 0.35s ease;
 }
 
+.fleet-booking-dialog * {
+  pointer-events: auto;
+}
+
 .fleet-booking-close {
   position: absolute;
   top: 18px;
@@ -7228,6 +7232,7 @@ a.phone-button:focus,
   cursor: pointer;
   z-index: 3;
   appearance: none;
+  pointer-events: auto;
 }
 
 .fleet-booking-title {
@@ -7273,6 +7278,12 @@ a.phone-button:focus,
   font-family: "Manrope", sans-serif;
   font-size: 15px;
   caret-color: #fff;
+}
+
+.fleet-booking-form input,
+.fleet-booking-form textarea,
+.fleet-booking-form select {
+  color: #fff;
 }
 
 .fleet-form-row input::placeholder,
