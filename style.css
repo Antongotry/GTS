@@ -4259,9 +4259,14 @@ a.phone-button:focus,
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  padding-top: 130px;
+  padding-top: 220px;
   padding-bottom: 32px;
   box-sizing: border-box;
+}
+@media (max-width: 1440px) {
+  .hero-left {
+    padding-top: 170px;
+  }
 }
 @media (max-width: 1024px) {
   .hero-left {
