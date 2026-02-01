@@ -66,13 +66,16 @@
 	@extend .pill--glass;
 	padding-left: 24px;
 	padding-right: 24px;
-	width: auto;
+	width: max-content;
 	min-width: 103px;
 	box-sizing: border-box;
+	overflow: visible;
 }
 
 .why-us-heading-text {
 	@extend .pill-text;
+	white-space: nowrap;
+	overflow: visible;
 }
 
 .how-it-works-pill {
