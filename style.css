@@ -4169,17 +4169,17 @@ a.phone-button:focus,
 .hero-feature-icon {
   width: 32px;
   height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.hero-feature-icon img,
-.hero-feature-icon object.hero-feature-icon-svg {
+.hero-feature-icon img {
   width: 32px;
   height: 32px;
   display: block;
-  pointer-events: none;
 }
 
 .hero-feature-text {
