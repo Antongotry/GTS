@@ -32,12 +32,13 @@
 }
 
 .nav-arrow:hover {
-	background: #e0e0e0;
+	background: #ededed;
 }
 
 .nav-arrow:disabled,
 .nav-arrow.swiper-button-disabled {
-	opacity: 0.5;
+	background: #e2e2e2;
+	opacity: 1;
 	cursor: not-allowed;
 	pointer-events: none;
 	visibility: visible !important;

@@ -1293,12 +1293,13 @@ textarea {
 }
 
 .nav-arrow:hover {
-  background: #e0e0e0;
+  background: #ededed;
 }
 
 .nav-arrow:disabled,
 .nav-arrow.swiper-button-disabled {
-  opacity: 0.5;
+  background: #e2e2e2;
+  opacity: 1;
   cursor: not-allowed;
   pointer-events: none;
   visibility: visible !important;
@@ -5489,7 +5490,7 @@ a.phone-button:focus,
   max-width: 100vw;
   margin-top: 150px;
   margin-bottom: 0;
-  padding: 0 20px;
+  padding: 0;
   background: transparent;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -5497,7 +5498,7 @@ a.phone-button:focus,
 @media (max-width: 1024px) {
   .fleet-slider-block {
     margin-top: 60px;
-    padding: 0 20px;
+    padding: 0;
   }
 }
 @media (max-width: 768px) {
@@ -5511,12 +5512,12 @@ a.phone-button:focus,
   max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
   width: 100%;
   margin: 0 auto;
-  padding: 0 5px 0 20px;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 @media (max-width: 1024px) {
   .fleet-slider-grid {
-    padding: 0 4px 0 4px;
+    padding: 0 4px;
   }
 }
 @media (max-width: 768px) {
@@ -5524,7 +5525,7 @@ a.phone-button:focus,
     max-width: none;
     width: calc(100vw - 40px);
     margin: 0 auto;
-    padding: 0 16px 0 9px;
+    padding: 0 16px;
   }
 }
 
