@@ -2,23 +2,27 @@
  * Fleet Slider Block Styles
  */
 
+// Как .site-header: внешний padding, чтобы контейнер центрировался и не вылезал за сетку
 .fleet-slider-block {
 	width: 100%;
 	margin-top: $spacing-5xl;
 	margin-bottom: 0;
-	padding: 0;
+	padding: 0 $container-padding;
 	background: transparent;
+	box-sizing: border-box;
 
 	@include lg {
 		margin-top: 60px;
+		padding: 0 $container-padding;
 	}
 
 	@include md {
 		margin-top: 80px;
+		padding: 0 20px;
 	}
 }
 
-// Same width as .header-container — по сетке как хедер
+// Точная копия .header-container — ширина и отступы как у хедера
 .fleet-slider-container {
 	width: 100%;
 	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - #{$container-padding * 2}));
@@ -77,12 +81,15 @@
 	margin: 0 auto;
 	padding: 0 5px $spacing-2xl $container-padding;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 .fleet-slider {
 	overflow: visible;
 	margin-left: 0;
 	margin-right: 0;
+	max-width: 100%;
+	box-sizing: border-box;
 }
 
 .fleet-slider .swiper-wrapper {
@@ -177,6 +184,7 @@
 	box-shadow: none;
 }
 
+// Стрелки всегда видны, даже когда весь товар выведен (disabled — только стиль)
 .fleet-slider-wrapper .nav-arrows {
 	position: absolute;
 	left: 0;
@@ -187,12 +195,16 @@
 	pointer-events: none;
 	padding: 0;
 	z-index: 10;
+	display: flex !important;
+	visibility: visible !important;
 }
 
 .fleet-slider-wrapper .nav-arrow {
 	pointer-events: all;
 	position: relative;
 	z-index: 10;
+	visibility: visible !important;
+	display: flex !important;
 }
 
 .fleet-booking-modal,
@@ -360,6 +372,36 @@
 	color: rgba(255, 255, 255, 0.4);
 }
 
+.fleet-form-row--datetime {
+	position: relative;
+}
+
+.fleet-form-row--datetime input {
+	padding-right: 44px;
+}
+
+.fleet-datetime-placeholder {
+	position: absolute;
+	left: 14px;
+	right: 44px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: rgba(255, 255, 255, 0.4);
+	font-family: $font__manrope;
+	font-size: 15px;
+	pointer-events: none;
+	transition: opacity 0.2s ease;
+}
+
+.fleet-form-row--datetime input.has-value + .fleet-datetime-placeholder {
+	opacity: 0;
+}
+
+.fleet-form-row--datetime input:not(.has-value) {
+	color: transparent !important;
+	-webkit-text-fill-color: transparent !important;
+}
+
 .fleet-form-row--full {
 	grid-column: 1 / -1;
 }
@@ -393,6 +435,8 @@
 .fleet-form-row input[type="datetime-local"] {
 	color-scheme: dark;
 	color: $color__text-main;
+	width: 100%;
+	appearance: none;
 }
 
 .fleet-form-row input[type="datetime-local"]::-webkit-datetime-edit,
