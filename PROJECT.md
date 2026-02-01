@@ -291,11 +291,11 @@ npm run bundle
 ```scss
 .my-block {
     padding: 40px 20px;
-    
+
     @include lg {  // 1024px+
         padding: 80px 40px;
     }
-    
+
     @include md {  // 768px+
         padding: 60px 30px;
     }
@@ -322,7 +322,7 @@ npm run bundle
 // functions.php
 function gts_theme_scripts() {
     $version = time(); // Development
-    
+
     wp_enqueue_style('gts-theme-style', get_stylesheet_uri(), array(), $version);
     wp_enqueue_script('gts-my-script', get_template_directory_uri() . '/js/my-script.js', array(), $version, true);
 }
