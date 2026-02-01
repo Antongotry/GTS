@@ -36,7 +36,7 @@ if ( ! function_exists( 'gts_fleet_get_attribute' ) ) {
 	}
 }
 
-$passengers = gts_fleet_get_attribute( $product, array( 'pa_passengers', 'passengers' ) );
+$passengers = gts_fleet_get_attribute( $product, array( 'pa_passenger', 'passenger', 'pa_passengers', 'passengers' ) );
 if ( empty( $passengers ) ) {
 	$passengers = get_post_meta( $product_id, 'passengers', true );
 }
