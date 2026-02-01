@@ -236,18 +236,26 @@
 	border: 1px solid $color__glass-border;
 	background: rgba(255, 255, 255, 0.06);
 	color: $color__text-main;
-	font-size: 28px;
+	font-size: 0;
 	line-height: 1;
 	padding: 0;
 	text-align: center;
 	text-indent: 0;
-	font-family: $font__main;
 	display: grid;
 	place-items: center;
 	cursor: pointer;
 	z-index: 3;
 	appearance: none;
 	pointer-events: auto;
+}
+
+.fleet-booking-close::before {
+	content: "×";
+	font-family: $font__main;
+	font-size: 28px;
+	line-height: 1;
+	display: block;
+	transform: translateY(-1px);
 }
 
 .fleet-booking-title {
@@ -299,6 +307,14 @@
 .fleet-booking-form textarea,
 .fleet-booking-form select {
 	color: $color__text-main;
+}
+
+.fleet-booking-form input:-webkit-autofill,
+.fleet-booking-form textarea:-webkit-autofill,
+.fleet-booking-form select:-webkit-autofill {
+	-webkit-text-fill-color: $color__text-main;
+	box-shadow: 0 0 0px 1000px rgba(12, 15, 23, 0.96) inset;
+	transition: background-color 9999s ease-out 0s;
 }
 
 .fleet-form-row input::placeholder,
