@@ -13,25 +13,27 @@ if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
 
 $product_id = $product->get_id();
 
-function gts_fleet_get_attribute( $product, $keys ) {
-	foreach ( $keys as $key ) {
-		$value = $product->get_attribute( $key );
-		if ( ! empty( $value ) ) {
-			return $value;
-		}
-	}
-
-	$attributes = $product->get_attributes();
-	foreach ( $keys as $key ) {
-		if ( isset( $attributes[ $key ] ) && $attributes[ $key ] instanceof WC_Product_Attribute ) {
-			$options = $attributes[ $key ]->get_options();
-			if ( ! empty( $options ) ) {
-				return implode( ', ', $options );
+if ( ! function_exists( 'gts_fleet_get_attribute' ) ) {
+	function gts_fleet_get_attribute( $product, $keys ) {
+		foreach ( $keys as $key ) {
+			$value = $product->get_attribute( $key );
+			if ( ! empty( $value ) ) {
+				return $value;
 			}
 		}
-	}
 
-	return '';
+		$attributes = $product->get_attributes();
+		foreach ( $keys as $key ) {
+			if ( isset( $attributes[ $key ] ) && $attributes[ $key ] instanceof WC_Product_Attribute ) {
+				$options = $attributes[ $key ]->get_options();
+				if ( ! empty( $options ) ) {
+					return implode( ', ', $options );
+				}
+			}
+		}
+
+		return '';
+	}
 }
 
 $passengers = gts_fleet_get_attribute( $product, array( 'pa_passengers', 'passengers' ) );
