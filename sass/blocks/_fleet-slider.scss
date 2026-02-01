@@ -18,12 +18,24 @@
 	}
 }
 
+// Same width as .header-container — по сетке как хедер
 .fleet-slider-container {
 	width: 100%;
-	max-width: 100%;
-	margin: 0;
-	padding: 0;
+	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - #{$container-padding * 2}));
+	margin: 0 auto;
+	padding: 0 5px 0 $container-padding;
 	box-sizing: border-box;
+
+	@include lg {
+		padding: 0 4px 0 4px;
+	}
+
+	@include md {
+		max-width: none;
+		width: calc(100vw - 40px);
+		margin: 0 auto;
+		padding: 0 16px 0 9px;
+	}
 }
 
 /* Fleet heading uses .why-us-heading + .why-us-heading-line (same as Why us block) */
@@ -231,7 +243,7 @@
 	border-radius: 50%;
 	border: 1px solid $color__glass-border;
 	background: rgba(255, 255, 255, 0.06);
-	color: $color__text-main;
+	color: transparent;
 	font-size: 0;
 	line-height: 1;
 	padding: 0;
@@ -251,10 +263,9 @@
 	font-family: $font__main;
 	font-size: 28px;
 	line-height: 1;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	display: block;
+	color: $color__text-main;
+	transform: translateY(-1px);
 }
 
 .fleet-booking-title {
@@ -331,6 +342,13 @@
 .fleet-form-row input::placeholder,
 .fleet-form-row textarea::placeholder {
 	color: rgba(255, 255, 255, 0.4) !important;
+	-webkit-text-fill-color: rgba(255, 255, 255, 0.4);
+	opacity: 1;
+}
+
+.fleet-form-row input:placeholder-shown,
+.fleet-form-row textarea:placeholder-shown {
+	color: rgba(255, 255, 255, 0.4);
 }
 
 .fleet-form-row--full {

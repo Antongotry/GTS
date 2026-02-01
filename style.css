@@ -5712,7 +5712,7 @@ a.phone-button:focus,
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.06);
-  color: #fff;
+  color: transparent;
   font-size: 0;
   line-height: 1;
   padding: 0;
@@ -5732,10 +5732,9 @@ a.phone-button:focus,
   font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 28px;
   line-height: 1;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 .fleet-booking-title {
@@ -5812,6 +5811,13 @@ a.phone-button:focus,
 .fleet-form-row input::placeholder,
 .fleet-form-row textarea::placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
+.fleet-form-row input:placeholder-shown,
+.fleet-form-row textarea:placeholder-shown {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .fleet-form-row--full {
