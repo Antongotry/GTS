@@ -79,6 +79,7 @@
 					});
 				}
 
+				initBookingInteractions(bookingEl);
 				document.addEventListener('keydown', handleEscape);
 			}
 
@@ -144,6 +145,42 @@
 			closeBooking();
 			closeSuccess();
 		}
+	}
+
+	function initBookingInteractions(bookingEl) {
+		const datetimeRow = bookingEl.querySelector('.fleet-form-row--datetime');
+		if (!datetimeRow) {
+			return;
+		}
+		const datetimeInput = datetimeRow.querySelector('input[type="datetime-local"]');
+		if (!datetimeInput) {
+			return;
+		}
+
+		const syncDatetimeState = () => {
+			if (datetimeInput.value) {
+				datetimeInput.classList.add('has-value');
+			} else {
+				datetimeInput.classList.remove('has-value');
+			}
+		};
+
+		syncDatetimeState();
+		datetimeInput.addEventListener('input', syncDatetimeState);
+		datetimeInput.addEventListener('change', syncDatetimeState);
+
+		datetimeRow.addEventListener('click', (event) => {
+			if (event.target !== datetimeInput) {
+				datetimeInput.focus();
+				if (typeof datetimeInput.showPicker === 'function') {
+					try {
+						datetimeInput.showPicker();
+					} catch (error) {
+						// Ignore if browser blocks programmatic picker.
+					}
+				}
+			}
+		});
 	}
 
 	document.querySelectorAll('.fleet-book-trigger').forEach((button) => {

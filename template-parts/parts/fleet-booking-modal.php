@@ -29,8 +29,9 @@
 				<div class="fleet-form-row">
 					<input type="number" id="fleet-passengers" name="passengers" min="1" placeholder="<?php echo esc_attr__('Number of passengers', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Number of passengers', 'gts-theme'); ?>">
 				</div>
-				<div class="fleet-form-row">
+				<div class="fleet-form-row fleet-form-row--datetime">
 					<input type="datetime-local" id="fleet-pickup" name="pickup_time" aria-label="<?php echo esc_attr__('Pick-up time', 'gts-theme'); ?>">
+					<span class="fleet-datetime-placeholder" aria-hidden="true">dd.mm.yyyy, --:--</span>
 				</div>
 				<div class="fleet-form-row fleet-form-row--full">
 					<textarea id="fleet-comment" name="comment" rows="3" placeholder="<?php echo esc_attr__('Comment', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Comment', 'gts-theme'); ?>"></textarea>
