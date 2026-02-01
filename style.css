@@ -947,7 +947,7 @@ textarea {
  * Pill Components
  * Unified pill elements system
  */
-.pill, .pill--narrow, .how-it-works-pill, .why-us-heading-pill, .pill--wide, .services-pill, .pill--light, .faq-pill, .trusted-by-pill, .pill--glass {
+.pill, .pill--narrow, .how-it-works-pill, .pill--wide, .services-pill, .pill--light, .faq-pill, .trusted-by-pill, .pill--glass {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -973,7 +973,7 @@ textarea {
   }
 }
 
-.pill--glass, .how-it-works-pill, .why-us-heading-pill {
+.pill--glass, .how-it-works-pill {
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
@@ -989,12 +989,40 @@ textarea {
   width: 270px;
 }
 
-.pill--narrow, .how-it-works-pill, .why-us-heading-pill {
+.pill--narrow, .how-it-works-pill {
   width: 103px;
 }
 
 .services-pill-text {
   color: #0C0F17;
+}
+
+.why-us-heading-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 43px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding-left: 24px;
+  padding-right: 24px;
+  width: max-content;
+  min-width: 103px;
+  box-sizing: border-box;
+  overflow: visible;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.why-us-heading-text {
+  white-space: nowrap;
+  overflow: visible;
+  text-align: center;
 }
 
 .trusted-by-pill {
@@ -1268,9 +1296,12 @@ textarea {
   background: #e0e0e0;
 }
 
-.nav-arrow:disabled {
+.nav-arrow:disabled,
+.nav-arrow.swiper-button-disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  pointer-events: none;
+  visibility: visible;
 }
 
 /* Posts and pages
@@ -5450,6 +5481,482 @@ a.phone-button:focus,
   }
 }
 /**
+ * Fleet Slider Block Styles
+ */
+.fleet-slider-block {
+  width: 100%;
+  margin-top: 150px;
+  margin-bottom: 0;
+  padding: 0;
+  background: transparent;
+}
+@media (max-width: 1024px) {
+  .fleet-slider-block {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-slider-block {
+    margin-top: 80px;
+  }
+}
+
+.fleet-slider-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fleet heading uses .why-us-heading + .why-us-heading-line (same as Why us block) */
+.fleet-slider-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.fleet-slider-title {
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 760px;
+}
+
+.fleet-slider-lead {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin: 8px 0 0 0;
+  opacity: 0.85;
+  max-width: 320px;
+}
+
+.fleet-slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  margin: 0 auto;
+  padding: 0 5px 32px 20px;
+  box-sizing: border-box;
+}
+
+.fleet-slider {
+  overflow: visible;
+}
+
+.fleet-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px inset rgba(255, 255, 255, 0.16);
+  background: rgba(12, 15, 23, 0.82);
+  box-sizing: border-box;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.fleet-card-media {
+  height: 250px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fleet-card-image {
+  max-width: 90%;
+  max-height: 90%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+.fleet-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.fleet-card-title {
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.fleet-card-meta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.fleet-card-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.fleet-card-meta-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.fleet-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.fleet-card-action {
+  padding: 10px 18px;
+  min-width: 0;
+}
+
+.fleet-card-action.btn-secondary, .fleet-card-action.footer-button-secondary, .fleet-card-action.custom-itinerary-button {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+}
+
+.fleet-slider-wrapper .nav-arrows {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0;
+}
+
+.fleet-slider-wrapper .nav-arrow {
+  pointer-events: all;
+}
+
+.fleet-booking-modal,
+.fleet-success-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fleet-booking-modal.is-open,
+.fleet-success-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.fleet-booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 15, 23, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.fleet-booking-dialog {
+  position: relative;
+  z-index: 2;
+  width: min(520px, 92vw);
+  max-height: min(90vh, 720px);
+  background: rgba(12, 15, 23, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 32px;
+  padding: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  animation: fleetPop 0.35s ease;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.fleet-booking-dialog * {
+  pointer-events: auto;
+}
+
+.fleet-booking-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  padding: 0;
+  text-align: center;
+  text-indent: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  appearance: none;
+  pointer-events: auto;
+}
+
+.fleet-booking-title {
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  color: #fff;
+}
+
+.fleet-booking-subtitle {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 20px 0;
+}
+
+.fleet-booking-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  min-width: 0;
+}
+
+.fleet-form-row {
+  display: grid;
+  gap: 8px;
+  grid-column: 1/-1;
+  min-width: 0;
+}
+
+.fleet-form-row label {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.fleet-form-row input,
+.fleet-form-row textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  caret-color: #fff;
+  width: 100%;
+  min-width: 0;
+}
+
+.fleet-booking-form input,
+.fleet-booking-form textarea,
+.fleet-booking-form select {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.fleet-booking-form input:focus,
+.fleet-booking-form textarea:focus,
+.fleet-booking-form select:focus {
+  color: #ffffff !important;
+}
+
+.fleet-booking-form input:-webkit-autofill,
+.fleet-booking-form textarea:-webkit-autofill,
+.fleet-booking-form select:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 0 0px 1000px rgba(12, 15, 23, 0.96) inset;
+  transition: background-color 9999s ease-out 0s;
+}
+
+.fleet-form-row input::placeholder,
+.fleet-form-row textarea::placeholder {
+  color: rgba(255, 255, 255, 0.32) !important;
+}
+
+.fleet-form-row--full {
+  grid-column: 1/-1;
+}
+
+.fleet-form-row--half {
+  grid-column: auto;
+}
+
+.fleet-form-row textarea {
+  min-height: 72px;
+  max-height: 72px;
+  resize: none;
+}
+
+.fleet-form-row input:focus,
+.fleet-form-row textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.fleet-form-row input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.fleet-form-row input[type=number]::-webkit-outer-spin-button,
+.fleet-form-row input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fleet-form-row input[type=datetime-local] {
+  color-scheme: dark;
+  color: #fff;
+}
+
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-fields-wrapper,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-text,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-month-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-day-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-year-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-hour-field,
+.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-minute-field {
+  color: #fff;
+}
+
+.fleet-form-submit {
+  margin-top: 12px;
+  grid-column: 1/-1;
+}
+
+.fleet-success-dialog {
+  text-align: center;
+}
+
+.fleet-success-content {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+.fleet-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(37, 197, 138, 0.15);
+  border: 1px solid rgba(37, 197, 138, 0.35);
+  color: #25c58a;
+  font-size: 34px;
+}
+
+.fleet-success-button {
+  min-width: 160px;
+}
+
+@keyframes fleetPop {
+  from {
+    transform: translateY(20px) scale(0.98);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 1024px) {
+  .fleet-slider-title {
+    font-size: 32px;
+  }
+  .fleet-slider-lead {
+    font-size: 15px;
+  }
+  .fleet-card-media {
+    height: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-slider-title-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fleet-slider-title {
+    font-size: 26px;
+  }
+  .fleet-slider-lead {
+    max-width: 100%;
+  }
+  .fleet-slider-wrapper {
+    max-width: none;
+    width: calc(100vw - 40px);
+    padding: 0 16px 24px 9px;
+  }
+  .fleet-slider-wrapper .nav-arrows {
+    padding: 0;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-booking-form {
+    grid-template-columns: 1fr;
+  }
+  .fleet-form-row--half {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 600px) {
+  .fleet-slider-wrapper {
+    width: calc(100vw - 20px);
+    padding: 0 10px 24px;
+  }
+  .fleet-booking-dialog {
+    padding: 20px;
+    border-radius: 24px;
+  }
+  .fleet-booking-close {
+    width: 36px;
+    height: 36px;
+    top: 14px;
+    right: 14px;
+  }
+  .fleet-booking-close {
+    font-size: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .fleet-booking-form {
+    grid-template-columns: 1fr;
+  }
+  .fleet-form-row--half {
+    grid-column: 1/-1;
+  }
+}
+/**
  * Occasions Block Styles
  * Uses why-us structure and styles. Only occasions-specific overrides.
  */
@@ -6544,6 +7051,20 @@ a.phone-button:focus,
     font-size: 12px;
   }
 }
+.services-block--limousine {
+  padding-top: 0;
+}
+@media (max-width: 1024px) {
+  .services-block--limousine {
+    padding-top: 0;
+  }
+}
+@media (max-width: 768px) {
+  .services-block--limousine {
+    padding-top: 0;
+  }
+}
+
 /**
  * Custom Itinerary Block Styles
  */
@@ -6566,6 +7087,25 @@ a.phone-button:focus,
   .custom-itinerary-block {
     margin-top: 40px;
     padding-bottom: 10px;
+  }
+}
+
+.custom-itinerary-block--limousine {
+  margin-bottom: 150px;
+}
+@media (max-width: 1440px) {
+  .custom-itinerary-block--limousine {
+    margin-bottom: 150px;
+  }
+}
+@media (max-width: 1024px) {
+  .custom-itinerary-block--limousine {
+    margin-bottom: 120px;
+  }
+}
+@media (max-width: 768px) {
+  .custom-itinerary-block--limousine {
+    margin-bottom: 100px;
   }
 }
 
@@ -6975,519 +7515,3 @@ a.phone-button:focus,
 }
 
 /*# sourceMappingURL=style.css.map */
-
-/**
- * Fleet Slider Block Styles
- */
-.fleet-slider-block {
-  width: 100%;
-  margin-top: 150px;
-  margin-bottom: 0;
-  padding: 0;
-  background: transparent;
-}
-@media (max-width: 1024px) {
-  .fleet-slider-block {
-    margin-top: 60px;
-  }
-}
-@media (max-width: 768px) {
-  .fleet-slider-block {
-    margin-top: 80px;
-  }
-}
-
-.fleet-slider-container {
-  width: 100%;
-  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-@media (max-width: 1024px) {
-  .fleet-slider-container {
-    width: 100%;
-    max-width: 944px;
-    padding: 0 20px;
-    margin: 0 auto;
-    box-sizing: content-box;
-  }
-}
-@media (max-width: 768px) {
-  .fleet-slider-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 20px;
-    margin: 0;
-    box-sizing: border-box;
-  }
-}
-
-.fleet-slider-heading {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-  margin-bottom: 40px;
-}
-
-.fleet-slider-line {
-  flex: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.fleet-slider-title-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 56px;
-  margin-bottom: 56px;
-}
-
-.fleet-slider-title {
-  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  color: #fff;
-  margin: 0;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  max-width: 760px;
-}
-
-.fleet-slider-lead {
-  font-family: "Manrope", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #fff;
-  margin: 8px 0 0 0;
-  opacity: 0.85;
-  max-width: 320px;
-}
-
-.fleet-slider-wrapper {
-  position: relative;
-  padding: 0 24px 40px;
-}
-
-.fleet-slider {
-  overflow: visible;
-}
-
-.fleet-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px inset rgba(255, 255, 255, 0.16);
-  background: rgba(12, 15, 23, 0.82);
-  box-sizing: border-box;
-  height: 100%;
-  pointer-events: auto;
-}
-
-.fleet-card-media {
-  height: 250px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.fleet-card-image {
-  max-width: 90%;
-  max-height: 90%;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-}
-
-.fleet-card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.fleet-card-title {
-  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  color: #fff;
-  margin: 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.fleet-card-meta {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.4);
-  font-family: "Manrope", sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-.fleet-card-meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.fleet-card-meta-icon {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
-}
-
-.fleet-card-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: auto;
-  position: relative;
-  z-index: 2;
-}
-
-.fleet-card-action {
-  padding: 10px 18px;
-  min-width: 0;
-}
-
-.fleet-card-action.btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: transparent;
-  color: #fff;
-  box-shadow: none;
-}
-.fleet-slider-wrapper .nav-arrows {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  justify-content: space-between;
-  pointer-events: none;
-  padding: 0 24px;
-}
-
-.fleet-slider-wrapper .nav-arrow {
-  pointer-events: all;
-}
-
-.fleet-booking-modal,
-.fleet-success-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.fleet-booking-modal.is-open,
-.fleet-success-modal.is-open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.fleet-booking-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(12, 15, 23, 0.72);
-  backdrop-filter: blur(6px);
-}
-
-.fleet-booking-dialog {
-  position: relative;
-  z-index: 2;
-  width: min(520px, 92vw);
-  max-height: min(90vh, 720px);
-  background: rgba(12, 15, 23, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 32px;
-  padding: 32px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-  animation: fleetPop 0.35s ease;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-}
-
-.fleet-booking-dialog * {
-  pointer-events: auto;
-}
-
-.fleet-booking-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
-  font-size: 22px;
-  line-height: 1;
-  padding: 0;
-  text-align: center;
-  text-indent: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 3;
-  appearance: none;
-  pointer-events: auto;
-}
-.fleet-booking-title {
-  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 28px;
-  font-weight: 500;
-  margin: 0 0 12px 0;
-  color: #fff;
-}
-
-.fleet-booking-subtitle {
-  font-family: "Manrope", sans-serif;
-  font-size: 15px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0 0 20px 0;
-}
-
-.fleet-booking-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  min-width: 0;
-}
-
-.fleet-form-row {
-  display: grid;
-  gap: 8px;
-  grid-column: 1/-1;
-  min-width: 0;
-}
-
-.fleet-form-row label {
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.fleet-form-row input,
-.fleet-form-row textarea {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 12px 14px;
-  color: #fff;
-  font-family: "Manrope", sans-serif;
-  font-size: 15px;
-  caret-color: #fff;
-  width: 100%;
-  min-width: 0;
-}
-
-.fleet-booking-form input,
-.fleet-booking-form textarea,
-.fleet-booking-form select {
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
-}
-
-.fleet-booking-form input:focus,
-.fleet-booking-form textarea:focus,
-.fleet-booking-form select:focus {
-  color: #fff !important;
-}
-
-.fleet-booking-form input:-webkit-autofill,
-.fleet-booking-form textarea:-webkit-autofill,
-.fleet-booking-form select:-webkit-autofill {
-  -webkit-text-fill-color: #fff !important;
-  box-shadow: 0 0 0px 1000px rgba(12, 15, 23, 0.96) inset;
-  transition: background-color 9999s ease-out 0s;
-}
-
-.fleet-form-row input::placeholder,
-.fleet-form-row textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-.fleet-form-row--full {
-  grid-column: 1/-1;
-}
-
-.fleet-form-row--half {
-  grid-column: auto;
-}
-
-.fleet-form-row textarea {
-  min-height: 72px;
-  max-height: 72px;
-  resize: none;
-}
-
-.fleet-form-row input:focus,
-.fleet-form-row textarea:focus {
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.fleet-form-row input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.fleet-form-row input[type=number]::-webkit-outer-spin-button,
-.fleet-form-row input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.fleet-form-row input[type=datetime-local] {
-  color-scheme: dark;
-  color: #fff;
-}
-
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit,
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-fields-wrapper,
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-text,
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-month-field,
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-day-field,
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-year-field,
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-hour-field,
-.fleet-form-row input[type=datetime-local]::-webkit-datetime-edit-minute-field {
-  color: #fff;
-}
-
-.fleet-form-submit {
-  margin-top: 12px;
-  grid-column: 1/-1;
-}
-
-.fleet-success-dialog {
-  text-align: center;
-}
-
-.fleet-success-content {
-  display: grid;
-  gap: 16px;
-  justify-items: center;
-}
-
-.fleet-success-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: rgba(37, 197, 138, 0.15);
-  border: 1px solid rgba(37, 197, 138, 0.35);
-  color: #25c58a;
-  font-size: 34px;
-}
-
-.fleet-success-button {
-  min-width: 160px;
-}
-
-@keyframes fleetPop {
-  from {
-    transform: translateY(20px) scale(0.98);
-    opacity: 0.7;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 1024px) {
-  .fleet-slider-title {
-    font-size: 32px;
-  }
-
-  .fleet-slider-lead {
-    font-size: 15px;
-  }
-
-  .fleet-card-media {
-    height: 220px;
-  }
-}
-
-@media (max-width: 768px) {
-  .fleet-slider-heading {
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-
-  .fleet-slider-title-row {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .fleet-slider-title {
-    font-size: 26px;
-  }
-
-  .fleet-slider-lead {
-    max-width: 100%;
-  }
-
-  .fleet-slider-wrapper {
-    padding: 0 12px 32px;
-  }
-
-  .fleet-slider-wrapper .nav-arrows {
-    padding: 0 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .fleet-booking-form {
-    grid-template-columns: 1fr;
-  }
-
-  .fleet-form-row--half {
-    grid-column: 1/-1;
-  }
-}
-
-@media (max-width: 600px) {
-  .fleet-slider-wrapper {
-    padding: 0 0 32px;
-  }
-
-  .fleet-booking-dialog {
-    padding: 20px;
-    border-radius: 24px;
-  }
-
-  .fleet-booking-close {
-    width: 36px;
-    height: 36px;
-    top: 14px;
-    right: 14px;
-  }
-  .fleet-booking-close {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 520px) {
-  .fleet-booking-form {
-    grid-template-columns: 1fr;
-  }
-
-  .fleet-form-row--half {
-    grid-column: 1/-1;
-  }
-}
