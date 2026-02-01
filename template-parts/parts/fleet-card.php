@@ -67,7 +67,7 @@ if ( $bags !== '' ) {
 $image_id = $product->get_image_id();
 $site_url = get_site_url();
 $bags_icon_url = $site_url . '/wp-content/uploads/2026/02/bags.svg';
-$passenger_icon_url = $site_url . '/wp-content/uploads/2026/02/bags.svg';
+$passenger_icon_url = $site_url . '/wp-content/uploads/2026/02/passenger.svg';
 $book_url = $product->is_purchasable() && $product->is_in_stock()
 	? $product->add_to_cart_url()
 	: $product->get_permalink();
