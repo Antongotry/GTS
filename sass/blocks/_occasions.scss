@@ -253,6 +253,11 @@
 	display: block;
 }
 
+// Heading line — only on mobile in occasions block
+.occasions-block .why-us-heading .why-us-heading-line {
+	display: none;
+}
+
 // Mobile-only footer text in heading — hidden on desktop
 .occasions-block .why-us-heading .occasions-footer-text-mobile {
 	display: none;
@@ -321,6 +326,12 @@
 	.occasions-block .why-us-heading {
 		display: flex;
 		flex-wrap: wrap;
+	}
+
+	.occasions-block .why-us-heading .why-us-heading-line {
+		display: block;
+		flex: 1;
+		min-height: 1px;
 	}
 
 	.occasions-block .why-us-heading .occasions-title-wrapper {

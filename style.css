@@ -5479,6 +5479,10 @@ a.phone-button:focus,
   display: block;
 }
 
+.occasions-block .why-us-heading .why-us-heading-line {
+  display: none;
+}
+
 .occasions-block .why-us-heading .occasions-footer-text-mobile {
   display: none;
 }
@@ -5545,6 +5549,11 @@ a.phone-button:focus,
   .occasions-block .why-us-heading {
     display: flex;
     flex-wrap: wrap;
+  }
+  .occasions-block .why-us-heading .why-us-heading-line {
+    display: block;
+    flex: 1;
+    min-height: 1px;
   }
   .occasions-block .why-us-heading .occasions-title-wrapper {
     flex-basis: 100%;
