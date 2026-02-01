@@ -87,6 +87,7 @@
 	border-radius: 50%;
 	flex-shrink: 0;
 	box-sizing: border-box;
+	text-decoration: none;
 
 	img {
 		width: 24px;
@@ -105,6 +106,33 @@
 
 .custom-itinerary-block--limousine .custom-itinerary-button {
 	margin-top: 0;
+
+	@include md {
+		width: auto; // на телефоне кнопка по ширине текста, не широкая
+		min-width: 0;
+		padding: 0 20px;
+	}
+}
+
+// На телефоне в варианте Limousine — скрыть все декоративные линии
+@include md {
+	.custom-itinerary-block--limousine .custom-itinerary-line {
+		display: none !important;
+	}
+}
+
+// Ховер на иконках (вариант Limousine)
+.custom-itinerary-block--limousine .custom-itinerary-icon {
+	transition: opacity 0.2s ease, transform 0.2s ease;
+
+	&:hover {
+		opacity: 0.9;
+		transform: scale(1.08);
+	}
+
+	&:active {
+		transform: scale(1.02);
+	}
 }
 
 .custom-itinerary-block--limousine .custom-itinerary-description {

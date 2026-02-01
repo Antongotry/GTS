@@ -6632,6 +6632,7 @@ a.phone-button:focus,
   border-radius: 50%;
   flex-shrink: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 .custom-itinerary-block--limousine .custom-itinerary-icon img {
   width: 24px;
@@ -6647,6 +6648,29 @@ a.phone-button:focus,
 
 .custom-itinerary-block--limousine .custom-itinerary-button {
   margin-top: 0;
+}
+@media (max-width: 768px) {
+  .custom-itinerary-block--limousine .custom-itinerary-button {
+    width: auto;
+    min-width: 0;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-itinerary-block--limousine .custom-itinerary-line {
+    display: none !important;
+  }
+}
+.custom-itinerary-block--limousine .custom-itinerary-icon {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.custom-itinerary-block--limousine .custom-itinerary-icon:hover {
+  opacity: 0.9;
+  transform: scale(1.08);
+}
+.custom-itinerary-block--limousine .custom-itinerary-icon:active {
+  transform: scale(1.02);
 }
 
 .custom-itinerary-block--limousine .custom-itinerary-description {
