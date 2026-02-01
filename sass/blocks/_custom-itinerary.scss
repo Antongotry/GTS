@@ -60,6 +60,10 @@
 	justify-content: center;
 	gap: 16px; // между кнопкой, текстом и блоком иконок
 	margin-top: auto;
+
+	@include md {
+		margin-top: 24px; // на телефоне отступ между описанием и блоком действий
+	}
 }
 
 .custom-itinerary-block--limousine .custom-itinerary-contact-label {
