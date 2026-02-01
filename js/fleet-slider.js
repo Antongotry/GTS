@@ -8,6 +8,8 @@
 			spaceBetween: 0,
 			watchOverflow: true,
 			loop: slideCount > 3,
+			preventClicks: false,
+			preventClicksPropagation: false,
 			navigation: {
 				nextEl: '.fleet-slider-next',
 				prevEl: '.fleet-slider-prev',

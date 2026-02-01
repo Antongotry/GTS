@@ -88,6 +88,7 @@
 	background: rgba(12, 15, 23, 0.82);
 	box-sizing: border-box;
 	height: 100%;
+	pointer-events: auto;
 }
 
 .fleet-card-media {
@@ -152,6 +153,8 @@
 	align-items: center;
 	gap: $spacing-md;
 	margin-top: auto;
+	position: relative;
+	z-index: 2;
 }
 
 .fleet-card-action {
