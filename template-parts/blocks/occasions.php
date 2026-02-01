@@ -33,11 +33,17 @@ $icon_events_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg';
 				<p class="why-us-item-description"><?php echo wp_kses_post( 'ensure a seamless experience for board members,<br>CEOs, or international guests.' ); ?></p>
 			</div>
 
-			<!-- Item 2: Airport Limousine Service (with image bg) - no icon, like why-us item 1/6 -->
-			<div class="why-us-item why-us-item-2" style="background-image: url('<?php echo esc_url( $image_airport_url ); ?>');">
+			<!-- Item 2: Airport Limousine Service -->
+			<div class="why-us-item why-us-item-2">
+				<div class="why-us-item-icon-wrapper">
+					<img src="<?php echo esc_url( $icon_airport_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
+				</div>
 				<h3 class="why-us-item-title"><?php echo esc_html__( 'Airport Limousine Service', 'gts-theme' ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( 'punctual, monitored, and stress-free – from arrival gate<br>to final destination.' ); ?></p>
 			</div>
+
+			<!-- Item 2b: Airport image card (row 1, right) -->
+			<div class="why-us-item occasions-item-image" style="background-image: url('<?php echo esc_url( $image_airport_url ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Airport limousine', 'gts-theme' ); ?>"></div>
 
 			<!-- Item 3: Multi-Day Itineraries -->
 			<div class="why-us-item why-us-item-3">
@@ -57,13 +63,19 @@ $icon_events_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg';
 				<p class="why-us-item-description"><?php echo wp_kses_post( 'weddings, galas, proms, birthday and personal<br>celebrations with impeccable service.' ); ?></p>
 			</div>
 
-			<!-- Item 5: Events & Conferences (with image bg) - no icon, like why-us item 1/6 -->
-			<div class="why-us-item why-us-item-5" style="background-image: url('<?php echo esc_url( $image_events_url ); ?>');">
-				<h3 class="why-us-item-title"><?php echo esc_html__( 'Events & Conferences', 'gts-theme' ); ?></h3>
-				<p class="why-us-item-description"><?php echo wp_kses_post( 'coordinated logistics for delegations, summits,<br>and VIP gatherings.' ); ?></p>
+			<!-- Item 5: Events & Conferences - split: image (left) + white card (right), row 3 -->
+			<div class="occasions-item-split occasions-item-5">
+				<div class="occasions-split-image" style="background-image: url('<?php echo esc_url( $image_events_url ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Conference audience', 'gts-theme' ); ?>"></div>
+				<div class="occasions-split-card occasions-split-card--light">
+					<div class="why-us-item-icon-wrapper">
+						<img src="<?php echo esc_url( $icon_events_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
+					</div>
+					<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html__( 'Events & Conferences', 'gts-theme' ); ?></h3>
+					<p class="why-us-item-description occasions-card-description--dark"><?php echo esc_html__( 'coordinated logistics for delegations, summits, and VIP gatherings.', 'gts-theme' ); ?></p>
+				</div>
 			</div>
 
-			<!-- Item 6: Footer text (spans 2 cols, row 2) -->
+			<!-- Item 6: Footer text - row 3, right side -->
 			<div class="why-us-item why-us-item-6 occasions-footer-item">
 				<p class="why-us-item-description occasions-footer-text"><?php echo esc_html__( 'Whether it\'s a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.', 'gts-theme' ); ?></p>
 			</div>
