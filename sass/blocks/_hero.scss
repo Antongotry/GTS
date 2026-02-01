@@ -70,12 +70,12 @@
 	display: flex;
 	flex-direction: column;
 	align-self: stretch; // Растянуть на высоту контейнера
-	padding-top: 280px; // Ниже (1920px), в одну линию с формой
+	padding-top: 340px; // Ещё ниже (1920px), в одну линию с формой
 	padding-bottom: 32px; // Отступ снизу
 	box-sizing: border-box;
 
 	@include xl {
-		padding-top: 220px; // 1440px — в одну линию с формой
+		padding-top: 280px; // 1440px — в одну линию с формой
 	}
 
 	@include lg {
@@ -277,13 +277,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end; // Прижать форму и world-map к низу
-	padding-top: 280px; // 1920px: в одну линию с левым контентом
+	padding-top: 340px; // 1920px: в одну линию с левым контентом
 	padding-bottom: 32px;
 	box-sizing: border-box;
 	min-height: 100%; // Растянуть на всю высоту
 
 	@include xl {
-		padding-top: 220px; // 1440px
+		padding-top: 280px; // 1440px
 	}
 
 	@include lg {
