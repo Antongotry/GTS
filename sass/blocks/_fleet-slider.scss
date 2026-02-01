@@ -20,6 +20,8 @@
 
 .fleet-slider-container {
 	@include container($container-max-width-content);
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .fleet-slider-heading {
