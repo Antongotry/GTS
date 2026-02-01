@@ -3564,18 +3564,16 @@ a.phone-button:focus,
 }
 
 .faq-item__content-wrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease-out;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
 }
 .faq-item[open] .faq-item__content-wrapper {
-  grid-template-rows: 1fr;
+  max-height: 600px;
 }
 
 .faq-item__content {
-  overflow: hidden;
-  min-height: 0;
-  padding: 0 24px 24px 0;
+  padding: 0 24px 24px 24px;
   box-sizing: border-box;
   text-align: left;
 }
