@@ -68,12 +68,13 @@
 	max-width: 320px;
 }
 
+// Same width as .header-container: max 1840px, 20px left / 5px right padding
 .fleet-slider-wrapper {
 	position: relative;
 	width: 100%;
 	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - #{$container-padding * 2}));
 	margin: 0 auto;
-	padding: 0 $container-padding $spacing-2xl;
+	padding: 0 5px $spacing-2xl $container-padding;
 	box-sizing: border-box;
 }
 
@@ -193,13 +194,15 @@
 	align-items: center;
 	justify-content: center;
 	opacity: 0;
+	visibility: hidden;
 	pointer-events: none;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .fleet-booking-modal.is-open,
 .fleet-success-modal.is-open {
 	opacity: 1;
+	visibility: visible;
 	pointer-events: all;
 }
 
@@ -428,7 +431,9 @@
 	}
 
 	.fleet-slider-wrapper {
-		padding: 0 $container-padding $spacing-xl;
+		max-width: none;
+		width: calc(100vw - 40px);
+		padding: 0 16px $spacing-xl 9px;
 	}
 
 	.fleet-slider-wrapper .nav-arrows {
@@ -438,6 +443,7 @@
 
 @media (max-width: 600px) {
 	.fleet-slider-wrapper {
+		width: calc(100vw - #{$container-padding-mobile * 2});
 		padding: 0 $container-padding-mobile $spacing-xl;
 	}
 
