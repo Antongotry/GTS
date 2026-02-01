@@ -5944,7 +5944,28 @@ a.phone-button:focus,
  * Uses why-us structure and styles. Only occasions-specific overrides.
  */
 .occasions-block.why-us-block {
-	margin-top: 0;
+	margin-top: 90px;
+}
+
+@media (max-width: 1440px) {
+
+	.occasions-block.why-us-block {
+		margin-top: 150px;
+	}
+}
+
+@media (max-width: 1024px) {
+
+	.occasions-block.why-us-block {
+		margin-top: 120px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.occasions-block.why-us-block {
+		margin-top: 100px;
+	}
 }
 
 .occasions-block .why-us-grid {
@@ -5973,18 +5994,23 @@ a.phone-button:focus,
 }
 
 .occasions-block .why-us-item-3 {
-	grid-column: 4;
-	grid-row: 1;
-}
-
-.occasions-block .why-us-item-4 {
 	grid-column: 2;
 	grid-row: 2;
 }
 
-.occasions-block .why-us-item-5 {
+.occasions-block .why-us-item-4 {
 	grid-column: 3/span 2;
 	grid-row: 2;
+}
+
+.occasions-block .occasions-item-5 {
+	grid-column: 1/span 2;
+	grid-row: 3;
+}
+
+.occasions-block .occasions-item-image {
+	grid-column: 4;
+	grid-row: 1;
 }
 
 .occasions-block .why-us-item-6 {
@@ -6002,6 +6028,73 @@ a.phone-button:focus,
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+.occasions-item-split {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 0;
+	height: 380px;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+
+	.occasions-item-split {
+		height: 284px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.occasions-item-split {
+		grid-template-columns: 1fr;
+		grid-template-rows: 180px auto;
+		height: auto;
+	}
+}
+
+.occasions-split-image {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	min-height: 140px;
+}
+
+@media (max-width: 768px) {
+
+	.occasions-split-image {
+		min-height: 180px;
+	}
+}
+
+.occasions-split-card {
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+
+	.occasions-split-card {
+		padding: 20px;
+	}
+}
+
+.occasions-split-card--light {
+	background: #f5f5f5;
+}
+
+.occasions-card-title--dark {
+	color: #0c0f17 !important;
+}
+
+.occasions-card-description--dark {
+	color: rgba(12, 15, 23, 0.85) !important;
+	opacity: 1 !important;
 }
 
 .occasions-block .why-us-item-icon-wrapper {
@@ -6115,23 +6208,28 @@ a.phone-button:focus,
 	}
 
 	.occasions-block .why-us-item-3 {
-		grid-column: 2;
-		grid-row: 2;
-	}
-
-	.occasions-block .why-us-item-4 {
 		grid-column: 1;
 		grid-row: 3;
 	}
 
-	.occasions-block .why-us-item-5 {
+	.occasions-block .why-us-item-4 {
 		grid-column: 2;
 		grid-row: 3;
 	}
 
-	.occasions-block .why-us-item-6 {
+	.occasions-block .occasions-item-5 {
 		grid-column: 1/-1;
 		grid-row: 4;
+	}
+
+	.occasions-block .why-us-item-6 {
+		grid-column: 1/-1;
+		grid-row: 5;
+	}
+
+	.occasions-block .occasions-item-image {
+		grid-column: 2;
+		grid-row: 2;
 	}
 }
 
