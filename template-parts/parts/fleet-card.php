@@ -65,6 +65,9 @@ if ( $bags !== '' ) {
 }
 
 $image_id = $product->get_image_id();
+$site_url = get_site_url();
+$bags_icon_url = $site_url . '/wp-content/uploads/2026/02/bags.svg';
+$passenger_icon_url = $site_url . '/wp-content/uploads/2026/02/bags.svg';
 $book_url = $product->is_purchasable() && $product->is_in_stock()
 	? $product->add_to_cart_url()
 	: $product->get_permalink();
@@ -84,17 +87,13 @@ $book_url = $product->is_purchasable() && $product->is_in_stock()
 			<div class="fleet-card-meta">
 				<?php if ( $passengers !== '' ) : ?>
 					<span class="fleet-card-meta-item">
-						<svg class="fleet-card-meta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-							<path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z" />
-						</svg>
+						<img src="<?php echo esc_url( $passenger_icon_url ); ?>" alt="" class="fleet-card-meta-icon" width="26" height="26" loading="lazy">
 						<?php echo esc_html( $passengers ); ?>
 					</span>
 				<?php endif; ?>
 				<?php if ( $bags !== '' ) : ?>
 					<span class="fleet-card-meta-item">
-						<svg class="fleet-card-meta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-							<path d="M7 6V4a3 3 0 0 1 6 0v2h2a2 2 0 0 1 2 2v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8a2 2 0 0 1 2-2zm2 0h4V4a2 2 0 0 0-4 0v2zm-1 4a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0-1-1zm8 0a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0-1-1z" />
-						</svg>
+						<img src="<?php echo esc_url( $bags_icon_url ); ?>" alt="" class="fleet-card-meta-icon" width="26" height="26" loading="lazy">
 						<?php echo esc_html( $bags ); ?>
 					</span>
 				<?php endif; ?>

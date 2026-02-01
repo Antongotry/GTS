@@ -109,32 +109,34 @@
 
 .fleet-card-title {
 	font-family: $font__main;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: 500;
 	color: $color__text-main;
 	margin: 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
 }
 
 .fleet-card-meta {
 	display: flex;
 	gap: $spacing-lg;
 	align-items: center;
-	color: rgba(255, 255, 255, 0.7);
+	color: rgba(255, 255, 255, 0.4);
 	font-family: $font__manrope;
-	font-size: 14px;
+	font-size: 16px;
+	line-height: 1.4;
 }
 
 .fleet-card-meta-item {
 	display: inline-flex;
 	align-items: center;
-	gap: 8px;
+	gap: 7px;
 }
 
 .fleet-card-meta-icon {
-	width: 16px;
-	height: 16px;
-	fill: currentColor;
-	opacity: 0.8;
+	width: 26px;
+	height: 26px;
+	object-fit: contain;
 }
 
 .fleet-card-actions {
