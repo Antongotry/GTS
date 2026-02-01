@@ -24,7 +24,7 @@
 .custom-itinerary-container {
 	position: relative;
 	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - 40px));
-	min-height: 208px;
+	height: 208px;
 	margin: 0 auto;
 	padding: $spacing-xl; // 24px со всех сторон
 	background: #fcdcaa; // Фон контейнера
@@ -38,13 +38,22 @@
 		padding: 24px 20px; // 24px сверху/снизу, 20px по бокам
 		max-width: 100% !important;
 		width: 100% !important;
-		min-height: 212px !important;
+		height: 212px !important;
 		box-sizing: border-box !important;
 	}
 }
 
-// Ряд: кнопка — 16px — «or contact via» — 16px — иконки (10px между иконками)
-.custom-itinerary-actions {
+// ========== Вариант только для страницы Limousine Service (custom-itinerary-limousine.php) ==========
+.custom-itinerary-block--limousine .custom-itinerary-container {
+	height: auto;
+	min-height: 208px;
+
+	@include md {
+		min-height: 212px !important;
+	}
+}
+
+.custom-itinerary-block--limousine .custom-itinerary-actions {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -53,7 +62,7 @@
 	margin-top: auto;
 }
 
-.custom-itinerary-contact-label {
+.custom-itinerary-block--limousine .custom-itinerary-contact-label {
 	font-family: $font__manrope;
 	font-weight: 400;
 	font-style: normal;
@@ -63,13 +72,13 @@
 	color: #000;
 }
 
-.custom-itinerary-icons {
+.custom-itinerary-block--limousine .custom-itinerary-icons {
 	display: flex;
 	align-items: center;
 	gap: 10px; // между иконками
 }
 
-.custom-itinerary-icon {
+.custom-itinerary-block--limousine .custom-itinerary-icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -94,8 +103,18 @@
 	}
 }
 
-.custom-itinerary-block .custom-itinerary-button {
+.custom-itinerary-block--limousine .custom-itinerary-button {
 	margin-top: 0;
+}
+
+.custom-itinerary-block--limousine .custom-itinerary-description {
+	font-family: $font__manrope;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 150%;
+	letter-spacing: 0;
+	color: #000;
 }
 
 // Декоративные линии
@@ -162,13 +181,4 @@
 	}
 }
 
-// Текст блока: Manrope 400, 14px, 150%, чёрный
-.custom-itinerary-block .custom-itinerary-description {
-	font-family: $font__manrope;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 14px;
-	line-height: 150%;
-	letter-spacing: 0;
-	color: #000;
-}
+// Описание в варианте Limousine — см. выше .custom-itinerary-block--limousine .custom-itinerary-description
