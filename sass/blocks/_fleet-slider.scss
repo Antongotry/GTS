@@ -2,14 +2,16 @@
  * Fleet Slider Block Styles
  */
 
-// Как .site-header: внешний padding, чтобы контейнер центрировался и не вылезал за сетку
+// Как .site-header: внешний padding, контейнер в сетке, без горизонтального скролла
 .fleet-slider-block {
 	width: 100%;
+	max-width: 100vw;
 	margin-top: $spacing-5xl;
 	margin-bottom: 0;
 	padding: 0 $container-padding;
 	background: transparent;
 	box-sizing: border-box;
+	overflow-x: hidden;
 
 	@include lg {
 		margin-top: 60px;
@@ -74,6 +76,7 @@
 }
 
 // Same width as .header-container: max 1840px, 20px left / 5px right padding
+// overflow НЕ на wrapper, чтобы стрелки не обрезались; overflow только на .fleet-slider
 .fleet-slider-wrapper {
 	position: relative;
 	width: 100%;
@@ -81,15 +84,23 @@
 	margin: 0 auto;
 	padding: 0 5px $spacing-2xl $container-padding;
 	box-sizing: border-box;
-	overflow: hidden;
+	isolation: isolate;
 }
 
+// Клип только контент слайдера; стрелки — снаружи клипа (sibling), не обрезаются
 .fleet-slider {
-	overflow: visible;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
 	margin-left: 0;
 	margin-right: 0;
 	max-width: 100%;
 	box-sizing: border-box;
+}
+
+// Слайды ниже стрелок по стеку, иначе карточки перекрывают стрелки
+.fleet-slider .swiper-slide {
+	z-index: 0;
 }
 
 .fleet-slider .swiper-wrapper {
@@ -184,7 +195,7 @@
 	box-shadow: none;
 }
 
-// Стрелки всегда видны, выше карточек и слайдов Swiper
+// Стрелки поверх слайдера: высокий z-index, не обрезаются (overflow на .fleet-slider, не на wrapper)
 .fleet-slider-wrapper .nav-arrows {
 	position: absolute;
 	left: 0;
@@ -192,9 +203,10 @@
 	top: 50%;
 	transform: translateY(-50%);
 	justify-content: space-between;
+	align-items: center;
 	pointer-events: none;
-	padding: 0;
-	z-index: 50;
+	padding: 0 4px;
+	z-index: 100;
 	display: flex !important;
 	visibility: visible !important;
 }
@@ -202,9 +214,10 @@
 .fleet-slider-wrapper .nav-arrow {
 	pointer-events: all;
 	position: relative;
-	z-index: 50;
+	z-index: 101;
 	visibility: visible !important;
 	display: flex !important;
+	flex-shrink: 0;
 }
 
 .fleet-booking-modal,
@@ -386,7 +399,7 @@
 	right: 44px;
 	top: 50%;
 	transform: translateY(-50%);
-	color: rgba(255, 255, 255, 0.4);
+	color: rgba(255, 255, 255, 0.4) !important;
 	font-family: $font__manrope;
 	font-size: 15px;
 	pointer-events: none;

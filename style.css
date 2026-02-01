@@ -1301,7 +1301,8 @@ textarea {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
-  visibility: visible;
+  visibility: visible !important;
+  display: flex !important;
 }
 
 /* Posts and pages
@@ -5485,28 +5486,46 @@ a.phone-button:focus,
  */
 .fleet-slider-block {
   width: 100%;
+  max-width: 100vw;
   margin-top: 150px;
   margin-bottom: 0;
-  padding: 0;
+  padding: 0 20px;
   background: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 @media (max-width: 1024px) {
   .fleet-slider-block {
     margin-top: 60px;
+    padding: 0 20px;
   }
 }
 @media (max-width: 768px) {
   .fleet-slider-block {
     margin-top: 80px;
+    padding: 0 20px;
   }
 }
 
 .fleet-slider-container {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
+  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  margin: 0 auto;
+  padding: 0 5px 0 20px;
   box-sizing: border-box;
+}
+@media (max-width: 1024px) {
+  .fleet-slider-container {
+    padding: 0 4px 0 4px;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-slider-container {
+    max-width: none;
+    width: calc(100vw - 40px);
+    margin: 0 auto;
+    padding: 0 16px 0 9px;
+  }
 }
 
 /* Fleet heading uses .why-us-heading + .why-us-heading-line (same as Why us block) */
@@ -5546,10 +5565,25 @@ a.phone-button:focus,
   margin: 0 auto;
   padding: 0 5px 32px 20px;
   box-sizing: border-box;
+  isolation: isolate;
 }
 
 .fleet-slider {
-  overflow: visible;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.fleet-slider .swiper-slide {
+  z-index: 0;
+}
+
+.fleet-slider .swiper-wrapper {
+  margin-left: 0;
 }
 
 .fleet-card {
@@ -5647,12 +5681,21 @@ a.phone-button:focus,
   top: 50%;
   transform: translateY(-50%);
   justify-content: space-between;
+  align-items: center;
   pointer-events: none;
-  padding: 0;
+  padding: 0 4px;
+  z-index: 100;
+  display: flex !important;
+  visibility: visible !important;
 }
 
 .fleet-slider-wrapper .nav-arrow {
   pointer-events: all;
+  position: relative;
+  z-index: 101;
+  visibility: visible !important;
+  display: flex !important;
+  flex-shrink: 0;
 }
 
 .fleet-booking-modal,
@@ -5820,6 +5863,36 @@ a.phone-button:focus,
   color: rgba(255, 255, 255, 0.4);
 }
 
+.fleet-form-row--datetime {
+  position: relative;
+}
+
+.fleet-form-row--datetime input {
+  padding-right: 44px;
+}
+
+.fleet-datetime-placeholder {
+  position: absolute;
+  left: 14px;
+  right: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.fleet-form-row--datetime input.has-value + .fleet-datetime-placeholder {
+  opacity: 0;
+}
+
+.fleet-form-row--datetime input:not(.has-value) {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
 .fleet-form-row--full {
   grid-column: 1/-1;
 }
@@ -5853,6 +5926,8 @@ a.phone-button:focus,
 .fleet-form-row input[type=datetime-local] {
   color-scheme: dark;
   color: #fff;
+  width: 100%;
+  appearance: none;
 }
 
 .fleet-form-row input[type=datetime-local]::-webkit-datetime-edit,
