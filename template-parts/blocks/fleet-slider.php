@@ -62,6 +62,5 @@ if (empty($products)) {
 		<?php echo gts_nav_arrows('fleet-slider-prev', 'fleet-slider-next', 'Previous vehicle', 'Next vehicle'); ?>
 	</div>
 
-	<?php get_template_part('template-parts/parts/fleet-booking-modal'); ?>
-	<?php get_template_part('template-parts/parts/fleet-success-modal'); ?>
+	<?php /* Modals injected by JS on open, removed on close — not in initial DOM */ ?>
 </section>

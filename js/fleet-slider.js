@@ -35,73 +35,121 @@
 		});
 	}
 
-	const bookingModal = document.querySelector('.fleet-booking-modal');
-	const successModal = document.querySelector('.fleet-success-modal');
-	const bookingForm = document.querySelector('#fleet-booking-form');
-	const vehicleField = document.querySelector('#fleet-vehicle-field');
-	const bookingTitle = document.querySelector('#fleet-booking-title');
+	// Modals are not in initial DOM — fetch on first open, inject, remove on close
+	let modalsCache = null;
+	const modalsUrl = (typeof wpApiSettings !== 'undefined' && wpApiSettings.root)
+		? wpApiSettings.root + 'gts/v1/fleet-modals'
+		: window.location.origin + '/wp-json/gts/v1/fleet-modals';
 
-	if (!bookingModal || !successModal || !bookingForm) {
-		return;
+	function getModals() {
+		if (modalsCache) {
+			return Promise.resolve(modalsCache);
+		}
+		return fetch(modalsUrl)
+			.then((r) => r.json())
+			.then((data) => {
+				modalsCache = data;
+				return data;
+			});
 	}
 
-	const openBooking = (vehicleName) => {
-		bookingModal.setAttribute('aria-hidden', 'false');
-		bookingModal.classList.add('is-open');
-		document.body.classList.add('modal-open');
-		if (vehicleField) {
-			vehicleField.value = vehicleName || '';
-		}
-		if (bookingTitle && vehicleName) {
-			bookingTitle.textContent = `Book ${vehicleName}`;
-		}
-	};
+	function openBooking(vehicleName) {
+		getModals().then((data) => {
+			let bookingEl = document.querySelector('.fleet-booking-modal');
+			if (!bookingEl) {
+				const wrap = document.createElement('div');
+				wrap.innerHTML = data.booking;
+				bookingEl = wrap.firstElementChild;
+				document.body.appendChild(bookingEl);
 
-	const closeBooking = () => {
-		bookingModal.setAttribute('aria-hidden', 'true');
-		bookingModal.classList.remove('is-open');
-		document.body.classList.remove('modal-open');
-	};
+				const vehicleField = bookingEl.querySelector('#fleet-vehicle-field');
+				const bookingTitle = bookingEl.querySelector('#fleet-booking-title');
+				const bookingForm = bookingEl.querySelector('#fleet-booking-form');
 
-	const openSuccess = () => {
-		successModal.setAttribute('aria-hidden', 'false');
-		successModal.classList.add('is-open');
-		document.body.classList.add('modal-open');
-	};
+				bookingEl.querySelectorAll('[data-modal-close]').forEach((trigger) => {
+					trigger.addEventListener('click', () => closeBooking());
+				});
 
-	const closeSuccess = () => {
-		successModal.setAttribute('aria-hidden', 'true');
-		successModal.classList.remove('is-open');
-		document.body.classList.remove('modal-open');
-	};
+				if (bookingForm) {
+					bookingForm.addEventListener('submit', (e) => {
+						e.preventDefault();
+						closeBooking();
+						openSuccess();
+						bookingForm.reset();
+					});
+				}
 
-	document.querySelectorAll('.fleet-book-trigger').forEach((button) => {
-		button.addEventListener('click', (event) => {
-			event.preventDefault();
-			const vehicleName = button.dataset.vehicle || '';
-			openBooking(vehicleName);
+				document.addEventListener('keydown', handleEscape);
+			}
+
+			if (bookingEl.querySelector('#fleet-vehicle-field')) {
+				bookingEl.querySelector('#fleet-vehicle-field').value = vehicleName || '';
+			}
+			if (bookingEl.querySelector('#fleet-booking-title') && vehicleName) {
+				bookingEl.querySelector('#fleet-booking-title').textContent = 'Book ' + vehicleName;
+			}
+
+			bookingEl.setAttribute('aria-hidden', 'false');
+			bookingEl.classList.add('is-open');
+			document.body.classList.add('modal-open');
 		});
-	});
+	}
 
-	bookingModal.querySelectorAll('[data-modal-close]').forEach((trigger) => {
-		trigger.addEventListener('click', closeBooking);
-	});
+	function closeBooking() {
+		const bookingEl = document.querySelector('.fleet-booking-modal');
+		if (bookingEl) {
+			bookingEl.setAttribute('aria-hidden', 'true');
+			bookingEl.classList.remove('is-open');
+			document.body.classList.remove('modal-open');
+			bookingEl.remove();
+		}
+		document.removeEventListener('keydown', handleEscape);
+	}
 
-	successModal.querySelectorAll('[data-success-close]').forEach((trigger) => {
-		trigger.addEventListener('click', closeSuccess);
-	});
+	function openSuccess() {
+		getModals().then((data) => {
+			let successEl = document.querySelector('.fleet-success-modal');
+			if (!successEl) {
+				const wrap = document.createElement('div');
+				wrap.innerHTML = data.success;
+				successEl = wrap.firstElementChild;
+				document.body.appendChild(successEl);
 
-	bookingForm.addEventListener('submit', (event) => {
-		event.preventDefault();
-		closeBooking();
-		openSuccess();
-		bookingForm.reset();
-	});
+				successEl.querySelectorAll('[data-success-close]').forEach((trigger) => {
+					trigger.addEventListener('click', () => closeSuccess());
+				});
 
-	document.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape') {
+				document.addEventListener('keydown', handleEscape);
+			}
+
+			successEl.setAttribute('aria-hidden', 'false');
+			successEl.classList.add('is-open');
+			document.body.classList.add('modal-open');
+		});
+	}
+
+	function closeSuccess() {
+		const successEl = document.querySelector('.fleet-success-modal');
+		if (successEl) {
+			successEl.setAttribute('aria-hidden', 'true');
+			successEl.classList.remove('is-open');
+			document.body.classList.remove('modal-open');
+			successEl.remove();
+		}
+		document.removeEventListener('keydown', handleEscape);
+	}
+
+	function handleEscape(e) {
+		if (e.key === 'Escape') {
 			closeBooking();
 			closeSuccess();
 		}
+	}
+
+	document.querySelectorAll('.fleet-book-trigger').forEach((button) => {
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
+			openBooking(button.dataset.vehicle || '');
+		});
 	});
 })();
