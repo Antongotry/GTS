@@ -88,12 +88,3 @@
 	@extend .pill-text;
 	color: $color__background-body; // Black text on light background
 }
-
-.occasions-heading-pill {
-	@extend .pill--narrow;
-	@extend .pill--glass;
-}
-
-.occasions-heading-text {
-	@extend .pill-text;
-}
