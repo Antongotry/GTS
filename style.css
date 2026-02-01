@@ -7166,7 +7166,7 @@ a.phone-button:focus,
   transform: translateY(-50%);
   justify-content: space-between;
   pointer-events: none;
-  padding: 0 6px;
+  padding: 0 24px;
 }
 
 .fleet-slider-wrapper .nav-arrow {
@@ -7211,6 +7211,12 @@ a.phone-button:focus,
   }
 
   .fleet-slider-wrapper .nav-arrows {
-    display: none;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .fleet-slider-wrapper {
+    padding: 0 0 32px;
   }
 }

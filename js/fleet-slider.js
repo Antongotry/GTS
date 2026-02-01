@@ -7,8 +7,8 @@
 	const slideCount = slider.querySelectorAll('.swiper-slide').length;
 
 	new Swiper(slider, {
-		slidesPerView: 1.1,
-		spaceBetween: 20,
+		slidesPerView: 1,
+		spaceBetween: 0,
 		watchOverflow: true,
 		loop: slideCount > 3,
 		navigation: {
@@ -17,18 +17,20 @@
 		},
 		breakpoints: {
 			640: {
-				slidesPerView: 1.4,
+				slidesPerView: 1.1,
+				spaceBetween: 12,
 			},
 			768: {
 				slidesPerView: 2,
+				spaceBetween: 20,
 			},
 			1024: {
 				slidesPerView: 3,
-				spaceBetween: 24,
+				spaceBetween: 20,
 			},
-			1280: {
+			1440: {
 				slidesPerView: 3,
-				spaceBetween: 30,
+				spaceBetween: 20,
 			},
 		},
 	});
