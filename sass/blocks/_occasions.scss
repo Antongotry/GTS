@@ -44,8 +44,8 @@
 	align-items: flex-start;
 }
 
-// Airport Limousine — same styles as row3-card: white bg, thin dark border, icon top, text bottom
-.occasions-block .why-us-item-2 {
+// Airport Limousine — same styles as row3-card (higher specificity so it overrides .why-us-item:not())
+.occasions-block .why-us-item.why-us-item-2 {
 	grid-column: 3;
 	grid-row: 1;
 	border: 1px solid rgba(12, 15, 23, 0.15);
@@ -148,8 +148,8 @@
 	grid-row: 3;
 }
 
-// Ensure occasions items match why-us exactly: same background, border, card look
-.occasions-block .why-us-item:not([style*="background-image"]) {
+// Ensure occasions items match why-us: transparent + glass border (item-2 and row3-card have own styles)
+.occasions-block .why-us-item:not([style*="background-image"]):not(.why-us-item-2) {
 	background: transparent;
 	border: 1px inset $color__glass-border;
 }
