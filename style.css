@@ -4259,13 +4259,13 @@ a.phone-button:focus,
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  padding-top: 220px;
+  padding-top: 280px;
   padding-bottom: 32px;
   box-sizing: border-box;
 }
 @media (max-width: 1440px) {
   .hero-left {
-    padding-top: 170px;
+    padding-top: 220px;
   }
 }
 @media (max-width: 1024px) {
@@ -4463,14 +4463,14 @@ a.phone-button:focus,
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-top: 220px;
+  padding-top: 280px;
   padding-bottom: 32px;
   box-sizing: border-box;
   min-height: 100%;
 }
 @media (max-width: 1440px) {
   .hero-right {
-    padding-top: 170px;
+    padding-top: 220px;
   }
 }
 @media (max-width: 1024px) {
