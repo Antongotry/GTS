@@ -36,20 +36,39 @@
 	}
 }
 
-// Row 1: Executive (wide), Airport text, Airport image
+// Row 1: Executive (wide) — icon on top, then title and description
 .occasions-block .why-us-item-1 {
 	grid-column: 1 / span 2;
 	grid-row: 1;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
 
+// Airport Limousine — no border, no white bg, text #0C0F17, icon wrapper #FCDCAA, text at bottom
 .occasions-block .why-us-item-2 {
 	grid-column: 3;
 	grid-row: 1;
+	border: none;
+	background: transparent;
+	justify-content: flex-end;
+	align-items: flex-start;
+
+	.why-us-item-title,
+	.why-us-item-description {
+		color: #0c0f17;
+	}
+
+	.why-us-item-icon-wrapper {
+		background: #fcdcaa;
+		box-shadow: none;
+		border: none;
+	}
 }
 
 .occasions-block .occasions-item-image {
 	grid-column: 4;
 	grid-row: 1;
+	border: none;
 }
 
 // Row 2: пропуск (1 кол), обычный (Multi-Day), широкий (Private)
@@ -67,11 +86,51 @@
 .occasions-block .occasions-row3-image {
 	grid-column: 1;
 	grid-row: 3;
+	height: 380px;
+	min-height: 380px;
+
+	@include lg {
+		height: 284px;
+		min-height: 284px;
+	}
+
+	@include md {
+		height: 278px;
+		min-height: 278px;
+	}
 }
 
 .occasions-block .occasions-row3-card {
 	grid-column: 2;
 	grid-row: 3;
+	height: 380px;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	justify-content: flex-end;
+	align-items: flex-start;
+	border: none;
+	background: transparent;
+
+	.why-us-item-title,
+	.why-us-item-description {
+		color: #0c0f17;
+	}
+
+	.why-us-item-icon-wrapper {
+		background: #fcdcaa;
+		box-shadow: none;
+		border: none;
+	}
+
+	@include lg {
+		height: 284px;
+	}
+
+	@include md {
+		height: 278px;
+		min-height: 278px;
+	}
 }
 
 .occasions-block .why-us-item-6 {
@@ -90,6 +149,7 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	border: none;
 }
 
 // Footer item (item 6) — без рамки
@@ -145,41 +205,11 @@
 	}
 }
 
-.occasions-split-card--light {
-	background: #f5f5f5;
+// Light background only when not overridden by occasions-block (e.g. other pages)
+.occasions-block .occasions-split-card--light {
+	background: transparent;
 }
 
-// Row 3 standalone blocks (same height as split)
-.occasions-block .occasions-row3-image {
-	height: 380px;
-	min-height: 380px;
-
-	@include lg {
-		height: 284px;
-		min-height: 284px;
-	}
-
-	@include md {
-		height: 278px;
-		min-height: 278px;
-	}
-}
-
-.occasions-block .occasions-row3-card {
-	height: 380px;
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-
-	@include lg {
-		height: 284px;
-	}
-
-	@include md {
-		height: 278px;
-		min-height: 278px;
-	}
-}
 
 .occasions-card-title--dark {
 	color: #0c0f17 !important;

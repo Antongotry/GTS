@@ -7,13 +7,13 @@
  */
 
 $site_url = get_site_url();
-$image_airport_url = $site_url . '/wp-content/uploads/2026/01/airport-limousine.webp';
-$image_events_url = $site_url . '/wp-content/uploads/2026/01/events-conference.webp';
-$icon_executive_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-1.svg';
-$icon_airport_url = $site_url . '/wp-content/uploads/2026/01/icon-airplane.svg';
-$icon_multi_day_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-2.svg';
-$icon_private_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-3.svg';
-$icon_events_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg';
+$image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
+$image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
+$icon_executive_url = $site_url . '/wp-content/uploads/2026/02/icon-l-1.svg';
+$icon_airport_url = $site_url . '/wp-content/uploads/2026/02/icon-l-2.svg';
+$icon_multi_day_url = $site_url . '/wp-content/uploads/2026/02/icon-l-3.svg';
+$icon_private_url = $site_url . '/wp-content/uploads/2026/02/icon-l-4.svg';
+$icon_events_url = $site_url . '/wp-content/uploads/2026/02/icon-l-5.svg';
 ?>
 
 <section class="why-us-block occasions-block">
@@ -29,6 +29,9 @@ $icon_events_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg';
 		<div class="why-us-grid">
 			<!-- Row 1: Executive (wide), Airport text, Airport image -->
 			<div class="why-us-item why-us-item-1">
+				<div class="why-us-item-icon-wrapper">
+					<img src="<?php echo esc_url( $icon_executive_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
+				</div>
 				<h3 class="why-us-item-title"><?php echo esc_html__( 'Executive Travel', 'gts-theme' ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( 'ensure a seamless experience for board members,<br>CEOs, or international guests.' ); ?></p>
 			</div>
