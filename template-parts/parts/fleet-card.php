@@ -13,18 +13,33 @@ if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
 
 $product_id = $product->get_id();
 
-$passengers = $product->get_attribute( 'pa_passengers' );
-if ( empty( $passengers ) ) {
-	$passengers = $product->get_attribute( 'passengers' );
+function gts_fleet_get_attribute( $product, $keys ) {
+	foreach ( $keys as $key ) {
+		$value = $product->get_attribute( $key );
+		if ( ! empty( $value ) ) {
+			return $value;
+		}
+	}
+
+	$attributes = $product->get_attributes();
+	foreach ( $keys as $key ) {
+		if ( isset( $attributes[ $key ] ) && $attributes[ $key ] instanceof WC_Product_Attribute ) {
+			$options = $attributes[ $key ]->get_options();
+			if ( ! empty( $options ) ) {
+				return implode( ', ', $options );
+			}
+		}
+	}
+
+	return '';
 }
+
+$passengers = gts_fleet_get_attribute( $product, array( 'pa_passengers', 'passengers' ) );
 if ( empty( $passengers ) ) {
 	$passengers = get_post_meta( $product_id, 'passengers', true );
 }
 
-$bags = $product->get_attribute( 'pa_bags' );
-if ( empty( $bags ) ) {
-	$bags = $product->get_attribute( 'bags' );
-}
+$bags = gts_fleet_get_attribute( $product, array( 'pa_bags', 'bags' ) );
 if ( empty( $bags ) ) {
 	$bags = get_post_meta( $product_id, 'bags', true );
 }
@@ -32,11 +47,19 @@ if ( empty( $bags ) ) {
 $passengers = is_string( $passengers ) ? trim( $passengers ) : '';
 $bags       = is_string( $bags ) ? trim( $bags ) : '';
 
-if ( $passengers !== '' && preg_match( '/^\d+$/', $passengers ) ) {
-	$passengers .= ' passenger';
+if ( $passengers !== '' ) {
+	if ( preg_match( '/^\d+$/', $passengers ) ) {
+		$passengers .= ' passenger';
+	} elseif ( stripos( $passengers, 'passenger' ) === false ) {
+		$passengers .= ' passenger';
+	}
 }
-if ( $bags !== '' && preg_match( '/^\d+$/', $bags ) ) {
-	$bags .= ' bags';
+if ( $bags !== '' ) {
+	if ( preg_match( '/^\d+$/', $bags ) ) {
+		$bags .= ' bags';
+	} elseif ( stripos( $bags, 'bag' ) === false ) {
+		$bags .= ' bags';
+	}
 }
 
 $image_id = $product->get_image_id();
