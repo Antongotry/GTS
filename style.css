@@ -6060,7 +6060,7 @@ a.phone-button:focus,
 
 	.occasions-item-split {
 		grid-template-columns: 1fr;
-		grid-template-rows: 180px auto;
+		grid-template-rows: 180px 278px;
 		height: auto;
 	}
 }
@@ -6090,6 +6090,13 @@ a.phone-button:focus,
 
 	.occasions-split-card {
 		padding: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.occasions-split-card {
+		min-height: 278px;
 	}
 }
 
@@ -6135,8 +6142,8 @@ a.phone-button:focus,
 @media (max-width: 768px) {
 
 	.occasions-block .occasions-row3-card {
-		height: auto;
-		min-height: 0;
+		height: 278px;
+		min-height: 278px;
 	}
 }
 

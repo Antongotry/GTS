@@ -113,7 +113,7 @@
 
 	@include md {
 		grid-template-columns: 1fr;
-		grid-template-rows: 180px auto;
+		grid-template-rows: 180px 278px;
 		height: auto;
 	}
 }
@@ -137,6 +137,10 @@
 
 	@include lg {
 		padding: $spacing-lg;
+	}
+
+	@include md {
+		min-height: 278px;
 	}
 }
 
@@ -171,8 +175,8 @@
 	}
 
 	@include md {
-		height: auto;
-		min-height: 0;
+		height: 278px;
+		min-height: 278px;
 	}
 }
 
