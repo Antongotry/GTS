@@ -25,7 +25,6 @@ $icon_events_url = $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg';
 			<div class="occasions-title-wrapper">
 				<h2 class="occasions-title"><?php echo esc_html__( 'Perfect for Every Occasion', 'gts-theme' ); ?></h2>
 			</div>
-			<div class="why-us-heading-line" aria-hidden="true"></div>
 		</div>
 		<div class="why-us-grid">
 			<!-- Item 1: Executive Travel (spans 2 cols, row 1) - no icon, like why-us item 1 -->

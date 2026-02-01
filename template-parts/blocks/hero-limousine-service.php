@@ -147,6 +147,21 @@ $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-
 				<!-- Submit button -->
 				<button type="submit" class="booking-submit-btn">Get My Quote</button>
 			</form>
+
+			<!-- World map section (same as main page) -->
+			<div class="world-map-section">
+				<div class="world-map-image">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp' ); ?>" alt="World Map" loading="lazy" width="100" height="100">
+				</div>
+				<div class="world-map-divider"></div>
+				<div class="world-map-text">
+					<p class="world-map-label world-map-label-top">clients in</p>
+					<div class="world-map-bottom">
+						<p class="world-map-number">100+</p>
+						<p class="world-map-label world-map-label-bottom">countries</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
