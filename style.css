@@ -7456,7 +7456,12 @@ a.phone-button:focus,
     border-radius: 24px;
   }
 
-  .fleet-booking-form {
-    grid-template-columns: 1fr;
+  .fleet-booking-close {
+    width: 34px;
+    height: 34px;
+  }
+
+  .fleet-booking-close::before {
+    font-size: 26px;
   }
 }

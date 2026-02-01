@@ -33,6 +33,20 @@
 	margin-bottom: $spacing-2xl;
 }
 
+// Pill «Fleet & Chauffeurs»: ширина по контенту, читаемый размер на 1920
+.fleet-slider-block .why-us-heading-pill {
+	width: max-content;
+	min-width: 103px;
+}
+.fleet-slider-block .why-us-heading-text {
+	font-size: 16px;
+	white-space: nowrap;
+
+	@include lg {
+		font-size: 14px;
+	}
+}
+
 .fleet-slider-line {
 	flex: 1;
 	height: 1px;
@@ -471,7 +485,12 @@
 		border-radius: 24px;
 	}
 
-	.fleet-booking-form {
-		grid-template-columns: 1fr;
+	.fleet-booking-close {
+		width: 34px;
+		height: 34px;
+	}
+
+	.fleet-booking-close::before {
+		font-size: 26px;
 	}
 }
