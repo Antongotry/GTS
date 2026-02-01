@@ -7274,6 +7274,7 @@ a.phone-button:focus,
 .fleet-form-row {
   display: grid;
   gap: 8px;
+  grid-column: 1/-1;
 }
 
 .fleet-form-row label {
@@ -7322,6 +7323,10 @@ a.phone-button:focus,
 
 .fleet-form-row--full {
   grid-column: 1/-1;
+}
+
+.fleet-form-row--half {
+  grid-column: auto;
 }
 
 .fleet-form-row textarea {
@@ -7457,11 +7462,11 @@ a.phone-button:focus,
   }
 
   .fleet-booking-close {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
   }
 
   .fleet-booking-close::before {
-    font-size: 26px;
+    font-size: 22px;
   }
 }
