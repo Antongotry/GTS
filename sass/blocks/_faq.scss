@@ -1,0 +1,161 @@
+/**
+ * FAQ Block Styles
+ * Clear answers to help you book with confidence.
+ */
+
+.faq-block {
+	width: 100%;
+	margin-top: 150px; // desktop: 150px from previous block
+	padding: 0;
+	overflow: visible;
+
+	@include xl {
+		margin-top: 150px; // 1440: 150
+	}
+
+	@include lg {
+		margin-top: 120px; // 1024: 120
+	}
+
+	@include md {
+		margin-top: 80px; // phone: 80
+	}
+}
+
+.faq-container {
+	@include container($container-max-width-content);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+// Pill at top (same shape as trusted-by)
+.faq-pill {
+	@include pill(70px, 43px);
+	@extend .pill--light;
+}
+
+.faq-pill-text {
+	@extend .pill-text;
+	color: $color__text-main;
+}
+
+// Title: Manrope 400, 16px, line-height 150%, letter-spacing 0%
+.faq-title {
+	font-family: $font__manrope;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: 0;
+	color: #000;
+	margin: $spacing-2xl 0 0 0;
+	max-width: 100%;
+}
+
+// 80px below title: two accordion columns
+.faq-accordions {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 26px;
+	width: 100%;
+	max-width: 100%;
+	margin-top: 80px;
+	align-items: start;
+}
+
+.faq-accordion-col {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	min-width: 0;
+}
+
+// Accordion item: padding 24px, border rgba(0,0,0,0.16), no border-radius
+.faq-item {
+	border: 1px solid rgba(0, 0, 0, 0.16);
+	border-radius: 0;
+	background: #fff;
+	overflow: hidden;
+	box-sizing: border-box;
+
+	&[open] .faq-item__icon {
+		transform: rotate(180deg);
+	}
+}
+
+.faq-item__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: $spacing-xl; // 24px
+	list-style: none;
+	cursor: pointer;
+	text-align: left;
+	box-sizing: border-box;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+
+	&::marker {
+		display: none;
+	}
+}
+
+.faq-item__question {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #000;
+	flex: 1;
+	min-width: 0;
+}
+
+.faq-item__icon {
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+	transition: transform 0.25s ease;
+}
+
+// Smooth open/close: grid 0fr -> 1fr
+.faq-item__content-wrapper {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+
+	.faq-item[open] & {
+		grid-template-rows: 1fr;
+	}
+}
+
+.faq-item__content {
+	overflow: hidden;
+	min-height: 0;
+	padding: 0 $spacing-xl $spacing-xl $spacing-xl;
+	box-sizing: border-box;
+
+	p {
+		font-family: $font__manrope;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+		letter-spacing: 0;
+		color: #000;
+		margin: 0;
+		padding-top: 0;
+	}
+}
+
+// Mobile: single column
+@include md {
+	.faq-accordions {
+		grid-template-columns: 1fr;
+		margin-top: 80px;
+	}
+}
