@@ -61,9 +61,10 @@
 	color: $color__background-body; // Black text on light background
 }
 
+// No .pill--narrow extend — width: max-content so long text stays on one line
 .why-us-heading-pill {
-	@extend .pill--narrow;
-	@extend .pill--glass;
+	@include pill(auto, 43px);
+	@include glass-effect();
 	padding-left: 24px;
 	padding-right: 24px;
 	width: max-content;
