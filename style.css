@@ -3543,6 +3543,16 @@ a.phone-button:focus,
   box-sizing: border-box;
   appearance: none;
 }
+@media (max-width: 1440px) {
+  .faq-item__summary {
+    padding: 25px 24px 24px 24px;
+  }
+}
+@media (max-width: 1024px) {
+  .faq-item__summary {
+    padding: 25px 24px 24px 24px;
+  }
+}
 .faq-item__summary:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
@@ -3557,6 +3567,16 @@ a.phone-button:focus,
   color: #000;
   flex: 1;
   min-width: 0;
+}
+@media (max-width: 1440px) {
+  .faq-item__question {
+    line-height: 24px;
+  }
+}
+@media (max-width: 1024px) {
+  .faq-item__question {
+    line-height: 24px;
+  }
 }
 
 .faq-item__icon {
@@ -3591,7 +3611,30 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .faq-accordions {
     grid-template-columns: 1fr;
+    gap: 10px;
     margin-top: 80px;
+    width: 100%;
+  }
+  .faq-accordion-col {
+    gap: 10px;
+    width: 100%;
+  }
+  .faq-item__summary {
+    padding: 16px;
+  }
+  .faq-item__question {
+    font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+  .faq-item__content {
+    padding: 0 16px 16px 16px;
+  }
+  .faq-item__content p {
+    font-size: 14px;
   }
 }
 /*--------------------------------------------------------------

@@ -108,6 +108,14 @@
 	box-sizing: border-box;
 	appearance: none;
 
+	@include xl {
+		padding: 25px 24px 24px 24px; // 1440: top 25px, left 24px
+	}
+
+	@include lg {
+		padding: 25px 24px 24px 24px; // 1024: top 25px, left 24px
+	}
+
 	&:focus-visible {
 		outline: 2px solid currentColor;
 		outline-offset: 2px;
@@ -123,6 +131,14 @@
 	color: #000;
 	flex: 1;
 	min-width: 0;
+
+	@include xl {
+		line-height: 24px; // 1440: height 24
+	}
+
+	@include lg {
+		line-height: 24px; // 1024: height 24
+	}
 }
 
 .faq-item__icon {
@@ -156,10 +172,38 @@
 	}
 }
 
-// Mobile: single column
+// Mobile: один столбец, паддинг 16px, шрифт 14px, отступы 10px
 @include md {
 	.faq-accordions {
 		grid-template-columns: 1fr;
+		gap: 10px;
 		margin-top: 80px;
+		width: 100%;
+	}
+
+	.faq-accordion-col {
+		gap: 10px;
+		width: 100%;
+	}
+
+	.faq-item__summary {
+		padding: 16px;
+	}
+
+	.faq-item__question {
+		font-family: $font__manrope;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 14px;
+		line-height: 150%;
+		letter-spacing: 0;
+	}
+
+	.faq-item__content {
+		padding: 0 16px 16px 16px;
+	}
+
+	.faq-item__content p {
+		font-size: 14px;
 	}
 }
