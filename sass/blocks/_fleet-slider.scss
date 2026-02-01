@@ -54,7 +54,7 @@
 
 .fleet-slider-title-row {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: space-between;
 	gap: $spacing-3xl;
 	margin-bottom: $spacing-3xl;
@@ -221,6 +221,14 @@
 	visibility: visible !important;
 	display: flex !important;
 	flex-shrink: 0;
+}
+
+.fleet-slider-wrapper .nav-arrow.fleet-slider-prev {
+	transform: translateX(-30%);
+}
+
+.fleet-slider-wrapper .nav-arrow.fleet-slider-next {
+	transform: translateX(30%);
 }
 
 .fleet-booking-modal,
@@ -393,13 +401,13 @@
 }
 
 .fleet-form-row--datetime input {
-	padding-right: 44px;
+	padding-right: 52px;
 }
 
 .fleet-datetime-placeholder {
 	position: absolute;
 	left: 14px;
-	right: 44px;
+	right: 52px;
 	top: 50%;
 	transform: translateY(-50%);
 	color: rgba(255, 255, 255, 0.4) !important;
@@ -416,6 +424,15 @@
 .fleet-form-row--datetime input:not(.has-value) {
 	color: transparent !important;
 	-webkit-text-fill-color: transparent !important;
+}
+
+.fleet-form-row--datetime input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+	position: absolute;
+	right: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 1;
+	filter: invert(1);
 }
 
 .fleet-form-row--full {
