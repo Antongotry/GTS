@@ -71,12 +71,17 @@
 	min-width: 103px;
 	box-sizing: border-box;
 	overflow: visible;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 
 .why-us-heading-text {
 	@extend .pill-text;
 	white-space: nowrap;
 	overflow: visible;
+	text-align: center;
 }
 
 .how-it-works-pill {
