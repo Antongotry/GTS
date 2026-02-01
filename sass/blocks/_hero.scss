@@ -232,9 +232,16 @@
 	min-width: 32px;
 	min-height: 32px;
 	flex-shrink: 0;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: inherit;
+
+	svg {
+		width: 32px;
+		height: 32px;
+		display: block;
+	}
 
 	img {
 		width: 32px;
