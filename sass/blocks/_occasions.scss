@@ -148,8 +148,8 @@
 	grid-row: 3;
 }
 
-// Ensure occasions items match why-us: transparent + glass border (item-2 and row3-card have own styles)
-.occasions-block .why-us-item:not([style*="background-image"]):not(.why-us-item-2) {
+// Ensure occasions items match why-us: transparent + glass border (item-2, row3-card, footer have own styles)
+.occasions-block .why-us-item:not([style*="background-image"]):not(.why-us-item-2):not(.occasions-footer-item) {
 	background: transparent;
 	border: 1px inset $color__glass-border;
 }

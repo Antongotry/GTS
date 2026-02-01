@@ -5369,7 +5369,7 @@ a.phone-button:focus,
   grid-row: 3;
 }
 
-.occasions-block .why-us-item:not([style*=background-image]):not(.why-us-item-2) {
+.occasions-block .why-us-item:not([style*=background-image]):not(.why-us-item-2):not(.occasions-footer-item) {
   background: transparent;
   border: 1px inset rgba(255, 255, 255, 0.16);
 }
