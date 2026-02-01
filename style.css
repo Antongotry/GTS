@@ -7152,6 +7152,12 @@ a.phone-button:focus,
   min-width: 0;
 }
 
+.fleet-card-action.btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+}
 .fleet-slider-wrapper .nav-arrows {
   position: absolute;
   left: 0;
