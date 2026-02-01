@@ -131,6 +131,21 @@
 	}
 }
 
+// Свои стили для стрелок свайпера trusted-by: без обводки, фон #F5F5F5
+.trusted-by-block .nav-arrow {
+	border: none;
+	background: #f5f5f5;
+}
+
+.trusted-by-block .nav-arrow:hover {
+	background: #ededed;
+}
+
+.trusted-by-block .nav-arrow:disabled,
+.trusted-by-block .nav-arrow.swiper-button-disabled {
+	background: #e2e2e2;
+}
+
 // Второй контейнер (только с nav-arrows) - центрировать на всех разрешениях
 .trusted-by-container:last-of-type {
 	display: flex;

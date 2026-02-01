@@ -9,12 +9,12 @@
 	gap: 8px;
 }
 
-// Navigation arrow button
+// Navigation arrow button (без обводки; trusted-by/fleet переопределяют при необходимости)
 .nav-arrow {
 	width: 64px;
 	height: 40px;
 	border-radius: 999px;
-	border: 0.5px solid rgba(0, 0, 0, 0.2);
+	border: none;
 	background: #f5f5f5;
 	cursor: pointer;
 	transition: background 0.2s;
