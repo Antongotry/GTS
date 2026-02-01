@@ -25,15 +25,16 @@ if (empty($products)) {
 ?>
 
 <section class="fleet-slider-block">
-	<div class="fleet-slider-container">
-		<div class="why-us-heading">
-			<div class="why-us-heading-pill">
-				<span class="why-us-heading-text"><?php echo esc_html__('Fleet & Chauffeurs', 'gts-theme'); ?></span>
+	<div class="fleet-slider-grid">
+		<div class="fleet-slider-container">
+			<div class="why-us-heading">
+				<div class="why-us-heading-pill">
+					<span class="why-us-heading-text"><?php echo esc_html__('Fleet & Chauffeurs', 'gts-theme'); ?></span>
+				</div>
+				<div class="why-us-heading-line" aria-hidden="true"></div>
 			</div>
-			<div class="why-us-heading-line" aria-hidden="true"></div>
-		</div>
 
-		<div class="fleet-slider-title-row">
+			<div class="fleet-slider-title-row">
 			<h2 class="fleet-slider-title">
 				<?php echo esc_html__('Every detail matters – from the car you travel in to the person behind the wheel', 'gts-theme'); ?>
 			</h2>
@@ -41,11 +42,11 @@ if (empty($products)) {
 				<?php echo esc_html__('That’s why every GTS limousine meets strict standards of comfort, safety, and presentation.', 'gts-theme'); ?>
 			</p>
 		</div>
-	</div>
+		</div>
 
-	<div class="fleet-slider-wrapper">
-		<div class="fleet-slider swiper">
-			<div class="swiper-wrapper">
+		<div class="fleet-slider-wrapper">
+			<div class="fleet-slider swiper">
+				<div class="swiper-wrapper">
 				<?php foreach ($products as $product) : ?>
 					<?php
 					get_template_part(
@@ -58,8 +59,9 @@ if (empty($products)) {
 					?>
 				<?php endforeach; ?>
 			</div>
+			</div>
+			<?php echo gts_nav_arrows('fleet-slider-prev', 'fleet-slider-next', 'Previous vehicle', 'Next vehicle'); ?>
 		</div>
-		<?php echo gts_nav_arrows('fleet-slider-prev', 'fleet-slider-next', 'Previous vehicle', 'Next vehicle'); ?>
 	</div>
 
 	<?php /* Modals injected by JS on open, removed on close — not in initial DOM */ ?>

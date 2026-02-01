@@ -2,34 +2,34 @@
  * Fleet Slider Block Styles
  */
 
-// Как .site-header: внешний padding, контейнер в сетке, без горизонтального скролла
+// Как .site-header: внешний padding 20px, без горизонтального скролла
 .fleet-slider-block {
 	width: 100%;
 	max-width: 100vw;
 	margin-top: $spacing-5xl;
 	margin-bottom: 0;
-	padding: 0 $container-padding;
+	padding: 0 20px;
 	background: transparent;
 	box-sizing: border-box;
 	overflow-x: hidden;
 
 	@include lg {
 		margin-top: 60px;
-		padding: 0 $container-padding;
+		padding: 0 20px;
 	}
 
 	@include md {
 		margin-top: 80px;
-		padding: 0 20px;
+		padding: 0;
 	}
 }
 
-// Точная копия .header-container — ширина и отступы как у хедера
-.fleet-slider-container {
+// Сетка как .header-container — одна обёртка, контент по той же колонке
+.fleet-slider-grid {
+	max-width: min(1840px, calc(100vw - var(--scrollbar-width) - 40px));
 	width: 100%;
-	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - #{$container-padding * 2}));
 	margin: 0 auto;
-	padding: 0 5px 0 $container-padding;
+	padding: 0 5px 0 20px;
 	box-sizing: border-box;
 
 	@include lg {
@@ -42,6 +42,12 @@
 		margin: 0 auto;
 		padding: 0 16px 0 9px;
 	}
+}
+
+// Внутри сетки — на всю ширину, без своего max-width
+.fleet-slider-container {
+	width: 100%;
+	box-sizing: border-box;
 }
 
 /* Fleet heading uses .why-us-heading + .why-us-heading-line (same as Why us block) */
@@ -75,14 +81,11 @@
 	max-width: 320px;
 }
 
-// Same width as .header-container: max 1840px, 20px left / 5px right padding
-// overflow НЕ на wrapper, чтобы стрелки не обрезались; overflow только на .fleet-slider
+// Внутри сетки — на всю ширину; overflow на .fleet-slider, не на wrapper (стрелки не обрезаются)
 .fleet-slider-wrapper {
 	position: relative;
 	width: 100%;
-	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - #{$container-padding * 2}));
-	margin: 0 auto;
-	padding: 0 5px $spacing-2xl $container-padding;
+	padding: 0 0 $spacing-2xl 0;
 	box-sizing: border-box;
 	isolation: isolate;
 }
@@ -533,12 +536,6 @@
 		max-width: 100%;
 	}
 
-	.fleet-slider-wrapper {
-		max-width: none;
-		width: calc(100vw - 40px);
-		padding: 0 16px $spacing-xl 9px;
-	}
-
 	.fleet-slider-wrapper .nav-arrows {
 		padding: 0;
 	}
@@ -555,11 +552,6 @@
 }
 
 @media (max-width: 600px) {
-	.fleet-slider-wrapper {
-		width: calc(100vw - #{$container-padding-mobile * 2});
-		padding: 0 $container-padding-mobile $spacing-xl;
-	}
-
 	.fleet-booking-dialog {
 		padding: $spacing-lg;
 		border-radius: 24px;

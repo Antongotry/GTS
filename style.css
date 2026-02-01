@@ -5503,29 +5503,34 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .fleet-slider-block {
     margin-top: 80px;
-    padding: 0 20px;
+    padding: 0;
   }
 }
 
-.fleet-slider-container {
-  width: 100%;
+.fleet-slider-grid {
   max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  width: 100%;
   margin: 0 auto;
   padding: 0 5px 0 20px;
   box-sizing: border-box;
 }
 @media (max-width: 1024px) {
-  .fleet-slider-container {
+  .fleet-slider-grid {
     padding: 0 4px 0 4px;
   }
 }
 @media (max-width: 768px) {
-  .fleet-slider-container {
+  .fleet-slider-grid {
     max-width: none;
     width: calc(100vw - 40px);
     margin: 0 auto;
     padding: 0 16px 0 9px;
   }
+}
+
+.fleet-slider-container {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Fleet heading uses .why-us-heading + .why-us-heading-line (same as Why us block) */
@@ -5561,9 +5566,7 @@ a.phone-button:focus,
 .fleet-slider-wrapper {
   position: relative;
   width: 100%;
-  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
-  margin: 0 auto;
-  padding: 0 5px 32px 20px;
+  padding: 0 0 32px 0;
   box-sizing: border-box;
   isolation: isolate;
 }
@@ -6004,11 +6007,6 @@ a.phone-button:focus,
   .fleet-slider-lead {
     max-width: 100%;
   }
-  .fleet-slider-wrapper {
-    max-width: none;
-    width: calc(100vw - 40px);
-    padding: 0 16px 24px 9px;
-  }
   .fleet-slider-wrapper .nav-arrows {
     padding: 0;
   }
@@ -6022,10 +6020,6 @@ a.phone-button:focus,
   }
 }
 @media (max-width: 600px) {
-  .fleet-slider-wrapper {
-    width: calc(100vw - 20px);
-    padding: 0 10px 24px;
-  }
   .fleet-booking-dialog {
     padding: 20px;
     border-radius: 24px;
