@@ -184,7 +184,7 @@
 	box-shadow: none;
 }
 
-// Стрелки всегда видны, даже когда весь товар выведен (disabled — только стиль)
+// Стрелки всегда видны, выше карточек и слайдов Swiper
 .fleet-slider-wrapper .nav-arrows {
 	position: absolute;
 	left: 0;
@@ -194,7 +194,7 @@
 	justify-content: space-between;
 	pointer-events: none;
 	padding: 0;
-	z-index: 10;
+	z-index: 50;
 	display: flex !important;
 	visibility: visible !important;
 }
@@ -202,7 +202,7 @@
 .fleet-slider-wrapper .nav-arrow {
 	pointer-events: all;
 	position: relative;
-	z-index: 10;
+	z-index: 50;
 	visibility: visible !important;
 	display: flex !important;
 }
