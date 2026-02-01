@@ -1,0 +1,89 @@
+# WordPress Theme Development Rules for Cursor AI
+
+## Project Context
+This is a WordPress theme project named "GTS Theme" based on the Underscores (_s) starter theme. The theme uses:
+- PHP for WordPress functionality
+- SCSS for styling (compiled to CSS)
+- JavaScript for interactive features
+- WordPress Coding Standards for PHP
+- WordPress Scripts for JavaScript/CSS linting
+
+## Code Standards
+
+### PHP
+- Follow WordPress Coding Standards (WPCS)
+- Use theme prefix `gts` for all functions, classes, and global variables
+- Text domain: `gts-theme`
+- Use tabs for indentation (not spaces)
+- Always escape output with WordPress functions: `esc_html()`, `esc_attr()`, `esc_url()`, `wp_kses_post()`
+- Always sanitize input with WordPress functions: `sanitize_text_field()`, `sanitize_email()`, etc.
+- Use WordPress hooks (actions and filters) appropriately
+- Follow WordPress naming conventions: functions use snake_case, classes use PascalCase
+
+### JavaScript
+- Follow WordPress JavaScript Coding Standards
+- Use modern ES6+ syntax when appropriate
+- Use WordPress dependencies (jQuery, lodash) when needed
+- Enqueue scripts properly through `wp_enqueue_script()`
+
+### CSS/SCSS
+- Follow WordPress CSS Coding Standards
+- Use BEM-like naming conventions
+- Organize SCSS files in the sass/ directory structure
+- Use variables and mixins from abstracts/
+- Compile SCSS to CSS before committing
+
+## WordPress Best Practices
+
+### Security
+- Always escape output
+- Always sanitize input
+- Use nonces for forms
+- Use capability checks for admin functions
+- Never use `eval()` or direct database queries without `$wpdb->prepare()`
+
+### Performance
+- Enqueue scripts and styles properly
+- Use WordPress transients for caching when appropriate
+- Minimize database queries
+- Use WordPress object cache when available
+
+### Template Hierarchy
+- Follow WordPress template hierarchy
+- Use template parts for reusable code
+- Use `get_template_part()` for modular templates
+
+### Hooks and Filters
+- Use appropriate WordPress hooks
+- Document custom hooks with `do_action()` and `apply_filters()`
+- Use descriptive hook names with theme prefix: `gts_*`
+
+## File Structure
+- PHP template files in root: `header.php`, `footer.php`, `index.php`, etc.
+- Template parts in `template-parts/`
+- Functions in `functions.php` or `inc/` directory
+- Styles in `sass/` directory (compiled to `style.css`)
+- JavaScript in `js/` directory
+- Assets (images, fonts) in `assets/` directory
+
+## Development Guidelines
+- Test in WordPress environment before committing
+- Follow WordPress accessibility guidelines
+- Ensure responsive design
+- Test with different WordPress versions (minimum: 4.5)
+- Check PHP compatibility (minimum: 5.6)
+
+## When Writing Code
+- Always provide context about what the code does
+- Include PHPDoc comments for functions and classes
+- Use meaningful variable and function names
+- Keep functions focused and single-purpose
+- Follow DRY (Don't Repeat Yourself) principle
+- Use WordPress functions instead of reinventing the wheel
+
+## Common WordPress Functions to Use
+- Template tags: `the_title()`, `the_content()`, `the_permalink()`, etc.
+- Conditional tags: `is_front_page()`, `is_single()`, `is_page()`, etc.
+- Query functions: `WP_Query`, `get_posts()`, `wp_get_recent_posts()`
+- Utility functions: `get_template_directory_uri()`, `get_stylesheet_directory_uri()`
+- Security functions: `wp_nonce_field()`, `wp_verify_nonce()`, `current_user_can()`

@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+vendor/
+package-lock.json
+composer.lock
+
+# Build outputs
+*.css.map
+style-rtl.css
+
+# WordPress core files (if any)
+wp-admin/
+wp-includes/
+wp-content/uploads/
+
+# Media files (large files)
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.otf
+*.ttf
+*.woff
+*.woff2
+
+# Logs and temp files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Compiled CSS (source is in sass/)
+style.css
+woocommerce.css
+
+# Documentation (keep PROJECT.md, ignore others)
+README.md
+readme.txt
+DEPLOY.md
+LICENSE
