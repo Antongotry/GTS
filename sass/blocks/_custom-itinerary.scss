@@ -118,6 +118,17 @@
 	}
 }
 
+// В варианте Limousine линии уменьшаются пропорционально при сужении экрана (% от контейнера)
+.custom-itinerary-block--limousine .custom-itinerary-line--top-left,
+.custom-itinerary-block--limousine .custom-itinerary-line--top-right {
+	width: 20%; // ~370px при 1840px, масштабируется с контейнером
+}
+
+.custom-itinerary-block--limousine .custom-itinerary-line--bottom-left,
+.custom-itinerary-block--limousine .custom-itinerary-line--bottom-right {
+	width: 25%; // ~461px при 1840px, масштабируется с контейнером
+}
+
 // На телефоне в варианте Limousine — скрыть все декоративные линии
 @include md {
 	.custom-itinerary-block--limousine .custom-itinerary-line {

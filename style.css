@@ -6662,6 +6662,16 @@ a.phone-button:focus,
   }
 }
 
+.custom-itinerary-block--limousine .custom-itinerary-line--top-left,
+.custom-itinerary-block--limousine .custom-itinerary-line--top-right {
+  width: 20%;
+}
+
+.custom-itinerary-block--limousine .custom-itinerary-line--bottom-left,
+.custom-itinerary-block--limousine .custom-itinerary-line--bottom-right {
+  width: 25%;
+}
+
 @media (max-width: 768px) {
   .custom-itinerary-block--limousine .custom-itinerary-line {
     display: none !important;
