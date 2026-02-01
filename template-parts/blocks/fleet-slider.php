@@ -26,11 +26,11 @@ if (empty($products)) {
 
 <section class="fleet-slider-block">
 	<div class="fleet-slider-container">
-		<div class="fleet-slider-heading">
+		<div class="why-us-heading">
 			<div class="why-us-heading-pill">
 				<span class="why-us-heading-text"><?php echo esc_html__('Fleet & Chauffeurs', 'gts-theme'); ?></span>
 			</div>
-			<div class="fleet-slider-line" aria-hidden="true"></div>
+			<div class="why-us-heading-line" aria-hidden="true"></div>
 		</div>
 
 		<div class="fleet-slider-title-row">

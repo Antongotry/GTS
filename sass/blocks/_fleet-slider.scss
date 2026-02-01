@@ -26,18 +26,7 @@
 	box-sizing: border-box;
 }
 
-.fleet-slider-heading {
-	display: flex;
-	align-items: center;
-	gap: 35px;
-	margin-bottom: $spacing-2xl;
-}
-
-.fleet-slider-line {
-	flex: 1;
-	height: 1px;
-	background: $color__glass-divider;
-}
+/* Fleet heading uses .why-us-heading + .why-us-heading-line (same as Why us block) */
 
 .fleet-slider-title-row {
 	display: flex;
@@ -431,11 +420,6 @@
 }
 
 @include md {
-	.fleet-slider-heading {
-		gap: 16px;
-		margin-bottom: $spacing-lg;
-	}
-
 	.fleet-slider-title-row {
 		flex-direction: column;
 		gap: $spacing-md;
