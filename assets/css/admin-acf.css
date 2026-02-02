@@ -48,14 +48,15 @@
   text-align: center !important;
 }
 
-/* Layout Title */
+/* Layout Title - Force White */
+.acf-fc-layout-handle,
+.acf-fc-layout-handle *,
 .acf-fc-layout-handle span,
 .acf-fc-layout-handle .acf-fc-layout-label,
-.acf-flexible-content .layout .acf-fc-layout-handle span,
-.acf-flexible-content .layout .acf-fc-layout-handle .acf-fc-layout-label,
-.acf-field-flexible-content .acf-fc-layout-handle span,
-.acf-field-flexible-content .acf-fc-layout-handle .acf-fc-layout-label,
-.acf-field-flexible-content .layout .acf-fc-layout-handle span {
+.acf-flexible-content .layout .acf-fc-layout-handle,
+.acf-flexible-content .layout .acf-fc-layout-handle *,
+.acf-field-flexible-content .acf-fc-layout-handle,
+.acf-field-flexible-content .acf-fc-layout-handle * {
   color: #fff !important;
   font-weight: 600 !important;
   letter-spacing: 0.3px;
