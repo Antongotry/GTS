@@ -167,13 +167,28 @@
 
 /* ===== Labels ===== */
 .acf-postbox .acf-label label {
-  color: #333 !important;
-  font-weight: 500 !important;
+  color: #1a1a1a !important;
+  font-weight: 600 !important;
 }
 
 .acf-postbox .acf-label .description {
-  color: #666 !important;
+  color: #555 !important;
   font-style: italic;
+}
+
+/* Field Group Label (Page Blocks) */
+.acf-field > .acf-label > label,
+.acf-fields > .acf-field > .acf-label > label {
+  color: #1a1a1a !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+
+/* Field Group Instructions */
+.acf-field > .acf-label > .description,
+.acf-fields > .acf-field > .acf-label > .description {
+  color: #444 !important;
+  font-size: 13px !important;
 }
 
 /* ===== Layout Content Area ===== */
