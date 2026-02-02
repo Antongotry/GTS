@@ -18,44 +18,114 @@
   letter-spacing: 0.5px;
 }
 
-/* ===== Flexible Content Layout Header ===== */
+/* ===== Flexible Content Layout Block ===== */
+.acf-flexible-content .layout {
+  background: #fff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+  overflow: visible;
+}
+
+/* Block Header - Dark with Gold Line */
 .acf-field-flexible-content .acf-fc-layout-handle {
-  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%) !important;
-  border-left: 3px solid #c9a962 !important;
-  padding-left: 15px !important;
-  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+  border: none !important;
+  border-bottom: 2px solid #c9a962 !important;
+  padding: 12px 15px !important;
+  margin: 0 !important;
 }
 
-.acf-field-flexible-content .acf-fc-layout-handle:hover {
-  border-left-color: #b8933e !important;
-  background: linear-gradient(135deg, #fff 0%, #fafafa 100%) !important;
-}
-
-.acf-field-flexible-content .layout .acf-fc-layout-handle .acf-fc-layout-order {
+.acf-field-flexible-content .acf-fc-layout-handle .acf-fc-layout-order {
   background: #c9a962 !important;
-  color: #fff !important;
-  font-weight: 600;
-  border-radius: 4px;
-  min-width: 24px;
-  text-align: center;
+  color: #1a1a1a !important;
+  font-weight: 700 !important;
+  border-radius: 3px !important;
+  min-width: 28px !important;
+  height: 22px !important;
+  line-height: 22px !important;
+  text-align: center !important;
 }
 
-/* ===== Enable Block Toggle ===== */
+/* Layout Title */
+.acf-fc-layout-handle span {
+  color: #fff !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px;
+}
+
+/* Control Icons */
+.acf-fc-layout-controls {
+  position: absolute !important;
+  right: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.acf-fc-layout-controls .acf-icon {
+  background: rgba(255,255,255,0.1) !important;
+  border-radius: 3px !important;
+  color: #fff !important;
+}
+
+.acf-fc-layout-controls .acf-icon:hover {
+  background: rgba(255,255,255,0.2) !important;
+}
+
+.acf-fc-layout-controls .acf-icon.-minus:hover {
+  background: #dc3545 !important;
+}
+
+/* ===== Enable Block Toggle - SIMPLE ===== */
 .acf-field[data-name="enabled"] {
-  background: rgba(201, 169, 98, 0.08) !important;
-  border-radius: 4px;
-  margin-bottom: 10px !important;
+  background: #f8f8f8 !important;
+  padding: 15px !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+.acf-field[data-name="enabled"] .acf-label {
+  display: inline-block !important;
+  margin-right: 15px !important;
+  margin-bottom: 0 !important;
 }
 
 .acf-field[data-name="enabled"] .acf-label label {
   font-weight: 600 !important;
-  color: #1a1a1a !important;
+  color: #333 !important;
+  font-size: 13px !important;
 }
 
-/* ===== True/False Toggle Style ===== */
+.acf-field[data-name="enabled"] .acf-input {
+  display: inline-block !important;
+}
+
+/* Simple Toggle Switch */
 .acf-field-true-false .acf-switch {
-  border-radius: 20px !important;
-  overflow: hidden;
+  width: 50px !important;
+  height: 26px !important;
+  border-radius: 13px !important;
+  border: 1px solid #ccc !important;
+  background: #e0e0e0 !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+.acf-field-true-false .acf-switch .acf-switch-on,
+.acf-field-true-false .acf-switch .acf-switch-off {
+  display: none !important;
+}
+
+.acf-field-true-false .acf-switch .acf-switch-slider {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 3px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+  transition: left 0.2s ease !important;
 }
 
 .acf-field-true-false .acf-switch.-on {
@@ -64,7 +134,7 @@
 }
 
 .acf-field-true-false .acf-switch.-on .acf-switch-slider {
-  background: #fff !important;
+  left: 25px !important;
 }
 
 /* ===== Input Fields ===== */
@@ -76,9 +146,7 @@
 .acf-postbox select {
   border: 1px solid #ddd !important;
   border-radius: 4px !important;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .acf-postbox input[type="text"]:focus,
@@ -103,21 +171,11 @@
   font-style: italic;
 }
 
-/* ===== Repeater/Flexible Content Table ===== */
-.acf-repeater .acf-row,
-.acf-flexible-content .layout {
+/* ===== Layout Content Area ===== */
+.acf-flexible-content .layout > .acf-fields {
+  padding: 15px !important;
   background: #fff !important;
-  border: 1px solid #e8e8e8 !important;
-  border-radius: 6px !important;
-  margin-bottom: 10px !important;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.acf-repeater .acf-row:hover,
-.acf-flexible-content .layout:hover {
-  border-color: #ddd !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid #e5e5e5 !important;
 }
 
 /* ===== Add Button ===== */
@@ -127,8 +185,8 @@
   border: none !important;
   color: #fff !important;
   border-radius: 4px !important;
-  padding: 8px 16px !important;
-  font-weight: 500 !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
   text-transform: uppercase;
   font-size: 11px !important;
   letter-spacing: 0.5px;
@@ -140,21 +198,6 @@
   background: linear-gradient(135deg, #b8933e 0%, #a07f2e 100%) !important;
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(201, 169, 98, 0.3);
-}
-
-/* ===== Remove/Collapse Buttons ===== */
-.acf-fc-layout-controls .acf-icon {
-  background: #f5f5f5 !important;
-  border-radius: 4px !important;
-  transition: all 0.2s ease !important;
-}
-
-.acf-fc-layout-controls .acf-icon:hover {
-  background: #1a1a1a !important;
-}
-
-.acf-fc-layout-controls .acf-icon.-minus:hover {
-  background: #dc3545 !important;
 }
 
 /* ===== Image Uploader ===== */
@@ -172,28 +215,7 @@
   border: 2px solid #c9a962 !important;
 }
 
-/* ===== Tab Navigation ===== */
-.acf-tab-wrap .acf-tab-group li a {
-  border-bottom: 2px solid transparent !important;
-  transition: all 0.2s ease !important;
-}
-
-.acf-tab-wrap .acf-tab-group li.active a,
-.acf-tab-wrap .acf-tab-group li a:hover {
-  border-bottom-color: #c9a962 !important;
-  color: #c9a962 !important;
-}
-
-/* ===== Section Divider ===== */
-.acf-postbox .acf-fields > .acf-field {
-  border-top: 1px solid #f0f0f0 !important;
-}
-
-.acf-postbox .acf-fields > .acf-field:first-child {
-  border-top: none !important;
-}
-
-/* ===== Metabox Styling ===== */
+/* ===== Metabox Container ===== */
 #acf-group_service_blocks {
   border: none !important;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08) !important;
@@ -205,9 +227,19 @@
   border-radius: 8px 8px 0 0 !important;
 }
 
+/* ===== Spacing Between Blocks ===== */
+.acf-flexible-content > .values > .layout {
+  margin-bottom: 20px !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+}
+
+.acf-flexible-content > .values > .layout:last-child {
+  margin-bottom: 0 !important;
+}
+
 /* ===== Typography ===== */
 .acf-postbox {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
 }
