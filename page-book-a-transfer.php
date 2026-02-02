@@ -35,7 +35,9 @@ get_header();
 									<label class="transfer-label">From*</label>
 									<input type="text" class="transfer-input" placeholder="Enter pickup location" name="from" required>
 								</div>
-								<button type="button" class="swap-btn" title="Swap locations" aria-label="Swap From and To"></button>
+								<div class="transfer-swap-wrap">
+									<button type="button" class="swap-btn" title="Swap locations" aria-label="Swap From and To"></button>
+								</div>
 								<div class="transfer-field">
 									<label class="transfer-label">To*</label>
 									<input type="text" class="transfer-input" placeholder="Enter drop-off location" name="to" required>
@@ -255,5 +257,87 @@ get_header();
 		</div>
 	</div>
 </main>
+
+<script>
+	(function() {
+		var form = document.getElementById('transfer-form');
+		if (!form) return;
+
+		var fromInput = form.querySelector('input[name="from"]');
+		var toInput = form.querySelector('input[name="to"]');
+		var btn = form.querySelector('.swap-btn');
+		if (btn && fromInput && toInput) {
+			btn.addEventListener('click', function() {
+				var a = fromInput.value, b = toInput.value;
+				fromInput.value = b;
+				toInput.value = a;
+				updateSummary();
+			});
+		}
+
+		var summaryRoute = document.getElementById('summary-route');
+		var summaryDate = document.getElementById('summary-date');
+		var summaryTime = document.getElementById('summary-time');
+		var summaryPassengers = document.getElementById('summary-passengers');
+		var summaryVehicle = document.getElementById('summary-vehicle');
+		var summaryLanguage = document.getElementById('summary-language');
+		var summaryExtras = document.getElementById('summary-extras');
+		var summaryDistance = document.getElementById('summary-distance');
+		var summaryPrice = document.getElementById('summary-price');
+
+		function formatDate(val) {
+			if (!val) return '—';
+			var d = new Date(val + 'T00:00:00');
+			if (isNaN(d.getTime())) return val;
+			var months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
+			return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+		}
+
+		function updateSummary() {
+			var from = (fromInput && fromInput.value.trim()) || 'From';
+			var to = (toInput && toInput.value.trim()) || 'To';
+			if (summaryRoute) summaryRoute.textContent = from + ' → ' + to;
+
+			var dateEl = form.querySelector('input[name="date"]');
+			if (summaryDate) summaryDate.textContent = dateEl ? formatDate(dateEl.value) : '—';
+
+			var timeEl = form.querySelector('input[name="time"]');
+			if (summaryTime) summaryTime.textContent = (timeEl && timeEl.value) ? timeEl.value : '—';
+
+			var passEl = form.querySelector('select[name="passengers"]');
+			if (summaryPassengers) summaryPassengers.textContent = (passEl && passEl.value) ? passEl.value : '—';
+
+			var vehicleEl = form.querySelector('select[name="vehicle_type"]');
+			if (summaryVehicle && vehicleEl) {
+				var opt = vehicleEl.options[vehicleEl.selectedIndex];
+				summaryVehicle.textContent = opt ? opt.text : '—';
+			}
+
+			var langEl = form.querySelector('select[name="driver_language"]');
+			if (summaryLanguage && langEl) {
+				var langOpt = langEl.options[langEl.selectedIndex];
+				summaryLanguage.textContent = langOpt ? langOpt.text.toUpperCase() : '—';
+			}
+
+			var extras = [];
+			['book_jet', 'book_helicopter', 'child_seat', 'meet_greet', 'extra_stop', 'vip_protocol'].forEach(function(name) {
+				var cb = form.querySelector('input[name="' + name + '"]');
+				if (cb && cb.checked) {
+					var label = cb.closest('label');
+					var span = label ? label.querySelector('span') : null;
+					extras.push(span ? span.textContent.trim() : name);
+				}
+			});
+			if (summaryExtras) summaryExtras.textContent = extras.length ? extras.join(', ') : '—';
+
+			if (summaryDistance) summaryDistance.textContent = '—';
+			if (summaryPrice) summaryPrice.textContent = '—';
+		}
+
+		form.addEventListener('input', updateSummary);
+		form.addEventListener('change', updateSummary);
+		updateSummary();
+	})();
+</script>
 
 <?php get_footer(); ?>

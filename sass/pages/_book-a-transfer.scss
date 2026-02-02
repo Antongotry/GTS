@@ -91,8 +91,16 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	&.location {
 		grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
 		gap: 20px;
-		align-items: center;
+		align-items: end;
 	}
+}
+
+.transfer-swap-wrap {
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
 }
 
 .transfer-field {
@@ -172,7 +180,6 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	display: block;
 	cursor: pointer;
 	transition: opacity 0.2s ease;
-	align-self: center;
 	margin: 0;
 
 	&:hover {

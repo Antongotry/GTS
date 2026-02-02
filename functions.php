@@ -304,7 +304,7 @@ function gts_theme_scripts()
 		wp_enqueue_script('gts-fleet-slider', get_template_directory_uri() . '/js/fleet-slider.js', array('gts-swiper'), $version, true);
 	}
 
-	if (is_page_template('page-book-a-transfer.php')) {
+	if (is_page_template('page-book-a-transfer.php') || is_page('book-a-transfer')) {
 		wp_enqueue_script('gts-transfer-form', get_template_directory_uri() . '/js/transfer-form.js', array(), $version, true);
 	}
 
