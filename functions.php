@@ -473,3 +473,4 @@ if (class_exists('WooCommerce')) {
 require get_template_directory() . '/inc/cpt-service.php';
 require get_template_directory() . '/inc/acf-fields-service.php';
 require get_template_directory() . '/inc/service-defaults.php';
+require get_template_directory() . '/inc/calculator-options.php';

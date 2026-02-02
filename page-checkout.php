@@ -20,7 +20,7 @@ $site_url = get_site_url();
 	.checkout-page {
 		background: #0C0F17;
 		min-height: 100vh;
-		padding: 60px 0 80px;
+		padding: 100px 0 80px;
 	}
 
 	.checkout-container {
@@ -70,7 +70,7 @@ $site_url = get_site_url();
 	/* Form Card */
 	.checkout-form-card {
 		background: rgba(255, 255, 255, 0.08);
-		border-radius: 16px;
+		border-radius: 0;
 		padding: 40px;
 	}
 
@@ -283,7 +283,7 @@ $site_url = get_site_url();
 	/* Summary Card */
 	.checkout-summary-card {
 		background: #FFFFFF;
-		border-radius: 16px;
+		border-radius: 0;
 		padding: 32px;
 		position: sticky;
 		top: 100px;
