@@ -537,8 +537,25 @@ get_header();
 					});
 			}
 
-			form.addEventListener('input', updateSummary);
-			form.addEventListener('change', updateSummary);
+			function toggleDateTimeValueClass() {
+				form.querySelectorAll('input[type="date"], input[type="time"]').forEach(function(el) {
+					if (el.value && el.value.trim() !== '') {
+						el.classList.add('has-value');
+					} else {
+						el.classList.remove('has-value');
+					}
+				});
+			}
+
+			form.addEventListener('input', function() {
+				toggleDateTimeValueClass();
+				updateSummary();
+			});
+			form.addEventListener('change', function() {
+				toggleDateTimeValueClass();
+				updateSummary();
+			});
+			toggleDateTimeValueClass();
 			updateSummary();
 		}
 
