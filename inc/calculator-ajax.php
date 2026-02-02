@@ -213,8 +213,8 @@ function gts_ajax_calculate_price()
 		$total = floatval($min_price);
 	}
 
-	// Get currency symbol
-	$currency = get_woocommerce_currency_symbol();
+	// Get currency symbol (decode HTML entities)
+	$currency = html_entity_decode(get_woocommerce_currency_symbol());
 
 	wp_send_json_success(array(
 		'base_price' => $base_price,
