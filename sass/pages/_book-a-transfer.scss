@@ -1,7 +1,7 @@
 /**
  * Book a Transfer Page
  * Template: page-book-a-transfer.php
- * Uses same grid as header.
+ * Grid and breakpoints aligned with header and hero (front page).
  */
 
 // Accent (gold) – same as main page buttons
@@ -11,56 +11,98 @@ $transfer-accent-light: #fddfae;
 $transfer-accent-gradient: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
 $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 50%, #f8d5a5 100%);
 
+// Layout widths at 1920 (same logic as hero columns)
+$transfer-form-width: 900px;
+$transfer-summary-width: 440px;
+$transfer-gap: 20px;
+
 .transfer-page {
 	background: $color__background-body;
 	min-height: 100vh;
 	padding: 100px 0 80px;
 }
 
+// Same width logic as .header-container and .hero-container
 .transfer-container {
-	max-width: min(1840px, 100vw - var(--scrollbar-width, 0px) - 40px);
+	max-width: min($container-max-width-content, calc(100vw - var(--scrollbar-width, 0px) - #{$container-padding * 2}));
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 $container-padding;
 	box-sizing: border-box;
 	overflow: hidden;
+
+	@include lg {
+		max-width: 944px; // 984px - 40px (2*20px), like hero at 1024
+		padding: 0 $container-padding;
+		box-sizing: content-box;
+	}
+
+	@include md {
+		max-width: 100%;
+		padding: 0 $container-padding;
+		box-sizing: border-box;
+	}
 }
 
+// Header uses same grid as layout so title aligns with form, subtitle with summary
 .transfer-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
+	display: grid;
+	grid-template-columns: $transfer-form-width $transfer-gap $transfer-summary-width;
+	align-items: start;
+	gap: 0;
 	margin-bottom: 40px;
 	padding-bottom: 24px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+	@include lg {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
 }
 
 .transfer-title {
+	grid-column: 1;
 	font-family: $font__main;
 	font-size: 40px;
 	font-weight: 500;
 	color: #fff;
 	margin: 0;
 	letter-spacing: -0.02em;
+
+	@include lg {
+		grid-column: auto;
+	}
 }
 
 .transfer-subtitle {
+	grid-column: 3;
 	font-family: $font__manrope;
 	font-size: 14px;
 	color: rgba(255, 255, 255, 0.6);
 	max-width: 320px;
 	line-height: 1.5;
 	margin: 0;
+
+	@include lg {
+		grid-column: auto;
+	}
 }
 
+// 1920: form 900px, gap 20px, summary 440px (aligned with header columns)
 .transfer-layout {
 	display: grid;
-	grid-template-columns: 1fr 380px;
-	gap: 60px;
+	grid-template-columns: $transfer-form-width $transfer-gap $transfer-summary-width;
 	align-items: start;
+	gap: 0;
+
+	@include lg {
+		grid-template-columns: 1fr;
+	}
 }
 
 .transfer-form-card {
+	grid-column: 1;
 	background: rgba(255, 255, 255, 0.05);
 	padding: 40px;
 }
@@ -360,6 +402,7 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 
 /* Summary Card */
 .transfer-summary {
+	grid-column: 3;
 	background: #fff;
 	padding: 32px;
 	position: sticky;
@@ -444,37 +487,21 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	text-align: center;
 }
 
-/* Responsive */
+/* Responsive — same breakpoints as header/hero (xl 1440, lg 1024, md 768) */
 
-@media (max-width: 1200px) {
+@include lg {
 
-	.transfer-layout {
-		grid-template-columns: 1fr 340px;
-		gap: 40px;
-	}
-}
-
-@media (max-width: 1024px) {
-
-	.transfer-layout {
-		grid-template-columns: 1fr;
+	.transfer-form-card {
+		grid-column: auto;
 	}
 
 	.transfer-summary {
+		grid-column: auto;
 		position: static;
-	}
-
-	.transfer-header {
-		flex-direction: column;
-		gap: 16px;
-	}
-
-	.transfer-container {
-		padding: 0 24px;
 	}
 }
 
-@media (max-width: 768px) {
+@include md {
 
 	.transfer-page {
 		padding: 40px 0 60px;
@@ -507,10 +534,11 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	}
 }
 
+// Small mobile (like footer/contacts)
 @media (max-width: 480px) {
 
 	.transfer-container {
-		padding: 0 16px;
+		padding: 0 $container-padding-mobile;
 	}
 
 	.transfer-form-card {
