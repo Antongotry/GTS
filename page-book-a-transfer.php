@@ -105,6 +105,12 @@ $site_url = get_site_url();
 		grid-template-columns: 1fr;
 	}
 
+	.checkout-form-row.location-row {
+		grid-template-columns: 1fr 28px 1fr;
+		gap: 12px;
+		align-items: end;
+	}
+
 	/* Form Group */
 	.checkout-form-group {
 		display: flex;
@@ -173,10 +179,6 @@ $site_url = get_site_url();
 
 	/* Swap Button */
 	.swap-locations-btn {
-		position: absolute;
-		right: -36px;
-		top: 50%;
-		transform: translateY(-50%);
 		width: 28px;
 		height: 28px;
 		border-radius: 50%;
@@ -187,6 +189,9 @@ $site_url = get_site_url();
 		justify-content: center;
 		cursor: pointer;
 		transition: all 0.2s ease;
+		align-self: end;
+		margin-bottom: 10px;
+		flex-shrink: 0;
 	}
 
 	.swap-locations-btn:hover {
@@ -559,16 +564,16 @@ $site_url = get_site_url();
 						<div class="checkout-section">
 							<h2 class="checkout-section-title">1. Trip details</h2>
 
-							<div class="checkout-form-row">
-								<div class="checkout-form-group with-swap">
+							<div class="checkout-form-row location-row">
+								<div class="checkout-form-group">
 									<label class="checkout-form-label">From*</label>
 									<input type="text" class="checkout-form-input" placeholder="Enter pickup location" name="from" required>
-									<button type="button" class="swap-locations-btn" title="Swap locations">
-										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-											<path d="M7 16V4M7 4L3 8M7 4l4 4M17 8v12M17 20l4-4M17 20l-4-4"></path>
-										</svg>
-									</button>
 								</div>
+								<button type="button" class="swap-locations-btn" title="Swap locations">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M7 16V4M7 4L3 8M7 4l4 4M17 8v12M17 20l4-4M17 20l-4-4"></path>
+									</svg>
+								</button>
 								<div class="checkout-form-group">
 									<label class="checkout-form-label">To*</label>
 									<input type="text" class="checkout-form-input" placeholder="Enter drop-off location" name="to" required>
