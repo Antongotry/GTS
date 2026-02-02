@@ -3,6 +3,7 @@
 /**
  * GTS Calculator Admin - Price Settings
  * ACF Options Page for managing calculator prices and settings
+ * With WooCommerce product price sync
  *
  * @package GTS
  */
@@ -61,7 +62,7 @@ function gts_register_calculator_fields()
 		return;
 	}
 
-	// Vehicle Pricing Fields
+	// Vehicle Pricing Fields - with WooCommerce Product Selector
 	acf_add_local_field_group(array(
 		'key' => 'group_calculator_vehicles',
 		'title' => 'Vehicle Base Prices',
@@ -79,14 +80,18 @@ function gts_register_calculator_fields()
 				'label' => 'Vehicles',
 				'name' => 'calc_vehicles',
 				'type' => 'repeater',
+				'instructions' => 'Select WooCommerce products. Prices sync automatically!',
 				'layout' => 'table',
 				'button_label' => 'Add Vehicle',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_vehicle_name',
-						'label' => 'Vehicle Name',
-						'name' => 'vehicle_name',
-						'type' => 'text',
+						'key' => 'field_vehicle_product',
+						'label' => 'WooCommerce Product',
+						'name' => 'wc_product',
+						'type' => 'post_object',
+						'post_type' => array('product'),
+						'return_format' => 'id',
+						'ui' => 1,
 						'wrapper' => array('width' => '30'),
 					),
 					array(
@@ -95,6 +100,7 @@ function gts_register_calculator_fields()
 						'name' => 'base_price',
 						'type' => 'number',
 						'prepend' => '€',
+						'instructions' => 'Syncs with WooCommerce',
 						'wrapper' => array('width' => '20'),
 					),
 					array(
@@ -360,3 +366,144 @@ function gts_calculator_admin_styles($hook)
 	);
 }
 add_action('admin_enqueue_scripts', 'gts_calculator_admin_styles');
+
+/**
+ * =====================================================
+ * WOOCOMMERCE PRICE SYNC
+ * =====================================================
+ */
+
+/**
+ * Sync Calculator prices TO WooCommerce when ACF options are saved
+ */
+function gts_sync_calculator_to_woocommerce($post_id)
+{
+	// Only run on options page save
+	if ($post_id !== 'options') {
+		return;
+	}
+
+	// Check if we're on the vehicle pricing page
+	$screen = get_current_screen();
+	if (!$screen || strpos($screen->id, 'vehicle-pricing') === false) {
+		return;
+	}
+
+	// Prevent infinite loop
+	if (defined('GTS_SYNCING_PRICES')) {
+		return;
+	}
+	define('GTS_SYNCING_PRICES', true);
+
+	$vehicles = get_field('calc_vehicles', 'option');
+
+	if (!$vehicles || !is_array($vehicles)) {
+		return;
+	}
+
+	foreach ($vehicles as $vehicle) {
+		$product_id = isset($vehicle['wc_product']) ? intval($vehicle['wc_product']) : 0;
+		$base_price = isset($vehicle['base_price']) ? floatval($vehicle['base_price']) : 0;
+
+		if ($product_id && $base_price > 0) {
+			$product = wc_get_product($product_id);
+			if ($product) {
+				$current_price = floatval($product->get_regular_price());
+				if ($current_price !== $base_price) {
+					$product->set_regular_price($base_price);
+					$product->set_price($base_price);
+					$product->save();
+				}
+			}
+		}
+	}
+}
+add_action('acf/save_post', 'gts_sync_calculator_to_woocommerce', 20);
+
+/**
+ * Sync WooCommerce product price TO Calculator when product is saved
+ */
+function gts_sync_woocommerce_to_calculator($product_id, $product)
+{
+	// Prevent infinite loop
+	if (defined('GTS_SYNCING_PRICES')) {
+		return;
+	}
+
+	// Only for simple products
+	if (!$product instanceof WC_Product || $product->is_type('variable')) {
+		return;
+	}
+
+	$new_price = floatval($product->get_regular_price());
+	if ($new_price <= 0) {
+		return;
+	}
+
+	$vehicles = get_field('calc_vehicles', 'option');
+	if (!$vehicles || !is_array($vehicles)) {
+		return;
+	}
+
+	$updated = false;
+	foreach ($vehicles as $index => $vehicle) {
+		$linked_product_id = isset($vehicle['wc_product']) ? intval($vehicle['wc_product']) : 0;
+
+		if ($linked_product_id === $product_id) {
+			$current_price = isset($vehicle['base_price']) ? floatval($vehicle['base_price']) : 0;
+
+			if ($current_price !== $new_price) {
+				$vehicles[$index]['base_price'] = $new_price;
+				$updated = true;
+			}
+		}
+	}
+
+	if ($updated) {
+		define('GTS_SYNCING_PRICES', true);
+		update_field('calc_vehicles', $vehicles, 'option');
+	}
+}
+add_action('woocommerce_update_product', 'gts_sync_woocommerce_to_calculator', 10, 2);
+
+/**
+ * Pre-fill base price from WooCommerce when selecting a product
+ */
+function gts_prefill_price_from_woocommerce($value, $post_id, $field)
+{
+	// Only on vehicle pricing options page
+	if ($post_id !== 'options') {
+		return $value;
+	}
+
+	// Check if this is for vehicle base price
+	if ($field['name'] !== 'base_price') {
+		return $value;
+	}
+
+	// If value is already set, don't override
+	if (!empty($value)) {
+		return $value;
+	}
+
+	return $value;
+}
+add_filter('acf/load_value/name=base_price', 'gts_prefill_price_from_woocommerce', 10, 3);
+
+/**
+ * Add admin notice showing sync status
+ */
+function gts_calculator_sync_notice()
+{
+	$screen = get_current_screen();
+	if (!$screen || strpos($screen->id, 'vehicle-pricing') === false) {
+		return;
+	}
+
+	if (isset($_GET['settings-updated']) && $_GET['settings-updated'] === 'true') {
+		echo '<div class="notice notice-success is-dismissible" style="border-left-color: #c9a962;">';
+		echo '<p><strong>✓ Prices synced!</strong> WooCommerce product prices have been updated.</p>';
+		echo '</div>';
+	}
+}
+add_action('admin_notices', 'gts_calculator_sync_notice');
