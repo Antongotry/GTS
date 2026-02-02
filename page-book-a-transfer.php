@@ -440,10 +440,101 @@ get_header();
 				el = document.getElementById('summary-extras');
 				if (el) el.textContent = extras.length ? extras.join(', ') : '—';
 
-				el = document.getElementById('summary-distance');
-				if (el) el.textContent = '—';
-				el = document.getElementById('summary-price');
-				if (el) el.textContent = '—';
+				// Calculate price via AJAX
+				calculatePrice();
+			}
+
+			// Debounce for price calculation
+			var priceTimeout = null;
+
+			function calculatePrice() {
+				if (priceTimeout) clearTimeout(priceTimeout);
+				priceTimeout = setTimeout(doCalculatePrice, 300);
+			}
+
+			function doCalculatePrice() {
+				var vehicleId = form.querySelector('select[name="vehicle_id"]');
+				var distanceEl = document.getElementById('summary-distance');
+				var priceEl = document.getElementById('summary-price');
+
+				// If no vehicle selected yet, show placeholder
+				if (!vehicleId || !vehicleId.value) {
+					if (distanceEl) distanceEl.textContent = '—';
+					if (priceEl) priceEl.textContent = '—';
+					return;
+				}
+
+				// Collect extras
+				var extras = [];
+				['book_jet', 'book_helicopter', 'child_seat', 'meet_greet', 'extra_stop', 'vip_protocol'].forEach(function(name) {
+					var cb = form.querySelector('input[name="' + name + '"]');
+					if (cb && cb.checked) {
+						var label = cb.closest('label');
+						var span = label ? label.querySelector('span') : null;
+						extras.push(span ? span.textContent.trim() : name);
+					}
+				});
+
+				// Check if night time (22:00 - 06:00)
+				var timeInput = form.querySelector('input[name="time"]');
+				var isNight = false;
+				if (timeInput && timeInput.value) {
+					var hour = parseInt(timeInput.value.split(':')[0], 10);
+					isNight = (hour >= 22 || hour < 6);
+				}
+
+				// Check if weekend
+				var dateInput = form.querySelector('input[name="date"]');
+				var isWeekend = false;
+				if (dateInput && dateInput.value) {
+					var day = new Date(dateInput.value).getDay();
+					isWeekend = (day === 0 || day === 6);
+				}
+
+				// Check if return trip
+				var returnRadio = form.querySelector('input[name="trip_type"][value="return"]:checked');
+				var isReturn = !!returnRadio;
+
+				// For now, use simulated distance (in production this would come from Maps API)
+				var distanceKm = 50; // Default simulation
+
+				// Show loading
+				if (priceEl) priceEl.textContent = '...';
+				if (distanceEl) distanceEl.textContent = distanceKm + ' km';
+
+				// AJAX request to calculate price
+				var formData = new FormData();
+				formData.append('action', 'gts_calculate_price');
+				formData.append('vehicle_id', vehicleId.value);
+				formData.append('distance_km', distanceKm);
+				formData.append('is_night', isNight ? '1' : '0');
+				formData.append('is_weekend', isWeekend ? '1' : '0');
+				formData.append('is_return', isReturn ? '1' : '0');
+				extras.forEach(function(e) {
+					formData.append('extras[]', e);
+				});
+
+				fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+						method: 'POST',
+						body: formData
+					})
+					.then(function(response) {
+						return response.json();
+					})
+					.then(function(response) {
+						if (response.success && response.data) {
+							if (priceEl) priceEl.textContent = response.data.formatted_total;
+							// Show distance with estimated time (2 min per km average)
+							var estimatedMin = Math.round(distanceKm * 1.2);
+							if (distanceEl) distanceEl.textContent = distanceKm + ' km / ' + estimatedMin + ' min';
+						} else {
+							if (priceEl) priceEl.textContent = '—';
+						}
+					})
+					.catch(function(err) {
+						console.error('Price calculation error:', err);
+						if (priceEl) priceEl.textContent = '—';
+					});
 			}
 
 			form.addEventListener('input', updateSummary);
