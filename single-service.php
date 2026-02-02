@@ -34,9 +34,19 @@ if (function_exists('get_field')) {
 			if ($layout) {
 				$blocks_data[$layout] = $block;
 				$block_enabled[$layout] = isset($block['enabled']) ? (bool)$block['enabled'] : true;
+				// Store blocks in order for dynamic rendering
+				$blocks_ordered[] = array(
+					'layout' => $layout,
+					'data'   => $block,
+					'enabled' => isset($block['enabled']) ? (bool)$block['enabled'] : true,
+				);
 			}
 		}
 	}
+}
+// Initialize empty ordered blocks if not set
+if (!isset($blocks_ordered)) {
+	$blocks_ordered = array();
 }
 
 $site_url = get_site_url();
