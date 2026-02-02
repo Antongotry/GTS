@@ -7767,9 +7767,9 @@ a.phone-button:focus,
   margin-bottom: 20px;
 }
 .transfer-row.location {
-  grid-template-columns: 1fr 30px 1fr;
+  grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
   gap: 20px;
-  align-items: end;
+  align-items: center;
 }
 
 .transfer-field {
@@ -7835,9 +7835,10 @@ a.phone-button:focus,
 .swap-btn {
   width: 30px;
   height: 16px;
+  min-width: 30px;
   border: none;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.3215686275);
+  background-color: #fff;
   background-image: url("https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/swap.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -7845,12 +7846,12 @@ a.phone-button:focus,
   flex-shrink: 0;
   display: block;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: opacity 0.2s ease;
   align-self: center;
   margin: 0;
 }
 .swap-btn:hover {
-  background-color: rgba(255, 255, 255, 0.45);
+  opacity: 0.9;
 }
 
 .transfer-return-label {
