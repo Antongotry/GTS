@@ -859,7 +859,7 @@ function gts_register_service_acf_fields()
 					'layouts'      => $layouts,
 					'button_label' => 'Add Block',
 					'min'          => 0,
-					'max'          => 10,
+					'max'          => 0,
 				),
 			),
 			'location'              => array(
