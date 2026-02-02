@@ -114,10 +114,19 @@ function gts_register_calculator_fields()
 					),
 					array(
 						'key' => 'field_vehicle_max_passengers',
-						'label' => 'Max Passengers',
+						'label' => 'Passengers',
 						'name' => 'max_passengers',
 						'type' => 'number',
-						'wrapper' => array('width' => '15'),
+						'instructions' => 'Syncs with WC',
+						'wrapper' => array('width' => '12'),
+					),
+					array(
+						'key' => 'field_vehicle_max_bags',
+						'label' => 'Bags',
+						'name' => 'max_bags',
+						'type' => 'number',
+						'instructions' => 'Syncs with WC',
+						'wrapper' => array('width' => '12'),
 					),
 					array(
 						'key' => 'field_vehicle_enabled',
@@ -126,7 +135,7 @@ function gts_register_calculator_fields()
 						'type' => 'true_false',
 						'default_value' => 1,
 						'ui' => 1,
-						'wrapper' => array('width' => '15'),
+						'wrapper' => array('width' => '10'),
 					),
 				),
 			),
@@ -404,14 +413,35 @@ function gts_sync_calculator_to_woocommerce($post_id)
 	foreach ($vehicles as $vehicle) {
 		$product_id = isset($vehicle['wc_product']) ? intval($vehicle['wc_product']) : 0;
 		$base_price = isset($vehicle['base_price']) ? floatval($vehicle['base_price']) : 0;
+		$max_passengers = isset($vehicle['max_passengers']) ? intval($vehicle['max_passengers']) : 0;
+		$max_bags = isset($vehicle['max_bags']) ? intval($vehicle['max_bags']) : 0;
 
 		if ($product_id && $base_price > 0) {
 			$product = wc_get_product($product_id);
 			if ($product) {
+				$updated = false;
+
+				// Sync price
 				$current_price = floatval($product->get_regular_price());
 				if ($current_price !== $base_price) {
 					$product->set_regular_price($base_price);
 					$product->set_price($base_price);
+					$updated = true;
+				}
+
+				// Sync passengers
+				if ($max_passengers > 0) {
+					update_post_meta($product_id, '_gts_max_passengers', $max_passengers);
+					update_post_meta($product_id, 'max_passengers', $max_passengers);
+				}
+
+				// Sync bags
+				if ($max_bags > 0) {
+					update_post_meta($product_id, '_gts_max_bags', $max_bags);
+					update_post_meta($product_id, 'max_bags', $max_bags);
+				}
+
+				if ($updated) {
 					$product->save();
 				}
 			}
@@ -436,9 +466,8 @@ function gts_sync_woocommerce_to_calculator($product_id, $product)
 	}
 
 	$new_price = floatval($product->get_regular_price());
-	if ($new_price <= 0) {
-		return;
-	}
+	$new_passengers = intval(get_post_meta($product_id, 'max_passengers', true));
+	$new_bags = intval(get_post_meta($product_id, 'max_bags', true));
 
 	$vehicles = get_field('calc_vehicles', 'option');
 	if (!$vehicles || !is_array($vehicles)) {
@@ -450,10 +479,24 @@ function gts_sync_woocommerce_to_calculator($product_id, $product)
 		$linked_product_id = isset($vehicle['wc_product']) ? intval($vehicle['wc_product']) : 0;
 
 		if ($linked_product_id === $product_id) {
+			// Sync price
 			$current_price = isset($vehicle['base_price']) ? floatval($vehicle['base_price']) : 0;
-
-			if ($current_price !== $new_price) {
+			if ($new_price > 0 && $current_price !== $new_price) {
 				$vehicles[$index]['base_price'] = $new_price;
+				$updated = true;
+			}
+
+			// Sync passengers
+			$current_passengers = isset($vehicle['max_passengers']) ? intval($vehicle['max_passengers']) : 0;
+			if ($new_passengers > 0 && $current_passengers !== $new_passengers) {
+				$vehicles[$index]['max_passengers'] = $new_passengers;
+				$updated = true;
+			}
+
+			// Sync bags
+			$current_bags = isset($vehicle['max_bags']) ? intval($vehicle['max_bags']) : 0;
+			if ($new_bags > 0 && $current_bags !== $new_bags) {
+				$vehicles[$index]['max_bags'] = $new_bags;
 				$updated = true;
 			}
 		}
