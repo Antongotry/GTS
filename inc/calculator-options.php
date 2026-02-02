@@ -68,14 +68,6 @@ function gts_register_calculator_fields()
 		'title' => 'Vehicle Base Prices',
 		'fields' => array(
 			array(
-				'key' => 'field_calc_currency',
-				'label' => 'Currency Symbol',
-				'name' => 'calc_currency',
-				'type' => 'text',
-				'default_value' => '€',
-				'wrapper' => array('width' => '25'),
-			),
-			array(
 				'key' => 'field_calc_vehicles',
 				'label' => 'Vehicles',
 				'name' => 'calc_vehicles',
@@ -363,7 +355,13 @@ add_action('acf/init', 'gts_register_calculator_fields');
  */
 function gts_calculator_admin_styles($hook)
 {
-	if (strpos($hook, 'gts-calculator') === false) {
+	// Apply styles to main calculator page and all sub-pages
+	if (
+		strpos($hook, 'gts-calculator') === false &&
+		strpos($hook, 'vehicle-pricing') === false &&
+		strpos($hook, 'extra-services') === false &&
+		strpos($hook, 'distance-rates') === false
+	) {
 		return;
 	}
 
