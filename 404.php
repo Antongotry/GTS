@@ -116,19 +116,22 @@ $site_url = get_site_url();
 	.error-404-btn {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 12px;
-		padding: 18px 40px;
-		background: linear-gradient(135deg, #c9a962 0%, #b8933e 100%);
-		color: #0a0a0a;
+		padding: 0 32px;
+		height: 56px;
+		background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
+		color: #000000;
 		text-decoration: none;
+		font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 		font-size: 14px;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		border-radius: 0;
-		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		font-weight: 400;
+		border-radius: 50px;
+		border: none;
+		cursor: pointer;
 		position: relative;
 		overflow: hidden;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.error-404-btn::before {
@@ -138,23 +141,35 @@ $site_url = get_site_url();
 		left: -100%;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 		transition: left 0.5s ease;
+		z-index: 2;
+	}
+
+	.error-404-btn:hover {
+		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+		color: #000000;
 	}
 
 	.error-404-btn:hover::before {
 		left: 100%;
 	}
 
-	.error-404-btn:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 15px 40px rgba(201, 169, 98, 0.3);
+	.error-404-btn:active {
+		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
 	}
 
 	.error-404-btn svg {
 		width: 18px;
 		height: 18px;
 		transition: transform 0.3s ease;
+		position: relative;
+		z-index: 1;
+	}
+
+	.error-404-btn-text {
+		position: relative;
+		z-index: 1;
 	}
 
 	.error-404-btn:hover svg {
@@ -343,7 +358,7 @@ $site_url = get_site_url();
 					<line x1="19" y1="12" x2="5" y2="12"></line>
 					<polyline points="12 19 5 12 12 5"></polyline>
 				</svg>
-				Return Home
+				<span class="error-404-btn-text">Return Home</span>
 			</a>
 		</div>
 	</section>
