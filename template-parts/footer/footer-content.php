@@ -84,7 +84,7 @@
 		</div>
 
 		<div class="footer-right">
-			<a href="#" class="footer-button footer-button-primary">Book a transfer</a>
+			<a href="<?php echo esc_url(home_url('/checkout/')); ?>" class="footer-button footer-button-primary">Book a transfer</a>
 			<a href="#" class="footer-button footer-button-secondary">Explore services</a>
 			<div class="footer-phone">
 				<a href="tel:+440011112222">+44 00 1111 2222</a>
