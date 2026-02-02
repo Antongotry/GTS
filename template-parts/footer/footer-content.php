@@ -33,6 +33,7 @@
 				} else {
 				?>
 					<ul class="footer-menu-list">
+						<li><a href="<?php echo esc_url(home_url('/book-a-transfer')); ?>">Book a Transfer</a></li>
 						<li><a href="<?php echo esc_url(home_url('/events')); ?>">Events</a></li>
 						<li><a href="<?php echo esc_url(home_url('/for-business')); ?>">For Business</a></li>
 						<li><a href="<?php echo esc_url(home_url('/fleet')); ?>">Fleet</a></li>
