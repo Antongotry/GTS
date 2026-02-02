@@ -15,7 +15,7 @@ $site_url = get_site_url();
 	/* 404 Page Premium Styles */
 	.error-404-page {
 		min-height: 100vh;
-		background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
+		background: linear-gradient(180deg, #1A1D26 0%, #0C0F17 100%);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -52,11 +52,11 @@ $site_url = get_site_url();
 
 	.error-404-digit {
 		font-size: clamp(100px, 20vw, 200px);
-		font-weight: 300;
+		font-weight: 500;
 		color: #c9a962;
 		line-height: 1;
 		letter-spacing: -0.02em;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	}
 
 	/* Animated Steering Wheel as "0" */
@@ -95,19 +95,22 @@ $site_url = get_site_url();
 	}
 
 	.error-404-title {
+		font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 		font-size: clamp(28px, 5vw, 48px);
-		font-weight: 300;
+		font-weight: 500;
 		color: #fff;
 		margin-bottom: 20px;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
+		letter-spacing: -0.02em;
+		line-height: 1.2;
 	}
 
 	.error-404-subtitle {
-		font-size: clamp(16px, 2.5vw, 20px);
+		font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+		font-size: clamp(14px, 2.5vw, 16px);
+		font-weight: 400;
 		color: rgba(255, 255, 255, 0.6);
 		margin-bottom: 50px;
-		line-height: 1.6;
+		line-height: 1.5;
 		max-width: 500px;
 		margin-left: auto;
 		margin-right: auto;
