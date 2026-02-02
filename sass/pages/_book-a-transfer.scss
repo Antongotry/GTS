@@ -249,6 +249,7 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	margin-bottom: 16px;
 }
 
+/* Same style as hero .checkbox-group, but white (dark form background) */
 .transfer-checkbox {
 	display: flex;
 	align-items: center;
@@ -262,7 +263,7 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
-		border: 1px solid rgba(244, 197, 139, 0.5);
+		border: 1px solid #ffffff52;
 		border-radius: 0;
 		background: transparent;
 		cursor: pointer;
@@ -271,7 +272,7 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 		transition: all 0.2s ease;
 
 		&:checked {
-			border-color: $transfer-accent;
+			border-color: #fff;
 			background: transparent;
 
 			&::after {
@@ -281,7 +282,7 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 				top: 50%;
 				width: 20px;
 				height: 20px;
-				$check-svg: "data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3e%3cpath d=%22M5 10l3 3 7-7%22 stroke=%22%23f4c58b%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3e%3c/svg%3e";
+				$check-svg: "data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3e%3cpath d=%22M5 10l3 3 7-7%22 stroke=%22%23fff%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3e%3c/svg%3e";
 				background-image: url(#{$check-svg});
 				background-size: contain;
 				background-repeat: no-repeat;
