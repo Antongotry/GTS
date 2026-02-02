@@ -126,6 +126,8 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	background-position: right 0 center;
 	padding-right: 20px;
 	cursor: pointer;
+	color: #fff !important;
+	-webkit-text-fill-color: #fff;
 
 	option {
 		background: #1a1d26;

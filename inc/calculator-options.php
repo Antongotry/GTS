@@ -544,3 +544,203 @@ function gts_calculator_sync_notice()
 	}
 }
 add_action('admin_notices', 'gts_calculator_sync_notice');
+
+/**
+ * Populate Calculator with Test Data
+ * Run once to add sample data for testing
+ */
+function gts_populate_test_calculator_data()
+{
+	// Only run if explicitly requested via URL parameter
+	if (!isset($_GET['gts_populate_test_data']) || $_GET['gts_populate_test_data'] !== 'yes') {
+		return;
+	}
+
+	// Check admin permissions
+	if (!current_user_can('manage_options')) {
+		return;
+	}
+
+	// Prevent running twice
+	if (get_option('gts_test_data_populated')) {
+		echo '<div class="notice notice-warning"><p>Test data already populated. Delete option "gts_test_data_populated" to run again.</p></div>';
+		return;
+	}
+
+	// ========== EXTRA SERVICES ==========
+	$extras = array(
+		array(
+			'service_name' => 'Child Seat',
+			'price' => 15,
+			'per_trip' => 1,
+			'enabled' => 1,
+		),
+		array(
+			'service_name' => 'Meet & Greet',
+			'price' => 25,
+			'per_trip' => 1,
+			'enabled' => 1,
+		),
+		array(
+			'service_name' => 'Extra Stop',
+			'price' => 20,
+			'per_trip' => 0,
+			'enabled' => 1,
+		),
+		array(
+			'service_name' => 'VIP Protocol',
+			'price' => 100,
+			'per_trip' => 1,
+			'enabled' => 1,
+		),
+		array(
+			'service_name' => 'Waiting Time (per hour)',
+			'price' => 50,
+			'per_trip' => 0,
+			'enabled' => 1,
+		),
+		array(
+			'service_name' => 'Champagne on board',
+			'price' => 75,
+			'per_trip' => 1,
+			'enabled' => 1,
+		),
+		array(
+			'service_name' => 'Wi-Fi Hotspot',
+			'price' => 10,
+			'per_trip' => 1,
+			'enabled' => 1,
+		),
+		array(
+			'service_name' => 'Newspaper/Magazine',
+			'price' => 5,
+			'per_trip' => 1,
+			'enabled' => 1,
+		),
+	);
+	update_field('calc_extras', $extras, 'option');
+
+	// ========== DISTANCE RATES ==========
+	update_field('calc_min_price', 50, 'option');
+	update_field('calc_night_surcharge', 25, 'option');
+	update_field('calc_weekend_surcharge', 15, 'option');
+
+	$distance_tiers = array(
+		array(
+			'from_km' => 0,
+			'to_km' => 20,
+			'multiplier' => 1.5,
+			'note' => 'City transfers',
+		),
+		array(
+			'from_km' => 21,
+			'to_km' => 50,
+			'multiplier' => 1.2,
+			'note' => 'Suburban',
+		),
+		array(
+			'from_km' => 51,
+			'to_km' => 100,
+			'multiplier' => 1.0,
+			'note' => 'Standard',
+		),
+		array(
+			'from_km' => 101,
+			'to_km' => 200,
+			'multiplier' => 0.9,
+			'note' => 'Long distance discount',
+		),
+		array(
+			'from_km' => 201,
+			'to_km' => 9999,
+			'multiplier' => 0.8,
+			'note' => 'Extra long discount',
+		),
+	);
+	update_field('calc_distance_tiers', $distance_tiers, 'option');
+
+	// ========== VEHICLES (without WooCommerce) ==========
+	$vehicles = array(
+		array(
+			'wc_product' => 0,
+			'base_price' => 45,
+			'price_per_km' => 1.50,
+			'max_passengers' => 3,
+			'max_bags' => 2,
+			'enabled' => 1,
+		),
+		array(
+			'wc_product' => 0,
+			'base_price' => 65,
+			'price_per_km' => 1.80,
+			'max_passengers' => 4,
+			'max_bags' => 3,
+			'enabled' => 1,
+		),
+		array(
+			'wc_product' => 0,
+			'base_price' => 85,
+			'price_per_km' => 2.20,
+			'max_passengers' => 6,
+			'max_bags' => 5,
+			'enabled' => 1,
+		),
+		array(
+			'wc_product' => 0,
+			'base_price' => 150,
+			'price_per_km' => 3.50,
+			'max_passengers' => 3,
+			'max_bags' => 2,
+			'enabled' => 1,
+		),
+		array(
+			'wc_product' => 0,
+			'base_price' => 120,
+			'price_per_km' => 2.80,
+			'max_passengers' => 7,
+			'max_bags' => 7,
+			'enabled' => 1,
+		),
+	);
+	update_field('calc_vehicles', $vehicles, 'option');
+
+	// Mark as populated
+	update_option('gts_test_data_populated', true);
+
+	// Show success notice
+	add_action('admin_notices', function () {
+		echo '<div class="notice notice-success is-dismissible" style="border-left-color: #c9a962;">';
+		echo '<p><strong>✓ Test data populated!</strong></p>';
+		echo '<p><strong>Vehicles:</strong> 5 test vehicles (Sedan, Business, SUV, Limousine, Van)</p>';
+		echo '<p><strong>Extras:</strong> 8 services (Child Seat, Meet & Greet, VIP Protocol, etc.)</p>';
+		echo '<p><strong>Distance Tiers:</strong> 5 tiers with different multipliers</p>';
+		echo '<p><strong>Surcharges:</strong> Night +25%, Weekend +15%, Min order €50</p>';
+		echo '</div>';
+	});
+}
+add_action('admin_init', 'gts_populate_test_calculator_data');
+
+/**
+ * Add button to populate test data in Calculator settings
+ */
+function gts_add_populate_test_data_button()
+{
+	$screen = get_current_screen();
+	if (!$screen || strpos($screen->id, 'gts-calculator') === false) {
+		return;
+	}
+
+	$url = admin_url('admin.php?page=gts-calculator&gts_populate_test_data=yes');
+	$already_populated = get_option('gts_test_data_populated');
+
+	echo '<div class="notice notice-info" style="border-left-color: #c9a962;">';
+	echo '<p><strong>🧪 Test Data Generator</strong></p>';
+	if ($already_populated) {
+		echo '<p>Test data already loaded. To reload, delete option <code>gts_test_data_populated</code> from database.</p>';
+	} else {
+		echo '<p>Click the button below to populate all calculator settings with test data for transfer business:</p>';
+		echo '<p><a href="' . esc_url($url) . '" class="button button-primary" style="background: #c9a962; border-color: #b8944d;">Populate Test Data</a></p>';
+	}
+	echo '</div>';
+}
+add_action('admin_notices', 'gts_add_populate_test_data_button');
