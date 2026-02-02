@@ -31,7 +31,7 @@ $site_url = get_site_url();
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: radial-gradient(ellipse at center, rgba(201, 169, 98, 0.03) 0%, transparent 70%);
+		background: radial-gradient(ellipse at center, rgba(244, 197, 139, 0.05) 0%, transparent 70%);
 		pointer-events: none;
 	}
 
@@ -184,7 +184,7 @@ $site_url = get_site_url();
 		position: absolute;
 		width: 300px;
 		height: 300px;
-		border: 1px solid rgba(201, 169, 98, 0.1);
+		border: 1px solid rgba(253, 223, 174, 0.15);
 		border-radius: 50%;
 		pointer-events: none;
 	}
@@ -234,7 +234,7 @@ $site_url = get_site_url();
 		bottom: 0;
 		width: 4px;
 		height: 40px;
-		background: rgba(201, 169, 98, 0.2);
+		background: rgba(244, 197, 139, 0.3);
 		transform: translateX(-50%);
 		animation: roadMove 2s linear infinite;
 	}
