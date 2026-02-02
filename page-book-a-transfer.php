@@ -109,14 +109,32 @@ get_header();
 							<div class="transfer-row">
 								<div class="transfer-field">
 									<label class="transfer-label">Vehicle type*</label>
-									<select class="transfer-select" name="vehicle_type" required>
-										<option value="sedan">Sedan</option>
-										<option value="suv">SUV</option>
-										<option value="van">Van</option>
-										<option value="limousine">Limousine</option>
-										<option value="minibus">Minibus</option>
+									<select class="transfer-select" name="vehicle_type" id="vehicle-type-select" required>
+										<option value="">Select category</option>
+										<?php
+										$categories = get_terms(array(
+											'taxonomy' => 'product_cat',
+											'hide_empty' => true,
+											'orderby' => 'name',
+										));
+										if (!is_wp_error($categories) && !empty($categories)) {
+											foreach ($categories as $cat) {
+												if ($cat->slug === 'uncategorized') continue;
+												echo '<option value="' . esc_attr($cat->term_id) . '">' . esc_html($cat->name) . '</option>';
+											}
+										}
+										?>
 									</select>
 								</div>
+								<div class="transfer-field">
+									<label class="transfer-label">Vehicle*</label>
+									<select class="transfer-select" name="vehicle_id" id="vehicle-select" required>
+										<option value="">Select vehicle type first</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="transfer-row">
 								<div class="transfer-field">
 									<label class="transfer-label">Driver language*</label>
 									<select class="transfer-select" name="driver_language">
@@ -299,6 +317,66 @@ get_header();
 				updateSummary();
 			});
 
+			// Dynamic vehicle loading by category
+			var vehicleTypeSelect = document.getElementById('vehicle-type-select');
+			var vehicleSelect = document.getElementById('vehicle-select');
+
+			if (vehicleTypeSelect && vehicleSelect) {
+				vehicleTypeSelect.addEventListener('change', function() {
+					var categoryId = this.value;
+
+					if (!categoryId) {
+						vehicleSelect.innerHTML = '<option value="">Select vehicle type first</option>';
+						vehicleSelect.disabled = true;
+						return;
+					}
+
+					vehicleSelect.innerHTML = '<option value="">Loading...</option>';
+					vehicleSelect.disabled = true;
+
+					// AJAX request to get vehicles by category
+					var formData = new FormData();
+					formData.append('action', 'gts_get_vehicles_by_category');
+					formData.append('category_id', categoryId);
+
+					fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+							method: 'POST',
+							body: formData
+						})
+						.then(function(response) {
+							return response.json();
+						})
+						.then(function(response) {
+							if (response.success && response.data.vehicles) {
+								var vehicles = response.data.vehicles;
+								vehicleSelect.innerHTML = '<option value="">Select vehicle</option>';
+
+								vehicles.forEach(function(v) {
+									var opt = document.createElement('option');
+									opt.value = v.id;
+									opt.textContent = v.name + ' (€' + v.price + ')';
+									opt.dataset.passengers = v.max_passengers;
+									opt.dataset.bags = v.max_bags;
+									vehicleSelect.appendChild(opt);
+								});
+
+								vehicleSelect.disabled = false;
+							} else {
+								vehicleSelect.innerHTML = '<option value="">No vehicles found</option>';
+							}
+						})
+						.catch(function(err) {
+							console.error('Error loading vehicles:', err);
+							vehicleSelect.innerHTML = '<option value="">Error loading</option>';
+						});
+				});
+
+				// Update summary when vehicle changes
+				vehicleSelect.addEventListener('change', function() {
+					updateSummary();
+				});
+			}
+
 			function formatDate(val) {
 				if (!val) return '—';
 				var d = new Date(val + 'T00:00:00');
@@ -328,11 +406,19 @@ get_header();
 				el = document.getElementById('summary-passengers');
 				if (el) el.textContent = (passEl && passEl.value) ? passEl.value : '—';
 
-				var vehicleEl = form.querySelector('select[name="vehicle_type"]');
+				var vehicleEl = form.querySelector('select[name="vehicle_id"]');
+				var vehicleTypeEl = form.querySelector('select[name="vehicle_type"]');
 				el = document.getElementById('summary-vehicle');
-				if (el && vehicleEl) {
-					var opt = vehicleEl.options[vehicleEl.selectedIndex];
-					el.textContent = opt ? opt.text : '—';
+				if (el) {
+					if (vehicleEl && vehicleEl.value) {
+						var opt = vehicleEl.options[vehicleEl.selectedIndex];
+						el.textContent = opt ? opt.text : '—';
+					} else if (vehicleTypeEl && vehicleTypeEl.value) {
+						var typeOpt = vehicleTypeEl.options[vehicleTypeEl.selectedIndex];
+						el.textContent = typeOpt ? typeOpt.text + ' (select vehicle)' : '—';
+					} else {
+						el.textContent = '—';
+					}
 				}
 
 				var langEl = form.querySelector('select[name="driver_language"]');
