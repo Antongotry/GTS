@@ -101,7 +101,7 @@ get_header();
 	/* Location Row - with swap button in middle */
 	.transfer-row.location {
 		grid-template-columns: 1fr 40px 1fr;
-		gap: 0;
+		gap: 20px;
 		align-items: end;
 	}
 
@@ -125,15 +125,23 @@ get_header();
 		width: 100%;
 		height: 44px;
 		padding: 10px 0;
-		border: none;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		border: none !important;
+		border-top: none !important;
+		border-left: none !important;
+		border-right: none !important;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+		border-radius: 0;
 		background: transparent;
 		font-family: "Manrope", sans-serif;
 		font-size: 14px;
 		color: #FFFFFF;
-		outline: none;
+		outline: none !important;
+		box-shadow: none !important;
 		box-sizing: border-box;
 		transition: border-color 0.2s ease;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
 	}
 
 	.transfer-input::placeholder {
