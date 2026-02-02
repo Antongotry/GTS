@@ -7942,6 +7942,7 @@ a.phone-button:focus,
 .transfer-checkbox input[type=checkbox]:checked {
   border-color: #fff;
   background: transparent;
+  /* Same checkmark as hero .checkbox-group, white stroke */
 }
 .transfer-checkbox input[type=checkbox]:checked::after {
   content: "";
@@ -7950,7 +7951,7 @@ a.phone-button:focus,
   top: 50%;
   width: 20px;
   height: 20px;
-  background-image: url(data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3e%3cpath d=%22M5 10l3 3 7-7%22 stroke=%22%23fff%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3e%3c/svg%3e);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M5 10l3 3 7-7' stroke='%23fff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
