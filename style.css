@@ -3767,12 +3767,22 @@ a.phone-button:focus,
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 58px;
-	height: 58px;
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
 	flex-shrink: 0;
 	box-sizing: border-box;
 	text-decoration: none;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contacts-main__icon-wrap:hover {
+	opacity: 0.9;
+	transform: scale(1.08);
+}
+
+.contacts-main__icon-wrap:active {
+	transform: scale(1.02);
 }
 
 .contacts-main__icon-wrap img,
@@ -3792,11 +3802,10 @@ a.phone-button:focus,
 
 .contacts-main__icon-wrap--email {
 	background: #4997f6;
-	color: #fff;
 }
 
-.contacts-main__icon-wrap--email svg {
-	stroke: currentColor;
+.contacts-main__icon-wrap--email img {
+	filter: brightness(0) invert(1);
 }
 
 .contacts-main__desc {

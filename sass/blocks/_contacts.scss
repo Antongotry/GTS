@@ -185,17 +185,27 @@
 	min-height: 100%;
 }
 
-// Icons like custom-itinerary-icon (58px, same layout and colors)
+// Icons — full copy from custom-itinerary-block--limousine .custom-itinerary-icon (size, shape, hover, active)
 .contacts-main__icon-wrap {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 58px;
-	height: 58px;
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
 	flex-shrink: 0;
 	box-sizing: border-box;
 	text-decoration: none;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+
+	&:hover {
+		opacity: 0.9;
+		transform: scale(1.08);
+	}
+
+	&:active {
+		transform: scale(1.02);
+	}
 
 	img,
 	svg {
@@ -206,7 +216,7 @@
 }
 
 .contacts-main__icon-wrap--whatsapp {
-	background: #25d366; // same as custom-itinerary-icon--phone
+	background: #25d366; // custom-itinerary-icon--phone
 
 	img {
 		filter: brightness(0) invert(1);
@@ -214,11 +224,10 @@
 }
 
 .contacts-main__icon-wrap--email {
-	background: #4997f6; // same as custom-itinerary-icon--mail
-	color: #fff;
+	background: #4997f6; // custom-itinerary-icon--mail
 
-	svg {
-		stroke: currentColor;
+	img {
+		filter: brightness(0) invert(1); // white icon on blue, same as limousine
 	}
 }
 
