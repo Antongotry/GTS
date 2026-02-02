@@ -8815,7 +8815,8 @@ a.phone-button:focus,
 
 .transfer-row.location {
 	grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
-	gap: 20px;
+	column-gap: 5px;
+	row-gap: 20px;
 	align-items: end;
 }
 
