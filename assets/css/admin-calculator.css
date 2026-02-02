@@ -34,13 +34,7 @@
   gap: 16px;
 }
 
-.toplevel_page_gts-calculator .wrap h1::before,
-.calculator_page_acf-options-vehicle-pricing .wrap h1::before,
-.calculator_page_acf-options-extra-services .wrap h1::before,
-.calculator_page_acf-options-distance-rates .wrap h1::before {
-  content: "🚗";
-  font-size: 28px;
-}
+
 
 /* =====================================================
    HEADER DECORATIVE ELEMENT
@@ -103,21 +97,7 @@
   gap: 10px;
 }
 
-.toplevel_page_gts-calculator .acf-postbox .postbox-header h2::before,
-.calculator_page_acf-options-vehicle-pricing .acf-postbox .postbox-header h2::before {
-  content: "💰";
-  font-size: 16px;
-}
 
-.calculator_page_acf-options-extra-services .acf-postbox .postbox-header h2::before {
-  content: "✨";
-  font-size: 16px;
-}
-
-.calculator_page_acf-options-distance-rates .acf-postbox .postbox-header h2::before {
-  content: "📍";
-  font-size: 16px;
-}
 
 /* =====================================================
    ACF FIELDS CONTAINER
