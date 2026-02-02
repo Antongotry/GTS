@@ -58,13 +58,23 @@ $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
 
-// Booking Form defaults
-$booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
-$form_submit_text = ! empty($booking['submit_text']) ? $booking['submit_text'] : 'Get My Quote';
-$form_checkbox1 = ! empty($booking['checkbox1_text']) ? $booking['checkbox1_text'] : 'Book a Jet';
-$form_checkbox2 = ! empty($booking['checkbox2_text']) ? $booking['checkbox2_text'] : 'Book a Helicopter';
-$form_stats_number = ! empty($booking['stats_number']) ? $booking['stats_number'] : '100+';
-$form_stats_label = ! empty($booking['stats_label']) ? $booking['stats_label'] : 'countries';
+// Booking Form - Desktop defaults
+$booking_desktop = isset($blocks_data['booking_form_desktop']) ? $blocks_data['booking_form_desktop'] : array();
+$desktop_form_enabled = isset($booking_desktop['enabled']) ? (bool)$booking_desktop['enabled'] : true;
+$desktop_form_submit = ! empty($booking_desktop['submit_text']) ? $booking_desktop['submit_text'] : 'Get My Quote';
+$desktop_form_checkbox1 = ! empty($booking_desktop['checkbox1_text']) ? $booking_desktop['checkbox1_text'] : 'Book a Jet';
+$desktop_form_checkbox2 = ! empty($booking_desktop['checkbox2_text']) ? $booking_desktop['checkbox2_text'] : 'Book a Helicopter';
+$desktop_form_stats_number = ! empty($booking_desktop['stats_number']) ? $booking_desktop['stats_number'] : '100+';
+$desktop_form_stats_label = ! empty($booking_desktop['stats_label']) ? $booking_desktop['stats_label'] : 'countries';
+
+// Booking Form - Mobile defaults
+$booking_mobile = isset($blocks_data['booking_form_mobile']) ? $blocks_data['booking_form_mobile'] : array();
+$mobile_form_enabled = isset($booking_mobile['enabled']) ? (bool)$booking_mobile['enabled'] : true;
+$mobile_form_submit = ! empty($booking_mobile['submit_text']) ? $booking_mobile['submit_text'] : 'Get My Quote';
+$mobile_form_checkbox1 = ! empty($booking_mobile['checkbox1_text']) ? $booking_mobile['checkbox1_text'] : 'Book a Jet';
+$mobile_form_checkbox2 = ! empty($booking_mobile['checkbox2_text']) ? $booking_mobile['checkbox2_text'] : 'Book a Helicopter';
+$mobile_form_stats_number = ! empty($booking_mobile['stats_number']) ? $booking_mobile['stats_number'] : '100+';
+$mobile_form_stats_label = ! empty($booking_mobile['stats_label']) ? $booking_mobile['stats_label'] : 'countries';
 
 
 // Why Us defaults
@@ -176,49 +186,51 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					</div>
 				</div>
 				<div class="hero-right hero-right--desktop">
-					<form class="booking-form" id="booking-form">
-						<div class="form-row">
-							<div class="form-group"><input type="text" id="full-name" name="full_name" placeholder="First and Last name" required></div>
-							<div class="form-group"><input type="tel" id="phone" name="phone" placeholder="Phone" required></div>
-						</div>
-						<div class="form-row">
-							<div class="form-group"><input type="email" id="email" name="email" placeholder="E-mail" required></div>
-							<div class="form-group"><select id="service-type" name="service_type" required>
-									<option value="">Select service type</option>
-								</select></div>
-						</div>
-						<div class="form-checkboxes">
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($form_checkbox1); ?></span></label></div>
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($form_checkbox2); ?></span></label></div>
-						</div>
-						<div class="form-row form-row-after-checkboxes">
-							<div class="form-group"><select id="vehicle" name="vehicle" required>
-									<option value="">Select vehicle</option>
-								</select></div>
-							<div class="form-group"><select id="passengers" name="passengers" required>
-									<option value="">Number of passengers</option>
-								</select></div>
-						</div>
-						<div class="form-row">
-							<div class="form-group form-group-datetime"><input type="datetime-local" id="pickup-time" name="pickup_time" required><span class="datetime-placeholder">Pick-up time</span></div>
-							<div class="form-group"><input type="text" id="destination" name="destination" placeholder="Destination" required></div>
-						</div>
-						<div class="form-row">
-							<div class="form-group"><textarea id="comments" name="comments" placeholder="Comments" rows="3"></textarea></div>
-						</div>
-						<button type="submit" class="booking-submit-btn"><?php echo esc_html($form_submit_text); ?></button>
-					</form>
-					<div class="world-map-section">
-						<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" loading="lazy" width="100" height="100"></div>
-						<div class="world-map-divider"></div>
-						<div class="world-map-text">
-							<p class="world-map-label world-map-label-top">clients in</p>
-							<div class="world-map-bottom">
-								<p class="world-map-number"><?php echo esc_html($form_stats_number); ?></p>
-								<p class="world-map-label world-map-label-bottom"><?php echo esc_html($form_stats_label); ?></p>
+					<?php if ($desktop_form_enabled): ?>
+						<form class="booking-form" id="booking-form">
+							<div class="form-row">
+								<div class="form-group"><input type="text" id="full-name" name="full_name" placeholder="First and Last name" required></div>
+								<div class="form-group"><input type="tel" id="phone" name="phone" placeholder="Phone" required></div>
+							</div>
+							<div class="form-row">
+								<div class="form-group"><input type="email" id="email" name="email" placeholder="E-mail" required></div>
+								<div class="form-group"><select id="service-type" name="service_type" required>
+										<option value="">Select service type</option>
+									</select></div>
+							</div>
+							<div class="form-checkboxes">
+								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($desktop_form_checkbox1); ?></span></label></div>
+								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($desktop_form_checkbox2); ?></span></label></div>
+							</div>
+							<div class="form-row form-row-after-checkboxes">
+								<div class="form-group"><select id="vehicle" name="vehicle" required>
+										<option value="">Select vehicle</option>
+									</select></div>
+								<div class="form-group"><select id="passengers" name="passengers" required>
+										<option value="">Number of passengers</option>
+									</select></div>
+							</div>
+							<div class="form-row">
+								<div class="form-group form-group-datetime"><input type="datetime-local" id="pickup-time" name="pickup_time" required><span class="datetime-placeholder">Pick-up time</span></div>
+								<div class="form-group"><input type="text" id="destination" name="destination" placeholder="Destination" required></div>
+							</div>
+							<div class="form-row">
+								<div class="form-group"><textarea id="comments" name="comments" placeholder="Comments" rows="3"></textarea></div>
+							</div>
+							<button type="submit" class="booking-submit-btn"><?php echo esc_html($desktop_form_submit); ?></button>
+						</form>
+						<div class="world-map-section">
+							<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" loading="lazy" width="100" height="100"></div>
+							<div class="world-map-divider"></div>
+							<div class="world-map-text">
+								<p class="world-map-label world-map-label-top">clients in</p>
+								<div class="world-map-bottom">
+									<p class="world-map-number"><?php echo esc_html($desktop_form_stats_number); ?></p>
+									<p class="world-map-label world-map-label-bottom"><?php echo esc_html($desktop_form_stats_label); ?></p>
+								</div>
 							</div>
 						</div>
-					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</section>
@@ -242,8 +254,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<div class="world-map-text">
 								<p class="world-map-label world-map-label-top">clients in</p>
 								<div class="world-map-bottom">
-									<p class="world-map-number"><?php echo esc_html($form_stats_number); ?></p>
-									<p class="world-map-label world-map-label-bottom"><?php echo esc_html($form_stats_label); ?></p>
+									<p class="world-map-number"><?php echo esc_html($mobile_form_stats_number); ?></p>
+									<p class="world-map-label world-map-label-bottom"><?php echo esc_html($mobile_form_stats_label); ?></p>
 								</div>
 							</div>
 						</div>
@@ -256,47 +268,49 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 						</div>
 					</div>
-					<form class="booking-form" id="booking-form-mobile">
-						<div class="form-row">
-							<div class="form-group"><input type="text" id="full-name-m" name="full_name" placeholder="First and Last name" required></div>
-							<div class="form-group"><input type="tel" id="phone-m" name="phone" placeholder="Phone" required></div>
-						</div>
-						<div class="form-row">
-							<div class="form-group"><input type="email" id="email-m" name="email" placeholder="E-mail" required></div>
-							<div class="form-group"><select id="service-type-m" name="service_type" required>
-									<option value="">Select service type</option>
-								</select></div>
-						</div>
-						<div class="form-checkboxes">
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($form_checkbox1); ?></span></label></div>
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($form_checkbox2); ?></span></label></div>
-						</div>
-						<div class="form-row form-row-after-checkboxes">
-							<div class="form-group"><select id="vehicle-m" name="vehicle" required>
-									<option value="">Select vehicle</option>
-								</select></div>
-							<div class="form-group"><select id="passengers-m" name="passengers" required>
-									<option value="">Number of passengers</option>
-								</select></div>
-						</div>
-						<div class="form-row">
-							<div class="form-group form-group-datetime"><input type="datetime-local" id="pickup-time-m" name="pickup_time" required><span class="datetime-placeholder">Pick-up time</span></div>
-							<div class="form-group form-group-with-add-stop">
-								<input type="text" id="pickup-location-m" name="pickup_location" placeholder="Pick-up location" required>
-								<a href="#" class="add-stop-link"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-									</svg>Add Stop</a>
+					<?php if ($mobile_form_enabled): ?>
+						<form class="booking-form" id="booking-form-mobile">
+							<div class="form-row">
+								<div class="form-group"><input type="text" id="full-name-m" name="full_name" placeholder="First and Last name" required></div>
+								<div class="form-group"><input type="tel" id="phone-m" name="phone" placeholder="Phone" required></div>
 							</div>
-						</div>
-						<div class="form-row form-row-dropoff-notes">
-							<div class="form-group"><input type="text" id="dropoff-location-m" name="dropoff_location" placeholder="Drop-off location" required></div>
-							<div class="form-group"><textarea id="additional-notes-m" name="additional_notes" placeholder="Additional Notes" rows="1"></textarea></div>
-						</div>
-						<div class="form-group checkbox-group checkbox-consent">
-							<label><input type="checkbox" name="email_consent" value="1" class="consent-checkbox" checked><span>I agree to receive email communication regarding my quote request.</span></label>
-						</div>
-						<button type="submit" class="booking-submit-btn"><?php echo esc_html($form_submit_text); ?></button>
-					</form>
+							<div class="form-row">
+								<div class="form-group"><input type="email" id="email-m" name="email" placeholder="E-mail" required></div>
+								<div class="form-group"><select id="service-type-m" name="service_type" required>
+										<option value="">Select service type</option>
+									</select></div>
+							</div>
+							<div class="form-checkboxes">
+								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($mobile_form_checkbox1); ?></span></label></div>
+								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($mobile_form_checkbox2); ?></span></label></div>
+							</div>
+							<div class="form-row form-row-after-checkboxes">
+								<div class="form-group"><select id="vehicle-m" name="vehicle" required>
+										<option value="">Select vehicle</option>
+									</select></div>
+								<div class="form-group"><select id="passengers-m" name="passengers" required>
+										<option value="">Number of passengers</option>
+									</select></div>
+							</div>
+							<div class="form-row">
+								<div class="form-group form-group-datetime"><input type="datetime-local" id="pickup-time-m" name="pickup_time" required><span class="datetime-placeholder">Pick-up time</span></div>
+								<div class="form-group form-group-with-add-stop">
+									<input type="text" id="pickup-location-m" name="pickup_location" placeholder="Pick-up location" required>
+									<a href="#" class="add-stop-link"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+										</svg>Add Stop</a>
+								</div>
+							</div>
+							<div class="form-row form-row-dropoff-notes">
+								<div class="form-group"><input type="text" id="dropoff-location-m" name="dropoff_location" placeholder="Drop-off location" required></div>
+								<div class="form-group"><textarea id="additional-notes-m" name="additional_notes" placeholder="Additional Notes" rows="1"></textarea></div>
+							</div>
+							<div class="form-group checkbox-group checkbox-consent">
+								<label><input type="checkbox" name="email_consent" value="1" class="consent-checkbox" checked><span>I agree to receive email communication regarding my quote request.</span></label>
+							</div>
+							<button type="submit" class="booking-submit-btn"><?php echo esc_html($mobile_form_submit); ?></button>
+						</form>
+					<?php endif; ?>
 				</div>
 			</div>
 		</section>

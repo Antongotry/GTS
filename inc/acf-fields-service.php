@@ -389,15 +389,15 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 2: Booking Form
-		'layout_booking_form' => array(
-			'key'        => 'layout_service_booking_form',
-			'name'       => 'booking_form',
-			'label'      => 'Booking Form',
+		// Layout 2: Booking Form - Desktop
+		'layout_booking_form_desktop' => array(
+			'key'        => 'layout_service_booking_form_desktop',
+			'name'       => 'booking_form_desktop',
+			'label'      => 'Booking Form (Desktop)',
 			'display'    => 'block',
 			'sub_fields' => array(
 				array(
-					'key'           => 'field_service_booking_enabled',
+					'key'           => 'field_service_booking_desktop_enabled',
 					'label'         => 'Enable Block',
 					'name'          => 'enabled',
 					'type'          => 'true_false',
@@ -405,67 +405,92 @@ function gts_register_service_acf_fields()
 					'ui'            => 1,
 				),
 				array(
-					'key'           => 'field_service_booking_submit_text',
+					'key'           => 'field_service_booking_desktop_submit_text',
 					'label'         => 'Submit Button Text',
 					'name'          => 'submit_text',
 					'type'          => 'text',
 					'default_value' => 'Get My Quote',
 				),
 				array(
-					'key'           => 'field_service_booking_checkbox1',
+					'key'           => 'field_service_booking_desktop_checkbox1',
 					'label'         => 'Checkbox 1 Text',
 					'name'          => 'checkbox1_text',
 					'type'          => 'text',
 					'default_value' => 'Book a Jet',
 				),
 				array(
-					'key'           => 'field_service_booking_checkbox2',
+					'key'           => 'field_service_booking_desktop_checkbox2',
 					'label'         => 'Checkbox 2 Text',
 					'name'          => 'checkbox2_text',
 					'type'          => 'text',
 					'default_value' => 'Book a Helicopter',
 				),
 				array(
-					'key'           => 'field_service_booking_stats_number',
+					'key'           => 'field_service_booking_desktop_stats_number',
 					'label'         => 'Stats Number',
 					'name'          => 'stats_number',
 					'type'          => 'text',
 					'default_value' => '100+',
 				),
 				array(
-					'key'           => 'field_service_booking_stats_label',
+					'key'           => 'field_service_booking_desktop_stats_label',
 					'label'         => 'Stats Label',
 					'name'          => 'stats_label',
 					'type'          => 'text',
 					'default_value' => 'countries',
 				),
+			),
+		),
+
+		// Layout 3: Booking Form - Mobile
+		'layout_booking_form_mobile' => array(
+			'key'        => 'layout_service_booking_form_mobile',
+			'name'       => 'booking_form_mobile',
+			'label'      => 'Booking Form (Mobile)',
+			'display'    => 'block',
+			'sub_fields' => array(
 				array(
-					'key'           => 'field_service_booking_form_type',
-					'label'         => 'Form Type',
-					'name'          => 'form_type',
-					'type'          => 'select',
-					'choices'       => array(
-						'default'   => 'Default Booking Form',
-						'simple'    => 'Simple Contact Form',
-						'shortcode' => 'Custom Shortcode',
-					),
-					'default_value' => 'default',
+					'key'           => 'field_service_booking_mobile_enabled',
+					'label'         => 'Enable Block',
+					'name'          => 'enabled',
+					'type'          => 'true_false',
+					'default_value' => 1,
+					'ui'            => 1,
 				),
 				array(
-					'key'               => 'field_service_booking_shortcode',
-					'label'             => 'Form Shortcode',
-					'name'              => 'form_shortcode',
-					'type'              => 'text',
-					'instructions'      => 'Enter the shortcode for your form plugin (e.g., [contact-form-7 id="123"])',
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_service_booking_form_type',
-								'operator' => '==',
-								'value'    => 'shortcode',
-							),
-						),
-					),
+					'key'           => 'field_service_booking_mobile_submit_text',
+					'label'         => 'Submit Button Text',
+					'name'          => 'submit_text',
+					'type'          => 'text',
+					'default_value' => 'Get My Quote',
+				),
+				array(
+					'key'           => 'field_service_booking_mobile_checkbox1',
+					'label'         => 'Checkbox 1 Text',
+					'name'          => 'checkbox1_text',
+					'type'          => 'text',
+					'default_value' => 'Book a Jet',
+				),
+				array(
+					'key'           => 'field_service_booking_mobile_checkbox2',
+					'label'         => 'Checkbox 2 Text',
+					'name'          => 'checkbox2_text',
+					'type'          => 'text',
+					'default_value' => 'Book a Helicopter',
+				),
+				array(
+					'key'           => 'field_service_booking_mobile_stats_number',
+					'label'         => 'Stats Number',
+					'name'          => 'stats_number',
+					'type'          => 'text',
+					'default_value' => '100+',
+				),
+				array(
+					'key'           => 'field_service_booking_mobile_stats_label',
+					'label'         => 'Stats Label',
+					'name'          => 'stats_label',
+					'type'          => 'text',
+					'default_value' => 'countries',
 				),
 			),
 		),
