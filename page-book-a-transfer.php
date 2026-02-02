@@ -272,20 +272,30 @@ get_header();
 				return form.querySelector('input[name="to"]');
 			}
 
-			// Swap: click on button -> swap values in the two inputs
+			// Swap: click on button -> swap values in the two inputs (use form that contains the button)
 			form.addEventListener('click', function(e) {
 				if (!e.target || !e.target.closest) return;
 				var btn = e.target.closest('button.swap-btn');
 				if (!btn) return;
 				e.preventDefault();
 				e.stopPropagation();
-				var fromInput = getFromInput();
-				var toInput = getToInput();
+				var f = btn.closest('form');
+				if (!f) return;
+				var fromInput = f.querySelector('input[name="from"]');
+				var toInput = f.querySelector('input[name="to"]');
 				if (!fromInput || !toInput) return;
 				var a = fromInput.value;
 				var b = toInput.value;
+				fromInput.setAttribute('value', b);
 				fromInput.value = b;
+				toInput.setAttribute('value', a);
 				toInput.value = a;
+				fromInput.dispatchEvent(new Event('input', {
+					bubbles: true
+				}));
+				toInput.dispatchEvent(new Event('input', {
+					bubbles: true
+				}));
 				updateSummary();
 			});
 
