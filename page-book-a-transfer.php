@@ -28,6 +28,8 @@ get_header();
 		width: 100%;
 		margin: 0 auto;
 		padding: 0 20px;
+		box-sizing: border-box;
+		overflow: hidden;
 	}
 
 	/* Header Section */
