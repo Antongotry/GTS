@@ -58,6 +58,15 @@ $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
 
+// Booking Form defaults
+$booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
+$form_submit_text = ! empty($booking['submit_text']) ? $booking['submit_text'] : 'Get My Quote';
+$form_checkbox1 = ! empty($booking['checkbox1_text']) ? $booking['checkbox1_text'] : 'Book a Jet';
+$form_checkbox2 = ! empty($booking['checkbox2_text']) ? $booking['checkbox2_text'] : 'Book a Helicopter';
+$form_stats_number = ! empty($booking['stats_number']) ? $booking['stats_number'] : '100+';
+$form_stats_label = ! empty($booking['stats_label']) ? $booking['stats_label'] : 'countries';
+
+
 // Why Us defaults
 $why_us = isset($blocks_data['why_us']) ? $blocks_data['why_us'] : array();
 $why_us_pill = ! empty($why_us['pill_text']) ? $why_us['pill_text'] : 'Why us?';
@@ -179,8 +188,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 								</select></div>
 						</div>
 						<div class="form-checkboxes">
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span>Book a Jet</span></label></div>
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span>Book a Helicopter</span></label></div>
+							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($form_checkbox1); ?></span></label></div>
+							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($form_checkbox2); ?></span></label></div>
 						</div>
 						<div class="form-row form-row-after-checkboxes">
 							<div class="form-group"><select id="vehicle" name="vehicle" required>
@@ -197,7 +206,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						<div class="form-row">
 							<div class="form-group"><textarea id="comments" name="comments" placeholder="Comments" rows="3"></textarea></div>
 						</div>
-						<button type="submit" class="booking-submit-btn">Get My Quote</button>
+						<button type="submit" class="booking-submit-btn"><?php echo esc_html($form_submit_text); ?></button>
 					</form>
 					<div class="world-map-section">
 						<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" loading="lazy" width="100" height="100"></div>
@@ -205,8 +214,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						<div class="world-map-text">
 							<p class="world-map-label world-map-label-top">clients in</p>
 							<div class="world-map-bottom">
-								<p class="world-map-number">100+</p>
-								<p class="world-map-label world-map-label-bottom">countries</p>
+								<p class="world-map-number"><?php echo esc_html($form_stats_number); ?></p>
+								<p class="world-map-label world-map-label-bottom"><?php echo esc_html($form_stats_label); ?></p>
 							</div>
 						</div>
 					</div>
@@ -215,7 +224,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 	<?php endif; ?>
 
-	<?php // ======================== BOOKING FORM BLOCK (MOBILE) ======================== 
+	<?php // ======================== BOOKING FORM BLOCK (MOBILE) ========================
 	?>
 	<?php if ($block_enabled['booking_form']) : ?>
 		<section class="booking-form-block booking-form-block--mobile">
@@ -233,8 +242,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<div class="world-map-text">
 								<p class="world-map-label world-map-label-top">clients in</p>
 								<div class="world-map-bottom">
-									<p class="world-map-number">100+</p>
-									<p class="world-map-label world-map-label-bottom">countries</p>
+									<p class="world-map-number"><?php echo esc_html($form_stats_number); ?></p>
+									<p class="world-map-label world-map-label-bottom"><?php echo esc_html($form_stats_label); ?></p>
 								</div>
 							</div>
 						</div>
@@ -259,8 +268,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 								</select></div>
 						</div>
 						<div class="form-checkboxes">
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span>Book a Jet</span></label></div>
-							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span>Book a Helicopter</span></label></div>
+							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($form_checkbox1); ?></span></label></div>
+							<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($form_checkbox2); ?></span></label></div>
 						</div>
 						<div class="form-row form-row-after-checkboxes">
 							<div class="form-group"><select id="vehicle-m" name="vehicle" required>
@@ -286,7 +295,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						<div class="form-group checkbox-group checkbox-consent">
 							<label><input type="checkbox" name="email_consent" value="1" class="consent-checkbox" checked><span>I agree to receive email communication regarding my quote request.</span></label>
 						</div>
-						<button type="submit" class="booking-submit-btn">Get My Quote</button>
+						<button type="submit" class="booking-submit-btn"><?php echo esc_html($form_submit_text); ?></button>
 					</form>
 				</div>
 			</div>
