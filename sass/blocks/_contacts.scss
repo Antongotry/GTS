@@ -1,6 +1,6 @@
 /**
- * Contacts Page — ref: pill CTA, sharp cards/form, rounded submit.
- * Uses main styles: .btn, container, Manrope, gradients.
+ * Contacts Page — aligned with main: pill CTA (why-us-heading-pill), title (occasions),
+ * cards (why-us-item), icons (custom-itinerary), form (hero booking-form).
  */
 
 .site-main--contacts {
@@ -9,7 +9,7 @@
 }
 
 // -----------------------------------------------------------------------------
-// Hero — CTA pill (like main .btn), dark gray
+// Hero — pill CTA (like why-us-heading-pill), title (like occasions-title), centered
 // -----------------------------------------------------------------------------
 
 .contacts-hero {
@@ -32,32 +32,65 @@
 	max-width: min(800px, 100%);
 	margin-left: auto;
 	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-// Pill-shaped CTA (same as main .btn), dark gray — ref
+// CTA like why-us-heading-pill (glass, pill shape), centered
 .contacts-hero__cta {
-	@extend .btn;
-	background: #363636;
-	border-radius: 50px;
-	border: none;
-	color: #fff;
-	margin-bottom: 24px;
-	text-transform: none;
+	@include pill(auto, 43px);
+	@include glass-effect();
+	padding-left: 24px;
+	padding-right: 24px;
+	width: max-content;
+	min-width: 103px;
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: $font__manrope;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
 	letter-spacing: 0;
+	color: $color__text-main;
+	text-decoration: none;
+	margin-bottom: 24px;
+	border: none;
+	cursor: pointer;
+	transition: opacity 0.2s;
+
+	@include lg {
+		font-size: 12px;
+	}
 
 	&:hover {
-		background: #454545;
-		color: #fff;
+		opacity: 0.9;
+		color: $color__text-main;
 	}
 }
 
+// Title like occasions-title (centered)
 .contacts-hero__title {
-	font-family: $font__manrope;
-	font-size: clamp(24px, 3.5vw, 40px);
-	font-weight: 700;
-	line-height: 1.2;
-	color: #fff;
+	font-family: $font__main;
+	font-size: 48px;
+	font-weight: 500;
+	color: $color__text-main;
 	margin: 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-align: center;
+
+	@include lg {
+		font-size: 36px;
+	}
+
+	@include md {
+		font-size: 28px;
+		text-align: center;
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -92,10 +125,12 @@
 	}
 }
 
-// Cards/cols: dark (WA/Email), white (form). No rounding
+// Cards like why-us-item: glass border, transparent background
 .contacts-main__card,
 .contacts-main__col {
-	border-radius: 0 !important;
+	border: 1px inset $color__glass-border;
+	border-radius: 0;
+	background: transparent;
 	padding: 28px 24px;
 	box-sizing: border-box;
 
@@ -108,14 +143,14 @@
 .contacts-main__card--email,
 .contacts-main__col--whatsapp,
 .contacts-main__col--email {
-	background: rgba(255, 255, 255, 0.06);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: transparent;
+	border: 1px inset $color__glass-border;
 }
 
 .contacts-main__card--form,
 .contacts-main__col--form {
-	background: #fff;
-	border: none;
+	background: transparent;
+	border: 1px inset $color__glass-border;
 }
 
 // Title + icon on same row (ref): left title, right icon
@@ -139,15 +174,24 @@
 	display: none;
 }
 
-// Circular icons (green / blue)
+// Form area: white block like hero .booking-form (readable on transparent card)
+.contacts-main__card--form .contacts-main__form-wrap {
+	background: #fff;
+	padding: 24px 20px;
+	border-radius: 0;
+	box-sizing: border-box;
+}
+
+// Icons like custom-itinerary-icon (56px, same colors)
 .contacts-main__icon-wrap {
-	width: 48px;
-	height: 48px;
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 0;
+	box-sizing: border-box;
 
 	img,
 	svg {
@@ -167,7 +211,7 @@
 }
 
 .contacts-main__icon-wrap--email {
-	background: #5b9bd5;
+	background: #4997f6;
 	color: #fff;
 }
 
@@ -222,6 +266,7 @@
 	margin: 0 0 24px;
 }
 
+
 .contacts-main__form-success {
 	font-family: $font__manrope;
 	font-size: 16px;
@@ -267,10 +312,11 @@
 }
 
 // Ref: inputs sharp (0), underline only
+// Inputs/textarea like hero .booking-form .form-group
 .contacts-form__group input,
 .contacts-form__group textarea {
 	width: 100%;
-	padding: 10px 0;
+	padding: 8px 0;
 	border: none;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.32);
 	border-radius: 0;
@@ -281,6 +327,10 @@
 	color: #000;
 	box-sizing: border-box;
 	transition: border-color 0.2s;
+	height: 40px;
+	min-height: 40px;
+	display: flex;
+	align-items: center;
 
 	&::placeholder {
 		color: rgba(0, 0, 0, 0.56);
@@ -288,14 +338,16 @@
 
 	&:focus {
 		outline: none;
-		border-bottom-color: rgba(0, 0, 0, 0.6);
+		border-bottom-color: rgba(0, 0, 0, 0.32);
 	}
 }
 
 .contacts-form__group textarea {
 	resize: vertical;
 	min-height: 80px;
+	height: auto;
 	line-height: 1.5;
+	display: block;
 }
 
 .contacts-form__consent {
@@ -320,7 +372,7 @@
 		text-underline-offset: 2px;
 	}
 
-	// Ref: checkbox sharp (0)
+	// Checkbox like hero .checkbox-consent (sharp, black check)
 	input[type="checkbox"] {
 		width: 20px;
 		height: 20px;
@@ -334,7 +386,7 @@
 		border-radius: 0;
 		cursor: pointer;
 		background: transparent;
-		transition: border-color 0.2s;
+		transition: all 0.2s ease;
 		position: relative;
 
 		&:checked {
@@ -346,35 +398,42 @@
 				position: absolute;
 				left: 50%;
 				top: 50%;
-				width: 10px;
-				height: 10px;
-				background: #000;
+				width: 14px;
+				height: 14px;
+				background-color: #000;
 				transform: translate(-50%, -50%);
 			}
 		}
 	}
 }
 
-// Get My Quote — orange/peach bg, black text, rounded ~5-8px (ref)
+// Get My Quote — like hero .booking-submit-btn (gold gradient, 50px radius)
 .contacts-form__submit {
-	@extend .btn;
 	width: 100%;
 	max-width: 200px;
-	background: #FAD9A9;
-	border: none;
-	border-radius: 6px;
-	font-size: 14px;
-	font-weight: 600;
-	font-family: $font__manrope;
+	height: 56px;
+	padding: 0;
+	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
 	color: #000;
+	border: none;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 400;
+	font-family: $font__manrope;
 	cursor: pointer;
-	transition: all 0.2s;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	margin-top: 24px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+	overflow: hidden;
 
 	&:hover {
-		background: #FBE5B9;
-		color: #000;
+		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+	}
+
+	&:active {
+		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
 	}
 }
