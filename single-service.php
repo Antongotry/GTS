@@ -58,23 +58,24 @@ $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
 
-// Booking Form - Desktop defaults
-$booking_desktop = isset($blocks_data['booking_form_desktop']) ? $blocks_data['booking_form_desktop'] : array();
-$desktop_form_enabled = isset($booking_desktop['enabled']) ? (bool)$booking_desktop['enabled'] : true;
-$desktop_form_submit = ! empty($booking_desktop['submit_text']) ? $booking_desktop['submit_text'] : 'Get My Quote';
-$desktop_form_checkbox1 = ! empty($booking_desktop['checkbox1_text']) ? $booking_desktop['checkbox1_text'] : 'Book a Jet';
-$desktop_form_checkbox2 = ! empty($booking_desktop['checkbox2_text']) ? $booking_desktop['checkbox2_text'] : 'Book a Helicopter';
-$desktop_form_stats_number = ! empty($booking_desktop['stats_number']) ? $booking_desktop['stats_number'] : '100+';
-$desktop_form_stats_label = ! empty($booking_desktop['stats_label']) ? $booking_desktop['stats_label'] : 'countries';
+// Booking Form - unified block with desktop and mobile sections
+$booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
 
-// Booking Form - Mobile defaults
-$booking_mobile = isset($blocks_data['booking_form_mobile']) ? $blocks_data['booking_form_mobile'] : array();
-$mobile_form_enabled = isset($booking_mobile['enabled']) ? (bool)$booking_mobile['enabled'] : true;
-$mobile_form_submit = ! empty($booking_mobile['submit_text']) ? $booking_mobile['submit_text'] : 'Get My Quote';
-$mobile_form_checkbox1 = ! empty($booking_mobile['checkbox1_text']) ? $booking_mobile['checkbox1_text'] : 'Book a Jet';
-$mobile_form_checkbox2 = ! empty($booking_mobile['checkbox2_text']) ? $booking_mobile['checkbox2_text'] : 'Book a Helicopter';
-$mobile_form_stats_number = ! empty($booking_mobile['stats_number']) ? $booking_mobile['stats_number'] : '100+';
-$mobile_form_stats_label = ! empty($booking_mobile['stats_label']) ? $booking_mobile['stats_label'] : 'countries';
+// Desktop form settings
+$desktop_form_enabled = isset($booking['desktop_enabled']) ? (bool)$booking['desktop_enabled'] : true;
+$desktop_form_submit = ! empty($booking['desktop_submit_text']) ? $booking['desktop_submit_text'] : 'Get My Quote';
+$desktop_form_checkbox1 = ! empty($booking['desktop_checkbox1_text']) ? $booking['desktop_checkbox1_text'] : 'Book a Jet';
+$desktop_form_checkbox2 = ! empty($booking['desktop_checkbox2_text']) ? $booking['desktop_checkbox2_text'] : 'Book a Helicopter';
+$desktop_form_stats_number = ! empty($booking['desktop_stats_number']) ? $booking['desktop_stats_number'] : '100+';
+$desktop_form_stats_label = ! empty($booking['desktop_stats_label']) ? $booking['desktop_stats_label'] : 'countries';
+
+// Mobile form settings
+$mobile_form_enabled = isset($booking['mobile_enabled']) ? (bool)$booking['mobile_enabled'] : true;
+$mobile_form_submit = ! empty($booking['mobile_submit_text']) ? $booking['mobile_submit_text'] : 'Get My Quote';
+$mobile_form_checkbox1 = ! empty($booking['mobile_checkbox1_text']) ? $booking['mobile_checkbox1_text'] : 'Book a Jet';
+$mobile_form_checkbox2 = ! empty($booking['mobile_checkbox2_text']) ? $booking['mobile_checkbox2_text'] : 'Book a Helicopter';
+$mobile_form_stats_number = ! empty($booking['mobile_stats_number']) ? $booking['mobile_stats_number'] : '100+';
+$mobile_form_stats_label = ! empty($booking['mobile_stats_label']) ? $booking['mobile_stats_label'] : 'countries';
 
 
 // Why Us defaults
