@@ -77,6 +77,25 @@ add_filter('script_loader_src', 'gts_disable_asset_caching', 10, 1);
 // ==========================================================================
 
 /**
+ * Enqueue custom admin styles for ACF
+ */
+function gts_admin_styles()
+{
+	$screen = get_current_screen();
+	// Only load on service edit page
+	if ($screen && ($screen->post_type === 'service' || $screen->id === 'service')) {
+		wp_enqueue_style(
+			'gts-admin-acf',
+			get_template_directory_uri() . '/assets/css/admin-acf.css',
+			array(),
+			filemtime(get_template_directory() . '/assets/css/admin-acf.css')
+		);
+	}
+}
+add_action('admin_enqueue_scripts', 'gts_admin_styles');
+
+
+/**
  * Allowed HTML for inline SVG in hero (theme icons).
  *
  * @return array Allowed tags and attributes for wp_kses.
