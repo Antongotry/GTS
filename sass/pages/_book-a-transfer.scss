@@ -11,10 +11,12 @@ $transfer-accent-light: #fddfae;
 $transfer-accent-gradient: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
 $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 50%, #f8d5a5 100%);
 
-// Layout widths at 1920 (same logic as hero columns)
-$transfer-form-width: 900px;
-$transfer-summary-width: 440px;
+// Layout: proportions 900 : 440 at 1920, gap 20px — use % of (100% - gap) so never overflows
 $transfer-gap: 20px;
+$transfer-form-ratio: 900 / (900 + 440);   // ~0.6618
+$transfer-summary-ratio: 440 / (900 + 440); // ~0.3382
+$transfer-form-col: calc((100% - #{$transfer-gap}) * #{$transfer-form-ratio});
+$transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-ratio});
 
 .transfer-page {
 	background: $color__background-body;
@@ -47,7 +49,7 @@ $transfer-gap: 20px;
 // Header uses same grid as layout so title aligns with form, subtitle with summary
 .transfer-header {
 	display: grid;
-	grid-template-columns: $transfer-form-width $transfer-gap $transfer-summary-width;
+	grid-template-columns: $transfer-form-col $transfer-gap $transfer-summary-col;
 	align-items: start;
 	gap: 0;
 	margin-bottom: 40px;
@@ -89,10 +91,10 @@ $transfer-gap: 20px;
 	}
 }
 
-// 1920: form 900px, gap 20px, summary 440px (aligned with header columns)
+// Form and summary as % of (100% - gap) — same proportion as 900:440, never overflows
 .transfer-layout {
 	display: grid;
-	grid-template-columns: $transfer-form-width $transfer-gap $transfer-summary-width;
+	grid-template-columns: $transfer-form-col $transfer-gap $transfer-summary-col;
 	align-items: start;
 	gap: 0;
 

@@ -8717,7 +8717,7 @@ a.phone-button:focus,
 
 .transfer-header {
 	display: grid;
-	grid-template-columns: 900px 20px 440px;
+	grid-template-columns: calc((100% - 20px) * 0.671641791) 20px calc((100% - 20px) * 0.328358209);
 	align-items: start;
 	gap: 0;
 	margin-bottom: 40px;
@@ -8770,7 +8770,7 @@ a.phone-button:focus,
 
 .transfer-layout {
 	display: grid;
-	grid-template-columns: 900px 20px 440px;
+	grid-template-columns: calc((100% - 20px) * 0.671641791) 20px calc((100% - 20px) * 0.328358209);
 	align-items: start;
 	gap: 0;
 }
