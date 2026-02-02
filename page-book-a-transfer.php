@@ -35,11 +35,7 @@ get_header();
 									<label class="transfer-label">From*</label>
 									<input type="text" class="transfer-input" placeholder="Enter pickup location" name="from" required>
 								</div>
-								<button type="button" class="swap-btn" title="Swap locations">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-										<path d="M7 16V4M7 4L3 8M7 4l4 4M17 8v12M17 20l4-4M17 20l-4-4"></path>
-									</svg>
-								</button>
+								<button type="button" class="swap-btn" title="Swap locations" aria-label="Swap From and To"></button>
 								<div class="transfer-field">
 									<label class="transfer-label">To*</label>
 									<input type="text" class="transfer-input" placeholder="Enter drop-off location" name="to" required>
