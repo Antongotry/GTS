@@ -1,0 +1,470 @@
+/**
+ * Book a Transfer Page
+ * Template: page-book-a-transfer.php
+ * Uses same grid as header.
+ */
+
+// Accent (gold) – same as main page buttons
+$transfer-accent: #f4c58b;
+$transfer-accent-hover: #f7ce95;
+$transfer-accent-light: #fddfae;
+$transfer-accent-gradient: linear-gradient(to right, #fddfae 0%, #f4c58b 50%, #f7ce95 100%);
+$transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 50%, #f8d5a5 100%);
+
+.transfer-page {
+	background: $color__background-body;
+	min-height: 100vh;
+	padding: 100px 0 80px;
+}
+
+.transfer-container {
+	max-width: min(1840px, 100vw - var(--scrollbar-width, 0px) - 40px);
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.transfer-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 40px;
+	padding-bottom: 24px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transfer-title {
+	font-family: $font__main;
+	font-size: 40px;
+	font-weight: 500;
+	color: #fff;
+	margin: 0;
+	letter-spacing: -0.02em;
+}
+
+.transfer-subtitle {
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.6);
+	max-width: 320px;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.transfer-layout {
+	display: grid;
+	grid-template-columns: 1fr 380px;
+	gap: 60px;
+	align-items: start;
+}
+
+.transfer-form-card {
+	background: rgba(255, 255, 255, 0.05);
+	padding: 40px;
+}
+
+.transfer-section {
+	margin-bottom: 40px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.transfer-section-title {
+	font-family: $font__main;
+	font-size: 24px;
+	font-weight: 500;
+	color: #fff;
+	margin: 0 0 24px 0;
+	letter-spacing: -0.02em;
+}
+
+.transfer-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	margin-bottom: 20px;
+
+	&.location {
+		grid-template-columns: 1fr 40px 1fr;
+		gap: 20px;
+		align-items: end;
+	}
+}
+
+.transfer-field {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.transfer-label {
+	font-family: $font__manrope;
+	font-size: 14px;
+	font-weight: 400;
+	color: #fff;
+}
+
+.transfer-select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	$select-arrow: "data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22%3e%3cpath d=%22M1 1.5L6 6.5L11 1.5%22 stroke=%22rgba%28255%2c255%2c255%2c0.5%29%22 stroke-width=%221.5%22 fill=%22none%22/%3e%3c/svg%3e";
+	background-image: url(#{$select-arrow});
+	background-repeat: no-repeat;
+	background-position: right 0 center;
+	padding-right: 20px;
+	cursor: pointer;
+
+	option {
+		background: #1a1d26;
+		color: #fff;
+	}
+}
+
+.transfer-input,
+.transfer-select {
+	width: 100%;
+	height: 44px;
+	padding: 10px 0;
+	border: none !important;
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+	border-radius: 0;
+	background: transparent;
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: #fff;
+	outline: none !important;
+	box-shadow: none !important;
+	box-sizing: border-box;
+	transition: border-color 0.2s ease;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	&::placeholder {
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	&:focus {
+		border-bottom-color: rgba(255, 255, 255, 0.6);
+	}
+}
+
+.swap-btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: transparent;
+	border: 2px solid $transfer-accent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	align-self: end;
+	margin-bottom: 2px;
+
+	&:hover {
+		background: rgba(244, 197, 139, 0.2);
+		border-color: $transfer-accent-hover;
+	}
+
+	svg {
+		width: 18px;
+		height: 18px;
+		color: $transfer-accent;
+	}
+}
+
+.transfer-return-label {
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 12px;
+}
+
+/* Consent before checkbox so .transfer-consent input comes before .transfer-checkbox input:checked (no-descending-specificity) */
+.transfer-consent {
+	margin-bottom: 24px;
+
+	label {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		cursor: pointer;
+	}
+
+	input[type="checkbox"] {
+		width: 20px;
+		height: 20px;
+		margin: 0;
+		margin-top: 2px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		border: 1px solid rgba(0, 0, 0, 0.32);
+		border-radius: 0;
+		background: transparent;
+		cursor: pointer;
+		position: relative;
+		flex-shrink: 0;
+		transition: all 0.2s ease;
+
+		&:checked {
+			border-color: #000;
+			background: transparent;
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 14px;
+				height: 14px;
+				background-color: #000;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	span {
+		font-family: $font__manrope;
+		font-size: 13px;
+		color: #0c0f17;
+		line-height: 1.4;
+	}
+}
+
+.transfer-checkbox-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	margin-bottom: 16px;
+}
+
+.transfer-checkbox {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+
+	input[type="checkbox"] {
+		width: 20px;
+		height: 20px;
+		margin: 0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		border: 1px solid rgba(244, 197, 139, 0.5);
+		border-radius: 0;
+		background: transparent;
+		cursor: pointer;
+		position: relative;
+		flex-shrink: 0;
+		transition: all 0.2s ease;
+
+		&:checked {
+			border-color: $transfer-accent;
+			background: transparent;
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 20px;
+				height: 20px;
+				$check-svg: "data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3e%3cpath d=%22M5 10l3 3 7-7%22 stroke=%22%23f4c58b%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3e%3c/svg%3e";
+				background-image: url(#{$check-svg});
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	span {
+		font-family: $font__manrope;
+		font-size: 14px;
+		color: #fff;
+	}
+}
+
+.transfer-requests-label {
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 12px;
+}
+
+/* Summary Card */
+.transfer-summary {
+	background: #fff;
+	padding: 32px;
+	position: sticky;
+	top: 100px;
+}
+
+.transfer-summary-title {
+	font-family: $font__main;
+	font-size: 28px;
+	font-weight: 500;
+	color: #0c0f17;
+	margin: 0 0 24px 0;
+}
+
+.transfer-summary-row {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.transfer-summary-label {
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: rgba(12, 15, 23, 0.56);
+}
+
+.transfer-summary-value {
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: #0c0f17;
+}
+
+.transfer-summary-divider {
+	height: 1px;
+	background: rgba(12, 15, 23, 0.1);
+	margin: 16px 0;
+}
+
+.transfer-summary-price-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 8px;
+}
+
+.transfer-summary-price {
+	font-family: $font__main;
+	font-size: 24px;
+	font-weight: 500;
+	color: #0c0f17;
+}
+
+.transfer-summary-note {
+	font-family: $font__manrope;
+	font-size: 13px;
+	color: rgba(12, 15, 23, 0.56);
+	margin-bottom: 24px;
+}
+
+.transfer-submit {
+	width: 100%;
+	height: 56px;
+	border-radius: 50px;
+	border: none;
+	background: $transfer-accent-gradient;
+	font-family: $font__manrope;
+	font-size: 14px;
+	color: #000;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-bottom: 16px;
+
+	&:hover {
+		background: $transfer-accent-gradient-hover;
+	}
+}
+
+.transfer-confirm {
+	font-family: $font__manrope;
+	font-size: 13px;
+	color: rgba(12, 15, 23, 0.56);
+	text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 1200px) {
+
+	.transfer-layout {
+		grid-template-columns: 1fr 340px;
+		gap: 40px;
+	}
+}
+
+@media (max-width: 1024px) {
+
+	.transfer-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.transfer-summary {
+		position: static;
+	}
+
+	.transfer-header {
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.transfer-container {
+		padding: 0 24px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.transfer-page {
+		padding: 40px 0 60px;
+	}
+
+	.transfer-form-card {
+		padding: 24px;
+	}
+
+	.transfer-row {
+		grid-template-columns: 1fr;
+		gap: 20px;
+
+		&.location {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.swap-btn {
+		display: none;
+	}
+
+	.transfer-title {
+		font-size: 32px;
+	}
+
+	.transfer-checkbox-group {
+		flex-direction: column;
+		gap: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+
+	.transfer-container {
+		padding: 0 16px;
+	}
+
+	.transfer-form-card {
+		padding: 20px;
+	}
+
+	.transfer-summary {
+		padding: 24px;
+	}
+}
