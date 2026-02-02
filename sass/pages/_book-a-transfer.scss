@@ -116,6 +116,7 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	color: #fff;
 }
 
+/* Override inline color (e.g. rgb(0,0,0)): placeholder state = gray, selected = white */
 .transfer-select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -126,12 +127,18 @@ $transfer-accent-gradient-hover: linear-gradient(to right, #fee5c0 0%, #f5ce9b 5
 	background-position: right 0 center;
 	padding-right: 20px;
 	cursor: pointer;
-	color: #fff !important;
-	-webkit-text-fill-color: #fff;
+	color: rgba(255, 255, 255, 0.5) !important;
+	-webkit-text-fill-color: rgba(255, 255, 255, 0.5) !important;
 
 	option {
 		background: #1a1d26;
 		color: #fff;
+	}
+
+	&:valid,
+	&.has-value {
+		color: #fff !important;
+		-webkit-text-fill-color: #fff !important;
 	}
 }
 
