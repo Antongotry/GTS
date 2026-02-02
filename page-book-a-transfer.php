@@ -267,10 +267,18 @@ get_header();
 		var toInput = form.querySelector('input[name="to"]');
 		var btn = form.querySelector('.swap-btn');
 		if (btn && fromInput && toInput) {
-			btn.addEventListener('click', function() {
-				var a = fromInput.value, b = toInput.value;
+			btn.addEventListener('click', function(e) {
+				e.preventDefault();
+				var a = fromInput.value;
+				var b = toInput.value;
 				fromInput.value = b;
 				toInput.value = a;
+				fromInput.dispatchEvent(new Event('input', {
+					bubbles: true
+				}));
+				toInput.dispatchEvent(new Event('input', {
+					bubbles: true
+				}));
 				updateSummary();
 			});
 		}
