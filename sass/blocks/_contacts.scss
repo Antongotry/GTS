@@ -113,7 +113,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1.2fr;
 	gap: 24px;
-	align-items: start;
+	align-items: stretch; // WhatsApp & Email match form height
 
 	@include lg {
 		gap: 20px;
@@ -122,15 +122,14 @@
 	@include md {
 		grid-template-columns: 1fr;
 		gap: 24px;
+		align-items: start;
 	}
 }
 
-// Cards like why-us-item: glass border, transparent background
+// Cards: WhatsApp & Email — glass border; Form card — no border
 .contacts-main__card,
 .contacts-main__col {
-	border: 1px inset $color__glass-border;
 	border-radius: 0;
-	background: transparent;
 	padding: 28px 24px;
 	box-sizing: border-box;
 
@@ -150,7 +149,8 @@
 .contacts-main__card--form,
 .contacts-main__col--form {
 	background: transparent;
-	border: 1px inset $color__glass-border;
+	border: none;
+	padding: 0;
 }
 
 // Title + icon on same row (ref): left title, right icon
@@ -174,12 +174,15 @@
 	display: none;
 }
 
-// Form area: white block like hero .booking-form (readable on transparent card)
+// Form area: like hero .booking-form (white, shadow, rounded top)
 .contacts-main__card--form .contacts-main__form-wrap {
 	background: #fff;
 	padding: 24px 20px;
-	border-radius: 0;
+	border-radius: 12px 12px 0 0;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	box-sizing: border-box;
+	height: 100%;
+	min-height: 100%;
 }
 
 // Icons like custom-itinerary-icon (56px, same colors)
