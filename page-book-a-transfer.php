@@ -260,91 +260,106 @@ get_header();
 
 <script>
 	(function() {
-		var form = document.getElementById('transfer-form');
-		if (!form) return;
+		function run() {
+			var form = document.getElementById('transfer-form');
+			if (!form) return;
 
-		var fromInput = form.querySelector('input[name="from"]');
-		var toInput = form.querySelector('input[name="to"]');
-		var btn = form.querySelector('.swap-btn');
-		if (btn && fromInput && toInput) {
-			btn.addEventListener('click', function(e) {
+			function getFromInput() {
+				return form.querySelector('input[name="from"]');
+			}
+
+			function getToInput() {
+				return form.querySelector('input[name="to"]');
+			}
+
+			// Swap: click on button -> swap values in the two inputs
+			form.addEventListener('click', function(e) {
+				if (!e.target || !e.target.closest) return;
+				var btn = e.target.closest('button.swap-btn');
+				if (!btn) return;
 				e.preventDefault();
+				e.stopPropagation();
+				var fromInput = getFromInput();
+				var toInput = getToInput();
+				if (!fromInput || !toInput) return;
 				var a = fromInput.value;
 				var b = toInput.value;
 				fromInput.value = b;
 				toInput.value = a;
-				fromInput.dispatchEvent(new Event('input', {
-					bubbles: true
-				}));
-				toInput.dispatchEvent(new Event('input', {
-					bubbles: true
-				}));
 				updateSummary();
 			});
-		}
 
-		var summaryRoute = document.getElementById('summary-route');
-		var summaryDate = document.getElementById('summary-date');
-		var summaryTime = document.getElementById('summary-time');
-		var summaryPassengers = document.getElementById('summary-passengers');
-		var summaryVehicle = document.getElementById('summary-vehicle');
-		var summaryLanguage = document.getElementById('summary-language');
-		var summaryExtras = document.getElementById('summary-extras');
-		var summaryDistance = document.getElementById('summary-distance');
-		var summaryPrice = document.getElementById('summary-price');
-
-		function formatDate(val) {
-			if (!val) return '—';
-			var d = new Date(val + 'T00:00:00');
-			if (isNaN(d.getTime())) return val;
-			var months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
-			return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
-		}
-
-		function updateSummary() {
-			var from = (fromInput && fromInput.value.trim()) || 'From';
-			var to = (toInput && toInput.value.trim()) || 'To';
-			if (summaryRoute) summaryRoute.textContent = from + ' → ' + to;
-
-			var dateEl = form.querySelector('input[name="date"]');
-			if (summaryDate) summaryDate.textContent = dateEl ? formatDate(dateEl.value) : '—';
-
-			var timeEl = form.querySelector('input[name="time"]');
-			if (summaryTime) summaryTime.textContent = (timeEl && timeEl.value) ? timeEl.value : '—';
-
-			var passEl = form.querySelector('select[name="passengers"]');
-			if (summaryPassengers) summaryPassengers.textContent = (passEl && passEl.value) ? passEl.value : '—';
-
-			var vehicleEl = form.querySelector('select[name="vehicle_type"]');
-			if (summaryVehicle && vehicleEl) {
-				var opt = vehicleEl.options[vehicleEl.selectedIndex];
-				summaryVehicle.textContent = opt ? opt.text : '—';
+			function formatDate(val) {
+				if (!val) return '—';
+				var d = new Date(val + 'T00:00:00');
+				if (isNaN(d.getTime())) return val;
+				var months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
+				return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
 			}
 
-			var langEl = form.querySelector('select[name="driver_language"]');
-			if (summaryLanguage && langEl) {
-				var langOpt = langEl.options[langEl.selectedIndex];
-				summaryLanguage.textContent = langOpt ? langOpt.text.toUpperCase() : '—';
-			}
+			function updateSummary() {
+				var fromInput = getFromInput();
+				var toInput = getToInput();
+				var from = (fromInput && String(fromInput.value).trim()) || 'From';
+				var to = (toInput && String(toInput.value).trim()) || 'To';
 
-			var extras = [];
-			['book_jet', 'book_helicopter', 'child_seat', 'meet_greet', 'extra_stop', 'vip_protocol'].forEach(function(name) {
-				var cb = form.querySelector('input[name="' + name + '"]');
-				if (cb && cb.checked) {
-					var label = cb.closest('label');
-					var span = label ? label.querySelector('span') : null;
-					extras.push(span ? span.textContent.trim() : name);
+				var el = document.getElementById('summary-route');
+				if (el) el.textContent = from + ' → ' + to;
+
+				var dateEl = form.querySelector('input[name="date"]');
+				el = document.getElementById('summary-date');
+				if (el) el.textContent = dateEl ? formatDate(dateEl.value) : '—';
+
+				var timeEl = form.querySelector('input[name="time"]');
+				el = document.getElementById('summary-time');
+				if (el) el.textContent = (timeEl && timeEl.value) ? timeEl.value : '—';
+
+				var passEl = form.querySelector('select[name="passengers"]');
+				el = document.getElementById('summary-passengers');
+				if (el) el.textContent = (passEl && passEl.value) ? passEl.value : '—';
+
+				var vehicleEl = form.querySelector('select[name="vehicle_type"]');
+				el = document.getElementById('summary-vehicle');
+				if (el && vehicleEl) {
+					var opt = vehicleEl.options[vehicleEl.selectedIndex];
+					el.textContent = opt ? opt.text : '—';
 				}
-			});
-			if (summaryExtras) summaryExtras.textContent = extras.length ? extras.join(', ') : '—';
 
-			if (summaryDistance) summaryDistance.textContent = '—';
-			if (summaryPrice) summaryPrice.textContent = '—';
+				var langEl = form.querySelector('select[name="driver_language"]');
+				el = document.getElementById('summary-language');
+				if (el && langEl) {
+					var langOpt = langEl.options[langEl.selectedIndex];
+					el.textContent = langOpt ? langOpt.text.toUpperCase() : '—';
+				}
+
+				var extras = [];
+				['book_jet', 'book_helicopter', 'child_seat', 'meet_greet', 'extra_stop', 'vip_protocol'].forEach(function(name) {
+					var cb = form.querySelector('input[name="' + name + '"]');
+					if (cb && cb.checked) {
+						var label = cb.closest('label');
+						var span = label ? label.querySelector('span') : null;
+						extras.push(span ? span.textContent.trim() : name);
+					}
+				});
+				el = document.getElementById('summary-extras');
+				if (el) el.textContent = extras.length ? extras.join(', ') : '—';
+
+				el = document.getElementById('summary-distance');
+				if (el) el.textContent = '—';
+				el = document.getElementById('summary-price');
+				if (el) el.textContent = '—';
+			}
+
+			form.addEventListener('input', updateSummary);
+			form.addEventListener('change', updateSummary);
+			updateSummary();
 		}
 
-		form.addEventListener('input', updateSummary);
-		form.addEventListener('change', updateSummary);
-		updateSummary();
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', run);
+		} else {
+			run();
+		}
 	})();
 </script>
 
