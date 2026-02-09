@@ -108,15 +108,30 @@
 	}
 }
 
+// Grid: 325 | 325 | 670 px at 1440, same proportions at 1920 / 1024
+$contacts-card-w: 325px;
+$contacts-form-w: 670px;
+$contacts-gap: 24px;
+$contacts-content-total: $contacts-card-w * 2 + $contacts-form-w; // 1320
+$contacts-form-ratio: $contacts-form-w / $contacts-content-total;
+$contacts-card-ratio: $contacts-card-w / $contacts-content-total;
+
 .contacts-main__container {
 	@include container($container-max-width-content);
 	display: grid;
-	grid-template-columns: 1fr 1fr 1.2fr;
-	gap: 24px;
-	align-items: stretch; // WhatsApp & Email match form height
+	grid-template-columns:
+		calc((100% - #{$contacts-gap * 2}) * #{$contacts-card-ratio})
+		calc((100% - #{$contacts-gap * 2}) * #{$contacts-card-ratio})
+		calc((100% - #{$contacts-gap * 2}) * #{$contacts-form-ratio});
+	gap: $contacts-gap;
+	align-items: stretch;
 
 	@include lg {
 		gap: 20px;
+		grid-template-columns:
+			calc((100% - 40px) * #{$contacts-card-ratio})
+			calc((100% - 40px) * #{$contacts-card-ratio})
+			calc((100% - 40px) * #{$contacts-form-ratio});
 	}
 
 	@include md {

@@ -3682,7 +3682,7 @@ a.phone-button:focus,
 	padding: 0 20px;
 	box-sizing: border-box;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1.2fr;
+	grid-template-columns: calc((100% - 48px) * 0.2462121212) calc((100% - 48px) * 0.2462121212) calc((100% - 48px) * 0.5075757576);
 	gap: 24px;
 	align-items: stretch;
 }
@@ -3691,6 +3691,7 @@ a.phone-button:focus,
 
 	.contacts-main__container {
 		gap: 20px;
+		grid-template-columns: calc((100% - 40px) * 0.2462121212) calc((100% - 40px) * 0.2462121212) calc((100% - 40px) * 0.5075757576);
 	}
 }
 
