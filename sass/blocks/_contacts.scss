@@ -410,10 +410,12 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 		text-underline-offset: 2px;
 	}
 
-	// Checkbox like hero .checkbox-consent (sharp, black check)
+	// Checkbox: square, thin black outline; checked = filled solid black (as on screen)
 	input[type="checkbox"] {
 		width: 20px;
 		height: 20px;
+		min-width: 20px;
+		min-height: 20px;
 		margin: 0;
 		flex-shrink: 0;
 		appearance: none;
@@ -423,23 +425,11 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 		border-radius: 0;
 		cursor: pointer;
 		background: transparent;
-		transition: all 0.2s ease;
-		position: relative;
+		transition: border-color 0.2s ease, background 0.2s ease;
 
 		&:checked {
 			border-color: #000;
-			background: transparent;
-
-			&::after {
-				content: '';
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				width: 14px;
-				height: 14px;
-				background-color: #000;
-				transform: translate(-50%, -50%);
-			}
+			background: #000;
 		}
 	}
 }
