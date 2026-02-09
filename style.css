@@ -3559,21 +3559,21 @@ a.phone-button:focus,
 .contacts-hero {
 	width: 100%;
 	background: #0c0f17;
-	padding: 140px 20px 80px;
+	padding: 140px 0 80px;
 	text-align: center;
 }
 
 @media (max-width: 1024px) {
 
 	.contacts-hero {
-		padding: 120px 20px 60px;
+		padding: 120px 0 60px;
 	}
 }
 
 @media (max-width: 768px) {
 
 	.contacts-hero {
-		padding: 100px 20px 48px;
+		padding: 100px 0 48px;
 	}
 }
 
@@ -3664,14 +3664,14 @@ a.phone-button:focus,
 .contacts-main {
 	width: 100%;
 	background: #0c0f17;
-	padding: 0 20px 80px;
+	padding: 0 0 80px;
 	box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
 
 	.contacts-main {
-		padding: 0 20px 60px;
+		padding: 0 0 60px;
 	}
 }
 

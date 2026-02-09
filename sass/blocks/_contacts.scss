@@ -15,18 +15,19 @@
 .contacts-hero {
 	width: 100%;
 	background: $color__background-body;
-	padding: 140px 20px 80px;
+	padding: 140px 0 80px;
 	text-align: center;
 
 	@include lg {
-		padding: 120px 20px 60px;
+		padding: 120px 0 60px;
 	}
 
 	@include md {
-		padding: 100px 20px 48px;
+		padding: 100px 0 48px;
 	}
 }
 
+// Same width as header: container mixin (1840px max, 20px padding)
 .contacts-hero__container {
 	@include container($container-max-width-content);
 	max-width: min(800px, 100%);
@@ -100,11 +101,11 @@
 .contacts-main {
 	width: 100%;
 	background: $color__background-body;
-	padding: 0 20px 80px;
+	padding: 0 0 80px;
 	box-sizing: border-box;
 
 	@include md {
-		padding: 0 20px 60px;
+		padding: 0 0 60px;
 	}
 }
 
@@ -116,6 +117,7 @@ $contacts-content-total: $contacts-card-w * 2 + $contacts-form-w; // 1320
 $contacts-form-ratio: $contacts-form-w / $contacts-content-total;
 $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 
+// Same width as header: max 1840px, padding 20px (container mixin)
 .contacts-main__container {
 	@include container($container-max-width-content);
 	display: grid;
