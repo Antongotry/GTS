@@ -3954,8 +3954,8 @@ a.phone-button:focus,
 
 .contacts-form__consent label {
 	display: flex;
-	align-items: center;
-	gap: 10px;
+	align-items: flex-start;
+	gap: 8px;
 	cursor: pointer;
 }
 
@@ -3964,12 +3964,19 @@ a.phone-button:focus,
 	font-weight: 400;
 	font-style: normal;
 	font-size: 14px;
-	line-height: 1;
+	line-height: 1.35;
 	letter-spacing: 0;
 	color: #000;
-	display: inline-flex;
-	align-items: center;
-	min-height: 20px;
+	flex: 1;
+	min-width: 0;
+}
+
+@media (max-width: 768px) {
+
+	.contacts-form__consent label span {
+		display: block;
+		line-height: 1.4;
+	}
 }
 
 .contacts-form__consent a,
@@ -3984,23 +3991,34 @@ a.phone-button:focus,
 .contacts-form__consent input[type="checkbox"] {
 	width: 20px;
 	height: 20px;
-	min-width: 20px;
-	min-height: 20px;
 	margin: 0;
+	margin-top: 2px;
 	flex-shrink: 0;
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	border: 1px solid rgba(0, 0, 0, 0.32);
-	border-radius: 0;
+	border-radius: 0 !important;
+	position: relative;
 	cursor: pointer;
 	background: transparent;
-	transition: border-color 0.2s ease, background 0.2s ease;
+	transition: all 0.2s ease;
 }
 
 .contacts-form__consent input[type="checkbox"]:checked {
 	border-color: #000;
-	background: #000;
+	background: transparent;
+}
+
+.contacts-form__consent input[type="checkbox"]:checked::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 14px;
+	height: 14px;
+	background-color: #000;
+	transform: translate(-50%, -50%);
 }
 
 .contacts-form__submit {
