@@ -376,9 +376,9 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 }
 
 .contacts-form__group textarea {
-	resize: vertical;
-	min-height: 80px;
-	height: auto;
+	resize: none;
+	min-height: 40px;
+	height: 40px;
 	line-height: 1.5;
 	display: block;
 }
@@ -389,14 +389,19 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 
 	label {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 10px;
 		cursor: pointer;
+	}
+
+	label span {
 		font-family: $font__manrope;
-		font-size: 13px;
 		font-weight: 400;
-		line-height: 1.4;
-		color: rgba(0, 0, 0, 0.75);
+		font-style: normal;
+		font-size: 14px;
+		line-height: 1;
+		letter-spacing: 0;
+		color: #000;
 	}
 
 	.contacts-form__consent-link {
@@ -410,7 +415,6 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 		width: 20px;
 		height: 20px;
 		margin: 0;
-		margin-top: 2px;
 		flex-shrink: 0;
 		appearance: none;
 		-webkit-appearance: none;

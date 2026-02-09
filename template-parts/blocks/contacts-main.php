@@ -63,7 +63,7 @@ $mail_icon_url  = get_template_directory_uri() . '/assets/icons/mail-icon.svg';
 						</div>
 						<div class="contacts-form__row">
 							<div class="contacts-form__group contacts-form__group--full">
-								<textarea name="gts_details" placeholder="<?php esc_attr_e('Details', 'gts-theme'); ?>" rows="4"></textarea>
+								<textarea name="gts_details" placeholder="<?php esc_attr_e('Details', 'gts-theme'); ?>" rows="1"></textarea>
 							</div>
 						</div>
 						<div class="contacts-form__consent">
