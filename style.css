@@ -3972,9 +3972,13 @@ a.phone-button:focus,
 	min-height: 20px;
 }
 
-.contacts-form__consent .contacts-form__consent-link {
-	color: #000;
-	text-decoration: none;
+.contacts-form__consent a,
+.contacts-form__consent .contacts-form__consent-link,
+.contacts-form__consent .contacts-form__consent-link:hover,
+.contacts-form__consent .contacts-form__consent-link:focus,
+.contacts-form__consent .contacts-form__consent-link:visited {
+	color: #000 !important;
+	text-decoration: none !important;
 }
 
 .contacts-form__consent input[type="checkbox"] {

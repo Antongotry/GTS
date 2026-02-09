@@ -407,9 +407,14 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 		min-height: 20px;
 	}
 
-	.contacts-form__consent-link {
-		color: #000;
-		text-decoration: none;
+	// Вся подпись чёрная, без подчёркивания (в т.ч. если часть — ссылка)
+	a,
+	.contacts-form__consent-link,
+	.contacts-form__consent-link:hover,
+	.contacts-form__consent-link:focus,
+	.contacts-form__consent-link:visited {
+		color: #000 !important;
+		text-decoration: none !important;
 	}
 
 	// Checkbox: square, thin black outline; checked = filled solid black (as on screen)
