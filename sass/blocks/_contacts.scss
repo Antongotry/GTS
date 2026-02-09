@@ -346,6 +346,7 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 
 // Ref: inputs sharp (0), underline only
 // Inputs/textarea like hero .booking-form .form-group
+// Поля как на главной: .booking-form .form-group
 .contacts-form__group input,
 .contacts-form__group textarea {
 	width: 100%;
@@ -359,14 +360,13 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 	background: transparent;
 	color: #000;
 	box-sizing: border-box;
-	transition: border-color 0.2s;
+	transition: border-color 0.3s ease;
 	height: 40px;
 	min-height: 40px;
-	display: flex;
-	align-items: center;
 
 	&::placeholder {
 		color: rgba(0, 0, 0, 0.56);
+		opacity: 1;
 	}
 
 	&:focus {
@@ -375,22 +375,27 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 	}
 }
 
-.contacts-form__group textarea {
-	resize: none;
-	min-height: 40px;
-	height: 40px;
-	line-height: 1.5;
+.contacts-form__group input {
 	display: block;
 }
 
-// Consent block — как hero .checkbox-consent (чекбокс + подпись)
+.contacts-form__group textarea {
+	resize: none;
+	height: 40px;
+	min-height: 40px;
+	line-height: 1.5;
+	display: block;
+	overflow: hidden;
+}
+
+// Consent — как hero .checkbox-consent: отступы 24px, чекбокс и текст по одной линии
 .contacts-form__consent {
-	margin-top: 8px;
+	margin-top: 24px;
 	margin-bottom: 24px;
 
 	label {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 8px;
 		cursor: pointer;
 	}
@@ -398,20 +403,12 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 	label span {
 		font-family: $font__manrope;
 		font-weight: 400;
-		font-style: normal;
 		font-size: 14px;
-		line-height: 1.35;
+		line-height: 1.4;
 		letter-spacing: 0;
 		color: #000;
 		flex: 1;
 		min-width: 0;
-	}
-
-	@include md {
-		label span {
-			display: block;
-			line-height: 1.4;
-		}
 	}
 
 	// Вся подпись чёрная, без подчёркивания
@@ -424,12 +421,11 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 		text-decoration: none !important;
 	}
 
-	// Чекбокс как на главной (hero .consent-checkbox): квадрат, при checked — чёрный квадратик внутри
+	// Чекбокс как на главной (hero .consent-checkbox)
 	input[type="checkbox"] {
 		width: 20px;
 		height: 20px;
 		margin: 0;
-		margin-top: 2px;
 		flex-shrink: 0;
 		appearance: none;
 		-webkit-appearance: none;
