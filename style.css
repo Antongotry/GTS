@@ -3967,12 +3967,14 @@ a.phone-button:focus,
 	line-height: 1;
 	letter-spacing: 0;
 	color: #000;
+	display: inline-flex;
+	align-items: center;
+	min-height: 20px;
 }
 
 .contacts-form__consent .contacts-form__consent-link {
-	color: #5b9bd5;
-	text-decoration: underline;
-	text-underline-offset: 2px;
+	color: #000;
+	text-decoration: none;
 }
 
 .contacts-form__consent input[type="checkbox"] {
