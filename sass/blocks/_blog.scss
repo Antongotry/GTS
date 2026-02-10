@@ -34,6 +34,23 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	// Match front-page containers on 1024/768 for consistent grid rhythm.
+	@include lg {
+		width: 100%;
+		max-width: 944px; // 984px - 40px padding
+		padding: 0 20px;
+		margin: 0 auto;
+		box-sizing: content-box;
+	}
+
+	@include md {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 20px;
+		margin: 0;
+		box-sizing: border-box;
+	}
 }
 
 .blog-hero__pill {
@@ -108,25 +125,42 @@
 
 .blog-archive__container {
 	@include container($container-max-width-content);
+
+	// Same container behavior as other blocks (why-us/services).
+	@include lg {
+		width: 100%;
+		max-width: 944px;
+		padding: 0 20px;
+		margin: 0 auto;
+		box-sizing: content-box;
+	}
+
+	@include md {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 20px;
+		margin: 0;
+		box-sizing: border-box;
+	}
 }
 
 // Filters (category tabs)
 .blog-filters {
 	display: grid;
-	grid-auto-flow: column;
-	grid-auto-columns: 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 	gap: 14px;
 	align-items: center;
 	width: 100%;
 	margin-top: 56px;
 
 	@include lg {
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 		gap: 12px;
 	}
 
 	@include md {
-		grid-auto-flow: row;
-		grid-template-columns: 1fr;
+		// Keep it "by grid" on mobile too: 2 columns, multiple rows.
+		grid-template-columns: repeat(2, 1fr);
 		margin-top: 40px;
 	}
 }
@@ -189,7 +223,9 @@
 	}
 
 	@include md {
-		height: 278px;
+		// On mobile, avoid cramped side-by-side layout and allow variable title height.
+		flex-direction: column;
+		height: auto;
 	}
 }
 
@@ -205,6 +241,10 @@
 	min-width: 0;
 
 	@include lg {
+		padding: 20px;
+	}
+
+	@include md {
 		padding: 20px;
 	}
 }
@@ -282,6 +322,12 @@
 	@include lg {
 		flex: 0 0 175px;
 		width: 175px;
+	}
+
+	@include md {
+		flex: 0 0 220px;
+		width: 100%;
+		height: 220px;
 	}
 }
 
