@@ -3781,18 +3781,15 @@ a.phone-button:focus,
 }
 
 .blog-card {
-  display: flex;
-  gap: 20px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 0;
   overflow: hidden;
-  align-items: stretch;
   height: 335px;
+  box-sizing: border-box;
 }
 @media (max-width: 1024px) {
   .blog-card {
-    gap: 0;
     height: 335px;
   }
 }
@@ -3800,6 +3797,28 @@ a.phone-button:focus,
   .blog-card {
     height: 278px;
   }
+}
+
+.blog-card__wrap {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+@media (max-width: 1024px) {
+  .blog-card__wrap {
+    gap: 0;
+  }
+}
+.blog-card__wrap:hover .blog-card__link {
+  opacity: 0.8;
+  text-decoration-color: rgba(255, 255, 255, 0.6);
+}
+.blog-card__wrap:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: -2px;
 }
 
 .blog-card__content {
@@ -3885,10 +3904,6 @@ a.phone-button:focus,
   .blog-card__link {
     font-size: 12px;
   }
-}
-.blog-card__link:hover {
-  opacity: 0.8;
-  text-decoration-color: rgba(255, 255, 255, 0.6);
 }
 
 .blog-card__image {
