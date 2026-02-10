@@ -3589,6 +3589,24 @@ a.phone-button:focus,
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 1024px) {
+  .blog-hero__container {
+    width: 100%;
+    max-width: 944px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: content-box;
+  }
+}
+@media (max-width: 768px) {
+  .blog-hero__container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
 
 .blog-hero__pill {
   display: inline-flex;
@@ -3675,11 +3693,28 @@ a.phone-button:focus,
   padding: 0 20px;
   box-sizing: border-box;
 }
+@media (max-width: 1024px) {
+  .blog-archive__container {
+    width: 100%;
+    max-width: 944px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: content-box;
+  }
+}
+@media (max-width: 768px) {
+  .blog-archive__container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
 
 .blog-filters {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 14px;
   align-items: center;
   width: 100%;
@@ -3687,13 +3722,13 @@ a.phone-button:focus,
 }
 @media (max-width: 1024px) {
   .blog-filters {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 12px;
   }
 }
 @media (max-width: 768px) {
   .blog-filters {
-    grid-auto-flow: row;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: 40px;
   }
 }
@@ -3762,7 +3797,8 @@ a.phone-button:focus,
 }
 @media (max-width: 768px) {
   .blog-card {
-    height: 278px;
+    flex-direction: column;
+    height: auto;
   }
 }
 
@@ -3778,6 +3814,11 @@ a.phone-button:focus,
   min-width: 0;
 }
 @media (max-width: 1024px) {
+  .blog-card__content {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
   .blog-card__content {
     padding: 20px;
   }
@@ -3860,6 +3901,13 @@ a.phone-button:focus,
   .blog-card__image {
     flex: 0 0 175px;
     width: 175px;
+  }
+}
+@media (max-width: 768px) {
+  .blog-card__image {
+    flex: 0 0 220px;
+    width: 100%;
+    height: 220px;
   }
 }
 
