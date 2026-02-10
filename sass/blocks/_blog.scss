@@ -259,7 +259,8 @@
 	text-decoration: underline;
 	text-underline-offset: 4px;
 	margin: 0;
-	align-self: flex-end; // requested: bottom right corner
+	margin-top: auto; // pin to bottom
+	align-self: flex-start; // screenshot: bottom-left
 	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
 
 	@include md {
@@ -331,4 +332,3 @@
 	color: rgba(255, 255, 255, 0.8);
 	margin: 40px 0 0;
 }
-
