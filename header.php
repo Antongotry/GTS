@@ -222,6 +222,9 @@
 				<?php
 				$posts_page_id = (int) get_option( 'page_for_posts' );
 				$blog_url      = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/' );
+
+				$fleet_page = get_page_by_path( 'fleet' );
+				$fleet_url  = ( $fleet_page instanceof WP_Post ) ? get_permalink( $fleet_page ) : home_url( '/fleet/' );
 				?>
 
 				<nav class="main-navigation">
@@ -246,7 +249,7 @@
 						</li>
 						<li class="menu-item"><a href="#" class="menu-link">Events</a></li>
 						<li class="menu-item"><a href="#" class="menu-link">For Business</a></li>
-						<li class="menu-item"><a href="#" class="menu-link">Fleet</a></li>
+						<li class="menu-item"><a href="<?php echo esc_url( $fleet_url ); ?>" class="menu-link">Fleet</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url( $blog_url ); ?>" class="menu-link">Blog</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url(home_url('/contacts/')); ?>" class="menu-link">Contacts</a></li>
 						<li class="menu-item"><a href="#" class="menu-link">About Us</a></li>
@@ -295,7 +298,7 @@
 						<a href="#" class="mobile-menu-link">For Business</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a href="#" class="mobile-menu-link">Fleet</a>
+						<a href="<?php echo esc_url( $fleet_url ); ?>" class="mobile-menu-link">Fleet</a>
 					</li>
 					<li class="mobile-menu-item">
 						<a href="<?php echo esc_url( $blog_url ); ?>" class="mobile-menu-link">Blog</a>
