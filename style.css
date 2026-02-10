@@ -4046,6 +4046,409 @@ a.phone-button:focus,
 }
 
 /**
+ * Blog archive page styles (hero + filters + cards).
+ */
+.site-main--blog {
+	padding-top: 0;
+	background: #0c0f17;
+}
+
+.blog-hero {
+	width: 100%;
+	background: #0c0f17;
+	padding: 140px 0 60px;
+	text-align: center;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-hero {
+		padding: 120px 0 48px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.blog-hero {
+		padding: 100px 0 40px;
+	}
+}
+
+.blog-hero__container {
+	width: 100%;
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+	max-width: min(980px, 100%);
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.blog-hero__pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	height: 43px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.14);
+	backdrop-filter: blur(40px);
+	-webkit-backdrop-filter: blur(40px);
+	padding-left: 24px;
+	padding-right: 24px;
+	width: max-content;
+	box-sizing: border-box;
+	margin-bottom: 24px;
+}
+
+.blog-hero__pill-text {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	color: #fff;
+}
+
+.blog-hero__title {
+	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 48px;
+	font-weight: 500;
+	color: #fff;
+	margin: 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-align: center;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-hero__title {
+		font-size: 36px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.blog-hero__title {
+		font-size: 28px;
+	}
+}
+
+.blog-hero__subtitle {
+	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 48px;
+	font-weight: 500;
+	color: #fff;
+	margin: 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-align: center;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-hero__subtitle {
+		font-size: 36px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.blog-hero__subtitle {
+		font-size: 28px;
+	}
+}
+
+.blog-archive {
+	width: 100%;
+	background: #0c0f17;
+	padding: 0 0 80px;
+}
+
+@media (max-width: 768px) {
+
+	.blog-archive {
+		padding-bottom: 60px;
+	}
+}
+
+.blog-archive__container {
+	width: 100%;
+	max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+.blog-filters {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	gap: 14px;
+	align-items: center;
+	width: 100%;
+	margin-top: 56px;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-filters {
+		gap: 12px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.blog-filters {
+		grid-auto-flow: row;
+		grid-template-columns: 1fr;
+		margin-top: 40px;
+	}
+}
+
+.blog-filters__item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 56px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.0784313725);
+	color: #fff;
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1;
+	letter-spacing: 0;
+	text-align: center;
+	text-decoration: none;
+	box-sizing: border-box;
+	transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.blog-filters__item:hover {
+	opacity: 0.9;
+}
+
+.blog-filters__item.is-active {
+	background: #fff;
+	color: #000;
+}
+
+.blog-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	width: 100%;
+	margin-top: 80px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-grid {
+		gap: 20px 14px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.blog-grid {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+}
+
+.blog-card {
+	display: flex;
+	gap: 20px;
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 0;
+	overflow: hidden;
+	align-items: stretch;
+	height: 335px;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-card {
+		gap: 0;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.blog-card {
+		height: 278px;
+	}
+}
+
+.blog-card__content {
+	flex: 1;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+	box-sizing: border-box;
+	justify-content: space-between;
+	min-width: 0;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-card__content {
+		padding: 20px;
+	}
+}
+
+.blog-card__top {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-width: 0;
+}
+
+.blog-card__date {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0;
+	color: rgba(255, 255, 255, 0.6);
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+
+	.blog-card__date {
+		font-size: 12px;
+	}
+}
+
+.blog-card__title {
+	font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #fff;
+	margin: 0;
+	word-break: break-word;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-card__title {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.blog-card__title {
+		font-size: 18px;
+	}
+}
+
+.blog-card__link {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #fff;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	margin: 0;
+	align-self: flex-end;
+	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+
+	.blog-card__link {
+		font-size: 12px;
+	}
+}
+
+.blog-card__link:hover {
+	opacity: 0.8;
+	text-decoration-color: rgba(255, 255, 255, 0.6);
+}
+
+.blog-card__image {
+	flex: 0 0 50%;
+	overflow: hidden;
+	display: block;
+	height: 100%;
+}
+
+@media (max-width: 1024px) {
+
+	.blog-card__image {
+		flex: 0 0 175px;
+		width: 175px;
+	}
+}
+
+.blog-card__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+}
+
+.blog-card__img--placeholder {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.blog-archive__more {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.blog-show-more {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #fff;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+
+	.blog-show-more {
+		font-size: 12px;
+	}
+}
+
+.blog-show-more:hover {
+	opacity: 0.8;
+	text-decoration-color: rgba(255, 255, 255, 0.6);
+}
+
+.blog-archive__empty {
+	font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.8);
+	margin: 40px 0 0;
+}
+
+/**
  * FAQ Block Styles
  * Clear answers to help you book with confidence.
  */
