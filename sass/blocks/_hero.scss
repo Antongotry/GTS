@@ -70,19 +70,19 @@
 	display: flex;
 	flex-direction: column;
 	align-self: stretch; // Растянуть на высоту контейнера
-	padding-top: 330px; // На 10px выше 340 (1920px), в одну линию с формой
+	padding-top: 220px; // Align with form without excessive top offset
 	padding-bottom: 32px; // Отступ снизу
 	box-sizing: border-box;
 
 	@include xl {
-		padding-top: 270px; // 1440px — на 10px выше 280
+		padding-top: 170px;
 	}
 
 	@include lg {
 		width: auto;
 		flex: 1 1 534px;
 		max-width: 534px;
-		padding-top: 200px; // 1024px — опустили, в одну линию с формой
+		padding-top: 130px;
 	}
 
 	@include md {
@@ -277,20 +277,20 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end; // Прижать форму и world-map к низу
-	padding-top: 330px; // 1920px: на 10px выше, в одну линию с левым контентом
+	padding-top: 220px; // Match left column
 	padding-bottom: 32px;
 	box-sizing: border-box;
 	min-height: 100%; // Растянуть на всю высоту
 
 	@include xl {
-		padding-top: 270px; // 1440px
+		padding-top: 170px;
 	}
 
 	@include lg {
 		width: 390px;
 		flex: 0 0 390px;
 		margin-left: 0;
-		padding-top: 200px; // 1024px — в одну линию с левым контентом
+		padding-top: 130px;
 	}
 
 	@include md {
