@@ -62,7 +62,7 @@ foreach ( $categories as $cat ) {
 
 <nav class="blog-filters" aria-label="<?php echo esc_attr__( 'Blog categories', 'gts-theme' ); ?>">
 	<a class="blog-filters__item <?php echo $is_category ? '' : 'is-active'; ?>" href="<?php echo esc_url( $blog_url ); ?>">
-		<?php esc_html_e( 'Mobility Insights', 'gts-theme' ); ?>
+		<?php esc_html_e( 'All', 'gts-theme' ); ?>
 	</a>
 
 	<?php foreach ( $ordered as $cat ) : ?>
@@ -74,4 +74,3 @@ foreach ( $categories as $cat ) {
 		</a>
 	<?php endforeach; ?>
 </nav>
-
