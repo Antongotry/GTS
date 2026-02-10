@@ -5505,13 +5505,13 @@ a.phone-button:focus,
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  padding-top: 330px;
+  padding-top: 220px;
   padding-bottom: 32px;
   box-sizing: border-box;
 }
 @media (max-width: 1440px) {
   .hero-left {
-    padding-top: 270px;
+    padding-top: 170px;
   }
 }
 @media (max-width: 1024px) {
@@ -5519,7 +5519,7 @@ a.phone-button:focus,
     width: auto;
     flex: 1 1 534px;
     max-width: 534px;
-    padding-top: 200px;
+    padding-top: 130px;
   }
 }
 @media (max-width: 768px) {
@@ -5709,14 +5709,14 @@ a.phone-button:focus,
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-top: 330px;
+  padding-top: 220px;
   padding-bottom: 32px;
   box-sizing: border-box;
   min-height: 100%;
 }
 @media (max-width: 1440px) {
   .hero-right {
-    padding-top: 270px;
+    padding-top: 170px;
   }
 }
 @media (max-width: 1024px) {
@@ -5724,7 +5724,7 @@ a.phone-button:focus,
     width: 390px;
     flex: 0 0 390px;
     margin-right: 0;
-    padding-top: 200px;
+    padding-top: 130px;
   }
 }
 @media (max-width: 768px) {

@@ -281,8 +281,8 @@
 }
 
 .fleet-heli__icon {
-	width: 48px;
-	height: 48px;
+	width: 26px;
+	height: 26px;
 	display: block;
 }
 
@@ -300,3 +300,184 @@
 	}
 }
 
+// -----------------------------------------------------------------------------
+// Ground Fleet (rows with left category column + right 2-up slider)
+// -----------------------------------------------------------------------------
+
+.fleet-ground {
+	width: 100%;
+	background: $color__background-body;
+	padding: 60px 0 0;
+
+	@include lg {
+		padding-top: 48px;
+	}
+
+	@include md {
+		padding-top: 40px;
+	}
+}
+
+.fleet-ground__container {
+	@include container($container-max-width-content);
+
+	@include lg {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
+	}
+
+	@include md {
+		max-width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+}
+
+.fleet-ground-row {
+	display: grid;
+	grid-template-columns: 460px 1fr;
+	gap: 40px;
+	align-items: start;
+	padding-top: 40px;
+	border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+	@include xl {
+		grid-template-columns: 420px 1fr;
+		gap: 32px;
+	}
+
+	@include lg {
+		grid-template-columns: 360px 1fr;
+		gap: 20px;
+		padding-top: 32px;
+	}
+
+	@include md {
+		grid-template-columns: 1fr;
+		gap: 20px;
+		padding-top: 28px;
+	}
+}
+
+.fleet-ground-row__left {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	min-height: 100%;
+}
+
+.fleet-ground-row__title {
+	font-family: $font__main;
+	font-size: 56px;
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: #ffffff;
+	margin: 0;
+
+	@include xl {
+		font-size: 48px;
+	}
+
+	@include lg {
+		font-size: 36px;
+	}
+
+	@include md {
+		font-size: 28px;
+	}
+}
+
+.fleet-ground-row__desc {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: rgba(255, 255, 255, 0.85);
+	margin: 0;
+	max-width: 360px;
+
+	@include lg {
+		font-size: 14px;
+	}
+}
+
+.fleet-ground-row__view {
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: #ffffff;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	margin-top: auto;
+	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+
+	@include md {
+		margin-top: 0;
+		font-size: 12px;
+	}
+
+	&:hover {
+		opacity: 0.8;
+		text-decoration-color: rgba(255, 255, 255, 0.6);
+	}
+}
+
+.fleet-ground__slider-wrap {
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	isolation: isolate;
+}
+
+.fleet-cat-slider {
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+// Reuse fleet card styles, but enforce 2-up look.
+.fleet-cat-slider .fleet-card {
+	height: 100%;
+}
+
+// Nav arrows overlay like fleet slider.
+.fleet-ground__slider-wrap .nav-arrows {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%);
+	z-index: 5;
+	pointer-events: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.fleet-ground__slider-wrap .nav-arrow {
+	pointer-events: auto;
+	width: 56px;
+	height: 42px;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	background: rgba(255, 255, 255, 0.9);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.2s ease;
+}
+
+.fleet-ground__slider-wrap .nav-arrow:hover {
+	opacity: 0.9;
+}
+
+.fleet-ground__slider-wrap .nav-arrow-icon {
+	filter: brightness(0);
+}

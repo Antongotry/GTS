@@ -18,6 +18,10 @@ $fleet_type  = in_array( $fleet_param, array( 'ground', 'helicopters', 'jets' ),
 	set_query_var( 'gts_fleet_type', $fleet_type );
 	get_template_part( 'template-parts/blocks/fleet-hero' );
 
+	if ( 'ground' === $fleet_type ) {
+		get_template_part( 'template-parts/blocks/fleet-ground' );
+	}
+
 	if ( 'helicopters' === $fleet_type ) {
 		get_template_part( 'template-parts/blocks/fleet-helicopters' );
 	}
@@ -26,4 +30,3 @@ $fleet_type  = in_array( $fleet_param, array( 'ground', 'helicopters', 'jets' ),
 
 <?php
 get_footer();
-
