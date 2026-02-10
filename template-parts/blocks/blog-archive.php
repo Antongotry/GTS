@@ -17,31 +17,35 @@
 				while ( have_posts() ) :
 					the_post();
 					$thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+					$permalink = get_permalink();
+					$title     = get_the_title();
 					?>
 					<article <?php post_class( 'blog-card' ); ?>>
-						<div class="blog-card__content">
-							<div class="blog-card__top">
-								<p class="blog-card__date"><?php echo esc_html( get_the_date( 'd.m.Y' ) ); ?></p>
-								<h3 class="blog-card__title"><?php the_title(); ?></h3>
+						<a class="blog-card__wrap" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo esc_attr( $title ); ?>">
+							<div class="blog-card__content">
+								<div class="blog-card__top">
+									<p class="blog-card__date"><?php echo esc_html( get_the_date( 'd.m.Y' ) ); ?></p>
+									<h3 class="blog-card__title"><?php the_title(); ?></h3>
+								</div>
+
+								<span class="blog-card__link"><?php esc_html_e( 'Read more', 'gts-theme' ); ?></span>
 							</div>
 
-							<a class="blog-card__link" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read more', 'gts-theme' ); ?></a>
-						</div>
-
-						<div class="blog-card__image">
-							<?php if ( $thumb_url ) : ?>
-								<img
-									class="blog-card__img"
-									src="<?php echo esc_url( $thumb_url ); ?>"
-									alt="<?php echo esc_attr( get_the_title() ); ?>"
-									loading="lazy"
-									width="520"
-									height="335"
-								>
-							<?php else : ?>
-								<div class="blog-card__img blog-card__img--placeholder" aria-hidden="true"></div>
-							<?php endif; ?>
-						</div>
+							<div class="blog-card__image">
+								<?php if ( $thumb_url ) : ?>
+									<img
+										class="blog-card__img"
+										src="<?php echo esc_url( $thumb_url ); ?>"
+										alt="<?php echo esc_attr( $title ); ?>"
+										loading="lazy"
+										width="520"
+										height="335"
+									>
+								<?php else : ?>
+									<div class="blog-card__img blog-card__img--placeholder" aria-hidden="true"></div>
+								<?php endif; ?>
+							</div>
+						</a>
 					</article>
 				<?php endwhile; ?>
 			</div>
@@ -62,4 +66,3 @@
 
 	</div>
 </section>
-

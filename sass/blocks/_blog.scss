@@ -209,22 +209,44 @@
 }
 
 .blog-card {
-	display: flex;
-	gap: $spacing-lg;
 	background: transparent;
 	border: 1px solid $color__glass-border; // #FFFFFF29
 	border-radius: 0;
 	overflow: hidden;
-	align-items: stretch;
 	height: 335px;
+	box-sizing: border-box;
 
 	@include lg {
-		gap: 0;
 		height: 335px;
 	}
 
 	@include md {
 		height: 278px;
+	}
+}
+
+.blog-card__wrap {
+	display: flex;
+	gap: $spacing-lg;
+	align-items: stretch;
+	height: 100%;
+	text-decoration: none;
+	color: inherit;
+
+	@include lg {
+		gap: 0;
+	}
+
+	&:hover {
+		.blog-card__link {
+			opacity: 0.8;
+			text-decoration-color: rgba(255, 255, 255, 0.6);
+		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid rgba(255, 255, 255, 0.6);
+		outline-offset: -2px;
 	}
 }
 
@@ -304,11 +326,6 @@
 
 	@include md {
 		font-size: 12px;
-	}
-
-	&:hover {
-		opacity: 0.8;
-		text-decoration-color: rgba(255, 255, 255, 0.6);
 	}
 }
 

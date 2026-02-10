@@ -37,29 +37,31 @@ if ( empty( $other_posts ) ) {
 				$p_link  = get_permalink( $p->ID );
 				?>
 				<article <?php post_class( 'blog-card', $p->ID ); ?>>
-					<div class="blog-card__content">
-						<div class="blog-card__top">
-							<p class="blog-card__date"><?php echo esc_html( $p_date ); ?></p>
-							<h3 class="blog-card__title"><?php echo esc_html( $p_title ); ?></h3>
+					<a class="blog-card__wrap" href="<?php echo esc_url( $p_link ); ?>" aria-label="<?php echo esc_attr( $p_title ); ?>">
+						<div class="blog-card__content">
+							<div class="blog-card__top">
+								<p class="blog-card__date"><?php echo esc_html( $p_date ); ?></p>
+								<h3 class="blog-card__title"><?php echo esc_html( $p_title ); ?></h3>
+							</div>
+
+							<span class="blog-card__link"><?php esc_html_e( 'Read more', 'gts-theme' ); ?></span>
 						</div>
 
-						<a class="blog-card__link" href="<?php echo esc_url( $p_link ); ?>"><?php esc_html_e( 'Read more', 'gts-theme' ); ?></a>
-					</div>
-
-					<div class="blog-card__image">
-						<?php if ( $p_thumb ) : ?>
-							<img
-								class="blog-card__img"
-								src="<?php echo esc_url( $p_thumb ); ?>"
-								alt="<?php echo esc_attr( $p_title ); ?>"
-								loading="lazy"
-								width="520"
-								height="335"
-							>
-						<?php else : ?>
-							<div class="blog-card__img blog-card__img--placeholder" aria-hidden="true"></div>
-						<?php endif; ?>
-					</div>
+						<div class="blog-card__image">
+							<?php if ( $p_thumb ) : ?>
+								<img
+									class="blog-card__img"
+									src="<?php echo esc_url( $p_thumb ); ?>"
+									alt="<?php echo esc_attr( $p_title ); ?>"
+									loading="lazy"
+									width="520"
+									height="335"
+								>
+							<?php else : ?>
+								<div class="blog-card__img blog-card__img--placeholder" aria-hidden="true"></div>
+							<?php endif; ?>
+						</div>
+					</a>
 				</article>
 			<?php endforeach; ?>
 		</div>
@@ -69,4 +71,3 @@ if ( empty( $other_posts ) ) {
 		</div>
 	</div>
 </section>
-
