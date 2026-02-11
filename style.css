@@ -4872,6 +4872,11 @@ a.phone-button:focus,
   height: 100%;
 }
 
+@media (min-width: 768px) {
+  .fleet-cat-slider .swiper-slide {
+    width: calc((100% - 20px) / 2) !important;
+  }
+}
 .fleet-ground__slider-wrap .nav-arrows {
   position: absolute;
   top: 50%;

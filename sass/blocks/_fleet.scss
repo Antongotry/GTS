@@ -448,6 +448,13 @@
 	height: 100%;
 }
 
+// Hard guarantee: 2 cards per row from tablet and up.
+@media (min-width: 768px) {
+	.fleet-cat-slider .swiper-slide {
+		width: calc((100% - 20px) / 2) !important;
+	}
+}
+
 // Nav arrows overlay like fleet slider.
 .fleet-ground__slider-wrap .nav-arrows {
 	position: absolute;

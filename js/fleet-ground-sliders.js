@@ -25,10 +25,6 @@
 				prevEl,
 			},
 			breakpoints: {
-				640: {
-					slidesPerView: 1.1,
-					spaceBetween: 12,
-				},
 				768: {
 					slidesPerView: 2,
 					spaceBetween: 20,
@@ -45,4 +41,3 @@
 		});
 	});
 })();
-
