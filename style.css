@@ -4781,6 +4781,10 @@ a.phone-button:focus,
   }
 }
 
+.fleet-ground-row__right {
+  min-width: 0;
+}
+
 .fleet-ground-row__left {
   display: flex;
   flex-direction: column;
@@ -4857,6 +4861,7 @@ a.phone-button:focus,
   width: 100%;
   box-sizing: border-box;
   isolation: isolate;
+  min-width: 0;
 }
 
 .fleet-cat-slider {
@@ -4866,17 +4871,17 @@ a.phone-button:focus,
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 .fleet-cat-slider .fleet-card {
   height: 100%;
 }
 
-@media (min-width: 768px) {
-  .fleet-cat-slider .swiper-slide {
-    width: calc((100% - 20px) / 2) !important;
-  }
+.fleet-cat-slider .swiper-wrapper {
+  min-width: 0;
 }
+
 .fleet-ground__slider-wrap .nav-arrows {
   position: absolute;
   top: 50%;
