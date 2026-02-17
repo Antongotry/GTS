@@ -25,6 +25,8 @@ function gts_get_default_service_blocks()
 		array(
 			'acf_fc_layout'      => 'hero',
 			'enabled'            => true,
+			'pretitle_enabled'   => false,
+			'pretitle'           => '',
 			'title'              => 'City-to-City premium transfers',
 			'subtitle'           => 'for corporate and private clients who need reliable long-distance travel with full coordination.',
 			'background_mobile'  => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-375_result.webp',

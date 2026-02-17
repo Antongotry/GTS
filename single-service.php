@@ -59,6 +59,8 @@ $site_url = get_site_url();
 
 // Hero defaults
 $hero = isset($blocks_data['hero']) ? $blocks_data['hero'] : array();
+$hero_pretitle_enabled = ! empty($hero['pretitle_enabled']);
+$hero_pretitle = ! empty($hero['pretitle']) ? $hero['pretitle'] : '';
 $hero_title = ! empty($hero['title']) ? $hero['title'] : 'City-to-City premium transfers';
 $hero_subtitle = ! empty($hero['subtitle']) ? $hero['subtitle'] : 'for corporate and private clients who need reliable long-distance travel with full coordination.';
 $hero_bg_mobile = ! empty($hero['background_mobile']) ? $hero['background_mobile'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-375_result.webp';
@@ -230,6 +232,9 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			<div class="hero-container">
 				<div class="hero-left">
 					<div class="hero-content<?php echo $hero_features_enabled ? '' : ' hero-content--no-features'; ?>">
+						<?php if ( $hero_pretitle_enabled && ! empty( $hero_pretitle ) ) : ?>
+							<p class="hero-subtitle"><?php echo esc_html( $hero_pretitle ); ?></p>
+						<?php endif; ?>
 						<h1 class="hero-title"><?php echo wp_kses_post($hero_title); ?></h1>
 						<p class="hero-description"><?php echo wp_kses_post($hero_subtitle); ?></p>
 						<div class="hero-buttons">

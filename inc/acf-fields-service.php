@@ -341,6 +341,20 @@ function gts_register_service_acf_fields()
 					'ui'            => 1,
 				),
 				array(
+					'key'           => 'field_service_hero_pretitle_enabled',
+					'label'         => 'Show Pretitle Above Heading',
+					'name'          => 'pretitle_enabled',
+					'type'          => 'true_false',
+					'default_value' => 0,
+					'ui'            => 1,
+				),
+				array(
+					'key'   => 'field_service_hero_pretitle',
+					'label' => 'Pretitle Text',
+					'name'  => 'pretitle',
+					'type'  => 'text',
+				),
+				array(
 					'key'   => 'field_service_hero_title',
 					'label' => 'Title',
 					'name'  => 'title',
