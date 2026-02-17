@@ -72,40 +72,46 @@ $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
 $has_service_intro_block = isset($blocks_data['service_intro']);
-$service_intro_title = ! empty($service_intro['title']) ? $service_intro['title'] : 'Most transfer companies offer cars.';
-$service_intro_description = ! empty($service_intro['description']) ? $service_intro['description'] : 'We offer peace of mind through control, consistency, and a truly global standard.';
+$service_intro_pill = ! empty($service_intro['pill_text']) ? $service_intro['pill_text'] : 'Preferences';
+$service_intro_title = ! empty($service_intro['title']) ? $service_intro['title'] : 'A Better Way to Travel Between Cities';
+$service_intro_description = ! empty($service_intro['description']) ? $service_intro['description'] : 'Airports, trains, rentals — they all take time, coordination, and patience. GTS offers a more refined way to move between cities: effortless, private, and precisely managed.';
 $service_intro_button_text = ! empty($service_intro['button_text']) ? $service_intro['button_text'] : 'Book a transfer';
 $service_intro_button_link = ! empty($service_intro['button_link']) ? $service_intro['button_link'] : '#';
 $service_intro_items = ! empty($service_intro['items']) ? $service_intro['items'] : array();
 
 if (empty($service_intro_items)) {
-	$service_intro_items = array(
-		array(
-			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-1.svg',
-			'title'       => 'Precision logistics',
-			'description' => 'Every transfer is planned with accuracy: routes, timing, and coordination handled seamlessly.',
-		),
-		array(
-			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-2.svg',
-			'title'       => 'Human-first service',
-			'description' => 'Behind every booking is a personal coordinator who knows your preferences and requirements.',
-		),
-		array(
-			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-3.svg',
-			'title'       => 'Consistency across the globe',
-			'description' => 'The same GTS standard in every destination with one service quality.',
-		),
-		array(
-			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-4.svg',
-			'title'       => 'True premium fleet',
-			'description' => 'Business, premium, and VIP-class vehicles, regularly renewed and impeccably maintained.',
-		),
-		array(
-			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-5.svg',
-			'title'       => 'Tailored logistics',
-			'description' => 'No templates: each trip is planned around your schedule, priorities, and comfort.',
-		),
-	);
+		$service_intro_items = array(
+			array(
+				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-1.svg',
+				'title'       => 'Time is your real luxury',
+				'description' => 'Skip queues and transfers — travel door-to-door, without waiting or interruptions.',
+			),
+			array(
+				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-2.svg',
+				'title'       => 'Confidence in every journey',
+				'description' => 'No crowds, delays, or cancellations — just punctual, licensed chauffeurs and global coordination.',
+			),
+			array(
+				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-3.svg',
+				'title'       => 'Your schedule, your rules',
+				'description' => 'Choose departure times and stops. Plans change? We adjust instantly, 24/7.',
+			),
+			array(
+				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-4.svg',
+				'title'       => 'Transparent, all-inclusive pricing',
+				'description' => 'Pay per car, not per seat. Taxes, tolls, and waiting time are always included.',
+			),
+			array(
+				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-5.svg',
+				'title'       => 'Quiet comfort on every route',
+				'description' => 'Relax in a premium car with a professional chauffeur, bottled water, and Wi-Fi on request.',
+			),
+			array(
+				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-6.svg',
+				'title'       => 'Flexible routes',
+				'description' => 'Stop for meetings, meals, or sightseeing anytime.',
+			),
+		);
 }
 
 // Booking Form - unified block with desktop and mobile sections
@@ -293,6 +299,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<section class="final-cta-block final-cta-block--service">
 			<div class="final-cta-container final-cta-container--service">
 				<div class="final-cta-left final-cta-left--service">
+					<?php if ( ! empty( $service_intro_pill ) ) : ?>
+						<div class="why-us-heading-pill final-cta-service-pill">
+							<span class="why-us-heading-text"><?php echo esc_html( $service_intro_pill ); ?></span>
+						</div>
+					<?php endif; ?>
 					<h2 class="final-cta-title"><?php echo wp_kses_post($service_intro_title); ?></h2>
 					<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
 					<a href="<?php echo esc_url($service_intro_button_link); ?>" class="btn btn-primary final-cta-button"><?php echo esc_html($service_intro_button_text); ?></a>

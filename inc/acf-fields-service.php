@@ -430,6 +430,13 @@ function gts_register_service_acf_fields()
 					'ui'            => 1,
 				),
 				array(
+					'key'           => 'field_service_intro_pill',
+					'label'         => 'Pill Text',
+					'name'          => 'pill_text',
+					'type'          => 'text',
+					'default_value' => 'Preferences',
+				),
+				array(
 					'key'   => 'field_service_intro_title',
 					'label' => 'Title',
 					'name'  => 'title',
