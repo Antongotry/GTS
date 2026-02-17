@@ -32,7 +32,8 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 	margin: 0 auto;
 	padding: 0 $container-padding;
 	box-sizing: border-box;
-	overflow: hidden;
+	// Keep overflow visible so sticky summary can work inside this section.
+	overflow: visible;
 
 	@include lg {
 		max-width: 944px; // 984px - 40px (2*20px), like hero at 1024
@@ -432,7 +433,8 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 	background: #fff;
 	padding: 32px;
 	position: sticky;
-	top: 100px;
+	top: 96px; // sticky offset below fixed header
+	align-self: start;
 }
 
 .transfer-summary-title {
