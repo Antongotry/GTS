@@ -286,10 +286,19 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							</div>
 							<div class="form-row">
 								<div class="form-group form-group-datetime"><input type="datetime-local" id="pickup-time" name="pickup_time" required><span class="datetime-placeholder">Pick-up time</span></div>
-								<div class="form-group"><input type="text" id="destination" name="destination" placeholder="Destination" required></div>
+								<div class="form-group form-group-with-add-stop">
+									<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
+									<a href="#" class="add-stop-link"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+										</svg>Add Stop</a>
+								</div>
 							</div>
-							<div class="form-row">
-								<div class="form-group"><textarea id="comments" name="comments" placeholder="Comments" rows="3"></textarea></div>
+							<div class="form-row form-row-dropoff-notes">
+								<div class="form-group"><input type="text" id="dropoff-location" name="dropoff_location" placeholder="Drop-off location" required></div>
+								<div class="form-group"><textarea id="additional-notes" name="additional_notes" placeholder="Additional Notes" rows="1"></textarea></div>
+							</div>
+							<div class="form-group checkbox-group checkbox-consent">
+								<label><input type="checkbox" name="email_consent" value="1" class="consent-checkbox" checked><span>I agree to receive email communication regarding my quote request.</span></label>
 							</div>
 							<button type="submit" class="booking-submit-btn"><?php echo esc_html($desktop_form_submit); ?></button>
 						</form>

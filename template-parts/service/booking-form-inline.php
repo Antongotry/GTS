@@ -75,22 +75,39 @@ $service_url   = get_permalink();
 		</div>
 	</div>
 
-	<!-- Row 4: Pick-up time и Destination -->
+	<!-- Row 4: Pick-up time и Pick-up location с Add Stop -->
 	<div class="form-row">
 		<div class="form-group form-group-datetime">
 			<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="<?php esc_attr_e('Pick-up time', 'gts-theme'); ?>" required>
 			<span class="datetime-placeholder"><?php esc_html_e('Pick-up time', 'gts-theme'); ?></span>
 		</div>
-		<div class="form-group">
-			<input type="text" id="destination" name="destination" placeholder="<?php esc_attr_e('Destination', 'gts-theme'); ?>" required>
+		<div class="form-group form-group-with-add-stop">
+			<input type="text" id="pickup-location" name="pickup_location" placeholder="<?php esc_attr_e('Pick-up location', 'gts-theme'); ?>" required>
+			<a href="#" class="add-stop-link">
+				<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+				</svg>
+				<?php esc_html_e('Add Stop', 'gts-theme'); ?>
+			</a>
 		</div>
 	</div>
 
-	<!-- Row 5: Comments -->
-	<div class="form-row">
+	<!-- Row 5: Drop-off location и Additional Notes -->
+	<div class="form-row form-row-dropoff-notes">
 		<div class="form-group">
-			<textarea id="comments" name="comments" placeholder="<?php esc_attr_e('Comments', 'gts-theme'); ?>" rows="3"></textarea>
+			<input type="text" id="dropoff-location" name="dropoff_location" placeholder="<?php esc_attr_e('Drop-off location', 'gts-theme'); ?>" required>
 		</div>
+		<div class="form-group">
+			<textarea id="additional-notes" name="additional_notes" placeholder="<?php esc_attr_e('Additional Notes', 'gts-theme'); ?>" rows="1"></textarea>
+		</div>
+	</div>
+
+	<!-- Consent -->
+	<div class="form-group checkbox-group checkbox-consent">
+		<label>
+			<input type="checkbox" name="email_consent" value="1" class="consent-checkbox" checked>
+			<span><?php esc_html_e('I agree to receive email communication regarding my quote request.', 'gts-theme'); ?></span>
+		</label>
 	</div>
 
 	<!-- Submit button -->
