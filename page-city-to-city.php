@@ -16,9 +16,12 @@ get_header();
 	<section class="final-cta-block final-cta-block--service">
 		<div class="final-cta-container final-cta-container--service">
 			<div class="final-cta-left final-cta-left--service">
-				<h2 class="final-cta-title"><?php echo wp_kses_post( 'Most transfer companies offer cars.' ); ?></h2>
+				<div class="why-us-heading-pill final-cta-service-pill">
+					<span class="why-us-heading-text">Preferences</span>
+				</div>
+				<h2 class="final-cta-title"><?php echo wp_kses_post( 'A Better Way to Travel<br>Between Cities' ); ?></h2>
 				<p class="final-cta-description">
-					<?php echo wp_kses_post( 'We offer peace of mind through control, consistency, and a truly global standard.' ); ?>
+					<?php echo wp_kses_post( 'Airports, trains, rentals — they all take time, coordination, and patience. GTS offers a more refined way to move between cities: effortless, private, and precisely managed.' ); ?>
 				</p>
 				<a href="<?php echo esc_url( home_url( '/book-a-transfer/' ) ); ?>" class="btn btn-primary final-cta-button">Book a transfer</a>
 			</div>
@@ -26,42 +29,50 @@ get_header();
 			<div class="final-cta-right final-cta-right--desktop final-cta-right--service">
 				<div class="final-cta-item">
 					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/last-i-1.svg' ); ?>" alt="Precision logistics" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Precision logistics</h3>
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-1.svg' ); ?>" alt="Time is your real luxury" class="final-cta-icon" width="26" height="26" loading="lazy">
+						<h3 class="final-cta-item-title">Time is your real luxury</h3>
 					</div>
-					<p class="final-cta-item-description">Every transfer is planned with accuracy: routes, timing, and coordination handled seamlessly.</p>
+					<p class="final-cta-item-description">Skip queues and transfers — travel door-to-door, without waiting or interruptions.</p>
 				</div>
 
 				<div class="final-cta-item">
 					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/last-i-2.svg' ); ?>" alt="Human-first service" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Human-first service</h3>
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-2.svg' ); ?>" alt="Confidence in every journey" class="final-cta-icon" width="26" height="26" loading="lazy">
+						<h3 class="final-cta-item-title">Confidence in every journey</h3>
 					</div>
-					<p class="final-cta-item-description">Behind every booking is a personal coordinator who knows your preferences and requirements.</p>
+					<p class="final-cta-item-description">No crowds, delays, or cancellations — just punctual, licensed chauffeurs and global coordination.</p>
 				</div>
 
 				<div class="final-cta-item">
 					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/last-i-3.svg' ); ?>" alt="Consistency across the globe" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Consistency across the globe</h3>
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-3.svg' ); ?>" alt="Your schedule, your rules" class="final-cta-icon" width="26" height="26" loading="lazy">
+						<h3 class="final-cta-item-title">Your schedule, your rules</h3>
 					</div>
-					<p class="final-cta-item-description">The same GTS standard in every destination with one service quality.</p>
+					<p class="final-cta-item-description">Choose departure times and stops. Plans change? We adjust instantly, 24/7.</p>
 				</div>
 
 				<div class="final-cta-item">
 					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/last-i-4.svg' ); ?>" alt="True premium fleet" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">True premium fleet</h3>
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-4.svg' ); ?>" alt="Transparent, all-inclusive pricing" class="final-cta-icon" width="26" height="26" loading="lazy">
+						<h3 class="final-cta-item-title">Transparent, all-inclusive pricing</h3>
 					</div>
-					<p class="final-cta-item-description">Business, premium, and VIP-class vehicles, regularly renewed and impeccably maintained.</p>
+					<p class="final-cta-item-description">Pay per car, not per seat. Taxes, tolls, and waiting time are always included.</p>
 				</div>
 
 				<div class="final-cta-item">
 					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/last-i-5.svg' ); ?>" alt="Tailored logistics" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Tailored logistics</h3>
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-5.svg' ); ?>" alt="Quiet comfort on every route" class="final-cta-icon" width="26" height="26" loading="lazy">
+						<h3 class="final-cta-item-title">Quiet comfort on every route</h3>
 					</div>
-					<p class="final-cta-item-description">No templates: each trip is planned around your schedule, priorities, and comfort.</p>
+					<p class="final-cta-item-description">Relax in a premium car with a professional chauffeur, bottled water, and Wi-Fi on request.</p>
+				</div>
+
+				<div class="final-cta-item">
+					<div class="final-cta-item-header">
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-6.svg' ); ?>" alt="Flexible routes" class="final-cta-icon" width="26" height="26" loading="lazy">
+						<h3 class="final-cta-item-title">Flexible routes</h3>
+					</div>
+					<p class="final-cta-item-description">Stop for meetings, meals, or sightseeing anytime.</p>
 				</div>
 			</div>
 		</div>

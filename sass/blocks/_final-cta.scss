@@ -215,20 +215,81 @@
 }
 
 .final-cta-left--service {
+	width: 649px;
 	padding-top: 16px;
 
+	.final-cta-title {
+		font-size: 76px;
+		line-height: 1.03;
+		letter-spacing: -0.03em;
+		margin-bottom: 36px;
+	}
+
+	.final-cta-description {
+		font-size: 16px;
+		line-height: 1.45;
+		max-width: 100%;
+		margin-bottom: 48px;
+	}
+
+	@include lg {
+		width: 460px;
+
+		.final-cta-title {
+			font-size: 48px;
+			margin-bottom: 24px;
+		}
+
+		.final-cta-description {
+			font-size: 16px;
+			margin-bottom: 36px;
+		}
+	}
+
 	@include md {
+		width: 100%;
 		padding-top: 0;
+
+		.final-cta-title {
+			font-size: 34px;
+			line-height: 1.08;
+			margin-bottom: 16px;
+		}
+
+		.final-cta-description {
+			font-size: 16px;
+			margin-bottom: 24px;
+		}
 	}
 }
 
+.final-cta-service-pill {
+	margin-bottom: 40px;
+}
+
 .final-cta-right--service {
+	width: 670px;
+	padding: 0;
 	background: transparent;
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
+	.final-cta-item {
+		width: 100%;
+		padding-bottom: 36px;
+		margin-bottom: 36px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
 	@include md {
 		display: flex !important;
+		width: 100%;
 		background: transparent;
+		padding: 0;
+
+		.final-cta-item {
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+		}
 	}
 }
