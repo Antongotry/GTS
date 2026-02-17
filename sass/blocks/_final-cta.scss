@@ -293,3 +293,17 @@
 		}
 	}
 }
+
+// On service pages the same element has both classes:
+// .final-cta-right--desktop.final-cta-right--service
+// Reset desktop-hide rules on mobile so the block remains visible.
+.final-cta-right--desktop.final-cta-right--service {
+	@include md {
+		display: flex !important;
+		width: 100% !important;
+		height: auto !important;
+		overflow: visible !important;
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+}
