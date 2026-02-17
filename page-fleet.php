@@ -54,6 +54,8 @@ $cta_labels  = array(
 	</section>
 
 	<?php get_template_part( 'template-parts/blocks/fleet-standards' ); ?>
+
+	<?php get_template_part( 'template-parts/blocks/custom-itinerary', 'limousine' ); ?>
 </main><!-- #primary -->
 
 <?php
