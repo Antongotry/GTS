@@ -267,10 +267,21 @@
 
 				<div class="header-right">
 					<div class="language-selector">
-						<span class="language-text">EN</span>
-						<span class="dropdown-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" width="10" height="6">
-						</span>
+						<button class="language-selector__toggle" type="button" aria-expanded="false" aria-haspopup="true">
+							<span class="language-text">EN</span>
+							<span class="dropdown-icon">
+								<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" width="10" height="6">
+							</span>
+						</button>
+						<ul class="language-selector__menu" role="menu" aria-label="<?php esc_attr_e( 'Select language', 'gts-theme' ); ?>">
+							<li class="language-selector__item is-active" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="EN">English</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="FR">French</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="DE">German</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="IT">Italian</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ES">Spanish</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="AR">Arabic</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ZH">Chinese</a></li>
+						</ul>
 					</div>
 					<a href="mailto:info@gmail.com" class="header-email">info@gmail.com</a>
 					<div class="header-buttons">

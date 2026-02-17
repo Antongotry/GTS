@@ -304,20 +304,70 @@
 }
 
 .language-selector {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	cursor: pointer;
+	position: relative;
 	font-family: "Manrope", $font__main;
 	font-size: 14px;
 	font-weight: 400;
 	color: #000000;
-	transition: opacity 0.3s ease;
 	margin: 0;
 	padding: 0;
 
-	&:hover {
-		opacity: 0.7;
+	&__toggle {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		cursor: pointer;
+		background: none;
+		border: 0;
+		padding: 0;
+		font: inherit;
+		color: inherit;
+		transition: opacity 0.3s ease;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__menu {
+		position: absolute;
+		top: calc(100% + 16px);
+		right: 0;
+		margin: 0;
+		padding: 8px;
+		list-style: none;
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		min-width: 150px;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translateY(8px);
+		transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+		z-index: 1010;
+	}
+
+	&__item {
+		margin: 0;
+		padding: 0;
+	}
+
+	&__option {
+		display: block;
+		text-decoration: none;
+		color: #000000;
+		padding: 8px 10px;
+		border-radius: 6px;
+		transition: background-color 0.2s ease, opacity 0.2s ease;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.06);
+		}
+	}
+
+	&__item.is-active &__option {
+		background: rgba(0, 0, 0, 0.08);
 	}
 
 	.language-text {
@@ -342,6 +392,19 @@
 
 	&:hover .dropdown-icon {
 		transform: rotate(180deg);
+	}
+
+	&.is-open {
+		.dropdown-icon {
+			transform: rotate(180deg);
+		}
+
+		.language-selector__menu {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			transform: translateY(0);
+		}
 	}
 
 	@include md {
