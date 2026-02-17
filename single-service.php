@@ -276,18 +276,18 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							</div>
 							<button type="submit" class="booking-submit-btn"><?php echo esc_html($desktop_form_submit); ?></button>
 						</form>
-						<div class="world-map-section">
-							<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" loading="lazy" width="100" height="100"></div>
-							<div class="world-map-divider"></div>
-							<div class="world-map-text">
-								<p class="world-map-label world-map-label-top">clients in</p>
-								<div class="world-map-bottom">
-									<p class="world-map-number"><?php echo esc_html($desktop_form_stats_number); ?></p>
-									<p class="world-map-label world-map-label-bottom"><?php echo esc_html($desktop_form_stats_label); ?></p>
-								</div>
+					<?php endif; ?>
+					<div class="world-map-section">
+						<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" loading="lazy" width="100" height="100"></div>
+						<div class="world-map-divider"></div>
+						<div class="world-map-text">
+							<p class="world-map-label world-map-label-top">clients in</p>
+							<div class="world-map-bottom">
+								<p class="world-map-number"><?php echo esc_html($desktop_form_stats_number); ?></p>
+								<p class="world-map-label world-map-label-bottom"><?php echo esc_html($desktop_form_stats_label); ?></p>
 							</div>
 						</div>
-					<?php endif; ?>
+					</div>
 				</div>
 			</div>
 		</section>
