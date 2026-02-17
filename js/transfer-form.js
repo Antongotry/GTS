@@ -55,6 +55,15 @@
 			}
 		}
 
+		function normalizePriceText(value) {
+			var raw = String(value || '');
+			return raw
+				.replace(/&nbsp;|&#160;|&#xA0;/gi, ' ')
+				.replace(/\u00a0/g, ' ')
+				.replace(/\s{2,}/g, ' ')
+				.trim();
+		}
+
 		function val(name) {
 			var field = form.querySelector('[name="' + name + '"]');
 			return field ? String(field.value || '').trim() : '';
@@ -159,7 +168,7 @@
 				text(document.getElementById('summary-distance'), state.route.message || '—');
 			}
 
-			text(document.getElementById('summary-price'), state.pricing.formattedTotal || '—');
+			text(document.getElementById('summary-price'), normalizePriceText(state.pricing.formattedTotal) || '—');
 			text(document.getElementById('summary-mode'), state.pricing.mode === 'manual' ? 'Manual quote' : (state.pricing.mode === 'auto' ? 'Automatic' : '—'));
 			renderBreakdown(state.pricing.breakdown || []);
 			text(document.getElementById('summary-note'), state.pricing.note || 'Final price confirmed by manager. No online payments.');
@@ -328,7 +337,7 @@
 					}
 					state.pricing = {
 						total: Number(res.data.total || 0),
-						formattedTotal: res.data.formatted_total || '—',
+						formattedTotal: normalizePriceText(res.data.formatted_total) || '—',
 						mode: res.data.mode || 'manual',
 						breakdown: res.data.breakdown || [],
 						note: res.data.note || ''
@@ -373,7 +382,7 @@
 			data.append('route_duration_min', String(state.route.durationMin || 0));
 			data.append('route_mode', state.route.mode || 'manual');
 			data.append('estimated_price', String(state.pricing.total || 0));
-			data.append('estimated_price_text', state.pricing.formattedTotal || 'Manual quote');
+			data.append('estimated_price_text', normalizePriceText(state.pricing.formattedTotal) || 'Manual quote');
 			data.append('price_mode', state.pricing.mode || 'manual');
 
 			fetch(ajaxUrl, {
