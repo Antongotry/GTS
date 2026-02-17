@@ -4981,7 +4981,17 @@ a.phone-button:focus,
 
 .single-fleet-product {
   background: #0C0F17;
-  padding: 24px 0 40px;
+  padding: 112px 0 40px;
+}
+@media (max-width: 1024px) {
+  .single-fleet-product {
+    padding: 96px 0 36px;
+  }
+}
+@media (max-width: 768px) {
+  .single-fleet-product {
+    padding: 84px 0 32px;
+  }
 }
 
 .single-fleet-product__container {

@@ -107,6 +107,7 @@ add_filter( 'woocommerce_output_related_products_args', 'gts_theme_woocommerce_r
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
 if ( ! function_exists( 'gts_theme_woocommerce_wrapper_before' ) ) {
 	/**

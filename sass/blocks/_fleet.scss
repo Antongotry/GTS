@@ -554,7 +554,15 @@
 
 .single-fleet-product {
 	background: $color__background-body;
-	padding: 24px 0 40px;
+	padding: 112px 0 40px;
+
+	@include lg {
+		padding: 96px 0 36px;
+	}
+
+	@include md {
+		padding: 84px 0 32px;
+	}
 }
 
 .single-fleet-product__container {
