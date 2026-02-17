@@ -317,6 +317,7 @@ function gts_theme_scripts()
 
 	if (is_page_template('page-book-a-transfer.php') || is_page('book-a-transfer')) {
 		wp_enqueue_script('gts-transfer-form', get_template_directory_uri() . '/js/transfer-form.js', array(), $version, true);
+		wp_enqueue_script('gts-transfer-autocomplete', get_template_directory_uri() . '/js/transfer-autocomplete.js', array('gts-transfer-form'), $version, true);
 		wp_localize_script(
 			'gts-transfer-form',
 			'gtsTransferConfig',

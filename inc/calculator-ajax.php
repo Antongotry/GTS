@@ -172,6 +172,97 @@ function gts_calculator_geocode( $address ) {
 }
 
 /**
+ * AJAX: Address autocomplete suggestions (OSM Nominatim).
+ */
+function gts_ajax_address_suggestions() {
+	if ( ! gts_calculator_verify_nonce() ) {
+		wp_send_json_error( array( 'message' => 'Security validation failed.' ), 403 );
+	}
+
+	$query = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
+	$type  = isset( $_POST['type'] ) ? sanitize_key( wp_unslash( $_POST['type'] ) ) : 'address';
+
+	if ( mb_strlen( $query ) < 2 ) {
+		wp_send_json_success( array( 'suggestions' => array() ) );
+	}
+
+	$url = 'https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=6&accept-language=en&q=' . rawurlencode( $query );
+
+	$response = wp_remote_get(
+		$url,
+		array(
+			'timeout' => 8,
+			'headers' => array(
+				'User-Agent' => 'GTS Transfer Calculator/1.0',
+			),
+		)
+	);
+
+	if ( is_wp_error( $response ) ) {
+		wp_send_json_success( array( 'suggestions' => array() ) );
+	}
+
+	$body = json_decode( wp_remote_retrieve_body( $response ), true );
+	if ( ! is_array( $body ) ) {
+		wp_send_json_success( array( 'suggestions' => array() ) );
+	}
+
+	$suggestions = array();
+	$seen        = array();
+
+	foreach ( $body as $item ) {
+		if ( empty( $item['display_name'] ) ) {
+			continue;
+		}
+
+		$address = isset( $item['address'] ) && is_array( $item['address'] ) ? $item['address'] : array();
+		$value   = '';
+
+		if ( 'country' === $type ) {
+			$value = isset( $address['country'] ) ? (string) $address['country'] : '';
+		} elseif ( 'city' === $type ) {
+			if ( ! empty( $address['city'] ) ) {
+				$value = (string) $address['city'];
+			} elseif ( ! empty( $address['town'] ) ) {
+				$value = (string) $address['town'];
+			} elseif ( ! empty( $address['village'] ) ) {
+				$value = (string) $address['village'];
+			} elseif ( ! empty( $address['municipality'] ) ) {
+				$value = (string) $address['municipality'];
+			} elseif ( ! empty( $address['state'] ) ) {
+				$value = (string) $address['state'];
+			}
+		} else {
+			$value = (string) $item['display_name'];
+		}
+
+		$value = trim( wp_strip_all_tags( $value ) );
+		if ( '' === $value ) {
+			continue;
+		}
+
+		$key = mb_strtolower( $value );
+		if ( isset( $seen[ $key ] ) ) {
+			continue;
+		}
+		$seen[ $key ] = true;
+
+		$suggestions[] = array(
+			'value' => $value,
+			'label' => (string) $item['display_name'],
+		);
+
+		if ( count( $suggestions ) >= 6 ) {
+			break;
+		}
+	}
+
+	wp_send_json_success( array( 'suggestions' => $suggestions ) );
+}
+add_action( 'wp_ajax_gts_address_suggestions', 'gts_ajax_address_suggestions' );
+add_action( 'wp_ajax_nopriv_gts_address_suggestions', 'gts_ajax_address_suggestions' );
+
+/**
  * Estimate route via OSRM.
  *
  * @param array $from From coordinates.
