@@ -46,6 +46,8 @@ $city_benefits = array(
 
 	<?php get_template_part( 'template-parts/blocks/hero-city-to-city-service' ); ?>
 
+	<?php get_template_part( 'template-parts/blocks/booking-form-limousine-service' ); ?>
+
 	<section class="final-cta-block final-cta-block--service">
 		<div class="final-cta-container final-cta-container--service">
 			<div class="final-cta-left final-cta-left--service">
@@ -72,8 +74,6 @@ $city_benefits = array(
 			</div>
 		</div>
 	</section>
-
-	<?php get_template_part( 'template-parts/blocks/booking-form-limousine-service' ); ?>
 
 	<?php get_template_part( 'template-parts/blocks/why-us' ); ?>
 
