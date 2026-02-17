@@ -117,6 +117,16 @@ $primary_term = ! empty( $product_terms ) ? $product_terms[0] : null;
 $category_slug = ( $primary_term && ! is_wp_error( $primary_term ) ) ? $primary_term->slug : '';
 $category_name = ( $primary_term && ! is_wp_error( $primary_term ) ) ? $primary_term->name : '';
 
+$product_description = trim( wp_strip_all_tags( $product->get_short_description() ) );
+if ( '' === $product_description ) {
+	$product_description = trim( wp_strip_all_tags( $product->get_description() ) );
+}
+if ( '' === $product_description ) {
+	$product_description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+		. 'Praesent commodo, sapien non facilisis viverra, neque velit ultrices lorem, '
+		. 'at ullamcorper neque odio at turpis.';
+}
+
 $related_products = array();
 if ( $category_slug ) {
 	$related_products = wc_get_products(
@@ -162,11 +172,9 @@ if ( $category_slug ) {
 			<div class="single-fleet-product__content">
 				<h1 class="single-fleet-product__title"><?php echo esc_html( $product->get_name() ); ?></h1>
 
-				<?php if ( $product->get_short_description() ) : ?>
-					<div class="single-fleet-product__description">
-						<?php echo wp_kses_post( wpautop( $product->get_short_description() ) ); ?>
-					</div>
-				<?php endif; ?>
+				<div class="single-fleet-product__description">
+					<?php echo wp_kses_post( wpautop( $product_description ) ); ?>
+				</div>
 
 				<a class="btn btn-primary btn-full fleet-book-trigger single-fleet-product__consult" href="<?php echo esc_url( $product->get_permalink() ); ?>" data-vehicle="<?php echo esc_attr( $product->get_name() ); ?>" data-product-id="<?php echo esc_attr( $product_id ); ?>">
 					<?php esc_html_e( 'Book a consultation', 'gts-theme' ); ?>
