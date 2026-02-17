@@ -23,20 +23,33 @@ if ( empty( $all_products ) ) {
 }
 
 // Simple, deterministic split until taxonomy mapping is provided.
-$sections = array(
+$section_meta = array(
 	array(
 		'key'         => 'sedan',
 		'title'       => 'Sedan & SUV',
 		'description' => 'For executive travel, airport transfers, and city mobility.',
-		'products'    => array_slice( $all_products, 0, 10 ),
+	),
+	array(
+		'key'         => 'limousine',
+		'title'       => 'Limousine',
+		'description' => 'For premium rides, VIP occasions, and luxury comfort.',
 	),
 	array(
 		'key'         => 'sprinter',
 		'title'       => 'Sprinter & Bus',
 		'description' => 'For group transportation, events, and multi-passenger routes.',
-		'products'    => array_slice( $all_products, 10, 10 ),
 	),
 );
+
+$sections      = array();
+$total         = count( $all_products );
+$section_count = count( $section_meta );
+$chunk_size    = (int) ceil( $total / $section_count );
+
+foreach ( $section_meta as $index => $meta ) {
+	$meta['products'] = array_slice( $all_products, $index * $chunk_size, $chunk_size );
+	$sections[]       = $meta;
+}
 ?>
 
 <section class="fleet-ground">
@@ -79,4 +92,3 @@ $sections = array(
 		<?php endforeach; ?>
 	</div>
 </section>
-
