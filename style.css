@@ -5001,6 +5001,14 @@ a.phone-button:focus,
   padding: 0 20px;
   box-sizing: border-box;
 }
+@media (max-width: 768px) {
+  .single-fleet-product__container {
+    max-width: none;
+    width: calc(100vw - 40px);
+    margin: 0 auto;
+    padding: 0;
+  }
+}
 
 .single-fleet-product__breadcrumbs {
   margin-bottom: 16px;
@@ -5199,6 +5207,14 @@ a.phone-button:focus,
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .single-fleet-related__container {
+    max-width: none;
+    width: calc(100vw - 40px);
+    margin: 0 auto;
+    padding: 0;
+  }
 }
 
 /**
