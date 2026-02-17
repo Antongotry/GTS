@@ -300,8 +300,14 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
 	wp_enqueue_script('gts-trusted-by-slider', get_template_directory_uri() . '/js/trusted-by-slider.js', array('gts-swiper'), $version, true);
 
-	if (is_page_template('page-limousine-service.php') || is_page('limousine-service') || is_page('Limousine Service') || is_singular('service')) {
+	$is_product_page = function_exists( 'is_product' ) && is_product();
+
+	if (is_page_template('page-limousine-service.php') || is_page('limousine-service') || is_page('Limousine Service') || is_singular('service') || $is_product_page) {
 		wp_enqueue_script('gts-fleet-slider', get_template_directory_uri() . '/js/fleet-slider.js', array('gts-swiper'), $version, true);
+	}
+
+	if ( $is_product_page ) {
+		wp_enqueue_script( 'gts-single-fleet-product-gallery', get_template_directory_uri() . '/js/single-fleet-product-gallery.js', array( 'gts-swiper' ), $version, true );
 	}
 
 	if ( is_page_template( 'page-fleet.php' ) || is_page( 'fleet' ) ) {
@@ -341,6 +347,7 @@ function gts_defer_scripts($tag, $handle, $src)
 		'gts-trusted-by-slider',
 		'gts-fleet-ground-sliders',
 		'gts-fleet-slider',
+		'gts-single-fleet-product-gallery',
 		'lenis',
 		'gts-lenis-init',
 		'gsap',

@@ -4979,6 +4979,209 @@ a.phone-button:focus,
   opacity: 0.92;
 }
 
+.single-fleet-product {
+  background: #0C0F17;
+  padding: 24px 0 40px;
+}
+
+.single-fleet-product__container {
+  width: 100%;
+  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.single-fleet-product__breadcrumbs {
+  margin-bottom: 16px;
+}
+.single-fleet-product__breadcrumbs .woocommerce-breadcrumb {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+.single-fleet-product__breadcrumbs a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.single-fleet-product__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .single-fleet-product__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.single-fleet-product__gallery-wrap {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(12, 15, 23, 0.85);
+  min-width: 0;
+}
+
+.single-fleet-product__gallery {
+  overflow: hidden;
+}
+
+.single-fleet-product__slide {
+  aspect-ratio: 4/3;
+  background: #0f121b;
+}
+
+.single-fleet-product__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.single-fleet-product__gallery-wrap .nav-arrows {
+  position: absolute;
+  inset: 50% 0 auto;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.single-fleet-product__gallery-wrap .nav-arrow {
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.single-fleet-product__gallery-wrap .nav-arrow-icon {
+  filter: brightness(0);
+}
+
+.single-fleet-product__content {
+  padding: 0;
+}
+
+.single-fleet-product__title {
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+@media (max-width: 1440px) {
+  .single-fleet-product__title {
+    font-size: 48px;
+  }
+}
+@media (max-width: 1024px) {
+  .single-fleet-product__title {
+    font-size: 36px;
+  }
+}
+@media (max-width: 768px) {
+  .single-fleet-product__title {
+    font-size: 30px;
+  }
+}
+
+.single-fleet-product__description {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 24px;
+  max-width: 92%;
+}
+.single-fleet-product__description p {
+  margin: 0;
+}
+
+.single-fleet-product__consult {
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .single-fleet-product__consult {
+    max-width: 100%;
+  }
+}
+
+.single-fleet-product__specs {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.single-fleet-product__specs-title {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 20px 0 10px;
+}
+
+.single-fleet-product__spec-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 768px) {
+  .single-fleet-product__spec-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+.single-fleet-product__spec-label,
+.single-fleet-product__spec-value {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.single-fleet-product__spec-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.single-fleet-product__spec-value {
+  color: #ffffff;
+}
+
+.single-fleet-related {
+  background: #0C0F17;
+  padding: 24px 0 60px;
+}
+@media (max-width: 1024px) {
+  .single-fleet-related {
+    padding: 20px 0 48px;
+  }
+}
+@media (max-width: 768px) {
+  .single-fleet-related {
+    padding: 16px 0 40px;
+  }
+}
+
+.single-fleet-related__container {
+  width: 100%;
+  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 /**
  * FAQ Block Styles
  * Clear answers to help you book with confidence.
