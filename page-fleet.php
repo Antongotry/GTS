@@ -36,15 +36,7 @@ $fleet_type  = in_array( $fleet_param, array( 'ground', 'helicopters', 'jets' ),
 	}
 
 	if ( 'jets' === $fleet_type ) {
-		get_template_part(
-			'template-parts/blocks/fleet-slider',
-			null,
-			array(
-				'category_slugs' => array( 'light-jets', 'mid-jets', 'super-mid-jets' ),
-				'title'          => 'Private jet options for regional and long-range travel',
-				'lead'           => 'Choose from light, mid, and super-mid jet classes for the right cabin and range.',
-			)
-		);
+		get_template_part( 'template-parts/blocks/fleet-jets' );
 	}
 	?>
 </main><!-- #primary -->
