@@ -10117,6 +10117,10 @@ a.phone-button:focus,
  * Template: page-book-a-transfer.php
  * Grid and breakpoints aligned with header and hero (front page).
  */
+.page-template-page-book-a-transfer .site-main {
+  overflow: visible;
+}
+
 .transfer-page {
   background: #0C0F17;
   min-height: 100vh;

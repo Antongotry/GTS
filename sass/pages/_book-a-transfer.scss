@@ -19,6 +19,10 @@ $transfer-form-col: calc((100% - #{$transfer-gap}) * #{$transfer-form-ratio});
 $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-ratio});
 
 // Top padding so content sits below fixed header (desktop ~10+64px; md 48px + 40px extra)
+.page-template-page-book-a-transfer .site-main {
+	overflow: visible;
+}
+
 .transfer-page {
 	background: $color__background-body;
 	min-height: 100vh;
