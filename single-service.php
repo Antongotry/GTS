@@ -319,43 +319,6 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 	<?php endif; ?>
 
-	<?php // ======================== SERVICE INTRO BLOCK (UNDER HERO) ========================
-	?>
-	<?php if ($has_service_intro_block && $block_enabled['service_intro']) : ?>
-		<section class="final-cta-block final-cta-block--service">
-			<div class="final-cta-container final-cta-container--service">
-				<div class="final-cta-left final-cta-left--service">
-					<?php if ( ! empty( $service_intro_pill ) ) : ?>
-						<div class="why-us-heading-pill final-cta-service-pill">
-							<span class="why-us-heading-text"><?php echo esc_html( $service_intro_pill ); ?></span>
-						</div>
-					<?php endif; ?>
-					<h2 class="final-cta-title"><?php echo wp_kses_post($service_intro_title); ?></h2>
-					<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
-					<a href="<?php echo esc_url($service_intro_button_link); ?>" class="btn btn-primary final-cta-button"><?php echo esc_html($service_intro_button_text); ?></a>
-				</div>
-
-				<div class="final-cta-right final-cta-right--desktop final-cta-right--service">
-					<?php foreach ($service_intro_items as $intro_item) :
-						$item_icon = ! empty($intro_item['icon']) ? $intro_item['icon'] : '';
-						$item_title = ! empty($intro_item['title']) ? $intro_item['title'] : '';
-						$item_description = ! empty($intro_item['description']) ? $intro_item['description'] : '';
-					?>
-						<div class="final-cta-item">
-							<div class="final-cta-item-header">
-								<?php if ($item_icon) : ?>
-									<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
-								<?php endif; ?>
-								<h3 class="final-cta-item-title"><?php echo esc_html($item_title); ?></h3>
-							</div>
-							<p class="final-cta-item-description"><?php echo wp_kses_post($item_description); ?></p>
-						</div>
-					<?php endforeach; ?>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
-
 	<?php // ======================== BOOKING FORM BLOCK (MOBILE) ========================
 	?>
 	<?php if ($block_enabled['booking_form']) : ?>
@@ -433,6 +396,43 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<button type="submit" class="booking-submit-btn"><?php echo esc_html($mobile_form_submit); ?></button>
 						</form>
 					<?php endif; ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php // ======================== SERVICE INTRO BLOCK (UNDER HERO) ========================
+	?>
+	<?php if ($has_service_intro_block && $block_enabled['service_intro']) : ?>
+		<section class="final-cta-block final-cta-block--service">
+			<div class="final-cta-container final-cta-container--service">
+				<div class="final-cta-left final-cta-left--service">
+					<?php if ( ! empty( $service_intro_pill ) ) : ?>
+						<div class="why-us-heading-pill final-cta-service-pill">
+							<span class="why-us-heading-text"><?php echo esc_html( $service_intro_pill ); ?></span>
+						</div>
+					<?php endif; ?>
+					<h2 class="final-cta-title"><?php echo wp_kses_post($service_intro_title); ?></h2>
+					<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
+					<a href="<?php echo esc_url($service_intro_button_link); ?>" class="btn btn-primary final-cta-button"><?php echo esc_html($service_intro_button_text); ?></a>
+				</div>
+
+				<div class="final-cta-right final-cta-right--desktop final-cta-right--service">
+					<?php foreach ($service_intro_items as $intro_item) :
+						$item_icon = ! empty($intro_item['icon']) ? $intro_item['icon'] : '';
+						$item_title = ! empty($intro_item['title']) ? $intro_item['title'] : '';
+						$item_description = ! empty($intro_item['description']) ? $intro_item['description'] : '';
+					?>
+						<div class="final-cta-item">
+							<div class="final-cta-item-header">
+								<?php if ($item_icon) : ?>
+									<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
+								<?php endif; ?>
+								<h3 class="final-cta-item-title"><?php echo esc_html($item_title); ?></h3>
+							</div>
+							<p class="final-cta-item-description"><?php echo wp_kses_post($item_description); ?></p>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</section>
