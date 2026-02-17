@@ -41,6 +41,32 @@ function gts_register_service_acf_fields()
 		),
 	);
 
+	// Service Intro Cards Repeater Sub-fields
+	$service_intro_items_subfields = array(
+		array(
+			'key'           => 'field_service_intro_item_icon',
+			'label'         => 'Icon',
+			'name'          => 'icon',
+			'type'          => 'image',
+			'return_format' => 'url',
+			'preview_size'  => 'thumbnail',
+			'mime_types'    => 'svg,png,webp',
+		),
+		array(
+			'key'   => 'field_service_intro_item_title',
+			'label' => 'Title',
+			'name'  => 'title',
+			'type'  => 'text',
+		),
+		array(
+			'key'   => 'field_service_intro_item_description',
+			'label' => 'Description',
+			'name'  => 'description',
+			'type'  => 'textarea',
+			'rows'  => 3,
+		),
+	);
+
 	// Why Us Cards Repeater Sub-fields
 	$why_us_cards_subfields = array(
 		array(
@@ -388,7 +414,60 @@ function gts_register_service_acf_fields()
 				),
 			),
 		),
-		// Layout 2: Booking Form (Desktop + Mobile)
+		// Layout 2: Service Intro Section (under Hero)
+		'layout_service_intro' => array(
+			'key'        => 'layout_service_intro',
+			'name'       => 'service_intro',
+			'label'      => 'Service Intro Section',
+			'display'    => 'block',
+			'sub_fields' => array(
+				array(
+					'key'           => 'field_service_intro_enabled',
+					'label'         => 'Enable Block',
+					'name'          => 'enabled',
+					'type'          => 'true_false',
+					'default_value' => 1,
+					'ui'            => 1,
+				),
+				array(
+					'key'   => 'field_service_intro_title',
+					'label' => 'Title',
+					'name'  => 'title',
+					'type'  => 'text',
+				),
+				array(
+					'key'   => 'field_service_intro_description',
+					'label' => 'Description',
+					'name'  => 'description',
+					'type'  => 'textarea',
+					'rows'  => 2,
+				),
+				array(
+					'key'           => 'field_service_intro_button_text',
+					'label'         => 'Button Text',
+					'name'          => 'button_text',
+					'type'          => 'text',
+					'default_value' => 'Book a transfer',
+				),
+				array(
+					'key'   => 'field_service_intro_button_link',
+					'label' => 'Button Link',
+					'name'  => 'button_link',
+					'type'  => 'url',
+				),
+				array(
+					'key'        => 'field_service_intro_items',
+					'label'      => 'Intro Cards',
+					'name'       => 'items',
+					'type'       => 'repeater',
+					'min'        => 0,
+					'max'        => 6,
+					'layout'     => 'block',
+					'sub_fields' => $service_intro_items_subfields,
+				),
+			),
+		),
+		// Layout 3: Booking Form (Desktop + Mobile)
 		'layout_booking_form' => array(
 			'key'        => 'layout_service_booking_form',
 			'name'       => 'booking_form',
@@ -488,7 +567,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 3: Why Us Section
+		// Layout 4: Why Us Section
 		'layout_why_us'       => array(
 			'key'        => 'layout_service_why_us',
 			'name'       => 'why_us',
@@ -523,7 +602,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 4: Fleet Slider
+		// Layout 5: Fleet Slider
 		'layout_fleet'        => array(
 			'key'        => 'layout_service_fleet',
 			'name'       => 'fleet',
@@ -573,7 +652,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 5: Occasions Section
+		// Layout 6: Occasions Section
 		'layout_occasions'    => array(
 			'key'        => 'layout_service_occasions',
 			'name'       => 'occasions',
@@ -621,7 +700,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 6: How It Works
+		// Layout 7: How It Works
 		'layout_how_it_works' => array(
 			'key'        => 'layout_service_how_it_works',
 			'name'       => 'how_it_works',
@@ -670,7 +749,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 7: Testimonials
+		// Layout 8: Testimonials
 		'layout_testimonials' => array(
 			'key'        => 'layout_service_testimonials',
 			'name'       => 'testimonials',
@@ -711,7 +790,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 8: FAQ
+		// Layout 9: FAQ
 		'layout_faq'          => array(
 			'key'        => 'layout_service_faq',
 			'name'       => 'faq',
@@ -752,7 +831,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 9: CTA Section
+		// Layout 10: CTA Section
 		'layout_cta'          => array(
 			'key'        => 'layout_service_cta',
 			'name'       => 'cta',
@@ -803,7 +882,7 @@ function gts_register_service_acf_fields()
 			),
 		),
 
-		// Layout 10: Related Services
+		// Layout 11: Related Services
 		'layout_related'      => array(
 			'key'        => 'layout_service_related',
 			'name'       => 'related_services',

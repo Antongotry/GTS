@@ -188,3 +188,47 @@
 .final-cta-item-description-extra {
 	margin-top: 16px;
 }
+
+// Service intro variant for service pages (under hero):
+// same composition as final-cta, but no background image and no blur panel.
+.final-cta-block--service {
+	min-height: auto;
+	background-image: none !important;
+	padding: 40px 0 0;
+	align-items: flex-start;
+
+	@include lg {
+		min-height: auto;
+		background-image: none !important;
+	}
+
+	@include md {
+		min-height: auto !important;
+		background-image: none !important;
+		margin-top: 0;
+		padding: 24px 0 0;
+	}
+}
+
+.final-cta-container--service {
+	align-items: flex-start;
+}
+
+.final-cta-left--service {
+	padding-top: 16px;
+
+	@include md {
+		padding-top: 0;
+	}
+}
+
+.final-cta-right--service {
+	background: rgba(255, 255, 255, 0.04);
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+
+	@include md {
+		display: flex !important;
+		background: rgba(255, 255, 255, 0.04);
+	}
+}

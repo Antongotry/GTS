@@ -15,6 +15,7 @@ get_header();
 $blocks_data = array();
 $block_enabled = array(
 	'hero' => true,
+	'service_intro' => true,
 	'booking_form' => true,
 	'why_us' => true,
 	'fleet' => true,
@@ -57,16 +58,54 @@ $site_url = get_site_url();
 
 // Hero defaults
 $hero = isset($blocks_data['hero']) ? $blocks_data['hero'] : array();
-$hero_title = ! empty($hero['title']) ? $hero['title'] : 'Chauffeur-driven<br>luxury limousine service';
-$hero_subtitle = ! empty($hero['subtitle']) ? $hero['subtitle'] : 'for business leaders and private clients who expect<br>comfort, style, and flawless coordination.';
-$hero_bg_mobile = ! empty($hero['background_mobile']) ? $hero['background_mobile'] : $site_url . '/wp-content/uploads/2026/01/375-lm-1_result.webp';
-$hero_bg_tablet = ! empty($hero['background_tablet']) ? $hero['background_tablet'] : $site_url . '/wp-content/uploads/2026/01/1024-lm-1_result.webp';
-$hero_bg_desktop = ! empty($hero['background_desktop']) ? $hero['background_desktop'] : $site_url . '/wp-content/uploads/2026/01/1920-lm-1_result-scaled.webp';
+$hero_title = ! empty($hero['title']) ? $hero['title'] : 'City-to-City premium transfers';
+$hero_subtitle = ! empty($hero['subtitle']) ? $hero['subtitle'] : 'for corporate and private clients who need reliable long-distance travel with full coordination.';
+$hero_bg_mobile = ! empty($hero['background_mobile']) ? $hero['background_mobile'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-375_result.webp';
+$hero_bg_tablet = ! empty($hero['background_tablet']) ? $hero['background_tablet'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1024_result.webp';
+$hero_bg_desktop = ! empty($hero['background_desktop']) ? $hero['background_desktop'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp';
 $hero_cta_text = ! empty($hero['cta_text']) ? $hero['cta_text'] : 'Book a transfer';
 $hero_cta_link = ! empty($hero['cta_link']) ? $hero['cta_link'] : '#';
 $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-1-l.svg');
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
+
+// Service Intro defaults (under Hero, no background image / no blur)
+$service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
+$service_intro_title = ! empty($service_intro['title']) ? $service_intro['title'] : 'Most transfer companies offer cars.';
+$service_intro_description = ! empty($service_intro['description']) ? $service_intro['description'] : 'We offer peace of mind through control, consistency, and a truly global standard.';
+$service_intro_button_text = ! empty($service_intro['button_text']) ? $service_intro['button_text'] : 'Book a transfer';
+$service_intro_button_link = ! empty($service_intro['button_link']) ? $service_intro['button_link'] : '#';
+$service_intro_items = ! empty($service_intro['items']) ? $service_intro['items'] : array();
+
+if (empty($service_intro_items)) {
+	$service_intro_items = array(
+		array(
+			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-1.svg',
+			'title'       => 'Precision logistics',
+			'description' => 'Every transfer is planned with accuracy: routes, timing, and coordination handled seamlessly.',
+		),
+		array(
+			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-2.svg',
+			'title'       => 'Human-first service',
+			'description' => 'Behind every booking is a personal coordinator who knows your preferences and requirements.',
+		),
+		array(
+			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-3.svg',
+			'title'       => 'Consistency across the globe',
+			'description' => 'The same GTS standard in every destination with one service quality.',
+		),
+		array(
+			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-4.svg',
+			'title'       => 'True premium fleet',
+			'description' => 'Business, premium, and VIP-class vehicles, regularly renewed and impeccably maintained.',
+		),
+		array(
+			'icon'        => $site_url . '/wp-content/uploads/2026/01/last-i-5.svg',
+			'title'       => 'Tailored logistics',
+			'description' => 'No templates: each trip is planned around your schedule, priorities, and comfort.',
+		),
+	);
+}
 
 // Booking Form - unified block with desktop and mobile sections
 $booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
@@ -242,6 +281,38 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							</div>
 						</div>
 					<?php endif; ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php // ======================== SERVICE INTRO BLOCK (UNDER HERO) ========================
+	?>
+	<?php if ($block_enabled['service_intro']) : ?>
+		<section class="final-cta-block final-cta-block--service">
+			<div class="final-cta-container final-cta-container--service">
+				<div class="final-cta-left final-cta-left--service">
+					<h2 class="final-cta-title"><?php echo wp_kses_post($service_intro_title); ?></h2>
+					<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
+					<a href="<?php echo esc_url($service_intro_button_link); ?>" class="btn btn-primary final-cta-button"><?php echo esc_html($service_intro_button_text); ?></a>
+				</div>
+
+				<div class="final-cta-right final-cta-right--desktop final-cta-right--service">
+					<?php foreach ($service_intro_items as $intro_item) :
+						$item_icon = ! empty($intro_item['icon']) ? $intro_item['icon'] : '';
+						$item_title = ! empty($intro_item['title']) ? $intro_item['title'] : '';
+						$item_description = ! empty($intro_item['description']) ? $intro_item['description'] : '';
+					?>
+						<div class="final-cta-item">
+							<div class="final-cta-item-header">
+								<?php if ($item_icon) : ?>
+									<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
+								<?php endif; ?>
+								<h3 class="final-cta-item-title"><?php echo esc_html($item_title); ?></h3>
+							</div>
+							<p class="final-cta-item-description"><?php echo wp_kses_post($item_description); ?></p>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</section>

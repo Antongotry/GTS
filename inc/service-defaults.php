@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
 /**
  * Get default block structure for new services
  *
- * This structure mirrors the reference Limousine Service page layout.
+ * This structure mirrors the City-to-City service layout.
  * Content is left empty/placeholder for the user to fill in.
  *
  * @return array Default service_blocks structure
@@ -25,11 +25,11 @@ function gts_get_default_service_blocks()
 		array(
 			'acf_fc_layout'      => 'hero',
 			'enabled'            => true,
-			'title'              => '',
-			'subtitle'           => '',
-			'background_mobile'  => '',
-			'background_tablet'  => '',
-			'background_desktop' => '',
+			'title'              => 'City-to-City premium transfers',
+			'subtitle'           => 'for corporate and private clients who need reliable long-distance travel with full coordination.',
+			'background_mobile'  => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-375_result.webp',
+			'background_tablet'  => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1024_result.webp',
+			'background_desktop' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp',
 			'cta_text'           => 'Book a transfer',
 			'cta_link'           => '',
 			'features'           => array(
@@ -50,7 +50,44 @@ function gts_get_default_service_blocks()
 			'stats_label'        => 'countries',
 		),
 
-		// Block 2: Booking Form
+		// Block 2: Service Intro Panel (under Hero)
+		array(
+			'acf_fc_layout' => 'service_intro',
+			'enabled'       => true,
+			'title'         => 'Most transfer companies offer cars.',
+			'description'   => 'We offer peace of mind through control, consistency, and a truly global standard.',
+			'button_text'   => 'Book a transfer',
+			'button_link'   => '',
+			'items'         => array(
+				array(
+					'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/last-i-1.svg',
+					'title'       => 'Precision logistics',
+					'description' => 'Every transfer is planned with accuracy: routes, timing, and coordination handled seamlessly.',
+				),
+				array(
+					'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/last-i-2.svg',
+					'title'       => 'Human-first service',
+					'description' => 'Behind every booking is a personal coordinator who knows your preferences and requirements.',
+				),
+				array(
+					'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/last-i-3.svg',
+					'title'       => 'Consistency across the globe',
+					'description' => 'The same GTS standard in every destination with one service quality.',
+				),
+				array(
+					'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/last-i-4.svg',
+					'title'       => 'True premium fleet',
+					'description' => 'Business, premium, and VIP-class vehicles, regularly renewed and impeccably maintained.',
+				),
+				array(
+					'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/01/last-i-5.svg',
+					'title'       => 'Tailored logistics',
+					'description' => 'No templates: each trip is planned around your schedule, priorities, and comfort.',
+				),
+			),
+		),
+
+		// Block 3: Booking Form
 		array(
 			'acf_fc_layout' => 'booking_form',
 			'enabled'       => true,
@@ -58,7 +95,7 @@ function gts_get_default_service_blocks()
 			'form_shortcode' => '',
 		),
 
-		// Block 3: Why Us Section
+		// Block 4: Why Us Section
 		array(
 			'acf_fc_layout' => 'why_us',
 			'enabled'       => true,
@@ -109,7 +146,7 @@ function gts_get_default_service_blocks()
 			),
 		),
 
-		// Block 4: Fleet Slider
+		// Block 5: Fleet Slider
 		array(
 			'acf_fc_layout' => 'fleet',
 			'enabled'       => true,
@@ -119,7 +156,7 @@ function gts_get_default_service_blocks()
 			'vehicles'      => array(), // Empty = show all vehicles
 		),
 
-		// Block 5: Occasions Section
+		// Block 6: Occasions Section
 		array(
 			'acf_fc_layout' => 'occasions',
 			'enabled'       => true,
@@ -179,7 +216,7 @@ function gts_get_default_service_blocks()
 			'footer_text'   => 'Whether it\'s a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.',
 		),
 
-		// Block 6: How It Works
+		// Block 7: How It Works
 		array(
 			'acf_fc_layout' => 'how_it_works',
 			'enabled'       => true,
@@ -214,7 +251,7 @@ function gts_get_default_service_blocks()
 			),
 		),
 
-		// Block 7: Testimonials
+		// Block 8: Testimonials
 		array(
 			'acf_fc_layout' => 'testimonials',
 			'enabled'       => true,
@@ -230,7 +267,7 @@ function gts_get_default_service_blocks()
 			),
 		),
 
-		// Block 8: FAQ
+		// Block 9: FAQ
 		array(
 			'acf_fc_layout' => 'faq',
 			'enabled'       => true,
@@ -256,7 +293,7 @@ function gts_get_default_service_blocks()
 			),
 		),
 
-		// Block 9: CTA Section
+		// Block 10: CTA Section
 		array(
 			'acf_fc_layout'      => 'cta',
 			'enabled'            => true,
@@ -267,7 +304,7 @@ function gts_get_default_service_blocks()
 			'show_contact_icons' => true,
 		),
 
-		// Block 10: Related Services
+		// Block 11: Related Services
 		array(
 			'acf_fc_layout' => 'related_services',
 			'enabled'       => true,
