@@ -461,7 +461,7 @@ function gts_register_service_acf_fields()
 					'name'       => 'items',
 					'type'       => 'repeater',
 					'min'        => 0,
-					'max'        => 6,
+					'max'        => 0,
 					'layout'     => 'block',
 					'sub_fields' => $service_intro_items_subfields,
 				),

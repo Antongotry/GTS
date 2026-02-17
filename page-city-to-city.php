@@ -7,6 +7,39 @@
  */
 
 get_header();
+
+$city_benefits = array(
+	array(
+		'icon'  => get_site_url() . '/wp-content/uploads/2026/02/city-icon-1.svg',
+		'title' => 'Time is your real luxury',
+		'text'  => 'Skip queues and transfers — travel door-to-door, without waiting or interruptions.',
+	),
+	array(
+		'icon'  => get_site_url() . '/wp-content/uploads/2026/02/city-icon-2.svg',
+		'title' => 'Confidence in every journey',
+		'text'  => 'No crowds, delays, or cancellations — just punctual, licensed chauffeurs and global coordination.',
+	),
+	array(
+		'icon'  => get_site_url() . '/wp-content/uploads/2026/02/city-icon-3.svg',
+		'title' => 'Your schedule, your rules',
+		'text'  => 'Choose departure times and stops. Plans change? We adjust instantly, 24/7.',
+	),
+	array(
+		'icon'  => get_site_url() . '/wp-content/uploads/2026/02/city-icon-4.svg',
+		'title' => 'Transparent, all-inclusive pricing',
+		'text'  => 'Pay per car, not per seat. Taxes, tolls, and waiting time are always included.',
+	),
+	array(
+		'icon'  => get_site_url() . '/wp-content/uploads/2026/02/city-icon-5.svg',
+		'title' => 'Quiet comfort on every route',
+		'text'  => 'Relax in a premium car with a professional chauffeur, bottled water, and Wi-Fi on request.',
+	),
+	array(
+		'icon'  => get_site_url() . '/wp-content/uploads/2026/02/city-icon-6.svg',
+		'title' => 'Flexible routes',
+		'text'  => 'Stop for meetings, meals, or sightseeing anytime.',
+	),
+);
 ?>
 
 <main id="primary" class="site-main">
@@ -27,53 +60,15 @@ get_header();
 			</div>
 
 			<div class="final-cta-right final-cta-right--desktop final-cta-right--service">
-				<div class="final-cta-item">
-					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-1.svg' ); ?>" alt="Time is your real luxury" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Time is your real luxury</h3>
+				<?php foreach ( $city_benefits as $benefit ) : ?>
+					<div class="final-cta-item">
+						<div class="final-cta-item-header">
+							<img src="<?php echo esc_url( $benefit['icon'] ); ?>" alt="<?php echo esc_attr( $benefit['title'] ); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
+							<h3 class="final-cta-item-title"><?php echo esc_html( $benefit['title'] ); ?></h3>
+						</div>
+						<p class="final-cta-item-description"><?php echo esc_html( $benefit['text'] ); ?></p>
 					</div>
-					<p class="final-cta-item-description">Skip queues and transfers — travel door-to-door, without waiting or interruptions.</p>
-				</div>
-
-				<div class="final-cta-item">
-					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-2.svg' ); ?>" alt="Confidence in every journey" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Confidence in every journey</h3>
-					</div>
-					<p class="final-cta-item-description">No crowds, delays, or cancellations — just punctual, licensed chauffeurs and global coordination.</p>
-				</div>
-
-				<div class="final-cta-item">
-					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-3.svg' ); ?>" alt="Your schedule, your rules" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Your schedule, your rules</h3>
-					</div>
-					<p class="final-cta-item-description">Choose departure times and stops. Plans change? We adjust instantly, 24/7.</p>
-				</div>
-
-				<div class="final-cta-item">
-					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-4.svg' ); ?>" alt="Transparent, all-inclusive pricing" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Transparent, all-inclusive pricing</h3>
-					</div>
-					<p class="final-cta-item-description">Pay per car, not per seat. Taxes, tolls, and waiting time are always included.</p>
-				</div>
-
-				<div class="final-cta-item">
-					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-5.svg' ); ?>" alt="Quiet comfort on every route" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Quiet comfort on every route</h3>
-					</div>
-					<p class="final-cta-item-description">Relax in a premium car with a professional chauffeur, bottled water, and Wi-Fi on request.</p>
-				</div>
-
-				<div class="final-cta-item">
-					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/02/city-icon-6.svg' ); ?>" alt="Flexible routes" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title">Flexible routes</h3>
-					</div>
-					<p class="final-cta-item-description">Stop for meetings, meals, or sightseeing anytime.</p>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
