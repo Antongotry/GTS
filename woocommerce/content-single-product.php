@@ -135,16 +135,7 @@ if ( $category_slug ) {
 <article id="product-<?php the_ID(); ?>" <?php wc_product_class( 'single-fleet-product', $product ); ?>>
 	<div class="single-fleet-product__container">
 		<div class="single-fleet-product__breadcrumbs">
-			<?php
-			woocommerce_breadcrumb(
-				array(
-					'delimiter'   => ' / ',
-					'wrap_before' => '<nav class="woocommerce-breadcrumb" aria-label="Breadcrumbs">',
-					'wrap_after'  => '</nav>',
-					'home'        => 'Fleet',
-				)
-			);
-			?>
+			<?php woocommerce_breadcrumb(); ?>
 		</div>
 
 		<div class="single-fleet-product__grid">

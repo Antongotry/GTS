@@ -5013,6 +5013,11 @@ a.phone-button:focus,
 .single-fleet-product__breadcrumbs {
   margin-bottom: 16px;
 }
+@media (max-width: 768px) {
+  .single-fleet-product__breadcrumbs {
+    margin-bottom: 12px;
+  }
+}
 .single-fleet-product__breadcrumbs .woocommerce-breadcrumb {
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 12px;
@@ -5029,6 +5034,11 @@ a.phone-button:focus,
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 12px;
   align-items: start;
+}
+@media (max-width: 1440px) {
+  .single-fleet-product__grid {
+    gap: 20px;
+  }
 }
 @media (max-width: 1024px) {
   .single-fleet-product__grid {
@@ -5070,6 +5080,11 @@ a.phone-button:focus,
   z-index: 2;
   padding: 0 4px;
 }
+@media (max-width: 768px) {
+  .single-fleet-product__gallery-wrap .nav-arrows {
+    padding: 0 2px;
+  }
+}
 
 .single-fleet-product__gallery-wrap .nav-arrow {
   pointer-events: all;
@@ -5082,6 +5097,12 @@ a.phone-button:focus,
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s ease;
+}
+@media (max-width: 768px) {
+  .single-fleet-product__gallery-wrap .nav-arrow {
+    width: 48px;
+    height: 36px;
+  }
 }
 
 .single-fleet-product__gallery-wrap .nav-arrow:hover {
@@ -5128,6 +5149,12 @@ a.phone-button:focus,
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 24px;
   max-width: 92%;
+}
+@media (max-width: 1024px) {
+  .single-fleet-product__description {
+    max-width: 100%;
+    font-size: 14px;
+  }
 }
 .single-fleet-product__description p {
   margin: 0;
@@ -5176,6 +5203,12 @@ a.phone-button:focus,
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 16px;
   line-height: 1.5;
+}
+@media (max-width: 1024px) {
+  .single-fleet-product__spec-label,
+  .single-fleet-product__spec-value {
+    font-size: 14px;
+  }
 }
 
 .single-fleet-product__spec-label {
