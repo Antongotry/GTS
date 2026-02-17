@@ -71,6 +71,7 @@ $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-
 
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
+$has_service_intro_block = isset($blocks_data['service_intro']);
 $service_intro_title = ! empty($service_intro['title']) ? $service_intro['title'] : 'Most transfer companies offer cars.';
 $service_intro_description = ! empty($service_intro['description']) ? $service_intro['description'] : 'We offer peace of mind through control, consistency, and a truly global standard.';
 $service_intro_button_text = ! empty($service_intro['button_text']) ? $service_intro['button_text'] : 'Book a transfer';
@@ -288,7 +289,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== SERVICE INTRO BLOCK (UNDER HERO) ========================
 	?>
-	<?php if ($block_enabled['service_intro']) : ?>
+	<?php if ($has_service_intro_block && $block_enabled['service_intro']) : ?>
 		<section class="final-cta-block final-cta-block--service">
 			<div class="final-cta-container final-cta-container--service">
 				<div class="final-cta-left final-cta-left--service">
