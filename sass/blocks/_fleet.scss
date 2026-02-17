@@ -307,14 +307,14 @@
 .fleet-ground {
 	width: 100%;
 	background: $color__background-body;
-	padding: 60px 0 120px;
+	padding: 60px 0 28px;
 
 	@include lg {
-		padding: 48px 0 100px;
+		padding: 48px 0 24px;
 	}
 
 	@include md {
-		padding: 40px 0 80px;
+		padding: 40px 0 20px;
 	}
 }
 
@@ -490,4 +490,60 @@
 
 .fleet-ground__slider-wrap .nav-arrow-icon {
 	filter: brightness(0);
+}
+
+.fleet-bottom-cta {
+	background: $color__background-body;
+	padding: 24px 0 56px;
+
+	@include lg {
+		padding: 20px 0 48px;
+	}
+
+	@include md {
+		padding: 16px 0 40px;
+	}
+}
+
+.fleet-bottom-cta__container {
+	@include container($container-max-width-content);
+
+	@include lg {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
+	}
+
+	@include md {
+		max-width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+}
+
+.fleet-bottom-cta__button {
+	display: block;
+	width: 100%;
+	min-height: 56px;
+	border-radius: 999px;
+	border: 0;
+	background: #e6c287;
+	color: #141414;
+	text-align: center;
+	text-decoration: none;
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 56px;
+	transition: opacity 0.2s ease;
+
+	@include md {
+		min-height: 52px;
+		line-height: 52px;
+		font-size: 14px;
+	}
+
+	&:hover {
+		opacity: 0.92;
+	}
 }

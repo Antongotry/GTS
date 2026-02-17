@@ -10,6 +10,11 @@ get_header();
 
 $fleet_param = isset( $_GET['fleet'] ) ? sanitize_key( wp_unslash( $_GET['fleet'] ) ) : '';
 $fleet_type  = in_array( $fleet_param, array( 'ground', 'helicopters', 'jets' ), true ) ? $fleet_param : 'ground';
+$cta_labels  = array(
+	'ground'      => 'Request Ground Fleet',
+	'helicopters' => 'Request Helicopters',
+	'jets'        => 'Request Jets',
+);
 
 ?>
 
@@ -39,6 +44,14 @@ $fleet_type  = in_array( $fleet_param, array( 'ground', 'helicopters', 'jets' ),
 		get_template_part( 'template-parts/blocks/fleet-jets' );
 	}
 	?>
+
+	<section class="fleet-bottom-cta">
+		<div class="fleet-bottom-cta__container">
+			<a class="fleet-bottom-cta__button" href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>">
+				<?php echo esc_html( $cta_labels[ $fleet_type ] ); ?>
+			</a>
+		</div>
+	</section>
 </main><!-- #primary -->
 
 <?php
