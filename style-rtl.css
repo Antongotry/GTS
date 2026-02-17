@@ -2173,9 +2173,9 @@ body.mobile-menu-open {
   min-width: 420px;
   max-width: 520px;
   max-height: calc(100vh - 120px);
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px 12px;
+  display: block !important;
+  column-count: 2;
+  column-gap: 12px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -2191,7 +2191,7 @@ body.mobile-menu-open {
 .sub-menu-item {
   margin: 0;
   padding: 0;
-  display: block !important;
+  display: inline-block !important;
   width: 100%;
   break-inside: avoid;
 }
@@ -6018,9 +6018,9 @@ a.phone-button:focus,
   min-width: 420px;
   max-width: 520px;
   max-height: calc(100vh - 120px);
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px 12px;
+  display: block !important;
+  column-count: 2;
+  column-gap: 12px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -6036,7 +6036,7 @@ a.phone-button:focus,
 .sub-menu-item {
   margin: 0;
   padding: 0;
-  display: block !important;
+  display: inline-block !important;
   width: 100%;
   break-inside: avoid;
 }
