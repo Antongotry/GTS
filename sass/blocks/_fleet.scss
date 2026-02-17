@@ -713,6 +713,18 @@
 	color: #0c0f17;
 }
 
+.site-main--fleet .custom-itinerary-block--limousine {
+	margin-top: 32px;
+
+	@include lg {
+		margin-top: 24px;
+	}
+
+	@include md {
+		margin-top: 20px;
+	}
+}
+
 // -----------------------------------------------------------------------------
 // Single Fleet Product (WooCommerce product details)
 // -----------------------------------------------------------------------------
