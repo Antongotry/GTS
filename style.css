@@ -4979,6 +4979,198 @@ a.phone-button:focus,
   opacity: 0.92;
 }
 
+.fleet-standards {
+  background: #0C0F17;
+  padding: 24px 0 80px;
+}
+@media (max-width: 1024px) {
+  .fleet-standards {
+    padding: 20px 0 64px;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-standards {
+    padding: 16px 0 40px;
+  }
+}
+
+.fleet-standards__container {
+  width: 100%;
+  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.fleet-standards__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 36px;
+}
+@media (max-width: 1024px) {
+  .fleet-standards__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+}
+
+.fleet-standards__title {
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+@media (max-width: 1440px) {
+  .fleet-standards__title {
+    font-size: 48px;
+  }
+}
+@media (max-width: 1024px) {
+  .fleet-standards__title {
+    font-size: 36px;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-standards__title {
+    font-size: 30px;
+  }
+}
+
+.fleet-standards__lead {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+@media (max-width: 1440px) {
+  .fleet-standards__lead {
+    font-size: 28px;
+  }
+}
+@media (max-width: 1024px) {
+  .fleet-standards__lead {
+    font-size: 24px;
+    max-width: 760px;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-standards__lead {
+    font-size: 20px;
+  }
+}
+
+.fleet-standards__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 1440px) {
+  .fleet-standards__grid {
+    gap: 12px;
+  }
+}
+@media (max-width: 1024px) {
+  .fleet-standards__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .fleet-standards__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fleet-standards-card {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  min-height: 272px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.fleet-standards-card--dark {
+  background: #070e1f;
+}
+
+.fleet-standards-card--light {
+  background: #f1f1f1;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.fleet-standards-card--image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+}
+@media (max-width: 1024px) {
+  .fleet-standards-card--image {
+    min-height: 220px;
+  }
+}
+
+.fleet-standards-card__icon-wrap {
+  width: 56px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: auto;
+}
+
+.fleet-standards-card__icon-wrap--light {
+  background: #f4c58b;
+}
+
+.fleet-standards-card__icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.fleet-standards-card__text {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  max-width: 95%;
+}
+@media (max-width: 1440px) {
+  .fleet-standards-card__text {
+    font-size: 28px;
+  }
+}
+@media (max-width: 1024px) {
+  .fleet-standards-card__text {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .fleet-standards-card__text {
+    font-size: 20px;
+  }
+}
+
+.fleet-standards-card__text--dark {
+  color: #0c0f17;
+}
+
 .single-fleet-product {
   background: #0C0F17;
   padding: 112px 0 40px;

@@ -52,6 +52,8 @@ $cta_labels  = array(
 			</a>
 		</div>
 	</section>
+
+	<?php get_template_part( 'template-parts/blocks/fleet-standards' ); ?>
 </main><!-- #primary -->
 
 <?php

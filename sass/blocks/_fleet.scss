@@ -548,6 +548,178 @@
 	}
 }
 
+.fleet-standards {
+	background: $color__background-body;
+	padding: 24px 0 80px;
+
+	@include lg {
+		padding: 20px 0 64px;
+	}
+
+	@include md {
+		padding: 16px 0 40px;
+	}
+}
+
+.fleet-standards__container {
+	@include container($container-max-width-content);
+}
+
+.fleet-standards__top {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+	gap: 40px;
+	align-items: end;
+	margin-bottom: 36px;
+
+	@include lg {
+		grid-template-columns: 1fr;
+		gap: 16px;
+		margin-bottom: 28px;
+	}
+}
+
+.fleet-standards__title {
+	font-family: $font__main;
+	font-size: 56px;
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: #ffffff;
+	margin: 0;
+
+	@include xl {
+		font-size: 48px;
+	}
+
+	@include lg {
+		font-size: 36px;
+	}
+
+	@include md {
+		font-size: 30px;
+	}
+}
+
+.fleet-standards__lead {
+	font-family: $font__manrope;
+	font-size: 32px;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #ffffff;
+	margin: 0;
+
+	@include xl {
+		font-size: 28px;
+	}
+
+	@include lg {
+		font-size: 24px;
+		max-width: 760px;
+	}
+
+	@include md {
+		font-size: 20px;
+	}
+}
+
+.fleet-standards__grid {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 16px;
+
+	@include xl {
+		gap: 12px;
+	}
+
+	@include lg {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	@include md {
+		grid-template-columns: 1fr;
+	}
+}
+
+.fleet-standards-card {
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	min-height: 272px;
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	box-sizing: border-box;
+}
+
+.fleet-standards-card--dark {
+	background: #070e1f;
+}
+
+.fleet-standards-card--light {
+	background: #f1f1f1;
+	border-color: rgba(0, 0, 0, 0.08);
+}
+
+.fleet-standards-card--image {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 0;
+
+	@include lg {
+		min-height: 220px;
+	}
+}
+
+.fleet-standards-card__icon-wrap {
+	width: 56px;
+	height: 32px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.08);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: auto;
+}
+
+.fleet-standards-card__icon-wrap--light {
+	background: #f4c58b;
+}
+
+.fleet-standards-card__icon {
+	width: 20px;
+	height: 20px;
+	object-fit: contain;
+}
+
+.fleet-standards-card__text {
+	font-family: $font__manrope;
+	font-size: 32px;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #ffffff;
+	margin: 0;
+	max-width: 95%;
+
+	@include xl {
+		font-size: 28px;
+	}
+
+	@include lg {
+		font-size: 24px;
+	}
+
+	@include md {
+		font-size: 20px;
+	}
+}
+
+.fleet-standards-card__text--dark {
+	color: #0c0f17;
+}
+
 // -----------------------------------------------------------------------------
 // Single Fleet Product (WooCommerce product details)
 // -----------------------------------------------------------------------------
