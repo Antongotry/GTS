@@ -267,12 +267,12 @@
 
 				<div class="header-right">
 					<div class="language-selector">
-						<button class="language-selector__toggle" type="button" aria-expanded="false" aria-haspopup="true">
+						<div class="language-selector__toggle">
 							<span class="language-text">EN</span>
 							<span class="dropdown-icon">
 								<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" width="10" height="6">
 							</span>
-						</button>
+						</div>
 						<ul class="language-selector__menu" role="menu" aria-label="<?php esc_attr_e( 'Select language', 'gts-theme' ); ?>">
 							<li class="language-selector__item is-active" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="EN">English</a></li>
 							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="FR">French</a></li>

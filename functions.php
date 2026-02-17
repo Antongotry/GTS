@@ -290,7 +290,6 @@ function gts_theme_scripts()
 
 	// Essential scripts - loaded with defer
 	wp_enqueue_script('gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $version, true);
-	wp_enqueue_script('gts-language-selector', get_template_directory_uri() . '/js/language-selector.js', array(), $version, true);
 	wp_enqueue_script('gts-form-selects', get_template_directory_uri() . '/js/form-selects.js', array(), $version, true);
 	wp_enqueue_script('gts-datetime-placeholder', get_template_directory_uri() . '/js/datetime-placeholder.js', array(), $version, true);
 	wp_enqueue_script('gts-mobile-menu', get_template_directory_uri() . '/js/mobile-menu.js', array(), $version, true);
