@@ -10,11 +10,13 @@ $services = array(
 		'title'       => __( 'Book a Flight', 'gts-theme' ),
 		'description' => __( 'Private aviation coordination with trusted partners worldwide. Helicopters, charter jets, or business flights – synchronized with ground transport for smooth connections.', 'gts-theme' ),
 		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-1_result.webp',
+		'url'         => home_url('/services/special-transfers/'),
 	),
 	array(
 		'title'       => __( 'City-to-City Rides', 'gts-theme' ),
 		'description' => __( 'Comfortable long-distance rides across borders and regions. Luxury vehicles, experienced chauffeurs, flexible stops – your itinerary, our responsibility.', 'gts-theme' ),
 		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-2_result.webp',
+		'url'         => home_url('/city-to-city/'),
 	),
 );
 ?>
@@ -34,10 +36,12 @@ $services = array(
 					<div class="services-card-content">
 						<h3 class="services-card-title"><?php echo esc_html( $service['title'] ); ?></h3>
 						<p class="services-card-description"><?php echo esc_html( $service['description'] ); ?></p>
-						<a href="#" class="services-card-link"><?php echo esc_html__( 'Read more', 'gts-theme' ); ?></a>
+						<a href="<?php echo esc_url( $service['url'] ); ?>" class="services-card-link"><?php echo esc_html__( 'Read more', 'gts-theme' ); ?></a>
 					</div>
 					<div class="services-card-image">
-						<img src="<?php echo esc_url( $service['image'] ); ?>" alt="<?php echo esc_attr( $service['title'] ); ?>" class="services-image" loading="lazy" width="300" height="200">
+						<a href="<?php echo esc_url( $service['url'] ); ?>" aria-label="<?php echo esc_attr( $service['title'] ); ?>">
+							<img src="<?php echo esc_url( $service['image'] ); ?>" alt="<?php echo esc_attr( $service['title'] ); ?>" class="services-image" loading="lazy" width="300" height="200">
+						</a>
 					</div>
 				</div>
 			<?php endforeach; ?>
