@@ -928,6 +928,50 @@ function gts_register_service_acf_fields()
 				),
 			),
 		),
+
+		// Layout 12: Bottom Text Section
+		'layout_bottom_text'  => array(
+			'key'        => 'layout_service_bottom_text',
+			'name'       => 'bottom_text',
+			'label'      => 'Bottom Text Section',
+			'display'    => 'block',
+			'sub_fields' => array(
+				array(
+					'key'           => 'field_service_bottom_text_enabled',
+					'label'         => 'Enable Block',
+					'name'          => 'enabled',
+					'type'          => 'true_false',
+					'default_value' => 0,
+					'ui'            => 1,
+				),
+				array(
+					'key'   => 'field_service_bottom_text_title',
+					'label' => 'Title',
+					'name'  => 'title',
+					'type'  => 'text',
+				),
+				array(
+					'key'   => 'field_service_bottom_text_description',
+					'label' => 'Description',
+					'name'  => 'description',
+					'type'  => 'textarea',
+					'rows'  => 4,
+				),
+				array(
+					'key'           => 'field_service_bottom_text_link_text',
+					'label'         => 'Read More Text',
+					'name'          => 'link_text',
+					'type'          => 'text',
+					'default_value' => 'Read more',
+				),
+				array(
+					'key'   => 'field_service_bottom_text_link_url',
+					'label' => 'Read More Link',
+					'name'  => 'link_url',
+					'type'  => 'url',
+				),
+			),
+		),
 	);
 
 	// Register the main field group

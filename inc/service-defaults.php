@@ -331,6 +331,16 @@ function gts_get_default_service_blocks()
 				),
 			),
 		),
+
+		// Block 12: Bottom Text Section
+		array(
+			'acf_fc_layout' => 'bottom_text',
+			'enabled'       => false,
+			'title'         => '',
+			'description'   => '',
+			'link_text'     => 'Read more',
+			'link_url'      => '',
+		),
 	);
 }
 

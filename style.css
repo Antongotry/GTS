@@ -9220,6 +9220,89 @@ a.phone-button:focus,
   }
 }
 
+.service-bottom-text {
+  background: #ffffff;
+  padding: 0 0 96px;
+}
+@media (max-width: 1024px) {
+  .service-bottom-text {
+    padding-bottom: 72px;
+  }
+}
+@media (max-width: 768px) {
+  .service-bottom-text {
+    padding-bottom: 56px;
+  }
+}
+
+.service-bottom-text__container {
+  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  margin: 0 auto;
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .service-bottom-text__container {
+    max-width: 944px;
+    padding: 0 20px;
+    box-sizing: content-box;
+  }
+}
+@media (max-width: 768px) {
+  .service-bottom-text__container {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+.service-bottom-text__title,
+.service-bottom-text__description,
+.service-bottom-text__link {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.service-bottom-text__title {
+  margin: 0 0 24px;
+}
+
+.service-bottom-text__description {
+  margin: 0 0 40px;
+  max-width: 100%;
+}
+
+.service-bottom-text__link {
+  display: inline-block;
+  margin: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 1024px) {
+  .service-bottom-text__title,
+  .service-bottom-text__description,
+  .service-bottom-text__link {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .service-bottom-text {
+    padding-bottom: 40px;
+  }
+  .service-bottom-text__title,
+  .service-bottom-text__description,
+  .service-bottom-text__link {
+    font-size: 14px;
+  }
+  .service-bottom-text__description {
+    margin-bottom: 24px;
+  }
+}
+
 /**
  * Custom Itinerary Block Styles
  */

@@ -25,6 +25,7 @@ $block_enabled = array(
 	'faq' => true,
 	'cta' => true,
 	'related_services' => true,
+	'bottom_text' => true,
 );
 
 if (function_exists('get_field')) {
@@ -177,6 +178,14 @@ $faq = isset($blocks_data['faq']) ? $blocks_data['faq'] : array();
 $faq_pill = ! empty($faq['pill_text']) ? $faq['pill_text'] : 'FAQ';
 $faq_title = ! empty($faq['title']) ? $faq['title'] : 'Clear answers to help you book<br>with confidence';
 $faq_items = ! empty($faq['items']) ? $faq['items'] : array();
+
+// Bottom Text defaults (optional bottom block)
+$bottom_text = isset($blocks_data['bottom_text']) ? $blocks_data['bottom_text'] : array();
+$has_bottom_text_block = isset($blocks_data['bottom_text']);
+$bottom_text_title = ! empty($bottom_text['title']) ? $bottom_text['title'] : '';
+$bottom_text_description = ! empty($bottom_text['description']) ? $bottom_text['description'] : '';
+$bottom_text_link_text = ! empty($bottom_text['link_text']) ? $bottom_text['link_text'] : 'Read more';
+$bottom_text_link_url = ! empty($bottom_text['link_url']) ? $bottom_text['link_url'] : '#';
 
 if (empty($faq_items)) {
 	$faq_items = array(
@@ -549,6 +558,24 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php get_template_part('template-parts/blocks/custom-itinerary', 'limousine'); ?>
 		<?php get_template_part('template-parts/blocks/services', 'limousine'); ?>
 	</div>
+
+	<?php if ($has_bottom_text_block && $block_enabled['bottom_text']) : ?>
+		<section class="service-bottom-text">
+			<div class="service-bottom-text__container">
+				<?php if ( ! empty( $bottom_text_title ) ) : ?>
+					<p class="service-bottom-text__title"><?php echo esc_html( $bottom_text_title ); ?></p>
+				<?php endif; ?>
+
+				<?php if ( ! empty( $bottom_text_description ) ) : ?>
+					<p class="service-bottom-text__description"><?php echo esc_html( $bottom_text_description ); ?></p>
+				<?php endif; ?>
+
+				<a class="service-bottom-text__link" href="<?php echo esc_url( $bottom_text_link_url ); ?>">
+					<?php echo esc_html( $bottom_text_link_text ); ?>
+				</a>
+			</div>
+		</section>
+	<?php endif; ?>
 
 </main>
 
