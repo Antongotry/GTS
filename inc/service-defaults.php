@@ -32,6 +32,7 @@ function gts_get_default_service_blocks()
 			'background_desktop' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp',
 			'cta_text'           => 'Book a transfer',
 			'cta_link'           => '',
+			'features_enabled'   => true,
 			'features'           => array(
 				array(
 					'icon' => '',

@@ -391,6 +391,14 @@ function gts_register_service_acf_fields()
 					'type'  => 'url',
 				),
 				array(
+					'key'           => 'field_service_hero_features_enabled',
+					'label'         => 'Show Features Block',
+					'name'          => 'features_enabled',
+					'type'          => 'true_false',
+					'default_value' => 1,
+					'ui'            => 1,
+				),
+				array(
 					'key'        => 'field_service_hero_features',
 					'label'      => 'Features (3 items)',
 					'name'       => 'features',

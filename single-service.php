@@ -66,6 +66,7 @@ $hero_bg_tablet = ! empty($hero['background_tablet']) ? $hero['background_tablet
 $hero_bg_desktop = ! empty($hero['background_desktop']) ? $hero['background_desktop'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp';
 $hero_cta_text = ! empty($hero['cta_text']) ? $hero['cta_text'] : 'Book a transfer';
 $hero_cta_link = ! empty($hero['cta_link']) ? $hero['cta_link'] : '#';
+$hero_features_enabled = ! isset($hero['features_enabled']) || (bool) $hero['features_enabled'];
 $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-1-l.svg');
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
@@ -234,21 +235,23 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						<div class="hero-buttons">
 							<a href="<?php echo esc_url($hero_cta_link); ?>" class="btn btn-primary"><?php echo esc_html($hero_cta_text); ?></a>
 						</div>
-						<div class="hero-features">
-							<div class="hero-feature hero-feature-top-left">
-								<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
-								<p class="hero-feature-text">Available in 100+ countries</p>
+						<?php if ( $hero_features_enabled ) : ?>
+							<div class="hero-features">
+								<div class="hero-feature hero-feature-top-left">
+									<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
+									<p class="hero-feature-text">Available in 100+ countries</p>
+								</div>
+								<div class="hero-feature hero-feature-top-right"></div>
+								<div class="hero-feature hero-feature-bottom-left">
+									<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
+									<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
+								</div>
+								<div class="hero-feature hero-feature-bottom-right">
+									<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
+									<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+								</div>
 							</div>
-							<div class="hero-feature hero-feature-top-right"></div>
-							<div class="hero-feature hero-feature-bottom-left">
-								<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
-								<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
-							</div>
-							<div class="hero-feature hero-feature-bottom-right">
-								<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
-								<p class="hero-feature-text">Licensed & insured, premium fleet</p>
-							</div>
-						</div>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="hero-right hero-right--desktop">
@@ -347,30 +350,32 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				<div class="booking-form-left"></div>
 				<div class="booking-form-right">
 					<!-- Hero Features BEFORE form on mobile -->
-					<div class="hero-features hero-features--mobile">
-						<div class="hero-feature hero-feature-top-left">
-							<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
-							<p class="hero-feature-text">Available in 100+ countries</p>
-						</div>
-						<div class="hero-feature hero-feature-top-right hero-feature-map">
-							<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
-							<div class="world-map-text">
-								<p class="world-map-label world-map-label-top">clients in</p>
-								<div class="world-map-bottom">
-									<p class="world-map-number"><?php echo esc_html($mobile_form_stats_number); ?></p>
-									<p class="world-map-label world-map-label-bottom"><?php echo esc_html($mobile_form_stats_label); ?></p>
+					<?php if ( $hero_features_enabled ) : ?>
+						<div class="hero-features hero-features--mobile">
+							<div class="hero-feature hero-feature-top-left">
+								<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
+								<p class="hero-feature-text">Available in 100+ countries</p>
+							</div>
+							<div class="hero-feature hero-feature-top-right hero-feature-map">
+								<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
+								<div class="world-map-text">
+									<p class="world-map-label world-map-label-top">clients in</p>
+									<div class="world-map-bottom">
+										<p class="world-map-number"><?php echo esc_html($mobile_form_stats_number); ?></p>
+										<p class="world-map-label world-map-label-bottom"><?php echo esc_html($mobile_form_stats_label); ?></p>
+									</div>
 								</div>
 							</div>
+							<div class="hero-feature hero-feature-bottom-left">
+								<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
+								<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
+							</div>
+							<div class="hero-feature hero-feature-bottom-right">
+								<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
+								<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+							</div>
 						</div>
-						<div class="hero-feature hero-feature-bottom-left">
-							<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
-							<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
-						</div>
-						<div class="hero-feature hero-feature-bottom-right">
-							<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
-							<p class="hero-feature-text">Licensed & insured, premium fleet</p>
-						</div>
-					</div>
+					<?php endif; ?>
 					<?php if ($mobile_form_enabled): ?>
 						<form class="booking-form" id="booking-form-mobile">
 							<div class="form-row">
