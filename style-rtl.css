@@ -7352,7 +7352,7 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .booking-form-block--mobile .world-map-section {
     margin-top: 0;
-    background: #0c0f17;
+    background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -7361,7 +7361,7 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .booking-form-block--mobile .hero-features--mobile {
     margin-top: 0;
-    background: #0c0f17;
+    background: transparent;
   }
 }
 
@@ -7369,7 +7369,7 @@ a.phone-button:focus,
   .page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile,
   .page-template-page-city-to-city .booking-form-block--mobile .hero-features--mobile {
     margin-bottom: 24px;
-    background: #0c0f17;
+    background: transparent;
   }
 }
 

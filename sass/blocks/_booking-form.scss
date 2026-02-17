@@ -60,7 +60,7 @@
 .booking-form-block--mobile .world-map-section {
 	@include md {
 		margin-top: 0;
-		background: #0c0f17;
+		background: transparent;
 		backdrop-filter: none;
 		-webkit-backdrop-filter: none;
 	}
@@ -69,7 +69,7 @@
 .booking-form-block--mobile .hero-features--mobile {
 	@include md {
 		margin-top: 0;
-		background: #0c0f17;
+		background: transparent;
 	}
 }
 
@@ -78,7 +78,7 @@
 .page-template-page-city-to-city .booking-form-block--mobile .hero-features--mobile {
 	@include md {
 		margin-bottom: 24px; // Space between hero-features and form
-		background: #0c0f17;
+		background: transparent;
 	}
 }
 
