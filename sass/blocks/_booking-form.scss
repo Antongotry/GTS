@@ -66,7 +66,8 @@
 }
 
 // Limousine Service page: hero-features above form on mobile
-.page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile {
+.page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile,
+.page-template-page-city-to-city .booking-form-block--mobile .hero-features--mobile {
 	@include md {
 		margin-bottom: 24px; // Space between hero-features and form
 		background: #0c0f17;

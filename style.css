@@ -7095,7 +7095,8 @@ a.phone-button:focus,
 }
 
 @media (max-width: 768px) {
-  .page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile {
+  .page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile,
+  .page-template-page-city-to-city .booking-form-block--mobile .hero-features--mobile {
     margin-bottom: 24px;
     background: #0c0f17;
   }
