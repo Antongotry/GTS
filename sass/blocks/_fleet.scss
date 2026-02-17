@@ -307,14 +307,14 @@
 .fleet-ground {
 	width: 100%;
 	background: $color__background-body;
-	padding: 60px 0 0;
+	padding: 60px 0 120px;
 
 	@include lg {
-		padding-top: 48px;
+		padding: 48px 0 100px;
 	}
 
 	@include md {
-		padding-top: 40px;
+		padding: 40px 0 80px;
 	}
 }
 

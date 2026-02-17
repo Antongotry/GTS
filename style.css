@@ -4717,16 +4717,16 @@ a.phone-button:focus,
 .fleet-ground {
   width: 100%;
   background: #0C0F17;
-  padding: 60px 0 0;
+  padding: 60px 0 120px;
 }
 @media (max-width: 1024px) {
   .fleet-ground {
-    padding-top: 48px;
+    padding: 48px 0 100px;
   }
 }
 @media (max-width: 768px) {
   .fleet-ground {
-    padding-top: 40px;
+    padding: 40px 0 80px;
   }
 }
 

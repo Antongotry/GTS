@@ -339,6 +339,7 @@ function gts_defer_scripts($tag, $handle, $src)
 	$defer_scripts = array(
 		'gts-swiper',
 		'gts-trusted-by-slider',
+		'gts-fleet-ground-sliders',
 		'gts-fleet-slider',
 		'lenis',
 		'gts-lenis-init',
