@@ -1376,7 +1376,7 @@ textarea {
 }
 
 .site-main--default-page .entry-title {
-  font-family: "Visby CF", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 40px;
   font-weight: 500;
   line-height: 1.1;
@@ -1412,7 +1412,7 @@ textarea {
 .site-main--default-page .entry-content h2,
 .site-main--default-page .entry-content h3,
 .site-main--default-page .entry-content h4 {
-  font-family: "Visby CF", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 500;
   letter-spacing: -0.02em;
   color: #ffffff;
@@ -2167,15 +2167,21 @@ body.mobile-menu-open {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 8px 0;
+  padding: 12px;
   list-style: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(60px);
   transition: all 0.3s ease;
   pointer-events: none;
-  min-width: 160px;
-  display: block !important;
+  min-width: 420px;
+  max-width: 520px;
+  max-height: calc(100vh - 120px);
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .menu-item-has-children:hover .sub-menu {
@@ -2191,20 +2197,23 @@ body.mobile-menu-open {
   padding: 0;
   display: block !important;
   width: 100%;
+  break-inside: avoid;
 }
 
 .sub-menu-link {
   display: block !important;
-  padding: 8px 16px;
+  padding: 10px 12px;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #000000;
   text-decoration: none;
   transition: opacity 0.2s ease;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.35;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 8px;
 }
 .sub-menu-link:hover {
   opacity: 0.7;
@@ -3222,6 +3231,7 @@ a.phone-button:focus,
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -3324,6 +3334,7 @@ a.phone-button:focus,
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  width: 100%;
   display: grid;
   grid-template-columns: calc((100% - 48px) * 0.2462121212) calc((100% - 48px) * 0.2462121212) calc((100% - 48px) * 0.5075757576);
   gap: 24px;
@@ -5074,7 +5085,7 @@ a.phone-button:focus,
   color: #141414;
   text-align: center;
   text-decoration: none;
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 56px;
@@ -6001,15 +6012,21 @@ a.phone-button:focus,
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 8px 0;
+  padding: 12px;
   list-style: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(60px);
   transition: all 0.3s ease;
   pointer-events: none;
-  min-width: 160px;
-  display: block !important;
+  min-width: 420px;
+  max-width: 520px;
+  max-height: calc(100vh - 120px);
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .menu-item-has-children:hover .sub-menu {
@@ -6025,20 +6042,23 @@ a.phone-button:focus,
   padding: 0;
   display: block !important;
   width: 100%;
+  break-inside: avoid;
 }
 
 .sub-menu-link {
   display: block !important;
-  padding: 8px 16px;
+  padding: 10px 12px;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #000000;
   text-decoration: none;
   transition: opacity 0.2s ease;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.35;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 8px;
 }
 .sub-menu-link:hover {
   opacity: 0.7;
@@ -9357,24 +9377,18 @@ a.phone-button:focus,
 }
 
 .service-bottom-text__container {
+  width: 100%;
   max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
   margin: 0 auto;
-  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
   padding: 0 20px;
   box-sizing: border-box;
 }
 @media (max-width: 1024px) {
   .service-bottom-text__container {
-    max-width: 944px;
     padding: 0 20px;
     box-sizing: content-box;
-  }
-}
-@media (max-width: 768px) {
-  .service-bottom-text__container {
-    max-width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
   }
 }
 
@@ -9425,7 +9439,6 @@ a.phone-button:focus,
     margin-bottom: 24px;
   }
 }
-
 /**
  * Custom Itinerary Block Styles
  */
