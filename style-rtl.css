@@ -7314,6 +7314,12 @@ a.phone-button:focus,
 }
 
 @media (max-width: 768px) {
+  .single-service .booking-form-block--mobile {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
   .booking-form-block--mobile .booking-form-container {
     flex-direction: column;
     gap: 0;
