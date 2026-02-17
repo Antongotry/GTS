@@ -3222,12 +3222,25 @@ a.phone-button:focus,
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
-  max-width: min(800px, 100%);
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media (max-width: 1024px) {
+  .contacts-hero__container {
+    max-width: 944px;
+    padding: 0 20px;
+    box-sizing: content-box;
+  }
+}
+@media (max-width: 768px) {
+  .contacts-hero__container {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
 }
 
 .contacts-hero__cta {
@@ -3318,12 +3331,18 @@ a.phone-button:focus,
 }
 @media (max-width: 1024px) {
   .contacts-main__container {
+    max-width: 944px;
+    padding: 0 20px;
+    box-sizing: content-box;
     gap: 20px;
     grid-template-columns: calc((100% - 40px) * 0.2462121212) calc((100% - 40px) * 0.2462121212) calc((100% - 40px) * 0.5075757576);
   }
 }
 @media (max-width: 768px) {
   .contacts-main__container {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
     grid-template-columns: 1fr;
     gap: 24px;
     align-items: start;

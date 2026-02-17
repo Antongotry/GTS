@@ -30,12 +30,24 @@
 // Same width as header: container mixin (1840px max, 20px padding)
 .contacts-hero__container {
 	@include container($container-max-width-content);
-	max-width: min(800px, 100%);
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	@include lg {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
+	}
+
+	@include md {
+		max-width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
 }
 
 // CTA like why-us-heading-pill (glass, pill shape), centered
@@ -120,6 +132,7 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 // Same width as header: max 1840px, padding 20px (container mixin)
 .contacts-main__container {
 	@include container($container-max-width-content);
+	width: 100%;
 	display: grid;
 	grid-template-columns:
 		calc((100% - #{$contacts-gap * 2}) * #{$contacts-card-ratio})
@@ -129,6 +142,9 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 	align-items: stretch;
 
 	@include lg {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
 		gap: 20px;
 		grid-template-columns:
 			calc((100% - 40px) * #{$contacts-card-ratio})
@@ -137,6 +153,9 @@ $contacts-card-ratio: $contacts-card-w / $contacts-content-total;
 	}
 
 	@include md {
+		max-width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
 		grid-template-columns: 1fr;
 		gap: 24px;
 		align-items: start;
