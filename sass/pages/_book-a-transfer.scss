@@ -221,7 +221,21 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 
 	&:focus {
 		border-bottom-color: rgba(255, 255, 255, 0.6);
+		color: #fff !important;
+		-webkit-text-fill-color: #fff !important;
 	}
+}
+
+/* Keep white text in browser autofill states on dark form */
+.transfer-input:-webkit-autofill,
+.transfer-input:-webkit-autofill:hover,
+.transfer-input:-webkit-autofill:focus,
+.transfer-select:-webkit-autofill,
+.transfer-select:-webkit-autofill:hover,
+.transfer-select:-webkit-autofill:focus {
+	-webkit-text-fill-color: #fff !important;
+	caret-color: #fff;
+	transition: background-color 9999s ease-out 0s;
 }
 
 /* Date & time: hide icon, full area opens picker, placeholder color when empty */

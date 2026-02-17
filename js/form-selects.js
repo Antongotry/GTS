@@ -5,14 +5,23 @@
 (function() {
 	const selects = document.querySelectorAll('select');
 
+	function isTransferSelect(select) {
+		return select.classList.contains('transfer-select') || !!select.closest('.transfer-page');
+	}
+
 	function updateSelectState(select) {
+		const transferSelect = isTransferSelect(select);
+		const placeholderColor = transferSelect ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.56)';
+		const selectedColor = transferSelect ? '#ffffff' : '#000000';
+
 		if (select.value === '') {
-			select.style.color = 'rgba(0, 0, 0, 0.56)';
+			select.style.color = placeholderColor;
 			select.classList.remove('selected');
-		} else {
-			select.style.color = '#000000';
-			select.classList.add('selected');
+			return;
 		}
+
+		select.style.color = selectedColor;
+		select.classList.add('selected');
 	}
 
 	// Initialize all selects
@@ -26,7 +35,7 @@
 
 		// Update on focus
 		select.addEventListener('focus', function() {
-			if (select.value === '') {
+			if (!isTransferSelect(select) && select.value === '') {
 				select.style.color = '#000000';
 			}
 		});
