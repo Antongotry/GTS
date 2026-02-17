@@ -24,6 +24,27 @@ $fleet_type  = in_array( $fleet_param, array( 'ground', 'helicopters', 'jets' ),
 
 	if ( 'helicopters' === $fleet_type ) {
 		get_template_part( 'template-parts/blocks/fleet-helicopters' );
+		get_template_part(
+			'template-parts/blocks/fleet-slider',
+			null,
+			array(
+				'category_slugs' => array( 'helicopter' ),
+				'title'          => 'Helicopter fleet for urgent routes and premium transfers',
+				'lead'           => 'Aircraft selection tailored to distance, passenger count, and mission profile.',
+			)
+		);
+	}
+
+	if ( 'jets' === $fleet_type ) {
+		get_template_part(
+			'template-parts/blocks/fleet-slider',
+			null,
+			array(
+				'category_slugs' => array( 'light-jets', 'mid-jets', 'super-mid-jets' ),
+				'title'          => 'Private jet options for regional and long-range travel',
+				'lead'           => 'Choose from light, mid, and super-mid jet classes for the right cabin and range.',
+			)
+		);
 	}
 	?>
 </main><!-- #primary -->

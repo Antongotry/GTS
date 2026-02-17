@@ -9,47 +9,48 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 	return;
 }
 
-$all_products = wc_get_products(
-	array(
-		'status'  => 'publish',
-		'limit'   => 20,
-		'orderby' => 'menu_order',
-		'order'   => 'ASC',
-	)
-);
-
-if ( empty( $all_products ) ) {
-	return;
-}
-
-// Simple, deterministic split until taxonomy mapping is provided.
-$section_meta = array(
+// Category-to-section mapping for Ground Fleet.
+$sections = array(
 	array(
 		'key'         => 'sedan',
+		'slug'        => 'sedan-suv',
 		'title'       => 'Sedan & SUV',
 		'description' => 'For executive travel, airport transfers, and city mobility.',
 	),
 	array(
 		'key'         => 'limousine',
+		'slug'        => 'limousine',
 		'title'       => 'Limousine',
 		'description' => 'For premium rides, VIP occasions, and luxury comfort.',
 	),
 	array(
 		'key'         => 'sprinter',
+		'slug'        => 'sprinter-bus',
 		'title'       => 'Sprinter & Bus',
 		'description' => 'For group transportation, events, and multi-passenger routes.',
 	),
 );
 
-$sections      = array();
-$total         = count( $all_products );
-$section_count = count( $section_meta );
-$chunk_size    = (int) ceil( $total / $section_count );
+foreach ( $sections as &$section ) {
+	$section['products'] = wc_get_products(
+		array(
+			'status'   => 'publish',
+			'limit'    => 20,
+			'orderby'  => 'menu_order',
+			'order'    => 'ASC',
+			'category' => array( $section['slug'] ),
+		)
+	);
 
-foreach ( $section_meta as $index => $meta ) {
-	$meta['products'] = array_slice( $all_products, $index * $chunk_size, $chunk_size );
-	$sections[]       = $meta;
+	$term = get_term_by( 'slug', $section['slug'], 'product_cat' );
+	if ( $term && ! is_wp_error( $term ) ) {
+		$term_link = get_term_link( $term, 'product_cat' );
+		$section['view_url'] = ! is_wp_error( $term_link ) ? $term_link : '#';
+	} else {
+		$section['view_url'] = '#';
+	}
 }
+unset( $section );
 ?>
 
 <section class="fleet-ground">
@@ -63,7 +64,7 @@ foreach ( $section_meta as $index => $meta ) {
 				<div class="fleet-ground-row__left">
 					<h2 class="fleet-ground-row__title"><?php echo esc_html( $section['title'] ); ?></h2>
 					<p class="fleet-ground-row__desc"><?php echo esc_html( $section['description'] ); ?></p>
-					<a class="fleet-ground-row__view" href="#"><?php esc_html_e( 'View all', 'gts-theme' ); ?></a>
+					<a class="fleet-ground-row__view" href="<?php echo esc_url( $section['view_url'] ); ?>"><?php esc_html_e( 'View all', 'gts-theme' ); ?></a>
 				</div>
 
 				<div class="fleet-ground-row__right">
