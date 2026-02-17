@@ -258,8 +258,6 @@
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>" class="sub-menu-link">Hourly Hire</a></li>
 							</ul>
 						</li>
-						<li class="menu-item"><a href="#" class="menu-link">Events</a></li>
-						<li class="menu-item"><a href="#" class="menu-link">For Business</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url( $fleet_url ); ?>" class="menu-link">Fleet</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url( $blog_url ); ?>" class="menu-link">Blog</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url(home_url('/contacts/')); ?>" class="menu-link">Contacts</a></li>
@@ -300,12 +298,6 @@
 								<path d="M9 18l6-6-6-6" />
 							</svg>
 						</button>
-					</li>
-					<li class="mobile-menu-item">
-						<a href="#" class="mobile-menu-link">Events</a>
-					</li>
-					<li class="mobile-menu-item">
-						<a href="#" class="mobile-menu-link">For Business</a>
 					</li>
 					<li class="mobile-menu-item">
 						<a href="<?php echo esc_url( $fleet_url ); ?>" class="mobile-menu-link">Fleet</a>
