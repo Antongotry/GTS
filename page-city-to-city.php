@@ -71,7 +71,15 @@ get_header();
 
 	<?php get_template_part( 'template-parts/blocks/why-us' ); ?>
 
-	<?php get_template_part( 'template-parts/blocks/fleet-slider' ); ?>
+	<?php
+	get_template_part(
+		'template-parts/blocks/fleet-slider',
+		null,
+		array(
+			'category_slugs' => array( 'sedan-suv' ),
+		)
+	);
+	?>
 
 	<?php get_template_part( 'template-parts/blocks/occasions' ); ?>
 
