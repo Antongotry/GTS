@@ -57,8 +57,14 @@
 
 		function normalizePriceText(value) {
 			var raw = String(value || '');
-			return raw
-				.replace(/&nbsp;|&#160;|&#xA0;/gi, ' ')
+			var decoded = raw;
+			if (raw.indexOf('&') !== -1) {
+				var textarea = document.createElement('textarea');
+				textarea.innerHTML = raw;
+				decoded = textarea.value;
+			}
+			return decoded
+				.replace(/&nbsp;?|&#160;?|&#xA0;?/gi, ' ')
 				.replace(/\u00a0/g, ' ')
 				.replace(/\s{2,}/g, ' ')
 				.trim();

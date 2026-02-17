@@ -21,6 +21,25 @@ function gts_calculator_verify_nonce() {
 }
 
 /**
+ * Normalize localized number format output for UI.
+ * Converts HTML entities like &nbsp; into readable spaces.
+ *
+ * @param float $number Number to format.
+ * @param int   $decimals Decimals.
+ * @return string
+ */
+function gts_calculator_format_number( $number, $decimals = 0 ) {
+	$formatted = number_format_i18n( $number, $decimals );
+	$formatted = preg_replace( '/&nbsp;?/i', ' ', (string) $formatted );
+	$formatted = preg_replace( '/&#160;?/i', ' ', (string) $formatted );
+	$formatted = preg_replace( '/&#xA0;?/i', ' ', (string) $formatted );
+	$formatted = html_entity_decode( $formatted, ENT_QUOTES, get_bloginfo( 'charset' ) );
+	$formatted = str_replace( array( "\xc2\xa0", '&nbsp;', '&#160;' ), ' ', $formatted );
+	$formatted = preg_replace( '/\s{2,}/', ' ', (string) $formatted );
+	return trim( $formatted );
+}
+
+/**
  * Get WooCommerce Product Categories for Vehicle Type dropdown.
  *
  * @return array
@@ -124,7 +143,7 @@ function gts_ajax_get_vehicles_by_category() {
 			'id'             => $product_post->ID,
 			'name'           => $product->get_name(),
 			'price'          => (float) $product->get_price(),
-			'formatted_price'=> wp_strip_all_tags( wc_price( $product->get_price() ) ),
+			'formatted_price'=> gts_calculator_format_number( (float) $product->get_price(), 0 ),
 			'image'          => wp_get_attachment_url( $product->get_image_id() ),
 			'max_passengers' => $max_passengers ? intval( $max_passengers ) : 4,
 			'max_bags'       => $max_bags ? intval( $max_bags ) : 3,
@@ -629,8 +648,8 @@ function gts_ajax_calculate_price() {
 
 	$currency = html_entity_decode( get_woocommerce_currency_symbol() );
 	$formatted_total = 'manual' === $mode
-		? sprintf( 'from %s %s', $currency, number_format_i18n( $total, 0 ) )
-		: sprintf( '%s %s', $currency, number_format_i18n( $total, 0 ) );
+		? sprintf( 'from %s %s', $currency, gts_calculator_format_number( $total, 0 ) )
+		: sprintf( '%s %s', $currency, gts_calculator_format_number( $total, 0 ) );
 
 	wp_send_json_success(
 		array(
