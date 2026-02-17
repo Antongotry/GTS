@@ -9,6 +9,9 @@
 $site_url = get_site_url();
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
+if ( is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' ) ) {
+	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-55_result.webp';
+}
 $icon_executive_url = $site_url . '/wp-content/uploads/2026/02/icon-l-1.svg';
 $icon_airport_url = $site_url . '/wp-content/uploads/2026/02/icon-l-2.svg';
 $icon_multi_day_url = $site_url . '/wp-content/uploads/2026/02/icon-l-3.svg';
