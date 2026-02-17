@@ -1332,6 +1332,99 @@ textarea {
   margin: 0 0 1.5em;
 }
 
+.site-main--default-page {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background: #0c0f17;
+}
+@media (max-width: 1024px) {
+  .site-main--default-page {
+    padding-top: 100px;
+    padding-bottom: 64px;
+  }
+}
+@media (max-width: 768px) {
+  .site-main--default-page {
+    padding-top: 88px;
+    padding-bottom: 48px;
+  }
+}
+
+.site-main--default-page .page {
+  max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+@media (max-width: 1024px) {
+  .site-main--default-page .page {
+    max-width: 944px;
+    padding: 0 20px;
+    box-sizing: content-box;
+  }
+}
+@media (max-width: 768px) {
+  .site-main--default-page .page {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+.site-main--default-page .entry-header {
+  margin: 0 0 24px;
+}
+
+.site-main--default-page .entry-title {
+  font-family: "Visby CF", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .site-main--default-page .entry-title {
+    font-size: 33px;
+  }
+}
+@media (max-width: 768px) {
+  .site-main--default-page .entry-title {
+    font-size: 28px;
+  }
+}
+
+.site-main--default-page .entry-content {
+  margin: 0;
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+@media (max-width: 768px) {
+  .site-main--default-page .entry-content {
+    font-size: 14px;
+  }
+}
+
+.site-main--default-page .entry-content h2,
+.site-main--default-page .entry-content h3,
+.site-main--default-page .entry-content h4 {
+  font-family: "Visby CF", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 28px 0 12px;
+}
+
+.site-main--default-page .entry-content a {
+  color: #f4c58b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {
