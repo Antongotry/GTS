@@ -9704,14 +9704,14 @@ a.phone-button:focus,
 }
 
 .final-cta-right--service {
-  background: rgba(255, 255, 255, 0.04);
+  background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
 @media (max-width: 768px) {
   .final-cta-right--service {
     display: flex !important;
-    background: rgba(255, 255, 255, 0.04);
+    background: transparent;
   }
 }
 

@@ -223,12 +223,12 @@
 }
 
 .final-cta-right--service {
-	background: rgba(255, 255, 255, 0.04);
+	background: transparent;
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 
 	@include md {
 		display: flex !important;
-		background: rgba(255, 255, 255, 0.04);
+		background: transparent;
 	}
 }
