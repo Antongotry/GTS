@@ -66,7 +66,7 @@
 			<h3 class="footer-title footer-services-title">Services</h3>
 			<ul class="footer-services-list footer-services-list-left">
 				<li><a href="#">Book a Flight</a></li>
-				<li><a href="#">City-to-City Rides</a></li>
+				<li><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>">City-to-City</a></li>
 				<li><a href="#">Airport Transfers</a></li>
 				<li><a href="#">Hourly Hire</a></li>
 				<li><a href="#">Chauffeur Service</a></li>
