@@ -107,6 +107,16 @@
 	// hero-features прижаты к низу через margin-top: auto
 }
 
+// When features are disabled via admin toggle, keep title/desc/button anchored
+// to the bottom area of hero-left (respecting hero-left bottom padding).
+.hero-content--no-features {
+	justify-content: flex-end;
+
+	@include md {
+		justify-content: flex-start;
+	}
+}
+
 .hero-subtitle {
 	font-family: "Manrope", $font__main;
 	font-size: 18px;

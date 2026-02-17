@@ -251,6 +251,13 @@
 
 .service-bottom-text__container {
 	@include container($container-max-width-content);
+	padding: 0 20px;
+	box-sizing: border-box;
+
+	@include lg {
+		padding: 0 20px;
+		box-sizing: content-box;
+	}
 }
 
 .service-bottom-text__title,
