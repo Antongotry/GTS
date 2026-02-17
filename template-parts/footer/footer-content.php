@@ -39,7 +39,6 @@
 						<li><a href="<?php echo esc_url(home_url('/fleet')); ?>">Fleet</a></li>
 						<li><a href="<?php echo esc_url(home_url('/blog')); ?>">Blog</a></li>
 						<li><a href="<?php echo esc_url(home_url('/contacts')); ?>">Contacts</a></li>
-						<li><a href="<?php echo esc_url(home_url('/about-us')); ?>">About Us</a></li>
 					</ul>
 				<?php
 				}

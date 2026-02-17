@@ -252,7 +252,6 @@
 						<li class="menu-item"><a href="<?php echo esc_url( $fleet_url ); ?>" class="menu-link">Fleet</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url( $blog_url ); ?>" class="menu-link">Blog</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url(home_url('/contacts/')); ?>" class="menu-link">Contacts</a></li>
-						<li class="menu-item"><a href="#" class="menu-link">About Us</a></li>
 						<li class="menu-item menu-item-highlight"><a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="menu-link">Book a Transfer</a></li>
 					</ul>
 				</nav>
@@ -305,9 +304,6 @@
 					</li>
 					<li class="mobile-menu-item">
 						<a href="<?php echo esc_url(home_url('/contacts/')); ?>" class="mobile-menu-link">Contacts</a>
-					</li>
-					<li class="mobile-menu-item">
-						<a href="#" class="mobile-menu-link">About Us</a>
 					</li>
 					<li class="mobile-menu-item mobile-menu-item-highlight">
 						<a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="mobile-menu-link">Book a Transfer</a>
