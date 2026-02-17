@@ -317,6 +317,14 @@ function gts_theme_scripts()
 
 	if (is_page_template('page-book-a-transfer.php') || is_page('book-a-transfer')) {
 		wp_enqueue_script('gts-transfer-form', get_template_directory_uri() . '/js/transfer-form.js', array(), $version, true);
+		wp_localize_script(
+			'gts-transfer-form',
+			'gtsTransferConfig',
+			array(
+				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'gts_transfer_nonce' ),
+			)
+		);
 	}
 
 	// Lenis - smooth scrolling for entire site (only desktop, loaded via JS check)

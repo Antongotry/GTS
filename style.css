@@ -9995,6 +9995,10 @@ a.phone-button:focus,
   margin-bottom: 16px;
 }
 
+.transfer-extras-grid {
+  row-gap: 12px;
+}
+
 /* Same style as hero .checkbox-group, but white (dark form background) */
 .transfer-checkbox {
   display: flex;
@@ -10110,6 +10114,20 @@ a.phone-button:focus,
   margin-bottom: 24px;
 }
 
+.transfer-summary-breakdown {
+  margin: 0 0 12px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.transfer-summary-breakdown-item {
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(12, 15, 23, 0.72);
+  margin-bottom: 6px;
+}
+
 .transfer-submit {
   width: 100%;
   height: 56px;
@@ -10180,6 +10198,10 @@ a.phone-button:focus,
   .transfer-checkbox-group {
     flex-direction: column;
     gap: 12px;
+  }
+  .transfer-summary-row {
+    flex-direction: column;
+    gap: 4px;
   }
   .transfer-input,
   .transfer-select {
