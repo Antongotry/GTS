@@ -238,7 +238,7 @@
 							</a>
 							<ul class="sub-menu">
 								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Book a Flight</a></li>
-								<li class="sub-menu-item"><a href="<?php echo esc_url(get_site_url() . '/city-to-city/'); ?>" class="sub-menu-link">City-to-City</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="sub-menu-link">City-to-City Rides</a></li>
 								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Airport Transfers</a></li>
 								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Hourly Hire</a></li>
 								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Chauffeur Service</a></li>
@@ -339,7 +339,7 @@
 				<h3 class="mobile-submenu-title">Services</h3>
 				<ul class="mobile-menu-list mobile-submenu-list">
 					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Book a Flight</a></li>
-					<li class="mobile-menu-item"><a href="<?php echo esc_url(get_site_url() . '/city-to-city/'); ?>" class="mobile-menu-link">City-to-City</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="mobile-menu-link">City-to-City Rides</a></li>
 					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Airport Transfers</a></li>
 					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Hourly Hire</a></li>
 					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Chauffeur Service</a></li>
