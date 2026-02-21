@@ -75,7 +75,7 @@ $city_benefits = array(
 		</div>
 	</section>
 
-	<?php get_template_part( 'template-parts/blocks/why-us' ); ?>
+	<?php get_template_part( 'template-parts/blocks/occasions' ); ?>
 
 	<?php
 	get_template_part(
@@ -87,7 +87,7 @@ $city_benefits = array(
 	);
 	?>
 
-	<?php get_template_part( 'template-parts/blocks/occasions' ); ?>
+	<?php get_template_part( 'template-parts/blocks/why-us' ); ?>
 
 	<?php get_template_part( 'template-parts/blocks/how-it-works' ); ?>
 
