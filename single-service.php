@@ -124,6 +124,7 @@ if (empty($service_intro_items)) {
 
 // Booking Form - unified block with desktop and mobile sections
 $booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
+$has_booking_block = isset($blocks_data['booking_form']);
 
 // Desktop form settings
 $desktop_form_enabled = isset($booking['desktop_enabled']) ? (bool)$booking['desktop_enabled'] : true;
@@ -260,7 +261,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 								</div>
 							</div>
-							<?php if ( ! $mobile_form_enabled || ! $block_enabled['booking_form'] ) : ?>
+							<?php if ( ! $has_booking_block || ! $mobile_form_enabled || ! $block_enabled['booking_form'] ) : ?>
 								<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
 									<div class="hero-feature hero-feature-top-left">
 										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
@@ -363,7 +364,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== BOOKING FORM BLOCK (MOBILE) ========================
 	?>
-	<?php if ($block_enabled['booking_form'] && $mobile_form_enabled) : ?>
+	<?php if ($has_booking_block && $block_enabled['booking_form'] && $mobile_form_enabled) : ?>
 		<section class="booking-form-block booking-form-block--mobile">
 				<div class="booking-form-container">
 					<div class="booking-form-left"></div>
