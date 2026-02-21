@@ -198,8 +198,14 @@
 
 	@include md {
 		display: grid;
-		margin-top: 24px;
+		margin-top: 0;
 		background: transparent;
+	}
+}
+
+@include md {
+	.hero-features--mobile-in-hero {
+		margin-top: auto;
 	}
 }
 

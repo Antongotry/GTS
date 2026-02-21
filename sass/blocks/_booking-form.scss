@@ -66,6 +66,13 @@
 	}
 }
 
+.booking-form-block--mobile .hero-features--mobile-in-form {
+	@include md {
+		margin-bottom: 24px;
+		background: transparent;
+	}
+}
+
 .booking-form-container {
 	display: flex;
 	gap: 40px; // Space between left and right blocks

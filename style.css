@@ -6628,8 +6628,13 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .hero-features--mobile {
     display: grid;
-    margin-top: 24px;
+    margin-top: 0;
     background: transparent;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile-in-hero {
+    margin-top: auto;
   }
 }
 @media (max-width: 768px) {
@@ -7420,6 +7425,13 @@ a.phone-button:focus,
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-form-block--mobile .hero-features--mobile-in-form {
+    margin-bottom: 24px;
+    background: transparent;
   }
 }
 
