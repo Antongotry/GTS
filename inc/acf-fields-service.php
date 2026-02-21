@@ -599,6 +599,7 @@ function gts_register_service_acf_fields()
 					'label'         => 'Display Variant',
 					'name'          => 'variant',
 					'type'          => 'select',
+					'instructions'  => 'Choose a preset layout, or use Custom Layout. You can always override card text/icons/images via Cards below.',
 					'choices'       => array(
 						'purpose'     => 'Preset: Perfect for Every Purpose',
 						'context'     => 'Preset: Accuracy, Tone, Context',
@@ -626,13 +627,13 @@ function gts_register_service_acf_fields()
 				),
 				array(
 					'key'           => 'field_service_context_cards',
-					'label'         => 'Cards (for custom layout, optional)',
+					'label'         => 'Cards (edit text, icons, images)',
 					'name'          => 'cards',
 					'type'          => 'repeater',
 					'min'           => 0,
 					'max'           => 12,
 					'layout'        => 'block',
-					'instructions'  => 'If filled, these cards override preset cards.',
+					'instructions'  => 'These cards are page-specific. If at least one card is added, they override preset cards for this service page.',
 					'sub_fields'    => $service_context_cards_subfields,
 				),
 			),
