@@ -22,6 +22,8 @@ $item_6_title = $is_city_to_city ? 'Guaranteed punctuality' : 'Seamless coordina
 $item_6_description = $is_city_to_city
 	? 'Our chauffeurs track flights and traffic in real time to ensure every pickup happens precisely on schedule.'
 	: 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
+$intro_title = 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.';
+$intro_text = 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.';
 ?>
 
 <section class="why-us-block">
@@ -31,6 +33,10 @@ $item_6_description = $is_city_to_city
 				<span class="why-us-heading-text"><?php echo esc_html( 'Why us?' ); ?></span>
 			</div>
 			<div class="why-us-heading-line" aria-hidden="true"></div>
+		</div>
+		<div class="why-us-intro">
+			<h2 class="why-us-intro-title"><?php echo esc_html( $intro_title ); ?></h2>
+			<p class="why-us-intro-description"><?php echo esc_html( $intro_text ); ?></p>
 		</div>
 		<div class="why-us-grid">
 			<!-- Element 1: Image as background -->

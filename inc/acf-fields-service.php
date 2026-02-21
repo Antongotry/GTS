@@ -822,6 +822,22 @@ function gts_register_service_acf_fields()
 					'default_value' => 'Why us?',
 				),
 				array(
+					'key'           => 'field_service_whyus_intro_title',
+					'label'         => 'Top Heading',
+					'name'          => 'intro_title',
+					'type'          => 'textarea',
+					'rows'          => 3,
+					'default_value' => 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.',
+				),
+				array(
+					'key'           => 'field_service_whyus_intro_text',
+					'label'         => 'Top Text',
+					'name'          => 'intro_text',
+					'type'          => 'textarea',
+					'rows'          => 3,
+					'default_value' => 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.',
+				),
+				array(
 					'key'        => 'field_service_whyus_cards',
 					'label'      => 'Benefit Cards (6 items)',
 					'name'       => 'cards',

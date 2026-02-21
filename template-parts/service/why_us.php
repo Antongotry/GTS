@@ -12,6 +12,8 @@ $block = isset($args['block']) ? $args['block'] : array();
 
 // Default values
 $pill_text = ! empty($block['pill_text']) ? $block['pill_text'] : __('Why us?', 'gts-theme');
+$intro_title = ! empty($block['intro_title']) ? $block['intro_title'] : 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.';
+$intro_text = ! empty($block['intro_text']) ? $block['intro_text'] : 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.';
 
 // Default images and icons from original template
 $site_url = get_site_url();
@@ -45,6 +47,10 @@ if (empty($cards)) {
 				<span class="why-us-heading-text"><?php echo esc_html($pill_text); ?></span>
 			</div>
 			<div class="why-us-heading-line" aria-hidden="true"></div>
+		</div>
+		<div class="why-us-intro">
+			<h2 class="why-us-intro-title"><?php echo esc_html($intro_title); ?></h2>
+			<p class="why-us-intro-description"><?php echo esc_html($intro_text); ?></p>
 		</div>
 		<div class="why-us-grid">
 			<?php

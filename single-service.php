@@ -146,6 +146,8 @@ $mobile_form_stats_label = ! empty($booking['mobile_stats_label']) ? $booking['m
 // Why Us defaults
 $why_us = isset($blocks_data['why_us']) ? $blocks_data['why_us'] : array();
 $why_us_pill = ! empty($why_us['pill_text']) ? $why_us['pill_text'] : 'Why us?';
+$why_us_intro_title = ! empty($why_us['intro_title']) ? $why_us['intro_title'] : 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.';
+$why_us_intro_text = ! empty($why_us['intro_text']) ? $why_us['intro_text'] : 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.';
 $why_us_cards = ! empty($why_us['cards']) ? $why_us['cards'] : array();
 
 if (empty($why_us_cards)) {
@@ -490,6 +492,10 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						<span class="why-us-heading-text"><?php echo esc_html($why_us_pill); ?></span>
 					</div>
 					<div class="why-us-heading-line" aria-hidden="true"></div>
+				</div>
+				<div class="why-us-intro">
+					<h2 class="why-us-intro-title"><?php echo esc_html($why_us_intro_title); ?></h2>
+					<p class="why-us-intro-description"><?php echo esc_html($why_us_intro_text); ?></p>
 				</div>
 				<div class="why-us-grid">
 					<?php $i = 1;

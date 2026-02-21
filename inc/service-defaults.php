@@ -122,6 +122,8 @@ function gts_get_default_service_blocks()
 			'acf_fc_layout' => 'why_us',
 			'enabled'       => true,
 			'pill_text'     => 'Why us?',
+			'intro_title'   => 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.',
+			'intro_text'    => 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.',
 			'cards'         => array(
 				array(
 					'card_type'   => 'image',
