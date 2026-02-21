@@ -4,7 +4,7 @@
 
 .single-service .service-context-block {
 	width: 100%;
-	margin-top: 90px;
+	margin-top: 68px;
 	padding: 0;
 }
 
@@ -12,14 +12,19 @@
 	width: 100%;
 	max-width: min(1840px, calc(100vw - var(--scrollbar-width) - 40px));
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 4px;
 	box-sizing: border-box;
+
+	@include md {
+		width: calc(100vw - 40px);
+		padding: 0 9px;
+	}
 }
 
 .single-service .service-context-heading {
 	display: flex;
 	align-items: center;
-	gap: 28px;
+	gap: 84px;
 	margin-bottom: 28px;
 }
 
@@ -42,7 +47,7 @@
 .single-service .service-context-card {
 	min-height: 320px;
 	border: 1px inset $color__glass-border;
-	background: rgba(8, 12, 24, 0.9);
+	background: transparent;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -88,10 +93,10 @@
 .single-service .service-context-text {
 	margin: 0;
 	font-family: $font__manrope;
-	font-size: 40px;
+	font-size: 16px;
 	font-weight: 400;
-	line-height: 1.25;
-	letter-spacing: -0.02em;
+	line-height: 1.45;
+	letter-spacing: 0;
 	color: $color__text-main;
 }
 
@@ -153,20 +158,20 @@
 		min-height: 260px;
 	}
 
-	.single-service .service-context-text {
-		font-size: 30px;
+	.single-service .service-context-heading {
+		gap: 56px;
 	}
 }
 
 @include md {
 	.single-service .service-context-block {
-		margin-top: 70px;
+		margin-top: 52px;
 	}
 
 	.single-service .service-context-heading {
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 16px;
+		gap: 24px;
 	}
 
 	.single-service .service-context-title {
@@ -182,7 +187,7 @@
 	}
 
 	.single-service .service-context-text {
-		font-size: 28px;
+		font-size: 16px;
 	}
 
 	.single-service .service-context-card--1,
