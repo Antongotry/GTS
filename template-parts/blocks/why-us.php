@@ -12,6 +12,16 @@ $icon_3_url = get_site_url() . '/wp-content/uploads/2026/01/icon-block-2-2.svg';
 $icon_4_url = get_site_url() . '/wp-content/uploads/2026/01/icon-block-2-3.svg';
 $icon_5_url = get_site_url() . '/wp-content/uploads/2026/01/icon-block-2-4.svg';
 $image_6_url = get_site_url() . '/wp-content/uploads/2026/01/home-2-block-2_result.webp';
+$is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
+
+$item_5_title = $is_city_to_city ? 'Effortless booking' : '24/7 Human Support';
+$item_5_description = $is_city_to_city
+	? 'Book directly on the website or through your personal manager — 24/7 via messenger, email or phone.'
+	: 'Book directly on the website or through<br>your personal manager — 24/7 via<br>messenger, email or phone.';
+$item_6_title = $is_city_to_city ? 'Guaranteed punctuality' : 'Seamless coordination';
+$item_6_description = $is_city_to_city
+	? 'Our chauffeurs track flights and traffic in real time to ensure every pickup happens precisely on schedule.'
+	: 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
 ?>
 
 <section class="why-us-block">
@@ -61,14 +71,14 @@ $image_6_url = get_site_url() . '/wp-content/uploads/2026/01/home-2-block-2_resu
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $icon_5_url ); ?>" alt="24/7 Human Support" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo esc_html( '24/7 Human Support' ); ?></h3>
-				<p class="why-us-item-description"><?php echo wp_kses_post( 'Book directly on the website or through<br>your personal manager — 24/7 via<br>messenger, email or phone.' ); ?></p>
+				<h3 class="why-us-item-title"><?php echo esc_html( $item_5_title ); ?></h3>
+				<p class="why-us-item-description"><?php echo wp_kses_post( $item_5_description ); ?></p>
 			</div>
 
 			<!-- Element 6: Image as background -->
 			<div class="why-us-item why-us-item-6" style="background-image: url('<?php echo esc_url( $image_6_url ); ?>');">
-				<h3 class="why-us-item-title"><?php echo esc_html( 'Seamless coordination' ); ?></h3>
-				<p class="why-us-item-description"><?php echo wp_kses_post( 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.' ); ?></p>
+				<h3 class="why-us-item-title"><?php echo esc_html( $item_6_title ); ?></h3>
+				<p class="why-us-item-description"><?php echo wp_kses_post( $item_6_description ); ?></p>
 			</div>
 		</div>
 	</div>

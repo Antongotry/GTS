@@ -7524,16 +7524,16 @@ a.phone-button:focus,
 }
 
 .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
-  margin-bottom: 80px;
+  margin-bottom: 92px;
 }
 @media (max-width: 1024px) {
   .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
-    margin-bottom: 60px;
+    margin-bottom: 69px;
   }
 }
 @media (max-width: 768px) {
   .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
-    margin-bottom: 100px;
+    margin-bottom: 115px;
   }
 }
 
