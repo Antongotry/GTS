@@ -87,9 +87,9 @@ $city_benefits = array(
 	);
 	?>
 
-	<?php get_template_part( 'template-parts/blocks/why-us' ); ?>
-
 	<?php get_template_part( 'template-parts/blocks/how-it-works' ); ?>
+
+	<?php get_template_part( 'template-parts/blocks/why-us' ); ?>
 
 	<div class="white-sections-wrapper">
 		<?php get_template_part( 'template-parts/blocks/trusted-by' ); ?>
