@@ -8735,6 +8735,10 @@ a.phone-button:focus,
   }
 }
 
+.occasions-footer-text--hidden {
+  visibility: hidden;
+}
+
 @media (max-width: 768px) {
   .occasions-block .why-us-heading {
     display: flex;

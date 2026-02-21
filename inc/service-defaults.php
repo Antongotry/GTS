@@ -222,6 +222,7 @@ function gts_get_default_service_blocks()
 					'description' => 'coordinated logistics for delegations, summits, and VIP gatherings.',
 				),
 			),
+			'footer_text_enabled' => true,
 			'footer_text'   => 'Whether it\'s a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.',
 		),
 

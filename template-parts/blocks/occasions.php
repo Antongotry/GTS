@@ -7,6 +7,7 @@
  */
 
 $site_url = get_site_url();
+$block = isset( $args['block'] ) && is_array( $args['block'] ) ? $args['block'] : array();
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
@@ -39,22 +40,27 @@ $item_5_title = $is_city_to_city ? 'Family Journeys' : 'Events & Conferences';
 $item_5_description = $is_city_to_city
 	? 'child seats and flexible stops on request.'
 	: 'coordinated logistics for delegations, summits, and VIP gatherings.';
+$section_pill = ! empty( $block['pill_text'] ) ? $block['pill_text'] : 'Full Service';
+$section_title = ! empty( $block['title'] ) ? $block['title'] : 'Perfect for Every Occasion';
 $footer_text = $is_city_to_city
 	? 'Whether it’s a business meeting, an exclusive event, or a long-distance journey — GTS adapts to your agenda with flawless precision and discretion.'
 	: 'Whether it\'s a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.';
+$footer_text = ! empty( $block['footer_text'] ) ? $block['footer_text'] : $footer_text;
+$footer_text_enabled = ! isset( $block['footer_text_enabled'] ) || (bool) $block['footer_text_enabled'];
+$footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidden';
 ?>
 
 <section class="why-us-block occasions-block">
 	<div class="why-us-container">
 		<div class="why-us-heading">
 			<div class="why-us-heading-pill">
-				<span class="why-us-heading-text"><?php echo esc_html__( 'Full Service', 'gts-theme' ); ?></span>
+				<span class="why-us-heading-text"><?php echo esc_html( $section_pill ); ?></span>
 			</div>
 			<div class="why-us-heading-line" aria-hidden="true"></div>
 			<div class="occasions-title-wrapper">
-				<h2 class="occasions-title"><?php echo esc_html__( 'Perfect for Every Occasion', 'gts-theme' ); ?></h2>
+				<h2 class="occasions-title"><?php echo esc_html( $section_title ); ?></h2>
 			</div>
-			<p class="why-us-item-description occasions-footer-text occasions-footer-text-mobile"><?php echo esc_html( $footer_text ); ?></p>
+			<p class="why-us-item-description occasions-footer-text occasions-footer-text-mobile<?php echo esc_attr( $footer_hidden_class ); ?>"<?php echo $footer_text_enabled ? '' : ' aria-hidden="true"'; ?>><?php echo esc_html( $footer_text ); ?></p>
 		</div>
 		<div class="why-us-grid">
 			<!-- Row 1: Executive (wide), Airport text, Airport image -->
@@ -104,7 +110,7 @@ $footer_text = $is_city_to_city
 			</div>
 
 			<div class="why-us-item why-us-item-6 occasions-footer-item">
-				<p class="why-us-item-description occasions-footer-text"><?php echo esc_html( $footer_text ); ?></p>
+				<p class="why-us-item-description occasions-footer-text<?php echo esc_attr( $footer_hidden_class ); ?>"<?php echo $footer_text_enabled ? '' : ' aria-hidden="true"'; ?>><?php echo esc_html( $footer_text ); ?></p>
 			</div>
 		</div>
 	</div>

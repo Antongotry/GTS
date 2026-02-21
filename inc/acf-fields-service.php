@@ -720,6 +720,14 @@ function gts_register_service_acf_fields()
 					'sub_fields' => $occasions_cards_subfields,
 				),
 				array(
+					'key'           => 'field_service_occasions_footer_enabled',
+					'label'         => 'Show Footer Text',
+					'name'          => 'footer_text_enabled',
+					'type'          => 'true_false',
+					'default_value' => 1,
+					'ui'            => 1,
+				),
+				array(
 					'key'   => 'field_service_occasions_footer',
 					'label' => 'Footer Text',
 					'name'  => 'footer_text',

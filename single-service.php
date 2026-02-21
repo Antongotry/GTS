@@ -486,7 +486,15 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
 	<?php if ($block_enabled['occasions']) : ?>
-		<?php get_template_part('template-parts/blocks/occasions'); ?>
+		<?php
+		get_template_part(
+			'template-parts/blocks/occasions',
+			null,
+			array(
+				'block' => $occasions,
+			)
+		);
+		?>
 	<?php endif; ?>
 
 	<?php // ======================== HOW IT WORKS BLOCK ========================

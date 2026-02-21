@@ -320,6 +320,10 @@
 	}
 }
 
+.occasions-footer-text--hidden {
+	visibility: hidden;
+}
+
 // Occasions mobile layout — like why-us: first row = two columns (item-2 + image), then item-1 full width
 @include md {
 	// Heading: pill + line on first row, then title, then footer text (mobile only)
