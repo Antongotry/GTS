@@ -6628,6 +6628,67 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .hero-features--mobile {
     display: grid;
+    margin-top: 24px;
+    background: transparent;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-top-left,
+  .hero-features--mobile .hero-feature-top-right {
+    padding-bottom: 16px;
+    padding-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-bottom-left,
+  .hero-features--mobile .hero-feature-bottom-right {
+    padding-top: 16px;
+    padding-bottom: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-map {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 10px 10px 20px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-map .world-map-image {
+    padding: 0;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-map .world-map-image img {
+    width: 95px;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-map .world-map-text {
+    padding: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-map .world-map-number {
+    font-size: 27px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-features--mobile .hero-feature-map .world-map-label {
+    font-size: 12px;
   }
 }
 
@@ -7359,89 +7420,6 @@ a.phone-button:focus,
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-features--mobile {
-    margin-top: 0;
-    background: transparent;
-  }
-}
-
-@media (max-width: 768px) {
-  .page-template-page-limousine-service .booking-form-block--mobile .hero-features--mobile,
-  .page-template-page-city-to-city .booking-form-block--mobile .hero-features--mobile {
-    margin-bottom: 24px;
-    background: transparent;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-top-left,
-  .booking-form-block--mobile .hero-feature-top-right {
-    padding-bottom: 16px;
-    padding-top: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-bottom-left,
-  .booking-form-block--mobile .hero-feature-bottom-right {
-    padding-top: 16px;
-    padding-bottom: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-map {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 10px 10px 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-map .world-map-image {
-    padding: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-map .world-map-image img {
-    width: 95px;
-    height: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-map .world-map-text {
-    padding: 0;
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-map .world-map-number {
-    font-size: 27px;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking-form-block--mobile .hero-feature-map .world-map-label {
-    font-size: 12px;
   }
 }
 

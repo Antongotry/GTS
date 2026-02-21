@@ -198,6 +198,60 @@
 
 	@include md {
 		display: grid;
+		margin-top: 24px;
+		background: transparent;
+	}
+}
+
+@include md {
+	.hero-features--mobile .hero-feature {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+		padding: 10px;
+	}
+
+	.hero-features--mobile .hero-feature-top-left,
+	.hero-features--mobile .hero-feature-top-right {
+		padding-bottom: 16px;
+		padding-top: 10px;
+	}
+
+	.hero-features--mobile .hero-feature-bottom-left,
+	.hero-features--mobile .hero-feature-bottom-right {
+		padding-top: 16px;
+		padding-bottom: 10px;
+	}
+
+	.hero-features--mobile .hero-feature-map {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+		padding: 10px 10px 10px 20px;
+	}
+
+	.hero-features--mobile .hero-feature-map .world-map-image {
+		padding: 0;
+	}
+
+	.hero-features--mobile .hero-feature-map .world-map-image img {
+		width: 95px;
+		height: auto;
+	}
+
+	.hero-features--mobile .hero-feature-map .world-map-text {
+		padding: 0;
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	.hero-features--mobile .hero-feature-map .world-map-number {
+		font-size: 27px;
+	}
+
+	.hero-features--mobile .hero-feature-map .world-map-label {
+		font-size: 12px;
 	}
 }
 
