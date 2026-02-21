@@ -7523,6 +7523,20 @@ a.phone-button:focus,
   }
 }
 
+.page-template-page-city-to-city .why-us-block:not(.occasions-block) {
+  margin-bottom: 80px;
+}
+@media (max-width: 1024px) {
+  .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
+    margin-bottom: 100px;
+  }
+}
+
 .why-us-container {
   width: 100%;
   max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);

@@ -19,6 +19,18 @@
 	}
 }
 
+.page-template-page-city-to-city .why-us-block:not(.occasions-block) {
+	margin-bottom: 80px;
+
+	@include lg {
+		margin-bottom: 60px;
+	}
+
+	@include md {
+		margin-bottom: 100px;
+	}
+}
+
 .why-us-container {
 	@include container($container-max-width-content);
 
