@@ -12,13 +12,23 @@
 	width: 100%;
 	max-width: min(1840px, calc(100vw - var(--scrollbar-width) - 40px));
 	margin: 0 auto;
-	padding: 0 4px;
+	padding: 0 20px;
 	box-sizing: border-box;
 
+	@include lg {
+		width: 100%;
+		max-width: 944px;
+		padding: 0 20px;
+		margin: 0 auto;
+		box-sizing: content-box;
+	}
+
 	@include md {
-		max-width: none;
-		width: calc(100vw - 40px);
-		padding: 0 16px 0 9px;
+		width: 100%;
+		max-width: 100%;
+		padding: 0 20px;
+		margin: 0;
+		box-sizing: border-box;
 	}
 }
 
