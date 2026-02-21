@@ -7,6 +7,7 @@
  */
 
 $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.svg';
+$is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
 
 $faq_column_1 = array(
 	array(
@@ -45,6 +46,46 @@ $faq_column_2 = array(
 		'answer'   => __( 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'gts-theme' ),
 	),
 );
+
+if ( $is_city_to_city ) {
+	$faq_column_1 = array(
+		array(
+			'question' => __( 'Can I book a transfer between different countries?', 'gts-theme' ),
+			'answer'   => $faq_column_1[0]['answer'],
+		),
+		array(
+			'question' => __( 'How far in advance should I book?', 'gts-theme' ),
+			'answer'   => $faq_column_1[1]['answer'],
+		),
+		array(
+			'question' => __( 'What types of vehicles are used for long-distance transfers?', 'gts-theme' ),
+			'answer'   => $faq_column_1[2]['answer'],
+		),
+		array(
+			'question' => __( 'Are your chauffeurs available for long-distance trips?', 'gts-theme' ),
+			'answer'   => $faq_column_1[3]['answer'],
+		),
+	);
+
+	$faq_column_2 = array(
+		array(
+			'question' => __( 'Can I request multiple stops or sightseeing along the way?', 'gts-theme' ),
+			'answer'   => $faq_column_2[0]['answer'],
+		),
+		array(
+			'question' => __( 'Do you provide overnight service or multi-day routes?', 'gts-theme' ),
+			'answer'   => $faq_column_2[1]['answer'],
+		),
+		array(
+			'question' => __( 'What if I need to cancel?', 'gts-theme' ),
+			'answer'   => $faq_column_2[2]['answer'],
+		),
+		array(
+			'question' => __( 'How do I book a city-to-city transfer?', 'gts-theme' ),
+			'answer'   => $faq_column_2[3]['answer'],
+		),
+	);
+}
 ?>
 
 <section class="faq-block">
