@@ -28,6 +28,12 @@
 	margin-bottom: 28px;
 }
 
+.single-service .service-context-heading-copy {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
 .single-service .service-context-title {
 	font-family: $font__main;
 	font-size: 56px;
@@ -36,6 +42,17 @@
 	letter-spacing: -0.02em;
 	margin: 0;
 	color: $color__text-main;
+}
+
+.single-service .service-context-subtitle {
+	margin: 0;
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+	color: $color__text-main;
+	opacity: 0.9;
 }
 
 .single-service .service-context-grid {
@@ -53,6 +70,8 @@
 	justify-content: space-between;
 	padding: 24px;
 	box-sizing: border-box;
+	grid-column: var(--sc-col, auto) / span var(--sc-col-span, 1);
+	grid-row: var(--sc-row, auto) / span var(--sc-row-span, 1);
 }
 
 .single-service .service-context-card--image {
@@ -104,51 +123,6 @@
 	color: #1f2430;
 }
 
-.single-service .service-context-card--1 {
-	grid-column: 1;
-	grid-row: 1;
-}
-
-.single-service .service-context-card--2 {
-	grid-column: 2;
-	grid-row: 1;
-}
-
-.single-service .service-context-card--3 {
-	grid-column: 3;
-	grid-row: 1;
-}
-
-.single-service .service-context-card--4 {
-	grid-column: 4;
-	grid-row: 1;
-}
-
-.single-service .service-context-card--5 {
-	grid-column: 5;
-	grid-row: 1;
-}
-
-.single-service .service-context-card--6 {
-	grid-column: 1;
-	grid-row: 2;
-}
-
-.single-service .service-context-card--7 {
-	grid-column: 2;
-	grid-row: 2;
-}
-
-.single-service .service-context-card--8 {
-	grid-column: 3;
-	grid-row: 2;
-}
-
-.single-service .service-context-card--9 {
-	grid-column: 4 / span 2;
-	grid-row: 2;
-}
-
 @include lg {
 	.single-service .service-context-title {
 		font-size: 42px;
@@ -174,6 +148,10 @@
 		gap: 24px;
 	}
 
+	.single-service .service-context-heading-copy {
+		gap: 10px;
+	}
+
 	.single-service .service-context-title {
 		font-size: 32px;
 	}
@@ -190,20 +168,12 @@
 		font-size: 16px;
 	}
 
-	.single-service .service-context-card--1,
-	.single-service .service-context-card--2,
-	.single-service .service-context-card--3,
-	.single-service .service-context-card--4,
-	.single-service .service-context-card--5,
-	.single-service .service-context-card--6,
-	.single-service .service-context-card--7,
-	.single-service .service-context-card--8,
-	.single-service .service-context-card--9 {
+	.single-service .service-context-card {
 		grid-column: auto;
 		grid-row: auto;
 	}
 
-	.single-service .service-context-card--9 {
+	.single-service .service-context-card--mobile-wide {
 		grid-column: 1 / -1;
 	}
 }

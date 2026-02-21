@@ -210,6 +210,128 @@ function gts_register_service_acf_fields()
 		),
 	);
 
+	// Service Context Cards Repeater Sub-fields
+	$service_context_cards_subfields = array(
+		array(
+			'key'           => 'field_service_context_card_type',
+			'label'         => 'Card Type',
+			'name'          => 'card_type',
+			'type'          => 'select',
+			'choices'       => array(
+				'text'  => 'Text Card',
+				'image' => 'Image Card',
+			),
+			'default_value' => 'text',
+		),
+		array(
+			'key'           => 'field_service_context_card_theme',
+			'label'         => 'Card Theme',
+			'name'          => 'theme',
+			'type'          => 'select',
+			'choices'       => array(
+				'dark'  => 'Dark',
+				'light' => 'Light',
+			),
+			'default_value' => 'dark',
+		),
+		array(
+			'key'               => 'field_service_context_card_icon',
+			'label'             => 'Icon',
+			'name'              => 'icon',
+			'type'              => 'image',
+			'return_format'     => 'url',
+			'preview_size'      => 'thumbnail',
+			'mime_types'        => 'svg,png,webp',
+			'conditional_logic' => array(
+				array(
+					array(
+						'field'    => 'field_service_context_card_type',
+						'operator' => '==',
+						'value'    => 'text',
+					),
+				),
+			),
+		),
+		array(
+			'key'               => 'field_service_context_card_text',
+			'label'             => 'Card Text',
+			'name'              => 'text',
+			'type'              => 'textarea',
+			'rows'              => 3,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field'    => 'field_service_context_card_type',
+						'operator' => '==',
+						'value'    => 'text',
+					),
+				),
+			),
+		),
+		array(
+			'key'               => 'field_service_context_card_image',
+			'label'             => 'Background Image',
+			'name'              => 'image',
+			'type'              => 'image',
+			'return_format'     => 'url',
+			'preview_size'      => 'medium',
+			'conditional_logic' => array(
+				array(
+					array(
+						'field'    => 'field_service_context_card_type',
+						'operator' => '==',
+						'value'    => 'image',
+					),
+				),
+			),
+		),
+		array(
+			'key'           => 'field_service_context_card_col_start',
+			'label'         => 'Desktop Column Start (1-5)',
+			'name'          => 'col_start',
+			'type'          => 'number',
+			'default_value' => 1,
+			'min'           => 1,
+			'max'           => 5,
+		),
+		array(
+			'key'           => 'field_service_context_card_col_span',
+			'label'         => 'Desktop Column Span',
+			'name'          => 'col_span',
+			'type'          => 'number',
+			'default_value' => 1,
+			'min'           => 1,
+			'max'           => 5,
+		),
+		array(
+			'key'           => 'field_service_context_card_row_start',
+			'label'         => 'Desktop Row Start',
+			'name'          => 'row_start',
+			'type'          => 'number',
+			'default_value' => 1,
+			'min'           => 1,
+			'max'           => 5,
+		),
+		array(
+			'key'           => 'field_service_context_card_row_span',
+			'label'         => 'Desktop Row Span',
+			'name'          => 'row_span',
+			'type'          => 'number',
+			'default_value' => 1,
+			'min'           => 1,
+			'max'           => 5,
+		),
+		array(
+			'key'           => 'field_service_context_card_mobile_span',
+			'label'         => 'Mobile Column Span (1-2)',
+			'name'          => 'mobile_span',
+			'type'          => 'number',
+			'default_value' => 1,
+			'min'           => 1,
+			'max'           => 2,
+		),
+	);
+
 	// How It Works Steps Repeater Sub-fields
 	$steps_subfields = array(
 		array(
@@ -466,6 +588,27 @@ function gts_register_service_acf_fields()
 					'default_value' => 'Where accuracy, tone, and context truly matter.',
 				),
 				array(
+					'key'   => 'field_service_context_subtitle',
+					'label' => 'Subtitle (optional)',
+					'name'  => 'subtitle',
+					'type'  => 'textarea',
+					'rows'  => 2,
+				),
+				array(
+					'key'           => 'field_service_context_variant',
+					'label'         => 'Display Variant',
+					'name'          => 'variant',
+					'type'          => 'select',
+					'choices'       => array(
+						'purpose'     => 'Preset: Perfect for Every Purpose',
+						'context'     => 'Preset: Accuracy, Tone, Context',
+						'partnership' => 'Preset: Partnership & Reliability',
+						'custom'      => 'Custom Layout',
+					),
+					'default_value' => 'context',
+					'ui'            => 1,
+				),
+				array(
 					'key'           => 'field_service_context_top_image',
 					'label'         => 'Top Image',
 					'name'          => 'top_image',
@@ -480,6 +623,17 @@ function gts_register_service_acf_fields()
 					'type'          => 'image',
 					'return_format' => 'url',
 					'preview_size'  => 'medium',
+				),
+				array(
+					'key'           => 'field_service_context_cards',
+					'label'         => 'Cards (for custom layout, optional)',
+					'name'          => 'cards',
+					'type'          => 'repeater',
+					'min'           => 0,
+					'max'           => 12,
+					'layout'        => 'block',
+					'instructions'  => 'If filled, these cards override preset cards.',
+					'sub_fields'    => $service_context_cards_subfields,
 				),
 			),
 		),

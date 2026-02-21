@@ -59,8 +59,11 @@ function gts_get_default_service_blocks()
 			'enabled'       => false,
 			'pill_text'     => 'Full Service',
 			'title'         => 'Where accuracy, tone, and context truly matter.',
+			'subtitle'      => '',
+			'variant'       => 'context',
 			'top_image'     => '',
 			'bottom_image'  => '',
+			'cards'         => array(),
 		),
 
 		// Block 3: Service Intro Panel (under Hero)
