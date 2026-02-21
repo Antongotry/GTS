@@ -53,7 +53,17 @@ function gts_get_default_service_blocks()
 			'stats_label'        => 'countries',
 		),
 
-		// Block 2: Service Intro Panel (under Hero)
+		// Block 2: Service Context Grid (under Hero)
+		array(
+			'acf_fc_layout' => 'service_context',
+			'enabled'       => false,
+			'pill_text'     => 'Full Service',
+			'title'         => 'Where accuracy, tone, and context truly matter.',
+			'top_image'     => '',
+			'bottom_image'  => '',
+		),
+
+		// Block 3: Service Intro Panel (under Hero)
 		array(
 			'acf_fc_layout' => 'service_intro',
 			'enabled'       => true,
@@ -96,7 +106,7 @@ function gts_get_default_service_blocks()
 			),
 		),
 
-		// Block 3: Booking Form
+		// Block 4: Booking Form
 		array(
 			'acf_fc_layout' => 'booking_form',
 			'enabled'       => true,
@@ -104,7 +114,7 @@ function gts_get_default_service_blocks()
 			'form_shortcode' => '',
 		),
 
-		// Block 4: Why Us Section
+		// Block 5: Why Us Section
 		array(
 			'acf_fc_layout' => 'why_us',
 			'enabled'       => true,

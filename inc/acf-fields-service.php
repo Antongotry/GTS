@@ -436,7 +436,55 @@ function gts_register_service_acf_fields()
 				),
 			),
 		),
-		// Layout 2: Service Intro Section (under Hero)
+		// Layout 2: Service Context Grid (under Hero)
+		'layout_service_context' => array(
+			'key'        => 'layout_service_context',
+			'name'       => 'service_context',
+			'label'      => 'Service Context Grid',
+			'display'    => 'block',
+			'sub_fields' => array(
+				array(
+					'key'           => 'field_service_context_enabled',
+					'label'         => 'Enable Block',
+					'name'          => 'enabled',
+					'type'          => 'true_false',
+					'default_value' => 0,
+					'ui'            => 1,
+				),
+				array(
+					'key'           => 'field_service_context_pill',
+					'label'         => 'Section Label',
+					'name'          => 'pill_text',
+					'type'          => 'text',
+					'default_value' => 'Full Service',
+				),
+				array(
+					'key'           => 'field_service_context_title',
+					'label'         => 'Title',
+					'name'          => 'title',
+					'type'          => 'text',
+					'default_value' => 'Where accuracy, tone, and context truly matter.',
+				),
+				array(
+					'key'           => 'field_service_context_top_image',
+					'label'         => 'Top Image',
+					'name'          => 'top_image',
+					'type'          => 'image',
+					'return_format' => 'url',
+					'preview_size'  => 'medium',
+				),
+				array(
+					'key'           => 'field_service_context_bottom_image',
+					'label'         => 'Bottom Image',
+					'name'          => 'bottom_image',
+					'type'          => 'image',
+					'return_format' => 'url',
+					'preview_size'  => 'medium',
+				),
+			),
+		),
+
+		// Layout 3: Service Intro Section (under Hero)
 		'layout_service_intro' => array(
 			'key'        => 'layout_service_intro',
 			'name'       => 'service_intro',

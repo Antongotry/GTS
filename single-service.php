@@ -15,6 +15,7 @@ get_header();
 $blocks_data = array();
 $block_enabled = array(
 	'hero' => true,
+	'service_context' => false,
 	'service_intro' => true,
 	'booking_form' => true,
 	'why_us' => true,
@@ -72,6 +73,9 @@ $hero_features_enabled = ! isset($hero['features_enabled']) || (bool) $hero['fea
 $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-1-l.svg');
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
+
+// Service Intro defaults (under Hero, no background image / no blur)
+$service_context = isset($blocks_data['service_context']) ? $blocks_data['service_context'] : array();
 
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
@@ -317,6 +321,18 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				</div>
 			</div>
 		</section>
+	<?php endif; ?>
+
+	<?php if ($block_enabled['service_context']) : ?>
+		<?php
+		get_template_part(
+			'template-parts/service/service-context',
+			null,
+			array(
+				'block' => $service_context,
+			)
+		);
+		?>
 	<?php endif; ?>
 
 	<?php // ======================== BOOKING FORM BLOCK (MOBILE) ========================
