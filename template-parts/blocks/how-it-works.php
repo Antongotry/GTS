@@ -10,6 +10,10 @@ $step_icon_1 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-1.svg'
 $step_icon_2 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-2.svg';
 $step_icon_3 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-3.svg';
 $step_icon_4 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-4.svg';
+$is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
+$how_it_works_title = $is_city_to_city
+	? 'Booking with GTS is straightforward — one clear process from request to ride, backed by 24/7 support.'
+	: 'We handle the details —<br>you enjoy the moments';
 
 $steps = array(
 	array(
@@ -46,7 +50,7 @@ $steps = array(
 				<span class="how-it-works-pill-text"><?php echo esc_html( 'How it works' ); ?></span>
 			</div>
 			<h2 class="how-it-works-title">
-				<?php echo wp_kses_post( 'We handle the details —<br>you enjoy the moments' ); ?>
+				<?php echo wp_kses_post( $how_it_works_title ); ?>
 			</h2>
 		</div>
 		<div class="how-it-works-right">
