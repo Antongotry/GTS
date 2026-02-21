@@ -24,6 +24,7 @@ $item_6_description = $is_city_to_city
 	: 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
 $intro_title = 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.';
 $intro_text = 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.';
+$show_intro = ! is_front_page();
 ?>
 
 <section class="why-us-block">
@@ -34,10 +35,12 @@ $intro_text = 'Every journey is coordinated by professionals who understand that
 			</div>
 			<div class="why-us-heading-line" aria-hidden="true"></div>
 		</div>
-		<div class="why-us-intro">
-			<h2 class="why-us-intro-title"><?php echo esc_html( $intro_title ); ?></h2>
-			<p class="why-us-intro-description"><?php echo esc_html( $intro_text ); ?></p>
-		</div>
+		<?php if ( $show_intro ) : ?>
+			<div class="why-us-intro">
+				<h2 class="why-us-intro-title"><?php echo esc_html( $intro_title ); ?></h2>
+				<p class="why-us-intro-description"><?php echo esc_html( $intro_text ); ?></p>
+			</div>
+		<?php endif; ?>
 		<div class="why-us-grid">
 			<!-- Element 1: Image as background -->
 			<div class="why-us-item why-us-item-1" style="background-image: url('<?php echo esc_url( $image_1_url ); ?>');">
