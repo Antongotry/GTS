@@ -58,6 +58,29 @@ if (is_singular('service')) {
 	$current_service_slug = (string) get_post_field('post_name', get_the_ID());
 }
 
+// Fill empty media fields in existing repeater rows with defaults by index.
+// This keeps custom admin content untouched and prevents empty icons/images in templates.
+$fill_missing_media = static function (array $items, array $defaults, array $media_keys): array {
+	foreach ($items as $index => $item) {
+		if (! is_array($item)) {
+			continue;
+		}
+		$default_item = isset($defaults[$index]) && is_array($defaults[$index]) ? $defaults[$index] : array();
+		if (empty($default_item)) {
+			continue;
+		}
+		foreach ($media_keys as $media_key) {
+			$current_value = isset($item[$media_key]) ? trim((string) $item[$media_key]) : '';
+			$default_value = isset($default_item[$media_key]) ? trim((string) $default_item[$media_key]) : '';
+			if ('' === $current_value && '' !== $default_value) {
+				$items[$index][$media_key] = $default_item[$media_key];
+			}
+		}
+	}
+
+	return $items;
+};
+
 // =====================
 // DEFAULT DATA
 // =====================
@@ -90,40 +113,43 @@ $service_intro_description = ! empty($service_intro['description']) ? $service_i
 $service_intro_button_text = ! empty($service_intro['button_text']) ? $service_intro['button_text'] : 'Book a transfer';
 $service_intro_button_link = ! empty($service_intro['button_link']) ? $service_intro['button_link'] : '#';
 $service_intro_items = ! empty($service_intro['items']) ? $service_intro['items'] : array();
+$default_service_intro_items = array(
+	array(
+		'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-1.svg',
+		'title'       => 'Time is your real luxury',
+		'description' => 'Skip queues and transfers — travel door-to-door, without waiting or interruptions.',
+	),
+	array(
+		'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-2.svg',
+		'title'       => 'Confidence in every journey',
+		'description' => 'No crowds, delays, or cancellations — just punctual, licensed chauffeurs and global coordination.',
+	),
+	array(
+		'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-3.svg',
+		'title'       => 'Your schedule, your rules',
+		'description' => 'Choose departure times and stops. Plans change? We adjust instantly, 24/7.',
+	),
+	array(
+		'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-4.svg',
+		'title'       => 'Transparent, all-inclusive pricing',
+		'description' => 'Pay per car, not per seat. Taxes, tolls, and waiting time are always included.',
+	),
+	array(
+		'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-5.svg',
+		'title'       => 'Quiet comfort on every route',
+		'description' => 'Relax in a premium car with a professional chauffeur, bottled water, and Wi-Fi on request.',
+	),
+	array(
+		'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-6.svg',
+		'title'       => 'Flexible routes',
+		'description' => 'Stop for meetings, meals, or sightseeing anytime.',
+	),
+);
 
 if (empty($service_intro_items)) {
-		$service_intro_items = array(
-			array(
-				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-1.svg',
-				'title'       => 'Time is your real luxury',
-				'description' => 'Skip queues and transfers — travel door-to-door, without waiting or interruptions.',
-			),
-			array(
-				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-2.svg',
-				'title'       => 'Confidence in every journey',
-				'description' => 'No crowds, delays, or cancellations — just punctual, licensed chauffeurs and global coordination.',
-			),
-			array(
-				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-3.svg',
-				'title'       => 'Your schedule, your rules',
-				'description' => 'Choose departure times and stops. Plans change? We adjust instantly, 24/7.',
-			),
-			array(
-				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-4.svg',
-				'title'       => 'Transparent, all-inclusive pricing',
-				'description' => 'Pay per car, not per seat. Taxes, tolls, and waiting time are always included.',
-			),
-			array(
-				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-5.svg',
-				'title'       => 'Quiet comfort on every route',
-				'description' => 'Relax in a premium car with a professional chauffeur, bottled water, and Wi-Fi on request.',
-			),
-			array(
-				'icon'        => $site_url . '/wp-content/uploads/2026/02/city-icon-6.svg',
-				'title'       => 'Flexible routes',
-				'description' => 'Stop for meetings, meals, or sightseeing anytime.',
-			),
-		);
+		$service_intro_items = $default_service_intro_items;
+} else {
+	$service_intro_items = $fill_missing_media($service_intro_items, $default_service_intro_items, array('icon'));
 }
 
 // Booking Form - unified block with desktop and mobile sections
@@ -155,16 +181,19 @@ $default_why_us_intro_text = 'Every journey is coordinated by professionals who 
 $why_us_intro_title = ! empty($why_us['intro_title']) ? $why_us['intro_title'] : $default_why_us_intro_title;
 $why_us_intro_text = ! empty($why_us['intro_text']) ? $why_us['intro_text'] : $default_why_us_intro_text;
 $why_us_cards = ! empty($why_us['cards']) ? $why_us['cards'] : array();
+$default_why_us_cards = array(
+	array('card_type' => 'image', 'image' => $site_url . '/wp-content/uploads/2026/01/home-2-block-1-_result.webp', 'title' => 'Available worldwide', 'description' => 'Consistent excellence in executive<br>and luxury transfers — wherever<br>your journey takes you.'),
+	array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-1.svg', 'title' => 'World-class fleet', 'description' => 'Late-model business, premium and<br>VIP vehicles, perfectly maintained for<br>comfort, style and safety.'),
+	array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-2.svg', 'title' => 'Qualified chauffeurs', 'description' => 'Licensed, experienced and discreet<br>professionals trained to meet the<br>highest service standards.'),
+	array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-3.svg', 'title' => 'Security & discretion', 'description' => 'Strict safety protocols, discreet<br>coordination, and confidential service for<br>corporate & VIP clients.'),
+	array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg', 'title' => '24/7 Human Support', 'description' => 'Book directly on the website or through<br>your personal manager — 24/7 via<br>messenger, email or phone.'),
+	array('card_type' => 'image', 'image' => $site_url . '/wp-content/uploads/2026/01/home-2-block-2_result.webp', 'title' => 'Seamless coordination', 'description' => 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.'),
+);
 
 if (empty($why_us_cards)) {
-	$why_us_cards = array(
-		array('card_type' => 'image', 'image' => $site_url . '/wp-content/uploads/2026/01/home-2-block-1-_result.webp', 'title' => 'Available worldwide', 'description' => 'Consistent excellence in executive<br>and luxury transfers — wherever<br>your journey takes you.'),
-		array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-1.svg', 'title' => 'World-class fleet', 'description' => 'Late-model business, premium and<br>VIP vehicles, perfectly maintained for<br>comfort, style and safety.'),
-		array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-2.svg', 'title' => 'Qualified chauffeurs', 'description' => 'Licensed, experienced and discreet<br>professionals trained to meet the<br>highest service standards.'),
-		array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-3.svg', 'title' => 'Security & discretion', 'description' => 'Strict safety protocols, discreet<br>coordination, and confidential service for<br>corporate & VIP clients.'),
-		array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg', 'title' => '24/7 Human Support', 'description' => 'Book directly on the website or through<br>your personal manager — 24/7 via<br>messenger, email or phone.'),
-		array('card_type' => 'image', 'image' => $site_url . '/wp-content/uploads/2026/01/home-2-block-2_result.webp', 'title' => 'Seamless coordination', 'description' => 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.'),
-	);
+	$why_us_cards = $default_why_us_cards;
+} else {
+	$why_us_cards = $fill_missing_media($why_us_cards, $default_why_us_cards, array('icon', 'image'));
 }
 
 // Page-specific Why Us presets for existing services.
@@ -213,14 +242,17 @@ $hiw_pill = ! empty($hiw['pill_text']) ? $hiw['pill_text'] : 'How it works';
 $hiw_title = ! empty($hiw['title']) ? $hiw['title'] : 'We handle the details —<br>you enjoy the moments';
 $hiw_bg = ! empty($hiw['background']) ? $hiw['background'] : $site_url . '/wp-content/uploads/2026/01/home-3-block-banner_result-scaled.webp';
 $hiw_steps = ! empty($hiw['steps']) ? $hiw['steps'] : array();
+$default_hiw_steps = array(
+	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
+	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
+	array('number' => '03', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-3.svg', 'title' => 'Meet your driver', 'description' => 'A professional chauffeur arrives on time, helps<br>with luggage and ensures comfort.'),
+	array('number' => '04', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-4.svg', 'title' => 'Travel with<br>confidence', 'description' => 'Transparent pricing, insured rides and real<br>24/7 assistance worldwide.'),
+);
 
 if (empty($hiw_steps)) {
-	$hiw_steps = array(
-		array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
-		array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
-		array('number' => '03', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-3.svg', 'title' => 'Meet your driver', 'description' => 'A professional chauffeur arrives on time, helps<br>with luggage and ensures comfort.'),
-		array('number' => '04', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-4.svg', 'title' => 'Travel with<br>confidence', 'description' => 'Transparent pricing, insured rides and real<br>24/7 assistance worldwide.'),
-	);
+	$hiw_steps = $default_hiw_steps;
+} else {
+	$hiw_steps = $fill_missing_media($hiw_steps, $default_hiw_steps, array('icon'));
 }
 
 // FAQ defaults

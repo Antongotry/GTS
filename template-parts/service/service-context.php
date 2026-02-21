@@ -60,6 +60,29 @@ $preset_cards = array(
 $cards = ! empty( $block['cards'] ) && is_array( $block['cards'] ) ? $block['cards'] : array();
 if ( empty( $cards ) ) {
 	$cards = isset( $preset_cards[ $variant ] ) ? $preset_cards[ $variant ] : $preset_cards['context'];
+} elseif ( isset( $preset_cards[ $variant ] ) ) {
+	$preset_for_variant = $preset_cards[ $variant ];
+	foreach ( $cards as $index => $card ) {
+		if ( ! is_array( $card ) ) {
+			continue;
+		}
+		$preset_card = isset( $preset_for_variant[ $index ] ) && is_array( $preset_for_variant[ $index ] ) ? $preset_for_variant[ $index ] : array();
+		if ( empty( $preset_card ) ) {
+			continue;
+		}
+		$card_type = ! empty( $card['card_type'] ) ? $card['card_type'] : '';
+		if ( 'image' === $card_type ) {
+			$image = isset( $card['image'] ) ? trim( (string) $card['image'] ) : '';
+			if ( '' === $image && ! empty( $preset_card['image'] ) ) {
+				$cards[ $index ]['image'] = $preset_card['image'];
+			}
+		} else {
+			$icon = isset( $card['icon'] ) ? trim( (string) $card['icon'] ) : '';
+			if ( '' === $icon && ! empty( $preset_card['icon'] ) ) {
+				$cards[ $index ]['icon'] = $preset_card['icon'];
+			}
+		}
+	}
 }
 ?>
 
