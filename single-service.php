@@ -350,21 +350,9 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['service_context']) : ?>
-		<?php
-		get_template_part(
-			'template-parts/service/service-context',
-			null,
-			array(
-				'block' => $service_context,
-			)
-		);
+		<?php // ======================== BOOKING FORM BLOCK (MOBILE) ========================
 		?>
-	<?php endif; ?>
-
-	<?php // ======================== BOOKING FORM BLOCK (MOBILE) ========================
-	?>
-	<?php if ($has_booking_block && $block_enabled['booking_form'] && $mobile_form_enabled) : ?>
+		<?php if ($has_booking_block && $block_enabled['booking_form'] && $mobile_form_enabled) : ?>
 		<section class="booking-form-block booking-form-block--mobile">
 				<div class="booking-form-container">
 					<div class="booking-form-left"></div>
@@ -440,11 +428,23 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					<?php endif; ?>
 				</div>
 			</div>
-		</section>
-	<?php endif; ?>
+			</section>
+		<?php endif; ?>
 
-	<?php // ======================== SERVICE INTRO BLOCK (UNDER HERO) ========================
-	?>
+		<?php if ($block_enabled['service_context']) : ?>
+			<?php
+			get_template_part(
+				'template-parts/service/service-context',
+				null,
+				array(
+					'block' => $service_context,
+				)
+			);
+			?>
+		<?php endif; ?>
+
+		<?php // ======================== SERVICE INTRO BLOCK (UNDER HERO) ========================
+		?>
 	<?php if ($has_service_intro_block && $block_enabled['service_intro']) : ?>
 		<section class="final-cta-block final-cta-block--service">
 			<div class="final-cta-container final-cta-container--service">
