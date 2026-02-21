@@ -97,6 +97,9 @@ if ( empty( $cards ) ) {
 				} else {
 					$classes .= ' light' === $theme ? ' service-context-card--light' : ' service-context-card--dark';
 				}
+				if ( $col_span > 1 ) {
+					$classes .= ' service-context-card--wide';
+				}
 				if ( 2 === $mobile_span ) {
 					$classes .= ' service-context-card--mobile-wide';
 				}
