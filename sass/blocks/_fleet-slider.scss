@@ -239,6 +239,23 @@
 	transform: translateX(30%);
 }
 
+.fleet-slider-footer {
+	margin-top: 8px;
+}
+
+.fleet-slider-all-link {
+	display: inline-block;
+	font-family: $font__main;
+	font-size: 56px;
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	color: $color__text-main;
+	text-decoration-line: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 10px;
+}
+
 .fleet-booking-modal,
 .fleet-success-modal {
 	position: fixed;
@@ -584,6 +601,10 @@
 	.fleet-card-media {
 		height: 220px;
 	}
+
+	.fleet-slider-all-link {
+		font-size: 42px;
+	}
 }
 
 @include md {
@@ -602,6 +623,11 @@
 
 	.fleet-slider-wrapper .nav-arrows {
 		padding: 0;
+	}
+
+	.fleet-slider-all-link {
+		font-size: 30px;
+		text-underline-offset: 8px;
 	}
 }
 

@@ -75,6 +75,12 @@ $lead  = ! empty( $args['lead'] ) ? $args['lead'] : 'That’s why every GTS limo
 			</div>
 			<?php echo gts_nav_arrows( 'fleet-slider-prev', 'fleet-slider-next', 'Previous vehicle', 'Next vehicle' ); ?>
 		</div>
+
+		<div class="fleet-slider-footer">
+			<a class="fleet-slider-all-link" href="<?php echo esc_url( home_url( '/fleet/' ) ); ?>">
+				<?php echo esc_html__( 'See all fleet', 'gts-theme' ); ?>
+			</a>
+		</div>
 	</div>
 
 	<?php /* Modals injected by JS on open, removed on close — not in initial DOM */ ?>
