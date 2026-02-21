@@ -7989,20 +7989,28 @@ a.phone-button:focus,
 }
 
 .fleet-slider-footer {
-  margin-top: 8px;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
 }
 
 .fleet-slider-all-link {
-  display: inline-block;
-  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 56px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
   color: #fff;
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.fleet-slider-all-link:hover {
+  opacity: 0.8;
+  text-decoration-color: rgba(255, 255, 255, 0.6);
 }
 
 .fleet-booking-modal,
@@ -8342,8 +8350,8 @@ a.phone-button:focus,
   .fleet-card-media {
     height: 220px;
   }
-  .fleet-slider-all-link {
-    font-size: 42px;
+  .fleet-slider-footer {
+    margin-top: 24px;
   }
 }
 @media (max-width: 768px) {
@@ -8361,8 +8369,7 @@ a.phone-button:focus,
     padding: 0;
   }
   .fleet-slider-all-link {
-    font-size: 30px;
-    text-underline-offset: 8px;
+    font-size: 12px;
   }
 }
 @media (max-width: 768px) {
