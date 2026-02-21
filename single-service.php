@@ -53,6 +53,10 @@ if (!isset($blocks_ordered)) {
 }
 
 $site_url = get_site_url();
+$current_service_slug = '';
+if (is_singular('service')) {
+	$current_service_slug = (string) get_post_field('post_name', get_the_ID());
+}
 
 // =====================
 // DEFAULT DATA
@@ -146,8 +150,10 @@ $mobile_form_stats_label = ! empty($booking['mobile_stats_label']) ? $booking['m
 // Why Us defaults
 $why_us = isset($blocks_data['why_us']) ? $blocks_data['why_us'] : array();
 $why_us_pill = ! empty($why_us['pill_text']) ? $why_us['pill_text'] : 'Why us?';
-$why_us_intro_title = ! empty($why_us['intro_title']) ? $why_us['intro_title'] : 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.';
-$why_us_intro_text = ! empty($why_us['intro_text']) ? $why_us['intro_text'] : 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.';
+$default_why_us_intro_title = 'GTS Limousine Service was created for those who expect every moment to reflect precision and class.';
+$default_why_us_intro_text = 'Every journey is coordinated by professionals who understand that timing, presentation, and reliability are not extras — they are essentials.';
+$why_us_intro_title = ! empty($why_us['intro_title']) ? $why_us['intro_title'] : $default_why_us_intro_title;
+$why_us_intro_text = ! empty($why_us['intro_text']) ? $why_us['intro_text'] : $default_why_us_intro_text;
 $why_us_cards = ! empty($why_us['cards']) ? $why_us['cards'] : array();
 
 if (empty($why_us_cards)) {
@@ -159,6 +165,40 @@ if (empty($why_us_cards)) {
 		array('card_type' => 'icon', 'icon' => $site_url . '/wp-content/uploads/2026/01/icon-block-2-4.svg', 'title' => '24/7 Human Support', 'description' => 'Book directly on the website or through<br>your personal manager — 24/7 via<br>messenger, email or phone.'),
 		array('card_type' => 'image', 'image' => $site_url . '/wp-content/uploads/2026/01/home-2-block-2_result.webp', 'title' => 'Seamless coordination', 'description' => 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.'),
 	);
+}
+
+// Page-specific Why Us presets for existing services.
+// Admin values always have priority. Preset fills defaults and missing media only.
+if ('hourly-hire' === $current_service_slug) {
+	$hourly_intro_title = 'GTS Hourly Hire was designed for those who value control, comfort, and impeccable timing.';
+	$hourly_intro_text = 'Every ride is managed by professionals who treat flexibility and precision not as a luxury — but as a standard.';
+	$hourly_image_1 = $site_url . '/wp-content/uploads/2026/01/home-2-block-1-_result.webp';
+	$hourly_image_6 = $site_url . '/wp-content/uploads/2026/01/home-2-block-2_result.webp';
+
+	if ($why_us_intro_title === $default_why_us_intro_title || '' === trim((string) $why_us_intro_title)) {
+		$why_us_intro_title = $hourly_intro_title;
+	}
+	if ($why_us_intro_text === $default_why_us_intro_text || '' === trim((string) $why_us_intro_text)) {
+		$why_us_intro_text = $hourly_intro_text;
+	}
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$card_1_image = isset($why_us_cards[0]['image']) ? trim((string) $why_us_cards[0]['image']) : '';
+		$card_1_icon = isset($why_us_cards[0]['icon']) ? trim((string) $why_us_cards[0]['icon']) : '';
+		if ('' === $card_1_image && '' === $card_1_icon) {
+			$why_us_cards[0]['card_type'] = 'image';
+			$why_us_cards[0]['image'] = $hourly_image_1;
+		}
+	}
+
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$card_6_image = isset($why_us_cards[5]['image']) ? trim((string) $why_us_cards[5]['image']) : '';
+		$card_6_icon = isset($why_us_cards[5]['icon']) ? trim((string) $why_us_cards[5]['icon']) : '';
+		if ('' === $card_6_image && '' === $card_6_icon) {
+			$why_us_cards[5]['card_type'] = 'image';
+			$why_us_cards[5]['image'] = $hourly_image_6;
+		}
+	}
 }
 
 // Occasions defaults
