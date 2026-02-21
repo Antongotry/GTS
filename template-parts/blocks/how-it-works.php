@@ -12,7 +12,7 @@ $step_icon_3 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-3.svg'
 $step_icon_4 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-4.svg';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
 $how_it_works_title = $is_city_to_city
-	? 'Booking with GTS is straightforward — one clear process from request to ride, backed by 24/7 support.'
+	? 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.'
 	: 'We handle the details —<br>you enjoy the moments';
 
 $steps = array(
