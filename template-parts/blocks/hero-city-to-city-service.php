@@ -36,9 +36,9 @@ $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon
 	<div class="hero-container">
 		<div class="hero-left">
 			<div class="hero-content">
-				<h1 class="hero-title">Chauffeur-driven<br>luxury limousine service</h1>
+				<h1 class="hero-title">Private City-to-City long distanse transfers</h1>
 
-				<p class="hero-description">for business leaders and private clients who expect<br>comfort, style, and flawless coordination.</p>
+				<p class="hero-description">Avoid airport stress and rigid schedules. GTS provides private city-to-city rides with</p>
 
 				<div class="hero-buttons">
 					<a href="#" class="btn btn-primary">Book a transfer</a>
