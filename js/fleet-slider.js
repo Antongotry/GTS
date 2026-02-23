@@ -207,4 +207,54 @@
 			openBooking(button.dataset.vehicle || '');
 		});
 	});
+
+	// Full-card navigation for fleet items (all sliders/pages).
+	// Keep native actions for buttons/links inside card and ignore drag gestures.
+	document.querySelectorAll('.fleet-card[data-product-url]').forEach((card) => {
+		const productUrl = card.getAttribute('data-product-url');
+		if (!productUrl) {
+			return;
+		}
+
+		let pointerStart = null;
+
+		card.addEventListener('pointerdown', (event) => {
+			pointerStart = { x: event.clientX, y: event.clientY };
+		});
+
+		card.addEventListener('pointerup', (event) => {
+			if (!pointerStart) {
+				return;
+			}
+			const movedX = Math.abs(event.clientX - pointerStart.x);
+			const movedY = Math.abs(event.clientY - pointerStart.y);
+			card.dataset.dragging = movedX > 8 || movedY > 8 ? '1' : '0';
+			pointerStart = null;
+		});
+
+		card.addEventListener('click', (event) => {
+			if (event.defaultPrevented) {
+				return;
+			}
+			if (card.dataset.dragging === '1') {
+				card.dataset.dragging = '0';
+				return;
+			}
+			if (event.target.closest('a, button, input, select, textarea, label')) {
+				return;
+			}
+			window.location.href = productUrl;
+		});
+
+		card.addEventListener('keydown', (event) => {
+			if (event.target !== card) {
+				return;
+			}
+			if (event.key !== 'Enter' && event.key !== ' ') {
+				return;
+			}
+			event.preventDefault();
+			window.location.href = productUrl;
+		});
+	});
 })();

@@ -119,6 +119,12 @@
 	box-sizing: border-box;
 	height: 100%;
 	pointer-events: auto;
+	cursor: pointer;
+
+	&:focus-visible {
+		outline: 1px solid rgba(255, 255, 255, 0.45);
+		outline-offset: -1px;
+	}
 }
 
 .fleet-card-media {

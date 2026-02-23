@@ -73,7 +73,7 @@ $book_url = $product->is_purchasable() && $product->is_in_stock()
 	: $product->get_permalink();
 ?>
 
-<div class="fleet-card swiper-slide">
+<div class="fleet-card swiper-slide" data-product-url="<?php echo esc_url( $product->get_permalink() ); ?>" role="link" tabindex="0" aria-label="<?php echo esc_attr( sprintf( __( 'Open %s details', 'gts-theme' ), $product->get_name() ) ); ?>">
 	<div class="fleet-card-media">
 		<?php if ( $image_id ) : ?>
 			<?php echo wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'fleet-card-image', 'loading' => 'lazy' ) ); ?>
