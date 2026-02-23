@@ -51,7 +51,7 @@ $section_class = 'fleet-slider-block' . ( $section_mod ? ' ' . $section_mod : ''
 
 			<div class="fleet-slider-title-row">
 			<h2 class="fleet-slider-title">
-				<?php echo esc_html( $title ); ?>
+				<?php echo wp_kses( $title, array( 'br' => array() ) ); ?>
 			</h2>
 			<p class="fleet-slider-lead">
 				<?php echo wp_kses( $lead, array( 'br' => array() ) ); ?>

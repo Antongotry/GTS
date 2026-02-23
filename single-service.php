@@ -679,7 +679,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php if ($is_special_transfers_service) : ?>
 		<style id="special-transfers-fleet-lead-width">
 			.fleet-slider-block.fleet-slider-block--special-transfers .fleet-slider-lead {
-				max-width: 460px;
+				max-width: 560px;
 			}
 		</style>
 	<?php endif; ?>
@@ -1014,7 +1014,9 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			'template-parts/blocks/fleet-slider',
 			null,
 			array(
-				'lead' => 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.',
+				'title' => 'A single standard of excellence —<br>in the air, on land, and at sea.',
+				'lead' => 'GTS partners only with licensed and insured aviation and maritime<br>operators, ensuring world-class safety and service standards.',
+				'category_slugs' => array('light-jets', 'mid-jets', 'super-mid-jets'),
 				'section_modifier' => 'fleet-slider-block--special-transfers',
 			)
 		);
