@@ -360,6 +360,19 @@ if ($is_professional_chauffeur_service) {
 	}
 }
 
+if ($is_special_transfers_service) {
+	$why_us_intro_title = 'GTS Hourly&nbsp;Hire was designed for those<br>who value control, comfort, and<br>impeccable timing.';
+	$why_us_intro_text = 'Every ride is managed by professionals who treat flexibility<br>and precision not as a luxury — but as a standard.';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['description'] = '100+ countries, private terminals,<br>heliports, and marinas — one<br>standard of comfort and precision<br>wherever you travel.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Guaranteed punctuality';
+		$why_us_cards[5]['description'] = 'Real-time tracking and expert coordination<br>ensure every handover — air, sea, or ground —<br>happens exactly on time.';
+	}
+}
+
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
 $occasions_pill = ! empty($occasions['pill_text']) ? $occasions['pill_text'] : 'Full Service';
@@ -385,6 +398,9 @@ if ($is_airport_transfer_service) {
 	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
 }
 if ($is_professional_chauffeur_service) {
+	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
+}
+if ($is_special_transfers_service) {
 	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
 }
 $default_hiw_steps = array(
@@ -657,6 +673,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				.hero-block--professional-chauffeur .hero-features--mobile .hero-feature-bottom-left {
 					padding-left: 0;
 				}
+			}
+		</style>
+	<?php endif; ?>
+	<?php if ($is_special_transfers_service) : ?>
+		<style id="special-transfers-fleet-lead-width">
+			.fleet-slider-block.fleet-slider-block--special-transfers .fleet-slider-lead {
+				max-width: 460px;
 			}
 		</style>
 	<?php endif; ?>
@@ -985,6 +1008,19 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
+	<?php if ($is_special_transfers_service && $block_enabled['fleet']) : ?>
+		<?php
+		get_template_part(
+			'template-parts/blocks/fleet-slider',
+			null,
+			array(
+				'lead' => 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.',
+				'section_modifier' => 'fleet-slider-block--special-transfers',
+			)
+		);
+		?>
+	<?php endif; ?>
+
 	<?php // ======================== WHY US BLOCK ========================
 	?>
 	<?php if ($block_enabled['why_us'] && 'hourly-hire' !== $current_service_slug) : ?>
@@ -1042,7 +1078,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['fleet']) : ?>
+	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service) : ?>
 		<?php
 		$fleet_slider_args = array();
 		if ('hourly-hire' === $current_service_slug) {
@@ -1063,7 +1099,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
