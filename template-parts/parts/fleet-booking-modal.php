@@ -18,10 +18,10 @@
 			<form class="fleet-booking-form" id="fleet-booking-form">
 				<input type="hidden" name="vehicle" id="fleet-vehicle-field" value="">
 				<div class="fleet-form-row fleet-form-row--full">
-					<input type="text" id="fleet-name" name="name" placeholder="<?php echo esc_attr__('Name', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Name', 'gts-theme'); ?>" required>
+					<input type="text" id="fleet-name" name="name" placeholder="<?php echo esc_attr__('Name *', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Name', 'gts-theme'); ?>" required>
 				</div>
 				<div class="fleet-form-row fleet-form-row--half">
-					<input type="tel" id="fleet-phone" name="phone" placeholder="<?php echo esc_attr__('Phone', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Phone', 'gts-theme'); ?>" required>
+					<input type="tel" id="fleet-phone" name="phone" placeholder="<?php echo esc_attr__('Phone *', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Phone', 'gts-theme'); ?>" required>
 				</div>
 				<div class="fleet-form-row fleet-form-row--half">
 					<input type="email" id="fleet-email" name="email" placeholder="<?php echo esc_attr__('Email', 'gts-theme'); ?>" aria-label="<?php echo esc_attr__('Email', 'gts-theme'); ?>" required>

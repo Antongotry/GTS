@@ -113,10 +113,10 @@ $image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_res
 				<!-- Row 1: First and Last name и Phone -->
 				<div class="form-row">
 					<div class="form-group">
-						<input type="text" id="full-name" name="full_name" placeholder="First and Last name" required>
+						<input type="text" id="full-name" name="full_name" placeholder="First and Last name *" required>
 					</div>
 					<div class="form-group">
-						<input type="tel" id="phone" name="phone" placeholder="Phone" required>
+						<input type="tel" id="phone" name="phone" placeholder="Phone *" required>
 					</div>
 				</div>
 

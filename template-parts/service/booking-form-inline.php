@@ -26,10 +26,10 @@ $service_url   = get_permalink();
 	<!-- Row 1: First and Last name и Phone -->
 	<div class="form-row">
 		<div class="form-group">
-			<input type="text" id="full-name" name="full_name" placeholder="<?php esc_attr_e('First and Last name', 'gts-theme'); ?>" required>
+			<input type="text" id="full-name" name="full_name" placeholder="<?php esc_attr_e('First and Last name *', 'gts-theme'); ?>" required>
 		</div>
 		<div class="form-group">
-			<input type="tel" id="phone" name="phone" placeholder="<?php esc_attr_e('Phone', 'gts-theme'); ?>" required>
+			<input type="tel" id="phone" name="phone" placeholder="<?php esc_attr_e('Phone *', 'gts-theme'); ?>" required>
 		</div>
 	</div>
 

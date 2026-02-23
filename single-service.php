@@ -366,8 +366,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					<?php if ($desktop_form_enabled): ?>
 						<form class="booking-form" id="booking-form">
 							<div class="form-row">
-								<div class="form-group"><input type="text" id="full-name" name="full_name" placeholder="First and Last name" required></div>
-								<div class="form-group"><input type="tel" id="phone" name="phone" placeholder="Phone" required></div>
+								<div class="form-group"><input type="text" id="full-name" name="full_name" placeholder="First and Last name *" required></div>
+								<div class="form-group"><input type="tel" id="phone" name="phone" placeholder="Phone *" required></div>
 							</div>
 							<div class="form-row">
 								<div class="form-group"><input type="email" id="email" name="email" placeholder="E-mail" required></div>
@@ -432,8 +432,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						<?php if ($mobile_form_enabled): ?>
 						<form class="booking-form" id="booking-form-mobile">
 							<div class="form-row">
-								<div class="form-group"><input type="text" id="full-name-m" name="full_name" placeholder="First and Last name" required></div>
-								<div class="form-group"><input type="tel" id="phone-m" name="phone" placeholder="Phone" required></div>
+								<div class="form-group"><input type="text" id="full-name-m" name="full_name" placeholder="First and Last name *" required></div>
+								<div class="form-group"><input type="tel" id="phone-m" name="phone" placeholder="Phone *" required></div>
 							</div>
 							<div class="form-row">
 								<div class="form-group"><input type="email" id="email-m" name="email" placeholder="E-mail" required></div>

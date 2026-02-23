@@ -42,7 +42,7 @@ $service_url   = get_permalink();
 
 				<div class="form-row">
 					<div class="form-group">
-						<input type="text" name="full_name" placeholder="<?php esc_attr_e('Full Name', 'gts-theme'); ?>" required>
+						<input type="text" name="full_name" placeholder="<?php esc_attr_e('Full Name *', 'gts-theme'); ?>" required>
 					</div>
 					<div class="form-group">
 						<input type="email" name="email" placeholder="<?php esc_attr_e('Email', 'gts-theme'); ?>" required>
@@ -51,7 +51,7 @@ $service_url   = get_permalink();
 
 				<div class="form-row">
 					<div class="form-group">
-						<input type="tel" name="phone" placeholder="<?php esc_attr_e('Phone', 'gts-theme'); ?>">
+						<input type="tel" name="phone" placeholder="<?php esc_attr_e('Phone *', 'gts-theme'); ?>" required>
 					</div>
 					<div class="form-group">
 						<textarea name="message" rows="3" placeholder="<?php esc_attr_e('Your message', 'gts-theme'); ?>"></textarea>

@@ -230,7 +230,7 @@ $categories = get_terms(
 							<div class="transfer-row">
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Full name*', 'gts-theme' ); ?></label>
-									<input type="text" class="transfer-input" placeholder="First and Last name" name="full_name" required>
+									<input type="text" class="transfer-input" placeholder="First and Last name *" name="full_name" required>
 								</div>
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Phone*', 'gts-theme' ); ?></label>

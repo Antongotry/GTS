@@ -73,6 +73,10 @@
 				if (bookingForm) {
 					bookingForm.addEventListener('submit', (e) => {
 						e.preventDefault();
+						if (!bookingForm.checkValidity()) {
+							bookingForm.reportValidity();
+							return;
+						}
 						closeBooking();
 						openSuccess();
 						bookingForm.reset();
