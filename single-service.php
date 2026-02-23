@@ -1313,7 +1313,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php if ($is_medical_transportation_service && $block_enabled['fleet']) : ?>
 		<?php
 		get_template_part(
-			'template-parts/blocks/fleet-slider'
+			'template-parts/blocks/fleet-slider',
+			null,
+			array(
+				'title' => 'Licensed, insured, and fully confidential',
+				'hide_lead' => true,
+			)
 		);
 		?>
 	<?php endif; ?>

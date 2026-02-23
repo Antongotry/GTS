@@ -35,6 +35,7 @@ if ( empty( $products ) ) {
 
 $title = ! empty( $args['title'] ) ? $args['title'] : 'Every detail matters – from the car you travel in to the person behind the wheel';
 $lead  = ! empty( $args['lead'] ) ? $args['lead'] : 'That’s why every GTS limousine meets strict standards of comfort, safety, and presentation.';
+$hide_lead = ! empty( $args['hide_lead'] );
 $section_mod = ! empty( $args['section_modifier'] ) ? sanitize_html_class( (string) $args['section_modifier'] ) : '';
 $section_class = 'fleet-slider-block' . ( $section_mod ? ' ' . $section_mod : '' );
 ?>
@@ -50,13 +51,15 @@ $section_class = 'fleet-slider-block' . ( $section_mod ? ' ' . $section_mod : ''
 			</div>
 
 			<div class="fleet-slider-title-row">
-			<h2 class="fleet-slider-title">
-				<?php echo wp_kses( $title, array( 'br' => array() ) ); ?>
-			</h2>
-			<p class="fleet-slider-lead">
-				<?php echo wp_kses( $lead, array( 'br' => array() ) ); ?>
-			</p>
-		</div>
+				<h2 class="fleet-slider-title">
+					<?php echo wp_kses( $title, array( 'br' => array() ) ); ?>
+				</h2>
+				<?php if ( ! $hide_lead ) : ?>
+					<p class="fleet-slider-lead">
+						<?php echo wp_kses( $lead, array( 'br' => array() ) ); ?>
+					</p>
+				<?php endif; ?>
+			</div>
 		</div>
 
 		<div class="fleet-slider-wrapper">
