@@ -12,6 +12,7 @@ $current_service_slug = is_singular( 'service' ) ? (string) get_post_field( 'pos
 $is_hourly_hire = ( 'hourly-hire' === $current_service_slug );
 $is_airport_transfer_service = ( 'airport-transfer-service' === $current_service_slug );
 $is_professional_chauffeur_service = ( 'professional-chauffeur-service' === $current_service_slug );
+$is_special_transfers_service = ( 'special-transfers' === $current_service_slug );
 $is_wedding_service = ( 'wedding' === $current_service_slug );
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
@@ -129,6 +130,11 @@ if ( $is_professional_chauffeur_service ) {
 	$item_5_title = 'Private Events';
 	$item_5_description = 'weddings, galas, diplomatic visits,<br>and VIP occasions.';
 
+	$footer_text_enabled = false;
+}
+
+if ( $is_special_transfers_service ) {
+	$section_title = 'Perfect for Any Traveller';
 	$footer_text_enabled = false;
 }
 
