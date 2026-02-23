@@ -371,6 +371,28 @@
 	min-height: 100%;
 }
 
+// Fleet page only: keep category column visually separated from slider cards.
+.page-template-page-fleet .fleet-ground-row {
+	border-bottom: none;
+}
+
+.page-template-page-fleet .fleet-ground-row__left {
+	padding-top: 20px;
+	padding-bottom: 24px;
+	border-top: 1px solid rgba(255, 255, 255, 0.16);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+	@include lg {
+		padding-top: 16px;
+		padding-bottom: 20px;
+	}
+
+	@include md {
+		padding-top: 14px;
+		padding-bottom: 16px;
+	}
+}
+
 .fleet-ground-row__title {
 	font-family: $font__main;
 	font-size: 56px;
