@@ -12,6 +12,7 @@ $current_service_slug = is_singular( 'service' ) ? (string) get_post_field( 'pos
 $is_hourly_hire = ( 'hourly-hire' === $current_service_slug );
 $is_airport_transfer_service = ( 'airport-transfer-service' === $current_service_slug );
 $is_professional_chauffeur_service = ( 'professional-chauffeur-service' === $current_service_slug );
+$is_cultural_sport_events_service = ( 'cultural-sport-events' === $current_service_slug );
 $is_wedding_service = ( 'wedding' === $current_service_slug );
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
@@ -130,6 +131,17 @@ if ( $is_professional_chauffeur_service ) {
 	$item_5_description = 'weddings, galas, diplomatic visits,<br>and VIP occasions.';
 
 	$footer_text_enabled = false;
+}
+
+if ( $is_cultural_sport_events_service ) {
+	$section_title = 'Tailored for Every Event';
+	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/4444_result.webp';
+	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/5555_result.webp';
+	$icon_executive_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-1.svg';
+	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-2.svg';
+	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-3.svg';
+	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-4.svg';
+	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-5.svg';
 }
 
 if ( $is_wedding_service ) {
