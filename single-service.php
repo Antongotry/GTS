@@ -100,6 +100,10 @@ $hero_features_enabled = ! isset($hero['features_enabled']) || (bool) $hero['fea
 $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-1-l.svg');
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
+$hero_feature_2_text = 'Operated by licensed chauffeurs<br>with 24/7 support';
+if ('hourly-hire' === $current_service_slug) {
+	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
+}
 
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_context = isset($blocks_data['service_context']) ? $blocks_data['service_context'] : array();
@@ -354,7 +358,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 								<div class="hero-feature hero-feature-top-right"></div>
 								<div class="hero-feature hero-feature-bottom-left">
 									<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
-									<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
+									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
 								</div>
 								<div class="hero-feature hero-feature-bottom-right">
 									<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
@@ -378,7 +382,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 								</div>
 								<div class="hero-feature hero-feature-bottom-left">
 									<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
-									<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
+									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
 								</div>
 								<div class="hero-feature hero-feature-bottom-right">
 									<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
