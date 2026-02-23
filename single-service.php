@@ -383,6 +383,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					grid-column: 1;
 					grid-row: 1;
 					padding-top: 6px;
+					padding-left: 0;
 				}
 
 				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-top-right {
@@ -395,6 +396,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					grid-column: 1;
 					grid-row: 2;
 					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					padding-left: 0;
 				}
 
 				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-mid-right {
@@ -408,6 +410,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					grid-row: 3;
 					border-top: 1px solid rgba(255, 255, 255, 0.16);
 					padding-bottom: 6px;
+					padding-left: 0;
 				}
 
 				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-bottom-right {
