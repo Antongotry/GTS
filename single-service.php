@@ -57,6 +57,7 @@ $current_service_slug = '';
 if (is_singular('service')) {
 	$current_service_slug = (string) get_post_field('post_name', get_the_ID());
 }
+$is_airport_transfer_service = ('airport-transfer-service' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -100,11 +101,31 @@ $hero_features_enabled = ! isset($hero['features_enabled']) || (bool) $hero['fea
 $hero_icon_1 = file_get_contents(get_template_directory() . '/assets/icons/icon-1-l.svg');
 $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
+$hero_icon_2_markup = $hero_icon_2;
+$hero_icon_3_markup = $hero_icon_3;
+$hero_icon_allowed_tags = gts_allowed_svg_hero();
+$hero_icon_allowed_tags['img'] = array(
+	'src' => true,
+	'alt' => true,
+	'width' => true,
+	'height' => true,
+	'loading' => true,
+	'decoding' => true,
+);
 $hero_feature_2_text = 'Operated by licensed chauffeurs<br>with 24/7 support';
+$hero_feature_3_text = 'Licensed & insured, premium fleet';
 if ('hourly-hire' === $current_service_slug) {
 	$hero_title = 'Hourly Car Hire with<br>Private Chauffeur';
 	$hero_subtitle = 'Enjoy the freedom to travel on your schedule — with<br>a dedicated driver and premium vehicle at your disposal.';
 	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
+}
+if ($is_airport_transfer_service) {
+	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
+	$hero_subtitle = 'for business leaders and private clients who expect<br>comfort, style, and flawless coordination.';
+	$hero_feature_2_text = 'Meet &amp; Greet';
+	$hero_feature_3_text = 'Flight Tracking | 24/7 Coordination';
+	$hero_icon_2_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/meet.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_icon_3_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/ic_baseline-done-all.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 }
 
 // Service Intro defaults (under Hero, no background image / no blur)
@@ -318,6 +339,15 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			}
 		</style>
 	<?php endif; ?>
+	<?php if ($is_airport_transfer_service) : ?>
+		<style id="airport-transfer-hero-title-width">
+			@media (min-width: 1025px) {
+				.hero-block .hero-title {
+					max-width: 960px;
+				}
+			}
+		</style>
+	<?php endif; ?>
 
 	<?php // ======================== HERO BLOCK ========================
 	?>
@@ -359,12 +389,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 								</div>
 								<div class="hero-feature hero-feature-top-right"></div>
 								<div class="hero-feature hero-feature-bottom-left">
-									<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
+									<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
 									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
 								</div>
 								<div class="hero-feature hero-feature-bottom-right">
-									<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
-									<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+									<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
+									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
 								</div>
 							</div>
 							<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
@@ -383,12 +413,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									</div>
 								</div>
 								<div class="hero-feature hero-feature-bottom-left">
-									<div class="hero-feature-icon"><?php echo $hero_icon_2 ? wp_kses($hero_icon_2, gts_allowed_svg_hero()) : ''; ?></div>
+									<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
 									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
 								</div>
 								<div class="hero-feature hero-feature-bottom-right">
-									<div class="hero-feature-icon"><?php echo $hero_icon_3 ? wp_kses($hero_icon_3, gts_allowed_svg_hero()) : ''; ?></div>
-									<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+									<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
+									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
 								</div>
 							</div>
 						<?php endif; ?>
