@@ -218,6 +218,7 @@ if ('hourly-hire' === $current_service_slug) {
 			$why_us_cards[0]['card_type'] = 'image';
 			$why_us_cards[0]['image'] = $hourly_image_1;
 		}
+		$why_us_cards[0]['description'] = 'Consistent excellence in executive<br>and luxury transfers — wherever<br>your journey takes you.';
 	}
 
 	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
@@ -227,6 +228,8 @@ if ('hourly-hire' === $current_service_slug) {
 			$why_us_cards[5]['card_type'] = 'image';
 			$why_us_cards[5]['image'] = $hourly_image_6;
 		}
+		$why_us_cards[5]['title'] = 'Guaranteed punctuality';
+		$why_us_cards[5]['description'] = 'Our chauffeurs track flights and traffic in real<br>time to ensure every pickup happens precisely<br>on schedule.';
 	}
 }
 
