@@ -58,6 +58,7 @@ if (is_singular('service')) {
 	$current_service_slug = (string) get_post_field('post_name', get_the_ID());
 }
 $is_airport_transfer_service = ('airport-transfer-service' === $current_service_slug);
+$is_professional_chauffeur_service = ('professional-chauffeur-service' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -122,6 +123,12 @@ if ('hourly-hire' === $current_service_slug) {
 	$hero_title = 'Hourly Car Hire with<br>Private Chauffeur';
 	$hero_subtitle = 'Enjoy the freedom to travel on your schedule — with<br>a dedicated driver and premium vehicle at your disposal.';
 	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
+}
+if ($is_professional_chauffeur_service) {
+	$hero_title = 'Professional Chauffeur<br>Service — Worldwide';
+	$hero_subtitle = 'GTS provides&nbsp;executive and luxury chauffeur services&nbsp;in over<br>100 countries — ensuring every journey is discreet, punctual,<br>and tailored to you.';
+	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
+	$hero_feature_3_text = 'Business &amp; luxury fleet';
 }
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
@@ -291,12 +298,40 @@ if ($is_airport_transfer_service) {
 	}
 }
 
+if ($is_professional_chauffeur_service) {
+	$why_us_intro_title = 'Your Personal Driver —<br>Anywhere in the World';
+	$why_us_intro_text = 'Every journey is coordinated by professionals who<br>understand that timing, presentation, and reliability are not<br>extras — they are essentials.';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['description'] = 'Seamless&nbsp;airport transfers in 100+<br>countries&nbsp;— the same precision<br>and comfort, no matter where you<br>land.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['description'] = 'Business, premium, and VIP vehicles — late-<br>model, immaculate, and designed for comfort,<br>safety, and style.';
+	}
+	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
+		$why_us_cards[2]['description'] = 'Licensed, experienced and discreet<br>professionals trained in executive protocol and<br>airport procedures to ensure smooth arrivals and<br>departures.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['description'] = 'Trusted by corporate and VIP travellers —<br>confidential coordination, safety-first standards,<br>and calm professionalism.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['description'] = 'A personal manager or live agent<br>always available — by website,<br>WhatsApp, or email, in any time zone.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Guaranteed punctuality';
+		$why_us_cards[5]['description'] = 'Real-time flight and traffic tracking — every<br>pickup and drop-off timed to perfection.';
+	}
+}
+
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
 $occasions_pill = ! empty($occasions['pill_text']) ? $occasions['pill_text'] : 'Full Service';
 $occasions_title = ! empty($occasions['title']) ? $occasions['title'] : 'Perfect for Every Occasion';
 $occasions_footer = ! empty($occasions['footer_text']) ? $occasions['footer_text'] : "Whether it's a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.";
 if ($is_airport_transfer_service) {
+	$occasions['title'] = 'Perfect for Any Traveller';
+}
+if ($is_professional_chauffeur_service) {
 	$occasions['title'] = 'Perfect for Any Traveller';
 }
 
@@ -530,6 +565,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			}
 
 			.fleet-slider-block.fleet-slider-block--airport-transfer .fleet-slider-lead {
+				max-width: 440px;
+			}
+		</style>
+	<?php endif; ?>
+	<?php if ($is_professional_chauffeur_service) : ?>
+		<style id="professional-chauffeur-fleet-lead-width">
+			.fleet-slider-block.fleet-slider-block--professional-chauffeur .fleet-slider-lead {
 				max-width: 440px;
 			}
 		</style>
@@ -892,7 +934,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== FLEET BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && $is_airport_transfer_service) : ?>
+	<?php if ($block_enabled['occasions'] && ($is_airport_transfer_service || $is_professional_chauffeur_service)) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
@@ -915,13 +957,17 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			$fleet_slider_args['lead'] = 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.';
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--airport-transfer';
 		}
+		if ($is_professional_chauffeur_service) {
+			$fleet_slider_args['lead'] = 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.';
+			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--professional-chauffeur';
+		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
 		?>
 	<?php endif; ?>
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
