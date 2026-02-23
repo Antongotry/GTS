@@ -1040,6 +1040,18 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
+	<?php if ($is_wedding_service && $block_enabled['occasions']) : ?>
+		<?php
+		get_template_part(
+			'template-parts/blocks/occasions',
+			null,
+			array(
+				'block' => $occasions,
+			)
+		);
+		?>
+	<?php endif; ?>
+
 	<?php if ($is_special_transfers_service && $block_enabled['fleet']) : ?>
 		<?php
 		get_template_part(
@@ -1133,7 +1145,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
