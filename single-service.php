@@ -63,6 +63,7 @@ $is_special_transfers_service = ('special-transfers' === $current_service_slug);
 $is_wedding_service = ('wedding' === $current_service_slug);
 $is_cultural_sport_events_service = ('cultural-sport-events' === $current_service_slug);
 $is_family_travel_chauffeur_service = ('family-travel-chauffeur-service' === $current_service_slug);
+$is_medical_transportation_service = ('medical-transportation' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -157,6 +158,11 @@ if ($is_family_travel_chauffeur_service) {
 	$hero_subtitle = 'Premium comfort and safety for every generation. From airport<br>pickups to family getaways — GTS ensures smooth, secure, and<br>perfectly coordinated travel for you and your loved ones.';
 	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
 	$hero_feature_3_text = 'Business &amp; luxury vehicles';
+}
+if ($is_medical_transportation_service) {
+	$hero_subtitle = 'For medical appointments, post-surgery transfers, or travel requiring<br>special attention —&nbsp;GTS Medical Transportation Service&nbsp;provides safe,<br>comfortable, and fully coordinated journeys.';
+	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
+	$hero_feature_3_text = 'Premium&nbsp;&nbsp;vehicles';
 }
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
@@ -328,6 +334,10 @@ if ($is_family_travel_chauffeur_service) {
 			'description' => 'Plan family trips confidently — across cities or countries — with one trusted service and consistent comfort everywhere.',
 		),
 	);
+}
+if ($is_medical_transportation_service) {
+	$service_intro_title = 'A trusted service for patients<br>and families';
+	$service_intro_description = 'We support individuals, families, and medical institutions with professional logistics<br>— whether it’s a hospital discharge, rehabilitation transfer, or patient relocation<br>between countries.';
 }
 
 // Booking Form - unified block with desktop and mobile sections
@@ -921,11 +931,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_family_travel_chauffeur_service) : ?>
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<?php elseif ($is_medical_transportation_service) : ?>
+												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Medical-Transportation-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php else : ?>
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : 'Available in 100+ countries'))); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : 'Available in 100+ countries')))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -979,11 +991,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_family_travel_chauffeur_service) : ?>
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<?php elseif ($is_medical_transportation_service) : ?>
+												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Medical-Transportation-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php else : ?>
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : 'Available in 100+ countries'))); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : 'Available in 100+ countries')))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
