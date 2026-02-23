@@ -4980,6 +4980,7 @@ a.phone-button:focus,
 }
 
 .page-template-page-fleet .fleet-ground-row {
+  border-top: none;
   border-bottom: none;
 }
 

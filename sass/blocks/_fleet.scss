@@ -373,6 +373,7 @@
 
 // Fleet page only: keep category column visually separated from slider cards.
 .page-template-page-fleet .fleet-ground-row {
+	border-top: none;
 	border-bottom: none;
 }
 
