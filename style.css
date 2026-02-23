@@ -5003,6 +5003,14 @@ a.phone-button:focus,
   }
 }
 
+.page-template-page-fleet .fleet-ground-row__desc {
+  margin-top: auto;
+}
+
+.page-template-page-fleet .fleet-ground-row__view {
+  margin-top: 0;
+}
+
 .fleet-ground-row__title {
   font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 56px;
