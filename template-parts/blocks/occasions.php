@@ -219,7 +219,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 					<img src="<?php echo esc_url( $icon_events_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
 				<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html( $item_5_title ); ?></h3>
-				<p class="why-us-item-description occasions-card-description--dark"><?php echo esc_html( $item_5_description ); ?></p>
+				<p class="why-us-item-description occasions-card-description--dark"><?php echo wp_kses_post( $item_5_description ); ?></p>
 			</div>
 
 			<div class="why-us-item why-us-item-6 occasions-footer-item">
