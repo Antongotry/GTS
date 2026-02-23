@@ -928,13 +928,13 @@ if ($is_travel_planninig_service) {
 		),
 		array(
 			'number' => '02',
-			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
 			'title' => 'Receive a tailored<br>travel plan',
 			'description' => 'A clear, structured itinerary with coordinated<br>services and recommendations.',
 		),
 		array(
 			'number' => '03',
-			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-3.svg',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
 			'title' => 'Review &amp; confirm',
 			'description' => 'Adjust details and confirm the plan aligned<br>with your expectations.',
 		),
