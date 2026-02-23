@@ -536,6 +536,33 @@ if ($is_travel_personal_interpreter_service) {
 		),
 	);
 }
+if ($is_travel_planninig_service) {
+	$service_intro_title = 'Designed Around Your<br>Travel Needs';
+	$service_intro_description = '';
+	$service_intro_button_text = '';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-1.svg',
+			'title'       => 'Personalised itineraries',
+			'description' => 'Each travel plan is built around your goals, timing, and preferences — not templates.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-2.svg',
+			'title'       => 'Logical flow and timing',
+			'description' => 'Routes, transfers, stays, and appointments aligned to minimise friction and wasted time.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-3.svg',
+			'title'       => 'Integrated services',
+			'description' => 'Chauffeur, interpreter, mobility, and on-the-ground support coordinated within one plan.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-4.svg',
+			'title'       => 'Flexibility built in',
+			'description' => 'Plans adapt easily as schedules change or new priorities emerge.',
+		),
+	);
+}
 
 // Booking Form - unified block with desktop and mobile sections
 $booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
