@@ -501,8 +501,20 @@ if ($is_cultural_sport_events_service) {
 	}
 }
 if ($is_family_travel_chauffeur_service) {
+	$why_us_intro_title = 'Why Choose GTS for Your<br>Wedding or Private Event';
+	$why_us_intro_text = '';
+
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['description'] = '100+ countries, private terminals,<br>heliports, and marinas — one<br>standard of comfort and precision<br>wherever you travel.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['description'] = 'Trusted by corporate and VIP clients —<br>confidential coordination, safety-first standards,<br>and calm professionalism.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['description'] = 'A personal manager or live agent<br>always available — by website,<br>WhatsApp, or email, in any time zone.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['description'] = 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
 	}
 }
 
