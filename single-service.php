@@ -441,6 +441,33 @@ if ($is_medical_transportation_service) {
 		),
 	);
 }
+if ($is_travel_personal_interpreter_service) {
+	$service_intro_title = 'Designed Around Your<br>Travel Needs';
+	$service_intro_description = '';
+	$service_intro_button_text = '';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-1.svg',
+			'title'       => 'In-person language support',
+			'description' => 'Professional interpreters accompany you on-site — not remotely or via apps.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-2.svg',
+			'title'       => 'Flexible scheduling',
+			'description' => 'Hourly, daily, or multi-day interpreter support aligned with your itinerary.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-3.svg',
+			'title'       => 'Context-aware interpretation',
+			'description' => 'We interpret not only words, but intent, cultural nuances, and professional tone.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-4.svg',
+			'title'       => 'Discreet professional presence',
+			'description' => 'Our interpreters work quietly in the background, supporting communication without drawing attention.',
+		),
+	);
+}
 
 // Booking Form - unified block with desktop and mobile sections
 $booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
@@ -1294,10 +1321,14 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<span class="why-us-heading-text"><?php echo esc_html( $service_intro_pill ); ?></span>
 						</div>
 					<?php endif; ?>
-					<h2 class="final-cta-title"><?php echo wp_kses_post($service_intro_title); ?></h2>
-					<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
-					<a href="<?php echo esc_url($service_intro_button_link); ?>" class="btn btn-primary final-cta-button"><?php echo esc_html($service_intro_button_text); ?></a>
-				</div>
+						<h2 class="final-cta-title"><?php echo wp_kses_post($service_intro_title); ?></h2>
+						<?php if (!empty($service_intro_description)) : ?>
+							<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
+						<?php endif; ?>
+						<?php if (!empty($service_intro_button_text)) : ?>
+							<a href="<?php echo esc_url($service_intro_button_link); ?>" class="btn btn-primary final-cta-button"><?php echo esc_html($service_intro_button_text); ?></a>
+						<?php endif; ?>
+					</div>
 
 				<div class="final-cta-right final-cta-right--desktop final-cta-right--service">
 					<?php foreach ($service_intro_items as $intro_item) :
