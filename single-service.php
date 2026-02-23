@@ -1040,7 +1040,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($is_wedding_service && $block_enabled['occasions']) : ?>
+	<?php if ($is_wedding_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
