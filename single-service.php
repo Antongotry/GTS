@@ -1773,10 +1773,10 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($is_special_transfers_service && $block_enabled['fleet']) : ?>
-		<?php
-		get_template_part(
-			'template-parts/blocks/fleet-slider',
+		<?php if ($is_special_transfers_service && $block_enabled['fleet']) : ?>
+			<?php
+			get_template_part(
+				'template-parts/blocks/fleet-slider',
 			null,
 			array(
 				'title' => 'A single standard of excellence —<br>in the air, on land, and at sea.',
@@ -1784,13 +1784,21 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				'category_slugs' => array('light-jets', 'mid-jets', 'super-mid-jets'),
 				'section_modifier' => 'fleet-slider-block--special-transfers',
 			)
-		);
-		?>
-	<?php endif; ?>
+			);
+			?>
+		<?php endif; ?>
 
-	<?php // ======================== WHY US BLOCK ========================
-	?>
-	<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug) : ?>
+		<?php if ($is_shoping_service && $block_enabled['fleet']) : ?>
+			<?php
+			get_template_part(
+				'template-parts/blocks/fleet-slider'
+			);
+			?>
+		<?php endif; ?>
+
+		<?php // ======================== WHY US BLOCK ========================
+		?>
+		<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug) : ?>
 		<section class="why-us-block">
 			<div class="why-us-container">
 				<div class="why-us-heading">
@@ -1847,7 +1855,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service) : ?>
+		<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_shoping_service) : ?>
 		<?php
 		$fleet_slider_args = array();
 		if ('hourly-hire' === $current_service_slug) {
