@@ -7422,15 +7422,9 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .booking-form-block--mobile {
     display: block;
-    margin-top: -150px;
+    margin-top: 0;
     position: relative;
     z-index: 5;
-  }
-}
-
-@media (max-width: 768px) {
-  .single-service .booking-form-block--mobile {
-    margin-top: 0;
   }
 }
 
