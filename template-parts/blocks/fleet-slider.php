@@ -52,7 +52,7 @@ $lead  = ! empty( $args['lead'] ) ? $args['lead'] : 'That’s why every GTS limo
 				<?php echo esc_html( $title ); ?>
 			</h2>
 			<p class="fleet-slider-lead">
-				<?php echo esc_html( $lead ); ?>
+				<?php echo wp_kses( $lead, array( 'br' => array() ) ); ?>
 			</p>
 		</div>
 		</div>
