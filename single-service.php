@@ -420,6 +420,62 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					padding-bottom: 6px;
 				}
 			}
+
+			@media (max-width: 768px) {
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport {
+					grid-template-rows: repeat(3, minmax(0, auto));
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport::after {
+					display: none;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport .hero-feature {
+					padding: 12px 8px;
+					gap: 12px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport .hero-feature-airport-top-left {
+					grid-column: 1;
+					grid-row: 1;
+					padding-left: 0;
+					padding-top: 8px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport .hero-feature-airport-top-right {
+					grid-column: 2;
+					grid-row: 1;
+					padding-top: 8px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport .hero-feature-airport-mid-left {
+					grid-column: 1;
+					grid-row: 2;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					padding-left: 0;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport .hero-feature-airport-mid-right {
+					grid-column: 2;
+					grid-row: 2;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport .hero-feature-airport-bottom-left {
+					grid-column: 1;
+					grid-row: 3;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					padding-left: 0;
+					padding-bottom: 8px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--mobile-airport .hero-feature-airport-bottom-right {
+					grid-column: 2;
+					grid-row: 3;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					padding-bottom: 8px;
+				}
+			}
 		</style>
 	<?php endif; ?>
 
@@ -497,30 +553,56 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									</div>
 								</div>
 							<?php endif; ?>
-							<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
-								<div class="hero-feature hero-feature-top-left">
-									<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
-									<p class="hero-feature-text">Available in 100+ countries</p>
-								</div>
-								<div class="hero-feature hero-feature-top-right hero-feature-map">
-									<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
-									<div class="world-map-text">
-										<p class="world-map-label world-map-label-top">clients in</p>
-										<div class="world-map-bottom">
-											<p class="world-map-number"><?php echo esc_html($mobile_form_stats_number); ?></p>
-											<p class="world-map-label world-map-label-bottom"><?php echo esc_html($mobile_form_stats_label); ?></p>
-										</div>
+							<?php if ($is_airport_transfer_service) : ?>
+								<div class="hero-features hero-features--mobile hero-features--mobile-in-hero hero-features--mobile-airport">
+									<div class="hero-feature hero-feature-airport-top-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
+										<p class="hero-feature-text">Available in 100+ countries</p>
+									</div>
+									<div class="hero-feature hero-feature-airport-top-right" aria-hidden="true"></div>
+									<div class="hero-feature hero-feature-airport-mid-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-airport-mid-right">
+										<div class="hero-feature-icon"><?php echo $hero_airport_meet_icon_markup ? wp_kses($hero_airport_meet_icon_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_airport_meet_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-airport-bottom-left">
+										<div class="hero-feature-icon"><?php echo $hero_airport_flight_icon_markup ? wp_kses($hero_airport_flight_icon_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_airport_flight_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-airport-bottom-right">
+										<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
 									</div>
 								</div>
-								<div class="hero-feature hero-feature-bottom-left">
-									<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
-									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
+							<?php else : ?>
+								<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
+									<div class="hero-feature hero-feature-top-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
+										<p class="hero-feature-text">Available in 100+ countries</p>
+									</div>
+									<div class="hero-feature hero-feature-top-right hero-feature-map">
+										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
+										<div class="world-map-text">
+											<p class="world-map-label world-map-label-top">clients in</p>
+											<div class="world-map-bottom">
+												<p class="world-map-number"><?php echo esc_html($mobile_form_stats_number); ?></p>
+												<p class="world-map-label world-map-label-bottom"><?php echo esc_html($mobile_form_stats_label); ?></p>
+											</div>
+										</div>
+									</div>
+									<div class="hero-feature hero-feature-bottom-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-bottom-right">
+										<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
+									</div>
 								</div>
-								<div class="hero-feature hero-feature-bottom-right">
-									<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
-									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
-								</div>
-							</div>
+							<?php endif; ?>
 						<?php endif; ?>
 					</div>
 				</div>
