@@ -526,6 +526,18 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 	<?php endif; ?>
 
+	<?php if ('hourly-hire' === $current_service_slug && $block_enabled['occasions']) : ?>
+		<?php
+		get_template_part(
+			'template-parts/blocks/occasions',
+			null,
+			array(
+				'block' => $occasions,
+			)
+		);
+		?>
+	<?php endif; ?>
+
 	<?php // ======================== WHY US BLOCK ========================
 	?>
 	<?php if ($block_enabled['why_us']) : ?>
@@ -577,7 +589,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions']) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
