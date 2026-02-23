@@ -577,6 +577,50 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			.fleet-slider-block.fleet-slider-block--professional-chauffeur .fleet-slider-lead {
 				max-width: 460px;
 			}
+
+			@media (min-width: 1025px) {
+				.hero-block--professional-chauffeur .hero-container {
+					gap: 24px;
+				}
+
+				.hero-block--professional-chauffeur .hero-left {
+					width: clamp(760px, 58vw, 868px);
+					flex: 0 0 clamp(760px, 58vw, 868px);
+				}
+
+				.hero-block--professional-chauffeur .hero-right {
+					width: clamp(410px, 28vw, 468px);
+					flex: 0 0 clamp(410px, 28vw, 468px);
+				}
+
+				.hero-block--professional-chauffeur .hero-title {
+					max-width: 868px;
+				}
+
+				.hero-block--professional-chauffeur .hero-features .hero-feature {
+					padding-left: 24px;
+					padding-right: 24px;
+					gap: 18px;
+				}
+
+				.hero-block--professional-chauffeur .hero-features .hero-feature-top-left,
+				.hero-block--professional-chauffeur .hero-features .hero-feature-bottom-left {
+					padding-left: 0;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.hero-block--professional-chauffeur .hero-features--mobile .hero-feature {
+					padding-left: 16px;
+					padding-right: 16px;
+					gap: 14px;
+				}
+
+				.hero-block--professional-chauffeur .hero-features--mobile .hero-feature-top-left,
+				.hero-block--professional-chauffeur .hero-features--mobile .hero-feature-bottom-left {
+					padding-left: 0;
+				}
+			}
 		</style>
 	<?php endif; ?>
 
@@ -600,7 +644,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			}
 		</style>
-		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?>">
+		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?><?php echo $is_professional_chauffeur_service ? ' hero-block--professional-chauffeur' : ''; ?>">
 			<div class="hero-container">
 				<div class="hero-left">
 					<div class="hero-content<?php echo $hero_features_enabled ? '' : ' hero-content--no-features'; ?>">
