@@ -12,8 +12,6 @@ $current_service_slug = is_singular( 'service' ) ? (string) get_post_field( 'pos
 $is_hourly_hire = ( 'hourly-hire' === $current_service_slug );
 $is_airport_transfer_service = ( 'airport-transfer-service' === $current_service_slug );
 $is_professional_chauffeur_service = ( 'professional-chauffeur-service' === $current_service_slug );
-$is_special_transfers_service = ( 'special-transfers' === $current_service_slug );
-$is_wedding_service = ( 'wedding' === $current_service_slug );
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
@@ -133,57 +131,6 @@ if ( $is_professional_chauffeur_service ) {
 	$footer_text_enabled = false;
 }
 
-if ( $is_special_transfers_service ) {
-	$section_title = 'Perfect for Any Traveller';
-	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/professional-chauffeur-service_result.webp';
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/345_result.webp';
-
-	$item_1_title = 'Weddings & Engagements';
-	$item_1_description = 'Luxury car service for the couple, guests, and family';
-
-	$item_2_title = 'Anniversaries & Private Parties';
-	$item_2_description = 'premium cars and attentive service<br>for every guest.';
-
-	$item_3_title = 'Corporate Receptions & Galas';
-	$item_3_description = 'reliable logistics for high-profile<br>attendees.';
-
-	$item_4_title = 'Diplomatic & Red-Carpet Events';
-	$item_4_description = 'protocol-compliant transfers with full discretion.';
-
-	$item_5_title = 'Destination Weddings';
-	$item_5_description = 'seamless coordination in 100+ countries,<br>from resorts to private estates.';
-
-	$footer_text_enabled = false;
-}
-
-if ( $is_wedding_service ) {
-	$section_title = 'Perfect for Any Traveller';
-	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/professional-chauffeur-service_result.webp';
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/345_result.webp';
-	$icon_executive_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-1-2.svg';
-	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-2-2.svg';
-	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/1123.svg';
-	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-3-2.svg';
-	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-5-1.svg';
-
-	$item_1_title = 'Weddings & Engagements';
-	$item_1_description = 'Luxury car service for the couple, guests, and family';
-
-	$item_2_title = 'Anniversaries & Private Parties';
-	$item_2_description = 'premium cars and attentive service<br>for every guest.';
-
-	$item_3_title = 'Corporate Receptions & Galas';
-	$item_3_description = 'reliable logistics for high-profile<br>attendees.';
-
-	$item_4_title = 'Diplomatic & Red-Carpet Events';
-	$item_4_description = 'protocol-compliant transfers with full discretion.';
-
-	$item_5_title = 'Destination Weddings';
-	$item_5_description = 'seamless coordination in 100+ countries,<br>from resorts to private estates.';
-
-	$footer_text_enabled = false;
-}
-
 $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidden';
 ?>
 
@@ -243,7 +190,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 					<img src="<?php echo esc_url( $icon_events_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
 				<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html( $item_5_title ); ?></h3>
-				<p class="why-us-item-description occasions-card-description--dark"><?php echo wp_kses_post( $item_5_description ); ?></p>
+				<p class="why-us-item-description occasions-card-description--dark"><?php echo esc_html( $item_5_description ); ?></p>
 			</div>
 
 			<div class="why-us-item why-us-item-6 occasions-footer-item">

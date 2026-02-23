@@ -60,7 +60,6 @@ if (is_singular('service')) {
 $is_airport_transfer_service = ('airport-transfer-service' === $current_service_slug);
 $is_professional_chauffeur_service = ('professional-chauffeur-service' === $current_service_slug);
 $is_special_transfers_service = ('special-transfers' === $current_service_slug);
-$is_wedding_service = ('wedding' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -140,11 +139,6 @@ if ($is_special_transfers_service) {
 	$hero_icon_3_markup = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 	$hero_feature_2_text = '24/7 coordination';
 	$hero_feature_3_text = 'Business &amp; luxury fleet';
-}
-if ($is_wedding_service) {
-	$hero_subtitle = 'From elegant bridal arrivals to seamless guest transfers — GTS<br>ensures your celebration runs perfectly on time and in perfect style.';
-	$hero_feature_2_text = 'Experienced chauffeurs';
-	$hero_feature_3_text = 'Licensed &amp; insured, premium fleet';
 }
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
@@ -231,32 +225,6 @@ if ($is_special_transfers_service) {
 			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-4.svg',
 			'title'       => 'Discreet service',
 			'description' => 'trusted by executives, diplomats, and VIP clients worldwide.',
-		),
-	);
-}
-if ($is_wedding_service) {
-	$service_intro_title = 'Your Day, Perfectly Orchestrated';
-	$service_intro_description = 'From intimate ceremonies to large-scale events, GTS delivers premium&nbsp;wedding and<br>private event chauffeur servicesdesigned to match your schedule, theme, and<br>expectations.';
-	$service_intro_items = array(
-		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-1.svg',
-			'title'       => 'Elegant Arrivals',
-			'description' => 'arrive gracefully in a spotless luxury car driven by a professional chauffeur.',
-		),
-		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-2.svg',
-			'title'       => 'Flawless Timing',
-			'description' => 'seamless coordination between planners, photographers, and venues.',
-		),
-		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-3.svg',
-			'title'       => 'Flexible Scheduling',
-			'description' => 'we adapt to your pace, even if the day runs longer than planned.',
-		),
-		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-4.svg',
-			'title'       => 'Discreet Presence',
-			'description' => 'uniformed chauffeurs trained in etiquette and event protocol.',
 		),
 	);
 }
@@ -783,7 +751,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : 'Available in 100+ countries'); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : 'Available in 100+ countries'; ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -839,7 +807,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : 'Available in 100+ countries'); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : 'Available in 100+ countries'; ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
@@ -1040,26 +1008,6 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($is_wedding_service) : ?>
-		<?php
-		get_template_part(
-			'template-parts/blocks/occasions',
-			null,
-			array(
-				'block' => $occasions,
-			)
-		);
-		?>
-	<?php endif; ?>
-
-	<?php if ($is_wedding_service && $block_enabled['fleet']) : ?>
-		<?php
-		get_template_part(
-			'template-parts/blocks/fleet-slider'
-		);
-		?>
-	<?php endif; ?>
-
 	<?php if ($is_special_transfers_service && $block_enabled['fleet']) : ?>
 		<?php
 		get_template_part(
@@ -1120,7 +1068,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== FLEET BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && ($is_airport_transfer_service || $is_professional_chauffeur_service || $is_special_transfers_service)) : ?>
+	<?php if ($block_enabled['occasions'] && ($is_airport_transfer_service || $is_professional_chauffeur_service)) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
@@ -1132,7 +1080,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service && ! $is_wedding_service) : ?>
+	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service) : ?>
 		<?php
 		$fleet_slider_args = array();
 		if ('hourly-hire' === $current_service_slug) {
@@ -1153,7 +1101,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
