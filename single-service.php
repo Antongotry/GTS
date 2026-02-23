@@ -59,6 +59,7 @@ if (is_singular('service')) {
 }
 $is_airport_transfer_service = ('airport-transfer-service' === $current_service_slug);
 $is_professional_chauffeur_service = ('professional-chauffeur-service' === $current_service_slug);
+$is_special_transfers_service = ('special-transfers' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -128,6 +129,15 @@ if ($is_professional_chauffeur_service) {
 	$hero_title = 'Professional Chauffeur<br>Service — Worldwide';
 	$hero_subtitle = 'GTS provides&nbsp;executive and luxury chauffeur services&nbsp;in over<br>100 countries — ensuring every journey is discreet, punctual,<br>and tailored to you.';
 	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
+	$hero_feature_3_text = 'Business &amp; luxury fleet';
+}
+if ($is_special_transfers_service) {
+	$hero_title = 'Special Transfers — Air,<br>Sea &amp; VIP Transport';
+	$hero_subtitle = 'Private jets, helicopters, yachts, and luxury ground transfers — all<br>coordinated through one trusted service. Wherever your destination,<br>GTS ensures seamless movement across air, sea, and land with<br>absolute precision and discretion.';
+	$hero_icon_1 = '';
+	$hero_icon_2_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_icon_3_markup = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
+	$hero_feature_2_text = '24/7 coordination';
 	$hero_feature_3_text = 'Business &amp; luxury fleet';
 }
 if ($is_airport_transfer_service) {
@@ -684,8 +694,14 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<?php else : ?>
 								<div class="hero-features">
 									<div class="hero-feature hero-feature-top-left">
-										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
-										<p class="hero-feature-text">Available in 100+ countries</p>
+										<div class="hero-feature-icon">
+											<?php if ($is_special_transfers_service) : ?>
+												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<?php else : ?>
+												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
+											<?php endif; ?>
+										</div>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : 'Available in 100+ countries'; ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -734,8 +750,14 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<?php else : ?>
 								<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
 									<div class="hero-feature hero-feature-top-left">
-										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
-										<p class="hero-feature-text">Available in 100+ countries</p>
+										<div class="hero-feature-icon">
+											<?php if ($is_special_transfers_service) : ?>
+												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<?php else : ?>
+												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
+											<?php endif; ?>
+										</div>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : 'Available in 100+ countries'; ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
