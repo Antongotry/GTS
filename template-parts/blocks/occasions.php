@@ -8,6 +8,8 @@
 
 $site_url = get_site_url();
 $block = isset( $args['block'] ) && is_array( $args['block'] ) ? $args['block'] : array();
+$current_service_slug = is_singular( 'service' ) ? (string) get_post_field( 'post_name', get_the_ID() ) : '';
+$is_hourly_hire = ( 'hourly-hire' === $current_service_slug );
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
@@ -47,6 +49,33 @@ $footer_text = $is_city_to_city
 	: 'Whether it\'s a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.';
 $footer_text = ! empty( $block['footer_text'] ) ? $block['footer_text'] : $footer_text;
 $footer_text_enabled = ! isset( $block['footer_text_enabled'] ) || (bool) $block['footer_text_enabled'];
+
+if ( $is_hourly_hire ) {
+	$image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
+	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/1_result.webp';
+
+	$item_1_title = 'Business Days & Meetings';
+	$item_1_description = 'private, quiet space to work or rest between<br>meetings and cities.';
+
+	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/healthicons_i-groups-perspective-crowd.svg';
+	$item_2_title = 'Events & Conferences';
+	$item_2_description = 'connecting airports made easy and<br>comfortable.';
+
+	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_film-open.svg';
+	$item_3_title = 'Film, Production & Media Crews';
+	$item_3_description = 'flexible hours and reliable<br>coordination.';
+
+	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/fluent_premium-12-filled.svg';
+	$item_4_title = 'Delegations & VIP Guests';
+	$item_4_description = 'continuous support and absolute discretion.';
+
+	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/icon-park-solid_calendar.svg';
+	$item_5_title = 'Private Errands & Leisure';
+	$item_5_description = 'shopping, family visits, sightseeing —<br>all on your schedule.';
+
+	$footer_text_enabled = false;
+}
+
 $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidden';
 ?>
 
