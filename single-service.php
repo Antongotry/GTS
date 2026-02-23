@@ -607,7 +607,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php
 		$fleet_slider_args = array();
 		if ('hourly-hire' === $current_service_slug) {
-			$fleet_slider_args['lead'] = 'That’s why every GTS limousine meets strict standards of comfort, safety, and presentation.';
+			$fleet_slider_args['lead'] = 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.';
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--hourly-hire';
 		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
