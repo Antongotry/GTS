@@ -723,6 +723,33 @@ if ($is_medical_transportation_service) {
 }
 if ($is_travel_personal_interpreter_service) {
 	$hiw_bg = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-1000002275_result-scaled.webp';
+	$hiw_title = 'You focus on your meetings<br>and plans. We ensure clear<br>communication.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your<br>requirements',
+			'description' => 'Languages needed, locations, schedule, and<br>context of interpretation.',
+		),
+		array(
+			'number' => '02',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Receive a tailored<br>proposal',
+			'description' => 'Clear scope of services, availability, and<br>transparent pricing.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-3.svg',
+			'title' => 'Confirm &amp;<br>coordinate',
+			'description' => 'We assign a qualified interpreter aligned with<br>your needs.',
+		),
+		array(
+			'number' => '04',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-4.svg',
+			'title' => 'Travel with<br>confidence',
+			'description' => 'Communication handled professionally<br>wherever you go.',
+		),
+	);
 }
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
