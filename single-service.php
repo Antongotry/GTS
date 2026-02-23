@@ -335,6 +335,62 @@ if ($is_travel_planninig_service) {
 		),
 	);
 }
+if ($is_shoping_service) {
+	$service_context = array(
+		'pill_text' => 'Full Service',
+		'title' => 'Perfect for Every Purpose',
+		'variant' => 'purpose',
+		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325492_result.webp',
+		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/23124515_result.webp',
+		'cards' => array(
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-1.svg',
+				'text' => 'Boutique shopping across<br>multiple districts',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325492_result.webp',
+				'col_start' => 2, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-2.svg',
+				'text' => 'Designer outlets and<br>premium shopping malls',
+				'col_start' => 3, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/23124515_result.webp',
+				'col_start' => 4, 'col_span' => 2, 'row_start' => 1, 'row_span' => 2, 'mobile_span' => 2,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'light',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-3.svg',
+				'text' => 'Personal shopping sessions<br>and private appointments',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-4.svg',
+				'text' => 'Multi-location shopping<br>itineraries in one or several<br>cities',
+				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-5.svg',
+				'text' => 'Shopping during business<br>trips or travel',
+				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+		),
+	);
+}
 
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
