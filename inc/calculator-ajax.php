@@ -240,16 +240,46 @@ function gts_ajax_address_suggestions() {
 		if ( 'country' === $type ) {
 			$value = isset( $address['country'] ) ? (string) $address['country'] : '';
 		} elseif ( 'city' === $type ) {
+			$parts = array();
 			if ( ! empty( $address['city'] ) ) {
-				$value = (string) $address['city'];
+				$parts[] = (string) $address['city'];
 			} elseif ( ! empty( $address['town'] ) ) {
-				$value = (string) $address['town'];
+				$parts[] = (string) $address['town'];
 			} elseif ( ! empty( $address['village'] ) ) {
-				$value = (string) $address['village'];
+				$parts[] = (string) $address['village'];
 			} elseif ( ! empty( $address['municipality'] ) ) {
-				$value = (string) $address['municipality'];
+				$parts[] = (string) $address['municipality'];
 			} elseif ( ! empty( $address['state'] ) ) {
-				$value = (string) $address['state'];
+				$parts[] = (string) $address['state'];
+			}
+
+			if ( ! empty( $address['state'] ) && ( empty( $parts ) || $address['state'] !== $parts[0] ) ) {
+				$parts[] = (string) $address['state'];
+			}
+
+			if ( ! empty( $address['country'] ) ) {
+				$parts[] = (string) $address['country'];
+			}
+
+			$parts = array_values(
+				array_filter(
+					array_map(
+						static function ( $part ) {
+							return trim( (string) $part );
+						},
+						$parts
+					),
+					static function ( $part ) {
+						return '' !== $part;
+					}
+				)
+			);
+
+			$parts = array_unique( $parts );
+			$value = implode( ', ', $parts );
+
+			if ( '' === $value ) {
+				$value = (string) $item['display_name'];
 			}
 		} else {
 			$value = (string) $item['display_name'];
