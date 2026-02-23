@@ -286,6 +286,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 ?>
 
 <main id="primary" class="site-main">
+	<?php if ('hourly-hire' === $current_service_slug) : ?>
+		<style id="hourly-hire-why-us-gap">
+			.why-us-block.why-us-block--hourly-hire-gap {
+				padding-bottom: clamp(56px, 8vw, 120px);
+			}
+		</style>
+	<?php endif; ?>
 
 	<?php // ======================== HERO BLOCK ========================
 	?>
@@ -636,7 +643,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php endif; ?>
 
 	<?php if ($block_enabled['why_us'] && 'hourly-hire' === $current_service_slug) : ?>
-		<section class="why-us-block">
+		<section class="why-us-block why-us-block--hourly-hire-gap">
 			<div class="why-us-container">
 				<div class="why-us-heading">
 					<div class="why-us-heading-pill">
