@@ -135,6 +135,24 @@ if ( $is_professional_chauffeur_service ) {
 
 if ( $is_special_transfers_service ) {
 	$section_title = 'Perfect for Any Traveller';
+	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/professional-chauffeur-service_result.webp';
+	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/345_result.webp';
+
+	$item_1_title = 'Weddings & Engagements';
+	$item_1_description = 'Luxury car service for the couple, guests, and family';
+
+	$item_2_title = 'Anniversaries & Private Parties';
+	$item_2_description = 'premium cars and attentive service<br>for every guest.';
+
+	$item_3_title = 'Corporate Receptions & Galas';
+	$item_3_description = 'reliable logistics for high-profile<br>attendees.';
+
+	$item_4_title = 'Diplomatic & Red-Carpet Events';
+	$item_4_description = 'protocol-compliant transfers with full discretion.';
+
+	$item_5_title = 'Destination Weddings';
+	$item_5_description = 'seamless coordination in 100+ countries,<br>from resorts to private estates.';
+
 	$footer_text_enabled = false;
 }
 
