@@ -392,6 +392,27 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					padding-top: 6px;
 				}
 
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-top-right.hero-feature-map {
+					display: flex;
+					align-items: center;
+					gap: 14px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-top-right.hero-feature-map .world-map-image {
+					padding: 0;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-top-right.hero-feature-map .world-map-image img {
+					width: 110px;
+					height: auto;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-top-right.hero-feature-map .world-map-text {
+					display: flex;
+					flex-direction: column;
+					gap: 2px;
+				}
+
 				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-mid-left {
 					grid-column: 1;
 					grid-row: 2;
@@ -518,7 +539,16 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
 										<p class="hero-feature-text">Available in 100+ countries</p>
 									</div>
-									<div class="hero-feature hero-feature-airport-top-right" aria-hidden="true"></div>
+									<div class="hero-feature hero-feature-airport-top-right hero-feature-map">
+										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
+										<div class="world-map-text">
+											<p class="world-map-label world-map-label-top">clients in</p>
+											<div class="world-map-bottom">
+												<p class="world-map-number"><?php echo esc_html($mobile_form_stats_number); ?></p>
+												<p class="world-map-label world-map-label-bottom"><?php echo esc_html($mobile_form_stats_label); ?></p>
+											</div>
+										</div>
+									</div>
 									<div class="hero-feature hero-feature-airport-mid-left">
 										<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
 										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
@@ -559,7 +589,16 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
 										<p class="hero-feature-text">Available in 100+ countries</p>
 									</div>
-									<div class="hero-feature hero-feature-airport-top-right" aria-hidden="true"></div>
+									<div class="hero-feature hero-feature-airport-top-right hero-feature-map">
+										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
+										<div class="world-map-text">
+											<p class="world-map-label world-map-label-top">clients in</p>
+											<div class="world-map-bottom">
+												<p class="world-map-number"><?php echo esc_html($mobile_form_stats_number); ?></p>
+												<p class="world-map-label world-map-label-bottom"><?php echo esc_html($mobile_form_stats_label); ?></p>
+											</div>
+										</div>
+									</div>
 									<div class="hero-feature hero-feature-airport-mid-left">
 										<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
 										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
