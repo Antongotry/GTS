@@ -55,6 +55,28 @@
 			}
 		}
 
+		function syncFieldHasValueClass(field) {
+			if (!field || !field.classList) {
+				return;
+			}
+
+			var isSelect = field.tagName === 'SELECT';
+			var value = String(field.value || '').trim();
+			var hasValue = value !== '';
+
+			field.classList.toggle('has-value', hasValue);
+			if (isSelect) {
+				field.classList.toggle('selected', hasValue);
+			}
+		}
+
+		function syncAllFieldStates() {
+			var fields = form.querySelectorAll('.transfer-input, .transfer-select');
+			Array.prototype.forEach.call(fields, function (field) {
+				syncFieldHasValueClass(field);
+			});
+		}
+
 		function normalizePriceText(value) {
 			var raw = String(value || '');
 			var decoded = raw;
@@ -206,11 +228,13 @@
 			if (!categoryId) {
 				vehicleSelect.innerHTML = '<option value="">Select vehicle type first</option>';
 				vehicleSelect.disabled = true;
+				syncFieldHasValueClass(vehicleSelect);
 				return;
 			}
 
 			vehicleSelect.disabled = true;
 			vehicleSelect.innerHTML = '<option value="">Loading...</option>';
+			syncFieldHasValueClass(vehicleSelect);
 
 			var formData = new FormData();
 			formData.append('action', 'gts_get_vehicles_by_category');
@@ -234,10 +258,12 @@
 						vehicleSelect.appendChild(option);
 					});
 					vehicleSelect.disabled = false;
+					syncFieldHasValueClass(vehicleSelect);
 				})
 				.catch(function () {
 					vehicleSelect.innerHTML = '<option value="">Unable to load vehicles</option>';
 					vehicleSelect.disabled = true;
+					syncFieldHasValueClass(vehicleSelect);
 				});
 		}
 
@@ -404,6 +430,7 @@
 						confirmEl.textContent = res.data.message || 'Thank you! We will confirm within 15 minutes.';
 					}
 					form.reset();
+					syncAllFieldStates();
 					setReturnVisibility();
 					state.route = { distanceKm: 0, durationMin: 0, mode: 'pending', message: 'Fill route to estimate' };
 					state.pricing = { total: 0, formattedTotal: '—', mode: 'pending', breakdown: [], note: 'Final price confirmed by manager. No online payments.' };
@@ -421,10 +448,14 @@
 		}
 
 		form.addEventListener('input', triggerRecalc);
+		form.addEventListener('input', function (e) {
+			syncFieldHasValueClass(e.target);
+		});
 		form.addEventListener('change', function (e) {
 			if (e.target && e.target.name === 'is_return') {
 				setReturnVisibility();
 			}
+			syncFieldHasValueClass(e.target);
 			triggerRecalc();
 		});
 		form.addEventListener('submit', submitRequest);
@@ -442,6 +473,9 @@
 		}
 
 		setReturnVisibility();
+		syncAllFieldStates();
+		// Browser autofill may happen after DOM ready; sync once more.
+		setTimeout(syncAllFieldStates, 150);
 		updateSummary();
 	}
 

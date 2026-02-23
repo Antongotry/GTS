@@ -202,6 +202,11 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 	&.is-active {
 		background: rgba(255, 255, 255, 0.1);
 	}
+
+	&:focus-visible {
+		outline: 1px solid rgba(255, 255, 255, 0.45);
+		outline-offset: -1px;
+	}
 }
 
 .transfer-label {
@@ -227,6 +232,11 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 
 	option {
 		background: #1a1d26;
+		color: #fff;
+	}
+
+	option:checked {
+		background: #232734;
 		color: #fff;
 	}
 
@@ -267,6 +277,11 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 
 	&:focus {
 		border-bottom-color: rgba(255, 255, 255, 0.6);
+		color: #fff !important;
+		-webkit-text-fill-color: #fff !important;
+	}
+
+	&.has-value {
 		color: #fff !important;
 		-webkit-text-fill-color: #fff !important;
 	}

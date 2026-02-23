@@ -10683,6 +10683,10 @@ a.phone-button:focus,
 .transfer-autocomplete-option:hover, .transfer-autocomplete-option.is-active {
   background: rgba(255, 255, 255, 0.1);
 }
+.transfer-autocomplete-option:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.45);
+  outline-offset: -1px;
+}
 
 .transfer-label {
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -10706,6 +10710,10 @@ a.phone-button:focus,
 }
 .transfer-select option {
   background: #1a1d26;
+  color: #fff;
+}
+.transfer-select option:checked {
+  background: #232734;
   color: #fff;
 }
 .transfer-select:valid, .transfer-select.has-value {
@@ -10744,6 +10752,11 @@ a.phone-button:focus,
 .transfer-input:focus,
 .transfer-select:focus {
   border-bottom-color: rgba(255, 255, 255, 0.6);
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.transfer-input.has-value,
+.transfer-select.has-value {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
 }
