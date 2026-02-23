@@ -61,6 +61,7 @@ $is_airport_transfer_service = ('airport-transfer-service' === $current_service_
 $is_professional_chauffeur_service = ('professional-chauffeur-service' === $current_service_slug);
 $is_special_transfers_service = ('special-transfers' === $current_service_slug);
 $is_wedding_service = ('wedding' === $current_service_slug);
+$is_cultural_sport_events_service = ('cultural-sport-events' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -145,6 +146,10 @@ if ($is_wedding_service) {
 	$hero_subtitle = 'From elegant bridal arrivals to seamless guest transfers — GTS<br>ensures your celebration runs perfectly on time and in perfect style.';
 	$hero_feature_2_text = 'Experienced chauffeurs';
 	$hero_feature_3_text = 'Licensed &amp; insured, premium fleet';
+}
+if ($is_cultural_sport_events_service) {
+	$hero_subtitle = 'Seamless&nbsp;VIP chauffeur service&nbsp;for sports, cultural, and corporate<br>events — available in 100+ countries. From tournaments to galas, GTS<br>ensures every guest arrives&nbsp;on time and with ease.';
+	$hero_feature_2_text = 'Licensed chauffeurs';
 }
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
@@ -257,6 +262,32 @@ if ($is_wedding_service) {
 			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-4.svg',
 			'title'       => 'Discreet Presence',
 			'description' => 'uniformed chauffeurs trained in etiquette and event protocol.',
+		),
+	);
+}
+if ($is_cultural_sport_events_service) {
+	$service_intro_title = 'Tailored solutions for large-scale events';
+	$service_intro_description = 'Whether it’s a film premiere, art fair, business congress, or international sports<br>competition — GTS provides premium&nbsp;chauffeur-driven logistics&nbsp;for guests,<br>performers, media teams, and VIP delegations.';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-1.svg',
+			'title'       => 'Perfect timing',
+			'description' => 'transfers coordinated with your event agenda, venue logistics, and security requirements.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-2.svg',
+			'title'       => 'Multi-location coverage',
+			'description' => 'transfers between airports, venues, hotels, and receptions.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-3.svg',
+			'title'       => 'Professional coordination',
+			'description' => 'live communication with event staff and planners.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-4.svg',
+			'title'       => 'Discreet service',
+			'description' => 'trusted by public figures, artists, and high-level guests.',
 		),
 	);
 }
@@ -810,7 +841,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : 'Available in 100+ countries'); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : 'Available in 100+ countries')); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -866,7 +897,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : 'Available in 100+ countries'); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : 'Available in 100+ countries')); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
