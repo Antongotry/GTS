@@ -137,9 +137,9 @@ if ( empty( $cards ) ) {
 						<?php if ( ! empty( $icon ) ) : ?>
 							<div class="service-context-icon-badge<?php echo 'light' === $theme ? ' service-context-icon-badge--light' : ''; ?>"><img src="<?php echo esc_url( $icon ); ?>" alt="" width="24" height="24" loading="lazy"></div>
 						<?php endif; ?>
-						<?php if ( ! empty( $text ) ) : ?>
-							<p class="service-context-text"><?php echo esc_html( $text ); ?></p>
-						<?php endif; ?>
+							<?php if ( ! empty( $text ) ) : ?>
+								<p class="service-context-text"><?php echo wp_kses( $text, array( 'br' => array() ) ); ?></p>
+							<?php endif; ?>
 					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>
