@@ -708,13 +708,20 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			}
 		</style>
 	<?php endif; ?>
-	<?php if ($is_special_transfers_service) : ?>
-		<style id="special-transfers-fleet-lead-width">
-			.fleet-slider-block.fleet-slider-block--special-transfers .fleet-slider-lead {
-				max-width: 560px;
-			}
-		</style>
-	<?php endif; ?>
+		<?php if ($is_special_transfers_service) : ?>
+			<style id="special-transfers-fleet-lead-width">
+				.fleet-slider-block.fleet-slider-block--special-transfers .fleet-slider-lead {
+					max-width: 560px;
+				}
+			</style>
+		<?php endif; ?>
+		<?php if ($is_wedding_service) : ?>
+			<style id="wedding-fleet-lead-width">
+				.fleet-slider-block.fleet-slider-block--wedding .fleet-slider-lead {
+					max-width: 440px;
+				}
+			</style>
+		<?php endif; ?>
 
 	<?php // ======================== HERO BLOCK ========================
 	?>
@@ -1055,7 +1062,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php if ($is_wedding_service && $block_enabled['fleet']) : ?>
 		<?php
 		get_template_part(
-			'template-parts/blocks/fleet-slider'
+			'template-parts/blocks/fleet-slider',
+			null,
+			array(
+				'section_modifier' => 'fleet-slider-block--wedding',
+			)
 		);
 		?>
 	<?php endif; ?>
