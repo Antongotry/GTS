@@ -338,6 +338,28 @@ if ($is_family_travel_chauffeur_service) {
 if ($is_medical_transportation_service) {
 	$service_intro_title = 'A trusted service for patients<br>and families';
 	$service_intro_description = 'We support individuals, families, and medical institutions with professional logistics<br>— whether it’s a hospital discharge, rehabilitation transfer, or patient relocation<br>between countries.';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-1.svg',
+			'title'       => 'Non-emergency medical transfers',
+			'description' => 'safe and comfortable transport for patients and relatives.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-2.svg',
+			'title'       => 'International coordination',
+			'description' => 'ground, air, or multimodal transfers across 100+ countries.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-3.svg',
+			'title'       => 'Professional chauffeurs',
+			'description' => 'patient, discreet, and trained in special care handling.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-4.svg',
+			'title'       => 'Adapted vehicles',
+			'description' => 'Available for patients, seniors, and individuals with reduced mobility.',
+		),
+	);
 }
 
 // Booking Form - unified block with desktop and mobile sections
