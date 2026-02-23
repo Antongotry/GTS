@@ -681,6 +681,41 @@ if ($is_medical_transportation_service) {
 		$why_us_cards[5]['description'] = 'Every pickup and arrival coordinated with<br>medical schedules and monitored in real time<br>for complete peace of mind.';
 	}
 }
+if ($is_travel_personal_interpreter_service) {
+	$why_us_intro_title = 'Why Choose GTS Travel Personal<br>Interpreter Service';
+	$why_us_intro_text = '';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['card_type'] = 'image';
+		$why_us_cards[0]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325557_result.webp';
+		$why_us_cards[0]['title'] = 'Experienced interpreters';
+		$why_us_cards[0]['description'] = 'Professionals trained to work in<br>business, medical, legal, and<br>private settings.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_bag-suitcase.svg';
+		$why_us_cards[1]['title'] = 'Seamless integration<br>with travel';
+		$why_us_cards[1]['description'] = 'Interpreter support coordinated<br>alongside chauffeur services and<br>schedules when required.';
+	}
+	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
+		$why_us_cards[2]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-4.svg';
+		$why_us_cards[2]['title'] = 'Reliable coordination';
+		$why_us_cards[2]['description'] = 'Clear planning, punctuality, and real-<br>time adjustments as your travel plans<br>evolve.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['title'] = 'Privacy & confidentiality';
+		$why_us_cards[3]['description'] = 'Strict confidentiality standards<br>suitable for sensitive conversations<br>and high-profile clients.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['title'] = '24/7 Human Support';
+		$why_us_cards[4]['description'] = 'Dedicated coordination and live<br>assistance before and during your<br>journey';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['card_type'] = 'image';
+		$why_us_cards[5]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325558_result.webp';
+		$why_us_cards[5]['title'] = 'Worldwide availability';
+		$why_us_cards[5]['description'] = 'Interpreter services available<br>across key international<br>destinations.';
+	}
+}
 
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
