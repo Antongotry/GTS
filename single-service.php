@@ -242,6 +242,9 @@ $hiw_pill = ! empty($hiw['pill_text']) ? $hiw['pill_text'] : 'How it works';
 $hiw_title = ! empty($hiw['title']) ? $hiw['title'] : 'We handle the details —<br>you enjoy the moments';
 $hiw_bg = ! empty($hiw['background']) ? $hiw['background'] : $site_url . '/wp-content/uploads/2026/01/home-3-block-banner_result-scaled.webp';
 $hiw_steps = ! empty($hiw['steps']) ? $hiw['steps'] : array();
+if ('hourly-hire' === $current_service_slug) {
+	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
