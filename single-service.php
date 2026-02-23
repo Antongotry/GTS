@@ -549,6 +549,31 @@ if ($is_family_travel_chauffeur_service) {
 		$why_us_cards[5]['description'] = 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
 	}
 }
+if ($is_medical_transportation_service) {
+	$why_us_intro_title = 'Why Clients Choose<br>GTS Medical Transfers';
+	$why_us_intro_text = '';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['card_type'] = 'image';
+		$why_us_cards[0]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325556_result.webp';
+		$why_us_cards[0]['description'] = 'Medical transfers across 100+<br>countries — coordinated with the<br>same precision, care, and<br>discretion that define every GTS<br>service.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['title'] = 'Comfort-focused fleet';
+		$why_us_cards[1]['description'] = 'Late-model Business, Premium, and VIP vehicles<br>adapted for medical travel — smooth, spacious, and<br>equipped for comfort and stability.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['title'] = 'Safety & confidentiality';
+		$why_us_cards[3]['description'] = 'Verified routes, secure procedures, and full<br>respect for privacy — trusted by families, clinics,<br>and diplomatic clients.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['description'] = 'A personal coordinator always available — by<br>phone, email, or WhatsApp — to assist with<br>changes, timing, or medical arrangements.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Reliable timing';
+		$why_us_cards[5]['description'] = 'Every pickup and arrival coordinated with<br>medical schedules and monitored in real time<br>for complete peace of mind.';
+	}
+}
 
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
