@@ -348,13 +348,22 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php if ($is_airport_transfer_service) : ?>
 		<style id="airport-transfer-hero-title-width">
 			@media (min-width: 1025px) {
+				.hero-block--airport-transfer .hero-container {
+					gap: 24px;
+				}
+
 				.hero-block--airport-transfer .hero-left {
-					width: 840px;
-					flex: 0 0 840px;
+					width: clamp(760px, 58vw, 868px);
+					flex: 0 0 clamp(760px, 58vw, 868px);
+				}
+
+				.hero-block--airport-transfer .hero-right {
+					width: clamp(410px, 28vw, 468px);
+					flex: 0 0 clamp(410px, 28vw, 468px);
 				}
 
 				.hero-block--airport-transfer .hero-title {
-					max-width: 840px;
+					max-width: 868px;
 				}
 
 				.hero-block--airport-transfer .hero-features.hero-features--airport {
