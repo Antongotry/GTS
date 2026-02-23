@@ -294,15 +294,15 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</style>
 		<style id="hourly-hire-fleet-lead-width">
 			.fleet-slider-block.fleet-slider-block--hourly-hire .fleet-slider-title-row {
-				flex-direction: column;
-				align-items: flex-start;
-				gap: 18px;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
 			}
 
 			.fleet-slider-block.fleet-slider-block--hourly-hire .fleet-slider-lead {
-				max-width: 760px;
+				max-width: 520px;
 				width: 100%;
-				margin-top: 0;
+				margin-top: 8px;
 			}
 		</style>
 	<?php endif; ?>
@@ -607,7 +607,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php
 		$fleet_slider_args = array();
 		if ('hourly-hire' === $current_service_slug) {
-			$fleet_slider_args['lead'] = 'That’s why every GTS limousine meets strict standards of<br>comfort, safety, and presentation.';
+			$fleet_slider_args['lead'] = 'That’s why every GTS limousine meets strict standards of comfort, safety, and presentation.';
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--hourly-hire';
 		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
