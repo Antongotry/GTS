@@ -493,6 +493,9 @@ if ($is_wedding_service) {
 if ($is_cultural_sport_events_service) {
 	$why_us_intro_title = 'Why Choose GTS for Your Wedding or<br>Private Event';
 
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['description'] = '100+ countries, private terminals,<br>heliports, and marinas — one<br>standard of comfort and precision<br>wherever you travel.';
+	}
 	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
 		$why_us_cards[5]['description'] = 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
 	}
