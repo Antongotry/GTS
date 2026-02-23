@@ -35,9 +35,11 @@ if ( empty( $products ) ) {
 
 $title = ! empty( $args['title'] ) ? $args['title'] : 'Every detail matters – from the car you travel in to the person behind the wheel';
 $lead  = ! empty( $args['lead'] ) ? $args['lead'] : 'That’s why every GTS limousine meets strict standards of comfort, safety, and presentation.';
+$section_mod = ! empty( $args['section_modifier'] ) ? sanitize_html_class( (string) $args['section_modifier'] ) : '';
+$section_class = 'fleet-slider-block' . ( $section_mod ? ' ' . $section_mod : '' );
 ?>
 
-<section class="fleet-slider-block">
+<section class="<?php echo esc_attr( $section_class ); ?>">
 	<div class="fleet-slider-grid">
 		<div class="fleet-slider-container">
 			<div class="why-us-heading">
