@@ -811,6 +811,42 @@ if ($is_travel_personal_interpreter_service) {
 		$why_us_cards[5]['description'] = 'Interpreter services available<br>across key international<br>destinations.';
 	}
 }
+if ($is_travel_planninig_service) {
+	$why_us_intro_title = 'Why Choose GTS Travel Planning';
+	$why_us_intro_text = '';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['card_type'] = 'image';
+		$why_us_cards[0]['title'] = 'Structured travel expertise';
+		$why_us_cards[0]['description'] = 'Carefully designed itineraries that<br>balance efficiency, comfort, and<br>purpose.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-1.svg';
+		$why_us_cards[1]['title'] = 'End-to-end<br>coordination';
+		$why_us_cards[1]['description'] = 'One point of contact managing all<br>travel components and adjustments.';
+	}
+	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
+		$why_us_cards[2]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-2.svg';
+		$why_us_cards[2]['title'] = 'Calm execution';
+		$why_us_cards[2]['description'] = 'Clear plans, realistic timing, and<br>proactive coordination throughout<br>the journey.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-3.svg';
+		$why_us_cards[3]['title'] = 'Worldwide reach';
+		$why_us_cards[3]['description'] = 'Travel planning support across key<br>international destinations.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-4.svg';
+		$why_us_cards[4]['title'] = '24/7 Human Support';
+		$why_us_cards[4]['description'] = 'Live coordination and assistance<br>before and during your journey.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['card_type'] = 'image';
+		$why_us_cards[5]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325559_result.webp';
+		$why_us_cards[5]['title'] = 'Privacy-respectful<br>professional support';
+		$why_us_cards[5]['description'] = 'Delivered with discretion,<br>professionalism, and respect<br>for client confidentiality.';
+	}
+}
 
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
