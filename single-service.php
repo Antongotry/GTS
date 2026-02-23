@@ -65,6 +65,7 @@ $is_cultural_sport_events_service = ('cultural-sport-events' === $current_servic
 $is_family_travel_chauffeur_service = ('family-travel-chauffeur-service' === $current_service_slug);
 $is_medical_transportation_service = ('medical-transportation' === $current_service_slug);
 $is_travel_personal_interpreter_service = ('travel-personal-interpreter' === $current_service_slug);
+$is_travel_planninig_service = ('travel-planninig' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -174,6 +175,9 @@ if ($is_travel_personal_interpreter_service) {
 	$hero_feature_2_text = 'Suitable for business<br>and private needs';
 	$hero_feature_3_text = 'Seamless, professional presence';
 }
+if ($is_travel_planninig_service) {
+	$hero_title = 'Travel Planning<br>Service';
+}
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
 	$hero_subtitle = 'for business leaders and private clients who expect<br>comfort, style, and flawless coordination.';
@@ -256,6 +260,10 @@ if ($is_travel_personal_interpreter_service) {
 			),
 		),
 	);
+}
+if ($is_travel_planninig_service) {
+	$service_context['title'] = 'When Professional Travel Planning Matters';
+	$service_context['subtitle'] = 'Where planning quality directly impacts the travel experience.';
 }
 
 // Service Intro defaults (under Hero, no background image / no blur)
