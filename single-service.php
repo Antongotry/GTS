@@ -1952,19 +1952,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && $is_shoping_service) : ?>
-				<?php
-				get_template_part(
-					'template-parts/service/service-context',
-					null,
-					array(
-						'block' => $service_context,
-					)
-				);
-				?>
-			<?php endif; ?>
-
-		<?php get_template_part('template-parts/blocks/custom-itinerary', 'limousine'); ?>
+			<?php get_template_part('template-parts/blocks/custom-itinerary', 'limousine'); ?>
 		<?php get_template_part('template-parts/blocks/services', 'limousine'); ?>
 	</div>
 
