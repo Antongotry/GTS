@@ -102,6 +102,8 @@ $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
 $hero_feature_2_text = 'Operated by licensed chauffeurs<br>with 24/7 support';
 if ('hourly-hire' === $current_service_slug) {
+	$hero_title = 'Hourly Car Hire with<br>Private Chauffeur';
+	$hero_subtitle = 'Enjoy the freedom to travel on your schedule — with<br>a dedicated driver and premium vehicle at your disposal.';
 	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
 }
 
