@@ -62,6 +62,7 @@ $is_professional_chauffeur_service = ('professional-chauffeur-service' === $curr
 $is_special_transfers_service = ('special-transfers' === $current_service_slug);
 $is_wedding_service = ('wedding' === $current_service_slug);
 $is_cultural_sport_events_service = ('cultural-sport-events' === $current_service_slug);
+$is_family_travel_chauffeur_service = ('family-travel-chauffeur-service' === $current_service_slug);
 
 // Fill empty media fields in existing repeater rows with defaults by index.
 // This keeps custom admin content untouched and prevents empty icons/images in templates.
@@ -150,6 +151,12 @@ if ($is_wedding_service) {
 if ($is_cultural_sport_events_service) {
 	$hero_subtitle = 'Seamless&nbsp;VIP chauffeur service&nbsp;for sports, cultural, and corporate<br>events — available in 100+ countries. From tournaments to galas, GTS<br>ensures every guest arrives&nbsp;on time and with ease.';
 	$hero_feature_2_text = 'Licensed chauffeurs';
+}
+if ($is_family_travel_chauffeur_service) {
+	$hero_title = 'Family Travel<br>Chauffeur Service';
+	$hero_subtitle = 'Premium comfort and safety for every generation. From airport<br>pickups to family getaways — GTS ensures smooth, secure, and<br>perfectly coordinated travel for you and your loved ones.';
+	$hero_feature_2_text = 'Operated by&nbsp;licensed<br>chauffeurs&nbsp;with&nbsp;24/7 support';
+	$hero_feature_3_text = 'Business &amp; luxury vehicles';
 }
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
@@ -288,6 +295,37 @@ if ($is_cultural_sport_events_service) {
 			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-4.svg',
 			'title'       => 'Discreet service',
 			'description' => 'trusted by public figures, artists, and high-level guests.',
+		),
+	);
+}
+if ($is_family_travel_chauffeur_service) {
+	$service_intro_title = 'Tailored transfers for family comfort';
+	$service_intro_description = 'Whether it’s a family vacation, weekend getaway, or visiting relatives — GTS<br>offers&nbsp;premium family transfers&nbsp;that combine safety, space, and serenity.';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-1.svg',
+			'title'       => 'Spacious vehicles',
+			'description' => 'Business vans, SUVs, and VIP cars for all luggage, strollers and comfort needs.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-2.svg',
+			'title'       => 'Child-friendly setup',
+			'description' => 'baby and booster seats available upon request.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-3.svg',
+			'title'       => 'Door-to-door service',
+			'description' => 'no stress, no waiting lines, no navigating public transport.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-4.svg',
+			'title'       => 'Safe & trusted chauffeurs',
+			'description' => 'professional, patient, and attentive to family needs.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-5.svg',
+			'title'       => 'Available worldwide',
+			'description' => 'Plan family trips confidently — across cities or countries — with one trusted service and consistent comfort everywhere.',
 		),
 	);
 }
@@ -854,11 +892,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 										<div class="hero-feature-icon">
 											<?php if ($is_special_transfers_service) : ?>
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<?php elseif ($is_family_travel_chauffeur_service) : ?>
+												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php else : ?>
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : 'Available in 100+ countries')); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : 'Available in 100+ countries'))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -910,11 +950,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 										<div class="hero-feature-icon">
 											<?php if ($is_special_transfers_service) : ?>
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<?php elseif ($is_family_travel_chauffeur_service) : ?>
+												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php else : ?>
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : 'Available in 100+ countries')); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : 'Available in 100+ countries'))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
