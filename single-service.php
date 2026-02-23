@@ -530,7 +530,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			}
 
 			.fleet-slider-block.fleet-slider-block--airport-transfer .fleet-slider-lead {
-				max-width: 360px;
+				max-width: 440px;
 			}
 		</style>
 	<?php endif; ?>
