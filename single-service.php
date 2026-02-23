@@ -103,6 +103,10 @@ $hero_icon_2 = file_get_contents(get_template_directory() . '/assets/icons/icon-
 $hero_icon_3 = file_get_contents(get_template_directory() . '/assets/icons/icon-3-l.svg');
 $hero_icon_2_markup = $hero_icon_2;
 $hero_icon_3_markup = $hero_icon_3;
+$hero_airport_meet_icon_markup = '';
+$hero_airport_flight_icon_markup = '';
+$hero_airport_meet_text = '';
+$hero_airport_flight_text = '';
 $hero_icon_allowed_tags = gts_allowed_svg_hero();
 $hero_icon_allowed_tags['img'] = array(
 	'src' => true,
@@ -122,10 +126,12 @@ if ('hourly-hire' === $current_service_slug) {
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
 	$hero_subtitle = 'for business leaders and private clients who expect<br>comfort, style, and flawless coordination.';
-	$hero_feature_2_text = 'Meet &amp; Greet';
-	$hero_feature_3_text = 'Flight Tracking | 24/7 Coordination';
-	$hero_icon_2_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/meet.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
-	$hero_icon_3_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/ic_baseline-done-all.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_feature_2_text = 'Licensed Chauffeurs';
+	$hero_feature_3_text = 'Business &amp; luxury fleet';
+	$hero_airport_meet_text = 'Meet &amp; Greet';
+	$hero_airport_flight_text = 'Flight Tracking | 24/7 Coordination';
+	$hero_airport_meet_icon_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/meet.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_airport_flight_icon_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/ic_baseline-done-all.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 }
 
 // Service Intro defaults (under Hero, no background image / no blur)
@@ -342,8 +348,65 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php if ($is_airport_transfer_service) : ?>
 		<style id="airport-transfer-hero-title-width">
 			@media (min-width: 1025px) {
-				.hero-block .hero-title {
-					max-width: 960px;
+				.hero-block--airport-transfer .hero-left {
+					width: 840px;
+					flex: 0 0 840px;
+				}
+
+				.hero-block--airport-transfer .hero-title {
+					max-width: 840px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport {
+					grid-template-rows: repeat(3, minmax(0, auto));
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport::after {
+					display: none;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature {
+					padding: 28px 0;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-top-left {
+					grid-column: 1;
+					grid-row: 1;
+					padding-top: 6px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-top-right {
+					grid-column: 2;
+					grid-row: 1;
+					padding-top: 6px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-mid-left {
+					grid-column: 1;
+					grid-row: 2;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-mid-right {
+					grid-column: 2;
+					grid-row: 2;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					padding-left: 24px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-bottom-left {
+					grid-column: 1;
+					grid-row: 3;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					padding-bottom: 6px;
+				}
+
+				.hero-block--airport-transfer .hero-features.hero-features--airport .hero-feature-airport-bottom-right {
+					grid-column: 2;
+					grid-row: 3;
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					padding-left: 24px;
+					padding-bottom: 6px;
 				}
 			}
 		</style>
@@ -369,7 +432,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			}
 		</style>
-		<section class="hero-block">
+		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?>">
 			<div class="hero-container">
 				<div class="hero-left">
 					<div class="hero-content<?php echo $hero_features_enabled ? '' : ' hero-content--no-features'; ?>">
@@ -382,21 +445,47 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<a href="<?php echo esc_url($hero_cta_link); ?>" class="btn btn-primary"><?php echo esc_html($hero_cta_text); ?></a>
 						</div>
 						<?php if ( $hero_features_enabled ) : ?>
-							<div class="hero-features">
-								<div class="hero-feature hero-feature-top-left">
-									<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
-									<p class="hero-feature-text">Available in 100+ countries</p>
+							<?php if ($is_airport_transfer_service) : ?>
+								<div class="hero-features hero-features--airport">
+									<div class="hero-feature hero-feature-airport-top-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
+										<p class="hero-feature-text">Available in 100+ countries</p>
+									</div>
+									<div class="hero-feature hero-feature-airport-top-right" aria-hidden="true"></div>
+									<div class="hero-feature hero-feature-airport-mid-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-airport-mid-right">
+										<div class="hero-feature-icon"><?php echo $hero_airport_meet_icon_markup ? wp_kses($hero_airport_meet_icon_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_airport_meet_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-airport-bottom-left">
+										<div class="hero-feature-icon"><?php echo $hero_airport_flight_icon_markup ? wp_kses($hero_airport_flight_icon_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_airport_flight_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-airport-bottom-right">
+										<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
+									</div>
 								</div>
-								<div class="hero-feature hero-feature-top-right"></div>
-								<div class="hero-feature hero-feature-bottom-left">
-									<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
-									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
+							<?php else : ?>
+								<div class="hero-features">
+									<div class="hero-feature hero-feature-top-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
+										<p class="hero-feature-text">Available in 100+ countries</p>
+									</div>
+									<div class="hero-feature hero-feature-top-right"></div>
+									<div class="hero-feature hero-feature-bottom-left">
+										<div class="hero-feature-icon"><?php echo $hero_icon_2_markup ? wp_kses($hero_icon_2_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_2_text); ?></p>
+									</div>
+									<div class="hero-feature hero-feature-bottom-right">
+										<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
+									</div>
 								</div>
-								<div class="hero-feature hero-feature-bottom-right">
-									<div class="hero-feature-icon"><?php echo $hero_icon_3_markup ? wp_kses($hero_icon_3_markup, $hero_icon_allowed_tags) : ''; ?></div>
-									<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_3_text); ?></p>
-								</div>
-							</div>
+							<?php endif; ?>
 							<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
 								<div class="hero-feature hero-feature-top-left">
 									<div class="hero-feature-icon"><?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?></div>
