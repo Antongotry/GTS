@@ -452,6 +452,13 @@ if ($is_wedding_service) {
 		$why_us_cards[5]['description'] = 'Real-time tracking and expert coordination<br>ensure every handover — air, sea, or ground —<br>happens exactly on time.';
 	}
 }
+if ($is_cultural_sport_events_service) {
+	$why_us_intro_title = 'Why Choose GTS for Your Wedding or<br>Private Event';
+
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['description'] = 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
+	}
+}
 
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
@@ -484,6 +491,9 @@ if ($is_special_transfers_service) {
 	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
 }
 if ($is_wedding_service) {
+	$hiw_title = 'You focus on the celebration —<br>we take care of the logistics.';
+}
+if ($is_cultural_sport_events_service) {
 	$hiw_title = 'You focus on the celebration —<br>we take care of the logistics.';
 }
 $default_hiw_steps = array(
@@ -769,6 +779,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php if ($is_wedding_service) : ?>
 			<style id="wedding-fleet-lead-width">
 				.fleet-slider-block.fleet-slider-block--wedding .fleet-slider-lead {
+					max-width: 440px;
+				}
+			</style>
+		<?php endif; ?>
+		<?php if ($is_cultural_sport_events_service) : ?>
+			<style id="cultural-sport-events-fleet-lead-width">
+				.fleet-slider-block.fleet-slider-block--cultural-sport-events .fleet-slider-lead {
 					max-width: 440px;
 				}
 			</style>
@@ -1134,6 +1151,18 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
+	<?php if ($is_cultural_sport_events_service && $block_enabled['fleet']) : ?>
+		<?php
+		get_template_part(
+			'template-parts/blocks/fleet-slider',
+			null,
+			array(
+				'section_modifier' => 'fleet-slider-block--cultural-sport-events',
+			)
+		);
+		?>
+	<?php endif; ?>
+
 	<?php if ($is_special_transfers_service && $block_enabled['fleet']) : ?>
 		<?php
 		get_template_part(
@@ -1206,7 +1235,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service && ! $is_wedding_service) : ?>
+	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service) : ?>
 		<?php
 		$fleet_slider_args = array();
 		if ('hourly-hire' === $current_service_slug) {
