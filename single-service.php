@@ -1052,6 +1052,14 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
+	<?php if ($is_wedding_service && $block_enabled['fleet']) : ?>
+		<?php
+		get_template_part(
+			'template-parts/blocks/fleet-slider'
+		);
+		?>
+	<?php endif; ?>
+
 	<?php if ($is_special_transfers_service && $block_enabled['fleet']) : ?>
 		<?php
 		get_template_part(
@@ -1124,7 +1132,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service) : ?>
+	<?php if ($block_enabled['fleet'] && ! $is_special_transfers_service && ! $is_wedding_service) : ?>
 		<?php
 		$fleet_slider_args = array();
 		if ('hourly-hire' === $current_service_slug) {
