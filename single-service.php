@@ -199,8 +199,8 @@ if (empty($why_us_cards)) {
 // Page-specific Why Us presets for existing services.
 // Admin values always have priority. Preset fills defaults and missing media only.
 if ('hourly-hire' === $current_service_slug) {
-	$hourly_intro_title = 'GTS Hourly Hire was designed for those who value control, comfort, and impeccable timing.';
-	$hourly_intro_text = 'Every ride is managed by professionals who treat flexibility and precision not as a luxury — but as a standard.';
+	$hourly_intro_title = 'GTS Hourly&nbsp;Hire was designed for those<br>who value control, comfort, and<br>impeccable timing.';
+	$hourly_intro_text = 'Every ride is managed by professionals who treat flexibility<br>and precision not as a luxury — but as a standard.';
 	$hourly_image_1 = $site_url . '/wp-content/uploads/2026/01/home-2-block-1-_result.webp';
 	$hourly_image_6 = $site_url . '/wp-content/uploads/2026/01/home-2-block-2_result.webp';
 
@@ -573,8 +573,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					<div class="why-us-heading-line" aria-hidden="true"></div>
 				</div>
 				<div class="why-us-intro">
-					<h2 class="why-us-intro-title"><?php echo esc_html($why_us_intro_title); ?></h2>
-					<p class="why-us-intro-description"><?php echo esc_html($why_us_intro_text); ?></p>
+					<h2 class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></h2>
+					<p class="why-us-intro-description"><?php echo wp_kses_post($why_us_intro_text); ?></p>
 				</div>
 				<div class="why-us-grid">
 					<?php $i = 1;
@@ -675,8 +675,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					<div class="why-us-heading-line" aria-hidden="true"></div>
 				</div>
 				<div class="why-us-intro">
-					<h2 class="why-us-intro-title"><?php echo esc_html($why_us_intro_title); ?></h2>
-					<p class="why-us-intro-description"><?php echo esc_html($why_us_intro_text); ?></p>
+					<h2 class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></h2>
+					<p class="why-us-intro-description"><?php echo wp_kses_post($why_us_intro_text); ?></p>
 				</div>
 				<div class="why-us-grid">
 					<?php $i = 1;
