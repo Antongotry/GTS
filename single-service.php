@@ -1044,6 +1044,35 @@ if ($is_travel_planninig_service) {
 		),
 	);
 }
+if ($is_shoping_service) {
+	$hiw_title = 'You enjoy the shopping.<br>We handle the rest.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your<br>travel plans',
+			'description' => 'Destinations, interests, preferred pace, and<br>travel dates.',
+		),
+		array(
+			'number' => '02',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Receive your<br>tailored quote',
+			'description' => 'Clear, transparent pricing based on duration<br>and vehicle class.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-3.svg',
+			'title' => 'Confirm &amp; delegate',
+			'description' => 'We assign your chauffeur and vehicle, ready<br>for your journey.',
+		),
+		array(
+			'number' => '04',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-4.svg',
+			'title' => 'Enjoy the tour',
+			'description' => 'Every route, stop, and transition handled<br>smoothly and effortlessly.',
+		),
+	);
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
@@ -1791,7 +1820,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php if ($is_shoping_service && $block_enabled['fleet']) : ?>
 			<?php
 			get_template_part(
-				'template-parts/blocks/fleet-slider'
+				'template-parts/blocks/fleet-slider',
+				null,
+				array(
+					'title' => 'Late-model luxury vehicles and discreet,<br>experienced drivers ensure comfort, privacy,<br>and consistency from the first stop to the last.',
+					'hide_lead' => true,
+				)
 			);
 			?>
 		<?php endif; ?>
@@ -1876,7 +1910,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service && ! $is_shoping_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
