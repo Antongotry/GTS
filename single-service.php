@@ -187,6 +187,76 @@ if ($is_airport_transfer_service) {
 
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_context = isset($blocks_data['service_context']) ? $blocks_data['service_context'] : array();
+if ($is_travel_personal_interpreter_service) {
+	$service_context = array(
+		'pill_text' => 'Full Service',
+		'title' => 'Where accuracy, tone, and context truly matter.',
+		'variant' => 'context',
+		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
+		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service2_result.webp',
+		'cards' => array(
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-1.svg',
+				'text' => 'Business meetings and negotiations',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
+				'col_start' => 2, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-2.svg',
+				'text' => 'Corporate travel and executive visits',
+				'col_start' => 3, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'light',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-3.svg',
+				'text' => 'Medical appointments and consultations',
+				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-4.svg',
+				'text' => 'Legal, administrative, or official procedures',
+				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'light',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-5.svg',
+				'text' => 'Property viewings and real estate transactions',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-6.svg',
+				'text' => 'Private travel, events, and high-level appointments',
+				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-7.svg',
+				'text' => 'Multi-day or multi-location travel programs',
+				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service2_result.webp',
+				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
+			),
+		),
+	);
+}
 
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
