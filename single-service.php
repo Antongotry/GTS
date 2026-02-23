@@ -262,8 +262,68 @@ if ($is_travel_personal_interpreter_service) {
 	);
 }
 if ($is_travel_planninig_service) {
-	$service_context['title'] = 'When Professional Travel Planning Matters';
-	$service_context['subtitle'] = 'Where planning quality directly impacts the travel experience.';
+	$service_context = array(
+		'pill_text' => 'Full Service',
+		'title' => 'When Professional Travel Planning Matters',
+		'subtitle' => 'Where planning quality directly impacts the travel experience.',
+		'variant' => 'context',
+		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325458_result.webp',
+		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325476_result.webp',
+		'cards' => array(
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-1.svg',
+				'text' => 'Multi-destination or multi-<br>country travel',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325458_result.webp',
+				'col_start' => 2, 'col_span' => 2, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 2,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'light',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-2.svg',
+				'text' => 'Business travel combined<br>with leisure',
+				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-3.svg',
+				'text' => 'Time-sensitive or high-<br>responsibility trips',
+				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'light',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-4.svg',
+				'text' => 'Private travel requiring<br>coordination of multiple<br>services',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-5.svg',
+				'text' => 'Complex itineraries where<br>efficiency is essential',
+				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-6.svg',
+				'text' => 'Travel involving meetings,<br>appointments, or events',
+				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325476_result.webp',
+				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
+			),
+		),
+	);
 }
 
 // Service Intro defaults (under Hero, no background image / no blur)
