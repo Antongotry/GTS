@@ -6565,10 +6565,11 @@ a.phone-button:focus,
   .hero-left {
     width: 100%;
     max-width: 100%;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    min-height: 100%;
     padding-top: 96px;
     padding-bottom: 0;
-    align-self: auto;
+    align-self: stretch;
   }
 }
 
@@ -6581,6 +6582,12 @@ a.phone-button:focus,
   box-sizing: border-box;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .hero-content {
+    min-height: 100%;
+  }
 }
 
 .hero-content--no-features {
@@ -6677,6 +6684,7 @@ a.phone-button:focus,
 @media (max-width: 768px) {
   .hero-features--mobile-in-hero {
     margin-top: auto;
+    margin-bottom: 0;
     width: 100%;
     max-width: none;
     align-self: stretch;

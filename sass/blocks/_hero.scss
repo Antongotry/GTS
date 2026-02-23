@@ -98,10 +98,11 @@
 	@include md {
 		width: 100%;
 		max-width: 100%;
-		flex: 0 0 auto;
+		flex: 1 1 auto;
+		min-height: 100%;
 		padding-top: 96px;
 		padding-bottom: 0;
-		align-self: auto;
+		align-self: stretch;
 	}
 }
 
@@ -114,7 +115,12 @@
 	box-sizing: border-box;
 	justify-content: flex-start; // Контент сверху
 	align-items: flex-start;
+	width: 100%;
 	// hero-features прижаты к низу через margin-top: auto
+
+	@include md {
+		min-height: 100%;
+	}
 }
 
 // When features are disabled via admin toggle, keep title/desc/button anchored
@@ -216,6 +222,7 @@
 @include md {
 	.hero-features--mobile-in-hero {
 		margin-top: auto;
+		margin-bottom: 0;
 		width: 100%;
 		max-width: none;
 		align-self: stretch;
