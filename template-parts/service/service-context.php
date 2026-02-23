@@ -107,12 +107,17 @@ if ( empty( $cards ) ) {
 		<div class="service-context-grid">
 			<?php foreach ( $cards as $index => $card ) :
 					$card_type = ! empty( $card['card_type'] ) ? $card['card_type'] : 'text';
+					$text = ! empty( $card['text'] ) ? $card['text'] : '';
 					$theme = ! empty( $card['theme'] ) ? $card['theme'] : 'dark';
-					if ( 'shoping' === $current_service_slug && 4 === (int) $index && 'text' === $card_type ) {
-						$theme = 'light';
+					if ( 'shoping' === $current_service_slug && 'text' === $card_type ) {
+						if ( 4 === (int) $index ) {
+							$theme = 'light';
+						}
+						if ( false !== stripos( wp_strip_all_tags( (string) $text ), 'Personal shopping sessions' ) ) {
+							$theme = 'light';
+						}
 					}
 					$icon = ! empty( $card['icon'] ) ? $card['icon'] : '';
-				$text = ! empty( $card['text'] ) ? $card['text'] : '';
 				$image = ! empty( $card['image'] ) ? $card['image'] : '';
 
 				$col_start = max( 1, (int) ( ! empty( $card['col_start'] ) ? $card['col_start'] : 1 ) );
