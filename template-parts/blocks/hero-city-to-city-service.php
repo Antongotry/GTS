@@ -68,6 +68,42 @@ $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon
 						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
 					</div>
 				</div>
+
+				<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
+					<div class="hero-feature hero-feature-top-left">
+						<div class="hero-feature-icon" role="img" aria-label="<?php echo esc_attr( __( 'Available in 100+ countries', 'gts-theme' ) ); ?>">
+							<?php echo $hero_icon_1 ? wp_kses( $hero_icon_1, gts_allowed_svg_hero() ) : ''; ?>
+						</div>
+						<p class="hero-feature-text">Available in 100+ countries</p>
+					</div>
+
+					<div class="hero-feature hero-feature-top-right hero-feature-map">
+						<div class="world-map-image">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy">
+						</div>
+						<div class="world-map-text">
+							<p class="world-map-label world-map-label-top">clients in</p>
+							<div class="world-map-bottom">
+								<p class="world-map-number">100+</p>
+								<p class="world-map-label world-map-label-bottom">countries</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="hero-feature hero-feature-bottom-left">
+						<div class="hero-feature-icon" role="img" aria-label="<?php echo esc_attr( __( 'Operated by licensed chauffeurs', 'gts-theme' ) ); ?>">
+							<?php echo $hero_icon_2 ? wp_kses( $hero_icon_2, gts_allowed_svg_hero() ) : ''; ?>
+						</div>
+						<p class="hero-feature-text">Operated by licensed chauffeurs<br>with 24/7 support</p>
+					</div>
+
+					<div class="hero-feature hero-feature-bottom-right">
+						<div class="hero-feature-icon" role="img" aria-label="<?php echo esc_attr( __( 'Licensed & insured, premium fleet', 'gts-theme' ) ); ?>">
+							<?php echo $hero_icon_3 ? wp_kses( $hero_icon_3, gts_allowed_svg_hero() ) : ''; ?>
+						</div>
+						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+					</div>
+				</div>
 			</div>
 		</div>
 

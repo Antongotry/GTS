@@ -68,6 +68,42 @@ $image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_res
 						<p class="hero-feature-text">From simple rides to complex itineraries</p>
 					</div>
 				</div>
+
+				<div class="hero-features hero-features--mobile hero-features--mobile-in-hero">
+					<div class="hero-feature hero-feature-top-left">
+						<div class="hero-feature-icon">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-1-home.svg'); ?>" alt="Premium fleet" width="24" height="24" loading="lazy">
+						</div>
+						<p class="hero-feature-text">Licensed & insured, premium fleet</p>
+					</div>
+
+					<div class="hero-feature hero-feature-top-right hero-feature-map">
+						<div class="world-map-image">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy">
+						</div>
+						<div class="world-map-text">
+							<p class="world-map-label world-map-label-top">clients in</p>
+							<div class="world-map-bottom">
+								<p class="world-map-number">100+</p>
+								<p class="world-map-label world-map-label-bottom">countries</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="hero-feature hero-feature-bottom-left">
+						<div class="hero-feature-icon">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-2-home.svg'); ?>" alt="Trusted since 2010" width="24" height="24" loading="lazy">
+						</div>
+						<p class="hero-feature-text">Since 2010, trusted by corporate<br>& VIP clients</p>
+					</div>
+
+					<div class="hero-feature hero-feature-bottom-right">
+						<div class="hero-feature-icon">
+							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/icon-3-home.svg'); ?>" alt="Complex itineraries" width="24" height="24" loading="lazy">
+						</div>
+						<p class="hero-feature-text">From simple rides to complex itineraries</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
