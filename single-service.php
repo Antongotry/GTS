@@ -404,6 +404,23 @@ if ($is_special_transfers_service) {
 		$why_us_cards[5]['description'] = 'Real-time tracking and expert coordination<br>ensure every handover — air, sea, or ground —<br>happens exactly on time.';
 	}
 }
+if ($is_wedding_service) {
+	$why_us_intro_title = 'GTS Hourly Hire&nbsp;was designed for those<br>who value control, comfort, and<br>impeccable timing.';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['description'] = '100+ countries, private terminals,<br>heliports, and marinas — one<br>standard of comfort and precision<br>wherever you travel.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['description'] = 'Strict safety protocols, discreet<br>coordination, and confidential<br>service for corporate &amp; VIP clients.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['description'] = 'Book directly on the website or<br>through your personal manager —<br>24/7 via messenger, email or phone.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Guaranteed punctuality';
+		$why_us_cards[5]['description'] = 'Real-time tracking and expert coordination<br>ensure every handover — air, sea, or ground —<br>happens exactly on time.';
+	}
+}
 
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
@@ -434,6 +451,9 @@ if ($is_professional_chauffeur_service) {
 }
 if ($is_special_transfers_service) {
 	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
+}
+if ($is_wedding_service) {
+	$hiw_title = 'You focus on the celebration —<br>we take care of the logistics.';
 }
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
