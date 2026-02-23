@@ -309,6 +309,9 @@ $hiw_steps = ! empty($hiw['steps']) ? $hiw['steps'] : array();
 if ('hourly-hire' === $current_service_slug) {
 	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
 }
+if ($is_airport_transfer_service) {
+	$hiw_title = 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.';
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
@@ -524,6 +527,10 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					border-top: 1px solid rgba(255, 255, 255, 0.16);
 					padding-bottom: 8px;
 				}
+			}
+
+			.fleet-slider-block.fleet-slider-block--airport-transfer .fleet-slider-lead {
+				max-width: 360px;
 			}
 		</style>
 	<?php endif; ?>
@@ -903,6 +910,10 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		if ('hourly-hire' === $current_service_slug) {
 			$fleet_slider_args['lead'] = 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.';
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--hourly-hire';
+		}
+		if ($is_airport_transfer_service) {
+			$fleet_slider_args['lead'] = 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.';
+			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--airport-transfer';
 		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
 		?>

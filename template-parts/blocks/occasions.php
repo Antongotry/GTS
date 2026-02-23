@@ -10,6 +10,7 @@ $site_url = get_site_url();
 $block = isset( $args['block'] ) && is_array( $args['block'] ) ? $args['block'] : array();
 $current_service_slug = is_singular( 'service' ) ? (string) get_post_field( 'post_name', get_the_ID() ) : '';
 $is_hourly_hire = ( 'hourly-hire' === $current_service_slug );
+$is_airport_transfer_service = ( 'airport-transfer-service' === $current_service_slug );
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
@@ -72,6 +73,33 @@ if ( $is_hourly_hire ) {
 	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/icon-park-solid_calendar.svg';
 	$item_5_title = 'Private Errands & Leisure';
 	$item_5_description = 'shopping, family visits, sightseeing —<br>all on your schedule.';
+
+	$footer_text_enabled = false;
+}
+
+if ( $is_airport_transfer_service ) {
+	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-11_result-1.webp';
+	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-22_result.webp';
+
+	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-1.svg';
+	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-2.svg';
+	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-3.svg';
+	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-4.svg';
+
+	$item_1_title = 'Corporate Clients & Executives';
+	$item_1_description = 'discreet, punctual service for business arrivals and<br>departures.';
+
+	$item_2_title = 'Private & Family Trips';
+	$item_2_description = 'child seats, extra luggage space, and<br>tailored comfort.';
+
+	$item_3_title = 'Group Transfers';
+	$item_3_description = 'coordinated pickups for delegations<br>or event guests.';
+
+	$item_4_title = 'Connecting Flights';
+	$item_4_description = 'transfers between airports or terminals without the<br>stress.';
+
+	$item_5_title = 'Luxury Travelers & VIPs';
+	$item_5_description = 'meet & greet with full discretion and<br>premium-class vehicles.';
 
 	$footer_text_enabled = false;
 }
