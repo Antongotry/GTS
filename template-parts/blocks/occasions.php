@@ -142,6 +142,17 @@ if ( $is_cultural_sport_events_service ) {
 	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-3.svg';
 	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-4.svg';
 	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-5.svg';
+	$item_1_title = 'Cultural Events & Concerts';
+	$item_1_description = 'Luxury car service for the couple, guests, and family';
+	$item_2_title = 'International Sports Events';
+	$item_2_description = 'transfers for athletes, sponsors,<br>and executive delegations.';
+	$item_3_title = 'Film Festivals & Premieres';
+	$item_3_description = 'coordinated arrivals for directors,<br>actors, and VIP guests with event-<br>trained chauffeurs.';
+	$item_4_title = 'Corporate Receptions & Summits';
+	$item_4_description = 'smooth, timely coordination for guests, speakers,<br>and executives.';
+	$item_5_title = 'Private Galas & Awards Ceremonies';
+	$item_5_description = 'refined, discreet service that complements<br>the elegance of your event.';
+	$footer_text_enabled = false;
 }
 
 if ( $is_wedding_service ) {
