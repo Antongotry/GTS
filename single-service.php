@@ -917,6 +917,35 @@ if ($is_travel_personal_interpreter_service) {
 		),
 	);
 }
+if ($is_travel_planninig_service) {
+	$hiw_bg = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325560_result-scaled.webp';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your travel<br>objectives',
+			'description' => 'Destinations, timing, priorities, and any<br>specific requirements.',
+		),
+		array(
+			'number' => '02',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Receive a tailored<br>travel plan',
+			'description' => 'A clear, structured itinerary with coordinated<br>services and recommendations.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-3.svg',
+			'title' => 'Review &amp; confirm',
+			'description' => 'Adjust details and confirm the plan aligned<br>with your expectations.',
+		),
+		array(
+			'number' => '04',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-4.svg',
+			'title' => 'Travel with<br>confidence',
+			'description' => 'Your journey unfolds smoothly, supported by<br>proactive coordination.',
+		),
+	);
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
@@ -1729,7 +1758,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
