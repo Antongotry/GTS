@@ -836,6 +836,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			</style>
 		<?php endif; ?>
+		<?php if ($is_family_travel_chauffeur_service) : ?>
+			<style id="family-travel-fleet-lead-width">
+				.fleet-slider-block.fleet-slider-block--family-travel .fleet-slider-lead {
+					max-width: 440px;
+				}
+			</style>
+		<?php endif; ?>
 
 	<?php // ======================== HERO BLOCK ========================
 	?>
@@ -1216,7 +1223,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php if ($is_family_travel_chauffeur_service && $block_enabled['fleet']) : ?>
 		<?php
 		get_template_part(
-			'template-parts/blocks/fleet-slider'
+			'template-parts/blocks/fleet-slider',
+			null,
+			array(
+				'title' => 'Every family ride is managed with the same<br>precision as our corporate transfers — with<br>extra attention to safety and comfort.',
+				'lead' => 'Premium vehicles offer space for luggage and child seats,<br>while professional chauffeurs ensure a calm, seamless<br>journey.',
+				'section_modifier' => 'fleet-slider-block--family-travel',
+			)
 		);
 		?>
 	<?php endif; ?>
