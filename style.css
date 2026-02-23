@@ -10499,6 +10499,11 @@ a.phone-button:focus,
   margin-bottom: 36px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
+.final-cta-right--service .final-cta-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
 @media (max-width: 768px) {
   .final-cta-right--service {
     display: flex !important;
