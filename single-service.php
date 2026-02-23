@@ -202,6 +202,33 @@ if (empty($service_intro_items)) {
 	$service_intro_items = $fill_missing_media($service_intro_items, $default_service_intro_items, array('icon'));
 }
 
+if ($is_special_transfers_service) {
+	$service_intro_title = 'Tailored air &amp; ground solutions';
+	$service_intro_description = 'Our team manages complex, high-profile itineraries — combining aviation, ground,<br>and maritime transport into one flawless plan. Each request is handled with<br>confidentiality, professionalism, and global expertise.';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-1.svg',
+			'title'       => 'Private & business aviation',
+			'description' => 'jets, helicopters, and charter flights.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-2.svg',
+			'title'       => 'Luxury sea transfers',
+			'description' => 'yachts, catamarans, or private boats on demand.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-3.svg',
+			'title'       => 'Integrated logistics',
+			'description' => 'ground-air-sea connections, coordinated end-to-end.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-4.svg',
+			'title'       => 'Discreet service',
+			'description' => 'trusted by executives, diplomats, and VIP clients worldwide.',
+		),
+	);
+}
+
 // Booking Form - unified block with desktop and mobile sections
 $booking = isset($blocks_data['booking_form']) ? $blocks_data['booking_form'] : array();
 $has_booking_block = isset($blocks_data['booking_form']);
