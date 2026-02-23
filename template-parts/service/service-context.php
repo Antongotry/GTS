@@ -12,6 +12,10 @@ $pill_text = ! empty( $block['pill_text'] ) ? $block['pill_text'] : 'Full Servic
 $title = ! empty( $block['title'] ) ? $block['title'] : 'Where accuracy, tone, and context truly matter.';
 $subtitle = ! empty( $block['subtitle'] ) ? $block['subtitle'] : '';
 $variant = ! empty( $block['variant'] ) ? $block['variant'] : 'context';
+$current_service_slug = '';
+if ( is_singular( 'service' ) ) {
+	$current_service_slug = (string) get_post_field( 'post_name', get_the_ID() );
+}
 
 $top_image = ! empty( $block['top_image'] ) ? $block['top_image'] : $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
 $bottom_image = ! empty( $block['bottom_image'] ) ? $block['bottom_image'] : $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
@@ -102,9 +106,12 @@ if ( empty( $cards ) ) {
 
 		<div class="service-context-grid">
 			<?php foreach ( $cards as $index => $card ) :
-				$card_type = ! empty( $card['card_type'] ) ? $card['card_type'] : 'text';
-				$theme = ! empty( $card['theme'] ) ? $card['theme'] : 'dark';
-				$icon = ! empty( $card['icon'] ) ? $card['icon'] : '';
+					$card_type = ! empty( $card['card_type'] ) ? $card['card_type'] : 'text';
+					$theme = ! empty( $card['theme'] ) ? $card['theme'] : 'dark';
+					if ( 'shoping' === $current_service_slug && 4 === (int) $index && 'text' === $card_type ) {
+						$theme = 'light';
+					}
+					$icon = ! empty( $card['icon'] ) ? $card['icon'] : '';
 				$text = ! empty( $card['text'] ) ? $card['text'] : '';
 				$image = ! empty( $card['image'] ) ? $card['image'] : '';
 
