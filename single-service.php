@@ -540,7 +540,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== WHY US BLOCK ========================
 	?>
-	<?php if ($block_enabled['why_us']) : ?>
+	<?php if ($block_enabled['why_us'] && 'hourly-hire' !== $current_service_slug) : ?>
 		<section class="why-us-block">
 			<div class="why-us-container">
 				<div class="why-us-heading">
@@ -630,6 +630,47 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							</div>
 						<?php endforeach; ?>
 					</div>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php if ($block_enabled['why_us'] && 'hourly-hire' === $current_service_slug) : ?>
+		<section class="why-us-block">
+			<div class="why-us-container">
+				<div class="why-us-heading">
+					<div class="why-us-heading-pill">
+						<span class="why-us-heading-text"><?php echo esc_html($why_us_pill); ?></span>
+					</div>
+					<div class="why-us-heading-line" aria-hidden="true"></div>
+				</div>
+				<div class="why-us-intro">
+					<h2 class="why-us-intro-title"><?php echo esc_html($why_us_intro_title); ?></h2>
+					<p class="why-us-intro-description"><?php echo esc_html($why_us_intro_text); ?></p>
+				</div>
+				<div class="why-us-grid">
+					<?php $i = 1;
+					foreach ($why_us_cards as $card) :
+						$card_type = ! empty($card['card_type']) ? $card['card_type'] : 'icon';
+						$image = ! empty($card['image']) ? $card['image'] : '';
+						$icon = ! empty($card['icon']) ? $card['icon'] : '';
+						$title = ! empty($card['title']) ? $card['title'] : '';
+						$desc = ! empty($card['description']) ? $card['description'] : '';
+					?>
+						<?php if ('image' === $card_type && $image) : ?>
+							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
+								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+							</div>
+						<?php else : ?>
+							<div class="why-us-item why-us-item-<?php echo $i; ?>">
+								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
+								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+							</div>
+						<?php endif; ?>
+					<?php $i++;
+					endforeach; ?>
 				</div>
 			</div>
 		</section>
