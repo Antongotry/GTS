@@ -1244,6 +1244,9 @@ if ($is_shoping_service) {
 		),
 	);
 }
+if ($is_corporate_events_chauffeur_service) {
+	$hiw_title = 'You focus on what matters —<br>we ensure seamless logistics<br>throughout the event.';
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),

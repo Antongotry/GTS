@@ -6530,6 +6530,10 @@ a.phone-button:focus,
 	}
 }
 
+.single-service.postid-213 .why-us-block {
+	padding-bottom: clamp(48px, 6vw, 96px);
+}
+
 .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
 	margin-bottom: 92px;
 }
