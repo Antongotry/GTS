@@ -1071,6 +1071,32 @@ if ($is_airport_transfer_events_service) {
 		),
 	);
 }
+if ($is_corporations_service) {
+	$service_intro_title = 'Designed Around<br>Your Event Schedule';
+	$service_intro_description = '';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-1.svg',
+			'title'       => 'Consistent service standards',
+			'description' => 'The same level of professionalism, comfort, and reliability across all locations.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-2.svg',
+			'title'       => 'Scalable structure',
+			'description' => 'From occasional executive transfers to daily, high-volume corporate mobility.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-3.svg',
+			'title'       => 'Centralised coordination',
+			'description' => 'One point of contact managing vehicles, chauffeurs, schedules, and changes.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-4.svg',
+			'title'       => 'Flexibility without disruption',
+			'description' => 'Schedule changes and last-minute adjustments handled calmly and efficiently.',
+		),
+	);
+}
 if ($is_family_travel_chauffeur_service) {
 	$service_intro_title = 'Tailored transfers for family comfort';
 	$service_intro_description = 'Whether it’s a family vacation, weekend getaway, or visiting relatives — GTS<br>offers&nbsp;premium family transfers&nbsp;that combine safety, space, and serenity.';
