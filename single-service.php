@@ -1328,7 +1328,7 @@ if ($is_airport_transfer_events_service) {
 		$why_us_cards[2]['description'] = 'Licensed, discreet, and experienced<br>drivers who ensure a calm, safe, and<br>comfortable travel experience<br>throughout your tour.';
 	}
 	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
-		$why_us_cards[3]['title'] = 'Privacy & protocol<br>awareness';
+		$why_us_cards[3]['title'] = 'Privacy & protocol awareness';
 		$why_us_cards[3]['description'] = 'Transfers handled with<br>professionalism, respect for<br>confidentiality, and event etiquette.';
 	}
 	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
