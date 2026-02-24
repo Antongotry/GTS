@@ -1572,7 +1572,7 @@ if ($is_private_tours_service) {
 }
 if ($is_travel_agencies_service) {
 	$hiw_pill = 'How Partnership Works';
-	$hiw_title = 'You focus on your clients<br>and programs — we<br>handle transportation and<br>coordination.';
+	$hiw_title = 'You focus on your clients and programs — we handle transportation and coordination.';
 	$hiw_steps = array(
 		array(
 			'number' => '01',
@@ -1910,6 +1910,25 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			<style id="travel-agencies-why-us-gap">
 				.why-us-block.why-us-block--travel-agencies-gap {
 					padding-bottom: clamp(56px, 8vw, 120px);
+				}
+			</style>
+			<style id="travel-agencies-how-it-works-width">
+				.how-it-works-pill {
+					width: auto;
+					padding-left: 24px;
+					padding-right: 24px;
+					white-space: nowrap;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.how-it-works-left {
+					max-width: 700px;
+				}
+
+				.how-it-works-left .how-it-works-title {
+					max-width: 700px;
 				}
 			</style>
 		<?php endif; ?>
