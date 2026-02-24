@@ -1640,6 +1640,10 @@ if ($is_mobility_partnership_service) {
 		$why_us_cards[5]['description'] = 'Vehicles, schedules, routing, and<br>real-time adjustments managed<br>centrally — reducing operational<br>workload for your teams.';
 	}
 }
+if ($is_corporations_service) {
+	$why_us_intro_title = 'Why Choose GTS for Your<br>Corporate Event Chauffeur Service';
+	$why_us_intro_text = '';
+}
 if ($is_shoping_service) {
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['card_type'] = 'image';
