@@ -1408,6 +1408,35 @@ if ($is_corporate_events_chauffeur_service) {
 		),
 	);
 }
+if ($is_private_tours_service) {
+	$hiw_title = 'You focus on the<br>experience — we take<br>care of the journey.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your<br>travel plans',
+			'description' => 'Destinations, interests, preferred pace, and<br>travel dates.',
+		),
+		array(
+			'number' => '02',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Receive your<br>tailored quote',
+			'description' => 'Clear, transparent pricing based on duration<br>and vehicle class.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-3.svg',
+			'title' => 'Confirm &amp; delegate',
+			'description' => 'We assign your chauffeur and vehicle, ready<br>for your journey.',
+		),
+		array(
+			'number' => '04',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-4.svg',
+			'title' => 'Enjoy the tour',
+			'description' => 'Every route, stop, and transition handled<br>smoothly and effortlessly.',
+		),
+	);
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
