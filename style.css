@@ -10871,7 +10871,7 @@ a.phone-button:focus,
 }
 .transfer-consent label {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   cursor: pointer;
 }
@@ -10879,7 +10879,6 @@ a.phone-button:focus,
   width: 20px;
   height: 20px;
   margin: 0;
-  margin-top: 2px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
