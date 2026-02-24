@@ -968,6 +968,34 @@ if ($is_family_travel_chauffeur_service) {
 		$why_us_cards[5]['description'] = 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
 	}
 }
+if ($is_corporate_events_chauffeur_service) {
+	$why_us_intro_title = 'Why Choose GTS for Your<br>Corporate Event Chauffeur Service';
+	$why_us_intro_text = '';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['description'] = '100+ countries, private terminals,<br>heliports, and marinas — one<br>standard of comfort and precision<br>wherever you travel.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['title'] = 'World-class fleet';
+		$why_us_cards[1]['description'] = 'Business, premium, and VIP vehicles<br>— immaculate, late-model, and<br>presentation-ready for your day.';
+	}
+	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
+		$why_us_cards[2]['title'] = 'Qualified chauffeurs';
+		$why_us_cards[2]['description'] = 'Licensed, experienced and discreet<br>professionals trained to meet the<br>highest service standards.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['title'] = 'Security & discretion';
+		$why_us_cards[3]['description'] = 'Trusted by corporate and VIP clients<br>— confidential coordination, safety-<br>first standards, and calm<br>professionalism.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['title'] = '24/7 Human Support';
+		$why_us_cards[4]['description'] = 'A personal manager or live agent<br>always available — by website,<br>WhatsApp, or email, in any time zone.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Effortless coordination';
+		$why_us_cards[5]['description'] = 'Routes, timing, vehicle movements,<br>and real-time adjustments managed<br>centrally, so your event runs without<br>disruption.';
+	}
+}
 if ($is_shoping_service) {
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['card_type'] = 'image';
