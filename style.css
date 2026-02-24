@@ -5431,10 +5431,17 @@ a.phone-button:focus,
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	padding-top: 0;
-	padding-bottom: 20px;
+	padding-top: clamp(100px, 18vh, 180px);
+	padding-bottom: 12px;
 	box-sizing: border-box;
 	min-height: 100%;
+}
+
+@media (max-width: 1440px) {
+
+	.hero-right {
+		padding-top: clamp(90px, 15vh, 150px);
+	}
 }
 
 @media (max-width: 1024px) {
@@ -5443,6 +5450,7 @@ a.phone-button:focus,
 		width: 390px;
 		flex: 0 0 390px;
 		margin-left: 0;
+		padding-top: clamp(80px, 11vh, 110px);
 	}
 }
 
@@ -5452,6 +5460,7 @@ a.phone-button:focus,
 		width: 100%;
 		flex: 0 0 auto;
 		margin-left: 0;
+		padding-top: 0;
 		padding-bottom: 0;
 		justify-content: flex-start;
 		min-height: auto;

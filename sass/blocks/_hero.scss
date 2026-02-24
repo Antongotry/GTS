@@ -367,21 +367,27 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	padding-top: 0;
-	padding-bottom: 20px;
+	padding-top: clamp(100px, 18vh, 180px);
+	padding-bottom: 12px;
 	box-sizing: border-box;
 	min-height: 100%;
+
+	@include xl {
+		padding-top: clamp(90px, 15vh, 150px);
+	}
 
 	@include lg {
 		width: 390px;
 		flex: 0 0 390px;
 		margin-left: 0;
+		padding-top: clamp(80px, 11vh, 110px);
 	}
 
 	@include md {
 		width: 100%;
 		flex: 0 0 auto;
 		margin-left: 0;
+		padding-top: 0;
 		padding-bottom: 0;
 		justify-content: flex-start;
 		min-height: auto;
@@ -401,7 +407,7 @@
 	padding: 24px 20px;
 	border-radius: 0;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-	margin-top: auto; // Push form + world-map to bottom
+	margin-top: auto;
 	margin-bottom: 0;
 
 	@include md {
@@ -470,8 +476,8 @@
 		color: #000000;
 		box-sizing: border-box;
 		transition: border-color 0.3s ease;
-		height: 40px; // Фиксированная высота для выравнивания
-		min-height: 40px; // Минимальная высота
+		height: 40px;
+		min-height: 40px;
 		display: flex;
 		align-items: center;
 
