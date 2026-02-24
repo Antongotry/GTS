@@ -971,6 +971,32 @@ if ($is_mobility_partnership_service) {
 		),
 	);
 }
+if ($is_airport_transfer_events_service) {
+	$service_intro_title = 'A Transportation Partner<br>You Can Rely On';
+	$service_intro_description = 'We work as a trusted extension of your agency,<br>delivering consistent service standards and smooth<br>coordination for every itinerary.';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-1.svg',
+			'title'       => 'Synchronized arrivals and departures',
+			'description' => 'Pickups aligned with flight data, agendas, and venue schedules.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-2.svg',
+			'title'       => 'Flexible adjustments',
+			'description' => 'Flight delays, last-minute changes, or schedule updates handled calmly and efficiently.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-3.svg',
+			'title'       => 'Centralised coordination',
+			'description' => 'One point of contact managing all vehicles, chauffeurs, and timing.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-4.svg',
+			'title'       => 'Scalable execution',
+			'description' => 'From individual VIP guests to large groups arriving on multiple flights.',
+		),
+	);
+}
 if ($is_family_travel_chauffeur_service) {
 	$service_intro_title = 'Tailored transfers for family comfort';
 	$service_intro_description = 'Whether it’s a family vacation, weekend getaway, or visiting relatives — GTS<br>offers&nbsp;premium family transfers&nbsp;that combine safety, space, and serenity.';
@@ -2494,7 +2520,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service && ! $is_mobility_partnership_service) : ?>
+			<?php if ($block_enabled['service_context'] && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service && ! $is_mobility_partnership_service && ! $is_airport_transfer_events_service) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
@@ -2547,7 +2573,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service || $is_mobility_partnership_service)) : ?>
+			<?php if ($block_enabled['service_context'] && ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service || $is_mobility_partnership_service || $is_airport_transfer_events_service)) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
