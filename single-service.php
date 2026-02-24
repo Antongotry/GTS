@@ -64,6 +64,7 @@ $is_wedding_service = ('wedding' === $current_service_slug);
 $is_cultural_sport_events_service = ('cultural-sport-events' === $current_service_slug);
 $is_corporate_events_chauffeur_service = ('corporate-events-chauffeur-service' === $current_service_slug);
 $is_private_tours_service = ('private-tours' === $current_service_slug);
+$is_travel_agencies_service = ('travel-agencies' === $current_service_slug);
 $is_family_travel_chauffeur_service = ('family-travel-chauffeur-service' === $current_service_slug);
 $is_medical_transportation_service = ('medical-transportation' === $current_service_slug);
 $is_travel_personal_interpreter_service = ('travel-personal-interpreter' === $current_service_slug);
@@ -202,6 +203,17 @@ if ($is_corporate_events_chauffeur_service) {
 if ($is_private_tours_service) {
 	$hero_title = 'Private Tours<br>Chauffeur Service';
 	$hero_subtitle = 'From iconic landmarks to hidden destinations,<br>GTS designs&nbsp;private chauffeur tours&nbsp;around your<br>interests, pace, and itinerary — with seamless<br>transfers, professional drivers, and complete<br>flexibility throughout the journey.';
+	$hero_feature_2_text = 'Coordination in 100+ countries.';
+	$hero_feature_3_text = 'Business &amp; luxury fleet';
+	$hero_icon_1_original = $hero_icon_1;
+	$hero_icon_1 = $hero_icon_2;
+	$hero_icon_2_markup = $hero_icon_1_original;
+}
+if ($is_travel_agencies_service) {
+	$hero_pretitle_enabled = true;
+	$hero_pretitle = 'A reliable transportation partner for your clients worldwide.';
+	$hero_title = 'Private Tours<br>Chauffeur Service';
+	$hero_subtitle = 'From private tours to airport transfers, GTS<br>ensures every client journey reflects the quality<br>and professionalism of your brand.';
 	$hero_feature_2_text = 'Coordination in 100+ countries.';
 	$hero_feature_3_text = 'Business &amp; luxury fleet';
 	$hero_icon_1_original = $hero_icon_1;
@@ -1812,7 +1824,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-											<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : (($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service) ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
+											<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : (($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service) ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -1874,7 +1886,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : (($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service) ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : (($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service) ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
