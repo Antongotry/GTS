@@ -6834,22 +6834,16 @@ a.phone-button:focus,
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-top: 220px;
-  padding-bottom: 32px;
+  padding-top: 0;
+  padding-bottom: 20px;
   box-sizing: border-box;
   min-height: 100%;
-}
-@media (max-width: 1440px) {
-  .hero-right {
-    padding-top: 170px;
-  }
 }
 @media (max-width: 1024px) {
   .hero-right {
     width: 390px;
     flex: 0 0 390px;
     margin-left: 0;
-    padding-top: 130px;
   }
 }
 @media (max-width: 768px) {

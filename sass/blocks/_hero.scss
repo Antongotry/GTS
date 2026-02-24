@@ -367,20 +367,15 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end; // Прижать форму и world-map к низу
-	padding-top: 220px; // Match left column
-	padding-bottom: 32px;
+	padding-top: 0;
+	padding-bottom: 20px;
 	box-sizing: border-box;
 	min-height: 100%; // Растянуть на всю высоту
-
-	@include xl {
-		padding-top: 170px;
-	}
 
 	@include lg {
 		width: 390px;
 		flex: 0 0 390px;
 		margin-left: 0;
-		padding-top: 130px;
 	}
 
 	@include md {
