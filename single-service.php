@@ -719,6 +719,8 @@ if ($is_corporate_events_chauffeur_service) {
 	);
 }
 if ($is_private_tours_service) {
+	$service_intro_title = 'Designed Around<br>Your Journey';
+	$service_intro_description = 'Your private tour adapts to you — your<br>interests, your timing, and the moments<br>you choose to linger';
 	$service_intro_items = array(
 		array(
 			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-1.svg',
@@ -1091,6 +1093,34 @@ if ($is_corporate_events_chauffeur_service) {
 	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
 		$why_us_cards[3]['title'] = 'Security & discretion';
 		$why_us_cards[3]['description'] = 'Trusted by corporate and VIP clients<br>— confidential coordination, safety-<br>first standards, and calm<br>professionalism.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['title'] = '24/7 Human Support';
+		$why_us_cards[4]['description'] = 'A personal manager or live agent<br>always available — by website,<br>WhatsApp, or email, in any time zone.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Effortless coordination';
+		$why_us_cards[5]['description'] = 'Routes, timing, vehicle movements,<br>and real-time adjustments managed<br>centrally, so your event runs without<br>disruption.';
+	}
+}
+if ($is_private_tours_service) {
+	$why_us_intro_title = 'Why Choose GTS for Your<br>Corporate Event Chauffeur Service';
+	$why_us_intro_text = '';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['description'] = 'Private tour chauffeur service in<br>100+ countries — consistent<br>quality and comfort wherever your<br>journey takes you.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['title'] = 'World-class fleet';
+		$why_us_cards[1]['description'] = 'Business, premium, and VIP vehicles<br>— late-model, immaculate, and<br>designed for comfortable city and<br>long-distance travel.';
+	}
+	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
+		$why_us_cards[2]['title'] = 'Professional chauffeurs';
+		$why_us_cards[2]['description'] = 'Licensed, discreet, and experienced<br>drivers who ensure a calm, safe, and<br>comfortable travel experience<br>throughout your tour.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['title'] = 'Privacy & discretion';
+		$why_us_cards[3]['description'] = 'Discreet service and private travel —<br>ideal for couples, families, and<br>travelers who value space, quiet, and<br>personal time.';
 	}
 	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
 		$why_us_cards[4]['title'] = '24/7 Human Support';
@@ -2137,7 +2167,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 		<?php // ======================== WHY US BLOCK ========================
 		?>
-		<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug && ! $is_corporate_events_chauffeur_service) : ?>
+		<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service) : ?>
 		<section class="why-us-block">
 			<div class="why-us-container">
 				<div class="why-us-heading">
@@ -2219,7 +2249,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
@@ -2265,7 +2295,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['why_us'] && $is_corporate_events_chauffeur_service) : ?>
+	<?php if ($block_enabled['why_us'] && ($is_corporate_events_chauffeur_service || $is_private_tours_service)) : ?>
 		<section class="why-us-block">
 			<div class="why-us-container">
 				<div class="why-us-heading">

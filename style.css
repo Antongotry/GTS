@@ -6548,6 +6548,10 @@ a.phone-button:focus,
 	padding-bottom: clamp(48px, 6vw, 96px);
 }
 
+.single-service.postid-215 .why-us-block {
+	padding-bottom: clamp(48px, 6vw, 96px);
+}
+
 .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
 	margin-bottom: 92px;
 }
