@@ -2006,6 +2006,35 @@ if ($is_mobility_partnership_service) {
 		),
 	);
 }
+if ($is_corporations_service) {
+	$hiw_title = 'You focus on the<br>experience — we take<br>care of the journey.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your<br>corporate<br>requirements',
+			'description' => 'Locations, frequency, service scope, and<br>operational expectations.',
+		),
+		array(
+			'number' => '02',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'title' => 'Receive a tailored<br>corporate<br>mobility plan',
+			'description' => 'Clear, transparent pricing based on duration<br>and vehicle class.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Launch &amp;<br>coordinate',
+			'description' => 'We assign account management and<br>chauffeur teams.',
+		),
+		array(
+			'number' => '04',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'title' => 'Ongoing delivery',
+			'description' => 'Daily execution with monitoring, reporting,<br>and continuous optimisation.',
+		),
+	);
+}
 if ($is_airport_transfer_events_service) {
 	$hiw_title = 'You focus on the event.<br>We manage the arrivals.';
 	$hiw_steps = array(
@@ -2396,6 +2425,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php if ($is_airport_transfer_events_service) : ?>
 			<style id="airport-transfer-events-fleet-title-width">
 				.fleet-slider-block.fleet-slider-block--airport-transfer-events .fleet-slider-title {
+					max-width: 1040px;
+				}
+			</style>
+		<?php endif; ?>
+		<?php if ($is_corporations_service) : ?>
+			<style id="corporations-fleet-title-width">
+				.fleet-slider-block.fleet-slider-block--corporations .fleet-slider-title {
 					max-width: 1040px;
 				}
 			</style>
@@ -3006,6 +3042,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
 			$fleet_slider_args['hide_lead'] = true;
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--mobility-partnership';
+		}
+		if ($is_corporations_service) {
+			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety,<br>comfort, and presentation, supported by chauffeurs<br>experienced in corporate travel, executive transport,<br>and time-critical schedules.';
+			$fleet_slider_args['hide_lead'] = true;
+			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--corporations';
 		}
 		if ($is_airport_transfer_events_service) {
 			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>event logistics, protocol, and time-critical airport transfers.';
