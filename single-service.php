@@ -2031,6 +2031,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			</style>
 		<?php endif; ?>
 		<?php if ($is_mobility_partnership_service) : ?>
+			<style id="mobility-partnership-fleet-title-width">
+				.fleet-slider-block.fleet-slider-block--mobility-partnership .fleet-slider-title {
+					max-width: 1040px;
+				}
+			</style>
+		<?php endif; ?>
+		<?php if ($is_mobility_partnership_service) : ?>
 			<style id="mobility-partnership-hero-features-width">
 				@media (min-width: 1025px) {
 					.hero-block--mobility-partnership .hero-features .hero-feature {
@@ -2560,6 +2567,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
 			$fleet_slider_args['hide_lead'] = true;
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--travel-agencies';
+		}
+		if ($is_mobility_partnership_service) {
+			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
+			$fleet_slider_args['hide_lead'] = true;
+			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--mobility-partnership';
 		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
 		?>
