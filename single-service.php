@@ -57,6 +57,12 @@ $current_service_slug = '';
 if (is_singular('service')) {
 	$current_service_slug = (string) get_post_field('post_name', get_the_ID());
 }
+if ('' === $current_service_slug) {
+	$request_path = trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
+	if (preg_match('#^services/([^/]+)$#', $request_path, $matches)) {
+		$current_service_slug = (string) $matches[1];
+	}
+}
 $is_airport_transfer_service = ('airport-transfer-service' === $current_service_slug);
 $is_professional_chauffeur_service = ('professional-chauffeur-service' === $current_service_slug);
 $is_special_transfers_service = ('special-transfers' === $current_service_slug);
