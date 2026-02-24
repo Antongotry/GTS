@@ -2123,7 +2123,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service) : ?>
+			<?php if ($block_enabled['service_context'] && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
@@ -2176,7 +2176,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service)) : ?>
+			<?php if ($block_enabled['service_context'] && ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service)) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
