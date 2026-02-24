@@ -6558,7 +6558,7 @@ a.phone-button:focus,
     width: auto;
     flex: 1 1 534px;
     max-width: 534px;
-    padding-top: 140px;
+    padding-top: 170px;
   }
 }
 @media (max-width: 768px) {
