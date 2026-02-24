@@ -1539,6 +1539,36 @@ if ($is_private_tours_service) {
 		),
 	);
 }
+if ($is_travel_agencies_service) {
+	$hiw_pill = 'How Partnership Works';
+	$hiw_title = 'You focus on your clients<br>and programs — we<br>handle transportation and<br>coordination.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share client or<br>itinerary details',
+			'description' => 'Routes, dates, flight details, destinations, and<br>service requirements.',
+		),
+		array(
+			'number' => '02',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'title' => 'Receive a tailored<br>proposal',
+			'description' => 'Clear pricing and transport planning aligned<br>with your itinerary.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Confirm &amp;<br>coordinate',
+			'description' => 'We assign chauffeurs and manage all<br>operational details.',
+		),
+		array(
+			'number' => '04',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'title' => 'Deliver a seamless<br>experience',
+			'description' => 'Your clients travel comfortably while we<br>handle the logistics.',
+		),
+	);
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
