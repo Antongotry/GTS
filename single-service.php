@@ -1362,6 +1362,36 @@ if ($is_travel_agencies_service) {
 		$why_us_cards[5]['description'] = 'Routes, timing, flight tracking, and<br>itinerary adjustments handled<br>centrally — reducing operational<br>workload for your team.';
 	}
 }
+if ($is_mobility_partnership_service) {
+	$why_us_intro_title = 'Why Choose GTS for Your<br>Corporate Event Chauffeur Service';
+	$why_us_intro_text = '';
+
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['card_type'] = 'image';
+		$why_us_cards[0]['title'] = 'Available worldwide';
+		$why_us_cards[0]['description'] = 'Mobility partnership services in<br>100+ countries — consistent<br>standards and reliable execution<br>across all operational locations.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['title'] = 'World-class fleet';
+		$why_us_cards[1]['description'] = 'Business, premium, and VIP vehicles<br>— late-model, immaculate, and<br>designed for comfortable city and<br>long-distance travel.';
+	}
+	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
+		$why_us_cards[2]['title'] = 'Professional chauffeurs';
+		$why_us_cards[2]['description'] = 'Licensed, discreet, and experienced<br>drivers who ensure a calm, safe, and<br>comfortable travel experience<br>throughout your tour.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['title'] = 'Privacy & discretion';
+		$why_us_cards[3]['description'] = 'Discreet service and private travel —<br>ideal for couples, families, and<br>travelers who value space, quiet, and<br>personal time.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['title'] = '24/7 Human Support';
+		$why_us_cards[4]['description'] = 'A personal manager or live agent<br>always available — by website,<br>WhatsApp, or email, in any time zone.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Effortless coordination';
+		$why_us_cards[5]['description'] = 'Vehicles, schedules, routing, and<br>real-time adjustments managed<br>centrally — reducing operational<br>workload for your teams.';
+	}
+}
 if ($is_shoping_service) {
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['card_type'] = 'image';
