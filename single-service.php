@@ -392,6 +392,18 @@ if ($is_shoping_service) {
 	);
 }
 
+if ($is_shoping_service && ! empty($service_context['cards']) && is_array($service_context['cards'])) {
+	foreach ($service_context['cards'] as $card_index => $card) {
+		if (! is_array($card)) {
+			continue;
+		}
+		$card_text = isset($card['text']) ? wp_strip_all_tags((string) $card['text']) : '';
+		if (false !== stripos($card_text, 'Personal shopping sessions')) {
+			$service_context['cards'][$card_index]['theme'] = 'light';
+		}
+	}
+}
+
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
 $has_service_intro_block = isset($blocks_data['service_intro']);
@@ -847,6 +859,30 @@ if ($is_family_travel_chauffeur_service) {
 	}
 	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
 		$why_us_cards[5]['description'] = 'We work directly with your planner or venue to<br>synchronise every detail — from arrivals to final<br>departures.';
+	}
+}
+if ($is_shoping_service) {
+	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
+		$why_us_cards[0]['card_type'] = 'image';
+		$why_us_cards[0]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325562_result.webp';
+		$why_us_cards[0]['description'] = 'Luxury shopping chauffeur service<br>in 100+ countries — the same level<br>of comfort and discretion wherever<br>you shop.';
+	}
+	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
+		$why_us_cards[1]['description'] = 'Business, premium, and VIP vehicles<br>— immaculate, late-model, and<br>presentation-ready for your day.';
+	}
+	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
+		$why_us_cards[2]['title'] = 'Professional chauffeurs';
+		$why_us_cards[2]['description'] = 'Licensed, discreet, and attentive<br>drivers experienced in supporting<br>private clients throughout flexible,<br>multi-stop itineraries.';
+	}
+	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
+		$why_us_cards[3]['description'] = 'Confidential coordination and calm<br>professionalism — ideal for private<br>shopping, personal appointments,<br>and high-profile clients.';
+	}
+	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
+		$why_us_cards[4]['description'] = 'A personal manager or live agent<br>always available — by website,<br>WhatsApp, or email, in any time zone.';
+	}
+	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
+		$why_us_cards[5]['title'] = 'Effortless coordination';
+		$why_us_cards[5]['description'] = 'Routes, timing, waiting, and<br>adjustments handled seamlessly, so<br>your day flows without interruptions.';
 	}
 }
 if ($is_medical_transportation_service) {
