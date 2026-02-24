@@ -97,6 +97,12 @@
 	border-color: rgba(255, 255, 255, 0.2);
 }
 
+.single-service .service-context-card--shoping-personal {
+	background: #fff;
+	border-color: rgba(12, 15, 23, 0.12);
+	color: #0c0f17;
+}
+
 .single-service .service-context-icon-badge {
 	width: 66px;
 	height: 38px;
@@ -132,6 +138,31 @@
 
 .single-service .service-context-card--light .service-context-text {
 	color: #1f2430;
+}
+
+.single-service .service-context-card--shoping-personal .service-context-text {
+	color: #0c0f17;
+}
+
+/* Shopping service page only (postid-211): force Personal shopping card to white. */
+.single-service.postid-211 .service-context-card[style*="--sc-col:1;--sc-col-span:1;--sc-row:2;--sc-row-span:1;"] {
+	background: #fff;
+	border-color: rgba(12, 15, 23, 0.12);
+	color: #0c0f17;
+}
+
+.single-service.postid-211 .service-context-card[style*="--sc-col:1;--sc-col-span:1;--sc-row:2;--sc-row-span:1;"] .service-context-text {
+	color: #0c0f17;
+}
+
+.single-service.postid-211 .service-context-grid > .service-context-card:nth-child(5) {
+	background: #fff;
+	border-color: rgba(12, 15, 23, 0.12);
+	color: #0c0f17;
+}
+
+.single-service.postid-211 .service-context-grid > .service-context-card:nth-child(5) .service-context-text {
+	color: #0c0f17;
 }
 
 @media (max-width: 1280px) {
