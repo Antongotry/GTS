@@ -5,8 +5,8 @@
 .hero-block {
 	width: 100% !important;
 	min-height: 100svh !important;
-	height: auto !important;
-	max-height: none !important;
+	height: 100svh !important;
+	max-height: 100svh !important;
 	background-size: cover !important;
 	background-position: center !important;
 	background-repeat: no-repeat !important;
@@ -46,8 +46,8 @@
 	margin: 0 auto;
 	padding: 0 20px;
 	min-height: 100%;
-	height: auto;
-	max-height: none;
+	height: 100%;
+	max-height: 100%;
 	box-sizing: border-box;
 
 	@include lg {
@@ -79,20 +79,20 @@
 	flex: 0 0 724px;
 	display: flex;
 	flex-direction: column;
-	align-self: stretch;
-	padding-top: clamp(100px, 18vh, 180px);
-	padding-bottom: 32px;
+	align-self: stretch; // Растянуть на высоту контейнера
+	padding-top: 180px; // Reduced to fit fixed 100svh hero
+	padding-bottom: 32px; // Отступ снизу
 	box-sizing: border-box;
 
 	@include xl {
-		padding-top: clamp(90px, 15vh, 150px);
+		padding-top: 150px;
 	}
 
 	@include lg {
 		width: auto;
 		flex: 1 1 534px;
 		max-width: 534px;
-		padding-top: clamp(160px, 25vh, 210px);
+		padding-top: 110px;
 	}
 
 	@include md {
@@ -366,24 +366,30 @@
 	margin-left: auto;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
-	padding-top: 0;
-	padding-bottom: 20px;
+	justify-content: flex-end; // Прижать форму и world-map к низу
+	padding-top: 220px; // Match left column
+	padding-bottom: 32px;
 	box-sizing: border-box;
-	min-height: 100%;
+	min-height: 100%; // Растянуть на всю высоту
+
+	@include xl {
+		padding-top: 170px;
+	}
 
 	@include lg {
 		width: 390px;
 		flex: 0 0 390px;
 		margin-left: 0;
+		padding-top: 130px;
 	}
 
 	@include md {
 		width: 100%;
 		flex: 0 0 auto;
 		margin-left: 0;
+		padding-top: 0;
 		padding-bottom: 0;
-		justify-content: flex-start;
+		justify-content: flex-start; // На мобильном сверху
 		min-height: auto;
 	}
 }
@@ -394,30 +400,6 @@
 	}
 }
 
-@media (min-width: 1025px) {
-	.single-service.postid-215 .hero-features .hero-feature {
-		padding-left: 24px;
-		padding-right: 24px;
-		gap: 18px;
-	}
-
-	.single-service.postid-215 .hero-features .hero-feature-top-left,
-	.single-service.postid-215 .hero-features .hero-feature-bottom-left {
-		padding-left: 0;
-	}
-
-	.single-service.postid-217 .hero-features .hero-feature {
-		padding-left: 24px;
-		padding-right: 24px;
-		gap: 18px;
-	}
-
-	.single-service.postid-217 .hero-features .hero-feature-top-left,
-	.single-service.postid-217 .hero-features .hero-feature-bottom-left {
-		padding-left: 0;
-	}
-}
-
 // Booking form styles inside hero
 .booking-form {
 	width: 100%;
@@ -425,7 +407,7 @@
 	padding: 24px 20px;
 	border-radius: 0;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-	margin-top: auto;
+	margin-top: auto; // Push form + world-map to bottom
 	margin-bottom: 0;
 
 	@include md {
@@ -494,8 +476,8 @@
 		color: #000000;
 		box-sizing: border-box;
 		transition: border-color 0.3s ease;
-		height: 40px;
-		min-height: 40px;
+		height: 40px; // Фиксированная высота для выравнивания
+		min-height: 40px; // Минимальная высота
 		display: flex;
 		align-items: center;
 
