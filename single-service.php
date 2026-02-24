@@ -2308,52 +2308,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			?>
 		<?php endif; ?>
 
-		<?php // ======================== WHY US BLOCK ========================
-		?>
-		<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service) : ?>
-		<section class="why-us-block">
-			<div class="why-us-container">
-				<div class="why-us-heading">
-					<div class="why-us-heading-pill">
-						<span class="why-us-heading-text"><?php echo esc_html($why_us_pill); ?></span>
-					</div>
-					<div class="why-us-heading-line" aria-hidden="true"></div>
-				</div>
-					<div class="why-us-intro">
-						<h2 class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></h2>
-						<?php if (!empty($why_us_intro_text)) : ?>
-							<p class="why-us-intro-description"><?php echo wp_kses_post($why_us_intro_text); ?></p>
-						<?php endif; ?>
-					</div>
-				<div class="why-us-grid">
-					<?php $i = 1;
-					foreach ($why_us_cards as $card) :
-						$card_type = ! empty($card['card_type']) ? $card['card_type'] : 'icon';
-						$image = ! empty($card['image']) ? $card['image'] : '';
-						$icon = ! empty($card['icon']) ? $card['icon'] : '';
-						$title = ! empty($card['title']) ? $card['title'] : '';
-						$desc = ! empty($card['description']) ? $card['description'] : '';
-					?>
-						<?php if ('image' === $card_type && $image) : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php else : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>">
-								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php endif; ?>
-					<?php $i++;
-					endforeach; ?>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
-
-	<?php // ======================== FLEET BLOCK ========================
+		<?php // ======================== FLEET BLOCK ========================
 	?>
 	<?php if ($block_enabled['occasions'] && ($is_airport_transfer_service || $is_professional_chauffeur_service)) : ?>
 		<?php
@@ -2399,20 +2354,6 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		?>
 	<?php endif; ?>
 
-	<?php // ======================== OCCASIONS BLOCK ========================
-	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service) : ?>
-		<?php
-		get_template_part(
-			'template-parts/blocks/occasions',
-			null,
-			array(
-				'block' => $occasions,
-			)
-		);
-		?>
-	<?php endif; ?>
-
 	<?php // ======================== HOW IT WORKS BLOCK ========================
 	?>
 	<?php if ($block_enabled['how_it_works']) : ?>
@@ -2442,6 +2383,51 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							</div>
 						<?php endforeach; ?>
 					</div>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php // ======================== WHY US BLOCK ========================
+	?>
+	<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service) : ?>
+		<section class="why-us-block" style="padding-bottom: clamp(56px, 8vw, 120px);">
+			<div class="why-us-container">
+				<div class="why-us-heading">
+					<div class="why-us-heading-pill">
+						<span class="why-us-heading-text"><?php echo esc_html($why_us_pill); ?></span>
+					</div>
+					<div class="why-us-heading-line" aria-hidden="true"></div>
+				</div>
+					<div class="why-us-intro">
+						<h2 class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></h2>
+						<?php if (!empty($why_us_intro_text)) : ?>
+							<p class="why-us-intro-description"><?php echo wp_kses_post($why_us_intro_text); ?></p>
+						<?php endif; ?>
+					</div>
+				<div class="why-us-grid">
+					<?php $i = 1;
+					foreach ($why_us_cards as $card) :
+						$card_type = ! empty($card['card_type']) ? $card['card_type'] : 'icon';
+						$image = ! empty($card['image']) ? $card['image'] : '';
+						$icon = ! empty($card['icon']) ? $card['icon'] : '';
+						$title = ! empty($card['title']) ? $card['title'] : '';
+						$desc = ! empty($card['description']) ? $card['description'] : '';
+					?>
+						<?php if ('image' === $card_type && $image) : ?>
+							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
+								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+							</div>
+						<?php else : ?>
+							<div class="why-us-item why-us-item-<?php echo $i; ?>">
+								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
+								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+							</div>
+						<?php endif; ?>
+					<?php $i++;
+					endforeach; ?>
 				</div>
 			</div>
 		</section>
