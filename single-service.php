@@ -67,6 +67,7 @@ $is_private_tours_service = ('private-tours' === $current_service_slug);
 $is_travel_agencies_service = ('travel-agencies' === $current_service_slug);
 $is_mobility_partnership_service = ('mobility-partnership' === $current_service_slug);
 $is_airport_transfer_events_service = ('airport-transfer' === $current_service_slug);
+$is_corporations_service = ('corporations' === $current_service_slug);
 $is_family_travel_chauffeur_service = ('family-travel-chauffeur-service' === $current_service_slug);
 $is_medical_transportation_service = ('medical-transportation' === $current_service_slug);
 $is_travel_personal_interpreter_service = ('travel-personal-interpreter' === $current_service_slug);
@@ -230,6 +231,15 @@ if ($is_mobility_partnership_service) {
 	$hero_icon_2_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 	$hero_icon_3_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-3.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 }
+if ($is_corporations_service) {
+	$hero_title = 'Chauffeur & Mobility<br>Solutions for Corporations';
+	$hero_subtitle = 'GTS provides&nbsp;chauffeur and mobility solutions<br>for corporations&nbsp;that need consistent, well-<br>managed transportation across executive travel<br>and ongoing operations.';
+	$hero_feature_2_text = 'Coordination in 100+ countries.';
+	$hero_feature_3_text = 'Business &amp; luxury fleet';
+	$hero_icon_1_original = $hero_icon_1;
+	$hero_icon_1 = $hero_icon_2;
+	$hero_icon_2_markup = $hero_icon_1_original;
+}
 if ($is_airport_transfer_service) {
 	$hero_title = 'Airport Transfer Service — Where<br>Every Arrival Feels Effortless';
 	$hero_subtitle = 'for business leaders and private clients who expect<br>comfort, style, and flawless coordination.';
@@ -262,7 +272,7 @@ if ($is_special_transfers_service) {
 	$hero_feature_1_text = 'Scalable, long-term mobility solutions';
 } elseif ($is_airport_transfer_events_service) {
 	$hero_feature_1_text = 'Aligned with event agendas';
-} elseif ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service) {
+} elseif ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service || $is_corporations_service) {
 	$hero_feature_1_text = 'Professional chauffeur';
 }
 
@@ -2300,6 +2310,35 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			</style>
 		<?php endif; ?>
+		<?php if ($is_corporations_service) : ?>
+			<style id="corporations-hero-features-width">
+				@media (min-width: 1025px) {
+					.hero-block--corporations .hero-features .hero-feature {
+						padding-left: 24px;
+						padding-right: 24px;
+						gap: 18px;
+					}
+
+					.hero-block--corporations .hero-features .hero-feature-top-left,
+					.hero-block--corporations .hero-features .hero-feature-bottom-left {
+						padding-left: 0;
+					}
+				}
+
+				@media (max-width: 768px) {
+					.hero-block--corporations .hero-features--mobile .hero-feature {
+						padding-left: 16px;
+						padding-right: 16px;
+						gap: 14px;
+					}
+
+					.hero-block--corporations .hero-features--mobile .hero-feature-top-left,
+					.hero-block--corporations .hero-features--mobile .hero-feature-bottom-left {
+						padding-left: 0;
+					}
+				}
+			</style>
+		<?php endif; ?>
 		<style id="service-hero-right-bottom-align">
 			@media (min-width: 1025px) {
 				.hero-right {
@@ -2388,7 +2427,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			}
 		</style>
-		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?><?php echo $is_professional_chauffeur_service ? ' hero-block--professional-chauffeur' : ''; ?><?php echo $is_mobility_partnership_service ? ' hero-block--mobility-partnership' : ''; ?><?php echo $is_airport_transfer_events_service ? ' hero-block--airport-transfer-events' : ''; ?>">
+		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?><?php echo $is_professional_chauffeur_service ? ' hero-block--professional-chauffeur' : ''; ?><?php echo $is_mobility_partnership_service ? ' hero-block--mobility-partnership' : ''; ?><?php echo $is_airport_transfer_events_service ? ' hero-block--airport-transfer-events' : ''; ?><?php echo $is_corporations_service ? ' hero-block--corporations' : ''; ?>">
 			<div class="hero-container">
 				<div class="hero-left">
 					<div class="hero-content<?php echo $hero_features_enabled ? '' : ' hero-content--no-features'; ?>">
@@ -2651,7 +2690,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service && ! $is_mobility_partnership_service && ! $is_airport_transfer_events_service) : ?>
+			<?php if ($block_enabled['service_context'] && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service && ! $is_mobility_partnership_service && ! $is_airport_transfer_events_service && ! $is_corporations_service) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
@@ -2704,7 +2743,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service || $is_mobility_partnership_service || $is_airport_transfer_events_service)) : ?>
+			<?php if ($block_enabled['service_context'] && ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service || $is_mobility_partnership_service || $is_airport_transfer_events_service || $is_corporations_service)) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
