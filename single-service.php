@@ -509,6 +509,69 @@ if ($is_private_tours_service) {
 		),
 	);
 }
+if ($is_travel_agencies_service) {
+	$service_context = array(
+		'pill_text' => 'Full Service',
+		'title' => 'Where accuracy, tone, and context truly matter.',
+		'variant' => 'context',
+		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/11234_result.webp',
+		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/5125_result.webp',
+		'cards' => array(
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-1.svg',
+				'text' => 'Private tours and<br>sightseeing programs',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/11234_result.webp',
+				'col_start' => 2, 'col_span' => 2, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 2,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'light',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-2.svg',
+				'text' => 'Airport transfers and meet &amp;<br>greet',
+				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-3.svg',
+				'text' => 'Multi-day itineraries and<br>custom routes',
+				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'light',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+				'text' => 'VIP and luxury travel<br>services',
+				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-5.svg',
+				'text' => 'Corporate and leisure client<br>support',
+				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'text',
+				'theme' => 'dark',
+				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-6.svg',
+				'text' => 'Individual bookings and<br>group coordination',
+				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
+			),
+			array(
+				'card_type' => 'image',
+				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/5125_result.webp',
+				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
+			),
+		),
+	);
+}
 if ($is_shoping_service) {
 	$service_context = array(
 		'pill_text' => 'Full Service',
