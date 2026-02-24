@@ -512,8 +512,9 @@ if ($is_private_tours_service) {
 if ($is_travel_agencies_service) {
 	$service_context = array(
 		'pill_text' => 'Full Service',
-		'title' => 'Where accuracy, tone, and context truly matter.',
-		'variant' => 'context',
+		'title' => 'One partner. One standard. Long-term reliability.',
+		'subtitle' => 'Mobility Partnership is built for organisations that need more than individual rides or one-off bookings.',
+		'variant' => 'partnership',
 		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/11234_result.webp',
 		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/5125_result.webp',
 		'cards' => array(
