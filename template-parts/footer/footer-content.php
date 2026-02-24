@@ -34,12 +34,9 @@
 				?>
 					<ul class="footer-menu-list">
 						<li><a href="<?php echo esc_url(home_url('/book-a-transfer')); ?>">Book a Transfer</a></li>
-						<li><a href="<?php echo esc_url(home_url('/events')); ?>">Events</a></li>
-						<li><a href="<?php echo esc_url(home_url('/for-business')); ?>">For Business</a></li>
 						<li><a href="<?php echo esc_url(home_url('/fleet')); ?>">Fleet</a></li>
 						<li><a href="<?php echo esc_url(home_url('/blog')); ?>">Blog</a></li>
 						<li><a href="<?php echo esc_url(home_url('/contacts')); ?>">Contacts</a></li>
-						<li><a href="<?php echo esc_url(home_url('/about-us')); ?>">About Us</a></li>
 					</ul>
 				<?php
 				}
@@ -66,21 +63,27 @@
 		<div class="footer-services">
 			<h3 class="footer-title footer-services-title">Services</h3>
 			<ul class="footer-services-list footer-services-list-left">
-				<li><a href="#">Book a Flight</a></li>
-				<li><a href="#">City-to-City Rides</a></li>
-				<li><a href="#">Airport Transfers</a></li>
-				<li><a href="#">Hourly Hire</a></li>
-				<li><a href="#">Chauffeur Service</a></li>
-				<li><a href="#">Limousine Service</a></li>
-				<li><a href="#">Corporations</a></li>
-				<li><a href="#">Travel Agencies</a></li>
-				<li><a href="#">Mobility Partnerships</a></li>
+				<li><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>">Limousine Service</a></li>
+				<li><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>">City-to-City</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>">Corporations</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>">Airport Transfer</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/mobility-partnership/')); ?>">Mobility Partnership</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/travel-agencies/')); ?>">Travel Agencies</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/private-tours/')); ?>">Private Tours</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/corporate-events-chauffeur-service/')); ?>">Corporate Events Chauffeur Service</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>">Shoping</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/travel-planninig/')); ?>">Travel Planninig</a></li>
 			</ul>
 			<ul class="footer-services-list footer-services-list-right">
-				<li><a href="#">Medical Transportation</a></li>
-				<li><a href="#">Concierge Support</a></li>
-				<li><a href="#">Travel Personal Interpreter</a></li>
-				<li><a href="#">Travel Planning</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/travel-personal-interpreter/')); ?>">Travel Personal Interpreter</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/medical-transportation/')); ?>">Medical Transportation</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/family-travel-chauffeur-service/')); ?>">Family Travel Chauffeur Service</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/cultural-sport-events/')); ?>">Cultural Sport Events</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/wedding/')); ?>">Wedding</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/special-transfers/')); ?>">Special Transfers</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/professional-chauffeur-service/')); ?>">Professional Chauffeur Service</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/airport-transfer-service/')); ?>">Airport Transfer Service</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>">Hourly Hire</a></li>
 			</ul>
 		</div>
 
