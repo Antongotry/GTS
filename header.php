@@ -237,32 +237,51 @@
 								</span>
 							</a>
 							<ul class="sub-menu">
-								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Book a Flight</a></li>
-								<li class="sub-menu-item"><a href="#" class="sub-menu-link">City-to-City Rides</a></li>
-								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Airport Transfers</a></li>
-								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Hourly Hire</a></li>
-								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Chauffeur Service</a></li>
-								<li class="sub-menu-item"><a href="<?php echo esc_url(get_site_url() . '/limousine-service/'); ?>" class="sub-menu-link">Limousine Service</a></li>
-								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Medical Transportation</a></li>
-								<li class="sub-menu-item"><a href="#" class="sub-menu-link">Travel Planning</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>" class="sub-menu-link">Limousine Service</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="sub-menu-link">City-to-City</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>" class="sub-menu-link">Corporations</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>" class="sub-menu-link">Airport Transfer</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/mobility-partnership/')); ?>" class="sub-menu-link">Mobility Partnership</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-agencies/')); ?>" class="sub-menu-link">Travel Agencies</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/private-tours/')); ?>" class="sub-menu-link">Private Tours</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/corporate-events-chauffeur-service/')); ?>" class="sub-menu-link">Corporate Events Chauffeur Service</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>" class="sub-menu-link">Shoping</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-planninig/')); ?>" class="sub-menu-link">Travel Planninig</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-personal-interpreter/')); ?>" class="sub-menu-link">Travel Personal Interpreter</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/medical-transportation/')); ?>" class="sub-menu-link">Medical Transportation</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/family-travel-chauffeur-service/')); ?>" class="sub-menu-link">Family Travel Chauffeur Service</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/cultural-sport-events/')); ?>" class="sub-menu-link">Cultural Sport Events</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/wedding/')); ?>" class="sub-menu-link">Wedding</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/special-transfers/')); ?>" class="sub-menu-link">Special Transfers</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/professional-chauffeur-service/')); ?>" class="sub-menu-link">Professional Chauffeur Service</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer-service/')); ?>" class="sub-menu-link">Airport Transfer Service</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>" class="sub-menu-link">Hourly Hire</a></li>
 							</ul>
 						</li>
-						<li class="menu-item"><a href="#" class="menu-link">Events</a></li>
-						<li class="menu-item"><a href="#" class="menu-link">For Business</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url( $fleet_url ); ?>" class="menu-link">Fleet</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url( $blog_url ); ?>" class="menu-link">Blog</a></li>
 						<li class="menu-item"><a href="<?php echo esc_url(home_url('/contacts/')); ?>" class="menu-link">Contacts</a></li>
-						<li class="menu-item"><a href="#" class="menu-link">About Us</a></li>
 						<li class="menu-item menu-item-highlight"><a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="menu-link">Book a Transfer</a></li>
 					</ul>
 				</nav>
 
 				<div class="header-right">
 					<div class="language-selector">
-						<span class="language-text">EN</span>
-						<span class="dropdown-icon">
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" width="10" height="6">
-						</span>
+						<div class="language-selector__toggle">
+							<span class="language-text">EN</span>
+							<span class="dropdown-icon">
+								<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" width="10" height="6">
+							</span>
+						</div>
+						<ul class="language-selector__menu" role="menu" aria-label="<?php esc_attr_e( 'Select language', 'gts-theme' ); ?>">
+							<li class="language-selector__item is-active" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="EN">English</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="FR">French</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="DE">German</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="IT">Italian</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ES">Spanish</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="AR">Arabic</a></li>
+							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ZH">Chinese</a></li>
+						</ul>
 					</div>
 					<a href="mailto:info@gmail.com" class="header-email">info@gmail.com</a>
 					<div class="header-buttons">
@@ -292,12 +311,6 @@
 						</button>
 					</li>
 					<li class="mobile-menu-item">
-						<a href="#" class="mobile-menu-link">Events</a>
-					</li>
-					<li class="mobile-menu-item">
-						<a href="#" class="mobile-menu-link">For Business</a>
-					</li>
-					<li class="mobile-menu-item">
 						<a href="<?php echo esc_url( $fleet_url ); ?>" class="mobile-menu-link">Fleet</a>
 					</li>
 					<li class="mobile-menu-item">
@@ -305,9 +318,6 @@
 					</li>
 					<li class="mobile-menu-item">
 						<a href="<?php echo esc_url(home_url('/contacts/')); ?>" class="mobile-menu-link">Contacts</a>
-					</li>
-					<li class="mobile-menu-item">
-						<a href="#" class="mobile-menu-link">About Us</a>
 					</li>
 					<li class="mobile-menu-item mobile-menu-item-highlight">
 						<a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="mobile-menu-link">Book a Transfer</a>
@@ -342,14 +352,25 @@
 				</button>
 				<h3 class="mobile-submenu-title">Services</h3>
 				<ul class="mobile-menu-list mobile-submenu-list">
-					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Book a Flight</a></li>
-					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">City-to-City Rides</a></li>
-					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Airport Transfers</a></li>
-					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Hourly Hire</a></li>
-					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Chauffeur Service</a></li>
-					<li class="mobile-menu-item"><a href="<?php echo esc_url(get_site_url() . '/limousine-service/'); ?>" class="mobile-menu-link">Limousine Service</a></li>
-					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Medical Transportation</a></li>
-					<li class="mobile-menu-item"><a href="#" class="mobile-menu-link">Travel Planning</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>" class="mobile-menu-link">Limousine Service</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="mobile-menu-link">City-to-City</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>" class="mobile-menu-link">Corporations</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>" class="mobile-menu-link">Airport Transfer</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/mobility-partnership/')); ?>" class="mobile-menu-link">Mobility Partnership</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-agencies/')); ?>" class="mobile-menu-link">Travel Agencies</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/private-tours/')); ?>" class="mobile-menu-link">Private Tours</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/corporate-events-chauffeur-service/')); ?>" class="mobile-menu-link">Corporate Events Chauffeur Service</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>" class="mobile-menu-link">Shoping</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-planninig/')); ?>" class="mobile-menu-link">Travel Planninig</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-personal-interpreter/')); ?>" class="mobile-menu-link">Travel Personal Interpreter</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/medical-transportation/')); ?>" class="mobile-menu-link">Medical Transportation</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/family-travel-chauffeur-service/')); ?>" class="mobile-menu-link">Family Travel Chauffeur Service</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/cultural-sport-events/')); ?>" class="mobile-menu-link">Cultural Sport Events</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/wedding/')); ?>" class="mobile-menu-link">Wedding</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/special-transfers/')); ?>" class="mobile-menu-link">Special Transfers</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/professional-chauffeur-service/')); ?>" class="mobile-menu-link">Professional Chauffeur Service</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer-service/')); ?>" class="mobile-menu-link">Airport Transfer Service</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>" class="mobile-menu-link">Hourly Hire</a></li>
 				</ul>
 			</div>
 		</nav>
