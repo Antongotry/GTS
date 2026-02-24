@@ -543,6 +543,28 @@ if ($is_cultural_sport_events_service) {
 if ($is_corporate_events_chauffeur_service) {
 	$service_intro_title = 'Precision is what<br>separates smooth events<br>from stressful ones';
 	$service_intro_description = 'We align vehicles, chauffeurs, and timing<br>with your agenda to ensure seamless<br>movement at every stage of the event';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-1.svg',
+			'title'       => 'Flawless timing',
+			'description' => 'Arrivals and departures synchronised with agendas, speakers, venues, and protocol — no delays, no confusion.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-2.svg',
+			'title'       => 'Flexible scheduling',
+			'description' => 'Your program can evolve — routes, timings, or guest movements can be adjusted on the day.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-3.svg',
+			'title'       => 'Centralised coordination',
+			'description' => 'One point of contact for all vehicles, chauffeurs, routes, and real-time adjustments.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-4.svg',
+			'title'       => 'Discreet, professional presence',
+			'description' => 'Uniformed chauffeurs trained for corporate etiquette, protocol, and high-level clients.',
+		),
+	);
 }
 if ($is_family_travel_chauffeur_service) {
 	$service_intro_title = 'Tailored transfers for family comfort';
