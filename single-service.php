@@ -1875,6 +1875,35 @@ if ($is_mobility_partnership_service) {
 		),
 	);
 }
+if ($is_airport_transfer_events_service) {
+	$hiw_title = 'You focus on the event.<br>We manage the arrivals.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your event<br>details',
+			'description' => 'Guest list, flights, venues, schedules, and<br>transfer requirements.',
+		),
+		array(
+			'number' => '02',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'title' => 'Receive a tailored<br>transfer plan',
+			'description' => 'Clear structure, vehicle allocation, and<br>transparent pricing.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Confirm &amp;<br>coordinate',
+			'description' => 'We assign chauffeurs and manage all<br>operational details.',
+		),
+		array(
+			'number' => '04',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'title' => 'Seamless<br>execution',
+			'description' => 'Every pickup and drop-off handled precisely,<br>quietly, and on time.',
+		),
+	);
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
@@ -2230,6 +2259,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 				.how-it-works-left .how-it-works-title {
 					max-width: 700px;
+				}
+			</style>
+		<?php endif; ?>
+		<?php if ($is_airport_transfer_events_service) : ?>
+			<style id="airport-transfer-events-fleet-title-width">
+				.fleet-slider-block.fleet-slider-block--airport-transfer-events .fleet-slider-title {
+					max-width: 1040px;
 				}
 			</style>
 		<?php endif; ?>
@@ -2810,6 +2846,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
 			$fleet_slider_args['hide_lead'] = true;
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--mobility-partnership';
+		}
+		if ($is_airport_transfer_events_service) {
+			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>event logistics, protocol, and time-critical airport transfers.';
+			$fleet_slider_args['hide_lead'] = true;
+			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--airport-transfer-events';
 		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
 		?>
