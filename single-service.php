@@ -1846,6 +1846,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					max-width: 1040px;
 				}
 			</style>
+			<style id="travel-agencies-why-us-gap">
+				.why-us-block.why-us-block--travel-agencies-gap {
+					padding-bottom: clamp(56px, 8vw, 120px);
+				}
+			</style>
 		<?php endif; ?>
 
 	<?php // ======================== HERO BLOCK ========================
@@ -2305,7 +2310,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 		<?php // ======================== WHY US BLOCK ========================
 		?>
-		<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service) : ?>
+		<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service) : ?>
 		<section class="why-us-block">
 			<div class="why-us-container">
 				<div class="why-us-heading">
@@ -2396,7 +2401,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== OCCASIONS BLOCK ========================
 	?>
-	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service) : ?>
+	<?php if ($block_enabled['occasions'] && 'hourly-hire' !== $current_service_slug && ! $is_airport_transfer_service && ! $is_professional_chauffeur_service && ! $is_special_transfers_service && ! $is_wedding_service && ! $is_cultural_sport_events_service && ! $is_family_travel_chauffeur_service && ! $is_medical_transportation_service && ! $is_travel_personal_interpreter_service && ! $is_travel_planninig_service && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service) : ?>
 		<?php
 		get_template_part(
 			'template-parts/blocks/occasions',
@@ -2442,8 +2447,8 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 	<?php endif; ?>
 
-	<?php if ($block_enabled['why_us'] && ($is_corporate_events_chauffeur_service || $is_private_tours_service)) : ?>
-		<section class="why-us-block">
+	<?php if ($block_enabled['why_us'] && ($is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service)) : ?>
+		<section class="why-us-block<?php echo $is_travel_agencies_service ? ' why-us-block--travel-agencies-gap' : ''; ?>">
 			<div class="why-us-container">
 				<div class="why-us-heading">
 					<div class="why-us-heading-pill">
