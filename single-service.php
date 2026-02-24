@@ -1839,7 +1839,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				<div class="hero-left">
 					<div class="hero-content<?php echo $hero_features_enabled ? '' : ' hero-content--no-features'; ?>">
 						<?php if ( $hero_pretitle_enabled && ! empty( $hero_pretitle ) ) : ?>
-							<p class="hero-subtitle"><?php echo esc_html( $hero_pretitle ); ?></p>
+							<p class="hero-subtitle"<?php echo $is_travel_agencies_service ? ' style="text-transform:none;letter-spacing:0;"' : ''; ?>><?php echo esc_html( $hero_pretitle ); ?></p>
 						<?php endif; ?>
 						<h1 class="hero-title"><?php echo wp_kses_post($hero_title); ?></h1>
 						<p class="hero-description"><?php echo wp_kses_post($hero_subtitle); ?></p>
