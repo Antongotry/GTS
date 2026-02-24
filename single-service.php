@@ -57,12 +57,6 @@ $current_service_slug = '';
 if (is_singular('service')) {
 	$current_service_slug = (string) get_post_field('post_name', get_the_ID());
 }
-if ('' === $current_service_slug) {
-	$request_path = trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
-	if (preg_match('#^services/([^/]+)$#', $request_path, $matches)) {
-		$current_service_slug = (string) $matches[1];
-	}
-}
 $is_airport_transfer_service = ('airport-transfer-service' === $current_service_slug);
 $is_professional_chauffeur_service = ('professional-chauffeur-service' === $current_service_slug);
 $is_special_transfers_service = ('special-transfers' === $current_service_slug);
@@ -1368,36 +1362,6 @@ if ($is_travel_agencies_service) {
 		$why_us_cards[5]['description'] = 'Routes, timing, flight tracking, and<br>itinerary adjustments handled<br>centrally — reducing operational<br>workload for your team.';
 	}
 }
-if ($is_mobility_partnership_service) {
-	$why_us_intro_title = 'Why Choose GTS for<br>Mobility Partnership';
-	$why_us_intro_text = '';
-
-	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
-		$why_us_cards[0]['card_type'] = 'image';
-		$why_us_cards[0]['title'] = 'Available worldwide';
-		$why_us_cards[0]['description'] = 'Mobility partnership services in<br>100+ countries — consistent<br>standards and reliable execution<br>across all operational locations.';
-	}
-	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
-		$why_us_cards[1]['title'] = 'World-class fleet';
-		$why_us_cards[1]['description'] = 'Business, premium, and VIP vehicles<br>— late-model, immaculate, and<br>designed for comfortable city and<br>long-distance travel.';
-	}
-	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
-		$why_us_cards[2]['title'] = 'Professional chauffeurs';
-		$why_us_cards[2]['description'] = 'Licensed, discreet, and experienced<br>drivers who ensure a calm, safe, and<br>comfortable travel experience<br>throughout your tour.';
-	}
-	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
-		$why_us_cards[3]['title'] = 'Privacy & discretion';
-		$why_us_cards[3]['description'] = 'Discreet service and private travel —<br>ideal for couples, families, and<br>travelers who value space, quiet, and<br>personal time.';
-	}
-	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
-		$why_us_cards[4]['title'] = '24/7 Human Support';
-		$why_us_cards[4]['description'] = 'A personal manager or live agent<br>always available — by website,<br>WhatsApp, or email, in any time zone.';
-	}
-	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
-		$why_us_cards[5]['title'] = 'Effortless coordination';
-		$why_us_cards[5]['description'] = 'Vehicles, schedules, routing, and<br>real-time adjustments managed<br>centrally — reducing operational<br>workload for your teams.';
-	}
-}
 if ($is_shoping_service) {
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['card_type'] = 'image';
@@ -1731,36 +1695,6 @@ if ($is_travel_agencies_service) {
 			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
 			'title' => 'Deliver a seamless<br>experience',
 			'description' => 'Your clients travel comfortably while we<br>handle the logistics.',
-		),
-	);
-}
-if ($is_mobility_partnership_service) {
-	$hiw_pill = 'How Partnership Works';
-	$hiw_title = 'You run the business.<br>We manage mobility.';
-	$hiw_steps = array(
-		array(
-			'number' => '01',
-			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
-			'title' => 'Share your mobility<br>requirements',
-			'description' => 'Operational scope, locations, frequency,<br>volumes, and service expectations.',
-		),
-		array(
-			'number' => '02',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
-			'title' => 'Receive a tailored<br>mobility framework',
-			'description' => 'A scalable transportation model aligned with<br>your business needs and timelines.',
-		),
-		array(
-			'number' => '03',
-			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
-			'title' => 'Launch &amp; integrate',
-			'description' => 'We assign account management, chauffeurs,<br>and coordination processes.',
-		),
-		array(
-			'number' => '04',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
-			'title' => 'Ongoing delivery<br>&amp; optimisation',
-			'description' => 'Daily execution supported by monitoring,<br>reporting, and continuous adjustment.',
 		),
 	);
 }
@@ -2100,17 +2034,6 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			<style id="mobility-partnership-fleet-title-width">
 				.fleet-slider-block.fleet-slider-block--mobility-partnership .fleet-slider-title {
 					max-width: 1040px;
-				}
-			</style>
-			<style id="mobility-partnership-how-it-works-width">
-				.how-it-works-pill {
-					width: auto;
-					padding-left: 24px;
-					padding-right: 24px;
-					white-space: nowrap;
-					display: inline-flex;
-					align-items: center;
-					justify-content: center;
 				}
 			</style>
 		<?php endif; ?>

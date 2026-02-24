@@ -1,6 +1,6 @@
 /**
- * Contacts Page — ref: pill CTA, sharp cards/form, rounded submit.
- * Uses main styles: .btn, container, Manrope, gradients.
+ * Contacts Page — aligned with main: pill CTA (why-us-heading-pill), title (occasions),
+ * cards (why-us-item), icons (custom-itinerary), form (hero booking-form).
  */
 
 .site-main--contacts {
@@ -9,55 +9,101 @@
 }
 
 // -----------------------------------------------------------------------------
-// Hero — CTA pill (like main .btn), dark gray
+// Hero — pill CTA (like why-us-heading-pill), title (like occasions-title), centered
 // -----------------------------------------------------------------------------
 
 .contacts-hero {
 	width: 100%;
 	background: $color__background-body;
-	padding: 140px 20px 80px;
+	padding: 140px 0 80px;
 	text-align: center;
 
 	@include lg {
-		padding: 120px 20px 60px;
+		padding: 120px 0 60px;
 	}
 
 	@include md {
-		padding: 100px 20px 48px;
+		padding: 100px 0 48px;
 	}
 }
 
+// Same width as header: container mixin (1840px max, 20px padding)
 .contacts-hero__container {
 	@include container($container-max-width-content);
-	max-width: min(800px, 100%);
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-}
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-// Pill-shaped CTA (same as main .btn), dark gray — ref
-.contacts-hero__cta {
-	@extend .btn;
-	background: #363636;
-	border-radius: 50px;
-	border: none;
-	color: #fff;
-	margin-bottom: 24px;
-	text-transform: none;
-	letter-spacing: 0;
+	@include lg {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
+	}
 
-	&:hover {
-		background: #454545;
-		color: #fff;
+	@include md {
+		max-width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
 	}
 }
 
-.contacts-hero__title {
+// CTA like why-us-heading-pill (glass, pill shape), centered
+.contacts-hero__cta {
+	@include pill(auto, 43px);
+	@include glass-effect();
+	padding-left: 24px;
+	padding-right: 24px;
+	width: max-content;
+	min-width: 103px;
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 	font-family: $font__manrope;
-	font-size: clamp(24px, 3.5vw, 40px);
-	font-weight: 700;
-	line-height: 1.2;
-	color: #fff;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0;
+	color: $color__text-main;
+	text-decoration: none;
+	margin-bottom: 24px;
+	border: none;
+	cursor: pointer;
+	transition: opacity 0.2s;
+
+	@include lg {
+		font-size: 12px;
+	}
+
+	&:hover {
+		opacity: 0.9;
+		color: $color__text-main;
+	}
+}
+
+// Title like occasions-title (centered)
+.contacts-hero__title {
+	font-family: $font__main;
+	font-size: 48px;
+	font-weight: 500;
+	color: $color__text-main;
 	margin: 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-align: center;
+
+	@include lg {
+		font-size: 36px;
+	}
+
+	@include md {
+		font-size: 28px;
+		text-align: center;
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -67,35 +113,59 @@
 .contacts-main {
 	width: 100%;
 	background: $color__background-body;
-	padding: 0 20px 80px;
+	padding: 0 0 80px;
 	box-sizing: border-box;
 
 	@include md {
-		padding: 0 20px 60px;
+		padding: 0 0 60px;
 	}
 }
 
+// Grid: 325 | 325 | 670 px at 1440, same proportions at 1920 / 1024
+$contacts-card-w: 325px;
+$contacts-form-w: 670px;
+$contacts-gap: 24px;
+$contacts-content-total: $contacts-card-w * 2 + $contacts-form-w; // 1320
+$contacts-form-ratio: $contacts-form-w / $contacts-content-total;
+$contacts-card-ratio: $contacts-card-w / $contacts-content-total;
+
+// Same width as header: max 1840px, padding 20px (container mixin)
 .contacts-main__container {
 	@include container($container-max-width-content);
+	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1.2fr;
-	gap: 24px;
-	align-items: start;
+	grid-template-columns:
+		calc((100% - #{$contacts-gap * 2}) * #{$contacts-card-ratio})
+		calc((100% - #{$contacts-gap * 2}) * #{$contacts-card-ratio})
+		calc((100% - #{$contacts-gap * 2}) * #{$contacts-form-ratio});
+	gap: $contacts-gap;
+	align-items: stretch;
 
 	@include lg {
+		max-width: 944px;
+		padding: 0 20px;
+		box-sizing: content-box;
 		gap: 20px;
+		grid-template-columns:
+			calc((100% - 40px) * #{$contacts-card-ratio})
+			calc((100% - 40px) * #{$contacts-card-ratio})
+			calc((100% - 40px) * #{$contacts-form-ratio});
 	}
 
 	@include md {
+		max-width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
 		grid-template-columns: 1fr;
 		gap: 24px;
+		align-items: start;
 	}
 }
 
-// Cards/cols: dark (WA/Email), white (form). No rounding
+// Cards: WhatsApp & Email — glass border; Form card — no border
 .contacts-main__card,
 .contacts-main__col {
-	border-radius: 0 !important;
+	border-radius: 0;
 	padding: 28px 24px;
 	box-sizing: border-box;
 
@@ -108,14 +178,15 @@
 .contacts-main__card--email,
 .contacts-main__col--whatsapp,
 .contacts-main__col--email {
-	background: rgba(255, 255, 255, 0.06);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: transparent;
+	border: 1px inset $color__glass-border;
 }
 
 .contacts-main__card--form,
 .contacts-main__col--form {
-	background: #fff;
+	background: transparent;
 	border: none;
+	padding: 0;
 }
 
 // Title + icon on same row (ref): left title, right icon
@@ -139,15 +210,38 @@
 	display: none;
 }
 
-// Circular icons (green / blue)
+// Form area: like hero .booking-form (white, shadow, no rounding)
+.contacts-main__card--form .contacts-main__form-wrap {
+	background: #fff;
+	padding: 24px 20px;
+	border-radius: 0;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	height: 100%;
+	min-height: 100%;
+}
+
+// Icons — full copy from custom-itinerary-block--limousine .custom-itinerary-icon (size, shape, hover, active)
 .contacts-main__icon-wrap {
-	width: 48px;
-	height: 48px;
-	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
 	flex-shrink: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+
+	&:hover {
+		opacity: 0.9;
+		transform: scale(1.08);
+	}
+
+	&:active {
+		transform: scale(1.02);
+	}
 
 	img,
 	svg {
@@ -158,8 +252,7 @@
 }
 
 .contacts-main__icon-wrap--whatsapp {
-	background: #25d366;
-	color: #fff;
+	background: #25d366; // custom-itinerary-icon--phone
 
 	img {
 		filter: brightness(0) invert(1);
@@ -167,8 +260,11 @@
 }
 
 .contacts-main__icon-wrap--email {
-	background: #5b9bd5;
-	color: #fff;
+	background: #4997f6; // custom-itinerary-icon--mail
+
+	img {
+		filter: brightness(0) invert(1); // white icon on blue, same as limousine
+	}
 }
 
 .contacts-main__desc {
@@ -222,6 +318,7 @@
 	margin: 0 0 24px;
 }
 
+
 .contacts-main__form-success {
 	font-family: $font__manrope;
 	font-size: 16px;
@@ -267,10 +364,12 @@
 }
 
 // Ref: inputs sharp (0), underline only
+// Inputs/textarea like hero .booking-form .form-group
+// Поля как на главной: .booking-form .form-group
 .contacts-form__group input,
 .contacts-form__group textarea {
 	width: 100%;
-	padding: 10px 0;
+	padding: 8px 0;
 	border: none;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.32);
 	border-radius: 0;
@@ -280,62 +379,82 @@
 	background: transparent;
 	color: #000;
 	box-sizing: border-box;
-	transition: border-color 0.2s;
+	transition: border-color 0.3s ease;
+	height: 40px;
+	min-height: 40px;
 
 	&::placeholder {
 		color: rgba(0, 0, 0, 0.56);
+		opacity: 1;
 	}
 
 	&:focus {
 		outline: none;
-		border-bottom-color: rgba(0, 0, 0, 0.6);
+		border-bottom-color: rgba(0, 0, 0, 0.32);
 	}
 }
 
-.contacts-form__group textarea {
-	resize: vertical;
-	min-height: 80px;
-	line-height: 1.5;
+.contacts-form__group input {
+	display: block;
 }
 
+.contacts-form__group textarea {
+	resize: none;
+	height: 40px;
+	min-height: 40px;
+	line-height: 1.5;
+	display: block;
+	overflow: hidden;
+}
+
+// Consent — как hero .checkbox-consent: отступы 24px, чекбокс и текст по одной линии
 .contacts-form__consent {
-	margin-top: 8px;
+	margin-top: 24px;
 	margin-bottom: 24px;
 
 	label {
 		display: flex;
-		align-items: flex-start;
-		gap: 10px;
+		align-items: center;
+		gap: 8px;
 		cursor: pointer;
+	}
+
+	label span {
 		font-family: $font__manrope;
-		font-size: 13px;
 		font-weight: 400;
+		font-size: 14px;
 		line-height: 1.4;
-		color: rgba(0, 0, 0, 0.75);
+		letter-spacing: 0;
+		color: #000;
+		flex: 1;
+		min-width: 0;
 	}
 
-	.contacts-form__consent-link {
-		color: #5b9bd5;
-		text-decoration: underline;
-		text-underline-offset: 2px;
+	// Вся подпись чёрная, без подчёркивания
+	a,
+	.contacts-form__consent-link,
+	.contacts-form__consent-link:hover,
+	.contacts-form__consent-link:focus,
+	.contacts-form__consent-link:visited {
+		color: #000 !important;
+		text-decoration: none !important;
 	}
 
-	// Ref: checkbox sharp (0)
+	// Чекбокс как на главной (hero .consent-checkbox)
 	input[type="checkbox"] {
 		width: 20px;
 		height: 20px;
 		margin: 0;
-		margin-top: 2px;
 		flex-shrink: 0;
 		appearance: none;
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		border: 1px solid rgba(0, 0, 0, 0.32);
-		border-radius: 0;
+		border-radius: 0 !important;
+		position: relative;
 		cursor: pointer;
 		background: transparent;
-		transition: border-color 0.2s;
-		position: relative;
+		transition: all 0.2s ease;
 
 		&:checked {
 			border-color: #000;
@@ -346,35 +465,42 @@
 				position: absolute;
 				left: 50%;
 				top: 50%;
-				width: 10px;
-				height: 10px;
-				background: #000;
+				width: 14px;
+				height: 14px;
+				background-color: #000;
 				transform: translate(-50%, -50%);
 			}
 		}
 	}
 }
 
-// Get My Quote — orange/peach bg, black text, rounded ~5-8px (ref)
+// Get My Quote — like hero .booking-submit-btn (gold gradient, 50px radius)
 .contacts-form__submit {
-	@extend .btn;
 	width: 100%;
 	max-width: 200px;
-	background: #FAD9A9;
-	border: none;
-	border-radius: 6px;
-	font-size: 14px;
-	font-weight: 600;
-	font-family: $font__manrope;
+	height: 56px;
+	padding: 0;
+	background: linear-gradient(to right, #FDDFAE 0%, #F4C58B 50%, #F7CE95 100%);
 	color: #000;
+	border: none;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 400;
+	font-family: $font__manrope;
 	cursor: pointer;
-	transition: all 0.2s;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	margin-top: 24px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+	overflow: hidden;
 
 	&:hover {
-		background: #FBE5B9;
-		color: #000;
+		background: linear-gradient(to right, #FEE5C0 0%, #F5CE9B 50%, #F8D5A5 100%);
+	}
+
+	&:active {
+		background: linear-gradient(to right, #FCD9A4 0%, #F3C17B 50%, #F6C88B 100%);
 	}
 }
