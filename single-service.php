@@ -62,6 +62,7 @@ $is_professional_chauffeur_service = ('professional-chauffeur-service' === $curr
 $is_special_transfers_service = ('special-transfers' === $current_service_slug);
 $is_wedding_service = ('wedding' === $current_service_slug);
 $is_cultural_sport_events_service = ('cultural-sport-events' === $current_service_slug);
+$is_corporate_events_chauffeur_service = ('corporate-events-chauffeur-service' === $current_service_slug);
 $is_family_travel_chauffeur_service = ('family-travel-chauffeur-service' === $current_service_slug);
 $is_medical_transportation_service = ('medical-transportation' === $current_service_slug);
 $is_travel_personal_interpreter_service = ('travel-personal-interpreter' === $current_service_slug);
@@ -182,6 +183,15 @@ if ($is_travel_planninig_service) {
 if ($is_shoping_service) {
 	$hero_title = 'Shopping Chauffeur<br>Service. Shop at your<br>pace. Travel in comfort.';
 	$hero_subtitle = 'From luxury boutiques to private showrooms, GTS<br>ensures seamless movement and discreet comfort<br>— wherever you shop. Shopping should be a<br>pleasure, not a schedule.';
+	$hero_feature_2_text = 'Coordination in 100+ countries.';
+	$hero_feature_3_text = 'Business &amp; luxury fleet';
+	$hero_icon_1_original = $hero_icon_1;
+	$hero_icon_1 = $hero_icon_2;
+	$hero_icon_2_markup = $hero_icon_1_original;
+}
+if ($is_corporate_events_chauffeur_service) {
+	$hero_title = 'Corporate Events<br>Chauffeur Service';
+	$hero_subtitle = 'From executive conferences and corporate<br>meetings to product launches and gala<br>receptions, GTS ensures every arrival, transfer,<br>and departure runs exactly as planned — quietly,<br>professionally, and on time.';
 	$hero_feature_2_text = 'Coordination in 100+ countries.';
 	$hero_feature_3_text = 'Business &amp; luxury fleet';
 	$hero_icon_1_original = $hero_icon_1;
@@ -529,6 +539,10 @@ if ($is_cultural_sport_events_service) {
 			'description' => 'trusted by public figures, artists, and high-level guests.',
 		),
 	);
+}
+if ($is_corporate_events_chauffeur_service) {
+	$service_intro_title = 'Precision is what<br>separates smooth events<br>from stressful ones';
+	$service_intro_description = 'We align vehicles, chauffeurs, and timing<br>with your agenda to ensure seamless<br>movement at every stage of the event';
 }
 if ($is_family_travel_chauffeur_service) {
 	$service_intro_title = 'Tailored transfers for family comfort';
@@ -1484,7 +1498,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-											<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : ($is_shoping_service ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
+											<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : (($is_shoping_service || $is_corporate_events_chauffeur_service) ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -1546,7 +1560,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : ($is_shoping_service ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
+										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : (($is_shoping_service || $is_corporate_events_chauffeur_service) ? 'Professional chauffeur' : 'Available in 100+ countries')))))); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
@@ -1686,7 +1700,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && ! $is_shoping_service) : ?>
+			<?php if ($block_enabled['service_context'] && ! $is_shoping_service && ! $is_corporate_events_chauffeur_service) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
@@ -1739,7 +1753,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		</section>
 		<?php endif; ?>
 
-			<?php if ($block_enabled['service_context'] && $is_shoping_service) : ?>
+			<?php if ($block_enabled['service_context'] && ($is_shoping_service || $is_corporate_events_chauffeur_service)) : ?>
 				<?php
 				get_template_part(
 					'template-parts/service/service-context',
