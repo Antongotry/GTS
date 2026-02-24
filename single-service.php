@@ -66,6 +66,7 @@ $is_corporate_events_chauffeur_service = ('corporate-events-chauffeur-service' =
 $is_private_tours_service = ('private-tours' === $current_service_slug);
 $is_travel_agencies_service = ('travel-agencies' === $current_service_slug);
 $is_mobility_partnership_service = ('mobility-partnership' === $current_service_slug);
+$is_airport_transfer_events_service = ('airport-transfer' === $current_service_slug);
 $is_family_travel_chauffeur_service = ('family-travel-chauffeur-service' === $current_service_slug);
 $is_medical_transportation_service = ('medical-transportation' === $current_service_slug);
 $is_travel_personal_interpreter_service = ('travel-personal-interpreter' === $current_service_slug);
@@ -131,6 +132,7 @@ $hero_icon_allowed_tags['img'] = array(
 );
 $hero_feature_2_text = 'Operated by licensed chauffeurs<br>with 24/7 support';
 $hero_feature_3_text = 'Licensed & insured, premium fleet';
+$hero_feature_1_text = 'Available in 100+ countries';
 if ('hourly-hire' === $current_service_slug) {
 	$hero_title = 'Hourly Car Hire with<br>Private Chauffeur';
 	$hero_subtitle = 'Enjoy the freedom to travel on your schedule — with<br>a dedicated driver and premium vehicle at your disposal.';
@@ -237,6 +239,31 @@ if ($is_airport_transfer_service) {
 	$hero_airport_flight_text = 'Flight Tracking | 24/7 Coordination';
 	$hero_airport_meet_icon_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/meet.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 	$hero_airport_flight_icon_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/ic_baseline-done-all.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+}
+if ($is_airport_transfer_events_service) {
+	$hero_title = 'Airport Transfers<br>for Events';
+	$hero_subtitle = 'On-time airport transfers for conferences,<br>corporate events, and VIP guests.<br><br>GTS provides&nbsp;event airport transfers&nbsp;with<br>precise scheduling and coordinated<br>execution — ensuring smooth arrivals and<br>departures for all guests.';
+	$hero_feature_2_text = 'Coordination in 100+ countries.';
+	$hero_feature_3_text = 'Business &amp; luxury fleet';
+}
+if ($is_special_transfers_service) {
+	$hero_feature_1_text = 'Private aviation';
+} elseif ($is_wedding_service) {
+	$hero_feature_1_text = 'Discreet coordination in 100+<br>countries';
+} elseif ($is_cultural_sport_events_service) {
+	$hero_feature_1_text = '24/7 support';
+} elseif ($is_family_travel_chauffeur_service) {
+	$hero_feature_1_text = 'Child seats | Multi-stop trips';
+} elseif ($is_medical_transportation_service) {
+	$hero_feature_1_text = 'Non-emergency medical<br>transfers';
+} elseif ($is_travel_personal_interpreter_service) {
+	$hero_feature_1_text = 'Aligned with your schedule<br>and itinerary';
+} elseif ($is_mobility_partnership_service) {
+	$hero_feature_1_text = 'Scalable, long-term mobility solutions';
+} elseif ($is_airport_transfer_events_service) {
+	$hero_feature_1_text = 'Aligned with event agendas';
+} elseif ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service) {
+	$hero_feature_1_text = 'Professional chauffeur';
 }
 
 // Service Intro defaults (under Hero, no background image / no blur)
@@ -2154,6 +2181,35 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			</style>
 		<?php endif; ?>
+		<?php if ($is_airport_transfer_events_service) : ?>
+			<style id="airport-transfer-events-hero-features-width">
+				@media (min-width: 1025px) {
+					.hero-block--airport-transfer-events .hero-features .hero-feature {
+						padding-left: 24px;
+						padding-right: 24px;
+						gap: 18px;
+					}
+
+					.hero-block--airport-transfer-events .hero-features .hero-feature-top-left,
+					.hero-block--airport-transfer-events .hero-features .hero-feature-bottom-left {
+						padding-left: 0;
+					}
+				}
+
+				@media (max-width: 768px) {
+					.hero-block--airport-transfer-events .hero-features--mobile .hero-feature {
+						padding-left: 16px;
+						padding-right: 16px;
+						gap: 14px;
+					}
+
+					.hero-block--airport-transfer-events .hero-features--mobile .hero-feature-top-left,
+					.hero-block--airport-transfer-events .hero-features--mobile .hero-feature-bottom-left {
+						padding-left: 0;
+					}
+				}
+			</style>
+		<?php endif; ?>
 
 	<?php // ======================== HERO BLOCK ========================
 	?>
@@ -2175,7 +2231,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			}
 		</style>
-		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?><?php echo $is_professional_chauffeur_service ? ' hero-block--professional-chauffeur' : ''; ?><?php echo $is_mobility_partnership_service ? ' hero-block--mobility-partnership' : ''; ?>">
+		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?><?php echo $is_professional_chauffeur_service ? ' hero-block--professional-chauffeur' : ''; ?><?php echo $is_mobility_partnership_service ? ' hero-block--mobility-partnership' : ''; ?><?php echo $is_airport_transfer_events_service ? ' hero-block--airport-transfer-events' : ''; ?>">
 			<div class="hero-container">
 				<div class="hero-left">
 					<div class="hero-content<?php echo $hero_features_enabled ? '' : ' hero-content--no-features'; ?>">
@@ -2226,11 +2282,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_mobility_partnership_service) : ?>
 												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<?php elseif ($is_airport_transfer_events_service) : ?>
+												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12444.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php else : ?>
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
 										</div>
-											<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : ($is_mobility_partnership_service ? 'Scalable, long-term mobility solutions' : (($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service) ? 'Professional chauffeur' : 'Available in 100+ countries'))))))); ?></p>
+											<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_1_text); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right"></div>
 									<div class="hero-feature hero-feature-bottom-left">
@@ -2290,11 +2348,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 											<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 										<?php elseif ($is_mobility_partnership_service) : ?>
 											<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+										<?php elseif ($is_airport_transfer_events_service) : ?>
+											<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12444.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 										<?php else : ?>
 											<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 										<?php endif; ?>
 									</div>
-										<p class="hero-feature-text"><?php echo $is_special_transfers_service ? 'Private aviation' : ($is_wedding_service ? 'Discreet coordination in 100+<br>countries' : ($is_cultural_sport_events_service ? '24/7 support' : ($is_family_travel_chauffeur_service ? 'Child seats | Multi-stop trips' : ($is_medical_transportation_service ? 'Non-emergency medical<br>transfers' : ($is_travel_personal_interpreter_service ? 'Aligned with your schedule<br>and itinerary' : ($is_mobility_partnership_service ? 'Scalable, long-term mobility solutions' : (($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service) ? 'Professional chauffeur' : 'Available in 100+ countries'))))))); ?></p>
+										<p class="hero-feature-text"><?php echo wp_kses_post($hero_feature_1_text); ?></p>
 									</div>
 									<div class="hero-feature hero-feature-top-right hero-feature-map">
 										<div class="world-map-image"><img src="<?php echo esc_url($site_url . '/wp-content/uploads/2026/01/noun-world-17688-1_result.webp'); ?>" alt="World Map" width="100" height="100" loading="lazy"></div>
