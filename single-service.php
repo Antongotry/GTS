@@ -1246,6 +1246,32 @@ if ($is_shoping_service) {
 }
 if ($is_corporate_events_chauffeur_service) {
 	$hiw_title = 'You focus on what matters —<br>we ensure seamless logistics<br>throughout the event.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your<br>event details',
+			'description' => 'Event locations, agenda, guest movements,<br>and vehicle requirements.',
+		),
+		array(
+			'number' => '02',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Receive your<br>tailored quote',
+			'description' => 'Clear, transparent pricing based on your event<br>structure',
+		),
+		array(
+			'number' => '03',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/execution-3.svg',
+			'title' => 'Confirm &amp; delegate',
+			'description' => 'We assign your chauffeur team and a<br>dedicated event coordinator.',
+		),
+		array(
+			'number' => '04',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/execution-4.svg',
+			'title' => 'Enjoy flawless<br>execution',
+			'description' => 'every pickup and drop-off precisely on time.',
+		),
+	);
 }
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
