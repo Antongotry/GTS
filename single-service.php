@@ -2040,6 +2040,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php if ($is_mobility_partnership_service) : ?>
 			<style id="mobility-partnership-hero-features-width">
 				@media (min-width: 1025px) {
+					.hero-block--mobility-partnership .hero-right {
+						justify-content: flex-end;
+						padding-top: 0;
+						padding-bottom: 20px;
+					}
+
 					.hero-block--mobility-partnership .hero-features .hero-feature {
 						padding-left: 24px;
 						padding-right: 24px;
