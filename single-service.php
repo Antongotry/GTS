@@ -647,6 +647,30 @@ if ($is_corporate_events_chauffeur_service) {
 		),
 	);
 }
+if ($is_private_tours_service) {
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-1.svg',
+			'title'       => 'Fully personalised itineraries',
+			'description' => 'Routes, stops, and timing designed around your interests — not preset tour schedules.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-2.svg',
+			'title'       => 'Comfortable, uninterrupted travel',
+			'description' => 'No crowds, no waiting, no fixed pickup times — just smooth, private movement.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-3.svg',
+			'title'       => 'Flexible pace',
+			'description' => 'Stay longer where you wish, skip what doesn’t interest you, or adjust plans on the go.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-4.svg',
+			'title'       => 'Discreet, professional chauffeurs',
+			'description' => 'Experienced drivers who ensure comfort, safety, and a calm travel experience throughout your tour.',
+		),
+	);
+}
 if ($is_family_travel_chauffeur_service) {
 	$service_intro_title = 'Tailored transfers for family comfort';
 	$service_intro_description = 'Whether it’s a family vacation, weekend getaway, or visiting relatives — GTS<br>offers&nbsp;premium family transfers&nbsp;that combine safety, space, and serenity.';
