@@ -2075,6 +2075,10 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			$fleet_slider_args['lead'] = 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.';
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--professional-chauffeur';
 		}
+		if ($is_corporate_events_chauffeur_service) {
+			$fleet_slider_args['title'] = 'Every detail matters — from the car you travel in to the<br>person behind the wheel. That’s why every&nbsp;GTS car&nbsp;meets<br>strict standards of comfort, safety, and presentation.';
+			$fleet_slider_args['hide_lead'] = true;
+		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
 		?>
 	<?php endif; ?>
