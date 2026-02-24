@@ -819,6 +819,32 @@ if ($is_private_tours_service) {
 		),
 	);
 }
+if ($is_travel_agencies_service) {
+	$service_intro_title = 'A Transportation Partner<br>You Can Rely On';
+	$service_intro_description = 'We work as a trusted extension of your agency,<br>delivering consistent service standards and smooth<br>coordination for every itinerary.';
+	$service_intro_items = array(
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-1.svg',
+			'title'       => 'Consistent global standards',
+			'description' => 'The same service quality in every destination, regardless of country or city.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-2.svg',
+			'title'       => 'Flexible coordination',
+			'description' => 'Last-minute changes, flight delays, or itinerary updates handled in real time.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-3.svg',
+			'title'       => 'White-label friendly',
+			'description' => 'We operate as your trusted partner — your client sees a seamless travel experience.',
+		),
+		array(
+			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-4.svg',
+			'title'       => 'Scalable solutions',
+			'description' => 'From individual travelers to large groups and complex itineraries.',
+		),
+	);
+}
 if ($is_family_travel_chauffeur_service) {
 	$service_intro_title = 'Tailored transfers for family comfort';
 	$service_intro_description = 'Whether it’s a family vacation, weekend getaway, or visiting relatives — GTS<br>offers&nbsp;premium family transfers&nbsp;that combine safety, space, and serenity.';
