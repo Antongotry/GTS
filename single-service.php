@@ -1698,6 +1698,36 @@ if ($is_travel_agencies_service) {
 		),
 	);
 }
+if ($is_mobility_partnership_service) {
+	$hiw_pill = 'How Partnership Works';
+	$hiw_title = 'You run the business.<br>We manage mobility.';
+	$hiw_steps = array(
+		array(
+			'number' => '01',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg',
+			'title' => 'Share your mobility<br>requirements',
+			'description' => 'Operational scope, locations, frequency,<br>volumes, and service expectations.',
+		),
+		array(
+			'number' => '02',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'title' => 'Receive a tailored<br>mobility framework',
+			'description' => 'A scalable transportation model aligned with<br>your business needs and timelines.',
+		),
+		array(
+			'number' => '03',
+			'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg',
+			'title' => 'Launch &amp; integrate',
+			'description' => 'We assign account management, chauffeurs,<br>and coordination processes.',
+		),
+		array(
+			'number' => '04',
+			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'title' => 'Ongoing delivery<br>&amp; optimisation',
+			'description' => 'Daily execution supported by monitoring,<br>reporting, and continuous adjustment.',
+		),
+	);
+}
 $default_hiw_steps = array(
 	array('number' => '01', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-1.svg', 'title' => 'Book the way<br>you prefer', 'description' => 'Reserve instantly on our website or send a<br>request directly to our support team.'),
 	array('number' => '02', 'icon' => $site_url . '/wp-content/uploads/2026/01/block-3-icon-2.svg', 'title' => 'Receive confirmation', 'description' => 'All details arrive by email — your itinerary, photo of the<br>car, driver info and contacts.'),
@@ -2034,6 +2064,25 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			<style id="mobility-partnership-fleet-title-width">
 				.fleet-slider-block.fleet-slider-block--mobility-partnership .fleet-slider-title {
 					max-width: 1040px;
+				}
+			</style>
+			<style id="mobility-partnership-how-it-works-width">
+				.how-it-works-pill {
+					width: auto;
+					padding-left: 24px;
+					padding-right: 24px;
+					white-space: nowrap;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.how-it-works-left {
+					max-width: 700px;
+				}
+
+				.how-it-works-left .how-it-works-title {
+					max-width: 700px;
 				}
 			</style>
 		<?php endif; ?>
