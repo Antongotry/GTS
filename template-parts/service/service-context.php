@@ -109,12 +109,14 @@ if ( empty( $cards ) ) {
 					$card_type = ! empty( $card['card_type'] ) ? $card['card_type'] : 'text';
 					$text = ! empty( $card['text'] ) ? $card['text'] : '';
 					$theme = ! empty( $card['theme'] ) ? $card['theme'] : 'dark';
+					$is_shoping_personal_card = false;
 					if ( 'shoping' === $current_service_slug && 'text' === $card_type ) {
 						if ( 4 === (int) $index ) {
 							$theme = 'light';
 						}
 						if ( false !== stripos( wp_strip_all_tags( (string) $text ), 'Personal shopping sessions' ) ) {
 							$theme = 'light';
+							$is_shoping_personal_card = true;
 						}
 					}
 					$icon = ! empty( $card['icon'] ) ? $card['icon'] : '';
@@ -130,13 +132,16 @@ if ( empty( $cards ) ) {
 				if ( 'image' === $card_type ) {
 					$classes .= ' service-context-card--image';
 				} else {
-					$classes .= ' light' === $theme ? ' service-context-card--light' : ' service-context-card--dark';
+					$classes .= 'light' === $theme ? ' service-context-card--light' : ' service-context-card--dark';
 				}
 				if ( $col_span > 1 ) {
 					$classes .= ' service-context-card--wide';
 				}
 				if ( 2 === $mobile_span ) {
 					$classes .= ' service-context-card--mobile-wide';
+				}
+				if ( $is_shoping_personal_card ) {
+					$classes .= ' service-context-card--shoping-personal';
 				}
 
 				$style = '--sc-col:' . $col_start . ';--sc-col-span:' . $col_span . ';--sc-row:' . $row_start . ';--sc-row-span:' . $row_span . ';';
