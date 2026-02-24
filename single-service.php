@@ -1839,6 +1839,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			</style>
 		<?php endif; ?>
+		<?php if ($is_travel_agencies_service) : ?>
+			<style id="travel-agencies-fleet-title-width">
+				.fleet-slider-block.fleet-slider-block--travel-agencies .fleet-slider-title {
+					max-width: 1040px;
+				}
+			</style>
+		<?php endif; ?>
 
 	<?php // ======================== HERO BLOCK ========================
 	?>
@@ -2376,6 +2383,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		if ($is_private_tours_service) {
 			$fleet_slider_args['title'] = 'Every detail matters on a private journey — from the comfort<br>of the vehicle to the experience of the chauffeur. Every GTS<br>car meets high standards of safety, comfort, and<br>presentation, ensuring a smooth and relaxed journey.';
 			$fleet_slider_args['hide_lead'] = true;
+		}
+		if ($is_travel_agencies_service) {
+			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
+			$fleet_slider_args['hide_lead'] = true;
+			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--travel-agencies';
 		}
 		get_template_part('template-parts/blocks/fleet-slider', null, $fleet_slider_args);
 		?>
