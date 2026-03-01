@@ -67,7 +67,7 @@
 		min-height: 100svh;
 		height: 100svh;
 		max-height: 100svh;
-		padding: 0 20px;
+		padding: 0 12px 0 20px; // меньше справа, чтобы hero-feature-text помещался в одну строку
 		box-sizing: border-box;
 	}
 }
@@ -249,6 +249,10 @@
 		padding-bottom: 10px;
 	}
 
+	.hero-features--mobile .hero-feature-bottom-left {
+		padding-right: 4px; // меньше справа — текст в одну строку на узких экранах
+	}
+
 	.hero-features--mobile .hero-feature-map {
 		display: flex;
 		flex-direction: row;
@@ -356,6 +360,10 @@
 
 	@include lg {
 		font-size: 12px;
+	}
+
+	@include md {
+		font-size: 11px; // на узких экранах — чтобы помещался в одну строку
 	}
 }
 
