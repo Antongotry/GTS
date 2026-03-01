@@ -456,6 +456,19 @@ function gts_handle_contact_form()
 add_action('template_redirect', 'gts_handle_contact_form');
 
 /**
+ * Temporary: redirect all pages to home except front page and 404.
+ * TODO: Remove when all pages are ready.
+ */
+function gts_restrict_pages() {
+	if ( is_admin() || is_front_page() || is_404() || wp_doing_ajax() ) {
+		return;
+	}
+	wp_safe_redirect( home_url( '/' ), 302 );
+	exit;
+}
+add_action( 'template_redirect', 'gts_restrict_pages' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
