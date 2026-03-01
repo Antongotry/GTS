@@ -494,6 +494,11 @@ require get_template_directory() . '/inc/fleet-modals-api.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * GTS Theme Options (header phone, etc.).
+ */
+require get_template_directory() . '/inc/gts-theme-options.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if (defined('JETPACK__VERSION')) {

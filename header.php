@@ -288,7 +288,13 @@
 						<a href="#" class="whatsapp-button" aria-label="WhatsApp">
 							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg?v=2'); ?>" alt="WhatsApp" width="24" height="24">
 						</a>
-						<a href="tel:+440011112222" class="phone-button">+44 00 1111 2222</a>
+						<?php
+								$gts_header_phone = get_option( 'gts_header_phone', '+44 00 1111 2222' );
+								$gts_header_phone = $gts_header_phone ? $gts_header_phone : '+44 00 1111 2222';
+								$gts_tel_digits   = function_exists( 'gts_header_phone_tel_digits' ) ? gts_header_phone_tel_digits( $gts_header_phone ) : preg_replace( '/\D/', '', $gts_header_phone );
+								$gts_tel_digits   = $gts_tel_digits ? $gts_tel_digits : '440011112222';
+								?>
+						<a href="tel:<?php echo esc_attr( $gts_tel_digits ); ?>" class="phone-button"><?php echo esc_html( $gts_header_phone ); ?></a>
 					</div>
 				</div>
 			</div>
