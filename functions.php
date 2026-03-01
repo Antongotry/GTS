@@ -549,11 +549,15 @@ function gts_handle_contact_form()
 add_action('template_redirect', 'gts_handle_contact_form');
 
 /**
- * Temporary: redirect all pages to home except front page and 404.
+ * Temporary: redirect non-admins to home for all pages except front page and 404.
+ * Logged-in admins can access all pages.
  * TODO: Remove when all pages are ready.
  */
 function gts_restrict_pages() {
 	if ( is_admin() || is_front_page() || is_404() || wp_doing_ajax() ) {
+		return;
+	}
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
 		return;
 	}
 	wp_safe_redirect( home_url( '/' ), 302 );
