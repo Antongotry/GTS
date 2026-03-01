@@ -90,8 +90,17 @@
 		<div class="footer-right">
 			<a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="footer-button footer-button-primary">Book a transfer</a>
 			<a href="#" class="footer-button footer-button-secondary">Explore services</a>
+			<?php
+			$gts_footer_phone   = get_option( 'gts_header_phone', '+49 170 284 1810' );
+			$gts_footer_phone   = $gts_footer_phone ? $gts_footer_phone : '+49 170 284 1810';
+			$gts_footer_tel     = function_exists( 'gts_header_phone_tel_digits' ) ? gts_header_phone_tel_digits( $gts_footer_phone ) : preg_replace( '/\D/', '', $gts_footer_phone );
+			$gts_footer_email   = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
+			$gts_footer_email   = $gts_footer_email ? $gts_footer_email : 'info@global-travelsolutions.com';
+			$gts_footer_wa      = get_option( 'gts_whatsapp_number', '491702841810' );
+			$gts_footer_wa      = $gts_footer_wa ? $gts_footer_wa : '491702841810';
+			?>
 			<div class="footer-phone">
-				<a href="tel:+440011112222">+44 00 1111 2222</a>
+				<a href="tel:<?php echo esc_attr( $gts_footer_tel ); ?>"><?php echo esc_html( $gts_footer_phone ); ?></a>
 			</div>
 			<div class="footer-social">
 				<h4 class="footer-social-title">Social networks:</h4>
@@ -102,7 +111,7 @@
 					<a href="#" class="footer-social-icon" aria-label="Viber">
 						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/viber.svg'); ?>" alt="Viber" width="25" height="25">
 					</a>
-					<a href="#" class="footer-social-icon" aria-label="WhatsApp">
+					<a href="https://wa.me/<?php echo esc_attr( $gts_footer_wa ); ?>" class="footer-social-icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
 						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2'); ?>" alt="WhatsApp" width="25" height="25">
 					</a>
 					<a href="#" class="footer-social-icon" aria-label="Facebook">
@@ -115,7 +124,7 @@
 			</div>
 			<div class="footer-email">
 				<h4 class="footer-email-title">E-mail</h4>
-				<a href="mailto:info@gmail.com" class="footer-email-link">info@gmail.com</a>
+				<a href="mailto:<?php echo esc_attr( $gts_footer_email ); ?>" class="footer-email-link"><?php echo esc_html( $gts_footer_email ); ?></a>
 			</div>
 		</div>
 	</div>
@@ -130,7 +139,7 @@
 		</div>
 	</div>
 
-	<a href="#" class="whatsapp-float" aria-label="WhatsApp">
+	<a href="https://wa.me/<?php echo esc_attr( $gts_footer_wa ); ?>" class="whatsapp-float" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
 		<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg?v=2'); ?>" alt="WhatsApp" width="22" height="22">
 	</a>
 </footer>

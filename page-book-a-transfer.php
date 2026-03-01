@@ -234,13 +234,13 @@ $categories = get_terms(
 								</div>
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Phone*', 'gts-theme' ); ?></label>
-									<input type="tel" class="transfer-input" placeholder="+44 00 1111 2222" name="phone" required>
+									<input type="tel" class="transfer-input" placeholder="<?php echo esc_attr( get_option( 'gts_header_phone', '+49 170 284 1810' ) ?: '+49 170 284 1810' ); ?>" name="phone" required>
 								</div>
 							</div>
 							<div class="transfer-row">
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Email*', 'gts-theme' ); ?></label>
-									<input type="email" class="transfer-input" placeholder="info@gmail.com" name="email" required>
+									<input type="email" class="transfer-input" placeholder="<?php echo esc_attr( get_option( 'gts_header_email', 'info@global-travelsolutions.com' ) ?: 'info@global-travelsolutions.com' ); ?>" name="email" required>
 								</div>
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Client notes', 'gts-theme' ); ?></label>

@@ -6,9 +6,13 @@
  * @package GTS
  */
 
-$whatsapp_number = '+44 00 1111 2222';
-$whatsapp_url   = 'https://wa.me/' . preg_replace('/[\s+]/', '', $whatsapp_number);
-$contact_email  = 'info@gmail.com';
+$whatsapp_number = get_option( 'gts_whatsapp_number', '491702841810' );
+$whatsapp_number = $whatsapp_number ? $whatsapp_number : '491702841810';
+$whatsapp_url   = 'https://wa.me/' . preg_replace('/\D/', '', $whatsapp_number);
+$contact_email  = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
+$contact_email  = $contact_email ? $contact_email : 'info@global-travelsolutions.com';
+$display_phone  = get_option( 'gts_header_phone', '+49 170 284 1810' );
+$display_phone  = $display_phone ? $display_phone : '+49 170 284 1810';
 $mail_icon_url  = get_template_directory_uri() . '/assets/icons/mail-icon.svg';
 ?>
 
@@ -23,7 +27,7 @@ $mail_icon_url  = get_template_directory_uri() . '/assets/icons/mail-icon.svg';
 				</div>
 			</div>
 			<p class="contacts-main__desc"><?php esc_html_e('For quick questions, urgent requests, and real-time coordination.', 'gts-theme'); ?></p>
-			<a href="<?php echo esc_url($whatsapp_url); ?>" class="contacts-main__link contacts-main__link--underline" target="_blank" rel="noopener noreferrer"><?php echo esc_html($whatsapp_number); ?></a>
+			<a href="<?php echo esc_url($whatsapp_url); ?>" class="contacts-main__link contacts-main__link--underline" target="_blank" rel="noopener noreferrer"><?php echo esc_html($display_phone); ?></a>
 		</div>
 
 		<div class="contacts-main__card contacts-main__card--email">

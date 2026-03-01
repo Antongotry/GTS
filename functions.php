@@ -28,11 +28,26 @@ add_action( 'admin_menu', 'gts_settings_menu_register', 20 );
 function gts_settings_register_options() {
 	register_setting( 'gts_settings_group', 'gts_header_phone', array(
 		'type'              => 'string',
-		'default'           => '+44 00 1111 2222',
+		'default'           => '+49 170 284 1810',
 		'sanitize_callback' => 'gts_sanitize_header_phone',
+	) );
+	register_setting( 'gts_settings_group', 'gts_header_email', array(
+		'type'              => 'string',
+		'default'           => 'info@global-travelsolutions.com',
+		'sanitize_callback' => 'sanitize_email',
+	) );
+	register_setting( 'gts_settings_group', 'gts_whatsapp_number', array(
+		'type'              => 'string',
+		'default'           => '491702841810',
+		'sanitize_callback' => 'gts_sanitize_phone_digits',
 	) );
 }
 add_action( 'admin_init', 'gts_settings_register_options' );
+
+function gts_sanitize_phone_digits( $value ) {
+	$value = is_string( $value ) ? $value : '';
+	return preg_replace( '/\D/', '', $value );
+}
 
 function gts_sanitize_header_phone( $value ) {
 	$value = is_string( $value ) ? $value : '';
@@ -49,7 +64,9 @@ function gts_settings_page_render() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
-	$header_phone = get_option( 'gts_header_phone', '+44 00 1111 2222' );
+	$header_phone   = get_option( 'gts_header_phone', '+49 170 284 1810' );
+	$header_email   = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
+	$whatsapp_number = get_option( 'gts_whatsapp_number', '491702841810' );
 	?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'GTS Settings', 'gts-theme' ); ?></h1>
@@ -57,10 +74,24 @@ function gts_settings_page_render() {
 			<?php settings_fields( 'gts_settings_group' ); ?>
 			<table class="form-table">
 				<tr>
-					<th><label for="gts_header_phone"><?php esc_html_e( 'Header phone number', 'gts-theme' ); ?></label></th>
+					<th><label for="gts_header_phone"><?php esc_html_e( 'Phone number', 'gts-theme' ); ?></label></th>
 					<td>
-						<input type="text" id="gts_header_phone" name="gts_header_phone" value="<?php echo esc_attr( $header_phone ); ?>" class="regular-text" placeholder="+44 00 1111 2222">
-						<p class="description"><?php esc_html_e( 'Shown in the header on all screen sizes.', 'gts-theme' ); ?></p>
+						<input type="text" id="gts_header_phone" name="gts_header_phone" value="<?php echo esc_attr( $header_phone ); ?>" class="regular-text" placeholder="+49 170 284 1810">
+						<p class="description"><?php esc_html_e( 'Header, footer, contacts. Shown on all screen sizes.', 'gts-theme' ); ?></p>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="gts_header_email"><?php esc_html_e( 'Email', 'gts-theme' ); ?></label></th>
+					<td>
+						<input type="email" id="gts_header_email" name="gts_header_email" value="<?php echo esc_attr( $header_email ); ?>" class="regular-text" placeholder="info@global-travelsolutions.com">
+						<p class="description"><?php esc_html_e( 'Header, footer, contacts.', 'gts-theme' ); ?></p>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="gts_whatsapp_number"><?php esc_html_e( 'WhatsApp number', 'gts-theme' ); ?></label></th>
+					<td>
+						<input type="text" id="gts_whatsapp_number" name="gts_whatsapp_number" value="<?php echo esc_attr( $whatsapp_number ); ?>" class="regular-text" placeholder="491702841810">
+						<p class="description"><?php esc_html_e( 'Digits only, no + or spaces. Used for wa.me links.', 'gts-theme' ); ?></p>
 					</td>
 				</tr>
 			</table>

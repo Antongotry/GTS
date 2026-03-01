@@ -283,17 +283,21 @@
 							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ZH">Chinese</a></li>
 						</ul>
 					</div>
-					<a href="mailto:info@gmail.com" class="header-email">info@gmail.com</a>
+					<?php
+								$gts_header_email   = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
+								$gts_header_email   = $gts_header_email ? $gts_header_email : 'info@global-travelsolutions.com';
+								$gts_whatsapp       = get_option( 'gts_whatsapp_number', '491702841810' );
+								$gts_whatsapp       = $gts_whatsapp ? $gts_whatsapp : '491702841810';
+								$gts_header_phone   = get_option( 'gts_header_phone', '+49 170 284 1810' );
+								$gts_header_phone   = $gts_header_phone ? $gts_header_phone : '+49 170 284 1810';
+								$gts_tel_digits     = function_exists( 'gts_header_phone_tel_digits' ) ? gts_header_phone_tel_digits( $gts_header_phone ) : preg_replace( '/\D/', '', $gts_header_phone );
+								$gts_tel_digits     = $gts_tel_digits ? $gts_tel_digits : '491702841810';
+								?>
+					<a href="mailto:<?php echo esc_attr( $gts_header_email ); ?>" class="header-email"><?php echo esc_html( $gts_header_email ); ?></a>
 					<div class="header-buttons">
-						<a href="#" class="whatsapp-button" aria-label="WhatsApp">
+						<a href="https://wa.me/<?php echo esc_attr( $gts_whatsapp ); ?>" class="whatsapp-button" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
 							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Whatsapp1.svg?v=2'); ?>" alt="WhatsApp" width="24" height="24">
 						</a>
-						<?php
-								$gts_header_phone = get_option( 'gts_header_phone', '+44 00 1111 2222' );
-								$gts_header_phone = $gts_header_phone ? $gts_header_phone : '+44 00 1111 2222';
-								$gts_tel_digits   = function_exists( 'gts_header_phone_tel_digits' ) ? gts_header_phone_tel_digits( $gts_header_phone ) : preg_replace( '/\D/', '', $gts_header_phone );
-								$gts_tel_digits   = $gts_tel_digits ? $gts_tel_digits : '440011112222';
-								?>
 						<a href="tel:<?php echo esc_attr( $gts_tel_digits ); ?>" class="phone-button"><?php echo esc_html( $gts_header_phone ); ?></a>
 					</div>
 				</div>
@@ -342,7 +346,7 @@
 					<a href="#" class="mobile-social-link" aria-label="Viber">
 						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/viber.svg'); ?>" alt="Viber" width="24" height="24">
 					</a>
-					<a href="#" class="mobile-social-link" aria-label="WhatsApp">
+					<a href="https://wa.me/<?php echo esc_attr( $gts_whatsapp ); ?>" class="mobile-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
 						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2'); ?>" alt="WhatsApp" width="24" height="24">
 					</a>
 				</div>
