@@ -108,6 +108,20 @@
 	object-fit: cover;
 }
 
+.trusted-by-avatar-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	color: #0c0f17;
+
+	svg {
+		width: 56px;
+		height: 56px;
+		display: block;
+	}
+}
+
 .trusted-by-name {
 	font-family: $font__manrope;
 	font-size: 16px;

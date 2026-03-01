@@ -9496,6 +9496,19 @@ a.phone-button:focus,
   object-fit: cover;
 }
 
+.trusted-by-avatar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0c0f17;
+}
+.trusted-by-avatar-icon svg {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+
 .trusted-by-name {
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 16px;

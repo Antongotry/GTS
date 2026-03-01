@@ -5,8 +5,6 @@
  * @package GTS
  */
 
-$avatar_url = get_site_url() . '/wp-content/uploads/2026/01/rewievs-ic_result.webp';
-
 $testimonials = array(
 	array(
 		'text' => '"We used transfer services in Hannover during the exhibition. The driver arrived in advance, the vehicle was in good condition, and all details were confirmed the day before. Everything ran smoothly and on time."',
@@ -60,7 +58,13 @@ $heights = array( 348, 326, 392 );
 						<p class="trusted-by-card-text"><?php echo esc_html( $testimonial['text'] ); ?></p>
 					</div>
 					<div class="trusted-by-author">
-						<img src="<?php echo esc_url( $avatar_url ); ?>" alt="" class="trusted-by-avatar" width="56" height="56" loading="lazy">
+						<span class="trusted-by-avatar trusted-by-avatar-icon" aria-hidden="true">
+							<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+								<circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.06)"/>
+								<circle cx="28" cy="22" r="8" stroke="currentColor" stroke-width="1.5" fill="none"/>
+								<path d="M14 46c0-8 6.5-14 14-14s14 6 14 14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+							</svg>
+						</span>
 						<span class="trusted-by-name"><?php echo esc_html( $testimonial['name'] ); ?></span>
 					</div>
 				</div>
