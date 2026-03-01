@@ -107,9 +107,9 @@ $hero_pretitle_enabled = ! empty($hero['pretitle_enabled']);
 $hero_pretitle = ! empty($hero['pretitle']) ? $hero['pretitle'] : '';
 $hero_title = ! empty($hero['title']) ? $hero['title'] : 'City-to-City premium transfers';
 $hero_subtitle = ! empty($hero['subtitle']) ? $hero['subtitle'] : 'for corporate and private clients who need reliable long-distance travel with full coordination.';
-$hero_bg_mobile = ! empty($hero['background_mobile']) ? $hero['background_mobile'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-375_result.webp';
-$hero_bg_tablet = ! empty($hero['background_tablet']) ? $hero['background_tablet'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1024_result.webp';
-$hero_bg_desktop = ! empty($hero['background_desktop']) ? $hero['background_desktop'] : 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp';
+$hero_bg_mobile = ! empty($hero['background_mobile']) ? $hero['background_mobile'] : 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-375_result.webp';
+$hero_bg_tablet = ! empty($hero['background_tablet']) ? $hero['background_tablet'] : 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-1024_result.webp';
+$hero_bg_desktop = ! empty($hero['background_desktop']) ? $hero['background_desktop'] : 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp';
 $hero_cta_text = ! empty($hero['cta_text']) ? $hero['cta_text'] : 'Book a transfer';
 $hero_cta_link = ! empty($hero['cta_link']) ? $hero['cta_link'] : '#';
 $hero_features_enabled = ! isset($hero['features_enabled']) || (bool) $hero['features_enabled'];
@@ -149,7 +149,7 @@ if ($is_special_transfers_service) {
 	$hero_title = 'Special Transfers — Air,<br>Sea &amp; VIP Transport';
 	$hero_subtitle = 'Private jets, helicopters, yachts, and luxury ground transfers — all<br>coordinated through one trusted service. Wherever your destination,<br>GTS ensures seamless movement across air, sea, and land with<br>absolute precision and discretion.';
 	$hero_icon_1 = '';
-	$hero_icon_2_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_icon_2_markup = '<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Special-Transfers-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 	$hero_icon_3_markup = file_get_contents(get_template_directory() . '/assets/icons/icon-2-l.svg');
 	$hero_feature_2_text = '24/7 coordination';
 	$hero_feature_3_text = 'Business &amp; luxury fleet';
@@ -178,8 +178,8 @@ if ($is_travel_personal_interpreter_service) {
 	$hero_title = 'Travel Personal<br>Interpreter';
 	$hero_subtitle = 'GTS offers a&nbsp;Travel Personal Interpreter&nbsp;for travelers who<br>need accurate, in-person language support during<br>international travel — ensuring clarity, confidence, and<br>cultural understanding in every interaction.';
 	$hero_cta_text = 'Request Interpreter Support';
-	$hero_icon_2_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
-	$hero_icon_3_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-3.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_icon_2_markup = '<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_icon_3_markup = '<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-3.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 	$hero_feature_2_text = 'Suitable for business<br>and private needs';
 	$hero_feature_3_text = 'Seamless, professional presence';
 }
@@ -228,8 +228,8 @@ if ($is_mobility_partnership_service) {
 	$hero_subtitle = 'GTS offers a Mobility Partnership for<br>organisations with ongoing transportation<br>needs, managing vehicles, chauffeurs, and<br>coordination as one seamless service.';
 	$hero_feature_2_text = 'Centralised coordination with<br>real-time support';
 	$hero_feature_3_text = 'Consistent service standards<br>across locations';
-	$hero_icon_2_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
-	$hero_icon_3_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-3.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_icon_2_markup = '<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/term-2.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_icon_3_markup = '<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/term-3.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 }
 if ($is_corporations_service) {
 	$hero_title = 'Chauffeur & Mobility<br>Solutions for Corporations';
@@ -247,8 +247,8 @@ if ($is_airport_transfer_service) {
 	$hero_feature_3_text = 'Business &amp; luxury fleet';
 	$hero_airport_meet_text = 'Meet &amp; Greet';
 	$hero_airport_flight_text = 'Flight Tracking | 24/7 Coordination';
-	$hero_airport_meet_icon_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/meet.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
-	$hero_airport_flight_icon_markup = '<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/ic_baseline-done-all.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_airport_meet_icon_markup = '<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/meet.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
+	$hero_airport_flight_icon_markup = '<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/ic_baseline-done-all.svg" alt="" width="32" height="32" loading="lazy" decoding="async">';
 }
 if ($is_airport_transfer_events_service) {
 	$hero_title = 'Airport Transfers<br>for Events';
@@ -283,66 +283,66 @@ if ($is_travel_personal_interpreter_service) {
 		'pill_text' => 'Full Service',
 		'title' => 'Where accuracy, tone, and context truly matter.',
 		'variant' => 'context',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service2_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service2_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service-1.svg',
 				'text' => 'Business meetings and<br>negotiations',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service-2.svg',
 				'text' => 'Corporate travel and<br>executive visits',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service-3.svg',
 				'text' => 'Medical appointments and<br>consultations',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service-4.svg',
 				'text' => 'Legal, administrative, or<br>official procedures',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service-5.svg',
 				'text' => 'Property viewings and real<br>estate transactions',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service-6.svg',
 				'text' => 'Private travel, events, and<br>high-level appointments',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service-7.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service-7.svg',
 				'text' => 'Multi-day or multi-location<br>travel programs',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service2_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service2_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -354,59 +354,59 @@ if ($is_travel_planninig_service) {
 		'title' => 'When Professional Travel Planning Matters',
 		'subtitle' => 'Where planning quality directly impacts the travel experience.',
 		'variant' => 'context',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325458_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325476_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325458_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325476_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/When-1.svg',
 				'text' => 'Multi-destination or multi-<br>country travel',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325458_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325458_result.webp',
 				'col_start' => 2, 'col_span' => 2, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 2,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/When-2.svg',
 				'text' => 'Business travel combined<br>with leisure',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/When-3.svg',
 				'text' => 'Time-sensitive or high-<br>responsibility trips',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/When-4.svg',
 				'text' => 'Private travel requiring<br>coordination of multiple<br>services',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/When-5.svg',
 				'text' => 'Complex itineraries where<br>efficiency is essential',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/When-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/When-6.svg',
 				'text' => 'Travel involving meetings,<br>appointments, or events',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325476_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325476_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -418,66 +418,66 @@ if ($is_corporate_events_chauffeur_service) {
 		'title' => 'Where accuracy, tone, and context truly matter.',
 		'subtitle' => 'From intimate executive gatherings to large-scale multi-day events with complex logistics.',
 		'variant' => 'context',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325466_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325466_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Any-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Any-1.svg',
 				'text' => 'Conferences &amp; business<br>forums',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Full-Service1_result.webp',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Any-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Any-2.svg',
 				'text' => 'Corporate meetings &amp;<br>roadshows',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Any-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Any-3.svg',
 				'text' => 'Product launches &amp;<br>brand events',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Any-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Any-4.svg',
 				'text' => 'Executive summits &amp;<br>board meetings',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Any-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Any-5.svg',
 				'text' => 'Gala dinners &amp; award<br>ceremonies',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Any-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Any-6.svg',
 				'text' => 'International corporate<br>delegations',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Any-7.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Any-7.svg',
 				'text' => 'Investor meetings &amp; partner<br>events',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325466_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325466_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -489,66 +489,66 @@ if ($is_private_tours_service) {
 		'title' => 'Perfect for Private Travel Experiences',
 		'subtitle' => 'From half-day explorations to multi-day private journeys.',
 		'variant' => 'context',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/213124_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12551212_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/213124_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/12551212_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/for-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/for-1.svg',
 				'text' => 'City sightseeing and<br>cultural tours',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/213124_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/213124_result.webp',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/for-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/for-2.svg',
 				'text' => 'Scenic drives and<br>countryside routes',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/for-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/for-3.svg',
 				'text' => 'Coastal, mountain, or<br>wine region tours',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/for-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/for-4.svg',
 				'text' => 'Historical and<br>architectural routes',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/for-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/for-5.svg',
 				'text' => 'Multi-city or cross-border<br>private tours',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/for-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/for-6.svg',
 				'text' => 'Custom itineraries and off-<br>the-beaten-path<br>experiences',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/for-7.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/for-7.svg',
 				'text' => 'Leisure travel during<br>business trips or holidays',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12551212_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/12551212_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -560,59 +560,59 @@ if ($is_travel_agencies_service) {
 		'title' => 'One partner. One standard. Long-term reliability.',
 		'subtitle' => 'Mobility Partnership is built for organisations that need more than individual rides or one-off bookings.',
 		'variant' => 'partnership',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/11234_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/5125_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/11234_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/5125_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-1.svg',
 				'text' => 'Private tours and<br>sightseeing programs',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/11234_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/11234_result.webp',
 				'col_start' => 2, 'col_span' => 2, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 2,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-2.svg',
 				'text' => 'Airport transfers and meet &amp;<br>greet',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-3.svg',
 				'text' => 'Multi-day itineraries and<br>custom routes',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-4.svg',
 				'text' => 'VIP and luxury travel<br>services',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-5.svg',
 				'text' => 'Corporate and leisure client<br>support',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-6.svg',
 				'text' => 'Individual bookings and<br>group coordination',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/5125_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/5125_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -624,59 +624,59 @@ if ($is_mobility_partnership_service) {
 		'title' => 'One partner. One standard. Long-term reliability.',
 		'subtitle' => 'Mobility Partnership is built for organisations that need more than individual rides or one-off bookings.',
 		'variant' => 'partnership',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/214555_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/661_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/214555_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/661_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/One-standard-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/One-standard-1.svg',
 				'text' => 'Corporate mobility<br>programs',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/214555_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/214555_result.webp',
 				'col_start' => 2, 'col_span' => 2, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 2,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/One-standard-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/One-standard-2.svg',
 				'text' => 'Ongoing executive and staff<br>transportation',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/One-standard-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/One-standard-3.svg',
 				'text' => 'Event series and recurring<br>business travel',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/One-standard-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/One-standard-4.svg',
 				'text' => 'Hospitality, luxury retail, and<br>service brands',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/One-standard-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/One-standard-5.svg',
 				'text' => 'Long-term or high-<br>frequency transportation<br>needs',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/One-standard-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/One-standard-6.svg',
 				'text' => 'Travel platforms and<br>concierge services',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/661_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/661_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -688,59 +688,59 @@ if ($is_corporations_service) {
 		'title' => 'Perfect for Private Travel Experiences',
 		'subtitle' => 'From half-day explorations to multi-day private journeys.',
 		'variant' => 'context',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/1251251151_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12412412142_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/1251251151_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/12412412142_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Private-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Private-1.svg',
 				'text' => 'Executive and management<br>travel',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/1251251151_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/1251251151_result.webp',
 				'col_start' => 2, 'col_span' => 2, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 2,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Private-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Private-2.svg',
 				'text' => 'Ongoing corporate mobility<br>programs',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Private-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Private-3.svg',
 				'text' => 'Employee and leadership<br>transportation',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Private-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Private-4.svg',
 				'text' => 'Client and partner transfers',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Private-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Private-5.svg',
 				'text' => 'Board meetings and internal<br>events',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Private-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Private-6.svg',
 				'text' => 'Multi-office and multi-city<br>operations',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12412412142_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/12412412142_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -752,59 +752,59 @@ if ($is_airport_transfer_events_service) {
 		'title' => 'Airport Transfers Aligned with Your Event',
 		'subtitle' => 'Airport transfers for events go beyond on-time pickups, requiring precise coordination across flights, locations, and event timelines.',
 		'variant' => 'context',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/666666_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/777777_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/666666_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/777777_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Airport-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Airport-1.svg',
 				'text' => 'Corporate events and<br>conferences',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/666666_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/666666_result.webp',
 				'col_start' => 2, 'col_span' => 2, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 2,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Airport-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Airport-2.svg',
 				'text' => 'Business forums and<br>summits',
 				'col_start' => 4, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Airport-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Airport-3.svg',
 				'text' => 'Product launches and brand<br>activations',
 				'col_start' => 5, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Airport-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Airport-4.svg',
 				'text' => 'Executive meetings and<br>board-level gatherings',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Airport-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Airport-5.svg',
 				'text' => 'VIP guests, speakers, and<br>delegations',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Airport-6.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Airport-6.svg',
 				'text' => 'Multi-day or multi-location<br>events',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/777777_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/777777_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 2,
 			),
 		),
@@ -815,51 +815,51 @@ if ($is_shoping_service) {
 		'pill_text' => 'Full Service',
 		'title' => 'Perfect for Every Purpose',
 		'variant' => 'purpose',
-		'top_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325492_result.webp',
-		'bottom_image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/23124515_result.webp',
+		'top_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325492_result.webp',
+		'bottom_image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/23124515_result.webp',
 		'cards' => array(
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-1.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Purpose-1.svg',
 				'text' => 'Boutique shopping across<br>multiple districts',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325492_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325492_result.webp',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-2.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Purpose-2.svg',
 				'text' => 'Designer outlets and<br>premium shopping malls',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 1, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'image',
-				'image' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/23124515_result.webp',
+				'image' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/23124515_result.webp',
 				'col_start' => 4, 'col_span' => 2, 'row_start' => 1, 'row_span' => 2, 'mobile_span' => 2,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'light',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-3.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Purpose-3.svg',
 				'text' => 'Personal shopping sessions<br>and private appointments',
 				'col_start' => 1, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-4.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Purpose-4.svg',
 				'text' => 'Multi-location shopping<br>itineraries in one or several<br>cities',
 				'col_start' => 2, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
 			array(
 				'card_type' => 'text',
 				'theme' => 'dark',
-				'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Purpose-5.svg',
+				'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Purpose-5.svg',
 				'text' => 'Shopping during business<br>trips or travel',
 				'col_start' => 3, 'col_span' => 1, 'row_start' => 2, 'row_span' => 1, 'mobile_span' => 1,
 			),
@@ -932,22 +932,22 @@ if ($is_special_transfers_service) {
 	$service_intro_description = 'Our team manages complex, high-profile itineraries — combining aviation, ground,<br>and maritime transport into one flawless plan. Each request is handled with<br>confidentiality, professionalism, and global expertise.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Special-Transfers1-1.svg',
 			'title'       => 'Private & business aviation',
 			'description' => 'jets, helicopters, and charter flights.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Special-Transfers1-2.svg',
 			'title'       => 'Luxury sea transfers',
 			'description' => 'yachts, catamarans, or private boats on demand.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Special-Transfers1-3.svg',
 			'title'       => 'Integrated logistics',
 			'description' => 'ground-air-sea connections, coordinated end-to-end.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers1-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Special-Transfers1-4.svg',
 			'title'       => 'Discreet service',
 			'description' => 'trusted by executives, diplomats, and VIP clients worldwide.',
 		),
@@ -958,22 +958,22 @@ if ($is_wedding_service) {
 	$service_intro_description = 'From intimate ceremonies to large-scale events, GTS delivers premium&nbsp;wedding and<br>private event chauffeur servicesdesigned to match your schedule, theme, and<br>expectations.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding-1.svg',
 			'title'       => 'Elegant Arrivals',
 			'description' => 'arrive gracefully in a spotless luxury car driven by a professional chauffeur.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding-2.svg',
 			'title'       => 'Flawless Timing',
 			'description' => 'seamless coordination between planners, photographers, and venues.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding-3.svg',
 			'title'       => 'Flexible Scheduling',
 			'description' => 'we adapt to your pace, even if the day runs longer than planned.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding-4.svg',
 			'title'       => 'Discreet Presence',
 			'description' => 'uniformed chauffeurs trained in etiquette and event protocol.',
 		),
@@ -984,22 +984,22 @@ if ($is_cultural_sport_events_service) {
 	$service_intro_description = 'Whether it’s a film premiere, art fair, business congress, or international sports<br>competition — GTS provides premium&nbsp;chauffeur-driven logistics&nbsp;for guests,<br>performers, media teams, and VIP delegations.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Cultural-Sport-Events-1.svg',
 			'title'       => 'Perfect timing',
 			'description' => 'transfers coordinated with your event agenda, venue logistics, and security requirements.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Cultural-Sport-Events-2.svg',
 			'title'       => 'Multi-location coverage',
 			'description' => 'transfers between airports, venues, hotels, and receptions.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Cultural-Sport-Events-3.svg',
 			'title'       => 'Professional coordination',
 			'description' => 'live communication with event staff and planners.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Cultural-Sport-Events-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Cultural-Sport-Events-4.svg',
 			'title'       => 'Discreet service',
 			'description' => 'trusted by public figures, artists, and high-level guests.',
 		),
@@ -1010,22 +1010,22 @@ if ($is_corporate_events_chauffeur_service) {
 	$service_intro_description = 'We align vehicles, chauffeurs, and timing<br>with your agenda to ensure seamless<br>movement at every stage of the event';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Flawless-1.svg',
 			'title'       => 'Flawless timing',
 			'description' => 'Arrivals and departures synchronised with agendas, speakers, venues, and protocol — no delays, no confusion.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Flawless-2.svg',
 			'title'       => 'Flexible scheduling',
 			'description' => 'Your program can evolve — routes, timings, or guest movements can be adjusted on the day.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Flawless-3.svg',
 			'title'       => 'Centralised coordination',
 			'description' => 'One point of contact for all vehicles, chauffeurs, routes, and real-time adjustments.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Flawless-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Flawless-4.svg',
 			'title'       => 'Discreet, professional presence',
 			'description' => 'Uniformed chauffeurs trained for corporate etiquette, protocol, and high-level clients.',
 		),
@@ -1036,22 +1036,22 @@ if ($is_private_tours_service) {
 	$service_intro_description = 'Your private tour adapts to you — your<br>interests, your timing, and the moments<br>you choose to linger';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Fully-1.svg',
 			'title'       => 'Fully personalised itineraries',
 			'description' => 'Routes, stops, and timing designed around your interests — not preset tour schedules.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Fully-2.svg',
 			'title'       => 'Comfortable, uninterrupted travel',
 			'description' => 'No crowds, no waiting, no fixed pickup times — just smooth, private movement.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Fully-3.svg',
 			'title'       => 'Flexible pace',
 			'description' => 'Stay longer where you wish, skip what doesn’t interest you, or adjust plans on the go.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Fully-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Fully-4.svg',
 			'title'       => 'Discreet, professional chauffeurs',
 			'description' => 'Experienced drivers who ensure comfort, safety, and a calm travel experience throughout your tour.',
 		),
@@ -1062,22 +1062,22 @@ if ($is_travel_agencies_service) {
 	$service_intro_description = 'We work as a trusted extension of your agency,<br>delivering consistent service standards and smooth<br>coordination for every itinerary.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Consistent-1.svg',
 			'title'       => 'Consistent global standards',
 			'description' => 'The same service quality in every destination, regardless of country or city.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Consistent-2.svg',
 			'title'       => 'Flexible coordination',
 			'description' => 'Last-minute changes, flight delays, or itinerary updates handled in real time.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Consistent-3.svg',
 			'title'       => 'White-label friendly',
 			'description' => 'We operate as your trusted partner — your client sees a seamless travel experience.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Consistent-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Consistent-4.svg',
 			'title'       => 'Scalable solutions',
 			'description' => 'From individual travelers to large groups and complex itineraries.',
 		),
@@ -1088,22 +1088,22 @@ if ($is_mobility_partnership_service) {
 	$service_intro_description = 'We work as a trusted extension of your agency,<br>delivering consistent service standards and smooth<br>coordination for every itinerary.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Partner-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Partner-1.svg',
 			'title'       => 'Centralised coordination',
 			'description' => 'A single point of contact managing all vehicles, chauffeurs, schedules, and changes.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Partner-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Partner-2.svg',
 			'title'       => 'Flexible execution',
 			'description' => 'Routes, schedules, and volumes adapt as your operational needs evolve.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Partner-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Partner-3.svg',
 			'title'       => 'Scalable structure',
 			'description' => 'From a few daily transfers to large, multi-location mobility programs.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Partner-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Partner-4.svg',
 			'title'       => 'Consistent service standards',
 			'description' => 'The same quality, professionalism, and reliability across all destinations.',
 		),
@@ -1114,22 +1114,22 @@ if ($is_airport_transfer_events_service) {
 	$service_intro_description = 'We work as a trusted extension of your agency,<br>delivering consistent service standards and smooth<br>coordination for every itinerary.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Synchronized-1.svg',
 			'title'       => 'Synchronized arrivals and departures',
 			'description' => 'Pickups aligned with flight data, agendas, and venue schedules.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Synchronized-2.svg',
 			'title'       => 'Flexible adjustments',
 			'description' => 'Flight delays, last-minute changes, or schedule updates handled calmly and efficiently.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Synchronized-3.svg',
 			'title'       => 'Centralised coordination',
 			'description' => 'One point of contact managing all vehicles, chauffeurs, and timing.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Synchronized-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Synchronized-4.svg',
 			'title'       => 'Scalable execution',
 			'description' => 'From individual VIP guests to large groups arriving on multiple flights.',
 		),
@@ -1140,22 +1140,22 @@ if ($is_corporations_service) {
 	$service_intro_description = '';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/structure-1.svg',
 			'title'       => 'Consistent service standards',
 			'description' => 'The same level of professionalism, comfort, and reliability across all locations.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/structure-2.svg',
 			'title'       => 'Scalable structure',
 			'description' => 'From occasional executive transfers to daily, high-volume corporate mobility.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/structure-3.svg',
 			'title'       => 'Centralised coordination',
 			'description' => 'One point of contact managing vehicles, chauffeurs, schedules, and changes.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/structure-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/structure-4.svg',
 			'title'       => 'Flexibility without disruption',
 			'description' => 'Schedule changes and last-minute adjustments handled calmly and efficiently.',
 		),
@@ -1166,27 +1166,27 @@ if ($is_family_travel_chauffeur_service) {
 	$service_intro_description = 'Whether it’s a family vacation, weekend getaway, or visiting relatives — GTS<br>offers&nbsp;premium family transfers&nbsp;that combine safety, space, and serenity.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Preferences-1.svg',
 			'title'       => 'Spacious vehicles',
 			'description' => 'Business vans, SUVs, and VIP cars for all luggage, strollers and comfort needs.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Preferences-2.svg',
 			'title'       => 'Child-friendly setup',
 			'description' => 'baby and booster seats available upon request.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Preferences-3.svg',
 			'title'       => 'Door-to-door service',
 			'description' => 'no stress, no waiting lines, no navigating public transport.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Preferences-4.svg',
 			'title'       => 'Safe & trusted chauffeurs',
 			'description' => 'professional, patient, and attentive to family needs.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Preferences-5.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Preferences-5.svg',
 			'title'       => 'Available worldwide',
 			'description' => 'Plan family trips confidently — across cities or countries — with one trusted service and consistent comfort everywhere.',
 		),
@@ -1197,22 +1197,22 @@ if ($is_medical_transportation_service) {
 	$service_intro_description = 'We support individuals, families, and medical institutions with professional logistics<br>— whether it’s a hospital discharge, rehabilitation transfer, or patient relocation<br>between countries.';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/A-trusted-1.svg',
 			'title'       => 'Non-emergency medical transfers',
 			'description' => 'safe and comfortable transport for patients and relatives.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/A-trusted-2.svg',
 			'title'       => 'International coordination',
 			'description' => 'ground, air, or multimodal transfers across 100+ countries.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/A-trusted-3.svg',
 			'title'       => 'Professional chauffeurs',
 			'description' => 'patient, discreet, and trained in special care handling.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/A-trusted-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/A-trusted-4.svg',
 			'title'       => 'Adapted vehicles',
 			'description' => 'Available for patients, seniors, and individuals with reduced mobility.',
 		),
@@ -1224,22 +1224,22 @@ if ($is_travel_personal_interpreter_service) {
 	$service_intro_button_text = '';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Designed-1.svg',
 			'title'       => 'In-person language support',
 			'description' => 'Professional interpreters accompany you on-site — not remotely or via apps.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Designed-2.svg',
 			'title'       => 'Flexible scheduling',
 			'description' => 'Hourly, daily, or multi-day interpreter support aligned with your itinerary.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Designed-3.svg',
 			'title'       => 'Context-aware interpretation',
 			'description' => 'We interpret not only words, but intent, cultural nuances, and professional tone.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Designed-4.svg',
 			'title'       => 'Discreet professional presence',
 			'description' => 'Our interpreters work quietly in the background, supporting communication without drawing attention.',
 		),
@@ -1251,22 +1251,22 @@ if ($is_travel_planninig_service) {
 	$service_intro_button_text = '';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Around-1.svg',
 			'title'       => 'Personalised itineraries',
 			'description' => 'Each travel plan is built around your goals, timing, and preferences — not templates.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Around-2.svg',
 			'title'       => 'Logical flow and timing',
 			'description' => 'Routes, transfers, stays, and appointments aligned to minimise friction and wasted time.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Around-3.svg',
 			'title'       => 'Integrated services',
 			'description' => 'Chauffeur, interpreter, mobility, and on-the-ground support coordinated within one plan.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Around-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Around-4.svg',
 			'title'       => 'Flexibility built in',
 			'description' => 'Plans adapt easily as schedules change or new priorities emerge.',
 		),
@@ -1278,27 +1278,27 @@ if ($is_shoping_service) {
 	$service_intro_button_text = '';
 	$service_intro_items = array(
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/your-1.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/your-1.svg',
 			'title'       => 'Freedom to change plans on the go',
 			'description' => 'Your itinerary can evolve in real time — add stops, change districts, or extend your shopping without rebooking.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/your-2.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/your-2.svg',
 			'title'       => 'Your chauffeur always on standby',
 			'description' => 'Your driver remains close throughout the booking, ready whenever you are — no waiting, no coordination stress.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/your-3.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/your-3.svg',
 			'title'       => 'Smooth movement between locations',
 			'description' => 'Routes, traffic, and timing are handled quietly in the background, so your day flows without interruptions.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/your-4.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/your-4.svg',
 			'title'       => 'Discreet, practical assistance',
 			'description' => 'Help with bags, doors, and logistics — always attentive, never intrusive.',
 		),
 		array(
-			'icon'        => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/your-5.svg',
+			'icon'        => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/your-5.svg',
 			'title'       => 'A shopping day without rushing',
 			'description' => 'No fixed schedules or pressure to move on — take your time and enjoy each stop.',
 		),
@@ -1674,7 +1674,7 @@ if ($is_corporations_service) {
 if ($is_shoping_service) {
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['card_type'] = 'image';
-		$why_us_cards[0]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325562_result.webp';
+		$why_us_cards[0]['image'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325562_result.webp';
 		$why_us_cards[0]['description'] = 'Luxury shopping chauffeur service<br>in 100+ countries — the same level<br>of comfort and discretion wherever<br>you shop.';
 	}
 	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
@@ -1701,7 +1701,7 @@ if ($is_medical_transportation_service) {
 
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['card_type'] = 'image';
-		$why_us_cards[0]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325556_result.webp';
+		$why_us_cards[0]['image'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325556_result.webp';
 		$why_us_cards[0]['description'] = 'Medical transfers across 100+<br>countries — coordinated with the<br>same precision, care, and<br>discretion that define every GTS<br>service.';
 	}
 	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
@@ -1726,17 +1726,17 @@ if ($is_travel_personal_interpreter_service) {
 
 	if (isset($why_us_cards[0]) && is_array($why_us_cards[0])) {
 		$why_us_cards[0]['card_type'] = 'image';
-		$why_us_cards[0]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325557_result.webp';
+		$why_us_cards[0]['image'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325557_result.webp';
 		$why_us_cards[0]['title'] = 'Experienced interpreters';
 		$why_us_cards[0]['description'] = 'Professionals trained to work in<br>business, medical, legal, and<br>private settings.';
 	}
 	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
-		$why_us_cards[1]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_bag-suitcase.svg';
+		$why_us_cards[1]['icon'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/mdi_bag-suitcase.svg';
 		$why_us_cards[1]['title'] = 'Seamless integration<br>with travel';
 		$why_us_cards[1]['description'] = 'Interpreter support coordinated<br>alongside chauffeur services and<br>schedules when required.';
 	}
 	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
-		$why_us_cards[2]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Designed-4.svg';
+		$why_us_cards[2]['icon'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Designed-4.svg';
 		$why_us_cards[2]['title'] = 'Reliable coordination';
 		$why_us_cards[2]['description'] = 'Clear planning, punctuality, and real-<br>time adjustments as your travel plans<br>evolve.';
 	}
@@ -1750,7 +1750,7 @@ if ($is_travel_personal_interpreter_service) {
 	}
 	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
 		$why_us_cards[5]['card_type'] = 'image';
-		$why_us_cards[5]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325558_result.webp';
+		$why_us_cards[5]['image'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325558_result.webp';
 		$why_us_cards[5]['title'] = 'Worldwide availability';
 		$why_us_cards[5]['description'] = 'Interpreter services available<br>across key international<br>destinations.';
 	}
@@ -1765,28 +1765,28 @@ if ($is_travel_planninig_service) {
 		$why_us_cards[0]['description'] = 'Carefully designed itineraries that<br>balance efficiency, comfort, and<br>purpose.';
 	}
 	if (isset($why_us_cards[1]) && is_array($why_us_cards[1])) {
-		$why_us_cards[1]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-1.svg';
+		$why_us_cards[1]['icon'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Planning-1.svg';
 		$why_us_cards[1]['title'] = 'End-to-end<br>coordination';
 		$why_us_cards[1]['description'] = 'One point of contact managing all<br>travel components and adjustments.';
 	}
 	if (isset($why_us_cards[2]) && is_array($why_us_cards[2])) {
-		$why_us_cards[2]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-2.svg';
+		$why_us_cards[2]['icon'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Planning-2.svg';
 		$why_us_cards[2]['title'] = 'Calm execution';
 		$why_us_cards[2]['description'] = 'Clear plans, realistic timing, and<br>proactive coordination throughout<br>the journey.';
 	}
 	if (isset($why_us_cards[3]) && is_array($why_us_cards[3])) {
-		$why_us_cards[3]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-3.svg';
+		$why_us_cards[3]['icon'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Planning-3.svg';
 		$why_us_cards[3]['title'] = 'Worldwide reach';
 		$why_us_cards[3]['description'] = 'Travel planning support across key<br>international destinations.';
 	}
 	if (isset($why_us_cards[4]) && is_array($why_us_cards[4])) {
-		$why_us_cards[4]['icon'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Planning-4.svg';
+		$why_us_cards[4]['icon'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Planning-4.svg';
 		$why_us_cards[4]['title'] = '24/7 Human Support';
 		$why_us_cards[4]['description'] = 'Live coordination and assistance<br>before and during your journey.';
 	}
 	if (isset($why_us_cards[5]) && is_array($why_us_cards[5])) {
 		$why_us_cards[5]['card_type'] = 'image';
-		$why_us_cards[5]['image'] = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325559_result.webp';
+		$why_us_cards[5]['image'] = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325559_result.webp';
 		$why_us_cards[5]['title'] = 'Privacy-respectful<br>professional support';
 		$why_us_cards[5]['description'] = 'Delivered with discretion,<br>professionalism, and respect<br>for client confidentiality.';
 	}
@@ -1832,7 +1832,7 @@ if ($is_medical_transportation_service) {
 	$hiw_title = 'We handle the details —<br>you enjoy the moments';
 }
 if ($is_travel_personal_interpreter_service) {
-	$hiw_bg = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-1000002275_result-scaled.webp';
+	$hiw_bg = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-1000002275_result-scaled.webp';
 	$hiw_title = 'You focus on your meetings<br>and plans. We ensure clear<br>communication.';
 	$hiw_steps = array(
 		array(
@@ -1862,7 +1862,7 @@ if ($is_travel_personal_interpreter_service) {
 	);
 }
 if ($is_travel_planninig_service) {
-	$hiw_bg = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Frame-2087325560_result-scaled.webp';
+	$hiw_bg = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Frame-2087325560_result-scaled.webp';
 	$hiw_steps = array(
 		array(
 			'number' => '01',
@@ -1872,7 +1872,7 @@ if ($is_travel_planninig_service) {
 		),
 		array(
 			'number' => '02',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
 			'title' => 'Receive a tailored<br>travel plan',
 			'description' => 'A clear, structured itinerary with coordinated<br>services and recommendations.',
 		),
@@ -1936,13 +1936,13 @@ if ($is_corporate_events_chauffeur_service) {
 		),
 		array(
 			'number' => '03',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/execution-3.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/execution-3.svg',
 			'title' => 'Confirm &amp; delegate',
 			'description' => 'We assign your chauffeur team and a<br>dedicated event coordinator.',
 		),
 		array(
 			'number' => '04',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/execution-4.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/execution-4.svg',
 			'title' => 'Enjoy flawless<br>execution',
 			'description' => 'every pickup and drop-off precisely on time.',
 		),
@@ -1989,7 +1989,7 @@ if ($is_travel_agencies_service) {
 		),
 		array(
 			'number' => '02',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
 			'title' => 'Receive a tailored<br>proposal',
 			'description' => 'Clear pricing and transport planning aligned<br>with your itinerary.',
 		),
@@ -2001,7 +2001,7 @@ if ($is_travel_agencies_service) {
 		),
 		array(
 			'number' => '04',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-4.svg',
 			'title' => 'Deliver a seamless<br>experience',
 			'description' => 'Your clients travel comfortably while we<br>handle the logistics.',
 		),
@@ -2019,7 +2019,7 @@ if ($is_mobility_partnership_service) {
 		),
 		array(
 			'number' => '02',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
 			'title' => 'Receive a tailored<br>mobility framework',
 			'description' => 'A scalable transportation model aligned with<br>your business needs and timelines.',
 		),
@@ -2031,7 +2031,7 @@ if ($is_mobility_partnership_service) {
 		),
 		array(
 			'number' => '04',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-4.svg',
 			'title' => 'Ongoing delivery<br>&amp; optimisation',
 			'description' => 'Daily execution supported by monitoring,<br>reporting, and continuous adjustment.',
 		),
@@ -2048,7 +2048,7 @@ if ($is_corporations_service) {
 		),
 		array(
 			'number' => '02',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
 			'title' => 'Receive a tailored<br>corporate<br>mobility plan',
 			'description' => 'Clear, transparent pricing based on duration<br>and vehicle class.',
 		),
@@ -2060,7 +2060,7 @@ if ($is_corporations_service) {
 		),
 		array(
 			'number' => '04',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-4.svg',
 			'title' => 'Ongoing delivery',
 			'description' => 'Daily execution with monitoring, reporting,<br>and continuous optimisation.',
 		),
@@ -2077,7 +2077,7 @@ if ($is_airport_transfer_events_service) {
 		),
 		array(
 			'number' => '02',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/solar_document-add-bold.svg',
 			'title' => 'Receive a tailored<br>transfer plan',
 			'description' => 'Clear structure, vehicle allocation, and<br>transparent pricing.',
 		),
@@ -2089,7 +2089,7 @@ if ($is_airport_transfer_events_service) {
 		),
 		array(
 			'number' => '04',
-			'icon' => 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Long-4.svg',
+			'icon' => 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Long-4.svg',
 			'title' => 'Seamless<br>execution',
 			'description' => 'Every pickup and drop-off handled precisely,<br>quietly, and on time.',
 		),
@@ -2626,17 +2626,17 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									<div class="hero-feature hero-feature-top-left">
 										<div class="hero-feature-icon">
 											<?php if ($is_special_transfers_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_family_travel_chauffeur_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_medical_transportation_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Medical-Transportation-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Medical-Transportation-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_travel_personal_interpreter_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_mobility_partnership_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/term-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_airport_transfer_events_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12444.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/12444.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php else : ?>
 												<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 											<?php endif; ?>
@@ -2692,17 +2692,17 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									<div class="hero-feature hero-feature-top-left">
 										<div class="hero-feature-icon">
 											<?php if ($is_special_transfers_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Special-Transfers-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_family_travel_chauffeur_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/mdi_car-child-seat.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 											<?php elseif ($is_medical_transportation_service) : ?>
-												<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Medical-Transportation-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+												<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Medical-Transportation-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 										<?php elseif ($is_travel_personal_interpreter_service) : ?>
-											<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/Travel-Personal-Interpreter-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 										<?php elseif ($is_mobility_partnership_service) : ?>
-											<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/term-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/term-1.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 										<?php elseif ($is_airport_transfer_events_service) : ?>
-											<img src="https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/12444.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
+											<img src="https://global-travelsolutions.com/wp-content/uploads/2026/02/12444.svg" alt="" width="32" height="32" loading="lazy" decoding="async">
 										<?php else : ?>
 											<?php echo $hero_icon_1 ? wp_kses($hero_icon_1, gts_allowed_svg_hero()) : ''; ?>
 										<?php endif; ?>

@@ -6,9 +6,9 @@
  * @package GTS
  */
 
-$image_mobile  = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-375_result.webp';
-$image_tablet  = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1024_result.webp';
-$image_desktop = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp';
+$image_mobile  = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-375_result.webp';
+$image_tablet  = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-1024_result.webp';
+$image_desktop = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp';
 
 $hero_icon_1 = file_get_contents( get_template_directory() . '/assets/icons/icon-1-l.svg' );
 $hero_icon_2 = file_get_contents( get_template_directory() . '/assets/icons/icon-2-l.svg' );

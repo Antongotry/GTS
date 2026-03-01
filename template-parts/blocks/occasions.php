@@ -18,7 +18,7 @@ $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.w
 $image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
 if ( $is_city_to_city ) {
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/city-55_result.webp';
+	$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-55_result.webp';
 }
 $icon_executive_url = $site_url . '/wp-content/uploads/2026/02/icon-l-1.svg';
 $icon_airport_url = $site_url . '/wp-content/uploads/2026/02/icon-l-2.svg';
@@ -56,24 +56,24 @@ $footer_text_enabled = ! isset( $block['footer_text_enabled'] ) || (bool) $block
 
 if ( $is_hourly_hire ) {
 	$image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/1_result.webp';
+	$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/1_result.webp';
 
 	$item_1_title = 'Business Days & Meetings';
 	$item_1_description = 'private, quiet space to work or rest between<br>meetings and cities.';
 
-	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/healthicons_i-groups-perspective-crowd.svg';
+	$icon_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/healthicons_i-groups-perspective-crowd.svg';
 	$item_2_title = 'Events & Conferences';
 	$item_2_description = 'connecting airports made easy and<br>comfortable.';
 
-	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/mdi_film-open.svg';
+	$icon_multi_day_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/mdi_film-open.svg';
 	$item_3_title = 'Film, Production & Media Crews';
 	$item_3_description = 'flexible hours and reliable<br>coordination.';
 
-	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/fluent_premium-12-filled.svg';
+	$icon_private_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/fluent_premium-12-filled.svg';
 	$item_4_title = 'Delegations & VIP Guests';
 	$item_4_description = 'continuous support and absolute discretion.';
 
-	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/icon-park-solid_calendar.svg';
+	$icon_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/icon-park-solid_calendar.svg';
 	$item_5_title = 'Private Errands & Leisure';
 	$item_5_description = 'shopping, family visits, sightseeing —<br>all on your schedule.';
 
@@ -81,13 +81,13 @@ if ( $is_hourly_hire ) {
 }
 
 if ( $is_airport_transfer_service ) {
-	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-11_result-1.webp';
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-22_result.webp';
+	$image_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-11_result-1.webp';
+	$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-22_result.webp';
 
-	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-1.svg';
-	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-2.svg';
-	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-3.svg';
-	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-4.svg';
+	$icon_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-1.svg';
+	$icon_multi_day_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-2.svg';
+	$icon_private_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-3.svg';
+	$icon_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-4.svg';
 
 	$item_1_title = 'Corporate Clients & Executives';
 	$item_1_description = 'discreet, punctual service for business arrivals and<br>departures.';
@@ -108,12 +108,12 @@ if ( $is_airport_transfer_service ) {
 }
 
 if ( $is_professional_chauffeur_service ) {
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/professional-chauffeur-service_result.webp';
+	$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/professional-chauffeur-service_result.webp';
 
-	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-1.svg';
-	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-2.svg';
-	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/3.svg';
-	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/airport-transfer-service-4.svg';
+	$icon_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-1.svg';
+	$icon_multi_day_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-2.svg';
+	$icon_private_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/3.svg';
+	$icon_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/airport-transfer-service-4.svg';
 
 	$item_1_title = 'Corporate & Executive Travel';
 	$item_1_description = 'for meetings, conferences, and client visits.';
@@ -135,13 +135,13 @@ if ( $is_professional_chauffeur_service ) {
 
 if ( $is_cultural_sport_events_service ) {
 	$section_title = 'Tailored for Every Event';
-	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/4444_result.webp';
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/5555_result.webp';
-	$icon_executive_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-1.svg';
-	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-2.svg';
-	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-3.svg';
-	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-4.svg';
-	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-5.svg';
+	$image_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/4444_result.webp';
+	$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/5555_result.webp';
+	$icon_executive_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-1.svg';
+	$icon_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-2.svg';
+	$icon_multi_day_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-3.svg';
+	$icon_private_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-4.svg';
+	$icon_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Tailored-for-Every-Event-5.svg';
 	$item_1_title = 'Cultural Events & Concerts';
 	$item_1_description = 'Luxury car service for the couple, guests, and family';
 	$item_2_title = 'International Sports Events';
@@ -157,13 +157,13 @@ if ( $is_cultural_sport_events_service ) {
 
 if ( $is_wedding_service ) {
 	$section_title = 'Perfect for Any Traveller';
-	$image_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/professional-chauffeur-service_result.webp';
-	$image_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/345_result.webp';
-	$icon_executive_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-1-2.svg';
-	$icon_airport_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-2-2.svg';
-	$icon_multi_day_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/1123.svg';
-	$icon_private_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-3-2.svg';
-	$icon_events_url = 'https://lightslategray-mantis-304191.hostingersite.com/wp-content/uploads/2026/02/Wedding1-5-1.svg';
+	$image_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/professional-chauffeur-service_result.webp';
+	$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/345_result.webp';
+	$icon_executive_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding1-1-2.svg';
+	$icon_airport_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding1-2-2.svg';
+	$icon_multi_day_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/1123.svg';
+	$icon_private_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding1-3-2.svg';
+	$icon_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/Wedding1-5-1.svg';
 
 	$item_1_title = 'Weddings & Engagements';
 	$item_1_description = 'Luxury car service for the couple, guests, and family';
