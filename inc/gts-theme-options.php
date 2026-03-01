@@ -14,14 +14,14 @@ function gts_theme_options_menu() {
 	add_menu_page(
 		__( 'GTS Settings', 'gts-theme' ),
 		__( 'GTS', 'gts-theme' ),
-		'edit_theme_options',
+		'manage_options',
 		'gts-theme-options',
 		'gts_theme_options_page',
 		'dashicons-admin-generic',
 		30
 	);
 }
-add_action( 'admin_menu', 'gts_theme_options_menu' );
+add_action( 'admin_menu', 'gts_theme_options_menu', 20 );
 
 /**
  * Register GTS theme options.
@@ -66,7 +66,7 @@ function gts_header_phone_tel_digits( $display_phone ) {
  * Render GTS Settings page.
  */
 function gts_theme_options_page() {
-	if ( ! current_user_can( 'edit_theme_options' ) ) {
+	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
 
