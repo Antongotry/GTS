@@ -9,24 +9,24 @@ $avatar_url = get_site_url() . '/wp-content/uploads/2026/01/rewievs-ic_result.we
 
 $testimonials = array(
 	array(
-		'text' => '"Convallis interdum mattis morbi ullamcorper. Felis, elementum et, in est fringilla viverra vitae interdum. Facilisis aliquet hac vestibulum pulvinar. Ultrices velit a gravida condimentum lectus."',
-		'name' => 'Вікторія',
+		'text' => '"We used transfer services in Hannover during the exhibition. The driver arrived in advance, the vehicle was in good condition, and all details were confirmed the day before. Everything ran smoothly and on time."',
+		'name' => 'James',
 	),
 	array(
-		'text' => '"Convallis interdum mattis morbi ullamcorper. Felis, elementum et, in est fringilla viverra vitae interdum. Facilisis aliquet hac vestibulum pulvinar."',
-		'name' => 'Вікторія',
+		'text' => '"We booked transfers in Milan with waiting time and a return trip. Everything went according to plan, and the driver was careful and professional."',
+		'name' => 'Sarah',
 	),
 	array(
-		'text' => '"Convallis interdum mattis morbi ullamcorper. Felis, elementum et, in est fringilla viverra vitae interdum. Facilisis aliquet hac vestibulum pulvinar. Ultrices velit a gravida condimentum lectus. Morbi et magna."',
-		'name' => 'Вікторія',
+		'text' => '"Transport was arranged for a group in Riyadh. With a tight schedule, all pickups were on time and locations were handled without confusion. Reliable service."',
+		'name' => 'Michael',
 	),
 	array(
-		'text' => '"Convallis interdum mattis morbi ullamcorper. Felis, elementum et, in est fringilla viverra vitae interdum."',
-		'name' => 'Вікторія',
+		'text' => '"The route Przemyśl – Vilnius – Berlin involved multiple dates and pickups. The logistics were well organised and the price remained exactly as agreed."',
+		'name' => 'Emma',
 	),
 	array(
-		'text' => '"Convallis interdum mattis morbi ullamcorper. Felis, elementum et, in est fringilla viverra vitae interdum. Facilisis aliquet hac vestibulum pulvinar. Ultrices velit a gravida."',
-		'name' => 'Вікторія',
+		'text' => '"We booked a comfort transfer in Nice for a trip with a child. The car arrived on time and the journey was calm, without any organisational issues."',
+		'name' => 'David',
 	),
 );
 
