@@ -8,15 +8,17 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Register GTS Settings menu under Appearance.
+ * Register GTS as a top-level admin menu (separate from Appearance).
  */
 function gts_theme_options_menu() {
-	add_theme_page(
+	add_menu_page(
 		__( 'GTS Settings', 'gts-theme' ),
-		__( 'GTS Settings', 'gts-theme' ),
+		__( 'GTS', 'gts-theme' ),
 		'edit_theme_options',
 		'gts-theme-options',
-		'gts_theme_options_page'
+		'gts_theme_options_page',
+		'dashicons-admin-generic',
+		30
 	);
 }
 add_action( 'admin_menu', 'gts_theme_options_menu' );
