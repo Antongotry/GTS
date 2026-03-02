@@ -590,6 +590,7 @@ big {
 --------------------------------------------- */
 html {
   --scrollbar-width: calc(100vw - 100%);
+  --site-header-height: 72px;
 }
 
 html,
@@ -6466,9 +6467,8 @@ a.phone-button:focus,
  */
 .hero-block {
   width: 100% !important;
-  min-height: 100svh !important;
-  height: 100svh !important;
-  max-height: 100svh !important;
+  min-height: 130vh !important;
+  min-height: 130svh !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -6483,17 +6483,15 @@ a.phone-button:focus,
 }
 @media (max-width: 1024px) {
   .hero-block {
-    min-height: 100svh !important;
-    height: 100svh !important;
-    max-height: 100svh !important;
+    min-height: 130vh !important;
+    min-height: 130svh !important;
     background-image: url("https://global-travelsolutions.com/wp-content/uploads/2026/01/1024-banner-home_result.webp") !important;
   }
 }
 @media (max-width: 768px) {
   .hero-block {
-    min-height: 100svh !important;
-    height: 100svh !important;
-    max-height: 100svh !important;
+    min-height: 130vh !important;
+    min-height: 130svh !important;
     background-image: url("https://global-travelsolutions.com/wp-content/uploads/2026/01/hero-banner-375_result.webp") !important;
   }
 }
@@ -6529,8 +6527,6 @@ a.phone-button:focus,
     gap: 24px;
     max-width: 100%;
     min-height: 100svh;
-    height: 100svh;
-    max-height: 100svh;
     padding: 0 12px 0 20px;
     box-sizing: border-box;
   }
@@ -6825,17 +6821,18 @@ a.phone-button:focus,
   margin-left: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-top: 0;
+  justify-content: flex-start;
+  padding-top: calc(var(--site-header-height, 72px) + 16px);
   padding-bottom: 20px;
   box-sizing: border-box;
-  min-height: 100%;
+  min-height: auto;
 }
 @media (max-width: 1024px) {
   .hero-right {
     width: 390px;
     flex: 0 0 390px;
     margin-left: 0;
+    padding-top: calc(var(--site-header-height, 72px) + 12px);
   }
 }
 @media (max-width: 768px) {
@@ -6862,12 +6859,27 @@ a.phone-button:focus,
   padding: 24px 20px;
   border-radius: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-top: auto;
+  margin-top: 0;
   margin-bottom: 0;
 }
 @media (max-width: 768px) {
   .booking-form {
     width: 100%;
+  }
+}
+
+@media (max-height: 900px) and (min-width: 769px) {
+  .booking-form {
+    padding: 18px 16px;
+  }
+  .form-row {
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .form-row.form-row-after-checkboxes,
+  .form-row.form-row-dropoff-notes {
+    margin-top: 18px;
+    margin-bottom: 18px;
   }
 }
 

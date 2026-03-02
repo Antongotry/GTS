@@ -4,9 +4,8 @@
 
 .hero-block {
 	width: 100% !important;
-	min-height: 100svh !important;
-	height: 100svh !important;
-	max-height: 100svh !important;
+	min-height: 130vh !important;
+	min-height: 130svh !important;
 	background-size: cover !important;
 	background-position: center !important;
 	background-repeat: no-repeat !important;
@@ -21,17 +20,15 @@
 
 	// Tablet (1024px)
 	@include lg {
-		min-height: 100svh !important;
-		height: 100svh !important;
-		max-height: 100svh !important;
+		min-height: 130vh !important;
+		min-height: 130svh !important;
 		background-image: url('https://global-travelsolutions.com/wp-content/uploads/2026/01/1024-banner-home_result.webp') !important;
 	}
 
 	// Mobile (375px)
 	@include md {
-		min-height: 100svh !important;
-		height: 100svh !important;
-		max-height: 100svh !important;
+		min-height: 130vh !important;
+		min-height: 130svh !important;
 		background-image: url('https://global-travelsolutions.com/wp-content/uploads/2026/01/hero-banner-375_result.webp') !important;
 	}
 }
@@ -65,8 +62,6 @@
 		gap: 24px;
 		max-width: 100%;
 		min-height: 100svh;
-		height: 100svh;
-		max-height: 100svh;
 		padding: 0 12px 0 20px; // меньше справа, чтобы hero-feature-text помещался в одну строку
 		box-sizing: border-box;
 	}
@@ -374,16 +369,17 @@
 	margin-left: auto;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end; // Прижать форму и world-map к низу
-	padding-top: 0;
+	justify-content: flex-start; // Форма стартует сверху и не уходит под хедер
+	padding-top: calc(var(--site-header-height, 72px) + 16px);
 	padding-bottom: 20px;
 	box-sizing: border-box;
-	min-height: 100%; // Растянуть на всю высоту
+	min-height: auto;
 
 	@include lg {
 		width: 390px;
 		flex: 0 0 390px;
 		margin-left: 0;
+		padding-top: calc(var(--site-header-height, 72px) + 12px);
 	}
 
 	@include md {
@@ -410,11 +406,29 @@
 	padding: 24px 20px;
 	border-radius: 0;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-	margin-top: auto; // Push form + world-map to bottom
+	margin-top: 0;
 	margin-bottom: 0;
 
 	@include md {
 		width: 100%;
+	}
+}
+
+// Tighten form spacing on short desktop/tablet viewports to reduce overflow risk.
+@media (max-height: 900px) and (min-width: 769px) {
+	.booking-form {
+		padding: 18px 16px;
+	}
+
+	.form-row {
+		gap: 16px;
+		margin-bottom: 18px;
+	}
+
+	.form-row.form-row-after-checkboxes,
+	.form-row.form-row-dropoff-notes {
+		margin-top: 18px;
+		margin-bottom: 18px;
 	}
 }
 

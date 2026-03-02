@@ -1,6 +1,8 @@
 html {
 	// Автоматически вычисляет ширину scrollbar (100vw включает scrollbar, 100% - нет)
 	--scrollbar-width: calc(100vw - 100%);
+	// Fallback value for fixed header height; updated via JS on runtime.
+	--site-header-height: 72px;
 }
 
 html,
