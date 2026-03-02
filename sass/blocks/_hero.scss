@@ -4,6 +4,8 @@
 
 .hero-block {
 	width: 100% !important;
+	height: 110vh !important;
+	height: 110svh !important;
 	min-height: 110vh !important;
 	min-height: 110svh !important;
 	background-size: cover !important;
@@ -13,13 +15,15 @@
 	margin: 0 !important;
 	padding: 0 !important;
 	display: flex !important;
-	align-items: stretch;
-	position: relative;
+	align-items: stretch !important;
+	position: relative !important;
 	overflow: visible;
 	z-index: 1;
 
 	// Tablet (1024px)
 	@include lg {
+		height: 110vh !important;
+		height: 110svh !important;
 		min-height: 110vh !important;
 		min-height: 110svh !important;
 		background-image: url('https://global-travelsolutions.com/wp-content/uploads/2026/01/1024-banner-home_result.webp') !important;
@@ -27,14 +31,34 @@
 
 	// Mobile (375px)
 	@include md {
+		height: 110vh !important;
+		height: 110svh !important;
 		min-height: 110vh !important;
 		min-height: 110svh !important;
 		background-image: url('https://global-travelsolutions.com/wp-content/uploads/2026/01/hero-banner-375_result.webp') !important;
 	}
 }
 
+// Final conflict-proof layout lock for desktop/tablet:
+// hero-container must be exactly the same height as hero-block.
+main#primary > section.hero-block {
+	position: relative !important;
+}
+
+main#primary > section.hero-block > .hero-container {
+	position: absolute !important;
+	inset: 0 !important;
+	min-height: 100% !important;
+	height: 100% !important;
+}
+
 .hero-container {
 	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	gap: 40px;
 	align-items: stretch;
 	justify-content: space-between;
@@ -42,8 +66,8 @@
 	max-width: min(1840px, calc(100vw - var(--scrollbar-width) - 40px));
 	margin: 0 auto;
 	padding: 0 20px;
-	min-height: 100%;
-	height: 100%;
+	min-height: 100% !important;
+	height: 100% !important;
 	box-sizing: border-box;
 
 	@include lg {
@@ -51,12 +75,17 @@
 		width: 100%;
 		max-width: 944px; // 984px - 40px (2*20px padding)
 		padding: 0 20px;
-		min-height: 100%;
-		height: 100%;
+		min-height: 100% !important;
+		height: 100% !important;
 		box-sizing: content-box; // padding не входит в max-width
 	}
 
 	@include md {
+		position: relative;
+		top: auto;
+		right: auto;
+		bottom: auto;
+		left: auto;
 		flex-direction: column;
 		gap: 24px;
 		max-width: 100%;

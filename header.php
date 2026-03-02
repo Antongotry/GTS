@@ -102,22 +102,33 @@
 
 		/* Hero - LCP critical */
 		.hero-block {
-			min-height: 100vh;
+			height: 110vh;
+			height: 110svh;
+			min-height: 110vh;
+			min-height: 110svh;
 			background-size: cover;
 			background-position: center top;
 			display: flex;
-			align-items: center;
-			position: relative
+			align-items: stretch;
+			position: relative !important
 		}
 
 		.hero-container {
 			max-width: 1440px;
+			position: absolute !important;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
 			margin: 0 auto;
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
+			align-items: stretch;
 			padding: 0 40px;
-			gap: 40px
+			gap: 40px;
+			min-height: 100%;
+			height: 100%
 		}
 
 		.hero-left {
@@ -179,6 +190,11 @@
 			}
 
 			.hero-container {
+				position: relative;
+				top: auto;
+				right: auto;
+				bottom: auto;
+				left: auto;
 				flex-direction: column;
 				padding: 0 20px;
 				gap: 24px
