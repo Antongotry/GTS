@@ -2099,6 +2099,14 @@ body.mobile-menu-open {
   .site-logo {
     order: 1;
     margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .site-logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
   .site-logo img {
     width: 53px;
@@ -6040,6 +6048,14 @@ a.phone-button:focus,
   .site-logo {
     order: 1;
     margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .site-logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
   .site-logo img {
     width: 53px;
