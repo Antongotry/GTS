@@ -2746,7 +2746,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									</select></div>
 							</div>
 							<div class="form-checkboxes">
-								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($desktop_form_checkbox1); ?></span></label></div>
+								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet"><span><?php echo esc_html($desktop_form_checkbox1); ?></span></label></div>
 								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($desktop_form_checkbox2); ?></span></label></div>
 							</div>
 							<div class="form-row form-row-after-checkboxes">
@@ -2812,7 +2812,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									</select></div>
 							</div>
 							<div class="form-checkboxes">
-								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet" checked><span><?php echo esc_html($mobile_form_checkbox1); ?></span></label></div>
+								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_jet" value="jet"><span><?php echo esc_html($mobile_form_checkbox1); ?></span></label></div>
 								<div class="form-group checkbox-group"><label><input type="checkbox" name="book_helicopter" value="helicopter"><span><?php echo esc_html($mobile_form_checkbox2); ?></span></label></div>
 							</div>
 							<div class="form-row form-row-after-checkboxes">

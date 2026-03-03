@@ -154,7 +154,7 @@ if ( '' === trim( $hero_cta_link ) ) {
 				<div class="form-checkboxes">
 					<div class="form-group checkbox-group">
 						<label>
-							<input type="checkbox" name="book_jet" value="jet" checked>
+							<input type="checkbox" name="book_jet" value="jet">
 							<span>Book a Jet</span>
 						</label>
 					</div>

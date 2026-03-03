@@ -113,7 +113,7 @@
 		}
 
 		if (passengers && passengers.options.length <= 1) {
-			for (let i = 1; i <= 20; i += 1) {
+			for (let i = 1; i <= 60; i += 1) {
 				const option = document.createElement('option');
 				option.value = String(i);
 				option.textContent = i === 1 ? '1 passenger' : `${i} passengers`;

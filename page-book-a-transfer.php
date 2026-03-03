@@ -107,7 +107,8 @@ $categories = get_terms(
 										<option value="1-2">1-2</option>
 										<option value="3-4">3-4</option>
 										<option value="5-7">5-7</option>
-										<option value="8-20">8-20+</option>
+										<option value="8-20">8-20</option>
+										<option value="21+">21+</option>
 									</select>
 								</div>
 								<div class="transfer-field">

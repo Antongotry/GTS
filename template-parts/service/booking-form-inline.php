@@ -49,7 +49,7 @@ $service_url   = get_permalink();
 	<div class="form-checkboxes">
 		<div class="form-group checkbox-group">
 			<label>
-				<input type="checkbox" name="book_jet" value="jet" checked>
+				<input type="checkbox" name="book_jet" value="jet">
 				<span><?php esc_html_e('Book a Jet', 'gts-theme'); ?></span>
 			</label>
 		</div>

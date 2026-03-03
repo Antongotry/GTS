@@ -198,6 +198,37 @@ function gts_admin_styles()
 }
 add_action('admin_enqueue_scripts', 'gts_admin_styles');
 
+/**
+ * Temporary global noindex while pages remain publicly accessible.
+ * Removes all indexing directives for every frontend URL.
+ */
+function gts_force_global_noindex($robots)
+{
+	if (is_admin()) {
+		return $robots;
+	}
+
+	return array(
+		'noindex'  => true,
+		'nofollow' => true,
+		'noarchive' => true,
+	);
+}
+add_filter('wp_robots', 'gts_force_global_noindex', 999);
+
+/**
+ * Add explicit X-Robots-Tag header as a second noindex layer.
+ */
+function gts_send_noindex_header()
+{
+	if (is_admin()) {
+		return;
+	}
+
+	header('X-Robots-Tag: noindex, nofollow, noarchive', true);
+}
+add_action('send_headers', 'gts_send_noindex_header');
+
 
 /**
  * Allowed HTML for inline SVG in hero (theme icons).
