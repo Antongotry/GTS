@@ -9273,6 +9273,27 @@ body.gts-popup-open {
     grid-column: 1/-1;
     grid-row: 5;
   }
+  .occasions-block .why-us-item {
+    height: auto;
+    min-height: 278px;
+  }
+  .occasions-block .why-us-item.why-us-item-2,
+  .occasions-block .why-us-item-3,
+  .occasions-block .why-us-item-4,
+  .occasions-block .occasions-row3-card {
+    min-height: 310px;
+  }
+  .occasions-block .why-us-item.why-us-item-2 .why-us-item-title,
+  .occasions-block .why-us-item-3 .why-us-item-title,
+  .occasions-block .why-us-item-4 .why-us-item-title,
+  .occasions-block .occasions-row3-card .why-us-item-title {
+    margin-top: 16px;
+  }
+  .occasions-block .why-us-item .why-us-item-description {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
 }
 /**
  * How It Works Block Styles
