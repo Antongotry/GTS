@@ -64,9 +64,11 @@
 .custom-itinerary-block--limousine .custom-itinerary-container {
 	height: auto;
 	min-height: 208px;
+	padding-bottom: 36px;
 
 	@include md {
 		min-height: 212px !important;
+		padding-bottom: 32px;
 	}
 }
 

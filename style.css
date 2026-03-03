@@ -10195,10 +10195,12 @@ body.gts-popup-open {
 .custom-itinerary-block--limousine .custom-itinerary-container {
   height: auto;
   min-height: 208px;
+  padding-bottom: 36px;
 }
 @media (max-width: 768px) {
   .custom-itinerary-block--limousine .custom-itinerary-container {
     min-height: 212px !important;
+    padding-bottom: 32px;
   }
 }
 
