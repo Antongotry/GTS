@@ -55,7 +55,6 @@
 				<li class="footer-language-item"><a href="#">German</a></li>
 				<li class="footer-language-item"><a href="#">Italian</a></li>
 				<li class="footer-language-item"><a href="#">Spanish</a></li>
-				<li class="footer-language-item"><a href="#">Arabic</a></li>
 				<li class="footer-language-item"><a href="#">Chinese</a></li>
 			</ul>
 		</div>

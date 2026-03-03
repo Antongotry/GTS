@@ -295,7 +295,6 @@
 							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="DE">German</a></li>
 							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="IT">Italian</a></li>
 							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ES">Spanish</a></li>
-							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="AR">Arabic</a></li>
 							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ZH">Chinese</a></li>
 						</ul>
 					</div>
