@@ -481,6 +481,317 @@ function gts_calculator_is_night_trip( $time ) {
 }
 
 /**
+ * Normalize text for case-insensitive matching.
+ *
+ * @param string $value Input string.
+ * @return string
+ */
+function gts_calculator_normalize_match_text( $value ) {
+	$value = trim( wp_strip_all_tags( (string) $value ) );
+	if ( '' === $value ) {
+		return '';
+	}
+	$value = preg_replace( '/\s+/', ' ', $value );
+	return mb_strtolower( $value );
+}
+
+/**
+ * Detect route kind for fixed tariff matching.
+ *
+ * @param array $data Route context.
+ * @return string airport_city|city_city|intercity
+ */
+function gts_calculator_detect_route_kind( $data ) {
+	$from_city      = gts_calculator_normalize_match_text( $data['from_city'] ?? '' );
+	$to_city        = gts_calculator_normalize_match_text( $data['to_city'] ?? '' );
+	$transfer_type  = sanitize_key( (string) ( $data['transfer_type'] ?? '' ) );
+	$route_blob     = (string) ( $data['from_address'] ?? '' ) . ' ' . (string) ( $data['to_address'] ?? '' );
+	$has_airport_kw = (bool) preg_match( '/\bairport\b/i', $route_blob );
+	$has_iata_code  = (bool) preg_match( '/\([A-Z]{3,4}\)/', $route_blob );
+	$is_same_city   = ( '' !== $from_city && $from_city === $to_city );
+
+	if ( 'airport_hotel' === $transfer_type || ( $is_same_city && ( $has_airport_kw || $has_iata_code ) ) ) {
+		return 'airport_city';
+	}
+	if ( $is_same_city ) {
+		return 'city_city';
+	}
+
+	return 'intercity';
+}
+
+/**
+ * Resolve fixed tariff column key by selected vehicle class.
+ *
+ * @param string $vehicle_class Vehicle class key.
+ * @return string
+ */
+function gts_calculator_fixed_column_for_vehicle_class( $vehicle_class ) {
+	$vehicle_class = sanitize_key( (string) $vehicle_class );
+	$map = get_field( 'calc_fixed_class_column_map', 'option' );
+	if ( $map && is_array( $map ) ) {
+		foreach ( $map as $row ) {
+			if ( empty( $row['enabled'] ) || empty( $row['class_key'] ) ) {
+				continue;
+			}
+			if ( sanitize_key( (string) $row['class_key'] ) === $vehicle_class ) {
+				$column = sanitize_key( (string) ( $row['price_column'] ?? '' ) );
+				if ( in_array( $column, array( 'standard', 'e_class', 's_class', 'v_class' ), true ) ) {
+					return $column;
+				}
+			}
+		}
+	}
+
+	$defaults = array(
+		'business'        => 'e_class',
+		'premium'         => 's_class',
+		'vip'             => 's_class',
+		'minivan'         => 'v_class',
+		'limousine'       => 's_class',
+		'special_request' => 'standard',
+	);
+
+	return $defaults[ $vehicle_class ] ?? 'standard';
+}
+
+/**
+ * Extract fixed tariff price by selected column.
+ *
+ * @param array  $row Fixed tariff row.
+ * @param string $column standard|e_class|s_class|v_class.
+ * @return float
+ */
+function gts_calculator_fixed_price_from_row( $row, $column ) {
+	$column_to_field = array(
+		'standard' => 'price_standard',
+		'e_class'  => 'price_e_class',
+		's_class'  => 'price_s_class',
+		'v_class'  => 'price_v_class',
+	);
+
+	$field_key = $column_to_field[ $column ] ?? 'price_standard';
+	$price = isset( $row[ $field_key ] ) ? (float) $row[ $field_key ] : 0;
+
+	if ( $price <= 0 ) {
+		$price = isset( $row['price_standard'] ) ? (float) $row['price_standard'] : 0;
+	}
+
+	return $price > 0 ? $price : 0;
+}
+
+/**
+ * Find matching fixed city tariff.
+ *
+ * @param array $data Request data.
+ * @return array|null
+ */
+function gts_calculator_match_fixed_city_tariff( $data ) {
+	$rows = get_field( 'calc_fixed_city_tariffs', 'option' );
+	if ( ! $rows || ! is_array( $rows ) ) {
+		return null;
+	}
+
+	$from_country = gts_calculator_normalize_match_text( $data['from_country'] ?? '' );
+	$to_country   = gts_calculator_normalize_match_text( $data['to_country'] ?? '' );
+	$from_city    = gts_calculator_normalize_match_text( $data['from_city'] ?? '' );
+	$to_city      = gts_calculator_normalize_match_text( $data['to_city'] ?? '' );
+	$route_type   = gts_calculator_detect_route_kind( $data );
+	$column       = gts_calculator_fixed_column_for_vehicle_class( (string) ( $data['vehicle_class'] ?? '' ) );
+	$route_blob   = gts_calculator_normalize_match_text( (string) ( $data['from_address'] ?? '' ) . ' ' . (string) ( $data['to_address'] ?? '' ) );
+
+	if ( ! in_array( $route_type, array( 'airport_city', 'city_city' ), true ) ) {
+		return null;
+	}
+
+	foreach ( $rows as $row ) {
+		if ( empty( $row['enabled'] ) ) {
+			continue;
+		}
+
+		$row_route_type = sanitize_key( (string) ( $row['route_type'] ?? '' ) );
+		if ( '' !== $row_route_type && $row_route_type !== $route_type ) {
+			continue;
+		}
+
+		$row_country = gts_calculator_normalize_match_text( $row['country'] ?? '' );
+		if ( '' !== $row_country && $row_country !== $from_country && $row_country !== $to_country ) {
+			continue;
+		}
+
+		$row_city = gts_calculator_normalize_match_text( $row['city'] ?? '' );
+		if ( '' !== $row_city && $row_city !== $from_city && $row_city !== $to_city ) {
+			continue;
+		}
+
+		if ( 'airport_city' === $route_type && ! empty( $row['airport_keywords'] ) ) {
+			$keywords = array_filter(
+				array_map(
+					static function ( $v ) {
+						return gts_calculator_normalize_match_text( $v );
+					},
+					explode( ',', (string) $row['airport_keywords'] )
+				)
+			);
+
+			$keyword_match = false;
+			foreach ( $keywords as $keyword ) {
+				if ( '' !== $keyword && false !== mb_strpos( $route_blob, $keyword ) ) {
+					$keyword_match = true;
+					break;
+				}
+			}
+			if ( ! $keyword_match ) {
+				continue;
+			}
+		}
+
+		$price = gts_calculator_fixed_price_from_row( $row, $column );
+		if ( $price <= 0 ) {
+			continue;
+		}
+
+		return array(
+			'price'                  => $price,
+			'city'                   => (string) ( $row['city'] ?? '' ),
+			'route_type'             => $route_type,
+			'night_surcharge_percent'=> isset( $row['night_surcharge_percent'] ) && '' !== (string) $row['night_surcharge_percent']
+				? (float) $row['night_surcharge_percent']
+				: null,
+			'notes'                  => (string) ( $row['notes'] ?? '' ),
+		);
+	}
+
+	return null;
+}
+
+/**
+ * Convert HH:MM into minutes.
+ *
+ * @param string $time Time.
+ * @return int|null
+ */
+function gts_calculator_time_to_minutes( $time ) {
+	if ( ! preg_match( '/^(\d{2}):(\d{2})$/', (string) $time, $m ) ) {
+		return null;
+	}
+	$hour = (int) $m[1];
+	$min  = (int) $m[2];
+	if ( $hour < 0 || $hour > 23 || $min < 0 || $min > 59 ) {
+		return null;
+	}
+	return ( $hour * 60 ) + $min;
+}
+
+/**
+ * Check if trip time belongs to configured window.
+ *
+ * @param string $time Trip time HH:MM.
+ * @param string $from Window start HH:MM.
+ * @param string $to Window end HH:MM.
+ * @return bool
+ */
+function gts_calculator_time_in_window( $time, $from, $to ) {
+	$t = gts_calculator_time_to_minutes( $time );
+	$f = gts_calculator_time_to_minutes( $from );
+	$o = gts_calculator_time_to_minutes( $to );
+	if ( null === $t || null === $f || null === $o ) {
+		return false;
+	}
+
+	if ( $f === $o ) {
+		return true;
+	}
+
+	if ( $f < $o ) {
+		return $t >= $f && $t < $o;
+	}
+
+	return ( $t >= $f || $t < $o );
+}
+
+/**
+ * Resolve region key by country using options mapping.
+ *
+ * @param string $country Country.
+ * @return string
+ */
+function gts_calculator_country_region_key( $country ) {
+	$country = gts_calculator_normalize_match_text( $country );
+	if ( '' === $country ) {
+		return '';
+	}
+
+	$map = get_field( 'calc_country_region_map', 'option' );
+	if ( $map && is_array( $map ) ) {
+		foreach ( $map as $row ) {
+			if ( empty( $row['enabled'] ) ) {
+				continue;
+			}
+			$row_country = gts_calculator_normalize_match_text( $row['country'] ?? '' );
+			if ( '' === $row_country ) {
+				continue;
+			}
+			if ( $row_country === $country ) {
+				return (string) ( $row['region_key'] ?? '' );
+			}
+		}
+	}
+
+	return '';
+}
+
+/**
+ * Resolve regional night surcharge for specific country and time.
+ *
+ * @param string $country Country.
+ * @param string $trip_time Time HH:MM.
+ * @return array
+ */
+function gts_calculator_regional_night_surcharge( $country, $trip_time ) {
+	$result = array(
+		'matched' => false,
+		'percent' => 0.0,
+		'region'  => '',
+	);
+
+	$region = gts_calculator_country_region_key( $country );
+	if ( '' === $region ) {
+		return $result;
+	}
+
+	$rules = get_field( 'calc_night_rules_by_region', 'option' );
+	if ( ! $rules || ! is_array( $rules ) ) {
+		return $result;
+	}
+
+	$region_key = gts_calculator_normalize_match_text( $region );
+	foreach ( $rules as $rule ) {
+		if ( empty( $rule['enabled'] ) ) {
+			continue;
+		}
+
+		$rule_region = gts_calculator_normalize_match_text( $rule['region_key'] ?? '' );
+		if ( '' === $rule_region || $rule_region !== $region_key ) {
+			continue;
+		}
+
+		$from = (string) ( $rule['night_from'] ?? '' );
+		$to   = (string) ( $rule['night_to'] ?? '' );
+		if ( ! gts_calculator_time_in_window( $trip_time, $from, $to ) ) {
+			continue;
+		}
+
+		$result['matched'] = true;
+		$result['percent'] = isset( $rule['charge_percent'] ) ? (float) $rule['charge_percent'] : 0;
+		$result['region']  = (string) ( $rule['region_key'] ?? '' );
+		return $result;
+	}
+
+	return $result;
+}
+
+/**
  * Get promo discount value.
  *
  * @param string $promo Promo code.
@@ -529,6 +840,12 @@ function gts_ajax_calculate_price() {
 	$trip_time        = isset( $_POST['trip_time'] ) ? sanitize_text_field( wp_unslash( $_POST['trip_time'] ) ) : '';
 	$promo_code       = isset( $_POST['promo_code'] ) ? sanitize_text_field( wp_unslash( $_POST['promo_code'] ) ) : '';
 	$extras           = isset( $_POST['extras'] ) ? array_map( 'sanitize_text_field', (array) wp_unslash( $_POST['extras'] ) ) : array();
+	$from_country     = isset( $_POST['from_country'] ) ? sanitize_text_field( wp_unslash( $_POST['from_country'] ) ) : '';
+	$to_country       = isset( $_POST['to_country'] ) ? sanitize_text_field( wp_unslash( $_POST['to_country'] ) ) : '';
+	$from_city        = isset( $_POST['from_city'] ) ? sanitize_text_field( wp_unslash( $_POST['from_city'] ) ) : '';
+	$to_city          = isset( $_POST['to_city'] ) ? sanitize_text_field( wp_unslash( $_POST['to_city'] ) ) : '';
+	$from_address     = isset( $_POST['from_address'] ) ? sanitize_text_field( wp_unslash( $_POST['from_address'] ) ) : '';
+	$to_address       = isset( $_POST['to_address'] ) ? sanitize_text_field( wp_unslash( $_POST['to_address'] ) ) : '';
 
 	if ( ! $vehicle_id ) {
 		wp_send_json_error( array( 'message' => 'Vehicle is required.' ), 422 );
@@ -556,37 +873,71 @@ function gts_ajax_calculate_price() {
 	}
 
 	$breakdown = array();
-	$breakdown[] = sprintf( '%.0f € — base vehicle rate', $base_price );
+	$fixed_tariff = gts_calculator_match_fixed_city_tariff(
+		array(
+			'from_country'  => $from_country,
+			'to_country'    => $to_country,
+			'from_city'     => $from_city,
+			'to_city'       => $to_city,
+			'from_address'  => $from_address,
+			'to_address'    => $to_address,
+			'transfer_type' => $transfer_type,
+			'vehicle_class' => $vehicle_class,
+		)
+	);
 
 	$distance_price = 0;
-	if ( $distance_km > 0 ) {
-		$distance_price = $distance_km * $price_per_km;
-		$breakdown[] = sprintf( '%.0f € — distance (%s km × %.2f €/km)', $distance_price, number_format_i18n( $distance_km, 1 ), $price_per_km );
-	}
+	if ( $fixed_tariff ) {
+		$total = (float) $fixed_tariff['price'];
+		$route_label = 'airport_city' === $fixed_tariff['route_type'] ? 'airport ↔ city' : 'city ↔ city';
+		$breakdown[] = sprintf( '%.0f € — fixed city tariff (%s)', $total, $route_label );
+		if ( ! empty( $fixed_tariff['city'] ) ) {
+			$breakdown[] = sprintf( 'Fixed city: %s', sanitize_text_field( (string) $fixed_tariff['city'] ) );
+		}
+		if ( ! empty( $fixed_tariff['notes'] ) ) {
+			$breakdown[] = sprintf( 'Tariff note: %s', sanitize_text_field( (string) $fixed_tariff['notes'] ) );
+		}
+	} else {
+		$breakdown[] = sprintf( '%.0f € — base vehicle rate', $base_price );
+		if ( $distance_km > 0 ) {
+			$distance_price = $distance_km * $price_per_km;
+			$breakdown[] = sprintf( '%.0f € — distance (%s km × %.2f €/km)', $distance_price, number_format_i18n( $distance_km, 1 ), $price_per_km );
+		}
 
-	$distance_tiers = get_field( 'calc_distance_tiers', 'option' );
-	if ( $distance_tiers && is_array( $distance_tiers ) && $distance_km > 0 ) {
-		foreach ( $distance_tiers as $tier ) {
-			$from = isset( $tier['from_km'] ) ? (float) $tier['from_km'] : 0;
-			$to   = isset( $tier['to_km'] ) ? (float) $tier['to_km'] : 0;
-			if ( $distance_km >= $from && $distance_km <= $to ) {
-				$multiplier = isset( $tier['multiplier'] ) ? (float) $tier['multiplier'] : 1;
-				if ( $multiplier > 0 && 1 !== $multiplier ) {
-					$distance_price *= $multiplier;
-					$breakdown[] = sprintf( '× %.2f distance tier multiplier', $multiplier );
+		$distance_tiers = get_field( 'calc_distance_tiers', 'option' );
+		if ( $distance_tiers && is_array( $distance_tiers ) && $distance_km > 0 ) {
+			foreach ( $distance_tiers as $tier ) {
+				$from = isset( $tier['from_km'] ) ? (float) $tier['from_km'] : 0;
+				$to   = isset( $tier['to_km'] ) ? (float) $tier['to_km'] : 0;
+				if ( $distance_km >= $from && $distance_km <= $to ) {
+					$multiplier = isset( $tier['multiplier'] ) ? (float) $tier['multiplier'] : 1;
+					if ( $multiplier > 0 && 1 !== $multiplier ) {
+						$distance_price *= $multiplier;
+						$breakdown[] = sprintf( '× %.2f distance tier multiplier', $multiplier );
+					}
+					break;
 				}
-				break;
 			}
 		}
+
+		$total = $base_price + $distance_price;
 	}
 
-	$total = $base_price + $distance_price;
-
+	$regional_night = gts_calculator_regional_night_surcharge( '' !== $from_country ? $from_country : $to_country, $trip_time );
+	$is_night_trip  = $regional_night['matched'] || gts_calculator_is_night_trip( $trip_time );
 	$night_surcharge = (float) get_field( 'calc_night_surcharge', 'option' );
-	if ( gts_calculator_is_night_trip( $trip_time ) && $night_surcharge > 0 ) {
-		$night_amount = $total * $night_surcharge / 100;
+	$night_percent = $regional_night['matched'] ? (float) $regional_night['percent'] : $night_surcharge;
+	$night_source  = $regional_night['matched'] ? sprintf( 'regional rule (%s)', sanitize_text_field( (string) $regional_night['region'] ) ) : 'default night rule';
+
+	if ( $fixed_tariff && null !== $fixed_tariff['night_surcharge_percent'] && $is_night_trip ) {
+		$night_percent = (float) $fixed_tariff['night_surcharge_percent'];
+		$night_source  = 'fixed tariff override';
+	}
+
+	if ( $is_night_trip && $night_percent > 0 ) {
+		$night_amount = $total * $night_percent / 100;
 		$total += $night_amount;
-		$breakdown[] = sprintf( '+ %.0f € — night surcharge (%s%%)', $night_amount, $night_surcharge );
+		$breakdown[] = sprintf( '+ %.0f € — night surcharge (%s%%, %s)', $night_amount, $night_percent, $night_source );
 	}
 
 	$weekend_surcharge = (float) get_field( 'calc_weekend_surcharge', 'option' );
@@ -610,33 +961,35 @@ function gts_ajax_calculate_price() {
 		$breakdown[] = sprintf( '+ %.0f € — waiting time (%s min)', $waiting_amount, $waiting_minutes );
 	}
 
-	$route_type_multipliers = get_field( 'calc_transfer_type_multipliers', 'option' );
-	if ( $route_type_multipliers && is_array( $route_type_multipliers ) && $transfer_type ) {
-		foreach ( $route_type_multipliers as $row ) {
-			if ( empty( $row['type_key'] ) || $row['type_key'] !== $transfer_type || empty( $row['enabled'] ) ) {
-				continue;
+	if ( ! $fixed_tariff ) {
+		$route_type_multipliers = get_field( 'calc_transfer_type_multipliers', 'option' );
+		if ( $route_type_multipliers && is_array( $route_type_multipliers ) && $transfer_type ) {
+			foreach ( $route_type_multipliers as $row ) {
+				if ( empty( $row['type_key'] ) || $row['type_key'] !== $transfer_type || empty( $row['enabled'] ) ) {
+					continue;
+				}
+				$mul = isset( $row['multiplier'] ) ? (float) $row['multiplier'] : 1;
+				if ( $mul > 0 && 1 !== $mul ) {
+					$total *= $mul;
+					$breakdown[] = sprintf( '× %.2f transfer type multiplier', $mul );
+				}
+				break;
 			}
-			$mul = isset( $row['multiplier'] ) ? (float) $row['multiplier'] : 1;
-			if ( $mul > 0 && 1 !== $mul ) {
-				$total *= $mul;
-				$breakdown[] = sprintf( '× %.2f transfer type multiplier', $mul );
-			}
-			break;
 		}
-	}
 
-	$class_multipliers = get_field( 'calc_vehicle_class_multipliers', 'option' );
-	if ( $class_multipliers && is_array( $class_multipliers ) && $vehicle_class ) {
-		foreach ( $class_multipliers as $row ) {
-			if ( empty( $row['class_key'] ) || $row['class_key'] !== $vehicle_class || empty( $row['enabled'] ) ) {
-				continue;
+		$class_multipliers = get_field( 'calc_vehicle_class_multipliers', 'option' );
+		if ( $class_multipliers && is_array( $class_multipliers ) && $vehicle_class ) {
+			foreach ( $class_multipliers as $row ) {
+				if ( empty( $row['class_key'] ) || $row['class_key'] !== $vehicle_class || empty( $row['enabled'] ) ) {
+					continue;
+				}
+				$mul = isset( $row['multiplier'] ) ? (float) $row['multiplier'] : 1;
+				if ( $mul > 0 && 1 !== $mul ) {
+					$total *= $mul;
+					$breakdown[] = sprintf( '× %.2f class multiplier', $mul );
+				}
+				break;
 			}
-			$mul = isset( $row['multiplier'] ) ? (float) $row['multiplier'] : 1;
-			if ( $mul > 0 && 1 !== $mul ) {
-				$total *= $mul;
-				$breakdown[] = sprintf( '× %.2f class multiplier', $mul );
-			}
-			break;
 		}
 	}
 
@@ -670,7 +1023,7 @@ function gts_ajax_calculate_price() {
 	}
 
 	$mode = 'auto';
-	if ( 'manual' === $route_mode || $distance_km <= 0 ) {
+	if ( ! $fixed_tariff && ( 'manual' === $route_mode || $distance_km <= 0 ) ) {
 		$mode = 'manual';
 	}
 

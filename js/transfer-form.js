@@ -354,6 +354,12 @@
 			formData.append('trip_date', val('date'));
 			formData.append('trip_time', val('time'));
 			formData.append('promo_code', val('promo_code'));
+			formData.append('from_country', val('from_country'));
+			formData.append('to_country', val('to_country'));
+			formData.append('from_city', val('from_city'));
+			formData.append('to_city', val('to_city'));
+			formData.append('from_address', val('from_address'));
+			formData.append('to_address', val('to_address'));
 			checkedExtras().forEach(function (extra) {
 				formData.append('extras[]', extra);
 			});
