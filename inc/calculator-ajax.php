@@ -238,22 +238,33 @@ function gts_ajax_address_suggestions() {
 		$value   = '';
 
 		if ( 'country' === $type ) {
-			$value = isset( $address['country'] ) ? (string) $address['country'] : '';
+			$country = isset( $address['country'] ) ? trim( (string) $address['country'] ) : '';
+			if ( '' === $country ) {
+				continue;
+			}
+			$value = $country;
 		} elseif ( 'city' === $type ) {
 			$parts = array();
+			$city  = '';
 			if ( ! empty( $address['city'] ) ) {
-				$parts[] = (string) $address['city'];
+				$city = (string) $address['city'];
 			} elseif ( ! empty( $address['town'] ) ) {
-				$parts[] = (string) $address['town'];
+				$city = (string) $address['town'];
 			} elseif ( ! empty( $address['village'] ) ) {
-				$parts[] = (string) $address['village'];
+				$city = (string) $address['village'];
 			} elseif ( ! empty( $address['municipality'] ) ) {
-				$parts[] = (string) $address['municipality'];
-			} elseif ( ! empty( $address['state'] ) ) {
-				$parts[] = (string) $address['state'];
+				$city = (string) $address['municipality'];
 			}
 
-			if ( ! empty( $address['state'] ) && ( empty( $parts ) || $address['state'] !== $parts[0] ) ) {
+			$city = trim( $city );
+			if ( '' === $city ) {
+				// Skip non-city records for city field to avoid wrong location picks.
+				continue;
+			}
+
+			$parts[] = $city;
+
+			if ( ! empty( $address['state'] ) && $address['state'] !== $city ) {
 				$parts[] = (string) $address['state'];
 			}
 
@@ -277,10 +288,6 @@ function gts_ajax_address_suggestions() {
 
 			$parts = array_unique( $parts );
 			$value = implode( ', ', $parts );
-
-			if ( '' === $value ) {
-				$value = (string) $item['display_name'];
-			}
 		} else {
 			$value = (string) $item['display_name'];
 		}

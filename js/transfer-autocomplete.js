@@ -37,6 +37,16 @@
 			{ name: 'to_address', type: 'address' }
 		];
 
+		var allLists = [];
+
+		function closeAllLists(exceptList) {
+			allLists.forEach(function (currentList) {
+				if (currentList !== exceptList) {
+					currentList.hidden = true;
+				}
+			});
+		}
+
 		fields.forEach(function (fieldConfig) {
 			var input = form.querySelector('input[name="' + fieldConfig.name + '"]');
 			if (!input) {
@@ -53,12 +63,23 @@
 			list.setAttribute('role', 'listbox');
 			list.hidden = true;
 			fieldWrap.appendChild(list);
+			allLists.push(list);
+
+			input.setAttribute('autocomplete', 'off');
+			input.setAttribute('autocorrect', 'off');
+			input.setAttribute('autocapitalize', 'off');
+			input.setAttribute('spellcheck', 'false');
 
 			var abortController = null;
+			var requestId = 0;
 			var activeIndex = -1;
 			var items = [];
 
 			function clearList() {
+				if (abortController) {
+					abortController.abort();
+					abortController = null;
+				}
 				activeIndex = -1;
 				items = [];
 				list.innerHTML = '';
@@ -93,6 +114,8 @@
 					return;
 				}
 
+				closeAllLists(list);
+
 				items.forEach(function (item, index) {
 					var li = document.createElement('li');
 					li.className = 'transfer-autocomplete-item';
@@ -104,6 +127,10 @@
 					button.className = 'transfer-autocomplete-option';
 					button.textContent = item.label || item.value;
 					button.addEventListener('mousedown', function (event) {
+						event.preventDefault();
+						choose(item);
+					});
+					button.addEventListener('click', function (event) {
 						event.preventDefault();
 						choose(item);
 					});
@@ -131,6 +158,8 @@
 				}
 
 				abortController = new AbortController();
+				requestId += 1;
+				var currentRequestId = requestId;
 
 				var formData = new FormData();
 				formData.append('action', 'gts_address_suggestions');
@@ -145,6 +174,9 @@
 				})
 					.then(function (response) { return response.json(); })
 					.then(function (json) {
+						if (currentRequestId !== requestId) {
+							return;
+						}
 						if (!json || !json.success || !json.data) {
 							render([]);
 							return;
@@ -165,6 +197,7 @@
 
 			input.addEventListener('focus', function () {
 				if (items.length) {
+					closeAllLists(list);
 					list.hidden = false;
 				}
 			});
@@ -202,7 +235,7 @@
 			input.addEventListener('blur', function () {
 				setTimeout(function () {
 					clearList();
-				}, 120);
+				}, 180);
 			});
 		});
 	}

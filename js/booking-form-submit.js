@@ -135,6 +135,13 @@
 	}
 
 	function setStatus(form, message, isError) {
+		if (!message) {
+			const existing = form.querySelector('.booking-form-status');
+			if (existing) {
+				existing.remove();
+			}
+			return;
+		}
 		const status = ensureStatusElement(form);
 		status.textContent = message || '';
 		status.style.color = isError ? '#b42318' : '#067647';
@@ -257,7 +264,7 @@
 						throw new Error((response.data && response.data.message) || 'Request failed');
 					}
 
-					setStatus(form, (response.data && response.data.message) || SUCCESS_TEXT, false);
+					setStatus(form, '', false);
 					openSuccessPopup((response.data && response.data.message) || SUCCESS_TEXT);
 					form.reset();
 					form.dispatchEvent(new CustomEvent('gts:booking-form:sent', {
