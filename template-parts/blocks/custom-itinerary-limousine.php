@@ -16,6 +16,9 @@ $cta_description = ! empty( $cta_block['description'] ) ? (string) $cta_block['d
 $cta_button_text = ! empty( $cta_block['button_text'] ) ? (string) $cta_block['button_text'] : 'Book Now';
 $cta_button_link = ! empty( $cta_block['button_link'] ) ? (string) $cta_block['button_link'] : home_url( '/book-a-transfer/' );
 $show_contact_icons = ! isset( $cta_block['show_contact_icons'] ) || (bool) $cta_block['show_contact_icons'];
+$channels = function_exists( 'gts_get_contact_channels' ) ? gts_get_contact_channels() : array();
+$contact_whatsapp_url = ! empty( $channels['whatsapp_url'] ) ? $channels['whatsapp_url'] : '#';
+$contact_email_url = ! empty( $channels['email_url'] ) ? $channels['email_url'] : '#';
 ?>
 
 <section class="custom-itinerary-block custom-itinerary-block--limousine">
@@ -33,10 +36,10 @@ $show_contact_icons = ! isset( $cta_block['show_contact_icons'] ) || (bool) $cta
 			<?php if ( $show_contact_icons ) : ?>
 				<span class="custom-itinerary-contact-label"><?php echo esc_html__( 'or contact via', 'gts-theme' ); ?></span>
 				<div class="custom-itinerary-icons">
-					<a href="#" class="custom-itinerary-icon custom-itinerary-icon--phone" aria-label="<?php esc_attr_e( 'Contact via phone or WhatsApp', 'gts-theme' ); ?>">
+					<a href="<?php echo esc_url( $contact_whatsapp_url ); ?>" class="custom-itinerary-icon custom-itinerary-icon--phone" aria-label="<?php esc_attr_e( 'Contact via phone or WhatsApp', 'gts-theme' ); ?>" target="_blank" rel="noopener noreferrer">
 						<img src="<?php echo esc_url( $phone_icon_url ); ?>" alt="" width="24" height="24" aria-hidden="true">
 					</a>
-					<a href="#" class="custom-itinerary-icon custom-itinerary-icon--mail" aria-label="<?php esc_attr_e( 'Contact via email', 'gts-theme' ); ?>">
+					<a href="<?php echo esc_url( $contact_email_url ); ?>" class="custom-itinerary-icon custom-itinerary-icon--mail" aria-label="<?php esc_attr_e( 'Contact via email', 'gts-theme' ); ?>">
 						<img src="<?php echo esc_url( $mail_icon_url ); ?>" alt="" width="24" height="24" aria-hidden="true">
 					</a>
 				</div>

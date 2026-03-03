@@ -41,6 +41,26 @@ function gts_settings_register_options() {
 		'default'           => '491702841810',
 		'sanitize_callback' => 'gts_sanitize_phone_digits',
 	) );
+	register_setting( 'gts_settings_group', 'gts_social_facebook_url', array(
+		'type'              => 'string',
+		'default'           => '',
+		'sanitize_callback' => 'gts_sanitize_social_url',
+	) );
+	register_setting( 'gts_settings_group', 'gts_social_instagram_url', array(
+		'type'              => 'string',
+		'default'           => '',
+		'sanitize_callback' => 'gts_sanitize_social_url',
+	) );
+	register_setting( 'gts_settings_group', 'gts_social_telegram_url', array(
+		'type'              => 'string',
+		'default'           => '',
+		'sanitize_callback' => 'gts_sanitize_social_url',
+	) );
+	register_setting( 'gts_settings_group', 'gts_social_viber_url', array(
+		'type'              => 'string',
+		'default'           => '',
+		'sanitize_callback' => 'gts_sanitize_social_url',
+	) );
 }
 add_action( 'admin_init', 'gts_settings_register_options' );
 
@@ -55,9 +75,36 @@ function gts_sanitize_header_phone( $value ) {
 	return trim( $value );
 }
 
+function gts_sanitize_social_url( $value ) {
+	$value = is_string( $value ) ? trim( $value ) : '';
+	if ( '' === $value ) {
+		return '';
+	}
+	return esc_url_raw( $value, array( 'http', 'https', 'viber', 'tg' ) );
+}
+
 function gts_header_phone_tel_digits( $display_phone ) {
 	$display_phone = is_string( $display_phone ) ? $display_phone : '';
 	return preg_replace( '/\D/', '', $display_phone );
+}
+
+function gts_get_contact_channels() {
+	$email = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
+	$email = $email ? $email : 'info@global-travelsolutions.com';
+
+	$whatsapp = get_option( 'gts_whatsapp_number', '491702841810' );
+	$whatsapp = $whatsapp ? $whatsapp : '491702841810';
+
+	return array(
+		'email'        => $email,
+		'email_url'    => 'mailto:' . sanitize_email( $email ),
+		'whatsapp'     => $whatsapp,
+		'whatsapp_url' => 'https://wa.me/' . preg_replace( '/\D/', '', (string) $whatsapp ),
+		'facebook'     => get_option( 'gts_social_facebook_url', '' ),
+		'instagram'    => get_option( 'gts_social_instagram_url', '' ),
+		'telegram'     => get_option( 'gts_social_telegram_url', '' ),
+		'viber'        => get_option( 'gts_social_viber_url', '' ),
+	);
 }
 
 function gts_settings_page_render() {
@@ -67,6 +114,10 @@ function gts_settings_page_render() {
 	$header_phone   = get_option( 'gts_header_phone', '+49 170 284 1810' );
 	$header_email   = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
 	$whatsapp_number = get_option( 'gts_whatsapp_number', '491702841810' );
+	$social_facebook = get_option( 'gts_social_facebook_url', '' );
+	$social_instagram = get_option( 'gts_social_instagram_url', '' );
+	$social_telegram = get_option( 'gts_social_telegram_url', '' );
+	$social_viber = get_option( 'gts_social_viber_url', '' );
 	?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'GTS Settings', 'gts-theme' ); ?></h1>
@@ -93,6 +144,22 @@ function gts_settings_page_render() {
 						<input type="text" id="gts_whatsapp_number" name="gts_whatsapp_number" value="<?php echo esc_attr( $whatsapp_number ); ?>" class="regular-text" placeholder="491702841810">
 						<p class="description"><?php esc_html_e( 'Digits only, no + or spaces. Used for wa.me links.', 'gts-theme' ); ?></p>
 					</td>
+				</tr>
+				<tr>
+					<th><label for="gts_social_facebook_url"><?php esc_html_e( 'Facebook URL', 'gts-theme' ); ?></label></th>
+					<td><input type="url" id="gts_social_facebook_url" name="gts_social_facebook_url" value="<?php echo esc_attr( $social_facebook ); ?>" class="regular-text" placeholder="https://facebook.com/yourpage"></td>
+				</tr>
+				<tr>
+					<th><label for="gts_social_instagram_url"><?php esc_html_e( 'Instagram URL', 'gts-theme' ); ?></label></th>
+					<td><input type="url" id="gts_social_instagram_url" name="gts_social_instagram_url" value="<?php echo esc_attr( $social_instagram ); ?>" class="regular-text" placeholder="https://instagram.com/yourpage"></td>
+				</tr>
+				<tr>
+					<th><label for="gts_social_telegram_url"><?php esc_html_e( 'Telegram URL', 'gts-theme' ); ?></label></th>
+					<td><input type="url" id="gts_social_telegram_url" name="gts_social_telegram_url" value="<?php echo esc_attr( $social_telegram ); ?>" class="regular-text" placeholder="https://t.me/yourchannel"></td>
+				</tr>
+				<tr>
+					<th><label for="gts_social_viber_url"><?php esc_html_e( 'Viber URL', 'gts-theme' ); ?></label></th>
+					<td><input type="url" id="gts_social_viber_url" name="gts_social_viber_url" value="<?php echo esc_attr( $social_viber ); ?>" class="regular-text" placeholder="viber://chat?number=%2B491702841810"></td>
 				</tr>
 			</table>
 			<?php submit_button(); ?>
