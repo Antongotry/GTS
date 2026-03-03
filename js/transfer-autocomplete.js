@@ -29,12 +29,8 @@
 		}
 
 		var fields = [
-			{ name: 'from_country', type: 'country' },
-			{ name: 'to_country', type: 'country' },
-			{ name: 'from_city', type: 'city' },
-			{ name: 'to_city', type: 'city' },
-			{ name: 'from_address', type: 'address' },
-			{ name: 'to_address', type: 'address' }
+			{ name: 'from_location', type: 'address' },
+			{ name: 'to_location', type: 'address' }
 		];
 
 		var allLists = [];
@@ -98,7 +94,11 @@
 					return;
 				}
 
-				input.value = item.value;
+				input.value = item.short_label || item.value;
+				input.dataset.country = item.country || '';
+				input.dataset.city = item.city || '';
+				input.dataset.address = item.address || item.value;
+				input.dataset.fullLabel = item.label || item.value;
 				clearList();
 				input.dispatchEvent(new Event('input', { bubbles: true }));
 				input.dispatchEvent(new Event('change', { bubbles: true }));
@@ -153,6 +153,10 @@
 				}
 
 				if (!query || query.length < 2) {
+					delete input.dataset.country;
+					delete input.dataset.city;
+					delete input.dataset.address;
+					delete input.dataset.fullLabel;
 					clearList();
 					return;
 				}
@@ -192,6 +196,10 @@
 			}, 250);
 
 			input.addEventListener('input', function () {
+				delete input.dataset.country;
+				delete input.dataset.city;
+				delete input.dataset.address;
+				delete input.dataset.fullLabel;
 				requestSuggestions(input.value.trim());
 			});
 

@@ -123,6 +123,44 @@
 			});
 		}
 
+		function field(name) {
+			return form.querySelector('[name="' + name + '"]');
+		}
+
+		function locationMeta(prefix) {
+			var locField = field(prefix + '_location');
+			var country = '';
+			var city = '';
+			var address = '';
+
+			if (locField) {
+				country = String(locField.dataset.country || '').trim();
+				city = String(locField.dataset.city || '').trim();
+				address = String(locField.dataset.address || locField.value || '').trim();
+			}
+
+			var hiddenCountry = field(prefix + '_country');
+			var hiddenCity = field(prefix + '_city');
+			var hiddenAddress = field(prefix + '_address');
+
+			if (hiddenCountry) {
+				hiddenCountry.value = country;
+			}
+			if (hiddenCity) {
+				hiddenCity.value = city;
+			}
+			if (hiddenAddress) {
+				hiddenAddress.value = address;
+			}
+
+			return {
+				location: locField ? String(locField.value || '').trim() : '',
+				country: country,
+				city: city,
+				address: address
+			};
+		}
+
 		function formatDate(dateRaw, timeRaw) {
 			if (!dateRaw) {
 				return '—';
@@ -171,8 +209,10 @@
 		}
 
 		function updateSummary() {
-			var from = [val('from_country'), val('from_city'), val('from_address')].filter(Boolean).join(', ');
-			var to = [val('to_country'), val('to_city'), val('to_address')].filter(Boolean).join(', ');
+			var fromMeta = locationMeta('from');
+			var toMeta = locationMeta('to');
+			var from = fromMeta.location || [fromMeta.country, fromMeta.city, fromMeta.address].filter(Boolean).join(', ');
+			var to = toMeta.location || [toMeta.country, toMeta.city, toMeta.address].filter(Boolean).join(', ');
 
 			text(document.getElementById('summary-route'), (from || 'From') + ' → ' + (to || 'To'));
 			text(document.getElementById('summary-transfer-type'), selectedText('transfer_type') || '—');
@@ -203,19 +243,27 @@
 		}
 
 		function swapRoute() {
-			[
-				['from_country', 'to_country'],
-				['from_city', 'to_city'],
-				['from_address', 'to_address']
-			].forEach(function (pair) {
-				var a = form.querySelector('[name="' + pair[0] + '"]');
-				var b = form.querySelector('[name="' + pair[1] + '"]');
-				if (a && b) {
-					var temp = a.value;
-					a.value = b.value;
-					b.value = temp;
-				}
-			});
+			var fromField = field('from_location');
+			var toField = field('to_location');
+			if (fromField && toField) {
+				var tempValue = fromField.value;
+				var tempCountry = fromField.dataset.country || '';
+				var tempCity = fromField.dataset.city || '';
+				var tempAddress = fromField.dataset.address || '';
+				var tempFull = fromField.dataset.fullLabel || '';
+
+				fromField.value = toField.value;
+				fromField.dataset.country = toField.dataset.country || '';
+				fromField.dataset.city = toField.dataset.city || '';
+				fromField.dataset.address = toField.dataset.address || '';
+				fromField.dataset.fullLabel = toField.dataset.fullLabel || '';
+
+				toField.value = tempValue;
+				toField.dataset.country = tempCountry;
+				toField.dataset.city = tempCity;
+				toField.dataset.address = tempAddress;
+				toField.dataset.fullLabel = tempFull;
+			}
 			triggerRecalc();
 		}
 
@@ -272,8 +320,10 @@
 				return Promise.resolve();
 			}
 
-			var from = [val('from_country'), val('from_city'), val('from_address')].filter(Boolean).join(', ');
-			var to = [val('to_country'), val('to_city'), val('to_address')].filter(Boolean).join(', ');
+			var fromMeta = locationMeta('from');
+			var toMeta = locationMeta('to');
+			var from = fromMeta.location || fromMeta.address;
+			var to = toMeta.location || toMeta.address;
 
 			if (!from || !to) {
 				state.route = {
@@ -354,12 +404,16 @@
 			formData.append('trip_date', val('date'));
 			formData.append('trip_time', val('time'));
 			formData.append('promo_code', val('promo_code'));
-			formData.append('from_country', val('from_country'));
-			formData.append('to_country', val('to_country'));
-			formData.append('from_city', val('from_city'));
-			formData.append('to_city', val('to_city'));
-			formData.append('from_address', val('from_address'));
-			formData.append('to_address', val('to_address'));
+			var fromMeta = locationMeta('from');
+			var toMeta = locationMeta('to');
+			formData.append('from_location', fromMeta.location);
+			formData.append('to_location', toMeta.location);
+			formData.append('from_country', fromMeta.country);
+			formData.append('to_country', toMeta.country);
+			formData.append('from_city', fromMeta.city);
+			formData.append('to_city', toMeta.city);
+			formData.append('from_address', fromMeta.address);
+			formData.append('to_address', toMeta.address);
 			checkedExtras().forEach(function (extra) {
 				formData.append('extras[]', extra);
 			});
@@ -414,6 +468,16 @@
 			submitBtn.textContent = 'Sending...';
 
 			var data = new FormData(form);
+			var fromMeta = locationMeta('from');
+			var toMeta = locationMeta('to');
+			data.append('from_location', fromMeta.location);
+			data.append('to_location', toMeta.location);
+			data.append('from_country', fromMeta.country);
+			data.append('to_country', toMeta.country);
+			data.append('from_city', fromMeta.city);
+			data.append('to_city', toMeta.city);
+			data.append('from_address', fromMeta.address);
+			data.append('to_address', toMeta.address);
 			data.append('action', 'gts_submit_transfer_request');
 			data.append('nonce', nonce);
 			data.append('route_distance_km', String(state.route.distanceKm || 0));

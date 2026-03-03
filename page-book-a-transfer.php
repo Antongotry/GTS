@@ -35,39 +35,23 @@ $categories = get_terms(
 
 							<div class="transfer-row location">
 								<div class="transfer-field">
-									<label class="transfer-label"><?php esc_html_e( 'From country*', 'gts-theme' ); ?></label>
-									<input type="text" class="transfer-input" placeholder="e.g. Switzerland" name="from_country" required>
+									<label class="transfer-label"><?php esc_html_e( 'From location*', 'gts-theme' ); ?></label>
+									<input type="text" class="transfer-input" placeholder="Start typing pickup point" name="from_location" required>
 								</div>
 								<div class="transfer-swap-wrap">
 									<button type="button" class="swap-btn" title="Swap route" aria-label="Swap route"></button>
 								</div>
 								<div class="transfer-field">
-									<label class="transfer-label"><?php esc_html_e( 'To country*', 'gts-theme' ); ?></label>
-									<input type="text" class="transfer-input" placeholder="e.g. France" name="to_country" required>
+									<label class="transfer-label"><?php esc_html_e( 'To location*', 'gts-theme' ); ?></label>
+									<input type="text" class="transfer-input" placeholder="Start typing destination" name="to_location" required>
 								</div>
 							</div>
-
-							<div class="transfer-row">
-								<div class="transfer-field">
-									<label class="transfer-label"><?php esc_html_e( 'From city*', 'gts-theme' ); ?></label>
-									<input type="text" class="transfer-input" placeholder="e.g. Zurich" name="from_city" required>
-								</div>
-								<div class="transfer-field">
-									<label class="transfer-label"><?php esc_html_e( 'To city*', 'gts-theme' ); ?></label>
-									<input type="text" class="transfer-input" placeholder="e.g. Geneva" name="to_city" required>
-								</div>
-							</div>
-
-							<div class="transfer-row">
-								<div class="transfer-field">
-									<label class="transfer-label"><?php esc_html_e( 'From address*', 'gts-theme' ); ?></label>
-									<input type="text" class="transfer-input" placeholder="Street, terminal, hotel" name="from_address" required>
-								</div>
-								<div class="transfer-field">
-									<label class="transfer-label"><?php esc_html_e( 'To address*', 'gts-theme' ); ?></label>
-									<input type="text" class="transfer-input" placeholder="Street, terminal, hotel" name="to_address" required>
-								</div>
-							</div>
+							<input type="hidden" name="from_country" value="">
+							<input type="hidden" name="to_country" value="">
+							<input type="hidden" name="from_city" value="">
+							<input type="hidden" name="to_city" value="">
+							<input type="hidden" name="from_address" value="">
+							<input type="hidden" name="to_address" value="">
 
 							<div class="transfer-row">
 								<div class="transfer-field">

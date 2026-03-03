@@ -289,7 +289,31 @@ function gts_ajax_address_suggestions() {
 			$parts = array_unique( $parts );
 			$value = implode( ', ', $parts );
 		} else {
-			$value = (string) $item['display_name'];
+			$street_parts = array();
+			if ( ! empty( $address['house_number'] ) ) {
+				$street_parts[] = (string) $address['house_number'];
+			}
+			if ( ! empty( $address['road'] ) ) {
+				$street_parts[] = (string) $address['road'];
+			}
+
+			$city_value = '';
+			if ( ! empty( $address['city'] ) ) {
+				$city_value = (string) $address['city'];
+			} elseif ( ! empty( $address['town'] ) ) {
+				$city_value = (string) $address['town'];
+			} elseif ( ! empty( $address['village'] ) ) {
+				$city_value = (string) $address['village'];
+			} elseif ( ! empty( $address['municipality'] ) ) {
+				$city_value = (string) $address['municipality'];
+			}
+
+			$country_value = ! empty( $address['country'] ) ? (string) $address['country'] : '';
+			$street_value  = trim( implode( ' ', $street_parts ) );
+			$short_parts   = array_filter( array( $street_value, $city_value, $country_value ) );
+			$short_label   = implode( ', ', $short_parts );
+
+			$value = '' !== $short_label ? $short_label : (string) $item['display_name'];
 		}
 
 		$value = trim( wp_strip_all_tags( $value ) );
@@ -303,10 +327,42 @@ function gts_ajax_address_suggestions() {
 		}
 		$seen[ $key ] = true;
 
-		$suggestions[] = array(
+		$suggestion = array(
 			'value' => $value,
 			'label' => (string) $item['display_name'],
 		);
+
+		if ( 'address' === $type ) {
+			$street = '';
+			if ( ! empty( $address['house_number'] ) ) {
+				$street .= (string) $address['house_number'] . ' ';
+			}
+			if ( ! empty( $address['road'] ) ) {
+				$street .= (string) $address['road'];
+			}
+			$street = trim( $street );
+
+			$city = '';
+			if ( ! empty( $address['city'] ) ) {
+				$city = (string) $address['city'];
+			} elseif ( ! empty( $address['town'] ) ) {
+				$city = (string) $address['town'];
+			} elseif ( ! empty( $address['village'] ) ) {
+				$city = (string) $address['village'];
+			} elseif ( ! empty( $address['municipality'] ) ) {
+				$city = (string) $address['municipality'];
+			}
+
+			$country = ! empty( $address['country'] ) ? (string) $address['country'] : '';
+			$short_label = implode( ', ', array_filter( array( $street, $city, $country ) ) );
+
+			$suggestion['short_label'] = '' !== $short_label ? $short_label : $value;
+			$suggestion['country']     = $country;
+			$suggestion['city']        = $city;
+			$suggestion['address']     = '' !== $street ? $street : (string) $item['display_name'];
+		}
+
+		$suggestions[] = $suggestion;
 
 		if ( count( $suggestions ) >= 6 ) {
 			break;
@@ -1063,8 +1119,6 @@ function gts_ajax_submit_transfer_request() {
 	}
 
 	$required = array(
-		'from_country', 'from_city', 'from_address',
-		'to_country', 'to_city', 'to_address',
 		'date', 'time', 'transfer_type',
 		'vehicle_type', 'vehicle_id', 'full_name', 'phone', 'email'
 	);
@@ -1073,6 +1127,24 @@ function gts_ajax_submit_transfer_request() {
 		if ( empty( $_POST[ $key ] ) ) {
 			wp_send_json_error( array( 'message' => sprintf( 'Required field missing: %s', $key ) ), 422 );
 		}
+	}
+	$from_location = isset( $_POST['from_location'] ) ? sanitize_text_field( wp_unslash( $_POST['from_location'] ) ) : '';
+	$to_location   = isset( $_POST['to_location'] ) ? sanitize_text_field( wp_unslash( $_POST['to_location'] ) ) : '';
+	$from_country  = isset( $_POST['from_country'] ) ? sanitize_text_field( wp_unslash( $_POST['from_country'] ) ) : '';
+	$from_city     = isset( $_POST['from_city'] ) ? sanitize_text_field( wp_unslash( $_POST['from_city'] ) ) : '';
+	$from_address  = isset( $_POST['from_address'] ) ? sanitize_text_field( wp_unslash( $_POST['from_address'] ) ) : '';
+	$to_country    = isset( $_POST['to_country'] ) ? sanitize_text_field( wp_unslash( $_POST['to_country'] ) ) : '';
+	$to_city       = isset( $_POST['to_city'] ) ? sanitize_text_field( wp_unslash( $_POST['to_city'] ) ) : '';
+	$to_address    = isset( $_POST['to_address'] ) ? sanitize_text_field( wp_unslash( $_POST['to_address'] ) ) : '';
+
+	if ( '' === $from_location ) {
+		$from_location = implode( ', ', array_filter( array( $from_country, $from_city, $from_address ) ) );
+	}
+	if ( '' === $to_location ) {
+		$to_location = implode( ', ', array_filter( array( $to_country, $to_city, $to_address ) ) );
+	}
+	if ( '' === $from_location || '' === $to_location ) {
+		wp_send_json_error( array( 'message' => 'Please select both From and To locations.' ), 422 );
 	}
 	if ( empty( $_POST['consent'] ) ) {
 		wp_send_json_error( array( 'message' => 'Consent is required.' ), 422 );
@@ -1100,8 +1172,8 @@ function gts_ajax_submit_transfer_request() {
 		'Email: ' . $email,
 		'',
 		'Route:',
-		'From: ' . sanitize_text_field( wp_unslash( $_POST['from_country'] ) ) . ', ' . sanitize_text_field( wp_unslash( $_POST['from_city'] ) ) . ', ' . sanitize_text_field( wp_unslash( $_POST['from_address'] ) ),
-		'To: ' . sanitize_text_field( wp_unslash( $_POST['to_country'] ) ) . ', ' . sanitize_text_field( wp_unslash( $_POST['to_city'] ) ) . ', ' . sanitize_text_field( wp_unslash( $_POST['to_address'] ) ),
+		'From: ' . $from_location,
+		'To: ' . $to_location,
 		'Date & time: ' . sanitize_text_field( wp_unslash( $_POST['date'] ) ) . ' ' . sanitize_text_field( wp_unslash( $_POST['time'] ) ),
 		'',
 		'Trip details:',
