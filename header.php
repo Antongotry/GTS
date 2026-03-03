@@ -231,7 +231,7 @@
 
 				<div class="site-logo">
 					<a href="<?php echo esc_url(home_url('/')); ?>">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/GTS.svg'); ?>" alt="<?php bloginfo('name'); ?>" width="80" height="32">
+						<img src="<?php echo esc_url('https://global-travelsolutions.com/wp-content/uploads/2026/03/GTS2.svg'); ?>" alt="<?php bloginfo('name'); ?>" width="80" height="32">
 					</a>
 				</div>
 
