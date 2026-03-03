@@ -166,6 +166,16 @@
 		}
 		form.dataset.gtsSubmitBound = '1';
 
+		// For standard booking forms only name and phone must be required.
+		form.querySelectorAll('[required]').forEach((field) => {
+			const fieldName = (field.getAttribute('name') || '').toLowerCase();
+			const isRequiredBaseField = fieldName === 'full_name' || fieldName === 'name' || fieldName === 'phone';
+			if (!isRequiredBaseField) {
+				field.required = false;
+				field.removeAttribute('required');
+			}
+		});
+
 		ensureSelectOptions(form);
 		bindAddStop(form);
 

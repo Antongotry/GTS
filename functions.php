@@ -577,11 +577,11 @@ function gts_ajax_submit_booking_request() {
 	$phone = isset( $_POST['phone'] ) ? sanitize_text_field( wp_unslash( $_POST['phone'] ) ) : '';
 	$email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
 
-	if ( '' === $full_name || '' === $phone || '' === $email ) {
-		wp_send_json_error( array( 'message' => 'Please fill in all required fields.' ), 422 );
+	if ( '' === $full_name || '' === $phone ) {
+		wp_send_json_error( array( 'message' => 'Please fill in required fields: name and phone.' ), 422 );
 	}
 
-	if ( ! is_email( $email ) ) {
+	if ( '' !== $email && ! is_email( $email ) ) {
 		wp_send_json_error( array( 'message' => 'Invalid email address.' ), 422 );
 	}
 
@@ -618,7 +618,7 @@ function gts_ajax_submit_booking_request() {
 		'Request ID: ' . $request_id,
 		'Name: ' . $full_name,
 		'Phone: ' . $phone,
-		'Email: ' . $email,
+		'Email: ' . ( '' !== $email ? $email : 'Not provided' ),
 		'Page URL: ' . ( isset( $_POST['page_url'] ) ? esc_url_raw( wp_unslash( $_POST['page_url'] ) ) : '' ),
 		'Page title: ' . ( isset( $_POST['page_title'] ) ? sanitize_text_field( wp_unslash( $_POST['page_title'] ) ) : '' ),
 		'Form ID: ' . ( isset( $_POST['form_id'] ) ? sanitize_text_field( wp_unslash( $_POST['form_id'] ) ) : '' ),
@@ -664,8 +664,10 @@ function gts_ajax_submit_booking_request() {
 	$headers = array(
 		'Content-Type: text/plain; charset=UTF-8',
 		'From: ' . $site_name . ' <' . $to_email . '>',
-		'Reply-To: ' . $full_name . ' <' . $email . '>',
 	);
+	if ( '' !== $email ) {
+		$headers[] = 'Reply-To: ' . $full_name . ' <' . $email . '>';
+	}
 
 	$sent = wp_mail( $to_email, $subject, implode( "\n", $lines ), $headers );
 	if ( ! $sent ) {
