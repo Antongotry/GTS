@@ -7,10 +7,10 @@
  */
 
 // Responsive hero images - different sizes for different devices
-$image_mobile = get_site_url() . '/wp-content/uploads/2026/01/hero-banner-375_result.webp';
-$image_tablet = get_site_url() . '/wp-content/uploads/2026/01/banner-home-375-4_result.webp';
-$image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1024-banner-home_result.webp';
-$image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp';
+$image_mobile = 'https://global-travelsolutions.com/wp-content/uploads/2026/03/Frame-2087325567_result.webp';
+$image_tablet = 'https://global-travelsolutions.com/wp-content/uploads/2026/03/1943_result-scaled.webp';
+$image_desktop = 'https://global-travelsolutions.com/wp-content/uploads/2026/03/1943_result-scaled.webp';
+$image_large = 'https://global-travelsolutions.com/wp-content/uploads/2026/03/1943_result-scaled.webp';
 $page_id = get_queried_object_id();
 $hero_title = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_title', $page_id ) : '';
 $hero_description = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_description', $page_id ) : '';
