@@ -97,7 +97,7 @@
 				input.value = item.short_label || item.value;
 				input.dataset.country = item.country || '';
 				input.dataset.city = item.city || '';
-				input.dataset.address = item.address || item.value;
+				input.dataset.address = item.address || item.label || item.value;
 				input.dataset.fullLabel = item.label || item.value;
 				clearList();
 				input.dispatchEvent(new Event('input', { bubbles: true }));
@@ -126,6 +126,13 @@
 					button.type = 'button';
 					button.className = 'transfer-autocomplete-option';
 					button.textContent = item.label || item.value;
+					var chooseHandler = function (event) {
+						event.preventDefault();
+						choose(item);
+					};
+					// iOS Safari: handle touch/pointer before input blur closes list.
+					button.addEventListener('pointerdown', chooseHandler);
+					button.addEventListener('touchstart', chooseHandler, { passive: false });
 					button.addEventListener('mousedown', function (event) {
 						event.preventDefault();
 						choose(item);

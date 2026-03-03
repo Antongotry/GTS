@@ -132,11 +132,13 @@
 			var country = '';
 			var city = '';
 			var address = '';
+			var fullLabel = '';
 
 			if (locField) {
 				country = String(locField.dataset.country || '').trim();
 				city = String(locField.dataset.city || '').trim();
-				address = String(locField.dataset.address || locField.value || '').trim();
+				fullLabel = String(locField.dataset.fullLabel || '').trim();
+				address = String(locField.dataset.address || fullLabel || locField.value || '').trim();
 			}
 
 			var hiddenCountry = field(prefix + '_country');
@@ -155,6 +157,7 @@
 
 			return {
 				location: locField ? String(locField.value || '').trim() : '',
+				fullLabel: fullLabel,
 				country: country,
 				city: city,
 				address: address
@@ -322,8 +325,8 @@
 
 			var fromMeta = locationMeta('from');
 			var toMeta = locationMeta('to');
-			var from = fromMeta.location || fromMeta.address;
-			var to = toMeta.location || toMeta.address;
+			var from = fromMeta.fullLabel || fromMeta.location || fromMeta.address;
+			var to = toMeta.fullLabel || toMeta.location || toMeta.address;
 
 			if (!from || !to) {
 				state.route = {
@@ -470,8 +473,8 @@
 			var data = new FormData(form);
 			var fromMeta = locationMeta('from');
 			var toMeta = locationMeta('to');
-			data.append('from_location', fromMeta.location);
-			data.append('to_location', toMeta.location);
+			data.append('from_location', fromMeta.fullLabel || fromMeta.location);
+			data.append('to_location', toMeta.fullLabel || toMeta.location);
 			data.append('from_country', fromMeta.country);
 			data.append('to_country', toMeta.country);
 			data.append('from_city', fromMeta.city);
