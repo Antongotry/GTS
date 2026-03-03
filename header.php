@@ -304,11 +304,6 @@
 								$gts_header_email   = $gts_header_email ? $gts_header_email : 'info@global-travelsolutions.com';
 								$gts_whatsapp       = get_option( 'gts_whatsapp_number', '491702841810' );
 								$gts_whatsapp       = $gts_whatsapp ? $gts_whatsapp : '491702841810';
-								$gts_channels       = function_exists( 'gts_get_contact_channels' ) ? gts_get_contact_channels() : array();
-								$gts_facebook_url   = ! empty( $gts_channels['facebook'] ) ? $gts_channels['facebook'] : '#';
-								$gts_instagram_url  = ! empty( $gts_channels['instagram'] ) ? $gts_channels['instagram'] : '#';
-								$gts_telegram_url   = ! empty( $gts_channels['telegram'] ) ? $gts_channels['telegram'] : '#';
-								$gts_viber_url      = ! empty( $gts_channels['viber'] ) ? $gts_channels['viber'] : '#';
 								$gts_header_phone   = get_option( 'gts_header_phone', '+49 170 284 1810' );
 								$gts_header_phone   = $gts_header_phone ? $gts_header_phone : '+49 170 284 1810';
 								$gts_tel_digits     = function_exists( 'gts_header_phone_tel_digits' ) ? gts_header_phone_tel_digits( $gts_header_phone ) : preg_replace( '/\D/', '', $gts_header_phone );
@@ -355,17 +350,8 @@
 					</li>
 				</ul>
 				<div class="mobile-menu-socials">
-					<a href="<?php echo esc_url( $gts_facebook_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="mobile-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/fb.svg'); ?>" alt="Facebook" width="24" height="24">
-					</a>
-					<a href="<?php echo esc_url( $gts_instagram_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="mobile-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/inst.svg'); ?>" alt="Instagram" width="24" height="24">
-					</a>
-					<a href="<?php echo esc_url( $gts_telegram_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="mobile-social-link" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/telegram.svg'); ?>" alt="Telegram" width="24" height="24">
-					</a>
-					<a href="<?php echo esc_url( $gts_viber_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="mobile-social-link" aria-label="Viber" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/viber.svg'); ?>" alt="Viber" width="24" height="24">
+					<a href="tel:<?php echo esc_attr( $gts_tel_digits ); ?>" class="mobile-social-link mobile-social-link--phone" aria-label="Phone">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/phone-icon.svg' ); ?>" alt="Phone" width="24" height="24">
 					</a>
 					<a href="https://wa.me/<?php echo esc_attr( $gts_whatsapp ); ?>" class="mobile-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
 						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2'); ?>" alt="WhatsApp" width="24" height="24">

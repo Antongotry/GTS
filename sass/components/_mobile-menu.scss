@@ -257,7 +257,7 @@
 	flex: 1;
 	overflow-y: auto;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr); // Две колонки на планшете и телефоне
+	grid-template-columns: 1fr;
 	gap: 8px; // Нормальный отступ между элементами
 	margin: 0;
 	padding: 0;
@@ -267,6 +267,11 @@
 		transform: none;
 		transition-delay: 0s;
 		margin: 0; // Убираем аномальные отступы
+	}
+
+	.mobile-menu-link {
+		text-align: center;
+		justify-content: center;
 	}
 }
 
@@ -327,6 +332,10 @@
 			height: 16px;
 		}
 	}
+}
+
+.mobile-social-link--phone img {
+	opacity: 0.8;
 }
 
 // Body lock

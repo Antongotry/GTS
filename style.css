@@ -1793,7 +1793,7 @@ textarea {
   flex: 1;
   overflow-y: auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 8px;
   margin: 0;
   padding: 0;
@@ -1803,6 +1803,10 @@ textarea {
   transform: none;
   transition-delay: 0s;
   margin: 0;
+}
+.mobile-submenu-list .mobile-menu-link {
+  text-align: center;
+  justify-content: center;
 }
 
 .mobile-menu-socials {
@@ -1848,6 +1852,9 @@ textarea {
 }
 .mobile-social-link:hover img {
   opacity: 1;
+}
+.mobile-social-link--phone img {
+  opacity: 0.8;
 }
 @media (max-width: 768px) {
   .mobile-social-link {
