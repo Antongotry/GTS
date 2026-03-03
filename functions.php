@@ -727,23 +727,6 @@ add_action( 'wp_ajax_gts_submit_booking_request', 'gts_ajax_submit_booking_reque
 add_action( 'wp_ajax_nopriv_gts_submit_booking_request', 'gts_ajax_submit_booking_request' );
 
 /**
- * Temporary: redirect non-admins to home for all pages except front page and 404.
- * Logged-in admins can access all pages.
- * TODO: Remove when all pages are ready.
- */
-function gts_restrict_pages() {
-	if ( is_admin() || is_front_page() || is_404() || wp_doing_ajax() ) {
-		return;
-	}
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
-		return;
-	}
-	wp_safe_redirect( home_url( '/' ), 302 );
-	exit;
-}
-add_action( 'template_redirect', 'gts_restrict_pages' );
-
-/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
