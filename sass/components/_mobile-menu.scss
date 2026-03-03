@@ -272,6 +272,20 @@
 	.mobile-menu-link {
 		text-align: center;
 		justify-content: center;
+		white-space: normal;
+		line-height: 1.25;
+		height: auto;
+		min-height: 44px;
+		padding: 8px 10px;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+	}
+
+	@media (max-width: 430px) {
+		.mobile-menu-link {
+			font-size: 12px;
+			padding: 8px 8px;
+		}
 	}
 }
 
