@@ -99,8 +99,8 @@
 				input.dataset.city = item.city || '';
 				input.dataset.address = item.address || item.label || item.value;
 				input.dataset.fullLabel = item.label || item.value;
+				input.dataset.selected = '1';
 				clearList();
-				input.dispatchEvent(new Event('input', { bubbles: true }));
 				input.dispatchEvent(new Event('change', { bubbles: true }));
 			}
 
@@ -203,6 +203,10 @@
 			}, 250);
 
 			input.addEventListener('input', function () {
+				if (input.dataset.selected === '1') {
+					delete input.dataset.selected;
+					return;
+				}
 				delete input.dataset.country;
 				delete input.dataset.city;
 				delete input.dataset.address;

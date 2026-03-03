@@ -409,8 +409,8 @@
 			formData.append('promo_code', val('promo_code'));
 			var fromMeta = locationMeta('from');
 			var toMeta = locationMeta('to');
-			formData.append('from_location', fromMeta.location);
-			formData.append('to_location', toMeta.location);
+			formData.append('from_location', fromMeta.fullLabel || fromMeta.location);
+			formData.append('to_location', toMeta.fullLabel || toMeta.location);
 			formData.append('from_country', fromMeta.country);
 			formData.append('to_country', toMeta.country);
 			formData.append('from_city', fromMeta.city);
