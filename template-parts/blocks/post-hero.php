@@ -10,10 +10,12 @@ $title     = get_the_title();
 
 $tg_share = 'https://t.me/share/url?url=' . rawurlencode( $permalink ) . '&text=' . rawurlencode( $title );
 $fb_share = 'https://www.facebook.com/sharer/sharer.php?u=' . rawurlencode( $permalink );
+$channels = function_exists( 'gts_get_contact_channels' ) ? gts_get_contact_channels() : array();
+$ig_url   = ! empty( $channels['instagram'] ) ? (string) $channels['instagram'] : 'https://www.instagram.com/';
 
 $thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-$author    = get_the_author();
-$date      = get_the_date( 'F j, Y' );
+$date_ts   = get_post_time( 'U', false, get_the_ID() );
+$date      = $date_ts ? date( 'F j, Y', (int) $date_ts ) : date( 'F j, Y' );
 ?>
 
 <section class="post-hero">
@@ -27,7 +29,7 @@ $date      = get_the_date( 'F j, Y' );
 				<a class="footer-social-icon post-share__icon" href="<?php echo esc_url( $fb_share ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr__( 'Share on Facebook', 'gts-theme' ); ?>">
 					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/fb.svg' ); ?>" alt="" width="25" height="25">
 				</a>
-				<a class="footer-social-icon post-share__icon" href="#" aria-label="<?php echo esc_attr__( 'Instagram', 'gts-theme' ); ?>">
+				<a class="footer-social-icon post-share__icon" href="<?php echo esc_url( $ig_url, array( 'http', 'https' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr__( 'Instagram', 'gts-theme' ); ?>">
 					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/inst.svg' ); ?>" alt="" width="25" height="25">
 				</a>
 			</div>
@@ -46,11 +48,6 @@ $date      = get_the_date( 'F j, Y' );
 				<p class="post-meta__label"><?php esc_html_e( 'Publication date:', 'gts-theme' ); ?></p>
 				<p class="post-meta__value"><?php echo esc_html( $date ); ?></p>
 			</div>
-			<div class="post-meta__group">
-				<p class="post-meta__label"><?php esc_html_e( 'Author:', 'gts-theme' ); ?></p>
-				<p class="post-meta__value"><?php echo esc_html( $author ); ?></p>
-			</div>
 		</div>
 	</div>
 </section>
-
