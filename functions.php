@@ -389,6 +389,15 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-mobile-menu', get_template_directory_uri() . '/js/mobile-menu.js', array(), $version, true);
 	wp_enqueue_script('gts-faq-accordion', get_template_directory_uri() . '/js/faq-accordion.js', array(), $version, true);
 	wp_enqueue_script('gts-booking-form-validation', get_template_directory_uri() . '/js/booking-form-validation.js', array(), $version, true);
+	wp_enqueue_script('gts-booking-form-submit', get_template_directory_uri() . '/js/booking-form-submit.js', array(), $version, true);
+	wp_localize_script(
+		'gts-booking-form-submit',
+		'gtsBookingFormConfig',
+		array(
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'gts_booking_request_nonce' ),
+		)
+	);
 
 	// Swiper for sliders - lower priority, deferred
 	wp_enqueue_style('gts-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
@@ -548,6 +557,130 @@ function gts_handle_contact_form()
 	exit;
 }
 add_action('template_redirect', 'gts_handle_contact_form');
+
+/**
+ * AJAX: Submit generic booking forms from hero/service/fleet blocks.
+ */
+function gts_ajax_submit_booking_request() {
+	$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+	if ( ! wp_verify_nonce( $nonce, 'gts_booking_request_nonce' ) ) {
+		wp_send_json_error( array( 'message' => 'Security validation failed.' ), 403 );
+	}
+
+	$full_name = '';
+	if ( ! empty( $_POST['full_name'] ) ) {
+		$full_name = sanitize_text_field( wp_unslash( $_POST['full_name'] ) );
+	} elseif ( ! empty( $_POST['name'] ) ) {
+		$full_name = sanitize_text_field( wp_unslash( $_POST['name'] ) );
+	}
+
+	$phone = isset( $_POST['phone'] ) ? sanitize_text_field( wp_unslash( $_POST['phone'] ) ) : '';
+	$email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
+
+	if ( '' === $full_name || '' === $phone || '' === $email ) {
+		wp_send_json_error( array( 'message' => 'Please fill in all required fields.' ), 422 );
+	}
+
+	if ( ! is_email( $email ) ) {
+		wp_send_json_error( array( 'message' => 'Invalid email address.' ), 422 );
+	}
+
+	$has_consent_field = isset( $_POST['email_consent'] ) || isset( $_POST['consent'] ) || isset( $_POST['gts_consent'] );
+	$has_consent_value = ! empty( $_POST['email_consent'] ) || ! empty( $_POST['consent'] ) || ! empty( $_POST['gts_consent'] );
+	if ( $has_consent_field && ! $has_consent_value ) {
+		wp_send_json_error( array( 'message' => 'Consent is required.' ), 422 );
+	}
+
+	$to_email = get_option( 'admin_email' );
+	if ( ! is_email( $to_email ) ) {
+		wp_send_json_error( array( 'message' => 'Admin email is not configured.' ), 500 );
+	}
+
+	$request_id = 'GTS-B-' . gmdate( 'Ymd-His' ) . '-' . wp_rand( 100, 999 );
+	$site_name  = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
+
+	$subject = sprintf(
+		'[%s] Booking request %s from %s',
+		$site_name,
+		$request_id,
+		$full_name
+	);
+
+	$exclude_keys = array(
+		'action',
+		'nonce',
+		'gts_booking_nonce',
+		'gts_service_nonce',
+		'_wp_http_referer',
+	);
+
+	$lines = array(
+		'Request ID: ' . $request_id,
+		'Name: ' . $full_name,
+		'Phone: ' . $phone,
+		'Email: ' . $email,
+		'Page URL: ' . ( isset( $_POST['page_url'] ) ? esc_url_raw( wp_unslash( $_POST['page_url'] ) ) : '' ),
+		'Page title: ' . ( isset( $_POST['page_title'] ) ? sanitize_text_field( wp_unslash( $_POST['page_title'] ) ) : '' ),
+		'Form ID: ' . ( isset( $_POST['form_id'] ) ? sanitize_text_field( wp_unslash( $_POST['form_id'] ) ) : '' ),
+		'',
+		'Details:',
+	);
+
+	foreach ( $_POST as $key => $value ) {
+		if ( in_array( $key, $exclude_keys, true ) ) {
+			continue;
+		}
+
+		$label = ucwords( str_replace( array( '_', '-' ), ' ', (string) $key ) );
+		$print = '';
+
+		if ( is_array( $value ) ) {
+			$sanitized = array_map(
+				static function ( $item ) {
+					return sanitize_text_field( wp_unslash( $item ) );
+				},
+				$value
+			);
+			$sanitized = array_filter(
+				$sanitized,
+				static function ( $item ) {
+					return '' !== trim( $item );
+				}
+			);
+			if ( empty( $sanitized ) ) {
+				continue;
+			}
+			$print = implode( ', ', $sanitized );
+		} else {
+			$print = sanitize_text_field( wp_unslash( $value ) );
+			if ( '' === trim( $print ) ) {
+				continue;
+			}
+		}
+
+		$lines[] = $label . ': ' . $print;
+	}
+
+	$headers = array(
+		'Content-Type: text/plain; charset=UTF-8',
+		'From: ' . $site_name . ' <' . $to_email . '>',
+		'Reply-To: ' . $full_name . ' <' . $email . '>',
+	);
+
+	$sent = wp_mail( $to_email, $subject, implode( "\n", $lines ), $headers );
+	if ( ! $sent ) {
+		wp_send_json_error( array( 'message' => 'Could not send request. Please try again later.' ), 500 );
+	}
+
+	wp_send_json_success(
+		array(
+			'request_id' => $request_id,
+			'message'    => 'Thank you! Your request has been sent successfully.',
+		)
+	);
+}
+add_action( 'wp_ajax_gts_submit_booking_request', 'gts_ajax_submit_booking_request' );
+add_action( 'wp_ajax_nopriv_gts_submit_booking_request', 'gts_ajax_submit_booking_request' );
 
 /**
  * Temporary: redirect non-admins to home for all pages except front page and 404.

@@ -71,15 +71,9 @@
 				});
 
 				if (bookingForm) {
-					bookingForm.addEventListener('submit', (e) => {
-						e.preventDefault();
-						if (!bookingForm.checkValidity()) {
-							bookingForm.reportValidity();
-							return;
-						}
+					bookingForm.addEventListener('gts:booking-form:sent', () => {
 						closeBooking();
 						openSuccess();
-						bookingForm.reset();
 					});
 				}
 
