@@ -3278,7 +3278,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">
-											<p><?php echo esc_html($item['answer']); ?></p>
+											<p><?php echo wp_kses_post( nl2br( esc_html( $item['answer'] ) ) ); ?></p>
 										</div>
 									</div>
 								</div>
@@ -3293,7 +3293,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">
-											<p><?php echo esc_html($item['answer']); ?></p>
+											<p><?php echo wp_kses_post( nl2br( esc_html( $item['answer'] ) ) ); ?></p>
 										</div>
 									</div>
 								</div>

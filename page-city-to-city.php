@@ -40,6 +40,33 @@ $city_benefits = array(
 		'text'  => 'Stop for meetings, meals, or sightseeing anytime.',
 	),
 );
+
+$page_id = get_queried_object_id();
+$city_cta_pill = function_exists( 'get_field' ) ? (string) get_field( 'gts_city_cta_pill', $page_id ) : '';
+$city_cta_title = function_exists( 'get_field' ) ? (string) get_field( 'gts_city_cta_title', $page_id ) : '';
+$city_cta_description = function_exists( 'get_field' ) ? (string) get_field( 'gts_city_cta_description', $page_id ) : '';
+$city_cta_button_text = function_exists( 'get_field' ) ? (string) get_field( 'gts_city_cta_button_text', $page_id ) : '';
+$city_cta_button_link = function_exists( 'get_field' ) ? (string) get_field( 'gts_city_cta_button_link', $page_id ) : '';
+$city_benefits_custom = function_exists( 'get_field' ) ? get_field( 'gts_city_cta_benefits', $page_id ) : array();
+
+if ( is_array( $city_benefits_custom ) && ! empty( $city_benefits_custom ) ) {
+	$city_benefits = $city_benefits_custom;
+}
+if ( '' === trim( $city_cta_pill ) ) {
+	$city_cta_pill = 'Preferences';
+}
+if ( '' === trim( $city_cta_title ) ) {
+	$city_cta_title = 'A Better Way to Travel<br>Between Cities';
+}
+if ( '' === trim( $city_cta_description ) ) {
+	$city_cta_description = 'Airports, trains, rentals — they all take time, coordination, and patience. GTS offers a more refined way to move between cities: effortless, private, and precisely managed.';
+}
+if ( '' === trim( $city_cta_button_text ) ) {
+	$city_cta_button_text = 'Book a transfer';
+}
+if ( '' === trim( $city_cta_button_link ) ) {
+	$city_cta_button_link = home_url( '/book-a-transfer/' );
+}
 ?>
 
 <main id="primary" class="site-main">
@@ -52,13 +79,13 @@ $city_benefits = array(
 		<div class="final-cta-container final-cta-container--service">
 			<div class="final-cta-left final-cta-left--service">
 				<div class="why-us-heading-pill final-cta-service-pill">
-					<span class="why-us-heading-text">Preferences</span>
+					<span class="why-us-heading-text"><?php echo esc_html( $city_cta_pill ); ?></span>
 				</div>
-				<h2 class="final-cta-title"><?php echo wp_kses_post( 'A Better Way to Travel<br>Between Cities' ); ?></h2>
+				<h2 class="final-cta-title"><?php echo wp_kses_post( $city_cta_title ); ?></h2>
 				<p class="final-cta-description">
-					<?php echo wp_kses_post( 'Airports, trains, rentals — they all take time, coordination, and patience. GTS offers a more refined way to move between cities: effortless, private, and precisely managed.' ); ?>
+					<?php echo wp_kses_post( $city_cta_description ); ?>
 				</p>
-				<a href="<?php echo esc_url( home_url( '/book-a-transfer/' ) ); ?>" class="btn btn-primary final-cta-button">Book a transfer</a>
+				<a href="<?php echo esc_url( $city_cta_button_link ); ?>" class="btn btn-primary final-cta-button"><?php echo esc_html( $city_cta_button_text ); ?></a>
 			</div>
 
 			<div class="final-cta-right final-cta-right--desktop final-cta-right--service">

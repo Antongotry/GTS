@@ -10,6 +10,24 @@
 $image_mobile = get_site_url() . '/wp-content/uploads/2026/01/375-lm-1_result.webp';
 $image_tablet = get_site_url() . '/wp-content/uploads/2026/01/1024-lm-1_result.webp';
 $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1920-lm-1_result-scaled.webp';
+$page_id = get_queried_object_id();
+$hero_title = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_title', $page_id ) : '';
+$hero_description = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_description', $page_id ) : '';
+$hero_cta_text = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_text', $page_id ) : '';
+$hero_cta_link = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_link', $page_id ) : '';
+
+if ( '' === trim( $hero_title ) ) {
+	$hero_title = 'Chauffeur-driven<br>luxury limousine service';
+}
+if ( '' === trim( $hero_description ) ) {
+	$hero_description = 'for business leaders and private clients who expect<br>comfort, style, and flawless coordination.';
+}
+if ( '' === trim( $hero_cta_text ) ) {
+	$hero_cta_text = 'Book a transfer';
+}
+if ( '' === trim( $hero_cta_link ) ) {
+	$hero_cta_link = home_url( '/book-a-transfer/' );
+}
 
 // Hero feature icons from theme assets (your icons) — inline for reliable display on all devices
 $hero_icon_1 = file_get_contents( get_template_directory() . '/assets/icons/icon-1-l.svg' );
@@ -41,12 +59,12 @@ $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon
 		<!-- Left side -->
 		<div class="hero-left">
 			<div class="hero-content">
-				<h1 class="hero-title">Chauffeur-driven<br>luxury limousine service</h1>
+				<h1 class="hero-title"><?php echo wp_kses_post( $hero_title ); ?></h1>
 
-				<p class="hero-description">for business leaders and private clients who expect<br>comfort, style, and flawless coordination.</p>
+				<p class="hero-description"><?php echo wp_kses_post( $hero_description ); ?></p>
 
 				<div class="hero-buttons">
-					<a href="#" class="btn btn-primary">Book a transfer</a>
+					<a href="<?php echo esc_url( $hero_cta_link ); ?>" class="btn btn-primary"><?php echo esc_html( $hero_cta_text ); ?></a>
 				</div>
 
 				<div class="hero-features">

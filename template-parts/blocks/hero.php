@@ -11,6 +11,24 @@ $image_mobile = get_site_url() . '/wp-content/uploads/2026/01/hero-banner-375_re
 $image_tablet = get_site_url() . '/wp-content/uploads/2026/01/banner-home-375-4_result.webp';
 $image_desktop = get_site_url() . '/wp-content/uploads/2026/01/1024-banner-home_result.webp';
 $image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_result-scaled.webp';
+$page_id = get_queried_object_id();
+$hero_title = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_title', $page_id ) : '';
+$hero_description = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_description', $page_id ) : '';
+$hero_cta_text = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_text', $page_id ) : '';
+$hero_cta_link = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_link', $page_id ) : '';
+
+if ( '' === trim( $hero_title ) ) {
+	$hero_title = 'Premium transfers for corporate and private clients – 24/7 coordination';
+}
+if ( '' === trim( $hero_description ) ) {
+	$hero_description = 'Your route. Our responsibility.';
+}
+if ( '' === trim( $hero_cta_text ) ) {
+	$hero_cta_text = 'Book a transfer';
+}
+if ( '' === trim( $hero_cta_link ) ) {
+	$hero_cta_link = home_url( '/book-a-transfer/' );
+}
 ?>
 
 <?php if (is_front_page()) : ?>
@@ -36,11 +54,11 @@ $image_large = get_site_url() . '/wp-content/uploads/2026/01/hero-baner-1920_res
 		<!-- Left side -->
 		<div class="hero-left">
 			<div class="hero-content">
-				<p class="hero-subtitle">Your route. Our responsibility.</p>
-				<h1 class="hero-title">Premium transfers for corporate and private clients – 24/7 coordination</h1>
+				<p class="hero-subtitle"><?php echo esc_html( $hero_description ); ?></p>
+				<h1 class="hero-title"><?php echo esc_html( $hero_title ); ?></h1>
 
 				<div class="hero-buttons">
-					<a href="#" class="btn btn-primary">Book a transfer</a>
+					<a href="<?php echo esc_url( $hero_cta_link ); ?>" class="btn btn-primary"><?php echo esc_html( $hero_cta_text ); ?></a>
 					<a href="#" class="btn btn-secondary">Explore services</a>
 				</div>
 

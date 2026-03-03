@@ -9,6 +9,24 @@
 $image_mobile  = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-375_result.webp';
 $image_tablet  = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-1024_result.webp';
 $image_desktop = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-of-city-1920_result-scaled.webp';
+$page_id = get_queried_object_id();
+$hero_title = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_title', $page_id ) : '';
+$hero_description = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_description', $page_id ) : '';
+$hero_cta_text = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_text', $page_id ) : '';
+$hero_cta_link = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_link', $page_id ) : '';
+
+if ( '' === trim( $hero_title ) ) {
+	$hero_title = 'Private City-to-City long distanse transfers';
+}
+if ( '' === trim( $hero_description ) ) {
+	$hero_description = 'Avoid airport stress and rigid schedules. GTS provides<br>private&nbsp;city-to-city rides&nbsp;with';
+}
+if ( '' === trim( $hero_cta_text ) ) {
+	$hero_cta_text = 'Book a transfer';
+}
+if ( '' === trim( $hero_cta_link ) ) {
+	$hero_cta_link = home_url( '/book-a-transfer/' );
+}
 
 $hero_icon_1 = file_get_contents( get_template_directory() . '/assets/icons/icon-1-l.svg' );
 $hero_icon_2 = file_get_contents( get_template_directory() . '/assets/icons/icon-2-l.svg' );
@@ -36,12 +54,12 @@ $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon
 	<div class="hero-container">
 		<div class="hero-left">
 			<div class="hero-content">
-				<h1 class="hero-title">Private City-to-City long distanse transfers</h1>
+				<h1 class="hero-title"><?php echo wp_kses_post( $hero_title ); ?></h1>
 
-				<p class="hero-description">Avoid airport stress and rigid schedules. GTS provides<br>private&nbsp;city-to-city rides&nbsp;with</p>
+				<p class="hero-description"><?php echo wp_kses_post( $hero_description ); ?></p>
 
 				<div class="hero-buttons">
-					<a href="#" class="btn btn-primary">Book a transfer</a>
+					<a href="<?php echo esc_url( $hero_cta_link ); ?>" class="btn btn-primary"><?php echo esc_html( $hero_cta_text ); ?></a>
 				</div>
 
 				<div class="hero-features">
