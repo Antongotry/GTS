@@ -435,12 +435,79 @@ function gts_populate_service_on_status_change($post_id, $post, $update)
 add_action('wp_insert_post', 'gts_populate_service_on_status_change', 20, 3);
 
 /**
+ * Check whether page uses service-style template.
+ *
+ * @param int $page_id Page ID.
+ * @return bool
+ */
+function gts_is_service_style_template_page($page_id)
+{
+	$page_id = (int) $page_id;
+	if ($page_id <= 0) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug($page_id);
+	return in_array($template, array('page-city-to-city.php', 'page-limousine-service.php'), true);
+}
+
+/**
+ * Auto-populate service_blocks for service-style pages if empty.
+ *
+ * @param int     $post_id Post ID.
+ * @param WP_Post $post    Post object.
+ * @param bool    $update  Whether this is an existing post being updated.
+ */
+function gts_auto_populate_service_blocks_for_pages($post_id, $post, $update)
+{
+	if ('page' !== $post->post_type) {
+		return;
+	}
+
+	// Skip autosaves and revisions.
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+		return;
+	}
+	if (wp_is_post_revision($post_id)) {
+		return;
+	}
+
+	if (! gts_is_service_style_template_page($post_id)) {
+		return;
+	}
+
+	// Bail if ACF is not active.
+	if (! function_exists('get_field') || ! function_exists('update_field')) {
+		return;
+	}
+
+	$existing_blocks = get_field('service_blocks', $post_id);
+	if (! empty($existing_blocks)) {
+		return;
+	}
+
+	update_field('service_blocks', gts_get_default_service_blocks(), $post_id);
+}
+add_action('save_post_page', 'gts_auto_populate_service_blocks_for_pages', 20, 3);
+
+/**
  * Admin notice if ACF Pro is not active
  */
 function gts_acf_required_notice()
 {
 	$screen = get_current_screen();
-	if (! $screen || 'service' !== $screen->post_type) {
+	if (! $screen) {
+		return;
+	}
+
+	$is_service_screen = ('service' === $screen->post_type);
+	$is_service_style_page_screen = false;
+	if ('page' === $screen->post_type && isset($_GET['post'])) {
+		$page_id = absint($_GET['post']);
+		$is_service_style_page_screen = $page_id ? gts_is_service_style_template_page($page_id) : false;
+	}
+
+	if (! $is_service_screen && ! $is_service_style_page_screen) {
 		return;
 	}
 

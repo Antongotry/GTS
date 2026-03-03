@@ -175,8 +175,19 @@ add_filter('script_loader_src', 'gts_disable_asset_caching', 10, 1);
 function gts_admin_styles()
 {
 	$screen = get_current_screen();
-	// Only load on service edit page
-	if ($screen && ($screen->post_type === 'service' || $screen->id === 'service')) {
+	if (! $screen) {
+		return;
+	}
+
+	$is_service_screen = ($screen->post_type === 'service' || $screen->id === 'service');
+	$is_service_style_page_screen = false;
+	if ($screen->post_type === 'page' && isset($_GET['post'])) {
+		$page_id = absint($_GET['post']);
+		$template = $page_id ? (string) get_page_template_slug($page_id) : '';
+		$is_service_style_page_screen = in_array($template, array('page-city-to-city.php', 'page-limousine-service.php'), true);
+	}
+
+	if ($is_service_screen || $is_service_style_page_screen) {
 		wp_enqueue_style(
 			'gts-admin-acf',
 			get_template_directory_uri() . '/assets/css/admin-acf.css',
