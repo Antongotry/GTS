@@ -35,16 +35,10 @@ if ( '' === trim( $hero_cta_link ) ) {
 <style id="hero-main-bg">
 /* Hero responsive backgrounds - optimized for LCP */
 .hero-block {
-	background-image: url('<?php echo esc_url($image_mobile); ?>') !important;
+	background-image: url('<?php echo esc_url($image_desktop); ?>') !important;
 }
-@media (min-width: 376px) {
-	.hero-block { background-image: url('<?php echo esc_url($image_tablet); ?>') !important; }
-}
-@media (min-width: 769px) {
-	.hero-block { background-image: url('<?php echo esc_url($image_desktop); ?>') !important; }
-}
-@media (min-width: 1025px) {
-	.hero-block { background-image: url('<?php echo esc_url($image_large); ?>') !important; }
+@media (max-width: 768px) {
+	.hero-block { background-image: url('<?php echo esc_url($image_mobile); ?>') !important; }
 }
 </style>
 <?php endif; ?>
