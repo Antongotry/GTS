@@ -117,3 +117,81 @@ function gts_service_admin_column_content( $column, $post_id ) {
 	}
 }
 add_action( 'manage_service_posts_custom_column', 'gts_service_admin_column_content', 10, 2 );
+
+/**
+ * Add quick access to service-style pages under Services menu.
+ */
+function gts_register_service_pages_submenu() {
+	add_submenu_page(
+		'edit.php?post_type=service',
+		__( 'Service Pages', 'gts-theme' ),
+		__( 'Service Pages', 'gts-theme' ),
+		'edit_pages',
+		'gts-service-pages',
+		'gts_render_service_pages_submenu'
+	);
+}
+add_action( 'admin_menu', 'gts_register_service_pages_submenu' );
+
+/**
+ * Render "Service Pages" submenu content.
+ */
+function gts_render_service_pages_submenu() {
+	if ( ! current_user_can( 'edit_pages' ) ) {
+		wp_die( esc_html__( 'You do not have permission to access this page.', 'gts-theme' ) );
+	}
+
+	$page_ids = get_posts(
+		array(
+			'post_type'      => 'page',
+			'post_status'    => array( 'publish', 'draft', 'private', 'pending' ),
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'meta_query'     => array(
+				array(
+					'key'     => '_wp_page_template',
+					'value'   => array( 'page-city-to-city.php', 'page-limousine-service.php' ),
+					'compare' => 'IN',
+				),
+			),
+		)
+	);
+	?>
+	<div class="wrap">
+		<h1><?php echo esc_html__( 'Service-Style Pages', 'gts-theme' ); ?></h1>
+		<p><?php echo esc_html__( 'These pages use the same "Service Page Blocks" editor as Services.', 'gts-theme' ); ?></p>
+		<table class="widefat striped">
+			<thead>
+				<tr>
+					<th><?php echo esc_html__( 'Page', 'gts-theme' ); ?></th>
+					<th><?php echo esc_html__( 'Template', 'gts-theme' ); ?></th>
+					<th><?php echo esc_html__( 'Actions', 'gts-theme' ); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php if ( empty( $page_ids ) ) : ?>
+					<tr>
+						<td colspan="3"><?php echo esc_html__( 'No pages with required templates found.', 'gts-theme' ); ?></td>
+					</tr>
+				<?php else : ?>
+					<?php foreach ( $page_ids as $page_id ) : ?>
+						<?php
+						$template = (string) get_page_template_slug( $page_id );
+						$edit_link = get_edit_post_link( $page_id, '' );
+						$view_link = get_permalink( $page_id );
+						?>
+						<tr>
+							<td><?php echo esc_html( get_the_title( $page_id ) ); ?></td>
+							<td><code><?php echo esc_html( $template ); ?></code></td>
+							<td>
+								<a class="button button-primary" href="<?php echo esc_url( $edit_link ); ?>"><?php echo esc_html__( 'Edit Page', 'gts-theme' ); ?></a>
+								<a class="button" href="<?php echo esc_url( $view_link ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html__( 'View', 'gts-theme' ); ?></a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</tbody>
+		</table>
+	</div>
+	<?php
+}

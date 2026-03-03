@@ -10,6 +10,13 @@
 $hero_icon_1 = file_get_contents( get_template_directory() . '/assets/icons/icon-1-l.svg' );
 $hero_icon_2 = file_get_contents( get_template_directory() . '/assets/icons/icon-2-l.svg' );
 $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon-3-l.svg' );
+
+$booking_block = function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' )
+	? gts_get_page_service_block( 'booking_form' )
+	: array();
+$mobile_submit_text = ! empty( $booking_block['mobile_submit_text'] ) ? (string) $booking_block['mobile_submit_text'] : 'Get My Quote';
+$mobile_checkbox1_text = ! empty( $booking_block['mobile_checkbox1_text'] ) ? (string) $booking_block['mobile_checkbox1_text'] : 'Book a Jet';
+$mobile_checkbox2_text = ! empty( $booking_block['mobile_checkbox2_text'] ) ? (string) $booking_block['mobile_checkbox2_text'] : 'Book a Helicopter';
 ?>
 
 <section class="booking-form-block booking-form-block--mobile">
@@ -49,13 +56,13 @@ $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon
 					<div class="form-group checkbox-group">
 						<label>
 							<input type="checkbox" name="book_jet" value="jet" checked>
-							<span>Book a Jet</span>
+							<span><?php echo esc_html( $mobile_checkbox1_text ); ?></span>
 						</label>
 					</div>
 					<div class="form-group checkbox-group">
 						<label>
 							<input type="checkbox" name="book_helicopter" value="helicopter">
-							<span>Book a Helicopter</span>
+							<span><?php echo esc_html( $mobile_checkbox2_text ); ?></span>
 						</label>
 					</div>
 				</div>
@@ -110,7 +117,7 @@ $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon
 				</div>
 
 				<!-- Submit Button (24px после consent) -->
-				<button type="submit" class="booking-submit-btn">Get My Quote</button>
+				<button type="submit" class="booking-submit-btn"><?php echo esc_html( $mobile_submit_text ); ?></button>
 			</form>
 		</div>
 	</div>

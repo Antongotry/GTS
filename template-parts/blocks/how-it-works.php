@@ -11,9 +11,13 @@ $step_icon_2 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-2.svg'
 $step_icon_3 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-3.svg';
 $step_icon_4 = get_site_url() . '/wp-content/uploads/2026/01/block-3-icon-4.svg';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
+$hiw_block = function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' )
+	? gts_get_page_service_block( 'how_it_works' )
+	: array();
 $how_it_works_title = $is_city_to_city
 	? 'Booking with GTS is<br>straightforward — one clear<br>process from request to ride,<br>backed by 24/7 support.'
 	: 'We handle the details —<br>you enjoy the moments';
+$section_pill = 'How it works';
 
 $steps = array(
 	array(
@@ -41,13 +45,48 @@ $steps = array(
 		'description' => 'Transparent pricing, insured rides and real<br>24/7 assistance worldwide.',
 	),
 );
+
+if ( ! empty( $hiw_block ) ) {
+	if ( ! empty( $hiw_block['background'] ) ) {
+		$background_url = (string) $hiw_block['background'];
+	}
+	if ( ! empty( $hiw_block['pill_text'] ) ) {
+		$section_pill = (string) $hiw_block['pill_text'];
+	}
+	if ( ! empty( $hiw_block['title'] ) ) {
+		$how_it_works_title = (string) $hiw_block['title'];
+	}
+	if ( ! empty( $hiw_block['steps'] ) && is_array( $hiw_block['steps'] ) ) {
+		$custom_steps = array_values(
+			array_filter(
+				array_map(
+					static function ( $step ) {
+						if ( ! is_array( $step ) ) {
+							return null;
+						}
+						return array(
+							'number'      => ! empty( $step['number'] ) ? (string) $step['number'] : '',
+							'icon'        => ! empty( $step['icon'] ) ? (string) $step['icon'] : '',
+							'title'       => ! empty( $step['title'] ) ? (string) $step['title'] : '',
+							'description' => ! empty( $step['description'] ) ? (string) $step['description'] : '',
+						);
+					},
+					$hiw_block['steps']
+				)
+			)
+		);
+		if ( ! empty( $custom_steps ) ) {
+			$steps = $custom_steps;
+		}
+	}
+}
 ?>
 
 <section class="how-it-works-block" style="background-image: url('<?php echo esc_url( $background_url ); ?>');">
 	<div class="how-it-works-container">
 		<div class="how-it-works-left">
 			<div class="how-it-works-pill">
-				<span class="how-it-works-pill-text"><?php echo esc_html( 'How it works' ); ?></span>
+				<span class="how-it-works-pill-text"><?php echo esc_html( $section_pill ); ?></span>
 			</div>
 			<h2 class="how-it-works-title">
 				<?php echo wp_kses_post( $how_it_works_title ); ?>

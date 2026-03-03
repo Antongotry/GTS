@@ -80,3 +80,11 @@ function gts_is_page_service_block_enabled( $layout, $default = true, $page_id =
 	return (bool) $default;
 }
 
+/**
+ * Check whether current request is one of service-style pages.
+ *
+ * @return bool
+ */
+function gts_is_service_style_page() {
+	return is_page_template( 'page-city-to-city.php' ) || is_page_template( 'page-limousine-service.php' ) || is_page( 'city-to-city' ) || is_page( 'limousine-service' );
+}

@@ -11,6 +11,22 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 }
 
 $args = isset( $args ) && is_array( $args ) ? $args : array();
+$fleet_block = array();
+if ( function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' ) ) {
+	$fleet_block = gts_get_page_service_block( 'fleet' );
+}
+
+if ( ! empty( $fleet_block ) ) {
+	if ( ! empty( $fleet_block['title'] ) && empty( $args['title'] ) ) {
+		$args['title'] = (string) $fleet_block['title'];
+	}
+	if ( ! empty( $fleet_block['subtitle'] ) && empty( $args['lead'] ) ) {
+		$args['lead'] = (string) $fleet_block['subtitle'];
+	}
+	if ( ! empty( $fleet_block['pill_text'] ) && empty( $args['pill_text'] ) ) {
+		$args['pill_text'] = (string) $fleet_block['pill_text'];
+	}
+}
 
 $query_args = array(
 	'status'  => 'publish',
@@ -27,6 +43,16 @@ if ( ! empty( $args['category_slugs'] ) && is_array( $args['category_slugs'] ) )
 	);
 }
 
+if ( ! empty( $fleet_block['vehicles'] ) && is_array( $fleet_block['vehicles'] ) ) {
+	$vehicle_ids = array_values( array_filter( array_map( 'absint', $fleet_block['vehicles'] ) ) );
+	if ( ! empty( $vehicle_ids ) ) {
+		$query_args['include'] = $vehicle_ids;
+		$query_args['orderby'] = 'post__in';
+		$query_args['limit'] = count( $vehicle_ids );
+		unset( $query_args['category'] );
+	}
+}
+
 $products = wc_get_products( $query_args );
 
 if ( empty( $products ) ) {
@@ -38,6 +64,7 @@ $lead  = ! empty( $args['lead'] ) ? $args['lead'] : 'That’s why every GTS limo
 $hide_lead = ! empty( $args['hide_lead'] );
 $section_mod = ! empty( $args['section_modifier'] ) ? sanitize_html_class( (string) $args['section_modifier'] ) : '';
 $section_class = 'fleet-slider-block' . ( $section_mod ? ' ' . $section_mod : '' );
+$pill_text = ! empty( $args['pill_text'] ) ? $args['pill_text'] : 'Fleet & Chauffeurs';
 ?>
 
 <section class="<?php echo esc_attr( $section_class ); ?>">
@@ -45,7 +72,7 @@ $section_class = 'fleet-slider-block' . ( $section_mod ? ' ' . $section_mod : ''
 		<div class="fleet-slider-container">
 			<div class="why-us-heading">
 				<div class="why-us-heading-pill">
-					<span class="why-us-heading-text"><?php echo esc_html__( 'Fleet & Chauffeurs', 'gts-theme' ); ?></span>
+					<span class="why-us-heading-text"><?php echo esc_html( $pill_text ); ?></span>
 				</div>
 				<div class="why-us-heading-line" aria-hidden="true"></div>
 			</div>

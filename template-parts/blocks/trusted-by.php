@@ -27,6 +27,46 @@ $testimonials = array(
 		'name' => 'David',
 	),
 );
+$section_pill = 'Trusted by clients worldwide';
+$section_title = 'Corporations, executives and private travellers rely on GTS for punctuality, comfort and flawless service.';
+$testimonials_block = function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' )
+	? gts_get_page_service_block( 'testimonials' )
+	: array();
+if ( ! empty( $testimonials_block ) ) {
+	if ( ! empty( $testimonials_block['pill_text'] ) ) {
+		$section_pill = (string) $testimonials_block['pill_text'];
+	}
+	if ( ! empty( $testimonials_block['title'] ) ) {
+		$section_title = (string) $testimonials_block['title'];
+	}
+	if ( ! empty( $testimonials_block['testimonials'] ) && is_array( $testimonials_block['testimonials'] ) ) {
+		$custom_testimonials = array_values(
+			array_filter(
+				array_map(
+					static function ( $item ) {
+						if ( ! is_array( $item ) ) {
+							return null;
+						}
+						$text = isset( $item['text'] ) ? trim( (string) $item['text'] ) : '';
+						$name = isset( $item['name'] ) ? trim( (string) $item['name'] ) : '';
+						if ( '' === $text || '' === $name ) {
+							return null;
+						}
+						return array(
+							'text'   => $text,
+							'name'   => $name,
+							'avatar' => ! empty( $item['avatar'] ) ? (string) $item['avatar'] : '',
+						);
+					},
+					$testimonials_block['testimonials']
+				)
+			)
+		);
+		if ( ! empty( $custom_testimonials ) ) {
+			$testimonials = $custom_testimonials;
+		}
+	}
+}
 
 // Heights cycle: 348, 326, 392
 $heights = array( 348, 326, 392 );
@@ -35,10 +75,10 @@ $heights = array( 348, 326, 392 );
 <section class="trusted-by-block">
 	<div class="trusted-by-container">
 		<div class="trusted-by-pill">
-			<span class="trusted-by-pill-text"><?php echo esc_html( 'Trusted by clients worldwide' ); ?></span>
+			<span class="trusted-by-pill-text"><?php echo esc_html( $section_pill ); ?></span>
 		</div>
 		<h2 class="trusted-by-title">
-			<?php echo esc_html( 'Corporations, executives and private travellers rely on GTS for punctuality, comfort and flawless service.' ); ?>
+			<?php echo esc_html( $section_title ); ?>
 		</h2>
 	</div>
 
@@ -58,13 +98,17 @@ $heights = array( 348, 326, 392 );
 						<p class="trusted-by-card-text"><?php echo esc_html( $testimonial['text'] ); ?></p>
 					</div>
 					<div class="trusted-by-author">
-						<span class="trusted-by-avatar trusted-by-avatar-icon" aria-hidden="true">
-							<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-								<circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.06)"/>
-								<circle cx="28" cy="22" r="8" stroke="currentColor" stroke-width="1.5" fill="none"/>
-								<path d="M14 46c0-8 6.5-14 14-14s14 6 14 14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-							</svg>
-						</span>
+						<?php if ( ! empty( $testimonial['avatar'] ) ) : ?>
+							<img class="trusted-by-avatar" src="<?php echo esc_url( $testimonial['avatar'] ); ?>" alt="" loading="lazy" width="56" height="56">
+						<?php else : ?>
+							<span class="trusted-by-avatar trusted-by-avatar-icon" aria-hidden="true">
+								<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.06)"/>
+									<circle cx="28" cy="22" r="8" stroke="currentColor" stroke-width="1.5" fill="none"/>
+									<path d="M14 46c0-8 6.5-14 14-14s14 6 14 14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+								</svg>
+							</span>
+						<?php endif; ?>
 						<span class="trusted-by-name"><?php echo esc_html( $testimonial['name'] ); ?></span>
 					</div>
 				</div>
