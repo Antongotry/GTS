@@ -2093,6 +2093,14 @@ body.mobile-menu-open {
   .site-logo {
     margin-right: auto;
     margin-left: 16px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .site-logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 }
 @media (max-width: 768px) {
@@ -6042,6 +6050,14 @@ a.phone-button:focus,
   .site-logo {
     margin-right: auto;
     margin-left: 16px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .site-logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 }
 @media (max-width: 768px) {
