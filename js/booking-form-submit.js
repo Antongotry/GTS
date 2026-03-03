@@ -3,6 +3,57 @@
 
 	const FORM_SELECTORS = '.booking-form, .fleet-booking-form';
 	const SUCCESS_TEXT = 'Thank you! Your request was sent. We will contact you shortly.';
+	let activeSuccessPopup = null;
+
+	function buildSuccessPopup() {
+		const popup = document.createElement('div');
+		popup.className = 'gts-success-popup';
+		popup.setAttribute('aria-hidden', 'true');
+
+		popup.innerHTML = `
+			<div class="gts-success-popup__overlay" data-popup-close="1"></div>
+			<div class="gts-success-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="gts-success-popup-title">
+				<button type="button" class="gts-success-popup__close" aria-label="Close" data-popup-close="1">×</button>
+				<div class="gts-success-popup__icon" aria-hidden="true">✓</div>
+				<h3 class="gts-success-popup__title" id="gts-success-popup-title">Request Sent</h3>
+				<p class="gts-success-popup__text"></p>
+				<button type="button" class="btn btn-secondary gts-success-popup__button" data-popup-close="1">Great</button>
+			</div>
+		`;
+
+		popup.addEventListener('click', (event) => {
+			if (event.target && event.target.dataset.popupClose === '1') {
+				closeSuccessPopup();
+			}
+		});
+
+		return popup;
+	}
+
+	function closeSuccessPopup() {
+		if (!activeSuccessPopup) {
+			return;
+		}
+		activeSuccessPopup.classList.remove('is-open');
+		activeSuccessPopup.setAttribute('aria-hidden', 'true');
+		document.body.classList.remove('gts-popup-open');
+	}
+
+	function openSuccessPopup(message) {
+		if (!activeSuccessPopup) {
+			activeSuccessPopup = buildSuccessPopup();
+			document.body.appendChild(activeSuccessPopup);
+		}
+
+		const textEl = activeSuccessPopup.querySelector('.gts-success-popup__text');
+		if (textEl) {
+			textEl.textContent = message || SUCCESS_TEXT;
+		}
+
+		activeSuccessPopup.classList.add('is-open');
+		activeSuccessPopup.setAttribute('aria-hidden', 'false');
+		document.body.classList.add('gts-popup-open');
+	}
 
 	function getConfig() {
 		const config = window.gtsBookingFormConfig || {};
@@ -207,6 +258,7 @@
 					}
 
 					setStatus(form, (response.data && response.data.message) || SUCCESS_TEXT, false);
+					openSuccessPopup((response.data && response.data.message) || SUCCESS_TEXT);
 					form.reset();
 					form.dispatchEvent(new CustomEvent('gts:booking-form:sent', {
 						bubbles: true,
@@ -227,6 +279,12 @@
 	}
 
 	bindAllForms();
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') {
+			closeSuccessPopup();
+		}
+	});
 
 	const observer = new MutationObserver(() => {
 		bindAllForms();

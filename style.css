@@ -8687,6 +8687,104 @@ main#primary > section.hero-block > .hero-container {
   min-width: 160px;
 }
 
+.gts-success-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.gts-success-popup.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.gts-success-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 15, 23, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.gts-success-popup__dialog {
+  position: relative;
+  z-index: 2;
+  width: min(520px, calc(100vw - 40px));
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(12, 15, 23, 0.96);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  padding: 32px 24px 24px;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  text-align: center;
+  animation: fleetPop 0.35s ease;
+}
+
+.gts-success-popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.gts-success-popup__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(37, 197, 138, 0.15);
+  border: 1px solid rgba(37, 197, 138, 0.35);
+  color: #25c58a;
+  font-size: 34px;
+  margin-top: 8px;
+}
+
+.gts-success-popup__title {
+  margin: 0;
+  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.gts-success-popup__text {
+  margin: 0;
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 420px;
+}
+
+.gts-success-popup__button {
+  min-width: 160px;
+  margin-top: 4px;
+}
+
+body.gts-popup-open {
+  overflow: hidden;
+}
+
 @keyframes fleetPop {
   from {
     transform: translateY(20px) scale(0.98);
@@ -8709,6 +8807,13 @@ main#primary > section.hero-block > .hero-container {
   }
   .fleet-slider-footer {
     margin-top: 24px;
+  }
+  .gts-success-popup__dialog {
+    border-radius: 24px;
+    padding: 28px 20px 20px;
+  }
+  .gts-success-popup__title {
+    font-size: 24px;
   }
 }
 @media (max-width: 768px) {
