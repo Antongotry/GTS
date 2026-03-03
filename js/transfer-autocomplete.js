@@ -99,6 +99,8 @@
 				input.dataset.city = item.city || '';
 				input.dataset.address = item.address || item.label || item.value;
 				input.dataset.fullLabel = item.label || item.value;
+				input.dataset.lat = item.lat || '';
+				input.dataset.lon = item.lon || '';
 				input.dataset.selected = '1';
 				clearList();
 				input.dispatchEvent(new Event('change', { bubbles: true }));
@@ -211,6 +213,8 @@
 				delete input.dataset.city;
 				delete input.dataset.address;
 				delete input.dataset.fullLabel;
+				delete input.dataset.lat;
+				delete input.dataset.lon;
 				requestSuggestions(input.value.trim());
 			});
 

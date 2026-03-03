@@ -360,6 +360,8 @@ function gts_ajax_address_suggestions() {
 			$suggestion['country']     = $country;
 			$suggestion['city']        = $city;
 			$suggestion['address']     = '' !== $street ? $street : (string) $item['display_name'];
+			$suggestion['lat']         = isset( $item['lat'] ) ? (string) $item['lat'] : '';
+			$suggestion['lon']         = isset( $item['lon'] ) ? (string) $item['lon'] : '';
 		}
 
 		$suggestions[] = $suggestion;
@@ -417,13 +419,30 @@ function gts_ajax_estimate_route() {
 
 	$from = isset( $_POST['from'] ) ? sanitize_text_field( wp_unslash( $_POST['from'] ) ) : '';
 	$to   = isset( $_POST['to'] ) ? sanitize_text_field( wp_unslash( $_POST['to'] ) ) : '';
+	$from_lat = isset( $_POST['from_lat'] ) ? (float) wp_unslash( $_POST['from_lat'] ) : 0;
+	$from_lon = isset( $_POST['from_lon'] ) ? (float) wp_unslash( $_POST['from_lon'] ) : 0;
+	$to_lat   = isset( $_POST['to_lat'] ) ? (float) wp_unslash( $_POST['to_lat'] ) : 0;
+	$to_lon   = isset( $_POST['to_lon'] ) ? (float) wp_unslash( $_POST['to_lon'] ) : 0;
 
 	if ( '' === $from || '' === $to ) {
 		wp_send_json_error( array( 'message' => 'Route points are required.' ), 422 );
 	}
 
-	$from_coords = gts_calculator_geocode( $from );
-	$to_coords   = gts_calculator_geocode( $to );
+	$has_direct_coords = ( 0.0 !== $from_lat || 0.0 !== $from_lon || 0.0 !== $to_lat || 0.0 !== $to_lon );
+
+	if ( $has_direct_coords ) {
+		$from_coords = array(
+			'lat' => $from_lat,
+			'lon' => $from_lon,
+		);
+		$to_coords = array(
+			'lat' => $to_lat,
+			'lon' => $to_lon,
+		);
+	} else {
+		$from_coords = gts_calculator_geocode( $from );
+		$to_coords   = gts_calculator_geocode( $to );
+	}
 
 	if ( ! $from_coords || ! $to_coords ) {
 		wp_send_json_success(

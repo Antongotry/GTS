@@ -38,7 +38,8 @@
 				distanceKm: 0,
 				durationMin: 0,
 				mode: 'pending',
-				message: ''
+				message: '',
+				key: ''
 			},
 			pricing: {
 				total: 0,
@@ -133,12 +134,16 @@
 			var city = '';
 			var address = '';
 			var fullLabel = '';
+			var lat = '';
+			var lon = '';
 
 			if (locField) {
 				country = String(locField.dataset.country || '').trim();
 				city = String(locField.dataset.city || '').trim();
 				fullLabel = String(locField.dataset.fullLabel || '').trim();
 				address = String(locField.dataset.address || fullLabel || locField.value || '').trim();
+				lat = String(locField.dataset.lat || '').trim();
+				lon = String(locField.dataset.lon || '').trim();
 			}
 
 			var hiddenCountry = field(prefix + '_country');
@@ -160,7 +165,9 @@
 				fullLabel: fullLabel,
 				country: country,
 				city: city,
-				address: address
+				address: address,
+				lat: lat,
+				lon: lon
 			};
 		}
 
@@ -327,14 +334,29 @@
 			var toMeta = locationMeta('to');
 			var from = fromMeta.fullLabel || fromMeta.location || fromMeta.address;
 			var to = toMeta.fullLabel || toMeta.location || toMeta.address;
+			var routeKey = from + '|' + to + '|' + (fromMeta.lat || '') + ',' + (fromMeta.lon || '') + '|' + (toMeta.lat || '') + ',' + (toMeta.lon || '');
 
 			if (!from || !to) {
 				state.route = {
 					distanceKm: 0,
 					durationMin: 0,
 					mode: 'pending',
-					message: 'Fill route to estimate'
+					message: 'Fill route to estimate',
+					key: ''
 				};
+				return Promise.resolve();
+			}
+			if (!fromMeta.fullLabel || !toMeta.fullLabel) {
+				state.route = {
+					distanceKm: 0,
+					durationMin: 0,
+					mode: 'pending',
+					message: 'Select both locations from suggestions',
+					key: ''
+				};
+				return Promise.resolve();
+			}
+			if (state.route.key && state.route.key === routeKey) {
 				return Promise.resolve();
 			}
 
@@ -343,6 +365,12 @@
 			formData.append('nonce', nonce);
 			formData.append('from', from);
 			formData.append('to', to);
+			if (fromMeta.lat && fromMeta.lon && toMeta.lat && toMeta.lon) {
+				formData.append('from_lat', fromMeta.lat);
+				formData.append('from_lon', fromMeta.lon);
+				formData.append('to_lat', toMeta.lat);
+				formData.append('to_lon', toMeta.lon);
+			}
 
 			return fetch(ajaxUrl, {
 				method: 'POST',
@@ -358,7 +386,8 @@
 						distanceKm: Number(res.data.distance_km || 0),
 						durationMin: Number(res.data.duration_min || 0),
 						mode: res.data.mode || 'manual',
-						message: res.data.message || ''
+						message: res.data.message || '',
+						key: routeKey
 					};
 				})
 				.catch(function () {
@@ -366,7 +395,8 @@
 						distanceKm: 0,
 						durationMin: 0,
 						mode: 'manual',
-						message: 'Complex route: manager will confirm exact price in 30 min'
+						message: 'Complex route: manager will confirm exact price in 30 min',
+						key: routeKey
 					};
 				});
 		}
@@ -505,7 +535,7 @@
 					form.reset();
 					syncAllFieldStates();
 					setReturnVisibility();
-					state.route = { distanceKm: 0, durationMin: 0, mode: 'pending', message: 'Fill route to estimate' };
+					state.route = { distanceKm: 0, durationMin: 0, mode: 'pending', message: 'Fill route to estimate', key: '' };
 					state.pricing = { total: 0, formattedTotal: '—', mode: 'pending', breakdown: [], note: 'Final price confirmed by manager. No online payments.' };
 					updateSummary();
 				})
