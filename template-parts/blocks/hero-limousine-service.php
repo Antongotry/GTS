@@ -15,6 +15,21 @@ $hero_title = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_her
 $hero_description = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_description', $page_id ) : '';
 $hero_cta_text = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_text', $page_id ) : '';
 $hero_cta_link = function_exists( 'get_field' ) ? (string) get_field( 'gts_page_hero_cta_link', $page_id ) : '';
+$service_hero = function_exists( 'gts_get_page_service_block' ) ? gts_get_page_service_block( 'hero', $page_id ) : array();
+if ( ! empty( $service_hero ) ) {
+	if ( ! empty( $service_hero['title'] ) ) {
+		$hero_title = (string) $service_hero['title'];
+	}
+	if ( ! empty( $service_hero['subtitle'] ) ) {
+		$hero_description = (string) $service_hero['subtitle'];
+	}
+	if ( ! empty( $service_hero['cta_text'] ) ) {
+		$hero_cta_text = (string) $service_hero['cta_text'];
+	}
+	if ( ! empty( $service_hero['cta_link'] ) ) {
+		$hero_cta_link = (string) $service_hero['cta_link'];
+	}
+}
 
 if ( '' === trim( $hero_title ) ) {
 	$hero_title = 'Chauffeur-driven<br>luxury limousine service';

@@ -1249,6 +1249,20 @@ function gts_register_service_acf_fields()
 						'value'    => 'service',
 					),
 				),
+				array(
+					array(
+						'param'    => 'page_template',
+						'operator' => '==',
+						'value'    => 'page-city-to-city.php',
+					),
+				),
+				array(
+					array(
+						'param'    => 'page_template',
+						'operator' => '==',
+						'value'    => 'page-limousine-service.php',
+					),
+				),
 			),
 			'menu_order'            => 0,
 			'position'              => 'normal',

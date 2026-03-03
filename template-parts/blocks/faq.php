@@ -9,6 +9,7 @@
 $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.svg';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
 $page_id = get_queried_object_id();
+$service_faq = function_exists( 'gts_get_page_service_block' ) ? gts_get_page_service_block( 'faq', $page_id ) : array();
 
 $faq_column_1 = array(
 	array(
@@ -125,6 +126,40 @@ if ( function_exists( 'get_field' ) && $page_id ) {
 			)
 		);
 
+		if ( ! empty( $normalized ) ) {
+			$half = (int) ceil( count( $normalized ) / 2 );
+			$faq_column_1 = array_slice( $normalized, 0, $half );
+			$faq_column_2 = array_slice( $normalized, $half );
+		}
+	}
+}
+
+if ( ! empty( $service_faq ) ) {
+	if ( ! empty( $service_faq['pill_text'] ) ) {
+		$faq_pill = (string) $service_faq['pill_text'];
+	}
+	if ( ! empty( $service_faq['title'] ) ) {
+		$faq_title = (string) $service_faq['title'];
+	}
+	if ( ! empty( $service_faq['items'] ) && is_array( $service_faq['items'] ) ) {
+		$normalized = array_values(
+			array_filter(
+				array_map(
+					static function ( $row ) {
+						$question = isset( $row['question'] ) ? trim( (string) $row['question'] ) : '';
+						$answer = isset( $row['answer'] ) ? trim( (string) $row['answer'] ) : '';
+						if ( '' === $question || '' === $answer ) {
+							return null;
+						}
+						return array(
+							'question' => $question,
+							'answer'   => $answer,
+						);
+					},
+					$service_faq['items']
+				)
+			)
+		);
 		if ( ! empty( $normalized ) ) {
 			$half = (int) ceil( count( $normalized ) / 2 );
 			$faq_column_1 = array_slice( $normalized, 0, $half );
