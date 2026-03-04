@@ -9703,6 +9703,12 @@ main#primary > section.hero-block > .hero-container {
   }
 }
 
+@media (max-width: 768px) {
+  .home .services-block {
+    padding-bottom: 0;
+  }
+}
+
 .services-container {
   width: 100%;
   max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
@@ -10042,12 +10048,6 @@ main#primary > section.hero-block > .hero-container {
   .custom-itinerary-block {
     margin-top: 40px;
     padding-bottom: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .home .custom-itinerary-block {
-    padding-bottom: 0;
   }
 }
 

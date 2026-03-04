@@ -15,6 +15,13 @@
 	}
 }
 
+// Главная (моб): убрать нижний отступ у секции услуг
+.home .services-block {
+	@include md {
+		padding-bottom: 0;
+	}
+}
+
 .services-container {
 	@include container($container-max-width-content);
 	display: flex;
