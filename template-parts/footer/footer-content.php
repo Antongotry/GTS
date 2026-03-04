@@ -8,7 +8,6 @@
 ?>
 
 <footer class="site-footer">
-	<?php $gts_languages = function_exists( 'gts_get_language_switcher_items' ) ? gts_get_language_switcher_items() : array(); ?>
 	<div class="footer-container">
 		<div class="footer-left">
 			<div class="footer-logo">
@@ -47,20 +46,7 @@
 
 		<div class="footer-language">
 			<h3 class="footer-title">Site language</h3>
-			<ul class="footer-language-list">
-				<?php foreach ( $gts_languages as $gts_language_item ) : ?>
-					<?php if ( ! empty( $gts_language_item['current'] ) ) : ?>
-						<li class="footer-language-item footer-language-item-active">
-							<span><?php echo esc_html( $gts_language_item['name'] ?? '' ); ?></span>
-							<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/check.svg'); ?>" alt="Selected" class="footer-language-check" width="20" height="20">
-						</li>
-					<?php else : ?>
-						<li class="footer-language-item">
-							<a href="<?php echo esc_url( $gts_language_item['url'] ?? home_url( '/' ) ); ?>"><?php echo esc_html( $gts_language_item['name'] ?? '' ); ?></a>
-						</li>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			</ul>
+			<?php echo do_shortcode( '[language-switcher variant="footer"]' ); ?>
 		</div>
 
 		<div class="footer-services">

@@ -301,6 +301,91 @@ function gts_get_language_switcher_items() {
 }
 
 /**
+ * Unified language switcher shortcode.
+ * Usage: [language-switcher] (header), [language-switcher variant="footer"], [language-switcher variant="mobile"]
+ *
+ * @param array<string, string> $atts Shortcode attributes.
+ * @return string
+ */
+function gts_language_switcher_shortcode( $atts ) {
+	$atts = shortcode_atts(
+		array(
+			'variant' => 'header',
+		),
+		(array) $atts,
+		'language-switcher'
+	);
+
+	$variant   = sanitize_key( (string) $atts['variant'] );
+	$languages = gts_get_language_switcher_items();
+	if ( empty( $languages ) ) {
+		return '';
+	}
+
+	$current = $languages[0];
+	foreach ( $languages as $item ) {
+		if ( ! empty( $item['current'] ) ) {
+			$current = $item;
+			break;
+		}
+	}
+
+	ob_start();
+
+	if ( 'footer' === $variant ) :
+		?>
+		<ul class="footer-language-list">
+			<?php foreach ( $languages as $item ) : ?>
+				<?php if ( ! empty( $item['current'] ) ) : ?>
+					<li class="footer-language-item footer-language-item-active">
+						<span><?php echo esc_html( $item['name'] ?? '' ); ?></span>
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/check.svg' ); ?>" alt="Selected" class="footer-language-check" width="20" height="20">
+					</li>
+				<?php else : ?>
+					<li class="footer-language-item">
+						<a href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>"><?php echo esc_html( $item['name'] ?? '' ); ?></a>
+					</li>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</ul>
+		<?php
+	elseif ( 'mobile' === $variant ) :
+		?>
+		<div class="mobile-menu-languages" aria-label="<?php esc_attr_e( 'Language switcher', 'gts-theme' ); ?>">
+			<?php foreach ( $languages as $item ) : ?>
+				<a href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>" class="mobile-menu-language<?php echo ! empty( $item['current'] ) ? ' is-active' : ''; ?>"<?php echo ! empty( $item['current'] ) ? ' aria-current="page"' : ''; ?>>
+					<?php echo esc_html( strtoupper( (string) ( $item['slug'] ?? '' ) ) ); ?>
+				</a>
+			<?php endforeach; ?>
+		</div>
+		<?php
+	else :
+		?>
+		<div class="language-selector">
+			<div class="language-selector__toggle">
+				<span class="language-text"><?php echo esc_html( $current['code'] ?? 'EN' ); ?></span>
+				<span class="dropdown-icon">
+					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="" width="10" height="6">
+				</span>
+			</div>
+			<ul class="language-selector__menu" role="menu" aria-label="<?php esc_attr_e( 'Select language', 'gts-theme' ); ?>">
+				<?php foreach ( $languages as $item ) : ?>
+					<li class="language-selector__item<?php echo ! empty( $item['current'] ) ? ' is-active' : ''; ?>" role="none">
+						<a class="language-selector__option" href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>" role="menuitem" data-lang="<?php echo esc_attr( $item['code'] ?? '' ); ?>">
+							<?php echo esc_html( $item['name'] ?? '' ); ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<?php
+	endif;
+
+	return (string) ob_get_clean();
+}
+add_shortcode( 'language-switcher', 'gts_language_switcher_shortcode' );
+
+/**
  * Redirect duplicated language prefixes to canonical URL.
  * Examples: /it/fr/... -> /it/..., /en/fr/... -> /fr/..., /en/... -> /...
  */
