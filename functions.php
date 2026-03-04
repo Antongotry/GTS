@@ -351,6 +351,72 @@ function gts_get_language_switcher_items() {
 	return $items;
 }
 
+/**
+ * Redirect duplicated language prefixes to canonical URL.
+ * Examples: /it/fr/... -> /it/..., /en/fr/... -> /fr/..., /en/... -> /...
+ */
+function gts_normalize_language_prefix_redirect() {
+	if ( is_admin() || wp_doing_ajax() ) {
+		return;
+	}
+
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '';
+	if ( '' === $request_uri ) {
+		return;
+	}
+
+	$path = (string) parse_url( $request_uri, PHP_URL_PATH );
+	$path = trim( $path, '/' );
+	if ( '' === $path ) {
+		return;
+	}
+
+	$supported = array( 'en', 'fr', 'de', 'it', 'es', 'zh' );
+	$segments  = explode( '/', $path );
+	$original  = $segments;
+
+	$first_lang = '';
+	$lang_count = 0;
+	while ( ! empty( $segments[0] ) && in_array( strtolower( $segments[0] ), $supported, true ) ) {
+		$current = strtolower( (string) $segments[0] );
+		if ( '' === $first_lang ) {
+			$first_lang = $current;
+		}
+		array_shift( $segments );
+		$lang_count++;
+	}
+
+	if ( 0 === $lang_count ) {
+		return;
+	}
+
+	$needs_redirect = $lang_count > 1 || 'en' === $first_lang;
+	if ( ! $needs_redirect ) {
+		return;
+	}
+
+	$clean_segments = $segments;
+	if ( '' !== $first_lang && 'en' !== $first_lang ) {
+		array_unshift( $clean_segments, $first_lang );
+	}
+
+	$new_path  = implode( '/', $clean_segments );
+	$target    = home_url( $new_path !== '' ? '/' . $new_path . '/' : '/' );
+	$query     = (string) parse_url( $request_uri, PHP_URL_QUERY );
+	if ( '' !== $query ) {
+		$target .= '?' . $query;
+	}
+
+	$current_url = home_url( '/' . implode( '/', $original ) . '/' );
+	if ( untrailingslashit( $current_url ) === untrailingslashit( $target ) ) {
+		return;
+	}
+
+	wp_safe_redirect( $target, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'gts_normalize_language_prefix_redirect', 1 );
+
 function gts_settings_page_render() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
