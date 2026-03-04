@@ -9296,6 +9296,9 @@ main#primary > section.hero-block > .hero-container {
     margin-top: auto;
     margin-bottom: 8px;
   }
+  .occasions-block .why-us-item.why-us-item-2 .why-us-item-title br + br {
+    display: none;
+  }
   .occasions-block .why-us-item-1 .why-us-item-title {
     display: block !important;
     color: #ffffff !important;
