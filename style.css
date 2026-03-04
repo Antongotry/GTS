@@ -5725,6 +5725,23 @@ a.phone-button:focus,
   align-items: center;
   text-align: center;
 }
+@media (max-width: 1024px) {
+  .faq-container {
+    max-width: 944px !important;
+    padding: 0 20px !important;
+    box-sizing: content-box !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 0 20px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
 
 .faq-pill {
   display: inline-flex;
@@ -5756,7 +5773,9 @@ a.phone-button:focus,
 }
 @media (max-width: 768px) {
   .faq-title {
-    font-size: 28px;
+    font-size: 21px;
+    line-height: 1.24;
+    max-width: 24ch;
   }
 }
 

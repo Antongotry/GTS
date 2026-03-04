@@ -28,6 +28,21 @@
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+
+	@include lg {
+		max-width: 944px !important; // как у основных блоков и сетки хедера на 1024
+		padding: 0 20px !important;
+		box-sizing: content-box !important;
+		width: 100% !important;
+		margin: 0 auto !important;
+	}
+
+	@include md {
+		padding: 0 20px !important;
+		max-width: 100% !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
+	}
 }
 
 // Pill at top — same styles as trusted-by-pill
@@ -57,7 +72,9 @@
 	}
 
 	@include md {
-		font-size: 28px;
+		font-size: 21px;
+		line-height: 1.24;
+		max-width: 24ch; // держим заголовок в 2 строки на узких телефонах
 	}
 }
 
