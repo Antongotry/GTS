@@ -1845,7 +1845,7 @@ textarea {
   line-height: 1;
   letter-spacing: 0;
   color: #ffffff;
-  text-transform: lowercase;
+  text-transform: uppercase;
   transition: all 0.2s ease;
 }
 .mobile-menu-language:hover {

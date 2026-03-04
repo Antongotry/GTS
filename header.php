@@ -361,7 +361,7 @@
 					<div class="mobile-menu-languages" aria-label="<?php esc_attr_e( 'Language switcher', 'gts-theme' ); ?>">
 						<?php foreach ( $gts_languages as $gts_language_item ) : ?>
 							<a href="<?php echo esc_url( $gts_language_item['url'] ?? home_url( '/' ) ); ?>" class="mobile-menu-language<?php echo ! empty( $gts_language_item['current'] ) ? ' is-active' : ''; ?>"<?php echo ! empty( $gts_language_item['current'] ) ? ' aria-current="page"' : ''; ?>>
-								<?php echo esc_html( strtolower( $gts_language_item['slug'] ?? '' ) ); ?>
+								<?php echo esc_html( strtoupper( $gts_language_item['slug'] ?? '' ) ); ?>
 							</a>
 						<?php endforeach; ?>
 					</div>

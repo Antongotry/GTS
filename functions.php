@@ -245,10 +245,8 @@ function gts_get_language_switcher_items() {
 					'slug'    => $slug,
 					'code'    => strtoupper( $slug ),
 					'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-					'url'     => $normalize_language_url(
-						! empty( $language['url'] ) ? (string) $language['url'] : $fallback_url_for_slug( $slug ),
-						$slug
-					),
+					// Keep WPML-provided switch URL untouched; it carries plugin-specific routing/cookie behavior.
+					'url'     => ! empty( $language['url'] ) ? (string) $language['url'] : $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
 					'current' => ! empty( $language['active'] ),
 				);
 			}
