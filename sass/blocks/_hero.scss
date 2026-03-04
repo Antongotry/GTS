@@ -281,15 +281,16 @@ main#primary > section.hero-block > .hero-container {
 		flex-direction: row;
 		align-items: center;
 		gap: 12px;
-		padding: 10px 10px 10px 20px;
+		padding: 10px 10px 10px 10px;
 	}
 
 	.hero-features--mobile .hero-feature-map .world-map-image {
 		padding: 0;
+		margin-left: -2px;
 	}
 
 	.hero-features--mobile .hero-feature-map .world-map-image img {
-		width: 95px;
+		width: 86px;
 		height: auto;
 	}
 
