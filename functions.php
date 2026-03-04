@@ -141,6 +141,22 @@ function gts_get_unlocalized_home_url() {
 }
 
 /**
+ * Remove duplicated leading language prefixes from a relative path.
+ *
+ * @param string $path Relative path without domain.
+ * @return string
+ */
+function gts_strip_leading_language_prefixes( $path ) {
+	$path = trim( (string) $path, '/' );
+	if ( '' === $path ) {
+		return '';
+	}
+
+	$cleaned = preg_replace( '#^(?:(?:en|fr|de|it|es|zh)(?:/|$))+#i', '', $path );
+	return trim( (string) $cleaned, '/' );
+}
+
+/**
  * Build language switcher items for header/footer/mobile menu.
  * Uses Polylang when available, with fallback to fixed slug routing.
  *
@@ -160,23 +176,15 @@ function gts_get_language_switcher_items() {
 	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
 	$path        = (string) parse_url( $request_uri, PHP_URL_PATH );
 	$path        = trim( $path, '/' );
-	$segments    = $path !== '' ? explode( '/', $path ) : array();
 	$query       = (string) parse_url( $request_uri, PHP_URL_QUERY );
 	$query_suffix = $query !== '' ? '?' . $query : '';
 	$base_home_url = gts_get_unlocalized_home_url();
 
 	$current_slug = 'en';
-	$detected_slug = false;
-	while ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
-		if ( false === $detected_slug ) {
-			$detected_slug = $segments[0];
-		}
-		array_shift( $segments );
+	if ( preg_match( '#^(en|fr|de|it|es|zh)(?:/|$)#i', $path, $match ) ) {
+		$current_slug = strtolower( (string) $match[1] );
 	}
-	if ( false !== $detected_slug ) {
-		$current_slug = $detected_slug;
-	}
-	$path_without_lang = implode( '/', $segments );
+	$path_without_lang = gts_strip_leading_language_prefixes( $path );
 
 	$normalize_language_url = static function( $raw_url, $target_slug ) use ( $order, $base_home_url ) {
 		$raw_url = is_string( $raw_url ) ? $raw_url : '';
@@ -187,12 +195,7 @@ function gts_get_language_switcher_items() {
 			$path = trim( (string) $parsed['path'], '/' );
 		}
 
-		$segments = $path !== '' ? explode( '/', $path ) : array();
-		while ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
-			array_shift( $segments );
-		}
-
-		$clean_path = implode( '/', $segments );
+		$clean_path = gts_strip_leading_language_prefixes( $path );
 		if ( 'en' !== $target_slug ) {
 			$clean_path = $clean_path !== '' ? $target_slug . '/' . $clean_path : $target_slug;
 		}
