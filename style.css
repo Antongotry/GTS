@@ -9230,7 +9230,7 @@ main#primary > section.hero-block > .hero-container {
   .occasions-block .why-us-item-1 .why-us-item-title {
     display: block !important;
     margin-top: auto;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     position: relative;
     z-index: 2;
   }
@@ -9301,6 +9301,7 @@ main#primary > section.hero-block > .hero-container {
     color: #ffffff !important;
     opacity: 1 !important;
     visibility: visible !important;
+    margin-bottom: 12px !important;
     position: relative;
     z-index: 3;
   }
