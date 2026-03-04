@@ -125,6 +125,37 @@ function gts_get_language_switcher_items() {
 	);
 	$items = array();
 
+	$normalize_language_url = static function( $raw_url, $target_slug ) use ( $order ) {
+		$raw_url = is_string( $raw_url ) ? $raw_url : '';
+		$parsed  = wp_parse_url( $raw_url );
+
+		$path = '';
+		if ( is_array( $parsed ) && ! empty( $parsed['path'] ) ) {
+			$path = trim( (string) $parsed['path'], '/' );
+		}
+
+		$segments = $path !== '' ? explode( '/', $path ) : array();
+		while ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
+			array_shift( $segments );
+		}
+
+		$clean_path = implode( '/', $segments );
+		if ( 'en' !== $target_slug ) {
+			$clean_path = $clean_path !== '' ? $target_slug . '/' . $clean_path : $target_slug;
+		}
+
+		$normalized = $clean_path !== '' ? home_url( '/' . $clean_path . '/' ) : home_url( '/' );
+
+		if ( is_array( $parsed ) && ! empty( $parsed['query'] ) ) {
+			$normalized .= '?' . $parsed['query'];
+		}
+		if ( is_array( $parsed ) && ! empty( $parsed['fragment'] ) ) {
+			$normalized .= '#' . $parsed['fragment'];
+		}
+
+		return $normalized;
+	};
+
 	if ( function_exists( 'pll_the_languages' ) ) {
 		$pll_languages = pll_the_languages(
 			array(
@@ -145,7 +176,7 @@ function gts_get_language_switcher_items() {
 						'slug'    => $slug,
 						'code'    => strtoupper( $slug ),
 						'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-						'url'     => ! empty( $language['url'] ) ? $language['url'] : home_url( '/' ),
+						'url'     => $normalize_language_url( ! empty( $language['url'] ) ? (string) $language['url'] : home_url( '/' ), $slug ),
 						'current' => ! empty( $language['current_lang'] ),
 					);
 					break;
@@ -190,7 +221,7 @@ function gts_get_language_switcher_items() {
 			'slug'    => $slug,
 			'code'    => strtoupper( $slug ),
 			'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-			'url'     => $url . $query_suffix,
+			'url'     => $normalize_language_url( $url . $query_suffix, $slug ),
 			'current' => $slug === $current_slug,
 		);
 	}
