@@ -118,7 +118,35 @@ function gts_get_unlocalized_home_url() {
 		$home = home_url( '/' );
 	}
 
-	return untrailingslashit( $home );
+	$parsed = wp_parse_url( $home );
+	if ( ! is_array( $parsed ) ) {
+		return untrailingslashit( $home );
+	}
+
+	$scheme = ! empty( $parsed['scheme'] ) ? $parsed['scheme'] : ( is_ssl() ? 'https' : 'http' );
+	$host   = ! empty( $parsed['host'] ) ? $parsed['host'] : ( $_SERVER['HTTP_HOST'] ?? '' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	$port   = ! empty( $parsed['port'] ) ? ':' . (string) $parsed['port'] : '';
+	$path   = ! empty( $parsed['path'] ) ? trim( (string) $parsed['path'], '/' ) : '';
+
+	$supported_langs = array( 'en', 'fr', 'de', 'it', 'es', 'zh' );
+	if ( '' !== $path ) {
+		$segments = explode( '/', $path );
+		if ( ! empty( $segments[0] ) && in_array( strtolower( (string) $segments[0] ), $supported_langs, true ) ) {
+			array_shift( $segments );
+			$path = implode( '/', $segments );
+		}
+	}
+
+	if ( '' === $host ) {
+		return untrailingslashit( $home );
+	}
+
+	$base = $scheme . '://' . $host . $port;
+	if ( '' !== $path ) {
+		$base .= '/' . $path;
+	}
+
+	return untrailingslashit( $base );
 }
 
 /**
