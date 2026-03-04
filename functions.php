@@ -541,6 +541,10 @@ function gts_theme_scripts()
 		);
 	}
 
+	if ( function_exists( 'is_shop' ) && ( is_shop() || is_product_taxonomy() ) ) {
+		wp_enqueue_script( 'gts-woo-filters-toggle', get_template_directory_uri() . '/js/woo-filters-toggle.js', array(), $version, true );
+	}
+
 	// Lenis - smooth scrolling for entire site (only desktop, loaded via JS check)
 	wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
 	wp_enqueue_script('gts-lenis-init', get_template_directory_uri() . '/js/lenis-init.js', array('lenis'), $version, true);

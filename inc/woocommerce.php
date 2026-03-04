@@ -174,6 +174,97 @@ function gts_theme_customize_product_archive_ui() {
 add_action( 'wp', 'gts_theme_customize_product_archive_ui' );
 
 /**
+ * Get available attribute taxonomies for fleet archive filters.
+ *
+ * @return array
+ */
+function gts_theme_get_filterable_attribute_taxonomies() {
+	$taxonomies = array();
+	$names      = function_exists( 'wc_get_attribute_taxonomy_names' ) ? wc_get_attribute_taxonomy_names() : array();
+
+	if ( empty( $names ) || ! is_array( $names ) ) {
+		return $taxonomies;
+	}
+
+	foreach ( $names as $taxonomy ) {
+		if ( taxonomy_exists( $taxonomy ) ) {
+			$taxonomies[] = $taxonomy;
+		}
+	}
+
+	return $taxonomies;
+}
+
+/**
+ * Read selected archive filters from query string.
+ *
+ * @return array
+ */
+function gts_theme_get_archive_selected_filters() {
+	$selected   = array();
+	$taxonomies = gts_theme_get_filterable_attribute_taxonomies();
+
+	foreach ( $taxonomies as $taxonomy ) {
+		$key = 'gtsf_' . $taxonomy;
+		if ( empty( $_GET[ $key ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			continue;
+		}
+
+		$raw = wp_unslash( $_GET[ $key ] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! is_array( $raw ) ) {
+			$raw = array( $raw );
+		}
+
+		$values = array_values(
+			array_filter(
+				array_map( 'sanitize_title', $raw )
+			)
+		);
+
+		if ( ! empty( $values ) ) {
+			$selected[ $taxonomy ] = $values;
+		}
+	}
+
+	return $selected;
+}
+
+/**
+ * Apply attribute filters on WooCommerce archive/category pages.
+ *
+ * @param WP_Query $query Query object.
+ * @return void
+ */
+function gts_theme_apply_archive_attribute_filters( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( ! ( is_shop() || is_product_taxonomy() ) ) {
+		return;
+	}
+
+	$selected = gts_theme_get_archive_selected_filters();
+	if ( empty( $selected ) ) {
+		return;
+	}
+
+	$tax_query = (array) $query->get( 'tax_query', array() );
+
+	foreach ( $selected as $taxonomy => $terms ) {
+		$tax_query[] = array(
+			'taxonomy' => $taxonomy,
+			'field'    => 'slug',
+			'terms'    => $terms,
+			'operator' => 'IN',
+		);
+	}
+
+	$query->set( 'tax_query', $tax_query );
+}
+add_action( 'pre_get_posts', 'gts_theme_apply_archive_attribute_filters' );
+
+/**
  * Sample implementation of the WooCommerce Mini Cart.
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...
