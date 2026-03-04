@@ -159,7 +159,7 @@
 	line-height: 1.5; // 150%
 	letter-spacing: 0;
 	color: #000000;
-	margin: 0 0 $spacing-md 0; // 16px gap before button
+	margin: 12px 0 $spacing-md 0; // stable gap from title + 16px before button
 
 	@include lg {
 		font-size: 14px;
