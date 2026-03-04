@@ -5,18 +5,23 @@
 (function() {
 	'use strict';
 
+	function replaceBreaksWithSpaces(selector) {
+		var nodes = document.querySelectorAll(selector);
+		nodes.forEach(function(node) {
+			var breaks = node.querySelectorAll('br');
+			breaks.forEach(function(br) {
+				br.replaceWith(document.createTextNode(' '));
+			});
+		});
+	}
+
 	function applyMobileWhyUsIntroBrFix() {
 		if (!window.matchMedia('(max-width: 768px)').matches) {
 			return;
 		}
 
-		var titles = document.querySelectorAll('.why-us-intro-title');
-		titles.forEach(function(title) {
-			var breaks = title.querySelectorAll('br');
-			breaks.forEach(function(br) {
-				br.replaceWith(document.createTextNode(' '));
-			});
-		});
+		replaceBreaksWithSpaces('.why-us-intro-title');
+		replaceBreaksWithSpaces('.why-us-intro-description');
 	}
 
 	if (document.readyState === 'loading') {
@@ -25,4 +30,3 @@
 		applyMobileWhyUsIntroBrFix();
 	}
 })();
-
