@@ -9,7 +9,7 @@
 			return;
 		}
 
-		var nodes = document.querySelectorAll('.fleet-slider-lead');
+		var nodes = document.querySelectorAll('.fleet-slider-lead, .fleet-slider-title');
 		nodes.forEach(function(node) {
 			var breaks = node.querySelectorAll('br');
 			breaks.forEach(function(br) {
