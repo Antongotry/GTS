@@ -9242,36 +9242,36 @@ main#primary > section.hero-block > .hero-container {
     margin-top: 32px !important;
   }
   .occasions-block .why-us-item-1 {
-    grid-column: 1/-1;
-    grid-row: 1;
+    grid-column: 1/-1 !important;
+    grid-row: 1 !important;
   }
   .occasions-block .why-us-item.why-us-item-2 {
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 1 !important;
+    grid-row: 2 !important;
   }
   .occasions-block .occasions-item-image {
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 2 !important;
+    grid-row: 2 !important;
   }
   .occasions-block .why-us-item-3 {
-    grid-column: 1;
-    grid-row: 3;
+    grid-column: 1 !important;
+    grid-row: 3 !important;
   }
   .occasions-block .why-us-item-4 {
-    grid-column: 2;
-    grid-row: 3;
+    grid-column: 2 !important;
+    grid-row: 3 !important;
   }
   .occasions-block .occasions-row3-image {
-    grid-column: 1;
-    grid-row: 4;
+    grid-column: 1 !important;
+    grid-row: 4 !important;
   }
   .occasions-block .occasions-row3-card {
-    grid-column: 2;
-    grid-row: 4;
+    grid-column: 2 !important;
+    grid-row: 4 !important;
   }
   .occasions-block .why-us-item-6 {
-    grid-column: 1/-1;
-    grid-row: 5;
+    grid-column: 1/-1 !important;
+    grid-row: 5 !important;
   }
   .occasions-block .why-us-item {
     height: auto;
