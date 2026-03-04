@@ -9225,6 +9225,18 @@ main#primary > section.hero-block > .hero-container {
   .occasions-block .why-us-item-1 .why-us-item-description {
     display: none;
   }
+  .occasions-block .why-us-item-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .occasions-block .why-us-item-1 .why-us-item-title {
+    display: block !important;
+    margin-top: auto;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+  }
   .occasions-block .why-us-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
