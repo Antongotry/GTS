@@ -159,6 +159,21 @@ if ( ! function_exists( 'gts_theme_woocommerce_wrapper_after' ) ) {
 add_action( 'woocommerce_after_main_content', 'gts_theme_woocommerce_wrapper_after' );
 
 /**
+ * Simplify archive/category loop UI for fleet pages.
+ *
+ * @return void
+ */
+function gts_theme_customize_product_archive_ui() {
+	// Remove utility controls that break custom fleet layout style.
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+	// Remove sale badges in archive cards for cleaner UI.
+	remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+}
+add_action( 'wp', 'gts_theme_customize_product_archive_ui' );
+
+/**
  * Sample implementation of the WooCommerce Mini Cart.
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...
