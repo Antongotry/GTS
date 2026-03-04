@@ -432,7 +432,7 @@ function gts_language_switcher_shortcode( $atts ) {
 		<?php
 	else :
 		?>
-		<div class="language-selector gts-language-source">
+		<div class="language-selector">
 			<div class="language-selector__toggle">
 				<span class="language-text"><?php echo esc_html( $current['code'] ?? 'EN' ); ?></span>
 				<span class="dropdown-icon">

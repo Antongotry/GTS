@@ -46,7 +46,13 @@
 
 		<div class="footer-language">
 			<h3 class="footer-title">Site language</h3>
-			<?php echo do_shortcode( '[language-switcher variant="footer"]' ); ?>
+			<?php
+			if ( function_exists( 'gts_language_switcher_shortcode' ) ) {
+				echo gts_language_switcher_shortcode( array( 'variant' => 'footer' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			} else {
+				echo do_shortcode( '[language-switcher variant="footer"]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+			?>
 		</div>
 
 		<div class="footer-services">

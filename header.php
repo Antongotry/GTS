@@ -282,7 +282,13 @@
 				</nav>
 
 				<div class="header-right">
-					<?php echo do_shortcode( '[language-switcher]' ); ?>
+					<?php
+					if ( function_exists( 'gts_language_switcher_shortcode' ) ) {
+						echo gts_language_switcher_shortcode( array( 'variant' => 'header' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					} else {
+						echo do_shortcode( '[language-switcher]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					}
+					?>
 					<?php
 								$gts_header_email   = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
 								$gts_header_email   = $gts_header_email ? $gts_header_email : 'info@global-travelsolutions.com';
@@ -333,7 +339,13 @@
 						<a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="mobile-menu-link">Book a Transfer</a>
 					</li>
 				</ul>
-				<?php echo do_shortcode( '[language-switcher variant="mobile"]' ); ?>
+				<?php
+				if ( function_exists( 'gts_language_switcher_shortcode' ) ) {
+					echo gts_language_switcher_shortcode( array( 'variant' => 'mobile' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				} else {
+					echo do_shortcode( '[language-switcher variant="mobile"]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
+				?>
 				<div class="mobile-menu-socials">
 					<a href="tel:<?php echo esc_attr( $gts_tel_digits ); ?>" class="mobile-social-link mobile-social-link--phone" aria-label="Phone">
 						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/phone-icon.svg' ); ?>" alt="Phone" width="24" height="24">
