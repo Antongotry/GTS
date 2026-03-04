@@ -184,6 +184,109 @@ function gts_get_language_switcher_items() {
 		return $url . $query_suffix;
 	};
 
+	$resolve_supported_slug = static function( $value ) use ( $order ) {
+		$value = is_string( $value ) ? strtolower( trim( $value ) ) : '';
+		if ( '' === $value ) {
+			return '';
+		}
+
+		$value = str_replace( '-', '_', $value );
+		if ( in_array( $value, $order, true ) ) {
+			return $value;
+		}
+
+		$base = explode( '_', $value );
+		$base = ! empty( $base[0] ) ? $base[0] : '';
+		if ( '' !== $base && in_array( $base, $order, true ) ) {
+			return $base;
+		}
+
+		return '';
+	};
+
+	// WPML support (primary multilingual plugin in this project).
+	if ( function_exists( 'icl_get_languages' ) ) {
+		$wpml_languages = icl_get_languages( 'skip_missing=0&orderby=code' );
+		if ( is_array( $wpml_languages ) && ! empty( $wpml_languages ) ) {
+			$items_by_slug = array();
+
+			foreach ( $wpml_languages as $language ) {
+				if ( ! is_array( $language ) ) {
+					continue;
+				}
+
+				$slug = '';
+				$candidates = array(
+					$language['language_code'] ?? '',
+					$language['code'] ?? '',
+					$language['default_locale'] ?? '',
+					$language['tag'] ?? '',
+				);
+
+				foreach ( $candidates as $candidate ) {
+					$slug = $resolve_supported_slug( (string) $candidate );
+					if ( '' !== $slug ) {
+						break;
+					}
+				}
+
+				if ( '' === $slug && ! empty( $language['url'] ) ) {
+					$lang_path = (string) parse_url( (string) $language['url'], PHP_URL_PATH );
+					$lang_path = trim( $lang_path, '/' );
+					$first_seg = $lang_path !== '' ? explode( '/', $lang_path )[0] : '';
+					$slug      = $resolve_supported_slug( $first_seg );
+				}
+
+				if ( '' === $slug || ! in_array( $slug, $order, true ) ) {
+					continue;
+				}
+
+				$items_by_slug[ $slug ] = array(
+					'slug'    => $slug,
+					'code'    => strtoupper( $slug ),
+					'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+					'url'     => $normalize_language_url(
+						! empty( $language['url'] ) ? (string) $language['url'] : $fallback_url_for_slug( $slug ),
+						$slug
+					),
+					'current' => ! empty( $language['active'] ),
+				);
+			}
+
+			if ( ! empty( $items_by_slug ) ) {
+				$wpml_current = apply_filters( 'wpml_current_language', null );
+				$active_slug  = $resolve_supported_slug( (string) $wpml_current );
+				if ( '' === $active_slug || ! in_array( $active_slug, $order, true ) ) {
+					foreach ( $items_by_slug as $candidate_slug => $candidate_item ) {
+						if ( ! empty( $candidate_item['current'] ) ) {
+							$active_slug = $candidate_slug;
+							break;
+						}
+					}
+				}
+				if ( '' === $active_slug || ! in_array( $active_slug, $order, true ) ) {
+					$active_slug = $current_slug;
+				}
+
+				foreach ( $order as $slug ) {
+					if ( ! isset( $items_by_slug[ $slug ] ) ) {
+						$items_by_slug[ $slug ] = array(
+							'slug'    => $slug,
+							'code'    => strtoupper( $slug ),
+							'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+							'url'     => $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
+							'current' => false,
+						);
+					}
+					$items_by_slug[ $slug ]['current'] = ( $slug === $active_slug );
+					$items[]                           = $items_by_slug[ $slug ];
+				}
+
+				return $items;
+			}
+		}
+	}
+
 	if ( function_exists( 'pll_the_languages' ) ) {
 		$pll_languages = pll_the_languages(
 			array(
