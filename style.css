@@ -9286,6 +9286,11 @@ main#primary > section.hero-block > .hero-container {
   .occasions-block .occasions-row3-card {
     min-height: 310px;
   }
+  .occasions-block .occasions-item-image,
+  .occasions-block .occasions-row3-image {
+    height: auto;
+    min-height: 310px;
+  }
   .occasions-block .why-us-item.why-us-item-2 .why-us-item-title,
   .occasions-block .why-us-item-3 .why-us-item-title,
   .occasions-block .why-us-item-4 .why-us-item-title,

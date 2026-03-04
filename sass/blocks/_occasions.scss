@@ -441,6 +441,7 @@
 	}
 
 	.occasions-block .why-us-item.why-us-item-2,
+	.occasions-block .why-us-item-1,
 	.occasions-block .why-us-item-3,
 	.occasions-block .why-us-item-4,
 	.occasions-block .occasions-row3-card {
@@ -460,6 +461,17 @@
 	.occasions-block .occasions-row3-card .why-us-item-title {
 		margin-top: auto;
 		margin-bottom: 8px;
+	}
+
+	// First card title: force visible text layer on mobile (fixes occasional cascade conflicts).
+	.occasions-block .why-us-item-1 .why-us-item-title {
+		display: block !important;
+		color: #ffffff !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		position: relative;
+		z-index: 3;
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
 	}
 
 	.occasions-block .why-us-item .why-us-item-description {
