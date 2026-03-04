@@ -164,9 +164,15 @@ function gts_get_language_switcher_items() {
 	$segments    = $path !== '' ? explode( '/', $path ) : array();
 
 	$current_slug = 'en';
-	if ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
-		$current_slug = $segments[0];
+	$detected_slug = false;
+	while ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
+		if ( false === $detected_slug ) {
+			$detected_slug = $segments[0];
+		}
 		array_shift( $segments );
+	}
+	if ( false !== $detected_slug ) {
+		$current_slug = $detected_slug;
 	}
 
 	$path_without_lang = implode( '/', $segments );
