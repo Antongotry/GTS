@@ -351,6 +351,12 @@
 		max-width: 250px;
 	}
 
+	.single-service .why-us-item-1 .why-us-item-description,
+	.page-template-page-limousine-service .why-us-item-1 .why-us-item-description,
+	.page-template-page-city-to-city .why-us-item-1 .why-us-item-description {
+		max-width: 300px;
+	}
+
 	// Service pages mobile hardening:
 	// prevent grid tracks from expanding when text is long.
 	.single-service .why-us-container,
