@@ -7851,6 +7851,8 @@ main#primary > section.hero-block > .hero-container {
   }
   .single-service .service-context-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    grid-auto-flow: row dense;
   }
   .single-service .service-context-card {
     min-height: 220px;
