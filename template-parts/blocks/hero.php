@@ -53,7 +53,7 @@ if ( '' === trim( $hero_cta_link ) ) {
 
 				<div class="hero-buttons">
 					<a href="<?php echo esc_url( $hero_cta_link ); ?>" class="btn btn-primary"><?php echo esc_html( $hero_cta_text ); ?></a>
-					<a href="#" class="btn btn-secondary">Explore services</a>
+					<a href="#services-block" class="btn btn-secondary">Explore services</a>
 				</div>
 
 				<div class="hero-features">

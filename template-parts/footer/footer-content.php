@@ -84,7 +84,7 @@
 
 		<div class="footer-right">
 			<a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="footer-button footer-button-primary">Book a transfer</a>
-			<a href="#" class="footer-button footer-button-secondary">Explore services</a>
+			<a href="#services-block" class="footer-button footer-button-secondary">Explore services</a>
 			<?php
 			$gts_footer_phone   = get_option( 'gts_header_phone', '+49 170 284 1810' );
 			$gts_footer_phone   = $gts_footer_phone ? $gts_footer_phone : '+49 170 284 1810';

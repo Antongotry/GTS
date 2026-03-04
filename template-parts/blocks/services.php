@@ -14,7 +14,7 @@ if ( empty( $services ) ) {
 }
 ?>
 
-<section class="services-block">
+<section class="services-block" id="services-block">
 	<div class="services-container">
 		<div class="services-pill">
 			<span class="services-pill-text"><?php echo esc_html( 'Every journey, perfectly organized.' ); ?></span>

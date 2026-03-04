@@ -27,7 +27,7 @@ if ( empty( $services ) ) {
 }
 ?>
 
-<section class="services-block services-block--limousine">
+<section class="services-block services-block--limousine" id="services-block">
 	<div class="services-container">
 		<div class="services-pill">
 			<span class="services-pill-text"><?php echo esc_html( $section_pill ); ?></span>
