@@ -21,6 +21,13 @@
 	}
 }
 
+// Главная (моб): без нижнего padding у блока
+.home .custom-itinerary-block {
+	@include md {
+		padding-bottom: 0;
+	}
+}
+
 // В варианте Limousine — отступ снизу перед следующим блоком (Services)
 .custom-itinerary-block--limousine {
 	margin-bottom: 150px; // 1920, 1440

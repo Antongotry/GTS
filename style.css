@@ -10045,6 +10045,12 @@ main#primary > section.hero-block > .hero-container {
   }
 }
 
+@media (max-width: 768px) {
+  .home .custom-itinerary-block {
+    padding-bottom: 0;
+  }
+}
+
 .custom-itinerary-block--limousine {
   margin-bottom: 150px;
 }
