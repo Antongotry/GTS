@@ -22,6 +22,8 @@
 
 		replaceBreaksWithSpaces('.why-us-intro-title');
 		replaceBreaksWithSpaces('.why-us-intro-description');
+		replaceBreaksWithSpaces('.why-us-item-title');
+		replaceBreaksWithSpaces('.why-us-item-description');
 	}
 
 	if (document.readyState === 'loading') {
