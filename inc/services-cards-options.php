@@ -273,3 +273,25 @@ function gts_register_services_cards_fields() {
 }
 add_action( 'acf/init', 'gts_register_services_cards_fields' );
 
+/**
+ * Seed Services Cards options with defaults when options are empty.
+ * Runs once and does not overwrite existing admin data.
+ */
+function gts_seed_services_cards_options() {
+	if ( ! function_exists( 'get_field' ) || ! function_exists( 'update_field' ) ) {
+		return;
+	}
+
+	$current_rows = get_field( 'gts_global_services_cards', 'option' );
+	if ( is_array( $current_rows ) && ! empty( $current_rows ) ) {
+		return;
+	}
+
+	$defaults = gts_get_default_services_cards();
+	if ( empty( $defaults ) ) {
+		return;
+	}
+
+	update_field( 'gts_global_services_cards', $defaults, 'option' );
+}
+add_action( 'acf/init', 'gts_seed_services_cards_options', 30 );
