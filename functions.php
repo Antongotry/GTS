@@ -241,6 +241,34 @@ function gts_get_language_switcher_items() {
 		return '';
 	};
 
+	$canonicalize_items = static function( $list ) use ( $base_home_url ) {
+		$result = array();
+		foreach ( (array) $list as $item ) {
+			$slug = isset( $item['slug'] ) ? strtolower( (string) $item['slug'] ) : 'en';
+			$url  = isset( $item['url'] ) ? (string) $item['url'] : '';
+
+			$parsed = wp_parse_url( $url );
+			$path   = is_array( $parsed ) && ! empty( $parsed['path'] ) ? (string) $parsed['path'] : '';
+			$path   = gts_strip_leading_language_prefixes( $path );
+			if ( 'en' !== $slug ) {
+				$path = $path !== '' ? $slug . '/' . $path : $slug;
+			}
+
+			$normalized = $path !== '' ? $base_home_url . '/' . $path . '/' : $base_home_url . '/';
+			if ( is_array( $parsed ) && ! empty( $parsed['query'] ) ) {
+				$normalized .= '?' . $parsed['query'];
+			}
+			if ( is_array( $parsed ) && ! empty( $parsed['fragment'] ) ) {
+				$normalized .= '#' . $parsed['fragment'];
+			}
+
+			$item['url'] = $normalized;
+			$result[]    = $item;
+		}
+
+		return $result;
+	};
+
 	// WPML support: generate canonical links per language to avoid duplicated slugs.
 	if ( function_exists( 'icl_object_id' ) || has_filter( 'wpml_current_language' ) ) {
 		$wpml_current = apply_filters( 'wpml_current_language', null );
@@ -276,7 +304,7 @@ function gts_get_language_switcher_items() {
 			);
 		}
 
-		return $items;
+		return $canonicalize_items( $items );
 	}
 
 	if ( function_exists( 'pll_the_languages' ) ) {
@@ -325,7 +353,7 @@ function gts_get_language_switcher_items() {
 					$items_by_slug[ $slug ]['current'] = ( $slug === $active_slug );
 					$items[] = $items_by_slug[ $slug ];
 				}
-				return $items;
+				return $canonicalize_items( $items );
 			}
 		}
 	}
@@ -340,7 +368,7 @@ function gts_get_language_switcher_items() {
 		);
 	}
 
-	return $items;
+	return $canonicalize_items( $items );
 }
 
 /**
