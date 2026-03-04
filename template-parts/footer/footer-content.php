@@ -66,7 +66,7 @@
 				<li><a href="<?php echo esc_url(home_url('/services/travel-agencies/')); ?>">Travel Agencies</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/private-tours/')); ?>">Private Tours</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/corporate-events-chauffeur-service/')); ?>">Corporate Events Chauffeur Service</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>">Shoping</a></li>
+				<li><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>">Shopping</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/travel-planninig/')); ?>">Travel Planninig</a></li>
 			</ul>
 			<ul class="footer-services-list footer-services-list-right">

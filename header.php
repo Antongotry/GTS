@@ -261,7 +261,7 @@
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-agencies/')); ?>" class="sub-menu-link">Travel Agencies</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/private-tours/')); ?>" class="sub-menu-link">Private Tours</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/corporate-events-chauffeur-service/')); ?>" class="sub-menu-link">Corporate Events Chauffeur Service</a></li>
-								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>" class="sub-menu-link">Shoping</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>" class="sub-menu-link">Shopping</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-planninig/')); ?>" class="sub-menu-link">Travel Planninig</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-personal-interpreter/')); ?>" class="sub-menu-link">Travel Personal Interpreter</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/medical-transportation/')); ?>" class="sub-menu-link">Medical Transportation</a></li>
@@ -374,7 +374,7 @@
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-agencies/')); ?>" class="mobile-menu-link">Travel Agencies</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/private-tours/')); ?>" class="mobile-menu-link">Private Tours</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/corporate-events-chauffeur-service/')); ?>" class="mobile-menu-link">Corporate Events Chauffeur Service</a></li>
-					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>" class="mobile-menu-link">Shoping</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>" class="mobile-menu-link">Shopping</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-planninig/')); ?>" class="mobile-menu-link">Travel Planninig</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/travel-personal-interpreter/')); ?>" class="mobile-menu-link">Travel Personal Interpreter</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/medical-transportation/')); ?>" class="mobile-menu-link">Medical Transportation</a></li>
