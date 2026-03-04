@@ -8165,6 +8165,9 @@ main#primary > section.hero-block > .hero-container {
   .why-us-item {
     padding: 12px;
     height: 278px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .why-us-item-1 {
     grid-row: 1;
@@ -8192,9 +8195,12 @@ main#primary > section.hero-block > .hero-container {
   }
   .why-us-item-title {
     font-size: 18px;
+    margin-top: auto;
+    margin-bottom: 8px;
   }
   .why-us-item-description {
     font-size: 14px;
+    margin-top: 0;
   }
   .why-us-item-title br,
   .why-us-item-description br {
@@ -9276,7 +9282,8 @@ main#primary > section.hero-block > .hero-container {
   .occasions-block .why-us-item-3 .why-us-item-title,
   .occasions-block .why-us-item-4 .why-us-item-title,
   .occasions-block .occasions-row3-card .why-us-item-title {
-    margin-top: 16px;
+    margin-top: auto;
+    margin-bottom: 8px;
   }
   .occasions-block .why-us-item .why-us-item-description {
     overflow-wrap: anywhere;
