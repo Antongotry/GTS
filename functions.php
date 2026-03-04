@@ -383,7 +383,14 @@ function gts_language_switcher_shortcode( $atts ) {
 
 	return (string) ob_get_clean();
 }
-add_shortcode( 'language-switcher', 'gts_language_switcher_shortcode' );
+
+/**
+ * Register our language-switcher shortcode late, so plugin shortcode cannot override it.
+ */
+function gts_register_language_switcher_shortcode() {
+	add_shortcode( 'language-switcher', 'gts_language_switcher_shortcode' );
+}
+add_action( 'init', 'gts_register_language_switcher_shortcode', 999 );
 
 /**
  * Redirect duplicated language prefixes to canonical URL.
