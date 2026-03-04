@@ -326,12 +326,6 @@
 		margin-top: 0;
 	}
 
-	// Phone only: ignore hardcoded line breaks in card texts so wrapping is natural.
-	.why-us-item-title br,
-	.why-us-item-description br {
-		display: none;
-	}
-
 	.why-us-item-title,
 	.why-us-item-description {
 		white-space: normal;

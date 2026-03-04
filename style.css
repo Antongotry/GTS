@@ -8200,10 +8200,6 @@ main#primary > section.hero-block > .hero-container {
     font-size: 14px;
     margin-top: 0;
   }
-  .why-us-item-title br,
-  .why-us-item-description br {
-    display: none;
-  }
   .why-us-item-title,
   .why-us-item-description {
     white-space: normal;
