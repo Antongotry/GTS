@@ -289,6 +289,45 @@
 	}
 }
 
+.mobile-menu-languages {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 8px;
+	margin-top: 14px;
+	padding-top: 12px;
+	border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobile-menu-language {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 44px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 12px;
+	text-decoration: none;
+	font-family: $font__manrope;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: 0;
+	color: #ffffff;
+	text-transform: lowercase;
+	transition: all 0.2s ease;
+
+	&:hover {
+		border-color: rgba(252, 220, 170, 0.45);
+		background: rgba(252, 220, 170, 0.08);
+	}
+
+	&.is-active {
+		border-color: #fcdcaa;
+		background: rgba(252, 220, 170, 0.12);
+		color: #fcdcaa;
+		pointer-events: none;
+	}
+}
+
 // Social icons
 .mobile-menu-socials {
 	display: flex;

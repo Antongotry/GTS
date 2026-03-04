@@ -241,6 +241,14 @@
 
 				$fleet_page = get_page_by_path( 'fleet' );
 				$fleet_url  = ( $fleet_page instanceof WP_Post ) ? get_permalink( $fleet_page ) : home_url( '/fleet/' );
+				$gts_languages = function_exists( 'gts_get_language_switcher_items' ) ? gts_get_language_switcher_items() : array();
+				$gts_current_language = ! empty( $gts_languages ) ? $gts_languages[0] : array( 'code' => 'EN' );
+				foreach ( $gts_languages as $gts_language_item ) {
+					if ( ! empty( $gts_language_item['current'] ) ) {
+						$gts_current_language = $gts_language_item;
+						break;
+					}
+				}
 				?>
 
 				<nav class="main-navigation">
@@ -284,18 +292,19 @@
 				<div class="header-right">
 					<div class="language-selector">
 						<div class="language-selector__toggle">
-							<span class="language-text">EN</span>
+							<span class="language-text"><?php echo esc_html( $gts_current_language['code'] ?? 'EN' ); ?></span>
 							<span class="dropdown-icon">
 								<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" width="10" height="6">
 							</span>
 						</div>
 						<ul class="language-selector__menu" role="menu" aria-label="<?php esc_attr_e( 'Select language', 'gts-theme' ); ?>">
-							<li class="language-selector__item is-active" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="EN">English</a></li>
-							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="FR">French</a></li>
-							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="DE">German</a></li>
-							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="IT">Italian</a></li>
-							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ES">Spanish</a></li>
-							<li class="language-selector__item" role="none"><a class="language-selector__option" href="#" role="menuitem" data-lang="ZH">Chinese</a></li>
+							<?php foreach ( $gts_languages as $gts_language_item ) : ?>
+								<li class="language-selector__item<?php echo ! empty( $gts_language_item['current'] ) ? ' is-active' : ''; ?>" role="none">
+									<a class="language-selector__option" href="<?php echo esc_url( $gts_language_item['url'] ?? home_url( '/' ) ); ?>" role="menuitem" data-lang="<?php echo esc_attr( $gts_language_item['code'] ?? '' ); ?>">
+										<?php echo esc_html( $gts_language_item['name'] ?? '' ); ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
 						</ul>
 					</div>
 					<?php
@@ -348,6 +357,15 @@
 						<a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="mobile-menu-link">Book a Transfer</a>
 					</li>
 				</ul>
+				<?php if ( ! empty( $gts_languages ) ) : ?>
+					<div class="mobile-menu-languages" aria-label="<?php esc_attr_e( 'Language switcher', 'gts-theme' ); ?>">
+						<?php foreach ( $gts_languages as $gts_language_item ) : ?>
+							<a href="<?php echo esc_url( $gts_language_item['url'] ?? home_url( '/' ) ); ?>" class="mobile-menu-language<?php echo ! empty( $gts_language_item['current'] ) ? ' is-active' : ''; ?>"<?php echo ! empty( $gts_language_item['current'] ) ? ' aria-current="page"' : ''; ?>>
+								<?php echo esc_html( strtolower( $gts_language_item['slug'] ?? '' ) ); ?>
+							</a>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 				<div class="mobile-menu-socials">
 					<a href="tel:<?php echo esc_attr( $gts_tel_digits ); ?>" class="mobile-social-link mobile-social-link--phone" aria-label="Phone">
 						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/phone-icon.svg' ); ?>" alt="Phone" width="24" height="24">

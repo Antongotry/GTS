@@ -107,6 +107,91 @@ function gts_get_contact_channels() {
 	);
 }
 
+/**
+ * Build language switcher items for header/footer/mobile menu.
+ * Uses Polylang when available, with fallback to fixed slug routing.
+ *
+ * @return array<int, array<string, mixed>>
+ */
+function gts_get_language_switcher_items() {
+	$order = array( 'en', 'fr', 'de', 'it', 'es', 'zh' );
+	$names = array(
+		'en' => 'English',
+		'fr' => 'French',
+		'de' => 'German',
+		'it' => 'Italian',
+		'es' => 'Spanish',
+		'zh' => 'Chinese',
+	);
+	$items = array();
+
+	if ( function_exists( 'pll_the_languages' ) ) {
+		$pll_languages = pll_the_languages(
+			array(
+				'raw'                    => 1,
+				'hide_if_no_translation' => 0,
+				'hide_current'           => 0,
+			)
+		);
+
+		if ( is_array( $pll_languages ) && ! empty( $pll_languages ) ) {
+			foreach ( $order as $slug ) {
+				foreach ( $pll_languages as $language ) {
+					if ( empty( $language['slug'] ) || $language['slug'] !== $slug ) {
+						continue;
+					}
+
+					$items[] = array(
+						'slug'    => $slug,
+						'code'    => strtoupper( $slug ),
+						'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+						'url'     => ! empty( $language['url'] ) ? $language['url'] : home_url( '/' ),
+						'current' => ! empty( $language['current_lang'] ),
+					);
+					break;
+				}
+			}
+
+			if ( ! empty( $items ) ) {
+				return $items;
+			}
+		}
+	}
+
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
+	$path        = (string) parse_url( $request_uri, PHP_URL_PATH );
+	$path        = trim( $path, '/' );
+	$segments    = $path !== '' ? explode( '/', $path ) : array();
+
+	$current_slug = 'en';
+	if ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
+		$current_slug = $segments[0];
+		array_shift( $segments );
+	}
+
+	$path_without_lang = implode( '/', $segments );
+	$query             = (string) parse_url( $request_uri, PHP_URL_QUERY );
+	$query_suffix      = $query !== '' ? '?' . $query : '';
+
+	foreach ( $order as $slug ) {
+		$lang_path = $path_without_lang;
+		if ( 'en' !== $slug ) {
+			$lang_path = $lang_path !== '' ? $slug . '/' . $lang_path : $slug;
+		}
+
+		$url = $lang_path !== '' ? home_url( '/' . $lang_path . '/' ) : home_url( '/' );
+		$items[] = array(
+			'slug'    => $slug,
+			'code'    => strtoupper( $slug ),
+			'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+			'url'     => $url . $query_suffix,
+			'current' => $slug === $current_slug,
+		);
+	}
+
+	return $items;
+}
+
 function gts_settings_page_render() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
