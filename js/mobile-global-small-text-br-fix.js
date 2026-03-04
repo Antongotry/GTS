@@ -5,6 +5,28 @@
 (function() {
 	'use strict';
 
+	function isServiceContextPage() {
+		var body = document.body;
+		if (!body) {
+			return false;
+		}
+
+		if (
+			body.classList.contains('single-service') ||
+			body.classList.contains('page-template-page-limousine-service') ||
+			body.classList.contains('page-template-page-city-to-city')
+		) {
+			return true;
+		}
+
+		var path = (window.location && window.location.pathname ? window.location.pathname : '').toLowerCase();
+		return (
+			path.indexOf('/services/') === 0 ||
+			path.indexOf('/limousine-service') === 0 ||
+			path.indexOf('/city-to-city') === 0
+		);
+	}
+
 	function replaceBreaks(node) {
 		if (!node) {
 			return;
@@ -18,6 +40,9 @@
 
 	function applyFix() {
 		if (!window.matchMedia('(max-width: 767px)').matches) {
+			return;
+		}
+		if (!isServiceContextPage()) {
 			return;
 		}
 
@@ -40,4 +65,3 @@
 		applyFix();
 	}
 })();
-
