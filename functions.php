@@ -262,11 +262,16 @@ function gts_get_language_switcher_items() {
 				}
 			}
 
+			$item_url = $normalize_language_url( $raw_url, $slug );
+			if ( 'en' === $slug ) {
+				$item_url = $path_without_lang !== '' ? $base_home_url . '/' . $path_without_lang . '/' : $base_home_url . '/';
+			}
+
 			$items[] = array(
 				'slug'    => $slug,
 				'code'    => strtoupper( $slug ),
 				'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-				'url'     => $normalize_language_url( $raw_url, $slug ),
+				'url'     => $item_url,
 				'current' => $slug === $active_slug,
 			);
 		}
