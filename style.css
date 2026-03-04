@@ -1815,7 +1815,6 @@ textarea {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
-
 @media (max-width: 430px) {
   .mobile-submenu-list .mobile-menu-link {
     font-size: 12px;
@@ -1867,9 +1866,6 @@ textarea {
 .mobile-social-link:hover img {
   opacity: 1;
 }
-.mobile-social-link--phone img {
-  opacity: 0.8;
-}
 @media (max-width: 768px) {
   .mobile-social-link {
     width: 38px;
@@ -1879,6 +1875,10 @@ textarea {
     width: 16px;
     height: 16px;
   }
+}
+
+.mobile-social-link--phone img {
+  opacity: 0.8;
 }
 
 body.mobile-menu-open {
@@ -2093,28 +2093,12 @@ body.mobile-menu-open {
   .site-logo {
     margin-right: auto;
     margin-left: 16px;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  .site-logo a {
-    display: flex;
-    align-items: center;
-    height: 100%;
   }
 }
 @media (max-width: 768px) {
   .site-logo {
     order: 1;
     margin: 0;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  .site-logo a {
-    display: flex;
-    align-items: center;
-    height: 100%;
   }
   .site-logo img {
     width: 53px;
@@ -6050,28 +6034,12 @@ a.phone-button:focus,
   .site-logo {
     margin-right: auto;
     margin-left: 16px;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  .site-logo a {
-    display: flex;
-    align-items: center;
-    height: 100%;
   }
 }
 @media (max-width: 768px) {
   .site-logo {
     order: 1;
     margin: 0;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  .site-logo a {
-    display: flex;
-    align-items: center;
-    height: 100%;
   }
   .site-logo img {
     width: 53px;
@@ -6962,7 +6930,6 @@ main#primary > section.hero-block > .hero-container {
     margin-bottom: 18px;
   }
 }
-
 .form-row {
   display: flex;
   gap: 20px;
@@ -8740,104 +8707,6 @@ main#primary > section.hero-block > .hero-container {
   min-width: 160px;
 }
 
-.gts-success-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 12000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.28s ease, visibility 0.28s ease;
-}
-
-.gts-success-popup.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-}
-
-.gts-success-popup__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(12, 15, 23, 0.72);
-  backdrop-filter: blur(6px);
-}
-
-.gts-success-popup__dialog {
-  position: relative;
-  z-index: 2;
-  width: min(520px, calc(100vw - 40px));
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(12, 15, 23, 0.96);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-  padding: 32px 24px 24px;
-  display: grid;
-  gap: 14px;
-  justify-items: center;
-  text-align: center;
-  animation: fleetPop 0.35s ease;
-}
-
-.gts-success-popup__close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
-  font-size: 28px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0;
-}
-
-.gts-success-popup__icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: rgba(37, 197, 138, 0.15);
-  border: 1px solid rgba(37, 197, 138, 0.35);
-  color: #25c58a;
-  font-size: 34px;
-  margin-top: 8px;
-}
-
-.gts-success-popup__title {
-  margin: 0;
-  font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.2;
-  color: #fff;
-}
-
-.gts-success-popup__text {
-  margin: 0;
-  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.75);
-  max-width: 420px;
-}
-
-.gts-success-popup__button {
-  min-width: 160px;
-  margin-top: 4px;
-}
-
-body.gts-popup-open {
-  overflow: hidden;
-}
-
 @keyframes fleetPop {
   from {
     transform: translateY(20px) scale(0.98);
@@ -8860,13 +8729,6 @@ body.gts-popup-open {
   }
   .fleet-slider-footer {
     margin-top: 24px;
-  }
-  .gts-success-popup__dialog {
-    border-radius: 24px;
-    padding: 28px 20px 20px;
-  }
-  .gts-success-popup__title {
-    font-size: 24px;
   }
 }
 @media (max-width: 768px) {
@@ -10204,7 +10066,8 @@ body.gts-popup-open {
 .custom-itinerary-container {
   position: relative;
   max-width: min(1840px, 100vw - var(--scrollbar-width) - 40px);
-  height: 208px;
+  min-height: 208px;
+  height: auto;
   margin: 0 auto;
   padding: 24px;
   background: #fcdcaa;
@@ -10216,10 +10079,11 @@ body.gts-popup-open {
 }
 @media (max-width: 768px) {
   .custom-itinerary-container {
-    padding: 24px 20px;
+    padding: 24px 20px 30px;
     max-width: 100% !important;
     width: 100% !important;
-    height: 212px !important;
+    min-height: 0 !important;
+    height: auto !important;
     box-sizing: border-box !important;
   }
 }
@@ -10231,7 +10095,8 @@ body.gts-popup-open {
 }
 @media (max-width: 768px) {
   .custom-itinerary-block--limousine .custom-itinerary-container {
-    min-height: 212px !important;
+    min-height: 0 !important;
+    height: auto !important;
     padding-bottom: 32px;
   }
 }
@@ -10242,11 +10107,11 @@ body.gts-popup-open {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-top: auto;
+  margin-top: 24px;
 }
 @media (max-width: 768px) {
   .custom-itinerary-block--limousine .custom-itinerary-actions {
-    margin-top: 24px;
+    margin-top: 20px;
   }
 }
 

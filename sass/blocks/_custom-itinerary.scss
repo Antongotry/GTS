@@ -41,7 +41,8 @@
 .custom-itinerary-container {
 	position: relative;
 	max-width: min(#{$container-max-width-content}, calc(100vw - var(--scrollbar-width) - 40px));
-	height: 208px;
+	min-height: 208px;
+	height: auto;
 	margin: 0 auto;
 	padding: $spacing-xl; // 24px со всех сторон
 	background: #fcdcaa; // Фон контейнера
@@ -52,10 +53,11 @@
 	box-sizing: border-box;
 
 	@include md {
-		padding: 24px 20px; // 24px сверху/снизу, 20px по бокам
+		padding: 24px 20px 30px; // +нижний воздух на телефоне
 		max-width: 100% !important;
 		width: 100% !important;
-		height: 212px !important;
+		min-height: 0 !important;
+		height: auto !important;
 		box-sizing: border-box !important;
 	}
 }
@@ -67,7 +69,8 @@
 	padding-bottom: 36px;
 
 	@include md {
-		min-height: 212px !important;
+		min-height: 0 !important;
+		height: auto !important;
 		padding-bottom: 32px;
 	}
 }
@@ -78,10 +81,10 @@
 	align-items: center;
 	justify-content: center;
 	gap: 16px; // между кнопкой, текстом и блоком иконок
-	margin-top: auto;
+	margin-top: 24px;
 
 	@include md {
-		margin-top: 24px; // на телефоне отступ между описанием и блоком действий
+		margin-top: 20px; // на телефоне отступ между описанием и блоком действий
 	}
 }
 
