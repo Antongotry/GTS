@@ -330,6 +330,8 @@
 	.occasions-block .why-us-heading {
 		display: flex;
 		flex-wrap: wrap;
+		margin-bottom: 0;
+		padding-bottom: 0;
 	}
 
 	.occasions-block .why-us-heading .why-us-heading-line {
@@ -423,6 +425,7 @@
 		min-height: 310px;
 	}
 
+	.occasions-block .why-us-item.why-us-item-1 .why-us-item-title,
 	.occasions-block .why-us-item.why-us-item-2 .why-us-item-title,
 	.occasions-block .why-us-item-3 .why-us-item-title,
 	.occasions-block .why-us-item-4 .why-us-item-title,
