@@ -9126,7 +9126,7 @@ main#primary > section.hero-block > .hero-container {
   .occasions-block .why-us-heading {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 0 !important;
+    margin-bottom: 10px !important;
     padding-bottom: 0;
   }
   .occasions-block .why-us-heading .why-us-heading-line {
@@ -9144,6 +9144,9 @@ main#primary > section.hero-block > .hero-container {
     order: 3;
     margin-top: 0.5em;
     margin-bottom: 0;
+  }
+  .occasions-block .why-us-heading .occasions-footer-text-mobile.occasions-footer-text--hidden {
+    display: none !important;
   }
   .occasions-block .why-us-item-6.occasions-footer-item {
     display: none;

@@ -330,7 +330,7 @@
 	.occasions-block .why-us-heading {
 		display: flex;
 		flex-wrap: wrap;
-		margin-bottom: 0 !important;
+		margin-bottom: 10px !important; // небольшой отступ перед grid на телефоне
 		padding-bottom: 0;
 	}
 
@@ -351,6 +351,11 @@
 		order: 3;
 		margin-top: 0.5em;
 		margin-bottom: 0;
+	}
+
+	// Если мобильный footer-текст выключен, полностью убираем из потока (иначе оставляет "пустую" высоту).
+	.occasions-block .why-us-heading .occasions-footer-text-mobile.occasions-footer-text--hidden {
+		display: none !important;
 	}
 
 	// Hide original footer block on mobile (text is in heading)
