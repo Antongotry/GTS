@@ -8827,6 +8827,7 @@ main#primary > section.hero-block > .hero-container {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto auto auto;
   gap: 20px;
+  margin-top: 8px;
 }
 @media (max-width: 1024px) {
   .occasions-block .why-us-grid {

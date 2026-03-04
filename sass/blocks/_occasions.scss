@@ -28,6 +28,7 @@
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: auto auto auto;
 	gap: $spacing-lg;
+	margin-top: 8px; // небольшой отступ от heading
 
 	@include lg {
 		grid-template-columns: repeat(4, 1fr);
