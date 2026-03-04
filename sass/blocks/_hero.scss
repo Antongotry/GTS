@@ -700,10 +700,8 @@ main#primary > section.hero-block > .hero-container {
 			}
 		}
 
-		// Скрыть placeholder когда поле заполнено
-		// НЕ скрываем при focus на мобильных - там браузер сам управляет
-		input[type="datetime-local"]:not(:invalid):not(:placeholder-shown) ~ .datetime-placeholder,
-		input[type="datetime-local"]:valid ~ .datetime-placeholder,
+		// Скрыть placeholder только когда есть реальное значение (класс .has-value ставит JS).
+		// Не используем :valid/:placeholder-shown для datetime-local, т.к. браузеры обрабатывают их нестабильно.
 		input[type="datetime-local"].has-value ~ .datetime-placeholder {
 			opacity: 0 !important;
 			display: none !important;

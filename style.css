@@ -7200,8 +7200,6 @@ main#primary > section.hero-block > .hero-container {
   cursor: pointer !important;
   pointer-events: auto !important;
 }
-.form-group.form-group-datetime input[type=datetime-local]:not(:invalid):not(:placeholder-shown) ~ .datetime-placeholder,
-.form-group.form-group-datetime input[type=datetime-local]:valid ~ .datetime-placeholder,
 .form-group.form-group-datetime input[type=datetime-local].has-value ~ .datetime-placeholder {
   opacity: 0 !important;
   display: none !important;
