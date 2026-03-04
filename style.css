@@ -9979,6 +9979,10 @@ main#primary > section.hero-block > .hero-container {
   }
 }
 
+.services-card--hidden {
+  display: none;
+}
+
 .services-card-content {
   flex: 1;
   padding: 24px;
