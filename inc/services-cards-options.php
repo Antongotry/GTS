@@ -156,7 +156,16 @@ function gts_get_global_services_cards() {
 
 		$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
 		$description = isset( $row['description'] ) ? trim( (string) $row['description'] ) : '';
-		$image = isset( $row['image'] ) ? trim( (string) $row['image'] ) : '';
+		$image_raw = isset( $row['image'] ) ? $row['image'] : '';
+		$image = '';
+		if ( is_numeric( $image_raw ) ) {
+			$image_id = (int) $image_raw;
+			$image = $image_id > 0 ? (string) wp_get_attachment_url( $image_id ) : '';
+		} elseif ( is_array( $image_raw ) && ! empty( $image_raw['url'] ) ) {
+			$image = trim( (string) $image_raw['url'] );
+		} else {
+			$image = trim( (string) $image_raw );
+		}
 		$url = isset( $row['url'] ) ? trim( (string) $row['url'] ) : '';
 
 		if ( '' === $title || '' === $description || '' === $image || '' === $url ) {
@@ -292,6 +301,70 @@ function gts_seed_services_cards_options() {
 		return;
 	}
 
-	update_field( 'gts_global_services_cards', $defaults, 'option' );
+	$seed_rows = array();
+	foreach ( $defaults as $card ) {
+		if ( ! is_array( $card ) ) {
+			continue;
+		}
+
+		$image_url = isset( $card['image'] ) ? trim( (string) $card['image'] ) : '';
+		$image_id  = $image_url !== '' ? (int) attachment_url_to_postid( $image_url ) : 0;
+
+		$seed_rows[] = array(
+			'title'       => isset( $card['title'] ) ? (string) $card['title'] : '',
+			'description' => isset( $card['description'] ) ? (string) $card['description'] : '',
+			'url'         => isset( $card['url'] ) ? (string) $card['url'] : '',
+			'image'       => $image_id > 0 ? $image_id : $image_url,
+		);
+	}
+
+	update_field( 'gts_global_services_cards', $seed_rows, 'option' );
 }
 add_action( 'acf/init', 'gts_seed_services_cards_options', 30 );
+
+/**
+ * Upgrade existing cards image values from URL to attachment ID when possible.
+ */
+function gts_upgrade_services_cards_images_to_ids() {
+	if ( ! function_exists( 'get_field' ) || ! function_exists( 'update_field' ) ) {
+		return;
+	}
+
+	$rows = get_field( 'gts_global_services_cards', 'option' );
+	if ( ! is_array( $rows ) || empty( $rows ) ) {
+		return;
+	}
+
+	$changed = false;
+	foreach ( $rows as $index => $row ) {
+		if ( ! is_array( $row ) || ! isset( $row['image'] ) ) {
+			continue;
+		}
+
+		if ( is_numeric( $row['image'] ) ) {
+			continue;
+		}
+
+		$image_url = '';
+		if ( is_array( $row['image'] ) && ! empty( $row['image']['url'] ) ) {
+			$image_url = trim( (string) $row['image']['url'] );
+		} else {
+			$image_url = trim( (string) $row['image'] );
+		}
+
+		if ( '' === $image_url ) {
+			continue;
+		}
+
+		$image_id = (int) attachment_url_to_postid( $image_url );
+		if ( $image_id > 0 ) {
+			$rows[ $index ]['image'] = $image_id;
+			$changed = true;
+		}
+	}
+
+	if ( $changed ) {
+		update_field( 'gts_global_services_cards', $rows, 'option' );
+	}
+}
+add_action( 'acf/init', 'gts_upgrade_services_cards_images_to_ids', 40 );
