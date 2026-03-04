@@ -117,7 +117,7 @@ $total_services  = count( $services );
 		</div>
 
 		<?php if ( $total_services > $initial_visible ) : ?>
-			<a href="#" class="services-show-more">Show more services</a>
+			<button type="button" class="services-show-more">Show more services</button>
 		<?php endif; ?>
 	</div>
 </section>

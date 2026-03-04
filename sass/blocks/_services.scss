@@ -220,6 +220,10 @@
 	text-underline-offset: 4px; // 4px offset before underline
 	margin-top: 40px;
 	display: inline-block;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
 	transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
 }
 

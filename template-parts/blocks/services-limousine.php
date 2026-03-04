@@ -160,7 +160,7 @@ $total_services  = count( $services );
 		</div>
 
 		<?php if ( $total_services > $initial_visible ) : ?>
-			<a href="#" class="services-show-more"><?php echo esc_html__( 'Show more services', 'gts-theme' ); ?></a>
+			<button type="button" class="services-show-more"><?php echo esc_html__( 'Show more services', 'gts-theme' ); ?></button>
 		<?php endif; ?>
 	</div>
 </section>
