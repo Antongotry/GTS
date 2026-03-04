@@ -1285,6 +1285,7 @@ require get_template_directory() . '/inc/acf-fields-service.php';
 require get_template_directory() . '/inc/acf-fields-pages.php';
 require get_template_directory() . '/inc/page-service-blocks.php';
 require get_template_directory() . '/inc/service-defaults.php';
+require get_template_directory() . '/inc/services-cards-options.php';
 require get_template_directory() . '/inc/calculator-options.php';
 require get_template_directory() . '/inc/calculator-seed-data.php';
 require get_template_directory() . '/inc/calculator-ajax.php';
