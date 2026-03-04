@@ -349,4 +349,44 @@
 	.single-service .why-us-item-description br {
 		display: none;
 	}
+
+	// Service pages mobile hardening:
+	// prevent grid tracks from expanding when text is long.
+	.single-service .why-us-container,
+	.page-template-page-limousine-service .why-us-container,
+	.page-template-page-city-to-city .why-us-container {
+		width: 100%;
+		max-width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+		box-sizing: border-box;
+	}
+
+	.single-service .why-us-grid,
+	.page-template-page-limousine-service .why-us-grid,
+	.page-template-page-city-to-city .why-us-grid {
+		width: 100%;
+		max-width: 100%;
+		min-width: 0;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	}
+
+	.single-service .why-us-item,
+	.page-template-page-limousine-service .why-us-item,
+	.page-template-page-city-to-city .why-us-item {
+		min-width: 0;
+		max-width: 100%;
+		overflow: hidden;
+	}
+
+	.single-service .why-us-item-title,
+	.single-service .why-us-item-description,
+	.page-template-page-limousine-service .why-us-item-title,
+	.page-template-page-limousine-service .why-us-item-description,
+	.page-template-page-city-to-city .why-us-item-title,
+	.page-template-page-city-to-city .why-us-item-description {
+		max-width: 100%;
+		overflow-wrap: break-word;
+		word-break: normal;
+	}
 }
