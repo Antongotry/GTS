@@ -8246,9 +8246,10 @@ main#primary > section.hero-block > .hero-container {
   .why-us-item-description {
     text-wrap: pretty;
   }
-  .single-service .why-us-item-title br,
-  .single-service .why-us-item-description br {
-    display: none;
+  .single-service .why-us-item-6 .why-us-item-description,
+  .page-template-page-limousine-service .why-us-item-6 .why-us-item-description,
+  .page-template-page-city-to-city .why-us-item-6 .why-us-item-description {
+    max-width: 250px;
   }
   .single-service .why-us-container,
   .page-template-page-limousine-service .why-us-container,

@@ -344,10 +344,11 @@
 		text-wrap: pretty;
 	}
 
-	// Single-service cards: avoid forced line-break artifacts on narrow phones.
-	.single-service .why-us-item-title br,
-	.single-service .why-us-item-description br {
-		display: none;
+	// Item-6 on service pages: keep description compact and readable on mobile.
+	.single-service .why-us-item-6 .why-us-item-description,
+	.page-template-page-limousine-service .why-us-item-6 .why-us-item-description,
+	.page-template-page-city-to-city .why-us-item-6 .why-us-item-description {
+		max-width: 250px;
 	}
 
 	// Service pages mobile hardening:
