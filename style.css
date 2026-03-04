@@ -10011,6 +10011,11 @@ main#primary > section.hero-block > .hero-container {
     min-width: 0;
   }
 }
+@media (max-width: 768px) {
+  .services-card-content {
+    justify-content: flex-start;
+  }
+}
 
 .services-card-title {
   font-family: "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -10049,6 +10054,8 @@ main#primary > section.hero-block > .hero-container {
 @media (max-width: 768px) {
   .services-card-description {
     font-size: 12px;
+    margin-top: auto;
+    margin-bottom: 8px;
   }
 }
 

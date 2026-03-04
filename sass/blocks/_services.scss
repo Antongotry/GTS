@@ -132,6 +132,10 @@
 		flex: 1 1 auto; // Занимает оставшееся пространство
 		min-width: 0;
 	}
+
+	@include md {
+		justify-content: flex-start; // title stays at top, text+link pack at bottom
+	}
 }
 
 .services-card-title {
@@ -167,6 +171,8 @@
 
 	@include md {
 		font-size: 12px;
+		margin-top: auto;
+		margin-bottom: 8px;
 	}
 }
 
