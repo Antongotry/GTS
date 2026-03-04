@@ -204,86 +204,36 @@ function gts_get_language_switcher_items() {
 		return '';
 	};
 
-	// WPML support (primary multilingual plugin in this project).
-	if ( function_exists( 'icl_get_languages' ) ) {
-		$wpml_languages = icl_get_languages( 'skip_missing=0&orderby=code' );
-		if ( is_array( $wpml_languages ) && ! empty( $wpml_languages ) ) {
-			$items_by_slug = array();
-
-			foreach ( $wpml_languages as $lang_key => $language ) {
-				if ( ! is_array( $language ) ) {
-					continue;
-				}
-
-				$slug = '';
-				$candidates = array(
-					$lang_key,
-					$language['language_code'] ?? '',
-					$language['code'] ?? '',
-					$language['default_locale'] ?? '',
-					$language['tag'] ?? '',
-				);
-
-				foreach ( $candidates as $candidate ) {
-					$slug = $resolve_supported_slug( (string) $candidate );
-					if ( '' !== $slug ) {
-						break;
-					}
-				}
-
-				if ( '' === $slug && ! empty( $language['url'] ) ) {
-					$lang_path = (string) parse_url( (string) $language['url'], PHP_URL_PATH );
-					$lang_path = trim( $lang_path, '/' );
-					$first_seg = $lang_path !== '' ? explode( '/', $lang_path )[0] : '';
-					$slug      = $resolve_supported_slug( $first_seg );
-				}
-
-				if ( '' === $slug || ! in_array( $slug, $order, true ) ) {
-					continue;
-				}
-
-				$items_by_slug[ $slug ] = array(
-					'slug'    => $slug,
-					'code'    => strtoupper( $slug ),
-					'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-					// Keep WPML-provided switch URL untouched; it carries plugin-specific routing/cookie behavior.
-					'url'     => ! empty( $language['url'] ) ? (string) $language['url'] : $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
-					'current' => ! empty( $language['active'] ),
-				);
-			}
-
-			if ( ! empty( $items_by_slug ) ) {
-				$wpml_current = apply_filters( 'wpml_current_language', null );
-				$active_slug  = $resolve_supported_slug( (string) $wpml_current );
-				if ( '' === $active_slug || ! in_array( $active_slug, $order, true ) ) {
-					foreach ( $items_by_slug as $candidate_slug => $candidate_item ) {
-						if ( ! empty( $candidate_item['current'] ) ) {
-							$active_slug = $candidate_slug;
-							break;
-						}
-					}
-				}
-				if ( '' === $active_slug || ! in_array( $active_slug, $order, true ) ) {
-					$active_slug = $current_slug;
-				}
-
-				foreach ( $order as $slug ) {
-					if ( ! isset( $items_by_slug[ $slug ] ) ) {
-						$items_by_slug[ $slug ] = array(
-							'slug'    => $slug,
-							'code'    => strtoupper( $slug ),
-							'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-							'url'     => $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
-							'current' => false,
-						);
-					}
-					$items_by_slug[ $slug ]['current'] = ( $slug === $active_slug );
-					$items[]                           = $items_by_slug[ $slug ];
-				}
-
-				return $items;
-			}
+	// WPML support: generate canonical links per language to avoid duplicated slugs.
+	if ( function_exists( 'icl_object_id' ) || has_filter( 'wpml_current_language' ) ) {
+		$wpml_current = apply_filters( 'wpml_current_language', null );
+		$active_slug  = $resolve_supported_slug( (string) $wpml_current );
+		if ( '' === $active_slug || ! in_array( $active_slug, $order, true ) ) {
+			$active_slug = $current_slug;
 		}
+
+		$current_clean_url = $path_without_lang !== '' ? home_url( '/' . $path_without_lang . '/' ) : home_url( '/' );
+		$current_clean_url .= $query_suffix;
+
+		foreach ( $order as $slug ) {
+			$raw_url = $fallback_url_for_slug( $slug );
+			if ( has_filter( 'wpml_permalink' ) ) {
+				$wpml_url = apply_filters( 'wpml_permalink', $current_clean_url, $slug, true );
+				if ( is_string( $wpml_url ) && '' !== trim( $wpml_url ) ) {
+					$raw_url = $wpml_url;
+				}
+			}
+
+			$items[] = array(
+				'slug'    => $slug,
+				'code'    => strtoupper( $slug ),
+				'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+				'url'     => $normalize_language_url( $raw_url, $slug ),
+				'current' => $slug === $active_slug,
+			);
+		}
+
+		return $items;
 	}
 
 	if ( function_exists( 'pll_the_languages' ) ) {
