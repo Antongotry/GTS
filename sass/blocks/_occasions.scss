@@ -446,8 +446,9 @@
 	}
 
 	.occasions-block .why-us-item .why-us-item-description {
-		overflow-wrap: anywhere;
-		word-break: break-word;
-		hyphens: auto;
+		word-break: normal;
+		overflow-wrap: normal;
+		hyphens: none;
+		text-wrap: pretty;
 	}
 }

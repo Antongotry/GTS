@@ -329,8 +329,18 @@
 	.why-us-item-title,
 	.why-us-item-description {
 		white-space: normal;
-		overflow-wrap: anywhere;
-		word-break: break-word;
-		hyphens: auto;
+		word-break: normal;
+		overflow-wrap: normal;
+		hyphens: none;
+	}
+
+	.why-us-item-title {
+		// Better visual wrapping in short card titles, avoid single-word orphan lines.
+		text-wrap: balance;
+	}
+
+	.why-us-item-description {
+		// Preserve full-word wrapping and improve line endings on mobile.
+		text-wrap: pretty;
 	}
 }

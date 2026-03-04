@@ -8203,9 +8203,15 @@ main#primary > section.hero-block > .hero-container {
   .why-us-item-title,
   .why-us-item-description {
     white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    hyphens: auto;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+  .why-us-item-title {
+    text-wrap: balance;
+  }
+  .why-us-item-description {
+    text-wrap: pretty;
   }
 }
 /**
@@ -9280,9 +9286,10 @@ main#primary > section.hero-block > .hero-container {
     margin-bottom: 8px;
   }
   .occasions-block .why-us-item .why-us-item-description {
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    hyphens: auto;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    text-wrap: pretty;
   }
 }
 /**
