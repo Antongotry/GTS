@@ -101,11 +101,6 @@
 			$gts_footer_email   = $gts_footer_email ? $gts_footer_email : 'info@global-travelsolutions.com';
 			$gts_footer_wa      = get_option( 'gts_whatsapp_number', '491702841810' );
 			$gts_footer_wa      = $gts_footer_wa ? $gts_footer_wa : '491702841810';
-			$gts_channels       = function_exists( 'gts_get_contact_channels' ) ? gts_get_contact_channels() : array();
-			$gts_facebook_url   = ! empty( $gts_channels['facebook'] ) ? $gts_channels['facebook'] : '#';
-			$gts_instagram_url  = ! empty( $gts_channels['instagram'] ) ? $gts_channels['instagram'] : '#';
-			$gts_telegram_url   = ! empty( $gts_channels['telegram'] ) ? $gts_channels['telegram'] : '#';
-			$gts_viber_url      = ! empty( $gts_channels['viber'] ) ? $gts_channels['viber'] : '#';
 			?>
 			<div class="footer-phone">
 				<a href="tel:<?php echo esc_attr( $gts_footer_tel ); ?>"><?php echo esc_html( $gts_footer_phone ); ?></a>
@@ -113,20 +108,11 @@
 			<div class="footer-social">
 				<h4 class="footer-social-title">Social networks:</h4>
 				<div class="footer-social-icons">
-					<a href="<?php echo esc_url( $gts_telegram_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="footer-social-icon" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/telegram.svg'); ?>" alt="Telegram" width="25" height="25">
-					</a>
-					<a href="<?php echo esc_url( $gts_viber_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="footer-social-icon" aria-label="Viber" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/viber.svg'); ?>" alt="Viber" width="25" height="25">
+					<a href="tel:<?php echo esc_attr( $gts_footer_tel ); ?>" class="footer-social-icon" aria-label="Phone">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/phone-icon.svg' ); ?>" alt="Phone" width="25" height="25">
 					</a>
 					<a href="https://wa.me/<?php echo esc_attr( $gts_footer_wa ); ?>" class="footer-social-icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
 						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2'); ?>" alt="WhatsApp" width="25" height="25">
-					</a>
-					<a href="<?php echo esc_url( $gts_facebook_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="footer-social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/fb.svg'); ?>" alt="Facebook" width="25" height="25">
-					</a>
-					<a href="<?php echo esc_url( $gts_instagram_url, array( 'http', 'https', 'viber', 'tg' ) ); ?>" class="footer-social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/inst.svg'); ?>" alt="Instagram" width="25" height="25">
 					</a>
 				</div>
 			</div>
