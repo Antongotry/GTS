@@ -261,6 +261,9 @@ function gts_get_language_switcher_items() {
 			if ( is_array( $parsed ) && ! empty( $parsed['fragment'] ) ) {
 				$normalized .= '#' . $parsed['fragment'];
 			}
+			if ( 'en' === $slug ) {
+				$normalized = add_query_arg( 'lang', 'en', $normalized );
+			}
 
 			$item['url'] = $normalized;
 			$result[]    = $item;
@@ -414,7 +417,7 @@ function gts_language_switcher_shortcode( $atts ) {
 					</li>
 				<?php else : ?>
 					<li class="footer-language-item">
-						<a href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>"><?php echo esc_html( $item['name'] ?? '' ); ?></a>
+						<a href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>" class="notranslate" data-no-translation="1"><?php echo esc_html( $item['name'] ?? '' ); ?></a>
 					</li>
 				<?php endif; ?>
 			<?php endforeach; ?>
@@ -424,7 +427,7 @@ function gts_language_switcher_shortcode( $atts ) {
 		?>
 		<div class="mobile-menu-languages" aria-label="<?php esc_attr_e( 'Language switcher', 'gts-theme' ); ?>">
 			<?php foreach ( $languages as $item ) : ?>
-				<a href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>" class="mobile-menu-language<?php echo ! empty( $item['current'] ) ? ' is-active' : ''; ?>"<?php echo ! empty( $item['current'] ) ? ' aria-current="page"' : ''; ?>>
+				<a href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>" class="mobile-menu-language notranslate<?php echo ! empty( $item['current'] ) ? ' is-active' : ''; ?>" data-no-translation="1"<?php echo ! empty( $item['current'] ) ? ' aria-current="page"' : ''; ?>>
 					<?php echo esc_html( strtoupper( (string) ( $item['slug'] ?? '' ) ) ); ?>
 				</a>
 			<?php endforeach; ?>
@@ -442,7 +445,7 @@ function gts_language_switcher_shortcode( $atts ) {
 			<ul class="language-selector__menu" role="menu" aria-label="<?php esc_attr_e( 'Select language', 'gts-theme' ); ?>">
 				<?php foreach ( $languages as $item ) : ?>
 					<li class="language-selector__item<?php echo ! empty( $item['current'] ) ? ' is-active' : ''; ?>" role="none">
-						<a class="language-selector__option" href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>" role="menuitem" data-lang="<?php echo esc_attr( $item['code'] ?? '' ); ?>">
+						<a class="language-selector__option notranslate" href="<?php echo esc_url( $item['url'] ?? home_url( '/' ) ); ?>" role="menuitem" data-lang="<?php echo esc_attr( $item['code'] ?? '' ); ?>" data-no-translation="1">
 							<?php echo esc_html( $item['name'] ?? '' ); ?>
 						</a>
 					</li>
