@@ -2146,10 +2146,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			}
 		</style>
 		<style id="hourly-hire-fleet-lead-width">
-			.fleet-slider-block.fleet-slider-block--hourly-hire .fleet-slider-title-row {
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-between;
+			@media (min-width: 769px) {
+				.fleet-slider-block.fleet-slider-block--hourly-hire .fleet-slider-title-row {
+					flex-direction: row;
+					align-items: center;
+					justify-content: space-between;
+				}
 			}
 
 			.fleet-slider-block.fleet-slider-block--hourly-hire .fleet-slider-lead {

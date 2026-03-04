@@ -625,14 +625,20 @@
 	.fleet-slider-title-row {
 		flex-direction: column;
 		gap: $spacing-md;
+		align-items: flex-start;
+		justify-content: flex-start;
 	}
 
 	.fleet-slider-title {
 		font-size: 24px;
+		max-width: 100%;
 	}
 
 	.fleet-slider-lead {
+		font-size: 16px;
 		max-width: 100%;
+		width: 100%;
+		margin-top: 0;
 	}
 
 	.fleet-slider-wrapper .nav-arrows {
