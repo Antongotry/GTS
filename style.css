@@ -7860,6 +7860,9 @@ main#primary > section.hero-block > .hero-container {
   .single-service .service-context-text {
     font-size: 16px;
   }
+  .single-service .service-context-card--light .service-context-text br + br {
+    display: none;
+  }
   .single-service .service-context-card--wide {
     grid-column: span 1;
   }
