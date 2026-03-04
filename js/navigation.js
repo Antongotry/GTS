@@ -97,3 +97,53 @@
 		}
 	}
 }() );
+
+/**
+ * Services "Show more" fallback handler.
+ * Works with both <a href="#"> and <button> triggers.
+ */
+( function() {
+	function revealServices( block, trigger ) {
+		if ( ! block || ! trigger ) {
+			return;
+		}
+
+		const hiddenCards = block.querySelectorAll( '.services-card--hidden' );
+		if ( ! hiddenCards.length ) {
+			trigger.style.display = 'none';
+			return;
+		}
+
+		for ( const card of hiddenCards ) {
+			card.classList.remove( 'services-card--hidden' );
+		}
+
+		trigger.style.display = 'none';
+	}
+
+	document.addEventListener( 'click', function( event ) {
+		const trigger = event.target.closest( '.services-show-more' );
+		if ( ! trigger ) {
+			return;
+		}
+
+		event.preventDefault();
+		const block = trigger.closest( '.services-block' ) || document;
+		revealServices( block, trigger );
+	} );
+
+	document.addEventListener( 'DOMContentLoaded', function() {
+		const blocks = document.querySelectorAll( '.services-block' );
+		for ( const block of blocks ) {
+			const trigger = block.querySelector( '.services-show-more' );
+			if ( ! trigger ) {
+				continue;
+			}
+
+			const hasHidden = block.querySelector( '.services-card--hidden' );
+			if ( ! hasHidden ) {
+				trigger.style.display = 'none';
+			}
+		}
+	} );
+}() );
