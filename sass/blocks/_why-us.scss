@@ -343,4 +343,10 @@
 		// Preserve full-word wrapping and improve line endings on mobile.
 		text-wrap: pretty;
 	}
+
+	// Single-service cards: avoid forced line-break artifacts on narrow phones.
+	.single-service .why-us-item-title br,
+	.single-service .why-us-item-description br {
+		display: none;
+	}
 }

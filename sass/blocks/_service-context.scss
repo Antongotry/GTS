@@ -192,14 +192,22 @@
 		min-height: 220px;
 		grid-column: auto;
 		grid-row: auto;
+		padding: 16px;
 	}
 
 	.single-service .service-context-text {
-		font-size: 16px;
+		font-size: clamp(14px, 3.9vw, 16px);
+		line-height: 1.35;
+		max-width: 100%;
+		white-space: normal;
+		word-break: normal;
+		overflow-wrap: normal;
+		hyphens: none;
+		text-wrap: pretty;
 	}
 
-	// Keep short titles in light cards at two lines on narrow phones.
-	.single-service .service-context-card--light .service-context-text br + br {
+	// Remove forced desktop line breaks in mobile text cards.
+	.single-service .service-context-card--light .service-context-text br {
 		display: none;
 	}
 
@@ -209,5 +217,17 @@
 
 	.single-service .service-context-card--mobile-wide {
 		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 390px) {
+	.single-service .service-context-card {
+		padding: 14px;
+		min-height: 204px;
+	}
+
+	.single-service .service-context-text {
+		font-size: 15px;
+		line-height: 1.3;
 	}
 }
