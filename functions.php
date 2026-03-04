@@ -210,13 +210,14 @@ function gts_get_language_switcher_items() {
 		if ( is_array( $wpml_languages ) && ! empty( $wpml_languages ) ) {
 			$items_by_slug = array();
 
-			foreach ( $wpml_languages as $language ) {
+			foreach ( $wpml_languages as $lang_key => $language ) {
 				if ( ! is_array( $language ) ) {
 					continue;
 				}
 
 				$slug = '';
 				$candidates = array(
+					$lang_key,
 					$language['language_code'] ?? '',
 					$language['code'] ?? '',
 					$language['default_locale'] ?? '',
