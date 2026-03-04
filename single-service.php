@@ -3126,8 +3126,9 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 	<?php // ======================== WHY US BLOCK ========================
 	?>
+	<?php $why_us_slug_class = ' why-us-block--' . sanitize_html_class( (string) $current_service_slug ); ?>
 	<?php if (($block_enabled['why_us'] || $is_family_travel_chauffeur_service) && 'hourly-hire' !== $current_service_slug && ! $is_corporate_events_chauffeur_service && ! $is_private_tours_service && ! $is_travel_agencies_service) : ?>
-		<section class="why-us-block" style="padding-bottom: clamp(56px, 8vw, 120px);">
+		<section class="why-us-block<?php echo esc_attr( $why_us_slug_class ); ?>" style="padding-bottom: clamp(56px, 8vw, 120px);">
 			<div class="why-us-container">
 				<div class="why-us-heading">
 					<div class="why-us-heading-pill">
@@ -3170,7 +3171,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php endif; ?>
 
 	<?php if ($block_enabled['why_us'] && ($is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service)) : ?>
-		<section class="why-us-block<?php echo $is_travel_agencies_service ? ' why-us-block--travel-agencies-gap' : ''; ?>">
+		<section class="why-us-block<?php echo esc_attr( $why_us_slug_class ); ?><?php echo $is_travel_agencies_service ? ' why-us-block--travel-agencies-gap' : ''; ?>">
 			<div class="why-us-container">
 				<div class="why-us-heading">
 					<div class="why-us-heading-pill">
@@ -3213,7 +3214,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php endif; ?>
 
 	<?php if ($block_enabled['why_us'] && 'hourly-hire' === $current_service_slug) : ?>
-		<section class="why-us-block why-us-block--hourly-hire-gap">
+		<section class="why-us-block<?php echo esc_attr( $why_us_slug_class ); ?> why-us-block--hourly-hire-gap">
 			<div class="why-us-container">
 				<div class="why-us-heading">
 					<div class="why-us-heading-pill">
