@@ -319,4 +319,18 @@
 	.why-us-item-description {
 		font-size: 14px;
 	}
+
+	// Phone only: ignore hardcoded line breaks in card texts so wrapping is natural.
+	.why-us-item-title br,
+	.why-us-item-description br {
+		display: none;
+	}
+
+	.why-us-item-title,
+	.why-us-item-description {
+		white-space: normal;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+		hyphens: auto;
+	}
 }

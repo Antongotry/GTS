@@ -8143,6 +8143,17 @@ main#primary > section.hero-block > .hero-container {
   .why-us-item-description {
     font-size: 14px;
   }
+  .why-us-item-title br,
+  .why-us-item-description br {
+    display: none;
+  }
+  .why-us-item-title,
+  .why-us-item-description {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
 }
 /**
  * Fleet Slider Block Styles
