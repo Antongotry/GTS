@@ -9160,6 +9160,7 @@ main#primary > section.hero-block > .hero-container {
     grid-template-rows: auto;
     gap: 5px;
     grid-auto-flow: row;
+    margin-top: 16px !important;
   }
   .occasions-block .why-us-item.why-us-item-2 {
     grid-column: 1;
