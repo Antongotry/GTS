@@ -9979,6 +9979,10 @@ main#primary > section.hero-block > .hero-container {
   }
 }
 
+.services-card--clickable {
+  cursor: pointer;
+}
+
 .services-card--hidden {
   display: none;
 }

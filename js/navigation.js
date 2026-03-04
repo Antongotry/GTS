@@ -99,6 +99,57 @@
 }() );
 
 /**
+ * Services cards: open service page when clicking the whole card.
+ */
+( function() {
+	function getCardUrl( card ) {
+		if ( ! card ) {
+			return '';
+		}
+		const direct = card.getAttribute( 'data-url' );
+		if ( direct ) {
+			return direct;
+		}
+		const link = card.querySelector( '.services-card-link' );
+		return link ? link.getAttribute( 'href' ) : '';
+	}
+
+	document.addEventListener( 'click', function( event ) {
+		const card = event.target.closest( '.services-card--clickable' );
+		if ( ! card ) {
+			return;
+		}
+
+		// Respect clicks on interactive elements inside the card.
+		if ( event.target.closest( 'a, button, input, textarea, select, label' ) ) {
+			return;
+		}
+
+		const url = getCardUrl( card );
+		if ( url ) {
+			window.location.href = url;
+		}
+	} );
+
+	document.addEventListener( 'keydown', function( event ) {
+		const card = event.target.closest( '.services-card--clickable' );
+		if ( ! card ) {
+			return;
+		}
+
+		if ( event.key !== 'Enter' && event.key !== ' ' ) {
+			return;
+		}
+
+		event.preventDefault();
+		const url = getCardUrl( card );
+		if ( url ) {
+			window.location.href = url;
+		}
+	} );
+}() );
+
+/**
  * Services "Show more" fallback handler.
  * Works with both <a href="#"> and <button> triggers.
  */

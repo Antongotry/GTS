@@ -144,7 +144,7 @@ $total_services  = count( $services );
 		<div class="services-grid">
 			<?php foreach ( $services as $index => $service ) : ?>
 				<?php $hidden_class = $index >= $initial_visible ? ' services-card--hidden' : ''; ?>
-				<div class="services-card<?php echo esc_attr( $hidden_class ); ?>">
+				<div class="services-card services-card--clickable<?php echo esc_attr( $hidden_class ); ?>" data-url="<?php echo esc_url( $service['url'] ); ?>" role="link" tabindex="0" aria-label="<?php echo esc_attr( $service['title'] ); ?>">
 					<div class="services-card-content">
 						<h3 class="services-card-title"><?php echo esc_html( $service['title'] ); ?></h3>
 						<p class="services-card-description"><?php echo esc_html( $service['description'] ); ?></p>
