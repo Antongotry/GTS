@@ -113,40 +113,31 @@ function gts_get_contact_channels() {
  * @return string
  */
 function gts_get_unlocalized_home_url() {
+	$scheme = is_ssl() ? 'https' : 'http';
+	if ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$forwarded = explode( ',', (string) $_SERVER['HTTP_X_FORWARDED_PROTO'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$forwarded = strtolower( trim( (string) $forwarded[0] ) );
+		if ( in_array( $forwarded, array( 'http', 'https' ), true ) ) {
+			$scheme = $forwarded;
+		}
+	}
+
+	$host = '';
+	if ( ! empty( $_SERVER['HTTP_HOST'] ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$host = (string) $_SERVER['HTTP_HOST']; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	}
+
+	if ( '' !== $host ) {
+		$host = preg_replace( '/:\d+$/', '', $host );
+		return untrailingslashit( $scheme . '://' . $host );
+	}
+
 	$home = (string) get_option( 'home', '' );
 	if ( '' === $home ) {
 		$home = home_url( '/' );
 	}
 
-	$parsed = wp_parse_url( $home );
-	if ( ! is_array( $parsed ) ) {
-		return untrailingslashit( $home );
-	}
-
-	$scheme = ! empty( $parsed['scheme'] ) ? $parsed['scheme'] : ( is_ssl() ? 'https' : 'http' );
-	$host   = ! empty( $parsed['host'] ) ? $parsed['host'] : ( $_SERVER['HTTP_HOST'] ?? '' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-	$port   = ! empty( $parsed['port'] ) ? ':' . (string) $parsed['port'] : '';
-	$path   = ! empty( $parsed['path'] ) ? trim( (string) $parsed['path'], '/' ) : '';
-
-	$supported_langs = array( 'en', 'fr', 'de', 'it', 'es', 'zh' );
-	if ( '' !== $path ) {
-		$segments = explode( '/', $path );
-		if ( ! empty( $segments[0] ) && in_array( strtolower( (string) $segments[0] ), $supported_langs, true ) ) {
-			array_shift( $segments );
-			$path = implode( '/', $segments );
-		}
-	}
-
-	if ( '' === $host ) {
-		return untrailingslashit( $home );
-	}
-
-	$base = $scheme . '://' . $host . $port;
-	if ( '' !== $path ) {
-		$base .= '/' . $path;
-	}
-
-	return untrailingslashit( $base );
+	return untrailingslashit( $home );
 }
 
 /**
