@@ -2128,8 +2128,16 @@ body.mobile-menu-open {
 }
 @media (max-width: 1024px) {
   .site-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
     margin-right: auto;
     margin-left: 16px;
+  }
+  .site-logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 }
 @media (max-width: 768px) {
@@ -6088,8 +6096,16 @@ a.phone-button:focus,
 }
 @media (max-width: 1024px) {
   .site-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
     margin-right: auto;
     margin-left: 16px;
+  }
+  .site-logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 }
 @media (max-width: 768px) {

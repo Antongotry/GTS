@@ -118,8 +118,17 @@
 	}
 
 	@include lg {
+		display: flex;
+		align-items: center;
+		height: 100%;
 		margin-right: auto;
 		margin-left: 16px;
+
+		a {
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
 	}
 
 	@include md {
