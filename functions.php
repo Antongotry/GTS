@@ -937,6 +937,7 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-mobile-final-cta-br-fix', get_template_directory_uri() . '/js/mobile-final-cta-br-fix.js', array(), $version, true);
 	wp_enqueue_script('gts-mobile-service-context-br-fix', get_template_directory_uri() . '/js/mobile-service-context-br-fix.js', array(), $version, true);
 	wp_enqueue_script('gts-mobile-fleet-slider-lead-br-fix', get_template_directory_uri() . '/js/mobile-fleet-slider-lead-br-fix.js', array(), $version, true);
+	wp_enqueue_script('gts-mobile-global-small-text-br-fix', get_template_directory_uri() . '/js/mobile-global-small-text-br-fix.js', array(), $version, true);
 	wp_enqueue_script('gts-services-show-more', get_template_directory_uri() . '/js/services-show-more.js', array(), $version, true);
 	wp_enqueue_script('gts-booking-form-validation', get_template_directory_uri() . '/js/booking-form-validation.js', array(), $version, true);
 	wp_enqueue_script('gts-booking-form-submit', get_template_directory_uri() . '/js/booking-form-submit.js', array(), $version, true);
