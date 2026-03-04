@@ -124,6 +124,25 @@ function gts_get_language_switcher_items() {
 		'zh' => 'Chinese',
 	);
 	$items = array();
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
+	$path        = (string) parse_url( $request_uri, PHP_URL_PATH );
+	$path        = trim( $path, '/' );
+	$segments    = $path !== '' ? explode( '/', $path ) : array();
+	$query       = (string) parse_url( $request_uri, PHP_URL_QUERY );
+	$query_suffix = $query !== '' ? '?' . $query : '';
+
+	$current_slug = 'en';
+	$detected_slug = false;
+	while ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
+		if ( false === $detected_slug ) {
+			$detected_slug = $segments[0];
+		}
+		array_shift( $segments );
+	}
+	if ( false !== $detected_slug ) {
+		$current_slug = $detected_slug;
+	}
+	$path_without_lang = implode( '/', $segments );
 
 	$normalize_language_url = static function( $raw_url, $target_slug ) use ( $order ) {
 		$raw_url = is_string( $raw_url ) ? $raw_url : '';
@@ -156,6 +175,15 @@ function gts_get_language_switcher_items() {
 		return $normalized;
 	};
 
+	$fallback_url_for_slug = static function( $slug ) use ( $path_without_lang, $query_suffix ) {
+		$lang_path = $path_without_lang;
+		if ( 'en' !== $slug ) {
+			$lang_path = $lang_path !== '' ? $slug . '/' . $lang_path : $slug;
+		}
+		$url = $lang_path !== '' ? home_url( '/' . $lang_path . '/' ) : home_url( '/' );
+		return $url . $query_suffix;
+	};
+
 	if ( function_exists( 'pll_the_languages' ) ) {
 		$pll_languages = pll_the_languages(
 			array(
@@ -166,62 +194,53 @@ function gts_get_language_switcher_items() {
 		);
 
 		if ( is_array( $pll_languages ) && ! empty( $pll_languages ) ) {
-			foreach ( $order as $slug ) {
-				foreach ( $pll_languages as $language ) {
-					if ( empty( $language['slug'] ) || $language['slug'] !== $slug ) {
-						continue;
-					}
-
-					$items[] = array(
-						'slug'    => $slug,
-						'code'    => strtoupper( $slug ),
-						'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-						'url'     => $normalize_language_url( ! empty( $language['url'] ) ? (string) $language['url'] : home_url( '/' ), $slug ),
-						'current' => ! empty( $language['current_lang'] ),
-					);
-					break;
+			$items_by_slug = array();
+			foreach ( $pll_languages as $language ) {
+				$slug = ! empty( $language['slug'] ) ? sanitize_key( (string) $language['slug'] ) : '';
+				if ( '' === $slug || ! in_array( $slug, $order, true ) ) {
+					continue;
 				}
+
+				$items_by_slug[ $slug ] = array(
+					'slug'    => $slug,
+					'code'    => strtoupper( $slug ),
+					'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+					'url'     => $normalize_language_url(
+						! empty( $language['url'] ) ? (string) $language['url'] : $fallback_url_for_slug( $slug ),
+						$slug
+					),
+					'current' => false,
+				);
 			}
 
-			if ( ! empty( $items ) ) {
+			if ( ! empty( $items_by_slug ) ) {
+				$pll_current = function_exists( 'pll_current_language' ) ? sanitize_key( (string) pll_current_language( 'slug' ) ) : '';
+				$active_slug = in_array( $pll_current, $order, true ) ? $pll_current : $current_slug;
+
+				foreach ( $order as $slug ) {
+					if ( ! isset( $items_by_slug[ $slug ] ) ) {
+						$items_by_slug[ $slug ] = array(
+							'slug'    => $slug,
+							'code'    => strtoupper( $slug ),
+							'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+							'url'     => $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
+							'current' => false,
+						);
+					}
+					$items_by_slug[ $slug ]['current'] = ( $slug === $active_slug );
+					$items[] = $items_by_slug[ $slug ];
+				}
 				return $items;
 			}
 		}
 	}
 
-	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
-	$path        = (string) parse_url( $request_uri, PHP_URL_PATH );
-	$path        = trim( $path, '/' );
-	$segments    = $path !== '' ? explode( '/', $path ) : array();
-
-	$current_slug = 'en';
-	$detected_slug = false;
-	while ( ! empty( $segments[0] ) && in_array( $segments[0], $order, true ) ) {
-		if ( false === $detected_slug ) {
-			$detected_slug = $segments[0];
-		}
-		array_shift( $segments );
-	}
-	if ( false !== $detected_slug ) {
-		$current_slug = $detected_slug;
-	}
-
-	$path_without_lang = implode( '/', $segments );
-	$query             = (string) parse_url( $request_uri, PHP_URL_QUERY );
-	$query_suffix      = $query !== '' ? '?' . $query : '';
-
 	foreach ( $order as $slug ) {
-		$lang_path = $path_without_lang;
-		if ( 'en' !== $slug ) {
-			$lang_path = $lang_path !== '' ? $slug . '/' . $lang_path : $slug;
-		}
-
-		$url = $lang_path !== '' ? home_url( '/' . $lang_path . '/' ) : home_url( '/' );
 		$items[] = array(
 			'slug'    => $slug,
 			'code'    => strtoupper( $slug ),
 			'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-			'url'     => $normalize_language_url( $url . $query_suffix, $slug ),
+			'url'     => $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
 			'current' => $slug === $current_slug,
 		);
 	}
