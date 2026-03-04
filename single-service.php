@@ -2119,7 +2119,10 @@ $bottom_text = isset($blocks_data['bottom_text']) ? $blocks_data['bottom_text'] 
 $has_bottom_text_block = isset($blocks_data['bottom_text']);
 $bottom_text_title = ! empty($bottom_text['title']) ? $bottom_text['title'] : '';
 $bottom_text_description = ! empty($bottom_text['description']) ? $bottom_text['description'] : '';
+$bottom_text_preview_description = ! empty($bottom_text['preview_description']) ? $bottom_text['preview_description'] : '';
+$bottom_text_enable_toggle = ! isset($bottom_text['enable_toggle']) || (bool) $bottom_text['enable_toggle'];
 $bottom_text_link_text = ! empty($bottom_text['link_text']) ? $bottom_text['link_text'] : 'Read more';
+$bottom_text_collapse_text = ! empty($bottom_text['collapse_text']) ? $bottom_text['collapse_text'] : 'Show less';
 $bottom_text_link_url = ! empty($bottom_text['link_url']) ? $bottom_text['link_url'] : '#';
 
 if (empty($faq_items)) {
@@ -3312,19 +3315,45 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	</div>
 
 	<?php if ($has_bottom_text_block && $block_enabled['bottom_text']) : ?>
+		<?php
+		$full_bottom_text = trim( wp_strip_all_tags( (string) $bottom_text_description ) );
+		$preview_bottom_text = trim( wp_strip_all_tags( (string) $bottom_text_preview_description ) );
+		if ( '' === $preview_bottom_text && '' !== $full_bottom_text ) {
+			$preview_bottom_text = wp_trim_words( $full_bottom_text, 28, '...' );
+		}
+		$has_expandable_text = $bottom_text_enable_toggle && '' !== $full_bottom_text && '' !== $preview_bottom_text && $preview_bottom_text !== $full_bottom_text;
+		$expand_label = trim( (string) $bottom_text_link_text ) !== '' ? trim( (string) $bottom_text_link_text ) : 'Read more';
+		$collapse_label = trim( (string) $bottom_text_collapse_text ) !== '' ? trim( (string) $bottom_text_collapse_text ) : 'Show less';
+		?>
 		<section class="service-bottom-text">
 			<div class="service-bottom-text__container">
 				<?php if ( ! empty( $bottom_text_title ) ) : ?>
 					<p class="service-bottom-text__title"><?php echo esc_html( $bottom_text_title ); ?></p>
 				<?php endif; ?>
 
-				<?php if ( ! empty( $bottom_text_description ) ) : ?>
-					<p class="service-bottom-text__description"><?php echo esc_html( $bottom_text_description ); ?></p>
+				<?php if ( '' !== $full_bottom_text ) : ?>
+					<p
+						class="service-bottom-text__description<?php echo $has_expandable_text ? ' service-bottom-text__description--collapsible' : ''; ?>"
+						<?php if ( $has_expandable_text ) : ?>
+							data-preview="<?php echo esc_attr( $preview_bottom_text ); ?>"
+							data-full="<?php echo esc_attr( $full_bottom_text ); ?>"
+						<?php endif; ?>
+					><?php echo esc_html( $has_expandable_text ? $preview_bottom_text : $full_bottom_text ); ?></p>
 				<?php endif; ?>
 
-				<a class="service-bottom-text__link" href="<?php echo esc_url( $bottom_text_link_url ); ?>">
-					<?php echo esc_html( $bottom_text_link_text ); ?>
-				</a>
+				<?php if ( $has_expandable_text ) : ?>
+					<button
+						type="button"
+						class="service-bottom-text__toggle"
+						aria-expanded="false"
+						data-expand-label="<?php echo esc_attr( $expand_label ); ?>"
+						data-collapse-label="<?php echo esc_attr( $collapse_label ); ?>"
+					><?php echo esc_html( $expand_label ); ?></button>
+				<?php elseif ( ! empty( $bottom_text_link_url ) && '#' !== $bottom_text_link_url ) : ?>
+					<a class="service-bottom-text__link" href="<?php echo esc_url( $bottom_text_link_url ); ?>">
+						<?php echo esc_html( $bottom_text_link_text ); ?>
+					</a>
+				<?php endif; ?>
 			</div>
 		</section>
 	<?php endif; ?>

@@ -357,7 +357,10 @@ function gts_get_default_service_blocks()
 			'enabled'       => false,
 			'title'         => '',
 			'description'   => '',
+			'enable_toggle' => true,
+			'preview_description' => '',
 			'link_text'     => 'Read more',
+			'collapse_text' => 'Show less',
 			'link_url'      => '',
 		),
 	);

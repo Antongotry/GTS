@@ -10234,7 +10234,8 @@ main#primary > section.hero-block > .hero-container {
 
 .service-bottom-text__title,
 .service-bottom-text__description,
-.service-bottom-text__link {
+.service-bottom-text__link,
+.service-bottom-text__toggle {
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -10259,10 +10260,22 @@ main#primary > section.hero-block > .hero-container {
   text-underline-offset: 4px;
 }
 
+.service-bottom-text__toggle {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   .service-bottom-text__title,
   .service-bottom-text__description,
-  .service-bottom-text__link {
+  .service-bottom-text__link,
+  .service-bottom-text__toggle {
     font-size: 15px;
   }
 }
@@ -10272,7 +10285,8 @@ main#primary > section.hero-block > .hero-container {
   }
   .service-bottom-text__title,
   .service-bottom-text__description,
-  .service-bottom-text__link {
+  .service-bottom-text__link,
+  .service-bottom-text__toggle {
     font-size: 14px;
   }
   .service-bottom-text__description {

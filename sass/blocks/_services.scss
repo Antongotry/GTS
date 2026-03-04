@@ -315,6 +315,14 @@
 	text-underline-offset: 4px;
 }
 
+.service-bottom-text__toggle {
+	@extend .service-bottom-text__link;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
 @media (max-width: 1024px) {
 	.service-bottom-text__title,
 	.service-bottom-text__description,
