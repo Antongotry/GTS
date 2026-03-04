@@ -217,7 +217,8 @@ function gts_get_language_switcher_items() {
 
 		foreach ( $order as $slug ) {
 			$raw_url = $fallback_url_for_slug( $slug );
-			if ( has_filter( 'wpml_permalink' ) ) {
+			// EN must always point to canonical no-slug URL to ensure reliable switch-back.
+			if ( 'en' !== $slug && has_filter( 'wpml_permalink' ) ) {
 				$wpml_url = apply_filters( 'wpml_permalink', $current_clean_url, $slug, true );
 				if ( is_string( $wpml_url ) && '' !== trim( $wpml_url ) ) {
 					$raw_url = $wpml_url;
