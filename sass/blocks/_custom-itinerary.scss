@@ -140,6 +140,15 @@
 	}
 }
 
+// Default (non-limousine) CTA button spacing under description.
+.custom-itinerary-block:not(.custom-itinerary-block--limousine) .custom-itinerary-button {
+	margin-top: 20px;
+
+	@include md {
+		margin-top: 16px;
+	}
+}
+
 // В варианте Limousine линии уменьшаются пропорционально при сужении экрана (% от контейнера)
 .custom-itinerary-block--limousine .custom-itinerary-line--top-left,
 .custom-itinerary-block--limousine .custom-itinerary-line--top-right {

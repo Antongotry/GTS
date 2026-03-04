@@ -10250,6 +10250,15 @@ main#primary > section.hero-block > .hero-container {
   }
 }
 
+.custom-itinerary-block:not(.custom-itinerary-block--limousine) .custom-itinerary-button {
+  margin-top: 20px;
+}
+@media (max-width: 768px) {
+  .custom-itinerary-block:not(.custom-itinerary-block--limousine) .custom-itinerary-button {
+    margin-top: 16px;
+  }
+}
+
 .custom-itinerary-block--limousine .custom-itinerary-line--top-left,
 .custom-itinerary-block--limousine .custom-itinerary-line--top-right {
   width: 20%;
