@@ -388,9 +388,11 @@ function gts_language_switcher_shortcode( $atts ) {
  * Register our language-switcher shortcode late, so plugin shortcode cannot override it.
  */
 function gts_register_language_switcher_shortcode() {
+	remove_shortcode( 'language-switcher' );
 	add_shortcode( 'language-switcher', 'gts_language_switcher_shortcode' );
 }
 add_action( 'init', 'gts_register_language_switcher_shortcode', 999 );
+add_action( 'wp_loaded', 'gts_register_language_switcher_shortcode', 999 );
 
 /**
  * Redirect duplicated language prefixes to canonical URL.
@@ -448,8 +450,16 @@ function gts_normalize_language_prefix_redirect() {
 		$target .= '?' . $query;
 	}
 
-	$current_url = home_url( '/' . implode( '/', $original ) . '/' );
-	if ( untrailingslashit( $current_url ) === untrailingslashit( $target ) ) {
+	$requested_path = '/' . trim( (string) $path, '/' ) . '/';
+	if ( '/' === $requested_path ) {
+		$requested_path = '/';
+	}
+	$target_path = '/' . trim( (string) $new_path, '/' ) . '/';
+	if ( '/' === $target_path ) {
+		$target_path = '/';
+	}
+
+	if ( $requested_path === $target_path ) {
 		return;
 	}
 
