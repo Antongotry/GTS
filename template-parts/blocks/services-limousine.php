@@ -7,6 +7,42 @@
 
 $services = array(
 	array(
+		'title'       => __( 'Book a Flight', 'gts-theme' ),
+		'description' => __( 'Private aviation coordination with trusted partners worldwide. Helicopters, charter jets, or business flights – synchronized with ground transport for smooth connections.', 'gts-theme' ),
+		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-1_result.webp',
+		'url'         => home_url('/services/special-transfers/'),
+	),
+	array(
+		'title'       => __( 'City-to-City Rides', 'gts-theme' ),
+		'description' => __( 'Comfortable long-distance rides across borders and regions. Luxury vehicles, experienced chauffeurs, flexible stops – your itinerary, our responsibility.', 'gts-theme' ),
+		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-2_result.webp',
+		'url'         => home_url('/city-to-city/'),
+	),
+	array(
+		'title'       => __( 'Airport Transfers', 'gts-theme' ),
+		'description' => __( 'Meet-and-greet service, flight tracking, luggage assistance, and smooth arrivals at any airport worldwide.', 'gts-theme' ),
+		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-3_result.webp',
+		'url'         => home_url('/services/airport-transfer/'),
+	),
+	array(
+		'title'       => __( 'Hourly Hire', 'gts-theme' ),
+		'description' => __( 'Your personal driver – whenever and wherever you need. Ideal for business meetings, events or day-to-day mobility with total flexibility.', 'gts-theme' ),
+		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-4_result.webp',
+		'url'         => home_url('/services/hourly-hire/'),
+	),
+	array(
+		'title'       => __( 'Chauffeur Service', 'gts-theme' ),
+		'description' => __( 'Personal chauffeur service for executives and private clients. Discreet, multilingual, impeccably trained professionals ensuring comfort, safety, and style.', 'gts-theme' ),
+		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-5_result.webp',
+		'url'         => home_url('/services/professional-chauffeur-service/'),
+	),
+	array(
+		'title'       => __( 'Limousine Service', 'gts-theme' ),
+		'description' => __( 'Luxury sedans and limousines for high-profile travel. Ideal for official visits, ceremonies, or special occasions – elegance without compromise.', 'gts-theme' ),
+		'image'       => get_site_url() . '/wp-content/uploads/2026/01/home-5-6_result.webp',
+		'url'         => home_url('/limousine-service/'),
+	),
+	array(
 		'title'       => __( 'Luxury Wedding & Event Chauffeur Service', 'gts-theme' ),
 		'description' => __( 'From elegant bridal arrivals to seamless guest transfers — GTS ensures your celebration runs perfectly on time and in perfect style.', 'gts-theme' ),
 		'image'       => get_site_url() . '/wp-content/uploads/2026/03/servnew-1_result.webp',
