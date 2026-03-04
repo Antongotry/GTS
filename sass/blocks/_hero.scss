@@ -169,6 +169,21 @@ main#primary > section.hero-block > .hero-container {
 	}
 }
 
+// Service pages mobile fix:
+// keep hero title full-width to avoid narrow, awkward wrapping.
+@include md {
+	.single-service .hero-title,
+	.page-template-page-limousine-service .hero-title,
+	.page-template-page-city-to-city .hero-title {
+		width: 100%;
+		max-width: 100%;
+		text-wrap: balance;
+		word-break: normal;
+		overflow-wrap: normal;
+		hyphens: none;
+	}
+}
+
 // Hero title uses component from _typography.scss
 
 .hero-description {
