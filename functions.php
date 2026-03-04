@@ -108,6 +108,20 @@ function gts_get_contact_channels() {
 }
 
 /**
+ * Return unlocalized site base URL (without WPML/Polylang language prefix).
+ *
+ * @return string
+ */
+function gts_get_unlocalized_home_url() {
+	$home = (string) get_option( 'home', '' );
+	if ( '' === $home ) {
+		$home = home_url( '/' );
+	}
+
+	return untrailingslashit( $home );
+}
+
+/**
  * Build language switcher items for header/footer/mobile menu.
  * Uses Polylang when available, with fallback to fixed slug routing.
  *
@@ -130,6 +144,7 @@ function gts_get_language_switcher_items() {
 	$segments    = $path !== '' ? explode( '/', $path ) : array();
 	$query       = (string) parse_url( $request_uri, PHP_URL_QUERY );
 	$query_suffix = $query !== '' ? '?' . $query : '';
+	$base_home_url = gts_get_unlocalized_home_url();
 
 	$current_slug = 'en';
 	$detected_slug = false;
@@ -144,7 +159,7 @@ function gts_get_language_switcher_items() {
 	}
 	$path_without_lang = implode( '/', $segments );
 
-	$normalize_language_url = static function( $raw_url, $target_slug ) use ( $order ) {
+	$normalize_language_url = static function( $raw_url, $target_slug ) use ( $order, $base_home_url ) {
 		$raw_url = is_string( $raw_url ) ? $raw_url : '';
 		$parsed  = wp_parse_url( $raw_url );
 
@@ -163,7 +178,7 @@ function gts_get_language_switcher_items() {
 			$clean_path = $clean_path !== '' ? $target_slug . '/' . $clean_path : $target_slug;
 		}
 
-		$normalized = $clean_path !== '' ? home_url( '/' . $clean_path . '/' ) : home_url( '/' );
+		$normalized = $clean_path !== '' ? $base_home_url . '/' . $clean_path . '/' : $base_home_url . '/';
 
 		if ( is_array( $parsed ) && ! empty( $parsed['query'] ) ) {
 			$normalized .= '?' . $parsed['query'];
@@ -175,12 +190,12 @@ function gts_get_language_switcher_items() {
 		return $normalized;
 	};
 
-	$fallback_url_for_slug = static function( $slug ) use ( $path_without_lang, $query_suffix ) {
+	$fallback_url_for_slug = static function( $slug ) use ( $path_without_lang, $query_suffix, $base_home_url ) {
 		$lang_path = $path_without_lang;
 		if ( 'en' !== $slug ) {
 			$lang_path = $lang_path !== '' ? $slug . '/' . $lang_path : $slug;
 		}
-		$url = $lang_path !== '' ? home_url( '/' . $lang_path . '/' ) : home_url( '/' );
+		$url = $lang_path !== '' ? $base_home_url . '/' . $lang_path . '/' : $base_home_url . '/';
 		return $url . $query_suffix;
 	};
 
@@ -212,7 +227,7 @@ function gts_get_language_switcher_items() {
 			$active_slug = $current_slug;
 		}
 
-		$current_clean_url = $path_without_lang !== '' ? home_url( '/' . $path_without_lang . '/' ) : home_url( '/' );
+		$current_clean_url = $path_without_lang !== '' ? $base_home_url . '/' . $path_without_lang . '/' : $base_home_url . '/';
 		$current_clean_url .= $query_suffix;
 
 		foreach ( $order as $slug ) {
@@ -445,7 +460,8 @@ function gts_normalize_language_prefix_redirect() {
 	}
 
 	$new_path  = implode( '/', $clean_segments );
-	$target    = home_url( $new_path !== '' ? '/' . $new_path . '/' : '/' );
+	$base_home = gts_get_unlocalized_home_url();
+	$target    = $new_path !== '' ? $base_home . '/' . $new_path . '/' : $base_home . '/';
 	$query     = (string) parse_url( $request_uri, PHP_URL_QUERY );
 	if ( '' !== $query ) {
 		$target .= '?' . $query;
