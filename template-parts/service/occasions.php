@@ -85,7 +85,7 @@ if (empty($cards)) {
 							</div>
 						<?php endif; ?>
 						<?php if ($next_title) : ?>
-							<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html($next_title); ?></h3>
+							<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html( gts_normalize_heading_text( $next_title ) ); ?></h3>
 						<?php endif; ?>
 						<?php if ($next_desc) : ?>
 							<p class="why-us-item-description occasions-card-description--dark"><?php echo wp_kses_post($next_desc); ?></p>
@@ -107,7 +107,7 @@ if (empty($cards)) {
 							</div>
 						<?php endif; ?>
 						<?php if ($title_card) : ?>
-							<h3 class="why-us-item-title"><?php echo esc_html($title_card); ?></h3>
+							<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title_card ) ); ?></h3>
 						<?php endif; ?>
 						<?php if ($description) : ?>
 							<p class="why-us-item-description"><?php echo wp_kses_post($description); ?></p>

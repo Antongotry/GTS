@@ -3152,13 +3152,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
 							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
 								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 							</div>
 						<?php else : ?>
 							<div class="why-us-item why-us-item-<?php echo $i; ?>">
 								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
 								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 							</div>
 						<?php endif; ?>
@@ -3195,13 +3195,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
 							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
 								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 							</div>
 						<?php else : ?>
 							<div class="why-us-item why-us-item-<?php echo $i; ?>">
 								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
 								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 							</div>
 						<?php endif; ?>
@@ -3238,13 +3238,13 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
 							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
 								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 							</div>
 						<?php else : ?>
 							<div class="why-us-item why-us-item-<?php echo $i; ?>">
 								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
-								<h3 class="why-us-item-title"><?php echo esc_html($title); ?></h3>
+								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
 								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 							</div>
 						<?php endif; ?>

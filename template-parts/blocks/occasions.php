@@ -260,7 +260,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $icon_executive_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo esc_html( $item_1_title ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $item_1_title ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( $item_1_description ); ?></p>
 			</div>
 
@@ -268,7 +268,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $icon_airport_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo esc_html( $item_2_title ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $item_2_title ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( $item_2_description ); ?></p>
 			</div>
 
@@ -279,7 +279,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $icon_multi_day_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo esc_html( $item_3_title ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $item_3_title ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( $item_3_description ); ?></p>
 			</div>
 
@@ -287,7 +287,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $icon_private_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo esc_html( $item_4_title ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $item_4_title ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( $item_4_description ); ?></p>
 			</div>
 
@@ -297,7 +297,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $icon_events_url ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html( $item_5_title ); ?></h3>
+				<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html( gts_normalize_heading_text( $item_5_title ) ); ?></h3>
 				<p class="why-us-item-description occasions-card-description--dark"><?php echo wp_kses_post( $item_5_description ); ?></p>
 			</div>
 

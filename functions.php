@@ -88,6 +88,27 @@ function gts_header_phone_tel_digits( $display_phone ) {
 	return preg_replace( '/\D/', '', $display_phone );
 }
 
+/**
+ * Remove forced <br> from heading-like text and keep readable spaces.
+ *
+ * @param string $text Raw heading text.
+ * @return string
+ */
+function gts_normalize_heading_text( $text ) {
+	$text = (string) $text;
+	if ( '' === $text ) {
+		return '';
+	}
+
+	$text = preg_replace( '/<br\s*\/?>/i', ' ', $text );
+	$text = str_replace( array( "\r\n", "\r", "\n" ), ' ', $text );
+	$text = wp_strip_all_tags( $text );
+	$text = html_entity_decode( $text, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+	$text = preg_replace( '/\s+/u', ' ', $text );
+
+	return trim( (string) $text );
+}
+
 function gts_get_contact_channels() {
 	$email = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
 	$email = $email ? $email : 'info@global-travelsolutions.com';

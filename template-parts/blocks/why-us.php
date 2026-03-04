@@ -132,7 +132,7 @@ if ( ! empty( $why_us_block ) ) {
 		<div class="why-us-grid">
 			<!-- Element 1: Image as background -->
 			<div class="why-us-item why-us-item-1" style="background-image: url('<?php echo esc_url( $cards[0]['image'] ); ?>');">
-				<h3 class="why-us-item-title"><?php echo wp_kses_post( nl2br( $cards[0]['title'] ) ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[0]['title'] ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[0]['description'] ) ); ?></p>
 			</div>
 
@@ -141,7 +141,7 @@ if ( ! empty( $why_us_block ) ) {
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $cards[1]['icon'] ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo wp_kses_post( nl2br( $cards[1]['title'] ) ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[1]['title'] ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[1]['description'] ) ); ?></p>
 			</div>
 
@@ -150,7 +150,7 @@ if ( ! empty( $why_us_block ) ) {
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $cards[2]['icon'] ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo wp_kses_post( nl2br( $cards[2]['title'] ) ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[2]['title'] ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[2]['description'] ) ); ?></p>
 			</div>
 
@@ -159,7 +159,7 @@ if ( ! empty( $why_us_block ) ) {
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $cards[3]['icon'] ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo wp_kses_post( nl2br( $cards[3]['title'] ) ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[3]['title'] ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[3]['description'] ) ); ?></p>
 			</div>
 
@@ -168,13 +168,13 @@ if ( ! empty( $why_us_block ) ) {
 				<div class="why-us-item-icon-wrapper">
 					<img src="<?php echo esc_url( $cards[4]['icon'] ); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
 				</div>
-				<h3 class="why-us-item-title"><?php echo wp_kses_post( nl2br( $cards[4]['title'] ) ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[4]['title'] ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[4]['description'] ) ); ?></p>
 			</div>
 
 			<!-- Element 6: Image as background -->
 			<div class="why-us-item why-us-item-6" style="background-image: url('<?php echo esc_url( $cards[5]['image'] ); ?>');">
-				<h3 class="why-us-item-title"><?php echo wp_kses_post( nl2br( $cards[5]['title'] ) ); ?></h3>
+				<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[5]['title'] ) ); ?></h3>
 				<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[5]['description'] ) ); ?></p>
 			</div>
 		</div>
