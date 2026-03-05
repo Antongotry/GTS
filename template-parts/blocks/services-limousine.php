@@ -22,12 +22,20 @@ if ( function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page
 }
 $section_pill = 'Every journey, perfectly organized.';
 $section_title = 'From executive roadshows to private celebrations —<br>GTS provides end-to-end transport solutions worldwide.';
+$admin_default_pill = 'Every journey, perfectly organized.';
+$admin_default_title = 'From executive roadshows to private celebrations — GTS provides end-to-end transport solutions worldwide.';
 if ( ! empty( $related_block ) ) {
 	if ( ! empty( $related_block['pill_text'] ) ) {
-		$section_pill = (string) $related_block['pill_text'];
+		$admin_pill = trim( (string) $related_block['pill_text'] );
+		if ( '' !== $admin_pill && 0 !== strcasecmp( $admin_pill, $admin_default_pill ) ) {
+			$section_pill = $admin_pill;
+		}
 	}
 	if ( ! empty( $related_block['title'] ) ) {
-		$section_title = (string) $related_block['title'];
+		$admin_title = trim( (string) $related_block['title'] );
+		if ( '' !== $admin_title && 0 !== strcasecmp( $admin_title, $admin_default_title ) ) {
+			$section_title = $admin_title;
+		}
 	}
 }
 $initial_visible = 2;
