@@ -4,10 +4,10 @@
 
 .hero-block {
 	width: 100% !important;
-	height: 110vh !important;
-	height: 110svh !important;
-	min-height: 110vh !important;
-	min-height: 110svh !important;
+	height: 104vh !important;
+	height: 104svh !important;
+	min-height: 104vh !important;
+	min-height: 104svh !important;
 	background-size: cover !important;
 	background-position: center !important;
 	background-repeat: no-repeat !important;
@@ -22,19 +22,19 @@
 
 	// Tablet (1024px)
 	@include lg {
-		height: 110vh !important;
-		height: 110svh !important;
-		min-height: 110vh !important;
-		min-height: 110svh !important;
+		height: 104vh !important;
+		height: 104svh !important;
+		min-height: 104vh !important;
+		min-height: 104svh !important;
 		background-image: url('https://global-travelsolutions.com/wp-content/uploads/2026/03/1943_result-scaled.webp') !important;
 	}
 
 	// Mobile (375px)
 	@include md {
-		height: 110vh !important;
-		height: 110svh !important;
-		min-height: 110vh !important;
-		min-height: 110svh !important;
+		height: 104vh !important;
+		height: 104svh !important;
+		min-height: 104vh !important;
+		min-height: 104svh !important;
 		background-image: url('https://global-travelsolutions.com/wp-content/uploads/2026/03/Frame-2087325567_result.webp') !important;
 	}
 }
