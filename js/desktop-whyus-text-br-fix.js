@@ -12,7 +12,10 @@
 			return;
 		}
 
-		element.innerHTML = element.innerHTML.replace(/<br\s*\/?>/gi, ' ');
+		var html = element.innerHTML.replace(/<br\s*\/?>/gi, ' ');
+		// Cleanup artifacts like "late- model" after <br> removal.
+		html = html.replace(/([A-Za-z0-9])-\s+([A-Za-z0-9])/g, '$1-$2');
+		element.innerHTML = html;
 		element.dataset.gtsBrFixed = '1';
 	}
 

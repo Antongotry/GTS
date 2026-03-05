@@ -8186,6 +8186,25 @@ main#primary > section.hero-block > .hero-container {
   margin-top: auto;
 }
 
+@media (min-width: 1481px) {
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-2 .why-us-item-description {
+    width: min(100%, 34ch);
+    text-wrap: balance;
+  }
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-3 .why-us-item-description {
+    width: min(100%, 32ch);
+    text-wrap: balance;
+  }
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-4 .why-us-item-description {
+    width: min(100%, 34ch);
+    text-wrap: balance;
+  }
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-5 .why-us-item-description {
+    width: min(100%, 31ch);
+    text-wrap: balance;
+  }
+}
+
 @media (min-width: 769px) and (max-width: 1480px) {
   .why-us-item-title,
   .why-us-item-description {
@@ -8222,6 +8241,22 @@ main#primary > section.hero-block > .hero-container {
   }
   .single-service .why-us-block--professional-chauffeur-service .why-us-item-1 .why-us-item-description {
     max-width: 52ch;
+    text-wrap: balance;
+  }
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-2 .why-us-item-description {
+    width: min(100%, 31ch);
+    text-wrap: balance;
+  }
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-3 .why-us-item-description {
+    width: min(100%, 30ch);
+    text-wrap: balance;
+  }
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-4 .why-us-item-description {
+    width: min(100%, 31ch);
+    text-wrap: balance;
+  }
+  .single-service .why-us-block--professional-chauffeur-service .why-us-item-5 .why-us-item-description {
+    width: min(100%, 29ch);
     text-wrap: balance;
   }
 }
