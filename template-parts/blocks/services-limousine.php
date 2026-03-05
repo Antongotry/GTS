@@ -6,9 +6,20 @@
  */
 
 $services = function_exists( 'gts_get_global_services_cards' ) ? gts_get_global_services_cards() : array();
-$related_block = function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' )
-	? gts_get_page_service_block( 'related_services' )
-	: array();
+$related_block = array();
+if ( function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' ) ) {
+	$related_block = gts_get_page_service_block( 'related_services' );
+} elseif ( is_singular( 'service' ) && function_exists( 'get_field' ) ) {
+	$service_blocks = get_field( 'service_blocks', get_the_ID() );
+	if ( is_array( $service_blocks ) ) {
+		foreach ( $service_blocks as $block ) {
+			if ( is_array( $block ) && ! empty( $block['acf_fc_layout'] ) && 'related_services' === (string) $block['acf_fc_layout'] ) {
+				$related_block = $block;
+				break;
+			}
+		}
+	}
+}
 $section_pill = 'Every journey, perfectly organized.';
 $section_title = 'From executive roadshows to private celebrations —<br>GTS provides end-to-end transport solutions worldwide.';
 if ( ! empty( $related_block ) ) {
