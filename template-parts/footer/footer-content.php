@@ -121,7 +121,7 @@
 			<span class="footer-copyright">© <?php echo esc_html(date('Y')); ?> GTS</span>
 		</div>
 		<div class="footer-developed">
-			<span>Developed by Artko</span>
+			<a href="https://www.instagram.com/gleb_kpk/" target="_blank" rel="noopener noreferrer">Developed by Artko</a>
 		</div>
 	</div>
 
