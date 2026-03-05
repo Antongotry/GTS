@@ -8208,6 +8208,10 @@ main#primary > section.hero-block > .hero-container {
     line-height: 120%;
     text-wrap: wrap;
   }
+  .single-service .why-us-block--airport-transfer-service .why-us-item-6 .why-us-item-description {
+    max-width: 44ch;
+    text-wrap: balance;
+  }
 }
 
 @media (max-width: 768px) {
