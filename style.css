@@ -8201,7 +8201,7 @@ main#primary > section.hero-block > .hero-container {
 .why-us-item-3 .why-us-item-title,
 .why-us-item-4 .why-us-item-title,
 .why-us-item-5 .why-us-item-title {
-  margin-top: 24px;
+  margin-top: auto;
 }
 
 @media (min-width: 1481px) {

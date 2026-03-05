@@ -263,13 +263,13 @@
 	}
 }
 
-// Keep icon cards in natural vertical flow: icon -> title -> description.
+// Icon stays at top, title+description stay grouped at the bottom.
 .why-us-item-2,
 .why-us-item-3,
 .why-us-item-4,
 .why-us-item-5 {
 	.why-us-item-title {
-		margin-top: 24px;
+		margin-top: auto;
 	}
 }
 
