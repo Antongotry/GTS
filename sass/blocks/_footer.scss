@@ -25,20 +25,17 @@
 		top: 0;
 		left: 50%;
 		transform: translateX(-50%); // Центрирование
-		width: 1200px;
+		width: min(1840px, calc(100vw - var(--scrollbar-width, 0px) - 40px));
+		max-width: calc(100vw - 40px);
 		height: 1px;
 		background: rgba(255, 255, 255, 0.16); // #FFFFFF29 (41/255 = 0.16)
-
-		@include lg {
-			width: 944px; // 984px - 40px padding
-		}
-
-		@include md {
-			// На мобильном border должен учитывать padding по 20px с каждой стороны
-			// footer-container имеет padding: 0 20px, поэтому border должен быть на всю ширину контейнера
-			width: calc(100% - 40px); // 100% минус padding по 20px с каждой стороны
-		}
+		display: none;
 	}
+}
+
+.home .site-footer::before,
+.front-page .site-footer::before {
+	display: block;
 }
 
 .footer-container {
