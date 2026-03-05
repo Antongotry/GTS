@@ -2141,13 +2141,13 @@ if (empty($faq_items)) {
 $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.svg';
 ?>
 
-<main id="primary" class="site-main">
-	<?php if ('hourly-hire' === $current_service_slug) : ?>
-		<style id="hourly-hire-why-us-gap">
-			.why-us-block.why-us-block--hourly-hire-gap {
-				padding-bottom: clamp(56px, 8vw, 120px);
-			}
-		</style>
+	<main id="primary" class="site-main">
+		<?php if ('hourly-hire' === $current_service_slug) : ?>
+			<style id="hourly-hire-why-us-gap">
+				.why-us-block.why-us-block--hourly-hire-gap {
+					padding-bottom: clamp(56px, 8vw, 120px);
+				}
+			</style>
 		<style id="hourly-hire-fleet-lead-width">
 			@media (min-width: 769px) {
 				.fleet-slider-block.fleet-slider-block--hourly-hire .fleet-slider-title-row {
@@ -2161,14 +2161,23 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				max-width: 520px;
 				width: 100%;
 				margin-top: 8px;
-			}
-		</style>
-	<?php endif; ?>
-	<?php if ($is_airport_transfer_service) : ?>
-		<style id="airport-transfer-hero-title-width">
-			@media (min-width: 1025px) {
-				.hero-block--airport-transfer .hero-container {
-					gap: 24px;
+				}
+			</style>
+		<?php endif; ?>
+		<?php if ($is_shoping_service) : ?>
+			<style id="shoping-service-context-top-gap">
+				@media (min-width: 769px) {
+					.single-service .service-context-block {
+						margin-top: 136px;
+					}
+				}
+			</style>
+		<?php endif; ?>
+		<?php if ($is_airport_transfer_service) : ?>
+			<style id="airport-transfer-hero-title-width">
+				@media (min-width: 1025px) {
+					.hero-block--airport-transfer .hero-container {
+						gap: 24px;
 				}
 
 				.hero-block--airport-transfer .hero-left {
