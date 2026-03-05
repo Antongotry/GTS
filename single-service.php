@@ -2474,16 +2474,25 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			</style>
 		<?php endif; ?>
-		<?php if ($is_corporations_service) : ?>
-			<style id="corporations-fleet-title-width">
-				.fleet-slider-block.fleet-slider-block--corporations .fleet-slider-title {
-					max-width: 1040px;
-				}
-			</style>
-		<?php endif; ?>
-		<?php if ($is_corporations_service) : ?>
-			<style id="corporations-hero-features-width">
-				@media (min-width: 1025px) {
+			<?php if ($is_corporations_service) : ?>
+				<style id="corporations-fleet-title-width">
+					.fleet-slider-block.fleet-slider-block--corporations .fleet-slider-title {
+						max-width: 1040px;
+					}
+				</style>
+			<?php endif; ?>
+			<?php if ($is_corporate_events_chauffeur_service) : ?>
+				<style id="corporate-events-fleet-title-width">
+					@media (min-width: 769px) {
+						.fleet-slider-block.fleet-slider-block--corporate-events-chauffeur .fleet-slider-title {
+							max-width: 920px;
+						}
+					}
+				</style>
+			<?php endif; ?>
+			<?php if ($is_corporations_service) : ?>
+				<style id="corporations-hero-features-width">
+					@media (min-width: 1025px) {
 					.hero-block--corporations .hero-features .hero-feature {
 						padding-left: 24px;
 						padding-right: 24px;
@@ -3070,10 +3079,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			$fleet_slider_args['lead'] = 'That’s why every&nbsp;GTS limousine&nbsp;meets strict standards of<br>comfort, safety, and presentation.';
 			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--professional-chauffeur';
 		}
-		if ($is_corporate_events_chauffeur_service) {
-			$fleet_slider_args['title'] = 'Every detail matters — from the car you travel in to the<br>person behind the wheel. That’s why every&nbsp;GTS car&nbsp;meets<br>strict standards of comfort, safety, and presentation.';
-			$fleet_slider_args['hide_lead'] = true;
-		}
+			if ($is_corporate_events_chauffeur_service) {
+				$fleet_slider_args['title'] = 'Every detail matters — from the car you travel in to the person behind the wheel. That’s why every&nbsp;GTS car&nbsp;meets strict standards of comfort, safety, and presentation.';
+				$fleet_slider_args['hide_lead'] = true;
+				$fleet_slider_args['section_modifier'] = 'fleet-slider-block--corporate-events-chauffeur';
+			}
 		if ($is_private_tours_service) {
 			$fleet_slider_args['title'] = 'Every detail matters on a private journey — from the comfort<br>of the vehicle to the experience of the chauffeur. Every GTS<br>car meets high standards of safety, comfort, and<br>presentation, ensuring a smooth and relaxed journey.';
 			$fleet_slider_args['hide_lead'] = true;
