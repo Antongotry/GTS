@@ -8194,6 +8194,12 @@ main#primary > section.hero-block > .hero-container {
     overflow-wrap: normal;
     hyphens: none;
   }
+  .why-us-item-2 .why-us-item-title,
+  .why-us-item-3 .why-us-item-title,
+  .why-us-item-4 .why-us-item-title,
+  .why-us-item-5 .why-us-item-title {
+    margin-top: 20px;
+  }
   .why-us-item-title {
     text-wrap: balance;
   }
