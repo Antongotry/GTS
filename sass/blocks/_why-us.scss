@@ -263,13 +263,13 @@
 	}
 }
 
-// Text content wrapper for narrow blocks (icon top, text bottom)
+// Keep icon cards in natural vertical flow: icon -> title -> description.
 .why-us-item-2,
 .why-us-item-3,
 .why-us-item-4,
 .why-us-item-5 {
 	.why-us-item-title {
-		margin-top: auto;
+		margin-top: 24px;
 	}
 }
 
