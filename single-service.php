@@ -212,8 +212,11 @@ if ($is_corporate_events_chauffeur_service) {
 	$hero_icon_2_markup = $hero_icon_1_original;
 }
 if ($is_private_tours_service) {
-	$hero_title = 'Private Tours<br>Chauffeur Service';
+	$hero_title = 'Private Tours';
 	$hero_subtitle = 'From iconic landmarks to hidden destinations,<br>GTS designs&nbsp;private chauffeur tours&nbsp;around your<br>interests, pace, and itinerary — with seamless<br>transfers, professional drivers, and complete<br>flexibility throughout the journey.';
+	if ('' === trim((string) $hero_cta_text) || 'book a transfer' === strtolower(trim((string) $hero_cta_text))) {
+		$hero_cta_text = 'Book a tour';
+	}
 	$hero_feature_2_text = 'Coordination in 100+ countries.';
 	$hero_feature_3_text = 'Business &amp; luxury fleet';
 	$hero_icon_1_original = $hero_icon_1;
@@ -282,7 +285,6 @@ if ($is_special_transfers_service) {
 } elseif ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service || $is_corporations_service) {
 	$hero_feature_1_text = 'Professional chauffeur';
 }
-
 if ($has_hero_block) {
 	if (array_key_exists('pretitle_enabled', $hero)) {
 		$hero_pretitle_enabled = (bool) $hero['pretitle_enabled'];
@@ -1388,6 +1390,11 @@ if ($has_service_intro_block) {
 	}
 	if (! empty($service_intro['items']) && is_array($service_intro['items'])) {
 		$service_intro_items = $fill_missing_media($service_intro['items'], $service_intro_items, array('icon'));
+	}
+}
+if ($is_private_tours_service) {
+	if ('' === trim((string) $service_intro_button_text) || 'book a transfer' === strtolower(trim((string) $service_intro_button_text))) {
+		$service_intro_button_text = 'Book a tour';
 	}
 }
 
