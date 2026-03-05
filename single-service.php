@@ -3084,14 +3084,10 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				$fleet_slider_args['hide_lead'] = true;
 				$fleet_slider_args['section_modifier'] = 'fleet-slider-block--corporate-events-chauffeur';
 			}
-		if ($is_private_tours_service) {
-			$fleet_slider_args['title'] = 'Every detail matters on a private journey — from the comfort<br>of the vehicle to the experience of the chauffeur. Every GTS<br>car meets high standards of safety, comfort, and<br>presentation, ensuring a smooth and relaxed journey.';
-			$fleet_slider_args['hide_lead'] = true;
-		}
-		if ($is_travel_agencies_service) {
-			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
-			$fleet_slider_args['hide_lead'] = true;
-			$fleet_slider_args['section_modifier'] = 'fleet-slider-block--travel-agencies';
+			if ($is_travel_agencies_service) {
+				$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
+				$fleet_slider_args['hide_lead'] = true;
+				$fleet_slider_args['section_modifier'] = 'fleet-slider-block--travel-agencies';
 		}
 		if ($is_mobility_partnership_service) {
 			$fleet_slider_args['title'] = 'Every GTS vehicle meets high standards of safety, comfort,<br>and presentation, supported by chauffeurs experienced in<br>structured, long-term transportation programs.';
