@@ -8186,6 +8186,24 @@ main#primary > section.hero-block > .hero-container {
   margin-top: auto;
 }
 
+@media (min-width: 769px) and (max-width: 1480px) {
+  .why-us-item-title,
+  .why-us-item-description {
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+  .why-us-item-title {
+    text-wrap: balance;
+  }
+  .why-us-item-description {
+    font-size: 15px;
+    line-height: 128%;
+    text-wrap: pretty;
+  }
+}
+
 @media (max-width: 768px) {
   .why-us-grid {
     grid-template-columns: repeat(2, 1fr);
