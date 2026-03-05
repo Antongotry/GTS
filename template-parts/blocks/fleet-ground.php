@@ -18,16 +18,16 @@ $sections = array(
 		'description' => 'For executive travel, airport transfers, and city mobility.',
 	),
 	array(
-		'key'         => 'limousine',
-		'slug'        => 'limousine',
-		'title'       => 'Limousine',
-		'description' => 'For premium rides, VIP occasions, and luxury comfort.',
-	),
-	array(
 		'key'         => 'sprinter',
 		'slug'        => 'sprinter-bus',
 		'title'       => 'Sprinter & Bus',
 		'description' => 'For group transportation, events, and multi-passenger routes.',
+	),
+	array(
+		'key'         => 'limousine',
+		'slug'        => 'limousine',
+		'title'       => 'Limousine',
+		'description' => 'For premium rides, VIP occasions, and luxury comfort.',
 	),
 );
 
