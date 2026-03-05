@@ -77,23 +77,27 @@
 		}
 
 		/* Header */
-		.site-header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			z-index: 1000;
-			background: transparent;
-			padding: 20px 40px
-		}
+			.site-header {
+				position: fixed;
+				top: 10px;
+				left: 0;
+				right: 0;
+				z-index: 1000;
+				background: transparent;
+				padding: 0 20px;
+				pointer-events: none
+			}
 
-		.header-container {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			max-width: 1480px;
-			margin: 0 auto
-		}
+			.header-container {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				max-width: min(1840px, calc(100vw - var(--scrollbar-width, 0px) - 40px));
+				width: 100%;
+				margin: 0 auto;
+				padding: 0 5px 0 20px;
+				pointer-events: auto
+			}
 
 		.site-logo img {
 			height: 32px;
@@ -113,11 +117,11 @@
 			position: relative !important
 		}
 
-		.hero-container {
-			max-width: 1480px;
-			position: absolute !important;
-			top: 0;
-			right: 0;
+			.hero-container {
+				max-width: min(1840px, calc(100vw - var(--scrollbar-width, 0px) - 40px));
+				position: absolute !important;
+				top: 0;
+				right: 0;
 			bottom: 0;
 			left: 0;
 			margin: 0 auto;
@@ -125,7 +129,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: stretch;
-			padding: 0 40px;
+				padding: 0 20px;
 			gap: 40px;
 			min-height: 100%;
 			height: 100%
