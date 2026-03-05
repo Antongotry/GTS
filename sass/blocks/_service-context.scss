@@ -8,6 +8,14 @@
 	padding: 0;
 }
 
+// When service-context goes right after final CTA on service pages,
+// keep a larger visual gap on non-mobile screens.
+@media (min-width: 769px) {
+	.single-service .final-cta-block.final-cta-block--service + .service-context-block {
+		margin-top: 136px;
+	}
+}
+
 .single-service .service-context-container {
 	width: 100%;
 	max-width: min(1840px, calc(100vw - var(--scrollbar-width) - 40px));
