@@ -97,6 +97,13 @@ $fill_missing_media = static function (array $items, array $defaults, array $med
 	return $items;
 };
 
+$has_hero_block = isset($blocks_data['hero']) && is_array($blocks_data['hero']);
+$has_service_context_block = isset($blocks_data['service_context']) && is_array($blocks_data['service_context']);
+$has_service_intro_block = isset($blocks_data['service_intro']) && is_array($blocks_data['service_intro']);
+$has_why_us_block = isset($blocks_data['why_us']) && is_array($blocks_data['why_us']);
+$has_occasions_block = isset($blocks_data['occasions']) && is_array($blocks_data['occasions']);
+$has_hiw_block = isset($blocks_data['how_it_works']) && is_array($blocks_data['how_it_works']);
+
 // =====================
 // DEFAULT DATA
 // =====================
@@ -276,8 +283,42 @@ if ($is_special_transfers_service) {
 	$hero_feature_1_text = 'Professional chauffeur';
 }
 
+if ($has_hero_block) {
+	if (array_key_exists('pretitle_enabled', $hero)) {
+		$hero_pretitle_enabled = (bool) $hero['pretitle_enabled'];
+	}
+	if (! empty($hero['pretitle'])) {
+		$hero_pretitle = $hero['pretitle'];
+	}
+	if (! empty($hero['title'])) {
+		$hero_title = $hero['title'];
+	}
+	if (! empty($hero['subtitle'])) {
+		$hero_subtitle = $hero['subtitle'];
+	}
+	if (! empty($hero['background_mobile'])) {
+		$hero_bg_mobile = $hero['background_mobile'];
+	}
+	if (! empty($hero['background_tablet'])) {
+		$hero_bg_tablet = $hero['background_tablet'];
+	}
+	if (! empty($hero['background_desktop'])) {
+		$hero_bg_desktop = $hero['background_desktop'];
+	}
+	if (! empty($hero['cta_text'])) {
+		$hero_cta_text = $hero['cta_text'];
+	}
+	if (! empty($hero['cta_link'])) {
+		$hero_cta_link = $hero['cta_link'];
+	}
+	if (array_key_exists('features_enabled', $hero)) {
+		$hero_features_enabled = (bool) $hero['features_enabled'];
+	}
+}
+
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_context = isset($blocks_data['service_context']) ? $blocks_data['service_context'] : array();
+$service_context_admin = $service_context;
 if ($is_travel_personal_interpreter_service) {
 	$service_context = array(
 		'pill_text' => 'Full Service',
@@ -879,9 +920,33 @@ if ($is_shoping_service && ! empty($service_context['cards']) && is_array($servi
 	}
 }
 
+if ($has_service_context_block) {
+	if (! empty($service_context_admin['pill_text'])) {
+		$service_context['pill_text'] = $service_context_admin['pill_text'];
+	}
+	if (! empty($service_context_admin['title'])) {
+		$service_context['title'] = $service_context_admin['title'];
+	}
+	if (! empty($service_context_admin['subtitle'])) {
+		$service_context['subtitle'] = $service_context_admin['subtitle'];
+	}
+	if (! empty($service_context_admin['variant'])) {
+		$service_context['variant'] = $service_context_admin['variant'];
+	}
+	if (! empty($service_context_admin['top_image'])) {
+		$service_context['top_image'] = $service_context_admin['top_image'];
+	}
+	if (! empty($service_context_admin['bottom_image'])) {
+		$service_context['bottom_image'] = $service_context_admin['bottom_image'];
+	}
+	if (! empty($service_context_admin['cards']) && is_array($service_context_admin['cards'])) {
+		$service_context_defaults = isset($service_context['cards']) && is_array($service_context['cards']) ? $service_context['cards'] : array();
+		$service_context['cards'] = $fill_missing_media($service_context_admin['cards'], $service_context_defaults, array('icon', 'image'));
+	}
+}
+
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_intro = isset($blocks_data['service_intro']) ? $blocks_data['service_intro'] : array();
-$has_service_intro_block = isset($blocks_data['service_intro']);
 $service_intro_pill = ! empty($service_intro['pill_text']) ? $service_intro['pill_text'] : 'Preferences';
 $service_intro_title = ! empty($service_intro['title']) ? $service_intro['title'] : 'A Better Way to Travel Between Cities';
 $service_intro_description = ! empty($service_intro['description']) ? $service_intro['description'] : 'Airports, trains, rentals — they all take time, coordination, and patience. GTS offers a more refined way to move between cities: effortless, private, and precisely managed.';
@@ -1303,6 +1368,27 @@ if ($is_shoping_service) {
 			'description' => 'No fixed schedules or pressure to move on — take your time and enjoy each stop.',
 		),
 	);
+}
+
+if ($has_service_intro_block) {
+	if (! empty($service_intro['pill_text'])) {
+		$service_intro_pill = $service_intro['pill_text'];
+	}
+	if (! empty($service_intro['title'])) {
+		$service_intro_title = $service_intro['title'];
+	}
+	if (! empty($service_intro['description'])) {
+		$service_intro_description = $service_intro['description'];
+	}
+	if (! empty($service_intro['button_text'])) {
+		$service_intro_button_text = $service_intro['button_text'];
+	}
+	if (! empty($service_intro['button_link'])) {
+		$service_intro_button_link = $service_intro['button_link'];
+	}
+	if (! empty($service_intro['items']) && is_array($service_intro['items'])) {
+		$service_intro_items = $fill_missing_media($service_intro['items'], $service_intro_items, array('icon'));
+	}
 }
 
 // Booking Form - unified block with desktop and mobile sections
@@ -1792,16 +1878,42 @@ if ($is_travel_planninig_service) {
 	}
 }
 
+if ($has_why_us_block) {
+	if (! empty($why_us['pill_text'])) {
+		$why_us_pill = $why_us['pill_text'];
+	}
+	if (! empty($why_us['intro_title'])) {
+		$why_us_intro_title = $why_us['intro_title'];
+	}
+	if (! empty($why_us['intro_text'])) {
+		$why_us_intro_text = $why_us['intro_text'];
+	}
+	if (! empty($why_us['cards']) && is_array($why_us['cards'])) {
+		$why_us_cards = $fill_missing_media($why_us['cards'], $why_us_cards, array('icon', 'image'));
+	}
+}
+
 // Occasions defaults
 $occasions = isset($blocks_data['occasions']) ? $blocks_data['occasions'] : array();
 $occasions_pill = ! empty($occasions['pill_text']) ? $occasions['pill_text'] : 'Full Service';
 $occasions_title = ! empty($occasions['title']) ? $occasions['title'] : 'Perfect for Every Occasion';
 $occasions_footer = ! empty($occasions['footer_text']) ? $occasions['footer_text'] : "Whether it's a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.";
 if ($is_airport_transfer_service) {
-	$occasions['title'] = 'Perfect for Any Traveller';
+	$occasions_title = 'Perfect for Any Traveller';
 }
 if ($is_professional_chauffeur_service) {
-	$occasions['title'] = 'Perfect for Any Traveller';
+	$occasions_title = 'Perfect for Any Traveller';
+}
+if ($has_occasions_block) {
+	if (! empty($occasions['pill_text'])) {
+		$occasions_pill = $occasions['pill_text'];
+	}
+	if (! empty($occasions['title'])) {
+		$occasions_title = $occasions['title'];
+	}
+	if (! empty($occasions['footer_text'])) {
+		$occasions_footer = $occasions['footer_text'];
+	}
 }
 
 // How It Works defaults
@@ -2106,6 +2218,21 @@ if (empty($hiw_steps)) {
 	$hiw_steps = $default_hiw_steps;
 } else {
 	$hiw_steps = $fill_missing_media($hiw_steps, $default_hiw_steps, array('icon'));
+}
+
+if ($has_hiw_block) {
+	if (! empty($hiw['pill_text'])) {
+		$hiw_pill = $hiw['pill_text'];
+	}
+	if (! empty($hiw['title'])) {
+		$hiw_title = $hiw['title'];
+	}
+	if (! empty($hiw['background'])) {
+		$hiw_bg = $hiw['background'];
+	}
+	if (! empty($hiw['steps']) && is_array($hiw['steps'])) {
+		$hiw_steps = $fill_missing_media($hiw['steps'], $hiw_steps, array('icon'));
+	}
 }
 
 // FAQ defaults
