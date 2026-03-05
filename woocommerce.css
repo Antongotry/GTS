@@ -73,7 +73,7 @@ table.shop_table_responsive tr td.download-actions .button {
  */
 .post-type-archive-product,
 .tax-product_cat {
-  background: linear-gradient(180deg, #0c0f17 0%, #141a27 100%);
+  background: #0C0F17;
 }
 
 .post-type-archive-product .site-main,
