@@ -507,6 +507,8 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 .transfer-summary-row {
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start;
+	gap: 12px;
 	margin-bottom: 8px;
 }
 
@@ -520,6 +522,9 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 	font-family: $font__manrope;
 	font-size: 14px;
 	color: #0c0f17;
+	max-width: 64%;
+	text-align: right;
+	overflow-wrap: anywhere;
 }
 
 .transfer-summary-divider {

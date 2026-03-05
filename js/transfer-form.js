@@ -221,8 +221,8 @@
 		function updateSummary() {
 			var fromMeta = locationMeta('from');
 			var toMeta = locationMeta('to');
-			var from = fromMeta.location || [fromMeta.country, fromMeta.city, fromMeta.address].filter(Boolean).join(', ');
-			var to = toMeta.location || [toMeta.country, toMeta.city, toMeta.address].filter(Boolean).join(', ');
+			var from = fromMeta.fullLabel || fromMeta.location || [fromMeta.country, fromMeta.city, fromMeta.address].filter(Boolean).join(', ');
+			var to = toMeta.fullLabel || toMeta.location || [toMeta.country, toMeta.city, toMeta.address].filter(Boolean).join(', ');
 
 			text(document.getElementById('summary-route'), (from || 'From') + ' → ' + (to || 'To'));
 			text(document.getElementById('summary-transfer-type'), selectedText('transfer_type') || '—');
@@ -550,6 +550,12 @@
 				});
 		}
 
+		function forceEnglishDateLocale() {
+			Array.prototype.forEach.call(form.querySelectorAll('input[type="date"]'), function (input) {
+				input.setAttribute('lang', 'en');
+			});
+		}
+
 		form.addEventListener('input', triggerRecalc);
 		form.addEventListener('input', function (e) {
 			syncFieldHasValueClass(e.target);
@@ -576,6 +582,7 @@
 		}
 
 		setReturnVisibility();
+		forceEnglishDateLocale();
 		syncAllFieldStates();
 		// Browser autofill may happen after DOM ready; sync once more.
 		setTimeout(syncAllFieldStates, 150);

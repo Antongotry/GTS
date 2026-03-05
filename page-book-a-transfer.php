@@ -56,7 +56,7 @@ $categories = get_terms(
 							<div class="transfer-row">
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Date*', 'gts-theme' ); ?></label>
-									<input type="date" class="transfer-input" name="date" required>
+									<input type="date" class="transfer-input" name="date" lang="en" required>
 								</div>
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Time*', 'gts-theme' ); ?></label>
@@ -87,7 +87,7 @@ $categories = get_terms(
 							<div class="transfer-row transfer-return-row" hidden>
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Return date*', 'gts-theme' ); ?></label>
-									<input type="date" class="transfer-input" name="return_date">
+									<input type="date" class="transfer-input" name="return_date" lang="en">
 								</div>
 								<div class="transfer-field">
 									<label class="transfer-label"><?php esc_html_e( 'Return time*', 'gts-theme' ); ?></label>

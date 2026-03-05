@@ -1009,12 +1009,21 @@ function gts_theme_scripts()
 	wp_enqueue_script('gts-services-show-more', get_template_directory_uri() . '/js/services-show-more.js', array(), $version, true);
 	wp_enqueue_script('gts-booking-form-validation', get_template_directory_uri() . '/js/booking-form-validation.js', array(), $version, true);
 	wp_enqueue_script('gts-booking-form-submit', get_template_directory_uri() . '/js/booking-form-submit.js', array(), $version, true);
+	wp_enqueue_script('gts-location-autocomplete', get_template_directory_uri() . '/js/transfer-autocomplete.js', array(), $version, true);
 	wp_localize_script(
 		'gts-booking-form-submit',
 		'gtsBookingFormConfig',
 		array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'nonce'   => wp_create_nonce( 'gts_booking_request_nonce' ),
+		)
+	);
+	wp_localize_script(
+		'gts-location-autocomplete',
+		'gtsTransferConfig',
+		array(
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'gts_transfer_nonce' ),
 		)
 	);
 
@@ -1040,7 +1049,6 @@ function gts_theme_scripts()
 
 	if (is_page_template('page-book-a-transfer.php') || is_page('book-a-transfer')) {
 		wp_enqueue_script('gts-transfer-form', get_template_directory_uri() . '/js/transfer-form.js', array(), $version, true);
-		wp_enqueue_script('gts-transfer-autocomplete', get_template_directory_uri() . '/js/transfer-autocomplete.js', array('gts-transfer-form'), $version, true);
 		wp_localize_script(
 			'gts-transfer-form',
 			'gtsTransferConfig',

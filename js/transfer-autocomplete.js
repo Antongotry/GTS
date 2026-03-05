@@ -1,5 +1,5 @@
 /**
- * Route fields autocomplete for transfer form (OSM via WP AJAX proxy).
+ * Location autocomplete for transfer + booking forms (OSM via WP AJAX proxy).
  */
 (function () {
 	'use strict';
@@ -16,11 +16,6 @@
 	}
 
 	function init() {
-		var form = document.getElementById('transfer-form');
-		if (!form) {
-			return;
-		}
-
 		var config = window.gtsTransferConfig || {};
 		var ajaxUrl = config.ajaxUrl || '';
 		var nonce = config.nonce || '';
@@ -28,12 +23,33 @@
 			return;
 		}
 
-		var fields = [
-			{ name: 'from_location', type: 'address' },
-			{ name: 'to_location', type: 'address' }
+		var allLists = [];
+		var supportedNames = [
+			'from_location',
+			'to_location',
+			'pickup_location',
+			'dropoff_location',
+			'stops[]'
 		];
 
-		var allLists = [];
+		function isSupportedField(input) {
+			if (!input || input.tagName !== 'INPUT') {
+				return false;
+			}
+			var name = String(input.getAttribute('name') || '').trim();
+			return supportedNames.indexOf(name) !== -1;
+		}
+
+		function findFieldWrap(input) {
+			var wrap = input.closest('.transfer-field, .form-group-with-add-stop, .form-group, .fleet-form-row');
+			if (!wrap) {
+				wrap = input.parentElement;
+			}
+			if (wrap && window.getComputedStyle(wrap).position === 'static') {
+				wrap.style.position = 'relative';
+			}
+			return wrap;
+		}
 
 		function closeAllLists(exceptList) {
 			allLists.forEach(function (currentList) {
@@ -43,13 +59,13 @@
 			});
 		}
 
-		fields.forEach(function (fieldConfig) {
-			var input = form.querySelector('input[name="' + fieldConfig.name + '"]');
-			if (!input) {
+		function bindInput(input) {
+			if (!isSupportedField(input) || input.dataset.gtsLocationAutocompleteBound === '1') {
 				return;
 			}
+			input.dataset.gtsLocationAutocompleteBound = '1';
 
-			var fieldWrap = input.closest('.transfer-field');
+			var fieldWrap = findFieldWrap(input);
 			if (!fieldWrap) {
 				return;
 			}
@@ -94,7 +110,8 @@
 					return;
 				}
 
-				input.value = item.short_label || item.value;
+				input.value = item.label || item.value;
+				input.dataset.shortLabel = item.short_label || '';
 				input.dataset.country = item.country || '';
 				input.dataset.city = item.city || '';
 				input.dataset.address = item.address || item.label || item.value;
@@ -166,6 +183,7 @@
 					delete input.dataset.city;
 					delete input.dataset.address;
 					delete input.dataset.fullLabel;
+					delete input.dataset.shortLabel;
 					clearList();
 					return;
 				}
@@ -178,14 +196,16 @@
 				formData.append('action', 'gts_address_suggestions');
 				formData.append('nonce', nonce);
 				formData.append('q', query);
-				formData.append('type', fieldConfig.type);
+				formData.append('type', 'address');
 
 				fetch(ajaxUrl, {
 					method: 'POST',
 					body: formData,
 					signal: abortController.signal
 				})
-					.then(function (response) { return response.json(); })
+					.then(function (response) {
+						return response.json();
+					})
 					.then(function (json) {
 						if (currentRequestId !== requestId) {
 							return;
@@ -213,6 +233,7 @@
 				delete input.dataset.city;
 				delete input.dataset.address;
 				delete input.dataset.fullLabel;
+				delete input.dataset.shortLabel;
 				delete input.dataset.lat;
 				delete input.dataset.lon;
 				requestSuggestions(input.value.trim());
@@ -260,7 +281,24 @@
 					clearList();
 				}, 180);
 			});
+		}
+
+		function bindAllInputs(root) {
+			var scope = root || document;
+			var selector = supportedNames
+				.map(function (name) {
+					return 'input[name="' + name.replace(/"/g, '\\"') + '"]';
+				})
+				.join(', ');
+			scope.querySelectorAll(selector).forEach(bindInput);
+		}
+
+		bindAllInputs(document);
+
+		var observer = new MutationObserver(function () {
+			bindAllInputs(document);
 		});
+		observer.observe(document.body, { childList: true, subtree: true });
 	}
 
 	if (document.readyState === 'loading') {

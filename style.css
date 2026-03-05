@@ -7288,6 +7288,31 @@ main#primary > section.hero-block > .hero-container {
   text-decoration: none;
 }
 
+.booking-form .transfer-autocomplete-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid rgba(12, 15, 23, 0.16);
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.booking-form .transfer-autocomplete-option {
+  color: #0c0f17;
+}
+
+.booking-form .transfer-autocomplete-option:hover,
+.booking-form .transfer-autocomplete-option.is-active {
+  background: rgba(12, 15, 23, 0.07);
+}
+
 .checkbox-group label {
   display: flex;
   align-items: center;
@@ -11483,6 +11508,8 @@ main#primary > section.hero-block > .hero-container {
 .transfer-summary-row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
@@ -11496,6 +11523,9 @@ main#primary > section.hero-block > .hero-container {
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px;
   color: #0c0f17;
+  max-width: 64%;
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
 .transfer-summary-divider {
