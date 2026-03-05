@@ -212,7 +212,7 @@ if ($is_corporate_events_chauffeur_service) {
 	$hero_icon_2_markup = $hero_icon_1_original;
 }
 if ($is_private_tours_service) {
-	$hero_title = 'Private Tours';
+	$hero_title = 'Private Tours<br>Chauffeur Service';
 	$hero_subtitle = 'From iconic landmarks to hidden destinations,<br>GTS designs&nbsp;private chauffeur tours&nbsp;around your<br>interests, pace, and itinerary — with seamless<br>transfers, professional drivers, and complete<br>flexibility throughout the journey.';
 	if ('' === trim((string) $hero_cta_text) || 'book a transfer' === strtolower(trim((string) $hero_cta_text))) {
 		$hero_cta_text = 'Book a tour';

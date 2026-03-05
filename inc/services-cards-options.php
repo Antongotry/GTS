@@ -99,7 +99,7 @@ function gts_get_default_services_cards() {
 			'url'         => home_url( '/services/corporate-events-chauffeur-service/' ),
 		),
 		array(
-			'title'       => 'Private Tours',
+			'title'       => 'Private Tours Chauffeur Service',
 			'description' => 'From iconic landmarks to hidden destinations, GTS designs private chauffeur tours around your interests, pace, and itinerary — with seamless transfers, professional drivers, and complete flexibility throughout the journey.',
 			'image'       => get_site_url() . '/wp-content/uploads/2026/03/servnew-9_result.webp',
 			'url'         => home_url( '/services/private-tours/' ),
