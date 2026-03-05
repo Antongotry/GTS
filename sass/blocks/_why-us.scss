@@ -284,6 +284,16 @@
 		width: min(100%, 31ch);
 		text-wrap: balance;
 	}
+
+	.single-service .why-us-block--medical-transportation .why-us-item-1 .why-us-item-description {
+		width: min(100%, 45ch);
+		text-wrap: balance;
+	}
+
+	.single-service .why-us-block--medical-transportation .why-us-item-6 .why-us-item-description {
+		width: min(100%, 42ch);
+		text-wrap: balance;
+	}
 }
 
 // Desktop adaptive only (769-1480):
@@ -351,6 +361,16 @@
 
 	.single-service .why-us-block--professional-chauffeur-service .why-us-item-5 .why-us-item-description {
 		width: min(100%, 29ch);
+		text-wrap: balance;
+	}
+
+	.single-service .why-us-block--medical-transportation .why-us-item-1 .why-us-item-description {
+		width: min(100%, 42ch);
+		text-wrap: balance;
+	}
+
+	.single-service .why-us-block--medical-transportation .why-us-item-6 .why-us-item-description {
+		width: min(100%, 40ch);
 		text-wrap: balance;
 	}
 }
