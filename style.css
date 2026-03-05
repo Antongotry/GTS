@@ -10150,7 +10150,8 @@ main#primary > section.hero-block > .hero-container {
 }
 
 .services-card--hidden {
-  display: none;
+  display: none !important;
+  visibility: hidden;
 }
 
 .services-card-content {
@@ -10279,6 +10280,10 @@ main#primary > section.hero-block > .hero-container {
   text-underline-offset: 4px;
   margin-top: 40px;
   display: inline-block;
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  clear: both;
   padding: 0;
   border: 0;
   background: transparent;
