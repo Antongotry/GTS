@@ -11,13 +11,25 @@
 	box-sizing: border-box;
 	overflow-x: hidden; // Предотвратить горизонтальный скролл
 
-	@include md {
-		padding: 40px 0 24px; // 40px сверху, 24px снизу на мобильном
+		@include md {
+			padding: 40px 0 24px; // 40px сверху, 24px снизу на мобильном
 		width: 100%;
 		max-width: 100%;
 		box-sizing: border-box;
-		overflow-x: hidden; // Предотвратить горизонтальный скролл
-	}
+			overflow-x: hidden; // Предотвратить горизонтальный скролл
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: var(--gts-header-width, min(1840px, calc(100vw - var(--scrollbar-width) - 40px)));
+			height: 1px;
+			background: rgba(255, 255, 255, 0.16);
+			display: none;
+		}
 
 }
 
@@ -67,15 +79,9 @@
 	}
 }
 
-.home .site-footer .footer-container::before,
-.front-page .site-footer .footer-container::before {
-	content: '';
-	position: absolute;
-	top: -40px;
-	left: 0;
-	right: 0;
-	height: 1px;
-	background: rgba(255, 255, 255, 0.16);
+.home .site-footer::before,
+.front-page .site-footer::before {
+	display: block;
 }
 
 .footer-left {
