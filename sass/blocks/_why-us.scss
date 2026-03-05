@@ -296,6 +296,11 @@
 		max-width: 44ch;
 		text-wrap: balance;
 	}
+
+	.single-service .why-us-block--airport-transfer-service .why-us-item-1 .why-us-item-description {
+		max-width: 52ch;
+		text-wrap: balance;
+	}
 }
 
 // Удалён дублирующий @include lg блок - стили теперь в основных классах

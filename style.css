@@ -8212,6 +8212,10 @@ main#primary > section.hero-block > .hero-container {
     max-width: 44ch;
     text-wrap: balance;
   }
+  .single-service .why-us-block--airport-transfer-service .why-us-item-1 .why-us-item-description {
+    max-width: 52ch;
+    text-wrap: balance;
+  }
 }
 
 @media (max-width: 768px) {
