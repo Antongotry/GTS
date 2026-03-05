@@ -109,6 +109,50 @@ function gts_normalize_heading_text( $text ) {
 	return trim( (string) $text );
 }
 
+/**
+ * Prevent orphan last word in heading text while preserving <br> line breaks.
+ *
+ * @param string $text Heading text with optional <br>.
+ * @param int    $words Number of trailing words to glue.
+ * @return string
+ */
+function gts_heading_prevent_orphan_word( $text, $words = 2 ) {
+	$text = (string) $text;
+	$words = max( 2, (int) $words );
+	if ( '' === trim( $text ) ) {
+		return '';
+	}
+
+	$segments = preg_split( '/(<br\s*\/?>)/i', $text, -1, PREG_SPLIT_DELIM_CAPTURE );
+	if ( ! is_array( $segments ) ) {
+		return $text;
+	}
+
+	foreach ( $segments as $index => $segment ) {
+		if ( preg_match( '/^<br\s*\/?>$/i', trim( (string) $segment ) ) ) {
+			continue;
+		}
+
+		$plain = trim( wp_strip_all_tags( (string) $segment ) );
+		if ( '' === $plain ) {
+			continue;
+		}
+
+		$tokens = preg_split( '/\s+/u', $plain );
+		if ( ! is_array( $tokens ) || count( $tokens ) < $words ) {
+			$segments[ $index ] = $plain;
+			continue;
+		}
+
+		$glue_from = max( 1, count( $tokens ) - $words );
+		$prefix = implode( ' ', array_slice( $tokens, 0, $glue_from ) );
+		$suffix = implode( '&nbsp;', array_slice( $tokens, $glue_from ) );
+		$segments[ $index ] = trim( $prefix . ' ' . $suffix );
+	}
+
+	return implode( '', $segments );
+}
+
 function gts_get_contact_channels() {
 	$email = get_option( 'gts_header_email', 'info@global-travelsolutions.com' );
 	$email = $email ? $email : 'info@global-travelsolutions.com';

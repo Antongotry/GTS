@@ -42,7 +42,7 @@ if (empty($items)) {
 <section class="final-cta-block" style="background-image: url('<?php echo esc_url($background); ?>');">
 	<div class="final-cta-container">
 		<div class="final-cta-left">
-			<h2 class="final-cta-title"><?php echo wp_kses_post($title); ?></h2>
+			<h2 class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $title ) ); ?></h2>
 			<p class="final-cta-description">
 				<?php echo wp_kses_post($description); ?>
 			</p>

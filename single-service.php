@@ -3020,7 +3020,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<span class="why-us-heading-text"><?php echo esc_html( $service_intro_pill ); ?></span>
 						</div>
 					<?php endif; ?>
-						<h2 class="final-cta-title"><?php echo wp_kses_post($service_intro_title); ?></h2>
+						<h2 class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $service_intro_title ) ); ?></h2>
 						<?php if (!empty($service_intro_description)) : ?>
 							<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
 						<?php endif; ?>
