@@ -14,7 +14,7 @@ WooCommerce styles override
  *
  * Логика:
  * 1920px = базовые стили (без медиа-запроса)
- * 1440px = @include xl { } — большой десктоп
+ * 1480px = @include xl { } — большой десктоп
  * 1024px = @include lg { } — планшет ландшафт
  * 768px  = @include md { } — мобильные устройства
  */
@@ -283,7 +283,7 @@ table.shop_table_responsive tr td.download-actions .button {
   display: none;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1480px) {
   .gts-fleet-archive__title {
     font-size: 40px;
   }

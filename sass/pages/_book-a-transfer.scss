@@ -588,7 +588,7 @@ $transfer-summary-col: calc((100% - #{$transfer-gap}) * #{$transfer-summary-rati
 	text-align: center;
 }
 
-/* Responsive — same breakpoints as header/hero (xl 1440, lg 1024, md 768) */
+/* Responsive — same breakpoints as header/hero (xl 1480, lg 1024, md 768) */
 
 @include lg {
 

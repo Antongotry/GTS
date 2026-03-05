@@ -91,7 +91,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			max-width: 1440px;
+			max-width: 1480px;
 			margin: 0 auto
 		}
 
@@ -114,7 +114,7 @@
 		}
 
 		.hero-container {
-			max-width: 1440px;
+			max-width: 1480px;
 			position: absolute !important;
 			top: 0;
 			right: 0;

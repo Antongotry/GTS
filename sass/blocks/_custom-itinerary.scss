@@ -4,11 +4,11 @@
 
 .custom-itinerary-block {
 	width: 100%;
-	margin-top: 80px; // отступ от предыдущего блока (1920, 1440)
+	margin-top: 80px; // отступ от предыдущего блока (1920, 1480)
 	padding: 0 $spacing-lg 40px; // 0 сверху, 20px по бокам, 40px снизу
 
 	@include xl {
-		margin-top: 80px; // 1440
+		margin-top: 80px; // 1480
 	}
 
 	@include lg {
@@ -23,10 +23,10 @@
 
 // В варианте Limousine — отступ снизу перед следующим блоком (Services)
 .custom-itinerary-block--limousine {
-	margin-bottom: 150px; // 1920, 1440
+	margin-bottom: 150px; // 1920, 1480
 
 	@include xl {
-		margin-bottom: 150px; // 1440
+		margin-bottom: 150px; // 1480
 	}
 
 	@include lg {

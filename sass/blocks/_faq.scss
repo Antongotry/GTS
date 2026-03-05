@@ -10,7 +10,7 @@
 	overflow: visible;
 
 	@include xl {
-		margin-top: 150px; // 1440: 150
+		margin-top: 150px; // 1480: 150
 	}
 
 	@include lg {
@@ -126,7 +126,7 @@
 	appearance: none;
 
 	@include xl {
-		padding: 25px 24px 24px 24px; // 1440: top 25px, left 24px
+		padding: 25px 24px 24px 24px; // 1480: top 25px, left 24px
 	}
 
 	@include lg {
@@ -150,7 +150,7 @@
 	min-width: 0;
 
 	@include xl {
-		line-height: 24px; // 1440: height 24
+		line-height: 24px; // 1480: height 24
 	}
 
 	@include lg {

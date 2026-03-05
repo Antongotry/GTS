@@ -4,13 +4,13 @@
  *
  * Логика:
  * 1920px = базовые стили (без медиа-запроса)
- * 1440px = @include xl { } — большой десктоп
+ * 1480px = @include xl { } — большой десктоп
  * 1024px = @include lg { } — планшет ландшафт
  * 768px  = @include md { } — мобильные устройства
  */
 
 // Desktop-first брейкпоинты
-$breakpoint-xl: 1440px;
+$breakpoint-xl: 1480px;
 $breakpoint-lg: 1024px;
 $breakpoint-md: 768px;
 

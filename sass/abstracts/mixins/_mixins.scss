@@ -15,7 +15,7 @@
 // Usage: @include laptop { ... }
 // ==========================================================================
 
-// Max 1440px (laptop and below)
+// Max 1480px (laptop and below)
 @mixin laptop {
 	@media (max-width: #{$breakpoint-laptop}) {
 		@content;

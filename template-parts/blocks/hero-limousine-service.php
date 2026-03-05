@@ -61,7 +61,7 @@ $hero_icon_3 = file_get_contents( get_template_directory() . '/assets/icons/icon
 		background-image: url('<?php echo esc_url($image_tablet); ?>') !important;
 	}
 }
-/* Desktop: 1440px and 1920px - same image */
+/* Desktop: 1480px and 1920px - same image */
 @media (min-width: 1025px) {
 	.hero-block {
 		background-image: url('<?php echo esc_url($image_desktop); ?>') !important;

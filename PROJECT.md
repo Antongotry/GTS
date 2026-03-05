@@ -220,7 +220,7 @@ npm run bundle
 }
 
 .my-new-block-container {
-    max-width: 1440px;
+    max-width: 1480px;
     margin: 0 auto;
     padding: 0 40px;
 }

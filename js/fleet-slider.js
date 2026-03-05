@@ -27,7 +27,7 @@
 					slidesPerView: 3,
 					spaceBetween: 20,
 				},
-				1440: {
+				1480: {
 					slidesPerView: 3,
 					spaceBetween: 20,
 				},
