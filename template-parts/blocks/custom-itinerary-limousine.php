@@ -8,9 +8,22 @@
 
 $phone_icon_url = get_template_directory_uri() . '/assets/icons/phone-icon.svg';
 $mail_icon_url  = get_template_directory_uri() . '/assets/icons/mail-icon.svg';
-$cta_block = function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' )
-	? gts_get_page_service_block( 'cta' )
-	: array();
+$cta_block = array();
+
+if ( function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' ) ) {
+	$cta_block = gts_get_page_service_block( 'cta' );
+} elseif ( is_singular( 'service' ) && function_exists( 'get_field' ) ) {
+	$service_blocks = get_field( 'service_blocks', get_the_ID() );
+	if ( is_array( $service_blocks ) ) {
+		foreach ( $service_blocks as $block ) {
+			if ( is_array( $block ) && ! empty( $block['acf_fc_layout'] ) && 'cta' === (string) $block['acf_fc_layout'] ) {
+				$cta_block = $block;
+				break;
+			}
+		}
+	}
+}
+
 $cta_title = ! empty( $cta_block['title'] ) ? (string) $cta_block['title'] : 'Ready to Travel with GTS?';
 $cta_description = ! empty( $cta_block['description'] ) ? (string) $cta_block['description'] : 'Our team is available 24/7 to organize your limousine or executive transfer anywhere in the world.';
 $cta_button_text = ! empty( $cta_block['button_text'] ) ? (string) $cta_block['button_text'] : 'Book Now';
