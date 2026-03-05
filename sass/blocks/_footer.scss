@@ -679,13 +679,20 @@
 }
 
 .footer-developed {
-	span {
+	span,
+	a {
 		font-family: $font__manrope;
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 100%;
 		letter-spacing: 0%;
 		color: rgba(255, 255, 255, 0.4); // #FFFFFF66 (102/255 = 0.4)
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	a:hover {
+		color: rgba(255, 255, 255, 0.7);
 	}
 
 	@include md {
