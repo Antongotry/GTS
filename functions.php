@@ -1192,7 +1192,22 @@ function gts_ajax_submit_booking_request() {
 		'nonce',
 		'gts_booking_nonce',
 		'gts_service_nonce',
+		'gts_contact_nonce',
 		'_wp_http_referer',
+		'full_name',
+		'name',
+		'phone',
+		'email',
+		'page_url',
+		'page_title',
+		'form_id',
+		'form_classes',
+		'gts_first_name',
+		'gts_last_name',
+		'gts_phone',
+		'gts_email',
+		'gts_details',
+		'gts_consent',
 	);
 
 	$lines = array(
