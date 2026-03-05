@@ -1115,7 +1115,10 @@ function gts_handle_contact_form()
 	$phone = isset($_POST['gts_phone']) ? sanitize_text_field(wp_unslash($_POST['gts_phone'])) : '';
 	$email = isset($_POST['gts_email']) ? sanitize_email(wp_unslash($_POST['gts_email'])) : '';
 	$details = isset($_POST['gts_details']) ? sanitize_textarea_field(wp_unslash($_POST['gts_details'])) : '';
-	if (! $first || ! $last || ! $phone || ! $email || ! is_email($email)) {
+	if (! $first || ! $phone) {
+		return;
+	}
+	if ( $email && ! is_email( $email ) ) {
 		return;
 	}
 	$to      = get_option('admin_email');
@@ -1125,7 +1128,7 @@ function gts_handle_contact_form()
 		$first,
 		$last,
 		$phone,
-		$email,
+		$email ? $email : 'Not provided',
 		$details
 	);
 	$headers = array('Content-Type: text/plain; charset=UTF-8');

@@ -1,7 +1,7 @@
 (() => {
 	'use strict';
 
-	const FORM_SELECTORS = '.booking-form, .fleet-booking-form';
+	const FORM_SELECTORS = '.booking-form, .fleet-booking-form, .gts-contact-form';
 	const SUCCESS_TEXT = 'Thank you! Your request was sent. We will contact you shortly.';
 	let activeSuccessPopup = null;
 
@@ -70,10 +70,11 @@
 		if (form.id === 'transfer-form') {
 			return false;
 		}
-		if (form.classList.contains('gts-contact-form')) {
-			return false;
-		}
 		return true;
+	}
+
+	function normalizeText(value) {
+		return (value || '').replace(/\s+/g, ' ').trim();
 	}
 
 	function ensureSelectOptions(form) {
@@ -183,6 +184,27 @@
 
 	function collectPayload(form, nonce) {
 		const formData = new FormData(form);
+		if (form.classList.contains('gts-contact-form')) {
+			const firstName = normalizeText(formData.get('gts_first_name'));
+			const lastName = normalizeText(formData.get('gts_last_name'));
+			const fullName = normalizeText([firstName, lastName].filter(Boolean).join(' '));
+			const phone = normalizeText(formData.get('gts_phone'));
+			const email = normalizeText(formData.get('gts_email'));
+			const details = normalizeText(formData.get('gts_details'));
+
+			if (fullName) {
+				formData.append('full_name', fullName);
+			}
+			if (phone) {
+				formData.append('phone', phone);
+			}
+			if (email) {
+				formData.append('email', email);
+			}
+			if (details) {
+				formData.append('additional_notes', details);
+			}
+		}
 		formData.append('action', 'gts_submit_booking_request');
 		formData.append('nonce', nonce);
 		formData.append('page_url', window.location.href);
@@ -227,7 +249,12 @@
 		// For standard booking forms only name and phone must be required.
 		form.querySelectorAll('[required]').forEach((field) => {
 			const fieldName = (field.getAttribute('name') || '').toLowerCase();
-			const isRequiredBaseField = fieldName === 'full_name' || fieldName === 'name' || fieldName === 'phone';
+			const isRequiredBaseField =
+				fieldName === 'full_name' ||
+				fieldName === 'name' ||
+				fieldName === 'phone' ||
+				fieldName === 'gts_first_name' ||
+				fieldName === 'gts_phone';
 			if (!isRequiredBaseField) {
 				field.required = false;
 				field.removeAttribute('required');

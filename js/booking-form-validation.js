@@ -1,7 +1,7 @@
 (() => {
-	const FORM_SELECTORS = '.booking-form, .fleet-booking-form';
-	const NAME_SELECTORS = 'input[name="full_name"], input[name="name"]';
-	const PHONE_SELECTORS = 'input[name="phone"]';
+	const FORM_SELECTORS = '.booking-form, .fleet-booking-form, .gts-contact-form';
+	const NAME_SELECTORS = 'input[name="full_name"], input[name="name"], input[name="gts_first_name"]';
+	const PHONE_SELECTORS = 'input[name="phone"], input[name="gts_phone"]';
 
 	const normalizeText = (value) => (value || '').replace(/\s+/g, ' ').trim();
 	const digitsOnly = (value) => (value || '').replace(/\D+/g, '');

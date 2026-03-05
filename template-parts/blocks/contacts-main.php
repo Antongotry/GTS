@@ -54,7 +54,7 @@ $mail_icon_url  = get_template_directory_uri() . '/assets/icons/mail-icon.svg';
 								<input type="text" name="gts_first_name" placeholder="<?php esc_attr_e('First name', 'gts-theme'); ?>" required>
 							</div>
 							<div class="contacts-form__group">
-								<input type="text" name="gts_last_name" placeholder="<?php esc_attr_e('Last name', 'gts-theme'); ?>" required>
+								<input type="text" name="gts_last_name" placeholder="<?php esc_attr_e('Last name', 'gts-theme'); ?>">
 							</div>
 						</div>
 						<div class="contacts-form__row">
@@ -62,7 +62,7 @@ $mail_icon_url  = get_template_directory_uri() . '/assets/icons/mail-icon.svg';
 								<input type="tel" name="gts_phone" placeholder="<?php esc_attr_e('Phone', 'gts-theme'); ?>" required>
 							</div>
 							<div class="contacts-form__group">
-								<input type="email" name="gts_email" placeholder="<?php esc_attr_e('E-mail', 'gts-theme'); ?>" required>
+								<input type="email" name="gts_email" placeholder="<?php esc_attr_e('E-mail', 'gts-theme'); ?>">
 							</div>
 						</div>
 						<div class="contacts-form__row">
