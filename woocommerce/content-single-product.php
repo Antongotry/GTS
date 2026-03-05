@@ -56,6 +56,13 @@ $attributes = $product->get_attributes();
 $spec_rows  = array();
 
 foreach ( $attributes as $attribute ) {
+	$attribute_name = (string) $attribute->get_name();
+	$normalized_name = strtolower( str_replace( 'pa_', '', $attribute_name ) );
+	if ( in_array( $normalized_name, array( 'passenger', 'passengers', 'bags', 'bag' ), true ) ) {
+		// Render passengers/bags once in the dedicated rows below.
+		continue;
+	}
+
 	$label = wc_attribute_label( $attribute->get_name() );
 
 	if ( $attribute->is_taxonomy() ) {
