@@ -317,6 +317,10 @@ if ($has_hero_block) {
 		$hero_features_enabled = (bool) $hero['features_enabled'];
 	}
 }
+if ($is_private_tours_service) {
+	$hero_title = 'Private Tours';
+	$hero_cta_text = 'Book a tour';
+}
 
 // Service Intro defaults (under Hero, no background image / no blur)
 $service_context = isset($blocks_data['service_context']) ? $blocks_data['service_context'] : array();
