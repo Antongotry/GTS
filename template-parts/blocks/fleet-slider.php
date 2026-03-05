@@ -17,13 +17,14 @@ if ( function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page
 }
 
 if ( ! empty( $fleet_block ) ) {
-	if ( ! empty( $fleet_block['title'] ) && empty( $args['title'] ) ) {
+	if ( ! empty( $fleet_block['title'] ) ) {
 		$args['title'] = (string) $fleet_block['title'];
 	}
-	if ( ! empty( $fleet_block['subtitle'] ) && empty( $args['lead'] ) ) {
+	if ( ! empty( $fleet_block['subtitle'] ) ) {
 		$args['lead'] = (string) $fleet_block['subtitle'];
+		$args['hide_lead'] = false;
 	}
-	if ( ! empty( $fleet_block['pill_text'] ) && empty( $args['pill_text'] ) ) {
+	if ( ! empty( $fleet_block['pill_text'] ) ) {
 		$args['pill_text'] = (string) $fleet_block['pill_text'];
 	}
 }
