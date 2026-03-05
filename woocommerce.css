@@ -275,6 +275,63 @@ table.shop_table_responsive tr td.download-actions .button {
   opacity: 0.88;
 }
 
+.gts-fleet-products nav.woocommerce-pagination {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.gts-fleet-products nav.woocommerce-pagination ul.page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+}
+
+.gts-fleet-products nav.woocommerce-pagination ul.page-numbers li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gts-fleet-products nav.woocommerce-pagination ul.page-numbers a,
+.gts-fleet-products nav.woocommerce-pagination ul.page-numbers span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  box-sizing: border-box;
+  font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.gts-fleet-products nav.woocommerce-pagination ul.page-numbers .current {
+  background: #f4c58b;
+  border-color: #f4c58b;
+  color: #0c0f17;
+}
+
+.gts-fleet-products nav.woocommerce-pagination ul.page-numbers a:hover,
+.gts-fleet-products nav.woocommerce-pagination ul.page-numbers a:focus-visible {
+  background: rgba(244, 197, 139, 0.2);
+  border-color: rgba(244, 197, 139, 0.85);
+  color: #fff;
+  outline: none;
+}
+
 .gts-fleet-filters-toggle {
   display: none;
 }
@@ -330,6 +387,19 @@ table.shop_table_responsive tr td.download-actions .button {
   .gts-fleet-products ul.products {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+  .gts-fleet-products nav.woocommerce-pagination {
+    margin-top: 24px;
+  }
+  .gts-fleet-products nav.woocommerce-pagination ul.page-numbers {
+    gap: 8px;
+  }
+  .gts-fleet-products nav.woocommerce-pagination ul.page-numbers a,
+  .gts-fleet-products nav.woocommerce-pagination ul.page-numbers span {
+    min-width: 42px;
+    height: 42px;
+    padding: 0 14px;
+    font-size: 14px;
   }
   .gts-fleet-filters {
     position: fixed;
