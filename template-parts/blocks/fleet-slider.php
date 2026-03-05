@@ -28,6 +28,21 @@ if ( ! empty( $fleet_block ) ) {
 	}
 }
 
+$current_service_slug = '';
+if ( is_singular( 'service' ) ) {
+	$current_service_slug = (string) get_post_field( 'post_name', get_the_ID() );
+}
+
+// Private Tours: keep a stable default copy, but let admin fields override it.
+if ( 'private-tours' === $current_service_slug ) {
+	if ( empty( $args['title'] ) ) {
+		$args['title'] = 'Every detail matters on a private journey — from vehicle comfort to the chauffeur’s experience.';
+	}
+	if ( empty( $args['lead'] ) ) {
+		$args['lead'] = 'Every GTS car meets high standards of safety, comfort, and presentation for a smooth, relaxed ride.';
+	}
+}
+
 $query_args = array(
 	'status'  => 'publish',
 	'limit'   => 20,
