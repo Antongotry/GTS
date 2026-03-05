@@ -29,9 +29,22 @@ $testimonials = array(
 );
 $section_pill = 'Trusted by clients worldwide';
 $section_title = 'Corporations, executives and private travellers rely on GTS for punctuality, comfort and flawless service.';
-$testimonials_block = function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' )
-	? gts_get_page_service_block( 'testimonials' )
-	: array();
+$testimonials_block = array();
+
+if ( function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page() && function_exists( 'gts_get_page_service_block' ) ) {
+	$testimonials_block = gts_get_page_service_block( 'testimonials' );
+} elseif ( is_singular( 'service' ) && function_exists( 'get_field' ) ) {
+	$service_blocks = get_field( 'service_blocks', get_the_ID() );
+	if ( is_array( $service_blocks ) ) {
+		foreach ( $service_blocks as $block ) {
+			if ( is_array( $block ) && ! empty( $block['acf_fc_layout'] ) && 'testimonials' === (string) $block['acf_fc_layout'] ) {
+				$testimonials_block = $block;
+				break;
+			}
+		}
+	}
+}
+
 if ( ! empty( $testimonials_block ) ) {
 	if ( ! empty( $testimonials_block['pill_text'] ) ) {
 		$section_pill = (string) $testimonials_block['pill_text'];
@@ -52,10 +65,20 @@ if ( ! empty( $testimonials_block ) ) {
 						if ( '' === $text || '' === $name ) {
 							return null;
 						}
+						$avatar = '';
+						if ( ! empty( $item['avatar'] ) ) {
+							if ( is_array( $item['avatar'] ) && ! empty( $item['avatar']['url'] ) ) {
+								$avatar = (string) $item['avatar']['url'];
+							} elseif ( is_numeric( $item['avatar'] ) ) {
+								$avatar = (string) wp_get_attachment_image_url( (int) $item['avatar'], 'thumbnail' );
+							} else {
+								$avatar = (string) $item['avatar'];
+							}
+						}
 						return array(
 							'text'   => $text,
 							'name'   => $name,
-							'avatar' => ! empty( $item['avatar'] ) ? (string) $item['avatar'] : '',
+							'avatar' => $avatar,
 						);
 					},
 					$testimonials_block['testimonials']
