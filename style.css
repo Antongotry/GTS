@@ -2614,11 +2614,15 @@ a.phone-button:focus,
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: min(1840px, calc(100vw - var(--scrollbar-width, 0px) - 40px));
-  max-width: calc(100vw - 40px);
+  width: min(1840px, calc(100vw - var(--scrollbar-width) - 40px));
   height: 1px;
   background: rgba(255, 255, 255, 0.16);
   display: none;
+}
+@media (max-width: 768px) {
+  .site-footer::before {
+    width: calc(100vw - 40px);
+  }
 }
 
 .home .site-footer::before,
