@@ -24,12 +24,18 @@ $page_id = get_queried_object_id();
 
 	<?php if ( gts_is_page_service_block_enabled( 'how_it_works', true, $page_id ) ) { get_template_part('template-parts/blocks/how-it-works'); } ?>
 
-	<div class="white-sections-wrapper">
-		<?php if ( gts_is_page_service_block_enabled( 'testimonials', true, $page_id ) ) { get_template_part('template-parts/blocks/trusted-by'); } ?>
-		<?php if ( gts_is_page_service_block_enabled( 'faq', true, $page_id ) ) { get_template_part('template-parts/blocks/faq'); } ?>
-		<?php if ( gts_is_page_service_block_enabled( 'cta', true, $page_id ) ) { get_template_part('template-parts/blocks/custom-itinerary', 'limousine'); } ?>
-		<?php if ( gts_is_page_service_block_enabled( 'related_services', true, $page_id ) ) { get_template_part('template-parts/blocks/services', 'limousine'); } ?>
-	</div>
+		<div class="white-sections-wrapper">
+			<?php if ( gts_is_page_service_block_enabled( 'testimonials', true, $page_id ) ) { get_template_part('template-parts/blocks/trusted-by'); } ?>
+			<?php if ( gts_is_page_service_block_enabled( 'faq', true, $page_id ) ) { get_template_part('template-parts/blocks/faq'); } ?>
+			<?php if ( gts_is_page_service_block_enabled( 'cta', true, $page_id ) ) { get_template_part('template-parts/blocks/custom-itinerary', 'limousine'); } ?>
+			<?php if ( gts_is_page_service_block_enabled( 'related_services', true, $page_id ) ) { get_template_part('template-parts/blocks/services', 'limousine'); } ?>
+			<?php
+			$bottom_text_block = function_exists( 'gts_get_page_service_block' ) ? gts_get_page_service_block( 'bottom_text', $page_id ) : array();
+			if ( ! empty( $bottom_text_block ) ) {
+				get_template_part( 'template-parts/blocks/service-bottom-text', null, array( 'block' => $bottom_text_block ) );
+			}
+			?>
+		</div>
 
 </main><!-- #primary -->
 
