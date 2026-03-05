@@ -7928,6 +7928,15 @@ main#primary > section.hero-block > .hero-container {
   }
 }
 
+.single-service .why-us-block + .white-sections-wrapper {
+  margin-top: 80px;
+}
+@media (max-width: 768px) {
+  .single-service .why-us-block + .white-sections-wrapper {
+    margin-top: 56px;
+  }
+}
+
 .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
   margin-bottom: 92px;
 }

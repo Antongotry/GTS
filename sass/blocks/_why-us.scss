@@ -19,6 +19,15 @@
 	}
 }
 
+// Add spacing when white section starts immediately after Why Us.
+.single-service .why-us-block + .white-sections-wrapper {
+	margin-top: 80px;
+
+	@include md {
+		margin-top: 56px;
+	}
+}
+
 .page-template-page-city-to-city .why-us-block:not(.occasions-block) {
 	margin-bottom: 92px;
 
