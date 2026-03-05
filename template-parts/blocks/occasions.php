@@ -18,7 +18,7 @@ $is_professional_chauffeur_service = ( 'professional-chauffeur-service' === $cur
 $is_cultural_sport_events_service = ( 'cultural-sport-events' === $current_service_slug );
 $is_wedding_service = ( 'wedding' === $current_service_slug );
 $image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-1_result.webp';
-$image_events_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
+$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/03/Frame-2087325440_result.webp';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
 if ( $is_city_to_city ) {
 	$image_events_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/02/city-55_result.webp';
@@ -56,6 +56,7 @@ $footer_text = $is_city_to_city
 	: 'Whether it\'s a business meeting, an exclusive event, or a long-distance journey – GTS Limousine Service adapts to your agenda with flawless precision and discretion.';
 $footer_text = ! empty( $block['footer_text'] ) ? $block['footer_text'] : $footer_text;
 $footer_text_enabled = ! isset( $block['footer_text_enabled'] ) || (bool) $block['footer_text_enabled'];
+$admin_cards = array();
 
 if ( ! empty( $block['cards'] ) && is_array( $block['cards'] ) ) {
 	$cards = array_values(
@@ -103,12 +104,13 @@ if ( ! empty( $block['cards'] ) && is_array( $block['cards'] ) ) {
 	if ( isset( $cards[5] ) ) {
 		$image_events_url = '' !== $cards[5]['image'] ? $cards[5]['image'] : $image_events_url;
 	}
-	if ( isset( $cards[6] ) ) {
-		$icon_events_url = '' !== $cards[6]['icon'] ? $cards[6]['icon'] : $icon_events_url;
-		$item_5_title = '' !== $cards[6]['title'] ? $cards[6]['title'] : $item_5_title;
-		$item_5_description = '' !== $cards[6]['description'] ? $cards[6]['description'] : $item_5_description;
+		if ( isset( $cards[6] ) ) {
+			$icon_events_url = '' !== $cards[6]['icon'] ? $cards[6]['icon'] : $icon_events_url;
+			$item_5_title = '' !== $cards[6]['title'] ? $cards[6]['title'] : $item_5_title;
+			$item_5_description = '' !== $cards[6]['description'] ? $cards[6]['description'] : $item_5_description;
+		}
+		$admin_cards = $cards;
 	}
-}
 
 if ( $is_hourly_hire ) {
 	$image_airport_url = $site_url . '/wp-content/uploads/2026/02/photo-l-2_result.webp';
@@ -237,6 +239,41 @@ if ( $is_wedding_service ) {
 	$item_5_description = 'seamless coordination in 100+ countries,<br>from resorts to private estates.';
 
 	$footer_text_enabled = false;
+}
+
+// Keep service presets as fallback only: if admin filled cards, they always win.
+if ( ! empty( $admin_cards ) && is_array( $admin_cards ) ) {
+	if ( isset( $admin_cards[0] ) ) {
+		$icon_executive_url = '' !== $admin_cards[0]['icon'] ? $admin_cards[0]['icon'] : $icon_executive_url;
+		$item_1_title = '' !== $admin_cards[0]['title'] ? $admin_cards[0]['title'] : $item_1_title;
+		$item_1_description = '' !== $admin_cards[0]['description'] ? $admin_cards[0]['description'] : $item_1_description;
+	}
+	if ( isset( $admin_cards[1] ) ) {
+		$icon_airport_url = '' !== $admin_cards[1]['icon'] ? $admin_cards[1]['icon'] : $icon_airport_url;
+		$item_2_title = '' !== $admin_cards[1]['title'] ? $admin_cards[1]['title'] : $item_2_title;
+		$item_2_description = '' !== $admin_cards[1]['description'] ? $admin_cards[1]['description'] : $item_2_description;
+	}
+	if ( isset( $admin_cards[2] ) ) {
+		$image_airport_url = '' !== $admin_cards[2]['image'] ? $admin_cards[2]['image'] : $image_airport_url;
+	}
+	if ( isset( $admin_cards[3] ) ) {
+		$icon_multi_day_url = '' !== $admin_cards[3]['icon'] ? $admin_cards[3]['icon'] : $icon_multi_day_url;
+		$item_3_title = '' !== $admin_cards[3]['title'] ? $admin_cards[3]['title'] : $item_3_title;
+		$item_3_description = '' !== $admin_cards[3]['description'] ? $admin_cards[3]['description'] : $item_3_description;
+	}
+	if ( isset( $admin_cards[4] ) ) {
+		$icon_private_url = '' !== $admin_cards[4]['icon'] ? $admin_cards[4]['icon'] : $icon_private_url;
+		$item_4_title = '' !== $admin_cards[4]['title'] ? $admin_cards[4]['title'] : $item_4_title;
+		$item_4_description = '' !== $admin_cards[4]['description'] ? $admin_cards[4]['description'] : $item_4_description;
+	}
+	if ( isset( $admin_cards[5] ) ) {
+		$image_events_url = '' !== $admin_cards[5]['image'] ? $admin_cards[5]['image'] : $image_events_url;
+	}
+	if ( isset( $admin_cards[6] ) ) {
+		$icon_events_url = '' !== $admin_cards[6]['icon'] ? $admin_cards[6]['icon'] : $icon_events_url;
+		$item_5_title = '' !== $admin_cards[6]['title'] ? $admin_cards[6]['title'] : $item_5_title;
+		$item_5_description = '' !== $admin_cards[6]['description'] ? $admin_cards[6]['description'] : $item_5_description;
+	}
 }
 
 $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidden';
