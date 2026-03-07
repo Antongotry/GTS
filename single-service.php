@@ -2550,11 +2550,24 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			<style id="family-travel-hero-text-width">
 				@media (min-width: 769px) {
 					.hero-title {
-						max-width: 640px;
+						max-width: 600px;
 					}
 
 					.hero-description {
-						max-width: 580px;
+						max-width: 520px;
+					}
+				}
+
+				@media (min-width: 1025px) {
+					.hero-features .hero-feature {
+						padding-left: 24px;
+						padding-right: 24px;
+						gap: 18px;
+					}
+
+					.hero-features .hero-feature-top-left,
+					.hero-features .hero-feature-bottom-left {
+						padding-left: 0;
 					}
 				}
 			</style>
