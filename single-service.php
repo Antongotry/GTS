@@ -2628,9 +2628,9 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					}
 				</style>
 			<?php endif; ?>
-		<?php if ($is_corporations_service) : ?>
-			<style id="corporations-hero-features-width">
-				@media (min-width: 1025px) {
+			<?php if ($is_corporations_service) : ?>
+				<style id="corporations-hero-features-width">
+					@media (min-width: 1025px) {
 					.hero-block--corporations .hero-features .hero-feature {
 						padding-left: 24px;
 						padding-right: 24px;
@@ -2652,31 +2652,6 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 
 					.hero-block--corporations .hero-features--mobile .hero-feature-top-left,
 					.hero-block--corporations .hero-features--mobile .hero-feature-bottom-left {
-						padding-left: 0;
-					}
-				}
-			</style>
-		<?php endif; ?>
-		<?php if ($is_shoping_service || $is_corporate_events_chauffeur_service || $is_private_tours_service || $is_travel_agencies_service) : ?>
-			<style id="service-hero-features-width-extended">
-				@media (min-width: 1025px) {
-					.hero-block--shoping .hero-features .hero-feature,
-					.hero-block--corporate-events-chauffeur .hero-features .hero-feature,
-					.hero-block--private-tours .hero-features .hero-feature,
-					.hero-block--travel-agencies .hero-features .hero-feature {
-						padding-left: 24px;
-						padding-right: 24px;
-						gap: 18px;
-					}
-
-					.hero-block--shoping .hero-features .hero-feature-top-left,
-					.hero-block--shoping .hero-features .hero-feature-bottom-left,
-					.hero-block--corporate-events-chauffeur .hero-features .hero-feature-top-left,
-					.hero-block--corporate-events-chauffeur .hero-features .hero-feature-bottom-left,
-					.hero-block--private-tours .hero-features .hero-feature-top-left,
-					.hero-block--private-tours .hero-features .hero-feature-bottom-left,
-					.hero-block--travel-agencies .hero-features .hero-feature-top-left,
-					.hero-block--travel-agencies .hero-features .hero-feature-bottom-left {
 						padding-left: 0;
 					}
 				}
