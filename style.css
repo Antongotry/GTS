@@ -6794,7 +6794,7 @@ main#primary > section.hero-block > .hero-container {
   letter-spacing: 0%;
   color: #fff;
   margin: 0 0 24px 0;
-  max-width: 560px;
+  max-width: 520px;
 }
 @media (max-width: 1024px) {
   .hero-description {
