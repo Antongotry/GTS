@@ -257,7 +257,6 @@
 								</span>
 							</a>
 							<ul class="sub-menu">
-								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>" class="sub-menu-link">Limousine Service</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="sub-menu-link">City-to-City</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>" class="sub-menu-link">Corporations</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>" class="sub-menu-link">Airport Transfer</a></li>
@@ -276,6 +275,7 @@
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/professional-chauffeur-service/')); ?>" class="sub-menu-link">Professional Chauffeur Service</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer-service/')); ?>" class="sub-menu-link">Airport Transfer Service</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>" class="sub-menu-link">Hourly Hire</a></li>
+								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>" class="sub-menu-link">Limousine Service</a></li>
 							</ul>
 						</li>
 						<li class="menu-item"><a href="<?php echo esc_url( $fleet_url ); ?>" class="menu-link">Fleet</a></li>
@@ -370,7 +370,6 @@
 				</button>
 				<h3 class="mobile-submenu-title">Services</h3>
 				<ul class="mobile-menu-list mobile-submenu-list">
-					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>" class="mobile-menu-link">Limousine Service</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="mobile-menu-link">City-to-City</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>" class="mobile-menu-link">Corporations</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>" class="mobile-menu-link">Airport Transfer</a></li>
@@ -389,6 +388,7 @@
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/professional-chauffeur-service/')); ?>" class="mobile-menu-link">Professional Chauffeur Service</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer-service/')); ?>" class="mobile-menu-link">Airport Transfer Service</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>" class="mobile-menu-link">Hourly Hire</a></li>
+					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>" class="mobile-menu-link">Limousine Service</a></li>
 				</ul>
 			</div>
 		</nav>
