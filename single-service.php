@@ -2659,6 +2659,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 		<?php endif; ?>
 		<?php if ($is_private_tours_service) : ?>
 			<style id="private-tours-hero-features-width">
+				@media (min-width: 769px) {
+					.hero-block--private-tours .hero-description {
+						max-width: 620px;
+					}
+				}
+
 				@media (min-width: 1025px) {
 					.hero-block--private-tours .hero-features .hero-feature {
 						padding-left: 24px;
