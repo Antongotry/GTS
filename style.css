@@ -2242,7 +2242,7 @@ body.mobile-menu-open {
   transition: all 0.3s ease;
   pointer-events: none;
   min-width: 420px;
-  max-width: 520px;
+  max-width: 480px;
   max-height: calc(100vh - 120px);
   display: block !important;
   column-count: 2;
