@@ -230,6 +230,30 @@
 			margin-top: 0;
 		}
 	}
+
+	@include md {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		grid-column: 1;
+		grid-row: 3;
+		align-self: start;
+
+		.footer-menu,
+		.footer-language {
+			grid-column: auto;
+			grid-row: auto;
+		}
+
+		.footer-menu {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+
+		.footer-language {
+			margin-top: 0;
+		}
+	}
 }
 
 .footer-menu {
@@ -247,8 +271,8 @@
 	}
 
 	@include md {
-		grid-column: 1; // Левая колонка
-		grid-row: 3; // Третья строка (после кнопок+social)
+		grid-column: auto;
+		grid-row: auto;
 		align-self: start; // Выровнять по верху
 		margin-bottom: 40px; // Отступ снизу перед языками (40px)
 		margin-top: 0; // Убираем margin-top, так как он в начале строки
@@ -310,8 +334,8 @@
 	}
 
 	@include md {
-		grid-column: 1; // Левая колонка (под меню)
-		grid-row: 3; // Третья строка (та же строка что и menu)
+		grid-column: auto;
+		grid-row: auto;
 		align-self: start; // Выровнять по верху
 		position: relative; // Относительное позиционирование
 		width: 100%; // Занимает всю ширину левой колонки
@@ -321,11 +345,7 @@
 		margin-left: 0; // Убираем margin-left
 		margin-right: 0; // Убираем margin-right
 		padding-top: 0; // Убираем padding-top
-		// Menu находится в той же строке (grid-row: 3), имеет margin-bottom: 40px
-		// Language должен быть сразу после menu с отступом 40px
-		// Используем margin-top чтобы позиционировать language относительно начала строки 3
-		// Высота menu (254px) + margin-bottom menu (40px) = 294px
-		margin-top: 294px; // Позиционируем language под menu с учетом его высоты и отступа
+		margin-top: 0;
 	}
 }
 
