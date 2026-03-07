@@ -2875,7 +2875,7 @@ a.phone-button:focus,
   .footer-language {
     grid-column: 3;
     grid-row: 2;
-    margin-top: 40px;
+    margin-top: 16px;
   }
 }
 @media (max-width: 1024px) {
