@@ -2809,6 +2809,26 @@ a.phone-button:focus,
   margin: 0 0 16px 0;
 }
 
+.footer-nav-stack {
+  display: contents;
+}
+@media (min-width: 1025px) and (max-width: 1480px) {
+  .footer-nav-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: start;
+  }
+  .footer-nav-stack .footer-menu,
+  .footer-nav-stack .footer-language {
+    grid-column: auto;
+    grid-row: auto;
+    margin-top: 0;
+  }
+}
+
 .footer-menu {
   grid-column: 3;
   grid-row: 1;
@@ -2875,7 +2895,7 @@ a.phone-button:focus,
   .footer-language {
     grid-column: 3;
     grid-row: 2;
-    margin-top: 16px;
+    margin-top: 40px;
   }
 }
 @media (max-width: 1024px) {

@@ -212,6 +212,26 @@
 	margin: 0 0 16px 0; // 16px между лейблом и первым пунктом
 }
 
+.footer-nav-stack {
+	display: contents;
+
+	@media (min-width: 1025px) and (max-width: 1480px) {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		grid-column: 3;
+		grid-row: 1;
+		align-self: start;
+
+		.footer-menu,
+		.footer-language {
+			grid-column: auto;
+			grid-row: auto;
+			margin-top: 0;
+		}
+	}
+}
+
 .footer-menu {
 	grid-column: 3; // 235px от начала (70px + 165px)
 	grid-row: 1;
@@ -280,7 +300,7 @@
 	@include laptop {
 		grid-column: 3; // Под Menu
 		grid-row: 2; // Вторая строка
-		margin-top: 16px;
+		margin-top: 40px;
 	}
 
 	@include lg {

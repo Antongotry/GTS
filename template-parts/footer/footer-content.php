@@ -17,42 +17,44 @@
 			</div>
 		</div>
 
-		<div class="footer-menu">
-			<h3 class="footer-title">Menu</h3>
-			<nav class="footer-navigation">
+		<div class="footer-nav-stack">
+			<div class="footer-menu">
+				<h3 class="footer-title">Menu</h3>
+				<nav class="footer-navigation">
+					<?php
+					if (has_nav_menu('footer-menu')) {
+						wp_nav_menu(
+							array(
+								'theme_location' => 'footer-menu',
+								'container'      => false,
+								'menu_class'     => 'footer-menu-list',
+								'fallback_cb'    => false,
+							)
+						);
+					} else {
+					?>
+						<ul class="footer-menu-list">
+							<li><a href="<?php echo esc_url(home_url('/book-a-transfer')); ?>">Book a Transfer</a></li>
+							<li><a href="<?php echo esc_url(home_url('/fleet')); ?>">Fleet</a></li>
+							<li><a href="<?php echo esc_url(home_url('/blog')); ?>">Blog</a></li>
+							<li><a href="<?php echo esc_url(home_url('/contacts')); ?>">Contacts</a></li>
+						</ul>
+					<?php
+					}
+					?>
+				</nav>
+			</div>
+
+			<div class="footer-language">
+				<h3 class="footer-title">Site language</h3>
 				<?php
-				if (has_nav_menu('footer-menu')) {
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer-menu',
-							'container'      => false,
-							'menu_class'     => 'footer-menu-list',
-							'fallback_cb'    => false,
-						)
-					);
+				if ( function_exists( 'gts_language_switcher_shortcode' ) ) {
+					echo gts_language_switcher_shortcode( array( 'variant' => 'footer' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				} else {
-				?>
-					<ul class="footer-menu-list">
-						<li><a href="<?php echo esc_url(home_url('/book-a-transfer')); ?>">Book a Transfer</a></li>
-						<li><a href="<?php echo esc_url(home_url('/fleet')); ?>">Fleet</a></li>
-						<li><a href="<?php echo esc_url(home_url('/blog')); ?>">Blog</a></li>
-						<li><a href="<?php echo esc_url(home_url('/contacts')); ?>">Contacts</a></li>
-					</ul>
-				<?php
+					echo do_shortcode( '[language-switcher variant="footer"]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 				?>
-			</nav>
-		</div>
-
-		<div class="footer-language">
-			<h3 class="footer-title">Site language</h3>
-			<?php
-			if ( function_exists( 'gts_language_switcher_shortcode' ) ) {
-				echo gts_language_switcher_shortcode( array( 'variant' => 'footer' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			} else {
-				echo do_shortcode( '[language-switcher variant="footer"]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-			?>
+			</div>
 		</div>
 
 		<div class="footer-services">
