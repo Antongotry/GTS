@@ -2707,7 +2707,6 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			@media (min-width: 1025px) {
 				.hero-right {
 					justify-content: flex-end;
-					padding-top: 0;
 					padding-bottom: 20px;
 				}
 			}
