@@ -2761,7 +2761,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 				}
 			}
 		</style>
-		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?><?php echo $is_professional_chauffeur_service ? ' hero-block--professional-chauffeur' : ''; ?><?php echo $is_mobility_partnership_service ? ' hero-block--mobility-partnership' : ''; ?><?php echo $is_airport_transfer_events_service ? ' hero-block--airport-transfer-events' : ''; ?><?php echo $is_corporations_service ? ' hero-block--corporations' : ''; ?>">
+		<section class="hero-block<?php echo $is_airport_transfer_service ? ' hero-block--airport-transfer' : ''; ?><?php echo $is_professional_chauffeur_service ? ' hero-block--professional-chauffeur' : ''; ?><?php echo $is_mobility_partnership_service ? ' hero-block--mobility-partnership' : ''; ?><?php echo $is_airport_transfer_events_service ? ' hero-block--airport-transfer-events' : ''; ?><?php echo $is_corporations_service ? ' hero-block--corporations' : ''; ?><?php echo $is_private_tours_service ? ' hero-block--private-tours' : ''; ?>">
 			<div class="hero-container">
 				<div class="hero-left">
 					<div class="hero-content<?php echo $hero_features_enabled ? '' : ' hero-content--no-features'; ?>">
