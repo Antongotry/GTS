@@ -60,7 +60,6 @@
 		<div class="footer-services">
 			<h3 class="footer-title footer-services-title">Services</h3>
 			<ul class="footer-services-list footer-services-list-left">
-				<li><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>">Limousine Service</a></li>
 				<li><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>">City-to-City</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>">Corporations</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>">Airport Transfer</a></li>
@@ -81,6 +80,7 @@
 				<li><a href="<?php echo esc_url(home_url('/services/professional-chauffeur-service/')); ?>">Professional Chauffeur Service</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/airport-transfer-service/')); ?>">Airport Transfer Service</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>">Hourly Hire</a></li>
+				<li><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>">Limousine Service</a></li>
 			</ul>
 		</div>
 
