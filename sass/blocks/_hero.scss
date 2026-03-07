@@ -331,6 +331,12 @@ main#primary > section.hero-block > .hero-container {
 	align-items: center;
 	gap: 24px;
 	padding: 0;
+
+	@media (min-width: 769px) {
+		padding-left: 24px;
+		padding-right: 24px;
+		gap: 18px;
+	}
 }
 
 .hero-feature-top-left {
@@ -339,6 +345,10 @@ main#primary > section.hero-block > .hero-container {
 	padding-top: 6px;
 	padding-bottom: 32px;
 	justify-content: flex-start;
+
+	@media (min-width: 769px) {
+		padding-left: 0;
+	}
 }
 
 .hero-feature-top-right {
@@ -354,6 +364,10 @@ main#primary > section.hero-block > .hero-container {
 	padding-top: 32px;
 	padding-bottom: 6px;
 	justify-content: flex-start;
+
+	@media (min-width: 769px) {
+		padding-left: 0;
+	}
 }
 
 .hero-feature-bottom-right {
