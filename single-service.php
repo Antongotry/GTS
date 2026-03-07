@@ -2547,6 +2547,17 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					max-width: 440px;
 				}
 			</style>
+			<style id="family-travel-hero-text-width">
+				@media (min-width: 769px) {
+					.hero-title {
+						max-width: 640px;
+					}
+
+					.hero-description {
+						max-width: 580px;
+					}
+				}
+			</style>
 		<?php endif; ?>
 		<?php if ($is_travel_agencies_service) : ?>
 			<style id="travel-agencies-fleet-title-width">
