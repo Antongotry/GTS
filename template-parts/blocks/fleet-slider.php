@@ -84,79 +84,103 @@ if ( ! empty( $fleet_block['vehicles'] ) && is_array( $fleet_block['vehicles'] )
 }
 
 $fleet_items = array();
-
-if ( ! empty( $legacy_vehicle_ids ) && empty( $selected_category_ids ) ) {
-	$legacy_products = wc_get_products(
-		array(
-			'status'  => 'publish',
-			'include' => $legacy_vehicle_ids,
-			'limit'   => count( $legacy_vehicle_ids ),
-			'orderby' => 'post__in',
-		)
-	);
-	foreach ( $legacy_products as $legacy_product ) {
-		if ( ! is_a( $legacy_product, 'WC_Product' ) ) {
-			continue;
-		}
-		$fleet_items[] = array(
-			'product'       => $legacy_product,
-			'category_term' => null,
-		);
-	}
-} else {
-	if ( empty( $category_slugs ) ) {
-		$all_terms = get_terms(
+if ( empty( $selected_category_ids ) && empty( $category_slugs ) && ! empty( $legacy_vehicle_ids ) ) {
+	$legacy_category_slugs = array();
+	foreach ( $legacy_vehicle_ids as $legacy_vehicle_id ) {
+		$legacy_terms = wc_get_product_terms(
+			$legacy_vehicle_id,
+			'product_cat',
 			array(
-				'taxonomy'   => 'product_cat',
-				'hide_empty' => true,
-				'orderby'    => 'name',
-				'order'      => 'ASC',
+				'orderby' => 'parent',
+				'order'   => 'DESC',
 			)
 		);
-		if ( ! is_wp_error( $all_terms ) && ! empty( $all_terms ) ) {
-			foreach ( $all_terms as $all_term ) {
-				if ( ! empty( $all_term->slug ) && 'uncategorized' !== $all_term->slug ) {
-					$category_slugs[] = (string) $all_term->slug;
-				}
+		if ( empty( $legacy_terms ) || is_wp_error( $legacy_terms ) ) {
+			continue;
+		}
+
+		$legacy_primary_term = null;
+		foreach ( $legacy_terms as $legacy_term ) {
+			if ( ! $legacy_term || empty( $legacy_term->slug ) ) {
+				continue;
+			}
+			if ( 'uncategorized' === $legacy_term->slug ) {
+				continue;
+			}
+			$legacy_primary_term = $legacy_term;
+			break;
+		}
+		if ( ! $legacy_primary_term ) {
+			$legacy_primary_term = $legacy_terms[0];
+		}
+		if ( empty( $legacy_primary_term->slug ) ) {
+			continue;
+		}
+
+		$legacy_primary_slug = sanitize_title( (string) $legacy_primary_term->slug );
+		if ( '' === $legacy_primary_slug || in_array( $legacy_primary_slug, $legacy_category_slugs, true ) ) {
+			continue;
+		}
+		$legacy_category_slugs[] = $legacy_primary_slug;
+	}
+
+	if ( ! empty( $legacy_category_slugs ) ) {
+		$category_slugs = $legacy_category_slugs;
+	}
+}
+
+if ( empty( $category_slugs ) ) {
+	$all_terms = get_terms(
+		array(
+			'taxonomy'   => 'product_cat',
+			'hide_empty' => true,
+			'orderby'    => 'name',
+			'order'      => 'ASC',
+		)
+	);
+	if ( ! is_wp_error( $all_terms ) && ! empty( $all_terms ) ) {
+		foreach ( $all_terms as $all_term ) {
+			if ( ! empty( $all_term->slug ) && 'uncategorized' !== $all_term->slug ) {
+				$category_slugs[] = (string) $all_term->slug;
 			}
 		}
 	}
+}
 
-	foreach ( $category_slugs as $category_slug ) {
-		$category_slug = sanitize_title( (string) $category_slug );
-		if ( '' === $category_slug ) {
-			continue;
-		}
-
-		$category_term = get_term_by( 'slug', $category_slug, 'product_cat' );
-		if ( ! $category_term || is_wp_error( $category_term ) ) {
-			continue;
-		}
-
-		$category_products = wc_get_products(
-			array(
-				'status'   => 'publish',
-				'limit'    => 1,
-				'orderby'  => 'menu_order',
-				'order'    => 'ASC',
-				'category' => array( $category_slug ),
-			)
-		);
-
-		if ( empty( $category_products ) ) {
-			continue;
-		}
-
-		$category_product = reset( $category_products );
-		if ( ! is_a( $category_product, 'WC_Product' ) ) {
-			continue;
-		}
-
-		$fleet_items[] = array(
-			'product'       => $category_product,
-			'category_term' => $category_term,
-		);
+foreach ( $category_slugs as $category_slug ) {
+	$category_slug = sanitize_title( (string) $category_slug );
+	if ( '' === $category_slug ) {
+		continue;
 	}
+
+	$category_term = get_term_by( 'slug', $category_slug, 'product_cat' );
+	if ( ! $category_term || is_wp_error( $category_term ) ) {
+		continue;
+	}
+
+	$category_products = wc_get_products(
+		array(
+			'status'   => 'publish',
+			'limit'    => 1,
+			'orderby'  => 'menu_order',
+			'order'    => 'ASC',
+			'category' => array( $category_slug ),
+		)
+	);
+
+	if ( empty( $category_products ) ) {
+		continue;
+	}
+
+	$category_product = reset( $category_products );
+	if ( ! is_a( $category_product, 'WC_Product' ) ) {
+		continue;
+	}
+
+	$fleet_items[] = array(
+		'product'       => $category_product,
+		'category_term' => $category_term,
+	);
 }
 
 if ( empty( $fleet_items ) ) {
