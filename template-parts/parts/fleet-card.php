@@ -12,6 +12,7 @@ if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
 }
 
 $product_id = $product->get_id();
+$link_mode  = isset( $args['link_mode'] ) ? sanitize_key( (string) $args['link_mode'] ) : 'product';
 
 if ( ! function_exists( 'gts_fleet_get_attribute' ) ) {
 	function gts_fleet_get_attribute( $product, $keys ) {
@@ -33,6 +34,50 @@ if ( ! function_exists( 'gts_fleet_get_attribute' ) ) {
 		}
 
 		return '';
+	}
+}
+
+if ( ! function_exists( 'gts_fleet_get_primary_category_data' ) ) {
+	function gts_fleet_get_primary_category_data( $product_id ) {
+		$terms = wc_get_product_terms(
+			$product_id,
+			'product_cat',
+			array(
+				'orderby' => 'parent',
+				'order'   => 'DESC',
+			)
+		);
+
+		if ( empty( $terms ) || is_wp_error( $terms ) ) {
+			return array(
+				'name' => '',
+				'slug' => '',
+				'url'  => '',
+			);
+		}
+
+		$primary = null;
+		foreach ( $terms as $term ) {
+			if ( ! $term || ! isset( $term->slug ) ) {
+				continue;
+			}
+			if ( 'uncategorized' === $term->slug ) {
+				continue;
+			}
+			$primary = $term;
+			break;
+		}
+
+		if ( ! $primary ) {
+			$primary = $terms[0];
+		}
+
+		$term_link = get_term_link( $primary, 'product_cat' );
+		return array(
+			'name' => isset( $primary->name ) ? (string) $primary->name : '',
+			'slug' => isset( $primary->slug ) ? (string) $primary->slug : '',
+			'url'  => ! is_wp_error( $term_link ) ? (string) $term_link : '',
+		);
 	}
 }
 
@@ -68,12 +113,29 @@ $image_id = $product->get_image_id();
 $site_url = get_site_url();
 $bags_icon_url = $site_url . '/wp-content/uploads/2026/02/bags.svg';
 $passenger_icon_url = $site_url . '/wp-content/uploads/2026/02/passenger.svg';
-$book_url = $product->is_purchasable() && $product->is_in_stock()
-	? $product->add_to_cart_url()
-	: $product->get_permalink();
+$category_data = gts_fleet_get_primary_category_data( $product_id );
+$is_category_mode = ( 'category' === $link_mode && ! empty( $category_data['url'] ) );
+
+$card_url   = $is_category_mode ? $category_data['url'] : $product->get_permalink();
+$card_title = $is_category_mode && ! empty( $category_data['name'] ) ? $category_data['name'] : $product->get_name();
+
+$book_url = $is_category_mode
+	? $card_url
+	: ( $product->is_purchasable() && $product->is_in_stock()
+		? $product->add_to_cart_url()
+		: $product->get_permalink() );
+
+$primary_btn_label = $is_category_mode
+	? __( 'Choose category', 'gts-theme' )
+	: __( 'Book a transfer', 'gts-theme' );
+
+$primary_btn_class = 'btn btn-primary btn-sm fleet-card-action';
+if ( ! $is_category_mode ) {
+	$primary_btn_class .= ' fleet-book-trigger';
+}
 ?>
 
-<div class="fleet-card swiper-slide" data-product-url="<?php echo esc_url( $product->get_permalink() ); ?>" role="link" tabindex="0" aria-label="<?php echo esc_attr( sprintf( __( 'Open %s details', 'gts-theme' ), $product->get_name() ) ); ?>">
+<div class="fleet-card swiper-slide" data-product-url="<?php echo esc_url( $card_url ); ?>" role="link" tabindex="0" aria-label="<?php echo esc_attr( sprintf( __( 'Open %s details', 'gts-theme' ), $card_title ) ); ?>">
 	<div class="fleet-card-media">
 		<?php if ( $image_id ) : ?>
 			<?php echo wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'fleet-card-image', 'loading' => 'lazy' ) ); ?>
@@ -82,7 +144,7 @@ $book_url = $product->is_purchasable() && $product->is_in_stock()
 		<?php endif; ?>
 	</div>
 	<div class="fleet-card-body">
-		<h3 class="fleet-card-title"><?php echo esc_html( $product->get_name() ); ?></h3>
+		<h3 class="fleet-card-title"><?php echo esc_html( $card_title ); ?></h3>
 		<?php if ( $passengers !== '' || $bags !== '' ) : ?>
 			<div class="fleet-card-meta">
 				<?php if ( $passengers !== '' ) : ?>
@@ -100,10 +162,10 @@ $book_url = $product->is_purchasable() && $product->is_in_stock()
 			</div>
 		<?php endif; ?>
 		<div class="fleet-card-actions">
-			<a class="btn btn-primary btn-sm fleet-card-action fleet-book-trigger" href="<?php echo esc_url( $book_url ); ?>" data-vehicle="<?php echo esc_attr( $product->get_name() ); ?>" data-product-id="<?php echo esc_attr( $product_id ); ?>">
-				<?php echo esc_html__( 'Book a transfer', 'gts-theme' ); ?>
+			<a class="<?php echo esc_attr( $primary_btn_class ); ?>" href="<?php echo esc_url( $book_url ); ?>" data-vehicle="<?php echo esc_attr( $card_title ); ?>" data-product-id="<?php echo esc_attr( $product_id ); ?>">
+				<?php echo esc_html( $primary_btn_label ); ?>
 			</a>
-			<a class="btn btn-secondary btn-sm fleet-card-action" href="<?php echo esc_url( $product->get_permalink() ); ?>">
+			<a class="btn btn-secondary btn-sm fleet-card-action" href="<?php echo esc_url( $card_url ); ?>">
 				<?php echo esc_html__( 'Read more', 'gts-theme' ); ?>
 			</a>
 		</div>

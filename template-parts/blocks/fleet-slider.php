@@ -114,7 +114,8 @@ $pill_text = ! empty( $args['pill_text'] ) ? $args['pill_text'] : 'Fleet & Chauf
 						'template-parts/parts/fleet-card',
 						null,
 						array(
-							'product' => $product,
+							'product'   => $product,
+							'link_mode' => 'category',
 						)
 					);
 					?>
