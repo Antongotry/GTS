@@ -52,7 +52,7 @@ function gts_register_service_cpt() {
 			'with_front' => false,
 		),
 		'capability_type'    => 'post',
-		'has_archive'        => true,
+		'has_archive'        => 'services',
 		'hierarchical'       => false,
 		'menu_position'      => 5,
 		'menu_icon'          => 'dashicons-tickets',
@@ -72,6 +72,29 @@ function gts_service_rewrite_flush() {
 	flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'gts_service_rewrite_flush' );
+
+/**
+ * One-time rewrite flush when service routing config changes.
+ *
+ * Prevents random /services/... 404 after host/plugin updates that drop rewrite rules.
+ * Runs once per version and stores a marker in options.
+ */
+function gts_maybe_flush_service_rewrite_rules() {
+	if ( wp_installing() ) {
+		return;
+	}
+
+	$rewrite_version        = '2026-03-11-service-rewrite-1';
+	$stored_rewrite_version = (string) get_option( 'gts_service_rewrite_version', '' );
+	if ( $stored_rewrite_version === $rewrite_version ) {
+		return;
+	}
+
+	gts_register_service_cpt();
+	flush_rewrite_rules( false );
+	update_option( 'gts_service_rewrite_version', $rewrite_version, false );
+}
+add_action( 'init', 'gts_maybe_flush_service_rewrite_rules', 20 );
 
 /**
  * Add custom columns to Service admin list
