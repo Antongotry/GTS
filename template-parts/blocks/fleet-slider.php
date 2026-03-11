@@ -77,12 +77,6 @@ if ( ! empty( $selected_category_ids ) ) {
 	}
 }
 
-// Backward compatibility: previously fleet block stored selected product IDs in "vehicles".
-$legacy_vehicle_ids = array();
-if ( ! empty( $fleet_block['vehicles'] ) && is_array( $fleet_block['vehicles'] ) ) {
-	$legacy_vehicle_ids = array_values( array_filter( array_map( 'absint', $fleet_block['vehicles'] ) ) );
-}
-
 $category_slugs = array_values(
 	array_unique(
 		array_values(
@@ -93,49 +87,74 @@ $category_slugs = array_values(
 	)
 );
 
-$query_args = array(
-	'status'  => 'publish',
-	'limit'   => 50,
-	'orderby' => 'menu_order',
-	'order'   => 'ASC',
+$terms_args = array(
+	'taxonomy'   => 'product_cat',
+	'hide_empty' => true,
+	'exclude'    => get_option( 'default_product_cat', 0 ),
 );
-
 if ( ! empty( $category_slugs ) ) {
-	$query_args['category'] = $category_slugs;
-} elseif ( ! empty( $legacy_vehicle_ids ) ) {
-	$query_args['include'] = $legacy_vehicle_ids;
-	$query_args['orderby'] = 'post__in';
-	$query_args['limit']   = count( $legacy_vehicle_ids );
+	$terms_args['slug']    = $category_slugs;
+	$terms_args['orderby'] = 'slug__in';
+} elseif ( ! empty( $selected_category_ids ) ) {
+	$terms_args['include'] = $selected_category_ids;
+	$terms_args['orderby'] = 'include';
+} else {
+	$terms_args['orderby'] = 'name';
+	$terms_args['order']   = 'ASC';
 }
 
-$products = wc_get_products( $query_args );
+$all_terms = get_terms( $terms_args );
+if ( is_wp_error( $all_terms ) ) {
+	$all_terms = array();
+}
+$all_terms = array_filter( $all_terms, function ( $t ) {
+	return 'uncategorized' !== $t->slug;
+} );
+
 $fleet_items = array();
+foreach ( $all_terms as $cat_term ) {
+	$cat_products = wc_get_products(
+		array(
+			'status'       => 'publish',
+			'limit'        => 20,
+			'orderby'      => 'menu_order',
+			'order'        => 'ASC',
+			'category'     => array( $cat_term->slug ),
+			'stock_status' => 'instock',
+		)
+	);
 
-if ( ! empty( $products ) ) {
-	foreach ( $products as $product ) {
-		if ( ! is_a( $product, 'WC_Product' ) ) {
-			continue;
-		}
-
-		$category_term = null;
-		if ( ! empty( $category_slugs ) ) {
-			$product_terms = wc_get_product_terms( $product->get_id(), 'product_cat', array( 'fields' => 'all' ) );
-			if ( ! empty( $product_terms ) && ! is_wp_error( $product_terms ) ) {
-				foreach ( $product_terms as $product_term ) {
-					$product_term_slug = ! empty( $product_term->slug ) ? sanitize_title( (string) $product_term->slug ) : '';
-					if ( '' !== $product_term_slug && in_array( $product_term_slug, $category_slugs, true ) ) {
-						$category_term = $product_term;
-						break;
-					}
-				}
-			}
-		}
-
-		$fleet_items[] = array(
-			'product'       => $product,
-			'category_term' => $category_term,
+	if ( empty( $cat_products ) ) {
+		$cat_products = wc_get_products(
+			array(
+				'status'   => 'publish',
+				'limit'    => 1,
+				'orderby'  => 'menu_order',
+				'order'    => 'ASC',
+				'category' => array( $cat_term->slug ),
+			)
 		);
 	}
+
+	if ( empty( $cat_products ) ) {
+		continue;
+	}
+
+	$representative = null;
+	foreach ( $cat_products as $cp ) {
+		if ( $cp->get_image_id() ) {
+			$representative = $cp;
+			break;
+		}
+	}
+	if ( ! $representative ) {
+		$representative = $cat_products[0];
+	}
+
+	$fleet_items[] = array(
+		'product'       => $representative,
+		'category_term' => $cat_term,
+	);
 }
 
 if ( empty( $fleet_items ) ) {
