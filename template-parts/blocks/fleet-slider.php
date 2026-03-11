@@ -44,34 +44,122 @@ if ( 'private-tours' === $current_service_slug ) {
 	}
 }
 
-$query_args = array(
-	'status'  => 'publish',
-	'limit'   => 20,
-	'orderby' => 'menu_order',
-	'order'   => 'ASC',
-);
+$selected_category_ids = array();
+if ( ! empty( $fleet_block['vehicle_categories'] ) && is_array( $fleet_block['vehicle_categories'] ) ) {
+	$selected_category_ids = array_values( array_filter( array_map( 'absint', $fleet_block['vehicle_categories'] ) ) );
+}
 
+$category_slugs = array();
 if ( ! empty( $args['category_slugs'] ) && is_array( $args['category_slugs'] ) ) {
-	$query_args['category'] = array_values(
+	$category_slugs = array_values(
 		array_filter(
 			array_map( 'sanitize_title', $args['category_slugs'] )
 		)
 	);
 }
 
-if ( ! empty( $fleet_block['vehicles'] ) && is_array( $fleet_block['vehicles'] ) ) {
-	$vehicle_ids = array_values( array_filter( array_map( 'absint', $fleet_block['vehicles'] ) ) );
-	if ( ! empty( $vehicle_ids ) ) {
-		$query_args['include'] = $vehicle_ids;
-		$query_args['orderby'] = 'post__in';
-		$query_args['limit'] = count( $vehicle_ids );
-		unset( $query_args['category'] );
+if ( ! empty( $selected_category_ids ) ) {
+	$selected_terms = get_terms(
+		array(
+			'taxonomy'   => 'product_cat',
+			'hide_empty' => true,
+			'include'    => $selected_category_ids,
+			'orderby'    => 'include',
+		)
+	);
+	if ( ! is_wp_error( $selected_terms ) && ! empty( $selected_terms ) ) {
+		$category_slugs = array();
+		foreach ( $selected_terms as $selected_term ) {
+			if ( ! empty( $selected_term->slug ) && 'uncategorized' !== $selected_term->slug ) {
+				$category_slugs[] = (string) $selected_term->slug;
+			}
+		}
 	}
 }
 
-$products = wc_get_products( $query_args );
+// Backward compatibility: previously fleet block stored selected product IDs in "vehicles".
+$legacy_vehicle_ids = array();
+if ( ! empty( $fleet_block['vehicles'] ) && is_array( $fleet_block['vehicles'] ) ) {
+	$legacy_vehicle_ids = array_values( array_filter( array_map( 'absint', $fleet_block['vehicles'] ) ) );
+}
 
-if ( empty( $products ) ) {
+$fleet_items = array();
+
+if ( ! empty( $legacy_vehicle_ids ) && empty( $selected_category_ids ) ) {
+	$legacy_products = wc_get_products(
+		array(
+			'status'  => 'publish',
+			'include' => $legacy_vehicle_ids,
+			'limit'   => count( $legacy_vehicle_ids ),
+			'orderby' => 'post__in',
+		)
+	);
+	foreach ( $legacy_products as $legacy_product ) {
+		if ( ! is_a( $legacy_product, 'WC_Product' ) ) {
+			continue;
+		}
+		$fleet_items[] = array(
+			'product'       => $legacy_product,
+			'category_term' => null,
+		);
+	}
+} else {
+	if ( empty( $category_slugs ) ) {
+		$all_terms = get_terms(
+			array(
+				'taxonomy'   => 'product_cat',
+				'hide_empty' => true,
+				'orderby'    => 'name',
+				'order'      => 'ASC',
+			)
+		);
+		if ( ! is_wp_error( $all_terms ) && ! empty( $all_terms ) ) {
+			foreach ( $all_terms as $all_term ) {
+				if ( ! empty( $all_term->slug ) && 'uncategorized' !== $all_term->slug ) {
+					$category_slugs[] = (string) $all_term->slug;
+				}
+			}
+		}
+	}
+
+	foreach ( $category_slugs as $category_slug ) {
+		$category_slug = sanitize_title( (string) $category_slug );
+		if ( '' === $category_slug ) {
+			continue;
+		}
+
+		$category_term = get_term_by( 'slug', $category_slug, 'product_cat' );
+		if ( ! $category_term || is_wp_error( $category_term ) ) {
+			continue;
+		}
+
+		$category_products = wc_get_products(
+			array(
+				'status'   => 'publish',
+				'limit'    => 1,
+				'orderby'  => 'menu_order',
+				'order'    => 'ASC',
+				'category' => array( $category_slug ),
+			)
+		);
+
+		if ( empty( $category_products ) ) {
+			continue;
+		}
+
+		$category_product = reset( $category_products );
+		if ( ! is_a( $category_product, 'WC_Product' ) ) {
+			continue;
+		}
+
+		$fleet_items[] = array(
+			'product'       => $category_product,
+			'category_term' => $category_term,
+		);
+	}
+}
+
+if ( empty( $fleet_items ) ) {
 	return;
 }
 
@@ -108,14 +196,15 @@ $pill_text = ! empty( $args['pill_text'] ) ? $args['pill_text'] : 'Fleet & Chauf
 		<div class="fleet-slider-wrapper">
 			<div class="fleet-slider swiper">
 				<div class="swiper-wrapper">
-				<?php foreach ( $products as $product ) : ?>
+				<?php foreach ( $fleet_items as $fleet_item ) : ?>
 					<?php
 					get_template_part(
 						'template-parts/parts/fleet-card',
 						null,
 						array(
-							'product'   => $product,
-							'link_mode' => 'category',
+							'product'       => $fleet_item['product'],
+							'category_term' => isset( $fleet_item['category_term'] ) ? $fleet_item['category_term'] : null,
+							'link_mode'     => 'category',
 						)
 					);
 					?>

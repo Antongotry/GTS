@@ -113,7 +113,22 @@ $image_id = $product->get_image_id();
 $site_url = get_site_url();
 $bags_icon_url = $site_url . '/wp-content/uploads/2026/02/bags.svg';
 $passenger_icon_url = $site_url . '/wp-content/uploads/2026/02/passenger.svg';
-$category_data = gts_fleet_get_primary_category_data( $product_id );
+$provided_category_term = isset( $args['category_term'] ) ? $args['category_term'] : null;
+$category_data = array(
+	'name' => '',
+	'slug' => '',
+	'url'  => '',
+);
+if ( $provided_category_term instanceof WP_Term && 'product_cat' === $provided_category_term->taxonomy ) {
+	$provided_term_link = get_term_link( $provided_category_term, 'product_cat' );
+	$category_data      = array(
+		'name' => (string) $provided_category_term->name,
+		'slug' => (string) $provided_category_term->slug,
+		'url'  => ! is_wp_error( $provided_term_link ) ? (string) $provided_term_link : '',
+	);
+} else {
+	$category_data = gts_fleet_get_primary_category_data( $product_id );
+}
 $is_category_mode = ( 'category' === $link_mode && ! empty( $category_data['url'] ) );
 
 $card_url   = $is_category_mode ? $category_data['url'] : $product->get_permalink();

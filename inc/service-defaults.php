@@ -177,7 +177,7 @@ function gts_get_default_service_blocks()
 			'pill_text'     => 'Fleet & Chauffeurs',
 			'title'         => 'Every detail matters – from the car you travel in to the person behind the wheel',
 			'subtitle'      => 'That\'s why every GTS limousine meets strict standards of comfort, safety, and presentation.',
-			'vehicles'      => array(), // Empty = show all vehicles
+			'vehicle_categories' => array(), // Empty = show all transport categories
 		),
 
 		// Block 6: Occasions Section
