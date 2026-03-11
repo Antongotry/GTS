@@ -368,3 +368,57 @@ function gts_upgrade_services_cards_images_to_ids() {
 	}
 }
 add_action( 'acf/init', 'gts_upgrade_services_cards_images_to_ids', 40 );
+
+/**
+ * Repair known duplicated title issue in Services Cards options.
+ *
+ * In some environments, first and second cards ended up with the same title
+ * ("Book a Flight"), causing TranslatePress to treat both as one string.
+ * This migration restores the second card title/description from defaults
+ * when it points to City-to-City URL and duplicated content is detected.
+ */
+function gts_repair_services_cards_duplicate_titles() {
+	if ( ! function_exists( 'get_field' ) || ! function_exists( 'update_field' ) ) {
+		return;
+	}
+
+	$migration_version = '2026-03-11-services-cards-dup-fix-1';
+	$stored_version = (string) get_option( 'gts_services_cards_migration_version', '' );
+	if ( $stored_version === $migration_version ) {
+		return;
+	}
+
+	$rows = get_field( 'gts_global_services_cards', 'option' );
+	if ( ! is_array( $rows ) || count( $rows ) < 2 ) {
+		update_option( 'gts_services_cards_migration_version', $migration_version, false );
+		return;
+	}
+
+	$first_title  = isset( $rows[0]['title'] ) ? trim( (string) $rows[0]['title'] ) : '';
+	$second_title = isset( $rows[1]['title'] ) ? trim( (string) $rows[1]['title'] ) : '';
+	$second_url   = isset( $rows[1]['url'] ) ? trim( (string) $rows[1]['url'] ) : '';
+
+	$needs_fix = ( '' !== $first_title && $first_title === $second_title );
+	$is_city_card = ( false !== stripos( $second_url, '/city-to-city' ) );
+	if ( ! $needs_fix || ! $is_city_card ) {
+		update_option( 'gts_services_cards_migration_version', $migration_version, false );
+		return;
+	}
+
+	$defaults = gts_get_default_services_cards();
+	if ( isset( $defaults[1] ) && is_array( $defaults[1] ) ) {
+		$rows[1]['title'] = (string) ( $defaults[1]['title'] ?? 'City-to-City Rides' );
+
+		$first_desc  = isset( $rows[0]['description'] ) ? trim( (string) $rows[0]['description'] ) : '';
+		$second_desc = isset( $rows[1]['description'] ) ? trim( (string) $rows[1]['description'] ) : '';
+		if ( '' === $second_desc || $second_desc === $first_desc ) {
+			$rows[1]['description'] = (string) ( $defaults[1]['description'] ?? '' );
+		}
+	} else {
+		$rows[1]['title'] = 'City-to-City Rides';
+	}
+
+	update_field( 'gts_global_services_cards', $rows, 'option' );
+	update_option( 'gts_services_cards_migration_version', $migration_version, false );
+}
+add_action( 'acf/init', 'gts_repair_services_cards_duplicate_titles', 50 );
