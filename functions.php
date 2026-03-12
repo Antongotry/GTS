@@ -1004,21 +1004,18 @@ function gts_theme_setup()
 add_action('after_setup_theme', 'gts_theme_setup');
 
 /**
- * Output favicon fallback links from theme assets.
- * Keeps a stable icon even if site-icon settings are cleared or CDN-cached.
+ * Output preferred favicon from uploads with a theme fallback.
  */
 function gts_output_theme_favicon_fallback()
 {
-	$favicon_ico_path = get_template_directory() . '/assets/favicon/favicon.ico';
-	$favicon_png_path = get_template_directory() . '/assets/favicon/favicon.png';
+	$preferred_favicon_url = 'https://global-travelsolutions.com/wp-content/uploads/2026/03/favicon-gts_result.webp';
+	$favicon_ico_path      = get_template_directory() . '/assets/favicon/favicon.ico';
+
+	echo '<link rel="icon" href="' . esc_url($preferred_favicon_url) . '" sizes="any" type="image/webp" />' . "\n";
+	echo '<link rel="apple-touch-icon" href="' . esc_url($preferred_favicon_url) . '" />' . "\n";
 
 	if (file_exists($favicon_ico_path)) {
-		echo '<link rel="icon" href="' . esc_url(get_template_directory_uri() . '/assets/favicon/favicon.ico') . '" sizes="any" type="image/x-icon" />' . "\n";
 		echo '<link rel="shortcut icon" href="' . esc_url(get_template_directory_uri() . '/assets/favicon/favicon.ico') . '" type="image/x-icon" />' . "\n";
-	}
-
-	if (file_exists($favicon_png_path)) {
-		echo '<link rel="icon" href="' . esc_url(get_template_directory_uri() . '/assets/favicon/favicon.png') . '" sizes="64x64" type="image/png" />' . "\n";
 	}
 }
 add_action('wp_head', 'gts_output_theme_favicon_fallback', 4);
