@@ -327,10 +327,6 @@ function gts_get_language_switcher_items() {
 			if ( is_array( $parsed ) && ! empty( $parsed['fragment'] ) ) {
 				$normalized .= '#' . $parsed['fragment'];
 			}
-			if ( 'en' === $slug ) {
-				$normalized = add_query_arg( 'lang', 'en', $normalized );
-			}
-
 			$item['url'] = $normalized;
 			$result[]    = $item;
 		}
@@ -535,6 +531,50 @@ add_action( 'init', 'gts_register_language_switcher_shortcode', 999 );
 add_action( 'wp_loaded', 'gts_register_language_switcher_shortcode', 999 );
 
 /**
+ * Redirect ?lang=en variants to canonical path URLs.
+ */
+function gts_redirect_en_lang_query_to_canonical() {
+	if ( is_admin() || wp_doing_ajax() ) {
+		return;
+	}
+
+	if ( ! isset( $_GET['lang'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		return;
+	}
+
+	$lang = sanitize_key( (string) wp_unslash( $_GET['lang'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( 'en' !== $lang ) {
+		return;
+	}
+
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '';
+	if ( '' === $request_uri ) {
+		return;
+	}
+
+	$path = (string) parse_url( $request_uri, PHP_URL_PATH );
+	$path = trim( $path, '/' );
+
+	$query = (string) parse_url( $request_uri, PHP_URL_QUERY );
+	$args  = array();
+	if ( '' !== $query ) {
+		parse_str( $query, $args );
+	}
+	unset( $args['lang'] );
+
+	$base_home = gts_get_unlocalized_home_url();
+	$target    = '' !== $path ? $base_home . '/' . $path . '/' : $base_home . '/';
+
+	if ( ! empty( $args ) ) {
+		$target = add_query_arg( $args, $target );
+	}
+
+	wp_safe_redirect( $target, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'gts_redirect_en_lang_query_to_canonical', 0 );
+
+/**
  * Redirect duplicated language prefixes to canonical URL.
  * Examples: /it/fr/... -> /it/..., /en/fr/... -> /fr/..., /en/... -> /...
  */
@@ -670,73 +710,11 @@ function gts_settings_page_render() {
 	<?php
 }
 
-// ==========================================================================
-// DEVELOPMENT MODE - CACHE DISABLED
-// TODO: Remove this section before production deployment
-// ==========================================================================
-
-if (! defined('_S_VERSION')) {
-	// Use timestamp for cache busting during development
-	define('_S_VERSION', time());
+if ( ! defined( '_S_VERSION' ) ) {
+	$theme         = wp_get_theme();
+	$theme_version = $theme instanceof WP_Theme ? (string) $theme->get( 'Version' ) : '';
+	define( '_S_VERSION', '' !== $theme_version ? $theme_version : '1.0.0' );
 }
-
-/**
- * Disable all caching during development
- * TODO: Remove this function before production
- */
-function gts_disable_caching()
-{
-	// Disable browser caching
-	header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0');
-	header('Pragma: no-cache');
-	header('Expires: 0');
-	header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-	header('ETag: ' . md5(time()));
-}
-add_action('send_headers', 'gts_disable_caching');
-
-// Disable WordPress caching
-define('DONOTCACHEPAGE', true);
-define('DONOTCACHEOBJECT', true);
-define('DONOTCACHEDB', true);
-define('WP_CACHE', false);
-
-// Disable caching plugins
-if (! defined('DONOTCACHEPAGE')) {
-	define('DONOTCACHEPAGE', true);
-}
-
-// Disable object cache
-if (function_exists('wp_cache_flush')) {
-	wp_cache_flush();
-}
-
-/**
- * Disable caching plugins (WP Super Cache, W3 Total Cache, etc.)
- * TODO: Remove before production
- */
-add_filter('do_rocket_generate_caching_files', '__return_false', 999);
-add_filter('rocket_cache_reject_uri', '__return_true', 999);
-add_filter('wp_cache_ob_callback_filter', '__return_false');
-add_filter('w3tc_can_print_comment', '__return_false');
-
-/**
- * Disable browser caching for CSS/JS files
- * TODO: Remove before production
- */
-function gts_disable_asset_caching($src)
-{
-	if (strpos($src, '.css') !== false || strpos($src, '.js') !== false) {
-		$src = add_query_arg('v', time(), $src);
-	}
-	return $src;
-}
-add_filter('style_loader_src', 'gts_disable_asset_caching', 10, 1);
-add_filter('script_loader_src', 'gts_disable_asset_caching', 10, 1);
-
-// ==========================================================================
-// END DEVELOPMENT MODE
-// ==========================================================================
 
 /**
  * Enqueue custom admin styles for ACF
@@ -768,35 +746,115 @@ function gts_admin_styles()
 add_action('admin_enqueue_scripts', 'gts_admin_styles');
 
 /**
- * Temporary global noindex while pages remain publicly accessible.
- * Removes all indexing directives for every frontend URL.
+ * Query params that should never be indexed.
+ *
+ * @return array<int, string>
  */
-function gts_force_global_noindex($robots)
+function gts_noindex_query_keys()
 {
-	if (is_admin()) {
+	return array(
+		'lang',
+		'v',
+		'replytocom',
+		'fbclid',
+		'gclid',
+		'yclid',
+		'mc_cid',
+		'mc_eid',
+	);
+}
+
+/**
+ * Detect request variants that should be treated as crawl noise.
+ *
+ * @return bool
+ */
+function gts_should_noindex_current_request()
+{
+	if (empty($_GET) || ! is_array($_GET)) {
+		return false;
+	}
+
+	foreach (array_keys($_GET) as $raw_key) {
+		$key = strtolower((string) $raw_key);
+
+		if (0 === strpos($key, 'utm_')) {
+			return true;
+		}
+
+		if (in_array($key, gts_noindex_query_keys(), true)) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Apply noindex only for parameterized non-canonical URLs.
+ *
+ * @param array<string, bool> $robots Existing robots directives.
+ * @return array<string, bool>
+ */
+function gts_noindex_parameterized_urls($robots)
+{
+	if (is_admin() || ! gts_should_noindex_current_request()) {
 		return $robots;
 	}
 
-	return array(
-		'noindex'  => true,
-		'nofollow' => true,
-		'noarchive' => true,
-	);
+	$robots['noindex']   = true;
+	$robots['nofollow']  = true;
+	$robots['noarchive'] = true;
+
+	return $robots;
 }
-add_filter('wp_robots', 'gts_force_global_noindex', 999);
+add_filter('wp_robots', 'gts_noindex_parameterized_urls', 50);
 
 /**
- * Add explicit X-Robots-Tag header as a second noindex layer.
+ * Add explicit X-Robots-Tag header for parameterized crawl-noise URLs.
  */
-function gts_send_noindex_header()
+function gts_send_noindex_header_for_query_variants()
 {
-	if (is_admin()) {
+	if (is_admin() || ! gts_should_noindex_current_request()) {
 		return;
 	}
 
 	header('X-Robots-Tag: noindex, nofollow, noarchive', true);
 }
-add_action('send_headers', 'gts_send_noindex_header');
+add_action('send_headers', 'gts_send_noindex_header_for_query_variants');
+
+/**
+ * Disallow crawl-noise parameter variants in robots.txt.
+ *
+ * @param string $output Existing robots.txt output.
+ * @param bool   $public Whether site is public.
+ * @return string
+ */
+function gts_robots_txt_disallow_query_variants($output, $public)
+{
+	if (! $public) {
+		return $output;
+	}
+
+	$rules = array(
+		'Disallow: /*?lang=',
+		'Disallow: /*?*lang=',
+		'Disallow: /*?v=',
+		'Disallow: /*?*v=',
+		'Disallow: /*?replytocom=',
+		'Disallow: /*?*replytocom=',
+		'Disallow: /*?*utm_',
+	);
+
+	foreach ($rules as $rule) {
+		if (false === stripos($output, $rule)) {
+			$output .= $rule . "\n";
+		}
+	}
+
+	return $output;
+}
+add_filter('robots_txt', 'gts_robots_txt_disallow_query_variants', 20, 2);
 
 
 /**
@@ -879,6 +937,9 @@ function gts_theme_setup()
 		*/
 	add_theme_support('title-tag');
 
+	// Enable native WordPress Site Icon support (favicon).
+	add_theme_support('site-icon');
+
 	/*
 		* Enable support for Post Thumbnails on posts and pages.
 		*
@@ -943,6 +1004,26 @@ function gts_theme_setup()
 add_action('after_setup_theme', 'gts_theme_setup');
 
 /**
+ * Output favicon fallback links from theme assets.
+ * Keeps a stable icon even if site-icon settings are cleared or CDN-cached.
+ */
+function gts_output_theme_favicon_fallback()
+{
+	$favicon_ico_path = get_template_directory() . '/assets/favicon/favicon.ico';
+	$favicon_png_path = get_template_directory() . '/assets/favicon/favicon.png';
+
+	if (file_exists($favicon_ico_path)) {
+		echo '<link rel="icon" href="' . esc_url(get_template_directory_uri() . '/assets/favicon/favicon.ico') . '" sizes="any" type="image/x-icon" />' . "\n";
+		echo '<link rel="shortcut icon" href="' . esc_url(get_template_directory_uri() . '/assets/favicon/favicon.ico') . '" type="image/x-icon" />' . "\n";
+	}
+
+	if (file_exists($favicon_png_path)) {
+		echo '<link rel="icon" href="' . esc_url(get_template_directory_uri() . '/assets/favicon/favicon.png') . '" sizes="64x64" type="image/png" />' . "\n";
+	}
+}
+add_action('wp_head', 'gts_output_theme_favicon_fallback', 4);
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -981,9 +1062,7 @@ add_action('widgets_init', 'gts_theme_widgets_init');
  */
 function gts_theme_scripts()
 {
-	// DEVELOPMENT MODE: Use timestamp for cache busting
-	// TODO: Change to static version before production
-	$version = time(); // Development: always new version
+	$version = _S_VERSION;
 
 	// Google Fonts are preloaded in header.php - no need to enqueue here
 	// This prevents render-blocking
