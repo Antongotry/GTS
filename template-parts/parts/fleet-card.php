@@ -175,14 +175,16 @@ if ( ! $is_category_mode ) {
 					</span>
 				<?php endif; ?>
 			</div>
-		<?php endif; ?>
-		<div class="fleet-card-actions">
-			<a class="<?php echo esc_attr( $primary_btn_class ); ?>" href="<?php echo esc_url( $book_url ); ?>" data-vehicle="<?php echo esc_attr( $card_title ); ?>" data-product-id="<?php echo esc_attr( $product_id ); ?>">
-				<?php echo esc_html( $primary_btn_label ); ?>
-			</a>
-			<a class="btn btn-secondary btn-sm fleet-card-action" href="<?php echo esc_url( $card_url ); ?>">
-				<?php echo esc_html__( 'Read more', 'gts-theme' ); ?>
-			</a>
-		</div>
+			<?php endif; ?>
+			<div class="fleet-card-actions">
+				<?php if ( ! $is_category_mode ) : ?>
+					<a class="<?php echo esc_attr( $primary_btn_class ); ?>" href="<?php echo esc_url( $book_url ); ?>" data-vehicle="<?php echo esc_attr( $card_title ); ?>" data-product-id="<?php echo esc_attr( $product_id ); ?>">
+						<?php echo esc_html( $primary_btn_label ); ?>
+					</a>
+				<?php endif; ?>
+				<a class="btn btn-secondary btn-sm fleet-card-action" href="<?php echo esc_url( $card_url ); ?>">
+					<?php echo esc_html__( 'Read more', 'gts-theme' ); ?>
+				</a>
+			</div>
 	</div>
 </div>
