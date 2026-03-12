@@ -44,9 +44,30 @@ if ( 'private-tours' === $current_service_slug ) {
 	}
 }
 
-$selected_category_ids = array();
-if ( ! empty( $fleet_block['vehicle_categories'] ) && is_array( $fleet_block['vehicle_categories'] ) ) {
-	$selected_category_ids = array_values( array_filter( array_map( 'absint', $fleet_block['vehicle_categories'] ) ) );
+$selected_category_ids  = array();
+$raw_vehicle_categories = isset( $fleet_block['vehicle_categories'] ) ? $fleet_block['vehicle_categories'] : array();
+if ( ! is_array( $raw_vehicle_categories ) && ! empty( $raw_vehicle_categories ) ) {
+	$raw_vehicle_categories = array( $raw_vehicle_categories );
+}
+if ( is_array( $raw_vehicle_categories ) ) {
+	foreach ( $raw_vehicle_categories as $raw_category ) {
+		$term_id = 0;
+		if ( is_numeric( $raw_category ) ) {
+			$term_id = absint( $raw_category );
+		} elseif ( $raw_category instanceof WP_Term ) {
+			$term_id = absint( $raw_category->term_id );
+		} elseif ( is_array( $raw_category ) ) {
+			if ( isset( $raw_category['term_id'] ) ) {
+				$term_id = absint( $raw_category['term_id'] );
+			} elseif ( isset( $raw_category['id'] ) ) {
+				$term_id = absint( $raw_category['id'] );
+			}
+		}
+
+		if ( $term_id > 0 && ! in_array( $term_id, $selected_category_ids, true ) ) {
+			$selected_category_ids[] = $term_id;
+		}
+	}
 }
 
 $category_slugs = array();
@@ -62,7 +83,7 @@ if ( ! empty( $selected_category_ids ) ) {
 	$selected_terms = get_terms(
 		array(
 			'taxonomy'   => 'product_cat',
-			'hide_empty' => true,
+			'hide_empty' => false,
 			'include'    => $selected_category_ids,
 			'orderby'    => 'include',
 		)
@@ -77,84 +98,86 @@ if ( ! empty( $selected_category_ids ) ) {
 	}
 }
 
+// Backward compatibility: previously fleet block stored selected product IDs in "vehicles".
+$legacy_vehicle_ids = array();
+if ( ! empty( $fleet_block['vehicles'] ) && is_array( $fleet_block['vehicles'] ) ) {
+	$legacy_vehicle_ids = array_values( array_filter( array_map( 'absint', $fleet_block['vehicles'] ) ) );
+}
+
 $category_slugs = array_values(
 	array_unique(
-		array_values(
-			array_filter(
-				array_map( 'sanitize_title', $category_slugs )
-			)
+		array_filter(
+			array_map( 'sanitize_title', $category_slugs )
 		)
 	)
 );
 
-$terms_args = array(
-	'taxonomy'   => 'product_cat',
-	'hide_empty' => true,
-	'exclude'    => get_option( 'default_product_cat', 0 ),
+$query_args = array(
+	'status'  => 'publish',
+	'limit'   => 50,
+	'orderby' => 'menu_order',
+	'order'   => 'ASC',
 );
+
 if ( ! empty( $category_slugs ) ) {
-	$terms_args['slug']    = $category_slugs;
-	$terms_args['orderby'] = 'slug__in';
-} elseif ( ! empty( $selected_category_ids ) ) {
-	$terms_args['include'] = $selected_category_ids;
-	$terms_args['orderby'] = 'include';
-} else {
-	$terms_args['orderby'] = 'name';
-	$terms_args['order']   = 'ASC';
+	$query_args['category'] = $category_slugs;
+} elseif ( ! empty( $legacy_vehicle_ids ) ) {
+	$query_args['include'] = $legacy_vehicle_ids;
+	$query_args['orderby'] = 'post__in';
+	$query_args['limit']   = count( $legacy_vehicle_ids );
 }
 
-$all_terms = get_terms( $terms_args );
-if ( is_wp_error( $all_terms ) ) {
-	$all_terms = array();
-}
-$all_terms = array_filter( $all_terms, function ( $t ) {
-	return 'uncategorized' !== $t->slug;
-} );
-
-$fleet_items = array();
-foreach ( $all_terms as $cat_term ) {
-	$cat_products = wc_get_products(
-		array(
-			'status'       => 'publish',
-			'limit'        => 20,
-			'orderby'      => 'menu_order',
-			'order'        => 'ASC',
-			'category'     => array( $cat_term->slug ),
-			'stock_status' => 'instock',
-		)
-	);
-
-	if ( empty( $cat_products ) ) {
-		$cat_products = wc_get_products(
+$products = wc_get_products( $query_args );
+if ( empty( $products ) && ! empty( $category_slugs ) ) {
+	if ( ! empty( $legacy_vehicle_ids ) ) {
+		$products = wc_get_products(
 			array(
-				'status'   => 'publish',
-				'limit'    => 1,
-				'orderby'  => 'menu_order',
-				'order'    => 'ASC',
-				'category' => array( $cat_term->slug ),
+				'status'  => 'publish',
+				'include' => $legacy_vehicle_ids,
+				'limit'   => count( $legacy_vehicle_ids ),
+				'orderby' => 'post__in',
 			)
 		);
 	}
 
-	if ( empty( $cat_products ) ) {
-		continue;
+	if ( empty( $products ) ) {
+		$products = wc_get_products(
+			array(
+				'status'  => 'publish',
+				'limit'   => 50,
+				'orderby' => 'menu_order',
+				'order'   => 'ASC',
+			)
+		);
 	}
+}
 
-	$representative = null;
-	foreach ( $cat_products as $cp ) {
-		if ( $cp->get_image_id() ) {
-			$representative = $cp;
-			break;
+$fleet_items = array();
+if ( ! empty( $products ) ) {
+	foreach ( $products as $product ) {
+		if ( ! is_a( $product, 'WC_Product' ) ) {
+			continue;
 		}
-	}
-	if ( ! $representative ) {
-		$representative = $cat_products[0];
-	}
 
-	$fleet_items[] = array(
-		'product'       => $representative,
-		'category_term' => $cat_term,
-	);
+		$category_term = null;
+		if ( ! empty( $category_slugs ) ) {
+			$product_terms = wc_get_product_terms( $product->get_id(), 'product_cat', array( 'fields' => 'all' ) );
+			if ( ! empty( $product_terms ) && ! is_wp_error( $product_terms ) ) {
+				foreach ( $product_terms as $product_term ) {
+					$product_term_slug = ! empty( $product_term->slug ) ? sanitize_title( (string) $product_term->slug ) : '';
+					if ( '' !== $product_term_slug && in_array( $product_term_slug, $category_slugs, true ) ) {
+						$category_term = $product_term;
+						break;
+					}
+				}
+			}
+		}
+
+		$fleet_items[] = array(
+			'product'       => $product,
+			'category_term' => $category_term,
+		);
+	}
 }
 
 if ( empty( $fleet_items ) ) {
