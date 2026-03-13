@@ -417,7 +417,8 @@
 	}
 
 	&:hover,
-	&:focus-within {
+	&:focus-within,
+	&.is-open {
 		.dropdown-icon {
 			transform: rotate(180deg);
 		}

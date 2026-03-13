@@ -2405,10 +2405,10 @@ body.mobile-menu-open {
   top: 100%;
   height: 74px;
 }
-.language-selector:hover .dropdown-icon, .language-selector:focus-within .dropdown-icon {
+.language-selector:hover .dropdown-icon, .language-selector:focus-within .dropdown-icon, .language-selector.is-open .dropdown-icon {
   transform: rotate(180deg);
 }
-.language-selector:hover .language-selector__menu, .language-selector:focus-within .language-selector__menu {
+.language-selector:hover .language-selector__menu, .language-selector:focus-within .language-selector__menu, .language-selector.is-open .language-selector__menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -6418,10 +6418,10 @@ a.phone-button:focus,
   top: 100%;
   height: 74px;
 }
-.language-selector:hover .dropdown-icon, .language-selector:focus-within .dropdown-icon {
+.language-selector:hover .dropdown-icon, .language-selector:focus-within .dropdown-icon, .language-selector.is-open .dropdown-icon {
   transform: rotate(180deg);
 }
-.language-selector:hover .language-selector__menu, .language-selector:focus-within .language-selector__menu {
+.language-selector:hover .language-selector__menu, .language-selector:focus-within .language-selector__menu, .language-selector.is-open .language-selector__menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
