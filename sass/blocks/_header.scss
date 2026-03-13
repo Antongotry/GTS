@@ -318,12 +318,18 @@
 	font-size: 14px;
 	font-weight: 400;
 	color: #000000;
+	// Extend the desktop hover area to the dropdown width without shifting the header layout.
+	padding-left: 139px;
+	margin-left: -139px;
 	margin: 0;
-	padding: 0;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
 
 	&__toggle {
 		display: flex;
 		align-items: center;
+		justify-content: flex-end;
 		gap: 4px;
 		cursor: default;
 		background: none;
@@ -411,8 +417,7 @@
 		content: '';
 		position: absolute;
 		right: 0;
-		width: 170px;
-		min-width: 100%;
+		width: 100%;
 		top: 100%;
 		height: 74px;
 	}

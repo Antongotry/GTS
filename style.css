@@ -2320,12 +2320,17 @@ body.mobile-menu-open {
   font-size: 14px;
   font-weight: 400;
   color: #000000;
+  padding-left: 139px;
+  margin-left: -139px;
   margin: 0;
-  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 .language-selector__toggle {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 4px;
   cursor: default;
   background: none;
@@ -2401,8 +2406,7 @@ body.mobile-menu-open {
   content: "";
   position: absolute;
   right: 0;
-  width: 170px;
-  min-width: 100%;
+  width: 100%;
   top: 100%;
   height: 74px;
 }
@@ -6334,12 +6338,17 @@ a.phone-button:focus,
   font-size: 14px;
   font-weight: 400;
   color: #000000;
+  padding-left: 139px;
+  margin-left: -139px;
   margin: 0;
-  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 .language-selector__toggle {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 4px;
   cursor: default;
   background: none;
@@ -6415,8 +6424,7 @@ a.phone-button:focus,
   content: "";
   position: absolute;
   right: 0;
-  width: 170px;
-  min-width: 100%;
+  width: 100%;
   top: 100%;
   height: 74px;
 }
