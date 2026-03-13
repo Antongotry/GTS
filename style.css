@@ -2316,21 +2316,17 @@ body.mobile-menu-open {
 
 .language-selector {
   position: relative;
+  --language-selector-hit-area: 170px;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #000000;
-  padding-left: 139px;
-  margin-left: -139px;
   margin: 0;
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
+  padding: 0;
 }
 .language-selector__toggle {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 4px;
   cursor: default;
   background: none;
@@ -2402,13 +2398,28 @@ body.mobile-menu-open {
 .language-selector:hover .dropdown-icon {
   transform: rotate(180deg);
 }
+.language-selector::before,
 .language-selector::after {
   content: "";
   position: absolute;
   right: 0;
-  width: 100%;
+  width: var(--language-selector-hit-area);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.language-selector::before {
+  top: 0;
+  height: 100%;
+}
+.language-selector::after {
   top: 100%;
   height: 74px;
+}
+.language-selector:hover::before, .language-selector:hover::after, .language-selector:focus-within::before, .language-selector:focus-within::after, .language-selector.is-open::before, .language-selector.is-open::after {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .language-selector:hover .dropdown-icon, .language-selector:focus-within .dropdown-icon, .language-selector.is-open .dropdown-icon {
   transform: rotate(180deg);
@@ -6334,21 +6345,17 @@ a.phone-button:focus,
 
 .language-selector {
   position: relative;
+  --language-selector-hit-area: 170px;
   font-family: "Manrope", "Visby CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #000000;
-  padding-left: 139px;
-  margin-left: -139px;
   margin: 0;
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
+  padding: 0;
 }
 .language-selector__toggle {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 4px;
   cursor: default;
   background: none;
@@ -6420,13 +6427,28 @@ a.phone-button:focus,
 .language-selector:hover .dropdown-icon {
   transform: rotate(180deg);
 }
+.language-selector::before,
 .language-selector::after {
   content: "";
   position: absolute;
   right: 0;
-  width: 100%;
+  width: var(--language-selector-hit-area);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.language-selector::before {
+  top: 0;
+  height: 100%;
+}
+.language-selector::after {
   top: 100%;
   height: 74px;
+}
+.language-selector:hover::before, .language-selector:hover::after, .language-selector:focus-within::before, .language-selector:focus-within::after, .language-selector.is-open::before, .language-selector.is-open::after {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .language-selector:hover .dropdown-icon, .language-selector:focus-within .dropdown-icon, .language-selector.is-open .dropdown-icon {
   transform: rotate(180deg);
