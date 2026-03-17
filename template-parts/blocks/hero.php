@@ -40,9 +40,13 @@ if ( '' === trim( $hero_cta_link ) ) {
 .hero-block.hero-block--home .hero-title {
 	margin-bottom: 8px;
 }
+.hero-block.hero-block--home .hero-buttons {
+	margin-top: 24px;
+}
 @media (max-width: 768px) {
 	.hero-block { background-image: url('<?php echo esc_url($image_mobile); ?>') !important; }
 	.hero-block.hero-block--home .hero-title { margin-bottom: 6px; }
+	.hero-block.hero-block--home .hero-buttons { margin-top: 18px; }
 }
 </style>
 <?php endif; ?>
