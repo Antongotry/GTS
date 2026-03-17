@@ -2276,7 +2276,6 @@ if (empty($faq_items)) {
 	);
 }
 
-$chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.svg';
 
 ?>
 
@@ -3295,7 +3294,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php // ======================== HOW IT WORKS BLOCK ========================
 	?>
 	<?php if ($block_enabled['how_it_works']) : ?>
-		<section class="how-it-works-block" style="--gts-bg-image: url('<?php echo esc_url($hiw_bg); ?>');">
+		<section class="how-it-works-block" style="background-image: url('<?php echo esc_url($hiw_bg); ?>');">
 			<div class="how-it-works-container">
 				<div class="how-it-works-left">
 					<div class="how-it-works-pill"><span class="how-it-works-pill-text"><?php echo esc_html($hiw_pill); ?></span></div>
@@ -3354,7 +3353,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						$desc = ! empty($card['description']) ? $card['description'] : '';
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
-								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');">
+								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
 									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
 									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 								</div>
@@ -3397,7 +3396,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						$desc = ! empty($card['description']) ? $card['description'] : '';
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
-								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');">
+								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
 									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
 									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 								</div>
@@ -3440,7 +3439,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						$desc = ! empty($card['description']) ? $card['description'] : '';
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
-								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');">
+								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
 									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
 									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
 								</div>
@@ -3479,7 +3478,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<img src="<?php echo esc_url($chevron_url); ?>" data-icon-src="<?php echo esc_url($chevron_url); ?>" alt="" class="faq-item__icon notranslate" width="20" height="20" aria-hidden="true" translate="no" data-no-translation="1">
+											<span class="faq-item__icon" aria-hidden="true"></span>
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">
@@ -3494,7 +3493,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<img src="<?php echo esc_url($chevron_url); ?>" data-icon-src="<?php echo esc_url($chevron_url); ?>" alt="" class="faq-item__icon notranslate" width="20" height="20" aria-hidden="true" translate="no" data-no-translation="1">
+											<span class="faq-item__icon" aria-hidden="true"></span>
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">

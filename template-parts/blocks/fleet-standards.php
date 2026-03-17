@@ -23,7 +23,7 @@ $base = get_site_url() . '/wp-content/uploads/2026/02/';
 				<p class="fleet-standards-card__text"><?php esc_html_e( 'Professional operators and certified partners', 'gts-theme' ); ?></p>
 			</article>
 
-				<div class="fleet-standards-card fleet-standards-card--image" style="--gts-bg-image: url('<?php echo esc_url( $base . 'fleet-photo_result.webp' ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Ground transport service', 'gts-theme' ); ?>"></div>
+				<div class="fleet-standards-card fleet-standards-card--image" style="background-image: url('<?php echo esc_url( $base . 'fleet-photo_result.webp' ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Ground transport service', 'gts-theme' ); ?>"></div>
 
 				<article class="fleet-standards-card fleet-standards-card--dark">
 					<div class="fleet-standards-card__icon-wrap">

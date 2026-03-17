@@ -5966,10 +5966,24 @@ a.phone-button:focus,
 }
 
 .faq-item__icon {
+  display: inline-block;
+  position: relative;
   width: 20px;
   height: 20px;
   flex-shrink: 0;
   transition: transform 0.25s ease;
+}
+.faq-item__icon::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid #0c0f17;
+  border-bottom: 1.5px solid #0c0f17;
+  transform: rotate(45deg);
+  box-sizing: border-box;
 }
 
 .faq-item__content-wrapper {
@@ -11801,31 +11815,13 @@ main#primary > section.hero-block > .hero-container {
   transform: rotate(180deg);
 }
 
-/* Background images via CSS variables (instead of inline background-image) */
-.final-cta-block,
-.how-it-works-block {
-  background-image: var(--gts-bg-image) !important;
-}
-
-.why-us-item {
-  background-image: var(--gts-card-bg, none);
-}
-
-.occasions-split-image {
-  background-image: var(--gts-bg-image, none);
-}
-
-.fleet-standards-card--image {
-  background-image: var(--gts-bg-image, none);
-}
-
-.occasions-block .why-us-item:not([style*=background-image]):not([style*=--gts-card-bg]):not(.why-us-item-2):not(.occasions-footer-item) {
+/* Keep fallback state only for items without explicit inline image */
+.occasions-block .why-us-item:not([style*=background-image]):not(.why-us-item-2):not(.occasions-footer-item) {
   background: transparent;
   border: 1px inset rgba(255, 255, 255, 0.16);
 }
 
-.occasions-block .why-us-item[style*=background-image],
-.occasions-block .why-us-item[style*=--gts-card-bg] {
+.occasions-block .why-us-item[style*=background-image] {
   background-color: transparent;
   background-size: cover;
   background-position: center;

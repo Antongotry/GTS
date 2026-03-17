@@ -82,7 +82,7 @@ if ( ! empty( $hiw_block ) ) {
 }
 ?>
 
-<section class="how-it-works-block" style="--gts-bg-image: url('<?php echo esc_url( $background_url ); ?>');">
+<section class="how-it-works-block" style="background-image: url('<?php echo esc_url( $background_url ); ?>');">
 	<div class="how-it-works-container">
 		<div class="how-it-works-left">
 			<div class="how-it-works-pill">

@@ -309,7 +309,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 					<p class="why-us-item-description"><?php echo wp_kses_post( $item_2_description ); ?></p>
 				</div>
 
-				<div class="why-us-item occasions-item-image" style="--gts-card-bg: url('<?php echo esc_url( $image_airport_url ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Airport limousine', 'gts-theme' ); ?>"></div>
+				<div class="why-us-item occasions-item-image" style="background-image: url('<?php echo esc_url( $image_airport_url ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Airport limousine', 'gts-theme' ); ?>"></div>
 
 			<!-- Row 2: Multi-Day, Private Occasions -->
 				<div class="why-us-item why-us-item-3">
@@ -329,7 +329,7 @@ $footer_hidden_class = $footer_text_enabled ? '' : ' occasions-footer-text--hidd
 				</div>
 
 			<!-- Row 3: Conference image (wide), Events & Conferences, footer text -->
-				<div class="occasions-split-image occasions-row3-image" style="--gts-bg-image: url('<?php echo esc_url( $image_events_url ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Conference audience', 'gts-theme' ); ?>"></div>
+				<div class="occasions-split-image occasions-row3-image" style="background-image: url('<?php echo esc_url( $image_events_url ); ?>');" role="img" aria-label="<?php esc_attr_e( 'Conference audience', 'gts-theme' ); ?>"></div>
 				<div class="occasions-split-card occasions-split-card--light occasions-row3-card">
 					<div class="why-us-item-icon-wrapper">
 						<img src="<?php echo esc_url( $icon_events_url ); ?>" alt="" aria-hidden="true" class="why-us-item-icon" loading="lazy" width="48" height="48">

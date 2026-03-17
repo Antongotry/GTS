@@ -77,7 +77,7 @@ if (empty($cards)) {
 					$next_desc = ! empty($next_card['description']) ? $next_card['description'] : '';
 				?>
 						<!-- Split layout: Conference image + Events card -->
-						<div class="occasions-split-image occasions-row3-image" style="--gts-bg-image: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
+						<div class="occasions-split-image occasions-row3-image" style="background-image: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
 						<div class="occasions-split-card occasions-split-card--light occasions-row3-card">
 							<?php if ($next_icon) : ?>
 								<div class="why-us-item-icon-wrapper">
@@ -95,7 +95,7 @@ if (empty($cards)) {
 					elseif ('image' === $card_type && $image) :
 					?>
 						<!-- Image only card -->
-						<div class="why-us-item occasions-item-image" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
+						<div class="why-us-item occasions-item-image" style="background-image: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
 				<?php
 				elseif ('icon' === $card_type && !$has_split) :
 				?>

@@ -131,7 +131,7 @@ if ( ! empty( $why_us_block ) ) {
 			<?php endif; ?>
 			<div class="why-us-grid">
 				<!-- Element 1: Image as background -->
-				<div class="why-us-item why-us-item-1" style="--gts-card-bg: url('<?php echo esc_url( $cards[0]['image'] ); ?>');">
+				<div class="why-us-item why-us-item-1" style="background-image: url('<?php echo esc_url( $cards[0]['image'] ); ?>');">
 					<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[0]['title'] ) ); ?></div>
 					<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[0]['description'] ) ); ?></p>
 				</div>
@@ -173,7 +173,7 @@ if ( ! empty( $why_us_block ) ) {
 				</div>
 
 			<!-- Element 6: Image as background -->
-				<div class="why-us-item why-us-item-6" style="--gts-card-bg: url('<?php echo esc_url( $cards[5]['image'] ); ?>');">
+				<div class="why-us-item why-us-item-6" style="background-image: url('<?php echo esc_url( $cards[5]['image'] ); ?>');">
 					<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $cards[5]['title'] ) ); ?></div>
 					<p class="why-us-item-description"><?php echo wp_kses_post( nl2br( $cards[5]['description'] ) ); ?></p>
 				</div>

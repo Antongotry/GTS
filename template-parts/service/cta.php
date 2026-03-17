@@ -39,7 +39,7 @@ if (empty($items)) {
 }
 ?>
 
-<section class="final-cta-block" style="--gts-bg-image: url('<?php echo esc_url($background); ?>');">
+<section class="final-cta-block" style="background-image: url('<?php echo esc_url($background); ?>');">
 	<div class="final-cta-container">
 		<div class="final-cta-left">
 			<div class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $title ) ); ?></div>

@@ -9,7 +9,7 @@
 $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-home_result-scaled.webp';
 ?>
 
-<section class="final-cta-block" style="--gts-bg-image: url('<?php echo esc_url($background_image); ?>');">
+<section class="final-cta-block" style="background-image: url('<?php echo esc_url($background_image); ?>');">
 	<div class="final-cta-container">
 		<div class="final-cta-left">
 			<div class="final-cta-title"><?php echo wp_kses_post('Most transfer<br>companies offer cars.'); ?></div>
