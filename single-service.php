@@ -3478,7 +3478,7 @@ if (empty($faq_items)) {
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<span class="faq-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20" focusable="false" aria-hidden="true"><path d="M6 8.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+											<span class="faq-item__icon" aria-hidden="true" style="display:inline-block;width:20px;height:20px;flex-shrink:0;background:center/20px 20px no-repeat url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Cpath d=%22M6 8.5l4 4 4-4%22 fill=%22none%22 stroke=%22%230c0f17%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E');"></span>
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">
@@ -3493,7 +3493,7 @@ if (empty($faq_items)) {
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<span class="faq-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20" focusable="false" aria-hidden="true"><path d="M6 8.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+											<span class="faq-item__icon" aria-hidden="true" style="display:inline-block;width:20px;height:20px;flex-shrink:0;background:center/20px 20px no-repeat url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Cpath d=%22M6 8.5l4 4 4-4%22 fill=%22none%22 stroke=%22%230c0f17%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E');"></span>
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">
