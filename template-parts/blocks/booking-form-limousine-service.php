@@ -89,7 +89,7 @@ $mobile_checkbox2_text = ! empty( $booking_block['mobile_checkbox2_text'] ) ? (s
 					</div>
 						<div class="form-group form-group-with-add-stop">
 							<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
-							<button type="button" class="add-stop-link">
+							<button type="button" class="add-stop-link" style="-webkit-appearance:none !important;appearance:none !important;background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;padding:0 !important;">
 								<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
 								</svg>
