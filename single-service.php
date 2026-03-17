@@ -3478,7 +3478,7 @@ if (empty($faq_items)) {
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<span class="faq-item__icon" aria-hidden="true"></span>
+											<span class="faq-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20" focusable="false" aria-hidden="true"><path d="M6 8.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">
@@ -3493,7 +3493,7 @@ if (empty($faq_items)) {
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<span class="faq-item__icon" aria-hidden="true"></span>
+											<span class="faq-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20" focusable="false" aria-hidden="true"><path d="M6 8.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">

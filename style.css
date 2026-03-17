@@ -5970,20 +5970,14 @@ a.phone-button:focus,
   position: relative;
   width: 20px;
   height: 20px;
+  color: #0c0f17;
   flex-shrink: 0;
   transition: transform 0.25s ease;
 }
-.faq-item__icon::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 6px;
-  width: 8px;
-  height: 8px;
-  border-right: 1.5px solid #0c0f17;
-  border-bottom: 1.5px solid #0c0f17;
-  transform: rotate(45deg);
-  box-sizing: border-box;
+.faq-item__icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 
 .faq-item__content-wrapper {
