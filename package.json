@@ -20,7 +20,8 @@
     "@wordpress/scripts": "^19.2.2",
     "dir-archiver": "^1.1.1",
     "sass": "^1.77.0",
-    "rtlcss": "^3.5.0"
+    "rtlcss": "^3.5.0",
+    "terser": "^5.44.1"
   },
   "rtlcssConfig": {
     "options": {
@@ -36,6 +37,7 @@
     "map": false
   },
   "scripts": {
+    "build:theme-bundle": "terser js/navigation.js js/header-layout.js js/form-selects.js js/datetime-placeholder.js js/mobile-menu.js js/faq-accordion.js js/mobile-whyus-intro-br-fix.js js/mobile-final-cta-br-fix.js js/mobile-service-context-br-fix.js js/mobile-fleet-slider-lead-br-fix.js js/mobile-global-small-text-br-fix.js js/desktop-whyus-text-br-fix.js js/service-bottom-text-toggle.js js/explore-services-links.js js/services-show-more.js js/booking-form-validation.js js/booking-form-submit.js js/transfer-autocomplete.js js/transfer-form.js js/woo-filters-toggle.js -c -m -o js/theme-bundle.min.js",
     "watch": "sass sass/style.scss:style.css --watch --source-map --style=expanded",
     "compile:css": "sass sass/style.scss:style.css --source-map --style=expanded && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",

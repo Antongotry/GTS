@@ -180,15 +180,15 @@ if ( '' === trim( $hero_cta_link ) ) {
 						<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="Pick-up time" required>
 						<span class="datetime-placeholder">Pick-up time</span>
 					</div>
-					<div class="form-group form-group-with-add-stop">
-						<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
-						<a href="#" class="add-stop-link">
-							<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-							</svg>
-							Add Stop
-						</a>
-					</div>
+						<div class="form-group form-group-with-add-stop">
+							<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
+							<button type="button" class="add-stop-link">
+								<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+								</svg>
+								Add Stop
+							</button>
+						</div>
 				</div>
 
 				<!-- Row 5: Drop-off location и Additional Notes (24px после предыдущего ряда) -->

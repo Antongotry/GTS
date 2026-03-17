@@ -498,12 +498,12 @@ function gts_language_switcher_shortcode( $atts ) {
 	else :
 		?>
 		<div class="language-selector">
-			<div class="language-selector__toggle">
-				<span class="language-text"><?php echo esc_html( $current['code'] ?? 'EN' ); ?></span>
-				<span class="dropdown-icon">
-					<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="" width="10" height="6">
-				</span>
-			</div>
+				<div class="language-selector__toggle">
+					<span class="language-text"><?php echo esc_html( $current['code'] ?? 'EN' ); ?></span>
+					<span class="dropdown-icon">
+						<img src="<?php echo esc_url( get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg' ); ?>" alt="" aria-hidden="true" width="10" height="6">
+					</span>
+				</div>
 			<ul class="language-selector__menu" role="menu" aria-label="<?php esc_attr_e( 'Select language', 'gts-theme' ); ?>">
 				<?php foreach ( $languages as $item ) : ?>
 					<li class="language-selector__item<?php echo ! empty( $item['current'] ) ? ' is-active' : ''; ?>" role="none">
@@ -824,37 +824,77 @@ function gts_send_noindex_header_for_query_variants()
 add_action('send_headers', 'gts_send_noindex_header_for_query_variants');
 
 /**
- * Disallow crawl-noise parameter variants in robots.txt.
+ * Print project-specific robots.txt directives.
  *
  * @param string $output Existing robots.txt output.
  * @param bool   $public Whether site is public.
  * @return string
  */
-function gts_robots_txt_disallow_query_variants($output, $public)
+function gts_custom_robots_txt($output, $public)
 {
 	if (! $public) {
 		return $output;
 	}
 
-	$rules = array(
-		'Disallow: /*?lang=',
-		'Disallow: /*?*lang=',
-		'Disallow: /*?v=',
-		'Disallow: /*?*v=',
-		'Disallow: /*?replytocom=',
-		'Disallow: /*?*replytocom=',
-		'Disallow: /*?*utm_',
+	$lines = array(
+		'User-agent: *',
+		'Allow: /wp-admin/admin-ajax.php',
+		'Allow: /wp-content/uploads/',
+		'',
+		'# Block Technical and System Directories',
+		'Disallow: /wp-admin/',
+		'Disallow: /wp-includes/',
+		'Disallow: /wp-content/plugins/',
+		'Disallow: /wp-content/cache/',
+		'Disallow: /wp-login.php',
+		'Disallow: /wp-register.php',
+		'',
+		'# Block Dynamic Duplicates (WooCommerce, Versioning, Filters)',
+		'Disallow: /*?ver=*',
+		'Disallow: /*&v=*',
+		'Disallow: /*?add-to-cart=*',
+		'Disallow: /*?vehicle_id=*',
+		'Disallow: /*?lang=*',
+		'Disallow: /*?product-category=*',
+		'Disallow: /page/',
+		'Disallow: /*#*',
+		'',
+		'# Block Aggressive/Spam Bots',
+		'User-agent: PetalBot',
+		'Disallow: /',
+		'',
+		'User-agent: seranking',
+		'Disallow: /',
+		'',
+		'User-agent: SemrushBot',
+		'Disallow: /',
+		'',
+		'User-agent: MJ12bot',
+		'Disallow: /',
+		'',
+		'User-agent: DotBot',
+		'Disallow: /',
+		'',
+		'# Exceptions for SEO & AI Bots',
+		'User-agent: AhrefsBot',
+		'Allow: /',
+		'',
+		'User-agent: GPTBot',
+		'Allow: /',
+		'',
+		'User-agent: ChatGPT-User',
+		'Allow: /',
+		'',
+		'User-agent: Google-Extended',
+		'Allow: /',
+		'',
+		'# Sitemap',
+		'Sitemap: https://global-travelsolutions.com/sitemap_index.xml',
 	);
 
-	foreach ($rules as $rule) {
-		if (false === stripos($output, $rule)) {
-			$output .= $rule . "\n";
-		}
-	}
-
-	return $output;
+	return implode("\n", $lines) . "\n";
 }
-add_filter('robots_txt', 'gts_robots_txt_disallow_query_variants', 20, 2);
+add_filter('robots_txt', 'gts_custom_robots_txt', 999, 2);
 
 
 /**
@@ -1074,27 +1114,10 @@ function gts_theme_scripts()
 	wp_enqueue_style('gts-theme-style', get_stylesheet_uri(), array(), $version);
 	wp_style_add_data('gts-theme-style', 'rtl', 'replace');
 
-	// Essential scripts - loaded with defer
-	wp_enqueue_script('gts-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $version, true);
-	wp_enqueue_script('gts-header-layout', get_template_directory_uri() . '/js/header-layout.js', array(), $version, true);
-	wp_enqueue_script('gts-form-selects', get_template_directory_uri() . '/js/form-selects.js', array(), $version, true);
-	wp_enqueue_script('gts-datetime-placeholder', get_template_directory_uri() . '/js/datetime-placeholder.js', array(), $version, true);
-	wp_enqueue_script('gts-mobile-menu', get_template_directory_uri() . '/js/mobile-menu.js', array(), $version, true);
-	wp_enqueue_script('gts-faq-accordion', get_template_directory_uri() . '/js/faq-accordion.js', array(), $version, true);
-	wp_enqueue_script('gts-mobile-whyus-intro-br-fix', get_template_directory_uri() . '/js/mobile-whyus-intro-br-fix.js', array(), $version, true);
-	wp_enqueue_script('gts-mobile-final-cta-br-fix', get_template_directory_uri() . '/js/mobile-final-cta-br-fix.js', array(), $version, true);
-	wp_enqueue_script('gts-mobile-service-context-br-fix', get_template_directory_uri() . '/js/mobile-service-context-br-fix.js', array(), $version, true);
-	wp_enqueue_script('gts-mobile-fleet-slider-lead-br-fix', get_template_directory_uri() . '/js/mobile-fleet-slider-lead-br-fix.js', array(), $version, true);
-	wp_enqueue_script('gts-mobile-global-small-text-br-fix', get_template_directory_uri() . '/js/mobile-global-small-text-br-fix.js', array(), $version, true);
-	wp_enqueue_script('gts-desktop-whyus-text-br-fix', get_template_directory_uri() . '/js/desktop-whyus-text-br-fix.js', array(), $version, true);
-	wp_enqueue_script('gts-service-bottom-text-toggle', get_template_directory_uri() . '/js/service-bottom-text-toggle.js', array(), $version, true);
-	wp_enqueue_script('gts-explore-services-links', get_template_directory_uri() . '/js/explore-services-links.js', array(), $version, true);
-	wp_enqueue_script('gts-services-show-more', get_template_directory_uri() . '/js/services-show-more.js', array(), $version, true);
-	wp_enqueue_script('gts-booking-form-validation', get_template_directory_uri() . '/js/booking-form-validation.js', array(), $version, true);
-	wp_enqueue_script('gts-booking-form-submit', get_template_directory_uri() . '/js/booking-form-submit.js', array(), $version, true);
-	wp_enqueue_script('gts-location-autocomplete', get_template_directory_uri() . '/js/transfer-autocomplete.js', array(), $version, true);
+	// Consolidated theme scripts to reduce HTTP request overhead.
+	wp_enqueue_script('gts-theme-bundle', get_template_directory_uri() . '/js/theme-bundle.min.js', array(), $version, true);
 	wp_localize_script(
-		'gts-booking-form-submit',
+		'gts-theme-bundle',
 		'gtsBookingFormConfig',
 		array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
@@ -1102,7 +1125,7 @@ function gts_theme_scripts()
 		)
 	);
 	wp_localize_script(
-		'gts-location-autocomplete',
+		'gts-theme-bundle',
 		'gtsTransferConfig',
 		array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
@@ -1130,22 +1153,6 @@ function gts_theme_scripts()
 		wp_enqueue_script( 'gts-fleet-slider', get_template_directory_uri() . '/js/fleet-slider.js', array( 'gts-swiper' ), $version, true );
 	}
 
-	if (is_page_template('page-book-a-transfer.php') || is_page('book-a-transfer')) {
-		wp_enqueue_script('gts-transfer-form', get_template_directory_uri() . '/js/transfer-form.js', array(), $version, true);
-		wp_localize_script(
-			'gts-transfer-form',
-			'gtsTransferConfig',
-			array(
-				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'gts_transfer_nonce' ),
-			)
-		);
-	}
-
-	if ( function_exists( 'is_shop' ) && ( is_shop() || is_product_taxonomy() ) ) {
-		wp_enqueue_script( 'gts-woo-filters-toggle', get_template_directory_uri() . '/js/woo-filters-toggle.js', array(), $version, true );
-	}
-
 	// Lenis - smooth scrolling for entire site (only desktop, loaded via JS check)
 	wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js', array(), '1.0.42', true);
 	wp_enqueue_script('gts-lenis-init', get_template_directory_uri() . '/js/lenis-init.js', array('lenis'), $version, true);
@@ -1164,12 +1171,32 @@ function gts_theme_scripts()
 add_action('wp_enqueue_scripts', 'gts_theme_scripts');
 
 /**
+ * Keep WordPress jQuery handles in footer on frontend.
+ *
+ * @param WP_Scripts $scripts Script registry.
+ */
+function gts_move_jquery_to_footer($scripts)
+{
+	if (is_admin()) {
+		return;
+	}
+
+	foreach (array('jquery', 'jquery-core', 'jquery-migrate') as $handle) {
+		if (isset($scripts->registered[$handle])) {
+			$scripts->add_data($handle, 'group', 1);
+		}
+	}
+}
+add_action('wp_default_scripts', 'gts_move_jquery_to_footer');
+
+/**
  * Add defer attribute to heavy scripts for non-blocking loading
  */
 function gts_defer_scripts($tag, $handle, $src)
 {
 	// Only defer heavy/non-critical scripts
 	$defer_scripts = array(
+		'gts-theme-bundle',
 		'gts-swiper',
 		'gts-trusted-by-slider',
 		'gts-fleet-ground-sliders',
@@ -1180,6 +1207,9 @@ function gts_defer_scripts($tag, $handle, $src)
 		'gsap',
 		'gsap-scrolltrigger',
 		'gts-how-it-works-scroll',
+		'jquery',
+		'jquery-core',
+		'jquery-migrate',
 	);
 
 	if (in_array($handle, $defer_scripts, true)) {

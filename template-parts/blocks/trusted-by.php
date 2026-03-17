@@ -100,9 +100,9 @@ $heights = array( 348, 326, 392 );
 		<div class="trusted-by-pill">
 			<span class="trusted-by-pill-text"><?php echo esc_html( $section_pill ); ?></span>
 		</div>
-		<h2 class="trusted-by-title">
+		<div class="trusted-by-title">
 			<?php echo esc_html( $section_title ); ?>
-		</h2>
+		</div>
 	</div>
 
 	<div class="trusted-by-slider swiper">

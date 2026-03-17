@@ -76,21 +76,21 @@ $service_url   = get_permalink();
 	</div>
 
 	<!-- Row 4: Pick-up time и Pick-up location с Add Stop -->
-	<div class="form-row">
-		<div class="form-group form-group-datetime">
-			<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="<?php esc_attr_e('Pick-up time', 'gts-theme'); ?>" required>
-			<span class="datetime-placeholder"><?php esc_html_e('Pick-up time', 'gts-theme'); ?></span>
+		<div class="form-row">
+			<div class="form-group form-group-datetime">
+				<input type="datetime-local" id="pickup-time" name="pickup_time" placeholder="<?php esc_attr_e('Pick-up time', 'gts-theme'); ?>" required>
+				<span class="datetime-placeholder"><?php esc_html_e('Pick-up time', 'gts-theme'); ?></span>
+			</div>
+			<div class="form-group form-group-with-add-stop">
+				<input type="text" id="pickup-location" name="pickup_location" placeholder="<?php esc_attr_e('Pick-up location', 'gts-theme'); ?>" required>
+				<button type="button" class="add-stop-link">
+					<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+					</svg>
+					<?php esc_html_e('Add Stop', 'gts-theme'); ?>
+				</button>
+			</div>
 		</div>
-		<div class="form-group form-group-with-add-stop">
-			<input type="text" id="pickup-location" name="pickup_location" placeholder="<?php esc_attr_e('Pick-up location', 'gts-theme'); ?>" required>
-			<a href="#" class="add-stop-link">
-				<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-				</svg>
-				<?php esc_html_e('Add Stop', 'gts-theme'); ?>
-			</a>
-		</div>
-	</div>
 
 	<!-- Row 5: Drop-off location и Additional Notes -->
 	<div class="form-row form-row-dropoff-notes">

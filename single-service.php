@@ -2965,12 +2965,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							</div>
 							<div class="form-row">
 								<div class="form-group form-group-datetime"><input type="datetime-local" id="pickup-time" name="pickup_time" required><span class="datetime-placeholder">Pick-up time</span></div>
-								<div class="form-group form-group-with-add-stop">
-									<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
-									<a href="#" class="add-stop-link"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-										</svg>Add Stop</a>
-								</div>
+									<div class="form-group form-group-with-add-stop">
+										<input type="text" id="pickup-location" name="pickup_location" placeholder="Pick-up location" required>
+										<button type="button" class="add-stop-link"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+											</svg>Add Stop</button>
+									</div>
 							</div>
 							<div class="form-row form-row-dropoff-notes">
 								<div class="form-group"><input type="text" id="dropoff-location" name="dropoff_location" placeholder="Drop-off location" required></div>
@@ -3031,12 +3031,12 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							</div>
 							<div class="form-row">
 								<div class="form-group form-group-datetime"><input type="datetime-local" id="pickup-time-m" name="pickup_time" required><span class="datetime-placeholder">Pick-up time</span></div>
-								<div class="form-group form-group-with-add-stop">
-									<input type="text" id="pickup-location-m" name="pickup_location" placeholder="Pick-up location" required>
-									<a href="#" class="add-stop-link"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-										</svg>Add Stop</a>
-								</div>
+									<div class="form-group form-group-with-add-stop">
+										<input type="text" id="pickup-location-m" name="pickup_location" placeholder="Pick-up location" required>
+										<button type="button" class="add-stop-link"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M4.5 0V9M0 4.5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+											</svg>Add Stop</button>
+									</div>
 							</div>
 							<div class="form-row form-row-dropoff-notes">
 								<div class="form-group"><input type="text" id="dropoff-location-m" name="dropoff_location" placeholder="Drop-off location" required></div>
@@ -3076,7 +3076,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 							<span class="why-us-heading-text"><?php echo esc_html( $service_intro_pill ); ?></span>
 						</div>
 					<?php endif; ?>
-						<h2 class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $service_intro_title ) ); ?></h2>
+					<div class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $service_intro_title ) ); ?></div>
 						<?php if (!empty($service_intro_description)) : ?>
 							<p class="final-cta-description"><?php echo wp_kses_post($service_intro_description); ?></p>
 						<?php endif; ?>
@@ -3096,7 +3096,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 								<?php if ($item_icon) : ?>
 									<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
 								<?php endif; ?>
-								<h3 class="final-cta-item-title"><?php echo esc_html($item_title); ?></h3>
+								<div class="final-cta-item-title"><?php echo esc_html($item_title); ?></div>
 							</div>
 							<p class="final-cta-item-description"><?php echo wp_kses_post($item_description); ?></p>
 						</div>
@@ -3294,11 +3294,11 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 	<?php // ======================== HOW IT WORKS BLOCK ========================
 	?>
 	<?php if ($block_enabled['how_it_works']) : ?>
-		<section class="how-it-works-block" style="background-image: url('<?php echo esc_url($hiw_bg); ?>');">
+		<section class="how-it-works-block" style="--gts-bg-image: url('<?php echo esc_url($hiw_bg); ?>');">
 			<div class="how-it-works-container">
 				<div class="how-it-works-left">
 					<div class="how-it-works-pill"><span class="how-it-works-pill-text"><?php echo esc_html($hiw_pill); ?></span></div>
-					<h2 class="how-it-works-title"><?php echo wp_kses_post($hiw_title); ?></h2>
+						<div class="how-it-works-title"><?php echo wp_kses_post($hiw_title); ?></div>
 				</div>
 				<div class="how-it-works-right">
 					<div class="how-it-works-steps">
@@ -3310,7 +3310,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						?>
 							<div class="how-it-works-step">
 								<div class="how-it-works-step-header">
-									<h3 class="how-it-works-step-title"><?php echo wp_kses_post($title); ?></h3>
+										<div class="how-it-works-step-title"><?php echo wp_kses_post($title); ?></div>
 									<div class="how-it-works-step-badge">
 										<span class="how-it-works-step-number"><?php echo esc_html($num); ?></span>
 										<span class="how-it-works-step-icon"><img src="<?php echo esc_url($icon); ?>" alt="" aria-hidden="true" loading="lazy" width="24" height="24"></span>
@@ -3338,7 +3338,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					<div class="why-us-heading-line" aria-hidden="true"></div>
 				</div>
 					<div class="why-us-intro">
-						<h2 class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></h2>
+							<div class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></div>
 						<?php if (!empty($why_us_intro_text)) : ?>
 							<p class="why-us-intro-description"><?php echo wp_kses_post($why_us_intro_text); ?></p>
 						<?php endif; ?>
@@ -3353,17 +3353,17 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						$desc = ! empty($card['description']) ? $card['description'] : '';
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php else : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>">
-								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
-								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php endif; ?>
+								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');">
+									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+								</div>
+							<?php else : ?>
+								<div class="why-us-item why-us-item-<?php echo $i; ?>">
+									<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
+									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+								</div>
+							<?php endif; ?>
 					<?php $i++;
 					endforeach; ?>
 				</div>
@@ -3381,7 +3381,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					<div class="why-us-heading-line" aria-hidden="true"></div>
 				</div>
 					<div class="why-us-intro">
-						<h2 class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></h2>
+							<div class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></div>
 						<?php if (!empty($why_us_intro_text)) : ?>
 							<p class="why-us-intro-description"><?php echo wp_kses_post($why_us_intro_text); ?></p>
 						<?php endif; ?>
@@ -3396,17 +3396,17 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						$desc = ! empty($card['description']) ? $card['description'] : '';
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php else : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>">
-								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
-								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php endif; ?>
+								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');">
+									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+								</div>
+							<?php else : ?>
+								<div class="why-us-item why-us-item-<?php echo $i; ?>">
+									<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
+									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+								</div>
+							<?php endif; ?>
 					<?php $i++;
 					endforeach; ?>
 				</div>
@@ -3424,7 +3424,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 					<div class="why-us-heading-line" aria-hidden="true"></div>
 				</div>
 					<div class="why-us-intro">
-						<h2 class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></h2>
+							<div class="why-us-intro-title"><?php echo wp_kses_post($why_us_intro_title); ?></div>
 						<?php if (!empty($why_us_intro_text)) : ?>
 							<p class="why-us-intro-description"><?php echo wp_kses_post($why_us_intro_text); ?></p>
 						<?php endif; ?>
@@ -3439,17 +3439,17 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 						$desc = ! empty($card['description']) ? $card['description'] : '';
 					?>
 						<?php if ('image' === $card_type && $image) : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php else : ?>
-							<div class="why-us-item why-us-item-<?php echo $i; ?>">
-								<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
-								<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-								<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
-							</div>
-						<?php endif; ?>
+								<div class="why-us-item why-us-item-<?php echo $i; ?>" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');">
+									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+								</div>
+							<?php else : ?>
+								<div class="why-us-item why-us-item-<?php echo $i; ?>">
+									<?php if ($icon) : ?><div class="why-us-item-icon-wrapper"><img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48"></div><?php endif; ?>
+									<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+									<p class="why-us-item-description"><?php echo wp_kses_post($desc); ?></p>
+								</div>
+							<?php endif; ?>
 					<?php $i++;
 					endforeach; ?>
 				</div>
@@ -3471,7 +3471,7 @@ $chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.sv
 			<section class="faq-block">
 				<div class="faq-container">
 					<div class="faq-pill"><span class="faq-pill-text"><?php echo esc_html($faq_pill); ?></span></div>
-					<h2 class="faq-title"><?php echo wp_kses_post($faq_title); ?></h2>
+					<div class="faq-title"><?php echo wp_kses_post($faq_title); ?></div>
 					<div class="faq-accordions">
 						<div class="faq-accordion-col">
 							<?php foreach ($faq_col1 as $idx => $item) : $id = 'faq-content-1-' . $idx; ?>

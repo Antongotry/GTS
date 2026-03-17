@@ -51,16 +51,16 @@ if ( empty( $services ) ) {
 		<div class="services-pill">
 			<span class="services-pill-text"><?php echo esc_html( $section_pill ); ?></span>
 		</div>
-		<h2 class="services-title">
-			<?php echo wp_kses_post( $section_title ); ?>
-		</h2>
+			<div class="services-title">
+				<?php echo wp_kses_post( $section_title ); ?>
+			</div>
 
 		<div class="services-grid">
 			<?php foreach ( $services as $index => $service ) : ?>
 				<?php $hidden_class = $index >= $initial_visible ? ' services-card--hidden' : ''; ?>
 				<div class="services-card services-card--clickable<?php echo esc_attr( $hidden_class ); ?>" data-url="<?php echo esc_url( $service['url'] ); ?>" role="link" tabindex="0" aria-label="<?php echo esc_attr( $service['title'] ); ?>">
 					<div class="services-card-content">
-						<h3 class="services-card-title"><?php echo esc_html( $service['title'] ); ?></h3>
+							<div class="services-card-title"><?php echo esc_html( $service['title'] ); ?></div>
 						<p class="services-card-description"><?php echo esc_html( $service['description'] ); ?></p>
 						<a href="<?php echo esc_url( $service['url'] ); ?>" class="services-card-link"><?php echo esc_html__( 'Read more', 'gts-theme' ); ?></a>
 					</div>

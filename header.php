@@ -39,51 +39,33 @@
 			media="(min-width: 768px)">
 	<?php endif; ?>
 
-	<!-- Critical CSS inline for above-the-fold content -->
-	<style id="critical-css">
-		/* Critical CSS for fast FCP/LCP - CLS prevention */
-		*,
-		*::before,
-		*::after {
-			box-sizing: border-box
-		}
+		<!-- Critical CSS inline for above-the-fold content -->
+		<style id="critical-css">
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box
+			}
 
-		html {
-			-webkit-text-size-adjust: 100%
-		}
+			body {
+				margin: 0;
+				font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+				-webkit-font-smoothing: antialiased;
+				background: #1a1a2e
+			}
 
-		body {
-			margin: 0;
-			font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-			-webkit-font-smoothing: antialiased;
-			background: #1a1a2e;
-			font-size-adjust: 0.5
-		}
+			img {
+				max-width: 100%;
+				height: auto;
+				display: block
+			}
 
-		/* Prevent font-swap CLS */
-		@font-face {
-			font-family: 'Manrope';
-			font-display: swap;
-			size-adjust: 100%;
-			ascent-override: 95%;
-			descent-override: 25%;
-			line-gap-override: 0%
-		}
-
-		img {
-			max-width: 100%;
-			height: auto;
-			display: block
-		}
-
-		/* Header */
 			.site-header {
 				position: fixed;
 				top: 10px;
 				left: 0;
 				right: 0;
 				z-index: 1000;
-				background: transparent;
 				padding: 0 20px;
 				pointer-events: none
 			}
@@ -99,40 +81,47 @@
 				pointer-events: auto
 			}
 
-		.site-logo img {
-			height: 32px;
-			width: auto
-		}
+			.site-logo img {
+				height: 32px;
+				width: auto
+			}
 
-		/* Hero - LCP critical */
-		.hero-block {
-			height: 110vh;
-			height: 110svh;
+			.menu-link--button {
+				background: none;
+				border: 0;
+				padding: 0;
+				font: inherit;
+				color: inherit
+			}
+
+			.hero-block {
+				height: 110vh;
+				height: 110svh;
 			min-height: 110vh;
 			min-height: 110svh;
 			background-size: cover;
 			background-position: center top;
 			display: flex;
-			align-items: stretch;
-			position: relative !important
-		}
+				align-items: stretch;
+				position: relative !important
+			}
 
 			.hero-container {
 				max-width: min(1840px, calc(100vw - var(--scrollbar-width, 0px) - 40px));
 				position: absolute !important;
 				top: 0;
 				right: 0;
-			bottom: 0;
-			left: 0;
-			margin: 0 auto;
+				bottom: 0;
+				left: 0;
+				margin: 0 auto;
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
-			align-items: stretch;
+				align-items: stretch;
 				padding: 0 20px;
-			gap: 40px;
-			min-height: 100%;
-			height: 100%
+				gap: 40px;
+				min-height: 100%;
+				height: 100%
 		}
 
 		.hero-left {
@@ -156,41 +145,12 @@
 			color: rgba(255, 255, 255, 0.8);
 			margin: 0 0 16px;
 			text-transform: uppercase;
-			letter-spacing: 0.5px
-		}
+				letter-spacing: 0.5px
+			}
 
-		.hero-buttons {
-			display: flex;
-			gap: 16px;
-			flex-wrap: wrap
-		}
-
-		.btn {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			padding: 14px 28px;
-			border-radius: 8px;
-			font-weight: 600;
-			text-decoration: none;
-			transition: all 0.2s
-		}
-
-		.btn-primary {
-			background: #00C853;
-			color: #fff
-		}
-
-		.btn-secondary {
-			background: transparent;
-			color: #fff;
-			border: 1px solid rgba(255, 255, 255, 0.3)
-		}
-
-		/* Mobile */
-		@media(max-width:768px) {
-			.site-header {
-				padding: 16px 20px
+			@media(max-width:768px) {
+				.site-header {
+					padding: 16px 20px
 			}
 
 			.hero-container {
@@ -227,11 +187,11 @@
 
 	<div id="page" class="site">
 
-		<header class="site-header">
-			<div class="header-container">
-				<button class="hamburger-button" aria-label="<?php esc_attr_e('Menu', 'gts-theme'); ?>">
-					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/hamb.svg'); ?>" alt="" class="hamburger-icon" width="28" height="15" fetchpriority="low">
-				</button>
+			<header class="site-header">
+				<div class="header-container">
+					<button class="hamburger-button" aria-label="<?php esc_attr_e('Menu', 'gts-theme'); ?>">
+						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/hamb.svg'); ?>" alt="" aria-hidden="true" class="hamburger-icon" width="28" height="15" fetchpriority="low">
+					</button>
 
 				<div class="site-logo">
 					<a href="<?php echo esc_url(home_url('/')); ?>">
@@ -247,16 +207,16 @@
 				$fleet_url  = ( $fleet_page instanceof WP_Post ) ? get_permalink( $fleet_page ) : home_url( '/fleet/' );
 				?>
 
-				<nav class="main-navigation">
-					<ul class="menu">
-						<li class="menu-item menu-item-has-children">
-							<a href="#" class="menu-link">
-								Services
-								<span class="dropdown-icon">
-									<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" width="10" height="6">
-								</span>
-							</a>
-							<ul class="sub-menu">
+					<nav class="main-navigation">
+						<ul class="menu">
+							<li class="menu-item menu-item-has-children">
+								<button type="button" class="menu-link menu-link--button" aria-haspopup="true" aria-expanded="false" aria-controls="header-services-submenu">
+									Services
+									<span class="dropdown-icon">
+										<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/Vector-2.svg'); ?>" alt="" aria-hidden="true" width="10" height="6">
+									</span>
+								</button>
+								<ul class="sub-menu" id="header-services-submenu">
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="sub-menu-link">City-to-City</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>" class="sub-menu-link">Corporations</a></li>
 								<li class="sub-menu-item"><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>" class="sub-menu-link">Airport Transfer</a></li>
@@ -361,14 +321,14 @@
 			</div>
 
 			<!-- Services Submenu Panel (comes from top) -->
-			<div class="mobile-menu-panel mobile-menu-submenu" data-submenu-id="services">
-				<button class="mobile-submenu-back">
+				<div class="mobile-menu-panel mobile-menu-submenu" data-submenu-id="services">
+					<button class="mobile-submenu-back">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<path d="M15 18l-6-6 6-6" />
 					</svg>
 					Back
 				</button>
-				<h3 class="mobile-submenu-title">Services</h3>
+					<div class="mobile-submenu-title">Services</div>
 				<ul class="mobile-menu-list mobile-submenu-list">
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>" class="mobile-menu-link">City-to-City</a></li>
 					<li class="mobile-menu-item"><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>" class="mobile-menu-link">Corporations</a></li>

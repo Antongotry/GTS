@@ -23,7 +23,7 @@ $default_icon_5 = $site_url . '/wp-content/uploads/2026/01/last-i-5.svg';
 $title       = ! empty($block['title']) ? $block['title'] : __('Most transfer<br>companies offer cars.', 'gts-theme');
 $description = ! empty($block['description']) ? $block['description'] : __('We offer peace of mind — through control,<br>consistency, and a truly global standard.', 'gts-theme');
 $button_text = ! empty($block['button_text']) ? $block['button_text'] : __('Book a transfer', 'gts-theme');
-$button_link = ! empty($block['button_link']) ? $block['button_link'] : '#';
+$button_link = ! empty($block['button_link']) ? $block['button_link'] : home_url('/book-a-transfer/');
 $background  = ! empty($block['background']) ? $block['background'] : $default_background;
 $items       = ! empty($block['items']) ? $block['items'] : array();
 
@@ -39,10 +39,10 @@ if (empty($items)) {
 }
 ?>
 
-<section class="final-cta-block" style="background-image: url('<?php echo esc_url($background); ?>');">
+<section class="final-cta-block" style="--gts-bg-image: url('<?php echo esc_url($background); ?>');">
 	<div class="final-cta-container">
 		<div class="final-cta-left">
-			<h2 class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $title ) ); ?></h2>
+			<div class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $title ) ); ?></div>
 			<p class="final-cta-description">
 				<?php echo wp_kses_post($description); ?>
 			</p>
@@ -55,11 +55,11 @@ if (empty($items)) {
 				$item_desc = ! empty($item['description']) ? $item['description'] : '';
 				$item_extra = ! empty($item['extra']) ? $item['extra'] : '';
 			?>
-				<div class="final-cta-item">
-					<div class="final-cta-item-header">
-						<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
-						<h3 class="final-cta-item-title"><?php echo esc_html($item_title); ?></h3>
-					</div>
+					<div class="final-cta-item">
+						<div class="final-cta-item-header">
+							<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
+							<div class="final-cta-item-title"><?php echo esc_html($item_title); ?></div>
+						</div>
 					<p class="final-cta-item-description"><?php echo wp_kses_post($item_desc); ?></p>
 					<?php if ($item_extra) : ?>
 						<p class="final-cta-item-description final-cta-item-description-extra"><?php echo esc_html($item_extra); ?></p>
@@ -77,11 +77,11 @@ if (empty($items)) {
 			$item_desc = ! empty($item['description']) ? $item['description'] : '';
 			$item_extra = ! empty($item['extra']) ? $item['extra'] : '';
 		?>
-			<div class="final-cta-item">
-				<div class="final-cta-item-header">
-					<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
-					<h3 class="final-cta-item-title"><?php echo esc_html($item_title); ?></h3>
-				</div>
+				<div class="final-cta-item">
+					<div class="final-cta-item-header">
+						<img src="<?php echo esc_url($item_icon); ?>" alt="<?php echo esc_attr($item_title); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
+						<div class="final-cta-item-title"><?php echo esc_html($item_title); ?></div>
+					</div>
 				<p class="final-cta-item-description"><?php echo wp_kses_post($item_desc); ?></p>
 				<?php if ($item_extra) : ?>
 					<p class="final-cta-item-description final-cta-item-description-extra"><?php echo esc_html($item_extra); ?></p>

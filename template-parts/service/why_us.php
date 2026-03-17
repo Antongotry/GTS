@@ -48,10 +48,10 @@ if (empty($cards)) {
 			</div>
 			<div class="why-us-heading-line" aria-hidden="true"></div>
 		</div>
-		<div class="why-us-intro">
-			<h2 class="why-us-intro-title"><?php echo esc_html($intro_title); ?></h2>
-			<p class="why-us-intro-description"><?php echo esc_html($intro_text); ?></p>
-		</div>
+			<div class="why-us-intro">
+				<div class="why-us-intro-title"><?php echo esc_html($intro_title); ?></div>
+				<p class="why-us-intro-description"><?php echo esc_html($intro_text); ?></p>
+			</div>
 		<div class="why-us-grid">
 			<?php
 			$item_index = 1;
@@ -63,12 +63,12 @@ if (empty($cards)) {
 				$description = ! empty($card['description']) ? $card['description'] : '';
 			?>
 
-				<?php if ('image' === $card_type && $image) : ?>
-					<!-- Image card -->
-					<div class="why-us-item why-us-item-<?php echo esc_attr($item_index); ?>" style="background-image: url('<?php echo esc_url($image); ?>');">
-						<?php if ($title) : ?>
-							<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-						<?php endif; ?>
+					<?php if ('image' === $card_type && $image) : ?>
+						<!-- Image card -->
+						<div class="why-us-item why-us-item-<?php echo esc_attr($item_index); ?>" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');">
+							<?php if ($title) : ?>
+								<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+							<?php endif; ?>
 						<?php if ($description) : ?>
 							<p class="why-us-item-description"><?php echo wp_kses_post($description); ?></p>
 						<?php endif; ?>
@@ -76,14 +76,14 @@ if (empty($cards)) {
 				<?php else : ?>
 					<!-- Icon card -->
 					<div class="why-us-item why-us-item-<?php echo esc_attr($item_index); ?>">
-						<?php if ($icon) : ?>
-							<div class="why-us-item-icon-wrapper">
-								<img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" class="why-us-item-icon" loading="lazy" width="48" height="48">
-							</div>
-						<?php endif; ?>
-						<?php if ($title) : ?>
-							<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></h3>
-						<?php endif; ?>
+							<?php if ($icon) : ?>
+								<div class="why-us-item-icon-wrapper">
+									<img src="<?php echo esc_url($icon); ?>" alt="" aria-hidden="true" class="why-us-item-icon" loading="lazy" width="48" height="48">
+								</div>
+							<?php endif; ?>
+							<?php if ($title) : ?>
+								<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title ) ); ?></div>
+							<?php endif; ?>
 						<?php if ($description) : ?>
 							<p class="why-us-item-description"><?php echo wp_kses_post($description); ?></p>
 						<?php endif; ?>

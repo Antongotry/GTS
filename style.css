@@ -11768,4 +11768,69 @@ main#primary > section.hero-block > .hero-container {
   }
 }
 
+/* Accessibility + semantic structure overrides */
+.menu-link--button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.add-stop-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-item-has-children:hover .sub-menu,
+.menu-item-has-children:focus-within .sub-menu,
+.menu-item-has-children.is-open .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(24px);
+  pointer-events: auto;
+  display: block !important;
+}
+
+.menu-item-has-children:hover .dropdown-icon,
+.menu-item-has-children:focus-within .dropdown-icon,
+.menu-item-has-children.is-open .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Background images via CSS variables (instead of inline background-image) */
+.final-cta-block,
+.how-it-works-block {
+  background-image: var(--gts-bg-image) !important;
+}
+
+.why-us-item {
+  background-image: var(--gts-card-bg, none);
+}
+
+.occasions-split-image {
+  background-image: var(--gts-bg-image, none);
+}
+
+.fleet-standards-card--image {
+  background-image: var(--gts-bg-image, none);
+}
+
+.occasions-block .why-us-item:not([style*=background-image]):not([style*=--gts-card-bg]):not(.why-us-item-2):not(.occasions-footer-item) {
+  background: transparent;
+  border: 1px inset rgba(255, 255, 255, 0.16);
+}
+
+.occasions-block .why-us-item[style*=background-image],
+.occasions-block .why-us-item[style*=--gts-card-bg] {
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
 /*# sourceMappingURL=style.css.map */

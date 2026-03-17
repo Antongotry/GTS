@@ -17,10 +17,10 @@
 			</div>
 		</div>
 
-		<div class="footer-nav-stack">
-			<div class="footer-menu">
-				<h3 class="footer-title">Menu</h3>
-				<nav class="footer-navigation">
+			<div class="footer-nav-stack">
+				<div class="footer-menu">
+					<div class="footer-title">Menu</div>
+					<nav class="footer-navigation">
 					<?php
 					if (has_nav_menu('footer-menu')) {
 						wp_nav_menu(
@@ -45,8 +45,8 @@
 				</nav>
 			</div>
 
-			<div class="footer-language">
-				<h3 class="footer-title">Site language</h3>
+				<div class="footer-language">
+					<div class="footer-title">Site language</div>
 				<?php
 				if ( function_exists( 'gts_language_switcher_shortcode' ) ) {
 					echo gts_language_switcher_shortcode( array( 'variant' => 'footer' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -55,10 +55,10 @@
 				}
 				?>
 			</div>
-		</div>
+			</div>
 
-		<div class="footer-services">
-			<h3 class="footer-title footer-services-title">Services</h3>
+			<div class="footer-services">
+				<div class="footer-title footer-services-title">Services</div>
 			<ul class="footer-services-list footer-services-list-left">
 				<li><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>">City-to-City</a></li>
 				<li><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>">Corporations</a></li>
@@ -98,9 +98,9 @@
 			?>
 			<div class="footer-phone">
 				<a href="tel:<?php echo esc_attr( $gts_footer_tel ); ?>"><?php echo esc_html( $gts_footer_phone ); ?></a>
-			</div>
-			<div class="footer-social">
-				<h4 class="footer-social-title">Social networks:</h4>
+				</div>
+				<div class="footer-social">
+					<div class="footer-social-title">Social networks:</div>
 				<div class="footer-social-icons">
 					<a href="tel:<?php echo esc_attr( $gts_footer_tel ); ?>" class="footer-social-icon" aria-label="Phone">
 						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icons/phone-icon.svg' ); ?>" alt="Phone" width="25" height="25">
@@ -109,9 +109,9 @@
 						<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/wahts-footr.svg?v=2'); ?>" alt="WhatsApp" width="25" height="25">
 					</a>
 				</div>
-			</div>
-			<div class="footer-email">
-				<h4 class="footer-email-title">E-mail</h4>
+				</div>
+				<div class="footer-email">
+					<div class="footer-email-title">E-mail</div>
 				<a href="mailto:<?php echo esc_attr( $gts_footer_email ); ?>" class="footer-email-link"><?php echo esc_html( $gts_footer_email ); ?></a>
 			</div>
 		</div>

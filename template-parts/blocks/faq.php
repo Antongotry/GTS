@@ -174,7 +174,7 @@ if ( ! empty( $service_faq ) ) {
 		<div class="faq-pill">
 			<span class="faq-pill-text"><?php echo esc_html( $faq_pill ); ?></span>
 		</div>
-		<h2 class="faq-title"><?php echo wp_kses_post( $faq_title ); ?></h2>
+		<div class="faq-title"><?php echo wp_kses_post( $faq_title ); ?></div>
 
 		<div class="faq-accordions">
 			<div class="faq-accordion-col">

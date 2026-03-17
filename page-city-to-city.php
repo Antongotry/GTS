@@ -98,7 +98,7 @@ if ( ! empty( $service_cta ) ) {
 				<div class="why-us-heading-pill final-cta-service-pill">
 					<span class="why-us-heading-text"><?php echo esc_html( $city_cta_pill ); ?></span>
 				</div>
-				<h2 class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $city_cta_title ) ); ?></h2>
+					<div class="final-cta-title"><?php echo wp_kses_post( gts_heading_prevent_orphan_word( $city_cta_title ) ); ?></div>
 				<p class="final-cta-description">
 					<?php echo wp_kses_post( $city_cta_description ); ?>
 				</p>
@@ -110,7 +110,7 @@ if ( ! empty( $service_cta ) ) {
 					<div class="final-cta-item">
 						<div class="final-cta-item-header">
 							<img src="<?php echo esc_url( $benefit['icon'] ); ?>" alt="<?php echo esc_attr( $benefit['title'] ); ?>" class="final-cta-icon" width="26" height="26" loading="lazy">
-							<h3 class="final-cta-item-title"><?php echo esc_html( $benefit['title'] ); ?></h3>
+								<div class="final-cta-item-title"><?php echo esc_html( $benefit['title'] ); ?></div>
 						</div>
 						<p class="final-cta-item-description"><?php echo esc_html( $benefit['text'] ); ?></p>
 					</div>

@@ -82,22 +82,22 @@ if ( ! empty( $hiw_block ) ) {
 }
 ?>
 
-<section class="how-it-works-block" style="background-image: url('<?php echo esc_url( $background_url ); ?>');">
+<section class="how-it-works-block" style="--gts-bg-image: url('<?php echo esc_url( $background_url ); ?>');">
 	<div class="how-it-works-container">
 		<div class="how-it-works-left">
 			<div class="how-it-works-pill">
 				<span class="how-it-works-pill-text"><?php echo esc_html( $section_pill ); ?></span>
 			</div>
-			<h2 class="how-it-works-title">
+			<div class="how-it-works-title">
 				<?php echo wp_kses_post( $how_it_works_title ); ?>
-			</h2>
+			</div>
 		</div>
 		<div class="how-it-works-right">
 			<div class="how-it-works-steps">
 				<?php foreach ( $steps as $step ) : ?>
 					<div class="how-it-works-step">
 						<div class="how-it-works-step-header">
-						<h3 class="how-it-works-step-title"><?php echo wp_kses_post( $step['title'] ); ?></h3>
+							<div class="how-it-works-step-title"><?php echo wp_kses_post( $step['title'] ); ?></div>
 							<div class="how-it-works-step-badge">
 								<span class="how-it-works-step-number"><?php echo esc_html( $step['number'] ); ?></span>
 								<span class="how-it-works-step-icon">

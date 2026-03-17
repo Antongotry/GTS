@@ -47,10 +47,10 @@ if (empty($cards)) {
 			<div class="why-us-heading-pill">
 				<span class="why-us-heading-text"><?php echo esc_html($pill_text); ?></span>
 			</div>
-			<div class="why-us-heading-line" aria-hidden="true"></div>
-			<div class="occasions-title-wrapper">
-				<h2 class="occasions-title"><?php echo esc_html($title); ?></h2>
-			</div>
+				<div class="why-us-heading-line" aria-hidden="true"></div>
+				<div class="occasions-title-wrapper">
+					<div class="occasions-title"><?php echo esc_html($title); ?></div>
+				</div>
 			<p class="why-us-item-description occasions-footer-text occasions-footer-text-mobile"><?php echo esc_html($footer_text); ?></p>
 		</div>
 		<div class="why-us-grid">
@@ -68,47 +68,47 @@ if (empty($cards)) {
 				// Check for split layout (image + light card)
 				if ('split_image' === $card_type && $image) :
 					$has_split = true;
-					// Get next card for split layout
-					$next_key = key($cards);
-					next($cards);
+						// Get next card for split layout
+						$next_key = key($cards);
+						next($cards);
 					$next_card = current($cards);
 					$next_icon = ! empty($next_card['icon']) ? $next_card['icon'] : $default_icon_events;
 					$next_title = ! empty($next_card['title']) ? $next_card['title'] : '';
 					$next_desc = ! empty($next_card['description']) ? $next_card['description'] : '';
-			?>
-					<!-- Split layout: Conference image + Events card -->
-					<div class="occasions-split-image occasions-row3-image" style="background-image: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
-					<div class="occasions-split-card occasions-split-card--light occasions-row3-card">
-						<?php if ($next_icon) : ?>
-							<div class="why-us-item-icon-wrapper">
-								<img src="<?php echo esc_url($next_icon); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
-							</div>
-						<?php endif; ?>
-						<?php if ($next_title) : ?>
-							<h3 class="why-us-item-title occasions-card-title--dark"><?php echo esc_html( gts_normalize_heading_text( $next_title ) ); ?></h3>
-						<?php endif; ?>
+				?>
+						<!-- Split layout: Conference image + Events card -->
+						<div class="occasions-split-image occasions-row3-image" style="--gts-bg-image: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
+						<div class="occasions-split-card occasions-split-card--light occasions-row3-card">
+							<?php if ($next_icon) : ?>
+								<div class="why-us-item-icon-wrapper">
+									<img src="<?php echo esc_url($next_icon); ?>" alt="" aria-hidden="true" class="why-us-item-icon" loading="lazy" width="48" height="48">
+								</div>
+							<?php endif; ?>
+							<?php if ($next_title) : ?>
+								<div class="why-us-item-title occasions-card-title--dark"><?php echo esc_html( gts_normalize_heading_text( $next_title ) ); ?></div>
+							<?php endif; ?>
 						<?php if ($next_desc) : ?>
 							<p class="why-us-item-description occasions-card-description--dark"><?php echo wp_kses_post($next_desc); ?></p>
 						<?php endif; ?>
 					</div>
 				<?php
-				elseif ('image' === $card_type && $image) :
-				?>
-					<!-- Image only card -->
-					<div class="why-us-item occasions-item-image" style="background-image: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
+					elseif ('image' === $card_type && $image) :
+					?>
+						<!-- Image only card -->
+						<div class="why-us-item occasions-item-image" style="--gts-card-bg: url('<?php echo esc_url($image); ?>');" role="img" aria-label="<?php echo esc_attr($title_card); ?>"></div>
 				<?php
 				elseif ('icon' === $card_type && !$has_split) :
 				?>
 					<!-- Icon card -->
 					<div class="why-us-item why-us-item-<?php echo esc_attr($item_index); ?>">
-						<?php if ($icon) : ?>
-							<div class="why-us-item-icon-wrapper">
-								<img src="<?php echo esc_url($icon); ?>" alt="" class="why-us-item-icon" loading="lazy" width="48" height="48">
-							</div>
-						<?php endif; ?>
-						<?php if ($title_card) : ?>
-							<h3 class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title_card ) ); ?></h3>
-						<?php endif; ?>
+							<?php if ($icon) : ?>
+								<div class="why-us-item-icon-wrapper">
+									<img src="<?php echo esc_url($icon); ?>" alt="" aria-hidden="true" class="why-us-item-icon" loading="lazy" width="48" height="48">
+								</div>
+							<?php endif; ?>
+							<?php if ($title_card) : ?>
+								<div class="why-us-item-title"><?php echo esc_html( gts_normalize_heading_text( $title_card ) ); ?></div>
+							<?php endif; ?>
 						<?php if ($description) : ?>
 							<p class="why-us-item-description"><?php echo wp_kses_post($description); ?></p>
 						<?php endif; ?>

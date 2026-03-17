@@ -1,0 +1,53 @@
+User-agent: *
+Allow: /wp-admin/admin-ajax.php
+Allow: /wp-content/uploads/
+
+# Block Technical and System Directories
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /wp-login.php
+Disallow: /wp-register.php
+
+# Block Dynamic Duplicates (WooCommerce, Versioning, Filters)
+Disallow: /*?ver=*
+Disallow: /*&v=*
+Disallow: /*?add-to-cart=*
+Disallow: /*?vehicle_id=*
+Disallow: /*?lang=*
+Disallow: /*?product-category=*
+Disallow: /page/
+Disallow: /*#*
+
+# Block Aggressive/Spam Bots
+User-agent: PetalBot
+Disallow: /
+
+User-agent: seranking
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Exceptions for SEO & AI Bots
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap
+Sitemap: https://global-travelsolutions.com/sitemap_index.xml

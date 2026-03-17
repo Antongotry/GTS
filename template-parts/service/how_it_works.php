@@ -55,15 +55,15 @@ if (empty($steps)) {
 }
 ?>
 
-<section class="how-it-works-block" style="background-image: url('<?php echo esc_url($background); ?>');">
+<section class="how-it-works-block" style="--gts-bg-image: url('<?php echo esc_url($background); ?>');">
 	<div class="how-it-works-container">
 		<div class="how-it-works-left">
 			<div class="how-it-works-pill">
 				<span class="how-it-works-pill-text"><?php echo esc_html($pill_text); ?></span>
 			</div>
-			<h2 class="how-it-works-title">
-				<?php echo wp_kses_post($title); ?>
-			</h2>
+				<div class="how-it-works-title">
+					<?php echo wp_kses_post($title); ?>
+				</div>
 		</div>
 		<div class="how-it-works-right">
 			<div class="how-it-works-steps">
@@ -75,7 +75,7 @@ if (empty($steps)) {
 				?>
 					<div class="how-it-works-step">
 						<div class="how-it-works-step-header">
-							<h3 class="how-it-works-step-title"><?php echo wp_kses_post($step_title); ?></h3>
+								<div class="how-it-works-step-title"><?php echo wp_kses_post($step_title); ?></div>
 							<div class="how-it-works-step-badge">
 								<span class="how-it-works-step-number"><?php echo esc_html($step_number); ?></span>
 								<span class="how-it-works-step-icon">
