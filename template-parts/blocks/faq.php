@@ -6,7 +6,6 @@
  * @package GTS
  */
 
-$chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.svg';
 $is_city_to_city = is_page_template( 'page-city-to-city.php' ) || is_page( 'city-to-city' );
 $page_id = get_queried_object_id();
 $service_faq = function_exists( 'gts_get_page_service_block' ) ? gts_get_page_service_block( 'faq', $page_id ) : array();
@@ -181,11 +180,13 @@ if ( ! empty( $service_faq ) ) {
 				<?php foreach ( $faq_column_1 as $i => $item ) :
 					$id = 'faq-content-1-' . $i;
 					?>
-					<div class="faq-item" data-faq-item>
-						<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>" id="faq-trigger-1-<?php echo esc_attr( $i ); ?>">
-							<span class="faq-item__question"><?php echo esc_html( $item['question'] ); ?></span>
-							<img src="<?php echo esc_url( $chevron_url ); ?>" alt="" class="faq-item__icon" width="20" height="20" aria-hidden="true">
-						</button>
+						<div class="faq-item" data-faq-item>
+							<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>" id="faq-trigger-1-<?php echo esc_attr( $i ); ?>">
+								<span class="faq-item__question"><?php echo esc_html( $item['question'] ); ?></span>
+								<svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5 8L10 13L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</button>
 						<div class="faq-item__content-wrapper" id="<?php echo esc_attr( $id ); ?>" role="region" aria-labelledby="faq-trigger-1-<?php echo esc_attr( $i ); ?>">
 							<div class="faq-item__content">
 								<p><?php echo wp_kses_post( nl2br( esc_html( $item['answer'] ) ) ); ?></p>
@@ -198,11 +199,13 @@ if ( ! empty( $service_faq ) ) {
 				<?php foreach ( $faq_column_2 as $i => $item ) :
 					$id = 'faq-content-2-' . $i;
 					?>
-					<div class="faq-item" data-faq-item>
-						<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>" id="faq-trigger-2-<?php echo esc_attr( $i ); ?>">
-							<span class="faq-item__question"><?php echo esc_html( $item['question'] ); ?></span>
-							<img src="<?php echo esc_url( $chevron_url ); ?>" alt="" class="faq-item__icon" width="20" height="20" aria-hidden="true">
-						</button>
+						<div class="faq-item" data-faq-item>
+							<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>" id="faq-trigger-2-<?php echo esc_attr( $i ); ?>">
+								<span class="faq-item__question"><?php echo esc_html( $item['question'] ); ?></span>
+								<svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5 8L10 13L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</button>
 						<div class="faq-item__content-wrapper" id="<?php echo esc_attr( $id ); ?>" role="region" aria-labelledby="faq-trigger-2-<?php echo esc_attr( $i ); ?>">
 							<div class="faq-item__content">
 								<p><?php echo wp_kses_post( nl2br( esc_html( $item['answer'] ) ) ); ?></p>
