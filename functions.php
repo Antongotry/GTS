@@ -217,7 +217,7 @@ function gts_strip_leading_language_prefixes( $path ) {
 		return '';
 	}
 
-	$cleaned = preg_replace( '#^(?:(?:en|fr|de|it|es|zh|ru)(?:/|$))+#i', '', $path );
+	$cleaned = preg_replace( '#^(?:(?:en|fr|de|it|es|zh|ru|uk)(?:/|$))+#i', '', $path );
 	return trim( (string) $cleaned, '/' );
 }
 
@@ -228,7 +228,7 @@ function gts_strip_leading_language_prefixes( $path ) {
  * @return array<int, array<string, mixed>>
  */
 function gts_get_language_switcher_items() {
-	$order = array( 'en', 'fr', 'de', 'it', 'es', 'zh', 'ru' );
+	$order = array( 'en', 'fr', 'de', 'it', 'es', 'zh', 'ru', 'uk' );
 	$names = array(
 		'en' => 'English',
 		'fr' => 'French',
@@ -237,6 +237,7 @@ function gts_get_language_switcher_items() {
 		'es' => 'Spanish',
 		'zh' => 'Chinese',
 		'ru' => 'Russian',
+		'uk' => 'Ukrainian',
 	);
 	$items = array();
 	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
@@ -247,7 +248,7 @@ function gts_get_language_switcher_items() {
 	$base_home_url = gts_get_unlocalized_home_url();
 
 	$current_slug = 'en';
-	if ( preg_match( '#^(en|fr|de|it|es|zh|ru)(?:/|$)#i', $path, $match ) ) {
+	if ( preg_match( '#^(en|fr|de|it|es|zh|ru|uk)(?:/|$)#i', $path, $match ) ) {
 		$current_slug = strtolower( (string) $match[1] );
 	}
 	$path_without_lang = gts_strip_leading_language_prefixes( $path );
