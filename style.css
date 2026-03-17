@@ -11792,6 +11792,16 @@ main#primary > section.hero-block > .hero-container {
   padding: 0;
   cursor: pointer;
 }
+.form-group.form-group-with-add-stop button.add-stop-link,
+button.add-stop-link {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
 
 .menu-item-has-children:hover .sub-menu,
 .menu-item-has-children:focus-within .sub-menu,

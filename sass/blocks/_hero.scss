@@ -847,6 +847,17 @@ main#primary > section.hero-block > .hero-container {
 	}
 }
 
+.form-group.form-group-with-add-stop button.add-stop-link,
+button.add-stop-link {
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	background: none !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	padding: 0 !important;
+}
+
 .checkbox-group {
 	label {
 		display: flex;
