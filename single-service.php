@@ -2276,6 +2276,8 @@ if (empty($faq_items)) {
 	);
 }
 
+$chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.svg';
+
 ?>
 
 	<main id="primary" class="site-main">
@@ -3477,9 +3479,7 @@ if (empty($faq_items)) {
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-												<path d="M5 8L10 13L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-											</svg>
+											<img src="<?php echo esc_url($chevron_url); ?>" data-icon-src="<?php echo esc_url($chevron_url); ?>" alt="" class="faq-item__icon notranslate" width="20" height="20" aria-hidden="true" translate="no" data-no-translation="1">
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">
@@ -3494,9 +3494,7 @@ if (empty($faq_items)) {
 									<div class="faq-item" data-faq-item>
 										<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>">
 											<span class="faq-item__question"><?php echo esc_html($item['question']); ?></span>
-											<svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-												<path d="M5 8L10 13L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-											</svg>
+											<img src="<?php echo esc_url($chevron_url); ?>" data-icon-src="<?php echo esc_url($chevron_url); ?>" alt="" class="faq-item__icon notranslate" width="20" height="20" aria-hidden="true" translate="no" data-no-translation="1">
 										</button>
 									<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>">
 										<div class="faq-item__content">

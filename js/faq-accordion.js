@@ -7,7 +7,60 @@
 
 	var DURATION_MS = 400;
 
+	function restoreFaqIconSrc(scope) {
+		var root = scope && scope.querySelectorAll ? scope : document;
+		var icons = root.querySelectorAll('img.faq-item__icon[data-icon-src]');
+		if (!icons.length) {
+			return;
+		}
+
+		icons.forEach(function (icon) {
+			var canonical = icon.getAttribute('data-icon-src');
+			if (!canonical) {
+				return;
+			}
+
+			var src = icon.getAttribute('src') || '';
+			// Translation tools sometimes replace src with translated text.
+			if (src.indexOf('chevron-down-faq.svg') === -1) {
+				icon.setAttribute('src', canonical);
+			}
+		});
+	}
+
+	function observeFaqIconMutations() {
+		if (typeof MutationObserver === 'undefined') {
+			return;
+		}
+
+		var observer = new MutationObserver(function (mutations) {
+			mutations.forEach(function (mutation) {
+				if (mutation.type === 'attributes' && mutation.target && mutation.target.matches && mutation.target.matches('img.faq-item__icon[data-icon-src]')) {
+					restoreFaqIconSrc(mutation.target.parentElement || document);
+					return;
+				}
+
+				if (mutation.type === 'childList' && mutation.addedNodes && mutation.addedNodes.length) {
+					mutation.addedNodes.forEach(function (node) {
+						if (node && node.nodeType === 1) {
+							restoreFaqIconSrc(node);
+						}
+					});
+				}
+			});
+		});
+
+		observer.observe(document.body, {
+			childList: true,
+			subtree: true,
+			attributes: true,
+			attributeFilter: ['src'],
+		});
+	}
+
 	function initFaqAccordion() {
+		restoreFaqIconSrc(document);
+
 		var items = document.querySelectorAll('.faq-item[data-faq-item]');
 		if (!items.length) return;
 
@@ -60,7 +113,9 @@
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initFaqAccordion);
+		document.addEventListener('DOMContentLoaded', observeFaqIconMutations);
 	} else {
 		initFaqAccordion();
+		observeFaqIconMutations();
 	}
 })();

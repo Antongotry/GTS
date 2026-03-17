@@ -13,6 +13,7 @@ $block = isset($args['block']) ? $args['block'] : array();
 // Default values
 $pill_text = ! empty($block['pill_text']) ? $block['pill_text'] : __('FAQ', 'gts-theme');
 $title     = ! empty($block['title']) ? $block['title'] : __('Clear answers to help you book<br>with confidence', 'gts-theme');
+$chevron_url = get_template_directory_uri() . '/assets/icons/chevron-down-faq.svg';
 
 // Get questions from ACF or use defaults
 $questions = ! empty($block['questions']) ? $block['questions'] : array();
@@ -54,9 +55,7 @@ $faq_column_2 = array_slice($questions, $half);
 						<div class="faq-item" data-faq-item>
 							<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>" id="faq-trigger-1-<?php echo esc_attr($i); ?>">
 								<span class="faq-item__question"><?php echo esc_html($question); ?></span>
-								<svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-									<path d="M5 8L10 13L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
+								<img src="<?php echo esc_url($chevron_url); ?>" data-icon-src="<?php echo esc_url($chevron_url); ?>" alt="" class="faq-item__icon notranslate" width="20" height="20" aria-hidden="true" translate="no" data-no-translation="1">
 							</button>
 						<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>" role="region" aria-labelledby="faq-trigger-1-<?php echo esc_attr($i); ?>">
 							<div class="faq-item__content">
@@ -75,9 +74,7 @@ $faq_column_2 = array_slice($questions, $half);
 						<div class="faq-item" data-faq-item>
 							<button type="button" class="faq-item__summary" aria-expanded="false" aria-controls="<?php echo esc_attr($id); ?>" id="faq-trigger-2-<?php echo esc_attr($i); ?>">
 								<span class="faq-item__question"><?php echo esc_html($question); ?></span>
-								<svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-									<path d="M5 8L10 13L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
+								<img src="<?php echo esc_url($chevron_url); ?>" data-icon-src="<?php echo esc_url($chevron_url); ?>" alt="" class="faq-item__icon notranslate" width="20" height="20" aria-hidden="true" translate="no" data-no-translation="1">
 							</button>
 						<div class="faq-item__content-wrapper" id="<?php echo esc_attr($id); ?>" role="region" aria-labelledby="faq-trigger-2-<?php echo esc_attr($i); ?>">
 							<div class="faq-item__content">
