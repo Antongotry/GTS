@@ -37,13 +37,17 @@ if ( '' === trim( $hero_cta_link ) ) {
 .hero-block {
 	background-image: url('<?php echo esc_url($image_desktop); ?>') !important;
 }
+.hero-block.hero-block--home .hero-title {
+	margin-bottom: 8px;
+}
 @media (max-width: 768px) {
 	.hero-block { background-image: url('<?php echo esc_url($image_mobile); ?>') !important; }
+	.hero-block.hero-block--home .hero-title { margin-bottom: 6px; }
 }
 </style>
 <?php endif; ?>
 
-<section class="hero-block">
+<section class="hero-block hero-block--home">
 	<div class="hero-container">
 		<!-- Left side -->
 		<div class="hero-left">
