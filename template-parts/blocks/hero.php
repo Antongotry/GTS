@@ -48,8 +48,8 @@ if ( '' === trim( $hero_cta_link ) ) {
 		<!-- Left side -->
 		<div class="hero-left">
 			<div class="hero-content">
-				<p class="hero-subtitle"><?php echo esc_html( $hero_description ); ?></p>
 				<h1 class="hero-title"><?php echo esc_html( $hero_title ); ?></h1>
+				<p class="hero-subtitle"><?php echo esc_html( $hero_description ); ?></p>
 
 				<div class="hero-buttons">
 					<a href="<?php echo esc_url( $hero_cta_link ); ?>" class="btn btn-primary"><?php echo esc_html( $hero_cta_text ); ?></a>
