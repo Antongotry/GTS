@@ -577,6 +577,96 @@ function gts_get_language_switcher_items() {
 		return '';
 	};
 
+	// TranslatePress support: use its URL converter with full language codes (ex. fr_FR).
+	if ( class_exists( 'TRP_Translate_Press' ) ) {
+		$trp_instance = TRP_Translate_Press::get_trp_instance();
+		if ( is_object( $trp_instance ) && method_exists( $trp_instance, 'get_component' ) ) {
+			$trp_settings_component  = $trp_instance->get_component( 'settings' );
+			$trp_languages_component = $trp_instance->get_component( 'languages' );
+			$trp_url_converter       = $trp_instance->get_component( 'url_converter' );
+
+			if ( is_object( $trp_settings_component ) && method_exists( $trp_settings_component, 'get_settings' ) && is_object( $trp_url_converter ) ) {
+				$trp_settings       = (array) $trp_settings_component->get_settings();
+				$trp_language_codes = isset( $trp_settings['translation-languages'] ) && is_array( $trp_settings['translation-languages'] ) ? $trp_settings['translation-languages'] : array();
+				$trp_current_code   = isset( $GLOBALS['TRP_LANGUAGE'] ) && is_string( $GLOBALS['TRP_LANGUAGE'] ) ? trim( (string) $GLOBALS['TRP_LANGUAGE'] ) : '';
+				$trp_names_by_code  = array();
+
+				if ( is_object( $trp_languages_component ) && method_exists( $trp_languages_component, 'get_language_names' ) && ! empty( $trp_language_codes ) ) {
+					$trp_names_by_code = (array) $trp_languages_component->get_language_names( $trp_language_codes, 'english_name' );
+				}
+
+				$items_by_slug = array();
+				foreach ( $trp_language_codes as $trp_code_raw ) {
+					$trp_code = trim( (string) $trp_code_raw );
+					if ( '' === $trp_code ) {
+						continue;
+					}
+
+					$trp_slug = '';
+					if ( method_exists( $trp_url_converter, 'get_url_slug' ) ) {
+						$trp_slug = sanitize_key( (string) $trp_url_converter->get_url_slug( $trp_code, false ) );
+					}
+
+					$resolved_slug = $resolve_supported_slug( $trp_slug );
+					if ( '' === $resolved_slug ) {
+						$resolved_slug = $resolve_supported_slug( $trp_code );
+					}
+					if ( '' === $resolved_slug || ! in_array( $resolved_slug, $order, true ) ) {
+						continue;
+					}
+
+					$trp_url = '';
+					if ( method_exists( $trp_url_converter, 'get_url_for_language' ) ) {
+						$trp_url = (string) $trp_url_converter->get_url_for_language( $trp_code, false, '' );
+					}
+					if ( '' === trim( $trp_url ) || $is_home_fallback_url( $trp_url ) ) {
+						$trp_url = $fallback_url_for_slug( $resolved_slug );
+					}
+
+					$items_by_slug[ $resolved_slug ] = array(
+						'slug'    => $resolved_slug,
+						'code'    => strtoupper( $resolved_slug ),
+						'name'    => $names[ $resolved_slug ] ?? ( $trp_names_by_code[ $trp_code ] ?? strtoupper( $resolved_slug ) ),
+						'url'     => $trp_url,
+						'current' => ( '' !== $trp_current_code ? 0 === strcasecmp( $trp_code, $trp_current_code ) : $resolved_slug === $current_slug ),
+					);
+				}
+
+				if ( ! empty( $items_by_slug ) ) {
+					$ordered_items = array();
+					$has_current   = false;
+					foreach ( $order as $slug ) {
+						if ( ! isset( $items_by_slug[ $slug ] ) ) {
+							$items_by_slug[ $slug ] = array(
+								'slug'    => $slug,
+								'code'    => strtoupper( $slug ),
+								'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+								'url'     => $fallback_url_for_slug( $slug ),
+								'current' => false,
+							);
+						}
+
+						if ( ! empty( $items_by_slug[ $slug ]['current'] ) ) {
+							$has_current = true;
+						}
+						$ordered_items[] = $items_by_slug[ $slug ];
+					}
+
+					if ( ! $has_current ) {
+						foreach ( $ordered_items as $index => $item ) {
+							if ( isset( $item['slug'] ) && $item['slug'] === $current_slug ) {
+								$ordered_items[ $index ]['current'] = true;
+								break;
+							}
+						}
+					}
+
+					return $ordered_items;
+				}
+			}
+		}
+	}
+
 	// WPML support: generate canonical links per language to avoid duplicated slugs.
 	if ( function_exists( 'icl_object_id' ) || has_filter( 'wpml_current_language' ) ) {
 		$wpml_current = apply_filters( 'wpml_current_language', null );
