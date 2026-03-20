@@ -7,22 +7,24 @@
 
 	function buildSuccessPopup() {
 		const popup = document.createElement('div');
-		popup.className = 'gts-success-popup';
+		popup.className = 'fleet-success-modal';
 		popup.setAttribute('aria-hidden', 'true');
 
 		popup.innerHTML = `
-			<div class="gts-success-popup__overlay" data-popup-close="1"></div>
-			<div class="gts-success-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="gts-success-popup-title">
-				<button type="button" class="gts-success-popup__close" aria-label="Close" data-popup-close="1">×</button>
-				<div class="gts-success-popup__icon" aria-hidden="true">✓</div>
-				<h3 class="gts-success-popup__title" id="gts-success-popup-title">Request Sent</h3>
-				<p class="gts-success-popup__text"></p>
-				<button type="button" class="btn btn-secondary gts-success-popup__button" data-popup-close="1">Great</button>
+			<div class="fleet-booking-overlay" data-success-close="1"></div>
+			<div class="fleet-booking-dialog fleet-success-dialog" role="dialog" aria-modal="true" aria-labelledby="fleet-success-title">
+				<button class="fleet-booking-close" type="button" aria-label="Close" data-success-close="1">×</button>
+				<div class="fleet-success-content">
+					<div class="fleet-success-icon" aria-hidden="true">✓</div>
+					<h3 class="fleet-booking-title" id="fleet-success-title">Thank you!</h3>
+					<p class="fleet-booking-subtitle"></p>
+					<button class="btn btn-secondary fleet-success-button" type="button" data-success-close="1">Great</button>
+				</div>
 			</div>
 		`;
 
 		popup.addEventListener('click', (event) => {
-			if (event.target && event.target.dataset.popupClose === '1') {
+			if (event.target && event.target.dataset.successClose === '1') {
 				closeSuccessPopup();
 			}
 		});
@@ -36,7 +38,7 @@
 		}
 		activeSuccessPopup.classList.remove('is-open');
 		activeSuccessPopup.setAttribute('aria-hidden', 'true');
-		document.body.classList.remove('gts-popup-open');
+		document.body.classList.remove('modal-open');
 	}
 
 	function openSuccessPopup(message) {
@@ -45,14 +47,14 @@
 			document.body.appendChild(activeSuccessPopup);
 		}
 
-		const textEl = activeSuccessPopup.querySelector('.gts-success-popup__text');
+		const textEl = activeSuccessPopup.querySelector('.fleet-booking-subtitle');
 		if (textEl) {
 			textEl.textContent = message || SUCCESS_TEXT;
 		}
 
 		activeSuccessPopup.classList.add('is-open');
 		activeSuccessPopup.setAttribute('aria-hidden', 'false');
-		document.body.classList.add('gts-popup-open');
+		document.body.classList.add('modal-open');
 	}
 
 	function getConfig() {
