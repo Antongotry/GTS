@@ -1337,6 +1337,12 @@ function gts_ajax_submit_booking_request() {
 		wp_send_json_error( array( 'message' => 'Please fill in required fields: name and phone.' ), 422 );
 	}
 
+	$phone_digits = preg_replace( '/\D+/', '', $phone );
+	$phone_format_valid = (bool) preg_match( '/^[+()\-\s\d]+$/', $phone );
+	if ( ! $phone_format_valid || strlen( $phone_digits ) < 8 || strlen( $phone_digits ) > 15 ) {
+		wp_send_json_error( array( 'message' => 'Please enter a valid phone number (8-15 digits).' ), 422 );
+	}
+
 	if ( '' !== $email && ! is_email( $email ) ) {
 		wp_send_json_error( array( 'message' => 'Invalid email address.' ), 422 );
 	}

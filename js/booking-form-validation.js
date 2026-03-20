@@ -7,7 +7,12 @@
 	const digitsOnly = (value) => (value || '').replace(/\D+/g, '');
 
 	const isNameValid = (value) => normalizeText(value).length >= 2;
-	const isPhoneValid = (value) => digitsOnly(value).length >= 6;
+	const isPhoneFormatValid = (value) => /^[+()\-\s\d]+$/.test(value || '');
+	const isPhoneLengthValid = (value) => {
+		const digits = digitsOnly(value);
+		return digits.length >= 8 && digits.length <= 15;
+	};
+	const isPhoneValid = (value) => isPhoneFormatValid(value) && isPhoneLengthValid(value);
 
 	function validateNameField(field) {
 		if (!field || field.disabled) {
@@ -36,7 +41,7 @@
 			return false;
 		}
 		if (!isPhoneValid(value)) {
-			field.setCustomValidity('Please enter a valid phone number.');
+			field.setCustomValidity('Please enter a valid phone number (8-15 digits).');
 			return false;
 		}
 		field.setCustomValidity('');
@@ -62,6 +67,14 @@
 
 		const nameField = form.querySelector(NAME_SELECTORS);
 		const phoneField = form.querySelector(PHONE_SELECTORS);
+
+		if (phoneField) {
+			phoneField.setAttribute('inputmode', 'tel');
+			phoneField.setAttribute('autocomplete', 'tel');
+			phoneField.setAttribute('maxlength', '25');
+			phoneField.setAttribute('pattern', '[+()\\-\\s\\d]{8,25}');
+			phoneField.setAttribute('title', 'Phone number must contain 8-15 digits.');
+		}
 
 		bindFieldLiveValidation(nameField, validateNameField);
 		bindFieldLiveValidation(phoneField, validatePhoneField);
