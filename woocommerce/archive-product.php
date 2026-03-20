@@ -159,7 +159,16 @@ if ( is_product_taxonomy() ) {
 
 			<div class="gts-fleet-products">
 				<?php if ( woocommerce_product_loop() ) : ?>
-					<?php woocommerce_product_loop_start(); ?>
+					<?php
+					/**
+					 * Required so WooCommerce sets loop props; our template omitted this, so columns fell back to 4.
+					 */
+					do_action( 'woocommerce_before_shop_loop' );
+					if ( function_exists( 'wc_set_loop_prop' ) ) {
+						wc_set_loop_prop( 'columns', 2 );
+					}
+					woocommerce_product_loop_start();
+					?>
 					<?php while ( have_posts() ) : ?>
 						<?php the_post(); ?>
 						<?php wc_get_template_part( 'content', 'product' ); ?>

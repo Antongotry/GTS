@@ -300,8 +300,8 @@ table.shop_table_responsive tr td.download-actions .button {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 20px;
 }
 
@@ -420,7 +420,7 @@ table.shop_table_responsive tr td.download-actions .button {
     gap: 16px;
   }
   .gts-fleet-products ul.products {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 16px;
   }
 }
@@ -440,7 +440,7 @@ table.shop_table_responsive tr td.download-actions .button {
     grid-template-columns: 1fr;
   }
   .gts-fleet-products ul.products {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 14px;
   }
   .gts-fleet-products nav.woocommerce-pagination {

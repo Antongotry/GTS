@@ -219,14 +219,13 @@
 	height: 44px;
 }
 
-// Two cards per row on desktop — wider cards, room for action buttons (1920 / 1440 / …).
-// ul may still carry WooCommerce .columns-*; grid + loop_shop_columns filter keep 2-up.
+// Two cards per row — !important wins over WooCommerce / plugins that force 4 columns.
 .gts-fleet-products ul.products {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 	gap: $spacing-lg;
 }
 
@@ -351,7 +350,7 @@
 	}
 
 	.gts-fleet-products ul.products {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 		gap: 16px;
 	}
 }
@@ -376,7 +375,7 @@
 	}
 
 	.gts-fleet-products ul.products {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr !important;
 		gap: 14px;
 	}
 
