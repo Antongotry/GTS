@@ -1311,8 +1311,16 @@ add_action('template_redirect', 'gts_handle_contact_form');
  */
 function gts_ajax_submit_booking_request() {
 	$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
-	if ( ! wp_verify_nonce( $nonce, 'gts_booking_request_nonce' ) ) {
-		wp_send_json_error( array( 'message' => 'Security validation failed.' ), 403 );
+	$nonce_valid = wp_verify_nonce( $nonce, 'gts_booking_request_nonce' );
+	if ( ! $nonce_valid ) {
+		// Cache can serve stale nonces to guests; allow same-origin public requests as fallback.
+		$home_host = wp_parse_url( home_url(), PHP_URL_HOST );
+		$ref_host  = wp_parse_url( wp_get_raw_referer(), PHP_URL_HOST );
+		$is_guest_same_origin = ! is_user_logged_in() && $home_host && $ref_host && strtolower( (string) $home_host ) === strtolower( (string) $ref_host );
+
+		if ( ! $is_guest_same_origin ) {
+			wp_send_json_error( array( 'message' => 'Security validation failed.' ), 403 );
+		}
 	}
 
 	$full_name = '';

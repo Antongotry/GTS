@@ -15,9 +15,23 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return bool
  */
-function gts_calculator_verify_nonce() {
+function gts_calculator_verify_nonce( $allow_guest_same_origin_fallback = false ) {
 	$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
-	return wp_verify_nonce( $nonce, 'gts_transfer_nonce' );
+	if ( wp_verify_nonce( $nonce, 'gts_transfer_nonce' ) ) {
+		return true;
+	}
+
+	// Cache can serve stale nonces to guests; allow same-origin public requests as fallback.
+	if ( $allow_guest_same_origin_fallback && ! is_user_logged_in() ) {
+		$home_host = wp_parse_url( home_url(), PHP_URL_HOST );
+		$ref_host  = wp_parse_url( wp_get_raw_referer(), PHP_URL_HOST );
+
+		if ( $home_host && $ref_host && strtolower( (string) $home_host ) === strtolower( (string) $ref_host ) ) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 /**
@@ -194,7 +208,7 @@ function gts_calculator_geocode( $address ) {
  * AJAX: Address autocomplete suggestions (OSM Nominatim).
  */
 function gts_ajax_address_suggestions() {
-	if ( ! gts_calculator_verify_nonce() ) {
+	if ( ! gts_calculator_verify_nonce( true ) ) {
 		wp_send_json_error( array( 'message' => 'Security validation failed.' ), 403 );
 	}
 
