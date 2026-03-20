@@ -416,17 +416,37 @@ function gts_get_language_switcher_items() {
 	$path        = trim( $path, '/' );
 	$query       = (string) parse_url( $request_uri, PHP_URL_QUERY );
 	$base_home_url = gts_get_unlocalized_home_url();
+	$path_without_lang = gts_strip_leading_language_prefixes( $path );
+
+	$query_args = array();
+	if ( '' !== $query ) {
+		parse_str( $query, $query_args );
+	}
+	unset( $query_args['lang'] );
+	$query_suffix = ! empty( $query_args ) ? '?' . http_build_query( $query_args ) : '';
 
 	$current_slug = 'en';
 	$language_pattern = '#^(' . implode( '|', array_map( 'preg_quote', $order ) ) . ')(?:/|$)#i';
 	if ( preg_match( $language_pattern, $path, $match ) ) {
 		$current_slug = strtolower( (string) $match[1] );
 	}
-	$fallback_url_for_slug = static function( $slug ) use ( $base_home_url ) {
-		if ( 'en' === $slug ) {
-			return $base_home_url . '/';
+	$fallback_url_for_slug = static function( $slug ) use ( $base_home_url, $path_without_lang, $query_suffix ) {
+		$lang_path = $path_without_lang;
+		if ( 'en' !== $slug ) {
+			$lang_path = '' !== $lang_path ? $slug . '/' . $lang_path : $slug;
 		}
-		return $base_home_url . '/' . trim( (string) $slug, '/' ) . '/';
+		$url = '' !== $lang_path ? $base_home_url . '/' . trim( $lang_path, '/' ) . '/' : $base_home_url . '/';
+		return $url . $query_suffix;
+	};
+
+	$is_home_fallback_url = static function( $url ) use ( $path_without_lang ) {
+		if ( '' === $path_without_lang ) {
+			return false;
+		}
+
+		$url_path = (string) wp_parse_url( (string) $url, PHP_URL_PATH );
+		$url_path = gts_strip_leading_language_prefixes( trim( $url_path, '/' ) );
+		return '' === $url_path;
 	};
 
 	$resolve_supported_slug = static function( $value ) use ( $order ) {
@@ -457,19 +477,20 @@ function gts_get_language_switcher_items() {
 			$active_slug = $current_slug;
 		}
 
-		$current_request_url = $path !== '' ? $base_home_url . '/' . $path . '/' : $base_home_url . '/';
-		if ( '' !== $query ) {
-			$current_request_url .= '?' . $query;
-		}
+			$current_request_url = $path !== '' ? $base_home_url . '/' . $path . '/' : $base_home_url . '/';
+			$current_request_url .= $query_suffix;
 
-		foreach ( $order as $slug ) {
-			$raw_url = $fallback_url_for_slug( $slug );
-			if ( has_filter( 'wpml_permalink' ) ) {
-				$wpml_url = apply_filters( 'wpml_permalink', $current_request_url, $slug, true );
-				if ( is_string( $wpml_url ) && '' !== trim( $wpml_url ) ) {
-					$raw_url = $wpml_url;
+			foreach ( $order as $slug ) {
+				$raw_url = $fallback_url_for_slug( $slug );
+				if ( has_filter( 'wpml_permalink' ) ) {
+					$wpml_url = apply_filters( 'wpml_permalink', $current_request_url, $slug, true );
+					if ( is_string( $wpml_url ) && '' !== trim( $wpml_url ) ) {
+						$candidate_url = trim( $wpml_url );
+						if ( ! $is_home_fallback_url( $candidate_url ) ) {
+							$raw_url = $candidate_url;
+						}
+					}
 				}
-			}
 
 			$items[] = array(
 				'slug'    => $slug,
@@ -494,17 +515,22 @@ function gts_get_language_switcher_items() {
 
 		if ( is_array( $pll_languages ) && ! empty( $pll_languages ) ) {
 			$items_by_slug = array();
-			foreach ( $pll_languages as $language ) {
-				$slug = ! empty( $language['slug'] ) ? sanitize_key( (string) $language['slug'] ) : '';
-				if ( '' === $slug || ! in_array( $slug, $order, true ) ) {
-					continue;
-				}
+				foreach ( $pll_languages as $language ) {
+					$slug = ! empty( $language['slug'] ) ? sanitize_key( (string) $language['slug'] ) : '';
+					if ( '' === $slug || ! in_array( $slug, $order, true ) ) {
+						continue;
+					}
+
+					$language_url = ! empty( $language['url'] ) ? trim( (string) $language['url'] ) : '';
+					if ( '' === $language_url || $is_home_fallback_url( $language_url ) ) {
+						$language_url = $fallback_url_for_slug( $slug );
+					}
 
 					$items_by_slug[ $slug ] = array(
 						'slug'    => $slug,
 						'code'    => strtoupper( $slug ),
 						'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-						'url'     => ! empty( $language['url'] ) ? (string) $language['url'] : $fallback_url_for_slug( $slug ),
+						'url'     => $language_url,
 						'current' => false,
 					);
 				}
