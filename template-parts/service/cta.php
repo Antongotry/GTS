@@ -23,7 +23,7 @@ $default_icon_5 = $site_url . '/wp-content/uploads/2026/01/last-i-5.svg';
 $title       = ! empty($block['title']) ? $block['title'] : __('Most transfer<br>companies offer cars.', 'gts-theme');
 $description = ! empty($block['description']) ? $block['description'] : __('We offer peace of mind — through control,<br>consistency, and a truly global standard.', 'gts-theme');
 $button_text = ! empty($block['button_text']) ? $block['button_text'] : __('Book a transfer', 'gts-theme');
-$button_link = ! empty($block['button_link']) ? $block['button_link'] : home_url('/book-a-transfer/');
+$button_link = ! empty($block['button_link']) ? $block['button_link'] : gts_localized_home_url('/book-a-transfer/');
 $background  = ! empty($block['background']) ? $block['background'] : $default_background;
 $items       = ! empty($block['items']) ? $block['items'] : array();
 

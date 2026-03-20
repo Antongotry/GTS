@@ -47,7 +47,7 @@ $cta_labels  = array(
 
 	<section class="fleet-bottom-cta">
 		<div class="fleet-bottom-cta__container">
-			<a class="fleet-bottom-cta__button" href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>">
+			<a class="fleet-bottom-cta__button" href="<?php echo esc_url( gts_localized_home_url( '/contacts/' ) ); ?>">
 				<?php echo esc_html( $cta_labels[ $fleet_type ] ); ?>
 			</a>
 		</div>

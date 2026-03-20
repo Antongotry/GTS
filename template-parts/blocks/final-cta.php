@@ -16,7 +16,7 @@ $background_image = get_site_url() . '/wp-content/uploads/2026/01/last-banner-ho
 			<p class="final-cta-description">
 				<?php echo wp_kses_post('We offer peace of mind — through control,<br>consistency, and a truly global standard.'); ?>
 			</p>
-			<a href="<?php echo esc_url( home_url('/book-a-transfer/') ); ?>" class="btn btn-primary final-cta-button">Book a transfer</a>
+			<a href="<?php echo esc_url( gts_localized_home_url('/book-a-transfer/') ); ?>" class="btn btn-primary final-cta-button">Book a transfer</a>
 		</div>
 		<div class="final-cta-right final-cta-right--desktop">
 			<div class="final-cta-item">

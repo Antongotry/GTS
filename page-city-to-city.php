@@ -66,7 +66,7 @@ if ( '' === trim( $city_cta_button_text ) ) {
 	$city_cta_button_text = 'Book a transfer';
 }
 if ( '' === trim( $city_cta_button_link ) ) {
-	$city_cta_button_link = home_url( '/book-a-transfer/' );
+	$city_cta_button_link = gts_localized_home_url( '/book-a-transfer/' );
 }
 $service_cta = function_exists( 'gts_get_page_service_block' ) ? gts_get_page_service_block( 'cta', $page_id ) : array();
 if ( ! empty( $service_cta ) ) {

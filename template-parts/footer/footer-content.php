@@ -11,7 +11,7 @@
 	<div class="footer-container">
 		<div class="footer-left">
 			<div class="footer-logo">
-				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+				<a href="<?php echo esc_url(gts_localized_home_url('/')); ?>" rel="home">
 					<img src="<?php echo esc_url(get_site_url() . '/wp-content/uploads/2026/01/GTS-white.svg'); ?>" alt="<?php bloginfo('name'); ?>" width="70" height="auto">
 				</a>
 			</div>
@@ -34,10 +34,10 @@
 					} else {
 					?>
 						<ul class="footer-menu-list">
-							<li><a href="<?php echo esc_url(home_url('/book-a-transfer')); ?>">Book a Transfer</a></li>
-							<li><a href="<?php echo esc_url(home_url('/fleet')); ?>">Fleet</a></li>
-							<li><a href="<?php echo esc_url(home_url('/blog')); ?>">Blog</a></li>
-							<li><a href="<?php echo esc_url(home_url('/contacts')); ?>">Contacts</a></li>
+							<li><a href="<?php echo esc_url(gts_localized_home_url('/book-a-transfer')); ?>">Book a Transfer</a></li>
+							<li><a href="<?php echo esc_url(gts_localized_home_url('/fleet')); ?>">Fleet</a></li>
+							<li><a href="<?php echo esc_url(gts_localized_home_url('/blog')); ?>">Blog</a></li>
+							<li><a href="<?php echo esc_url(gts_localized_home_url('/contacts')); ?>">Contacts</a></li>
 						</ul>
 					<?php
 					}
@@ -60,32 +60,32 @@
 			<div class="footer-services">
 				<div class="footer-title footer-services-title">Services</div>
 			<ul class="footer-services-list footer-services-list-left">
-				<li><a href="<?php echo esc_url(home_url('/city-to-city/')); ?>">City-to-City</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/corporations/')); ?>">Corporations</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/airport-transfer/')); ?>">Airport Transfer</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/mobility-partnership/')); ?>">Mobility Partnership</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/travel-agencies/')); ?>">Travel Agencies</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/private-tours/')); ?>">Private Tours</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/corporate-events-chauffeur-service/')); ?>">Corporate Events Chauffeur Service</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/shoping/')); ?>">Shopping</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/travel-planninig/')); ?>">Travel Planninig</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/city-to-city/')); ?>">City-to-City</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/corporations/')); ?>">Corporations</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/airport-transfer/')); ?>">Airport Transfer</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/mobility-partnership/')); ?>">Mobility Partnership</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/travel-agencies/')); ?>">Travel Agencies</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/private-tours/')); ?>">Private Tours</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/corporate-events-chauffeur-service/')); ?>">Corporate Events Chauffeur Service</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/shoping/')); ?>">Shopping</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/travel-planninig/')); ?>">Travel Planninig</a></li>
 			</ul>
 			<ul class="footer-services-list footer-services-list-right">
-				<li><a href="<?php echo esc_url(home_url('/services/travel-personal-interpreter/')); ?>">Travel Personal Interpreter</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/medical-transportation/')); ?>">Medical Transportation</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/family-travel-chauffeur-service/')); ?>">Family Travel Chauffeur Service</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/cultural-sport-events/')); ?>">Cultural Sport Events</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/wedding/')); ?>">Wedding</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/special-transfers/')); ?>">Special Transfers</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/professional-chauffeur-service/')); ?>">Professional Chauffeur Service</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/airport-transfer-service/')); ?>">Airport Transfer Service</a></li>
-				<li><a href="<?php echo esc_url(home_url('/services/hourly-hire/')); ?>">Hourly Hire</a></li>
-				<li><a href="<?php echo esc_url(home_url('/limousine-service/')); ?>">Limousine Service</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/travel-personal-interpreter/')); ?>">Travel Personal Interpreter</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/medical-transportation/')); ?>">Medical Transportation</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/family-travel-chauffeur-service/')); ?>">Family Travel Chauffeur Service</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/cultural-sport-events/')); ?>">Cultural Sport Events</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/wedding/')); ?>">Wedding</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/special-transfers/')); ?>">Special Transfers</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/professional-chauffeur-service/')); ?>">Professional Chauffeur Service</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/airport-transfer-service/')); ?>">Airport Transfer Service</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/services/hourly-hire/')); ?>">Hourly Hire</a></li>
+				<li><a href="<?php echo esc_url(gts_localized_home_url('/limousine-service/')); ?>">Limousine Service</a></li>
 			</ul>
 		</div>
 
 		<div class="footer-right">
-			<a href="<?php echo esc_url(home_url('/book-a-transfer/')); ?>" class="footer-button footer-button-primary">Book a transfer</a>
+			<a href="<?php echo esc_url(gts_localized_home_url('/book-a-transfer/')); ?>" class="footer-button footer-button-primary">Book a transfer</a>
 			<a href="#services-block" class="footer-button footer-button-secondary">Explore services</a>
 			<?php
 			$gts_footer_phone   = get_option( 'gts_header_phone', '+49 170 284 1810' );
@@ -118,8 +118,8 @@
 	</div>
 	<div class="footer-bottom">
 		<div class="footer-bottom-links">
-			<a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">Privacy policy</a>
-			<a href="<?php echo esc_url(home_url('/terms')); ?>">Terms</a>
+			<a href="<?php echo esc_url(gts_localized_home_url('/privacy-policy')); ?>">Privacy policy</a>
+			<a href="<?php echo esc_url(gts_localized_home_url('/terms')); ?>">Terms</a>
 			<span class="footer-copyright">© <?php echo esc_html(date('Y')); ?> GTS</span>
 		</div>
 		<div class="footer-developed">

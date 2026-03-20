@@ -46,7 +46,7 @@ $bags           = trim( gts_theme_fleet_attribute_value( $product, array( 'pa_ba
 $site_url       = get_site_url();
 $passenger_icon = $site_url . '/wp-content/uploads/2026/02/passenger.svg';
 $bags_icon      = $site_url . '/wp-content/uploads/2026/02/bags.svg';
-$book_url       = home_url( '/book-a-transfer/' );
+$book_url       = gts_localized_home_url( '/book-a-transfer/' );
 
 if ( '' !== $passengers && preg_match( '/^\d+$/', $passengers ) ) {
 	$passengers .= ' passenger';

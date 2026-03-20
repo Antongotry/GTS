@@ -13,7 +13,7 @@ $page_url = get_permalink();
 
 <section class="fleet-hero">
 	<div class="fleet-hero__container">
-		<a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="fleet-hero__cta"><?php esc_html_e( 'Get in Touch with GTS', 'gts-theme' ); ?></a>
+		<a href="<?php echo esc_url( gts_localized_home_url( '/contacts/' ) ); ?>" class="fleet-hero__cta"><?php esc_html_e( 'Get in Touch with GTS', 'gts-theme' ); ?></a>
 
 		<div class="fleet-hero__top">
 			<h1 class="fleet-hero__title"><?php echo wp_kses_post( 'Mobility across ground, air,<br>and special transport' ); ?></h1>

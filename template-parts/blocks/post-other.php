@@ -9,7 +9,7 @@ $prev_post = get_previous_post();
 $next_post = get_next_post();
 
 $posts_page_id = (int) get_option( 'page_for_posts' );
-$blog_url       = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/' );
+$blog_url       = $posts_page_id ? get_permalink( $posts_page_id ) : gts_localized_home_url( '/' );
 
 $other_posts = array();
 if ( $prev_post instanceof WP_Post ) {

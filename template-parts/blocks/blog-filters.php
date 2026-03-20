@@ -8,7 +8,7 @@
  */
 
 $posts_page_id = (int) get_option( 'page_for_posts' );
-$blog_url       = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/' );
+$blog_url       = $posts_page_id ? get_permalink( $posts_page_id ) : gts_localized_home_url( '/' );
 
 $is_category = is_category();
 $current_cat = $is_category ? get_queried_object() : null;

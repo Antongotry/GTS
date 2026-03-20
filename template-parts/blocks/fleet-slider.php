@@ -236,7 +236,7 @@ $pill_text = ! empty( $args['pill_text'] ) ? $args['pill_text'] : 'Fleet & Chauf
 		</div>
 
 		<div class="fleet-slider-footer">
-			<a class="fleet-slider-all-link" href="<?php echo esc_url( home_url( '/fleet/' ) ); ?>">
+			<a class="fleet-slider-all-link" href="<?php echo esc_url( gts_localized_home_url( '/fleet/' ) ); ?>">
 				<?php echo esc_html__( 'See all fleet', 'gts-theme' ); ?>
 			</a>
 		</div>

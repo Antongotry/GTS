@@ -40,7 +40,7 @@ if ( '' === trim( $hero_cta_text ) ) {
 	$hero_cta_text = 'Book a transfer';
 }
 if ( '' === trim( $hero_cta_link ) ) {
-	$hero_cta_link = home_url( '/book-a-transfer/' );
+	$hero_cta_link = gts_localized_home_url( '/book-a-transfer/' );
 }
 
 $hero_icon_1 = file_get_contents( get_template_directory() . '/assets/icons/icon-1-l.svg' );

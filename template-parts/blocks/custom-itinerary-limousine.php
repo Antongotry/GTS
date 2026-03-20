@@ -27,7 +27,7 @@ if ( function_exists( 'gts_is_service_style_page' ) && gts_is_service_style_page
 $cta_title = ! empty( $cta_block['title'] ) ? (string) $cta_block['title'] : 'Ready to Travel with GTS?';
 $cta_description = ! empty( $cta_block['description'] ) ? (string) $cta_block['description'] : 'Our team is available 24/7 to organize your limousine or executive transfer anywhere in the world.';
 $cta_button_text = ! empty( $cta_block['button_text'] ) ? (string) $cta_block['button_text'] : 'Book Now';
-$cta_button_link = ! empty( $cta_block['button_link'] ) ? (string) $cta_block['button_link'] : home_url( '/book-a-transfer/' );
+$cta_button_link = ! empty( $cta_block['button_link'] ) ? (string) $cta_block['button_link'] : gts_localized_home_url( '/book-a-transfer/' );
 $show_contact_icons = ! isset( $cta_block['show_contact_icons'] ) || (bool) $cta_block['show_contact_icons'];
 $channels = function_exists( 'gts_get_contact_channels' ) ? gts_get_contact_channels() : array();
 $contact_whatsapp_url = ! empty( $channels['whatsapp_url'] ) ? $channels['whatsapp_url'] : '#';

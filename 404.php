@@ -356,7 +356,7 @@ $site_url = get_site_url();
 			<h1 class="error-404-title">Lost on the road?</h1>
 			<p class="error-404-subtitle">The page you're looking for seems to have taken a different route. Let us navigate you back to safety.</p>
 
-			<a href="<?php echo esc_url(home_url('/')); ?>" class="error-404-btn">
+			<a href="<?php echo esc_url(gts_localized_home_url('/')); ?>" class="error-404-btn">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="19" y1="12" x2="5" y2="12"></line>
 					<polyline points="12 19 5 12 12 5"></polyline>

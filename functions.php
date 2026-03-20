@@ -173,6 +173,176 @@ function gts_get_contact_channels() {
 }
 
 /**
+ * Supported language slugs in language switcher and URL normalizers.
+ *
+ * @return array<int, string>
+ */
+function gts_get_supported_language_slugs() {
+	return array( 'en', 'fr', 'de', 'it', 'es', 'zh', 'ru', 'uk' );
+}
+
+/**
+ * Get path variants for known slug aliases.
+ *
+ * @param string $path Relative path.
+ * @return array<int, string>
+ */
+function gts_get_path_alias_variants( $path ) {
+	$path = is_string( $path ) ? trim( $path ) : '';
+	if ( '' === $path || '/' === $path ) {
+		return array( '/' );
+	}
+
+	if ( false !== strpos( $path, '://' ) ) {
+		return array( $path );
+	}
+
+	$normalized = '/' . trim( $path, '/' ) . '/';
+	$variants   = array( $normalized );
+
+	$alias_map = array(
+		'/services/shoping/'          => '/services/shopping/',
+		'/services/travel-planninig/' => '/services/travel-planning/',
+	);
+
+	foreach ( $alias_map as $primary => $alias ) {
+		if ( $normalized === $primary ) {
+			$variants[] = $alias;
+		}
+		if ( $normalized === $alias ) {
+			$variants[] = $primary;
+		}
+	}
+
+	return array_values( array_unique( $variants ) );
+}
+
+/**
+ * Resolve current language slug from WPML/Polylang with english fallback.
+ *
+ * @return string
+ */
+function gts_get_current_language_slug() {
+	$supported = gts_get_supported_language_slugs();
+	$resolve   = static function( $value ) use ( $supported ) {
+		$value = is_string( $value ) ? strtolower( trim( $value ) ) : '';
+		if ( '' === $value ) {
+			return '';
+		}
+
+		$value = str_replace( '-', '_', $value );
+		if ( in_array( $value, $supported, true ) ) {
+			return $value;
+		}
+
+		$base = explode( '_', $value );
+		$base = ! empty( $base[0] ) ? $base[0] : '';
+		return in_array( $base, $supported, true ) ? $base : '';
+	};
+
+	if ( function_exists( 'pll_current_language' ) ) {
+		$pll_lang = $resolve( pll_current_language( 'slug' ) );
+		if ( '' !== $pll_lang ) {
+			return $pll_lang;
+		}
+	}
+
+	if ( has_filter( 'wpml_current_language' ) ) {
+		$wpml_lang = $resolve( apply_filters( 'wpml_current_language', null ) );
+		if ( '' !== $wpml_lang ) {
+			return $wpml_lang;
+		}
+	}
+
+	return 'en';
+}
+
+/**
+ * Resolve localized URL for a path and avoid known typo-slug 404s.
+ *
+ * @param string $path Relative path like /services/airport-transfer/.
+ * @return string
+ */
+function gts_localized_home_url( $path = '/' ) {
+	$variants = gts_get_path_alias_variants( (string) $path );
+	if ( empty( $variants ) ) {
+		return home_url( '/' );
+	}
+
+	$lang        = gts_get_current_language_slug();
+	$cache_key   = $lang . '|' . implode( '|', $variants );
+	$wpml_active = function_exists( 'icl_object_id' ) || has_filter( 'wpml_current_language' );
+	static $cache = array();
+	if ( isset( $cache[ $cache_key ] ) ) {
+		return $cache[ $cache_key ];
+	}
+
+	$first_candidate = '';
+	foreach ( $variants as $variant ) {
+		$candidate = false !== strpos( $variant, '://' ) ? $variant : home_url( $variant );
+		if ( $wpml_active && '' !== $lang && has_filter( 'wpml_permalink' ) && false === strpos( $variant, '://' ) ) {
+			$wpml_url = apply_filters( 'wpml_permalink', $candidate, $lang, true );
+			if ( is_string( $wpml_url ) && '' !== trim( $wpml_url ) ) {
+				$candidate = $wpml_url;
+			}
+		}
+
+		if ( '' === $first_candidate ) {
+			$first_candidate = $candidate;
+		}
+
+		$path_part = (string) wp_parse_url( $candidate, PHP_URL_PATH );
+		$path_trim = trim( $path_part, '/' );
+		if ( '' === $path_trim ) {
+			$cache[ $cache_key ] = $candidate;
+			return $candidate;
+		}
+
+		$post_id = url_to_postid( $candidate );
+		if ( $post_id > 0 ) {
+			$cache[ $cache_key ] = $candidate;
+			return $candidate;
+		}
+
+		if ( 0 === strpos( $path_trim, 'services/' ) ) {
+			$service_slug = sanitize_title( basename( $path_trim ) );
+			if ( '' === $service_slug ) {
+				continue;
+			}
+
+			$service = get_page_by_path( $service_slug, OBJECT, 'service' );
+			if ( $service instanceof WP_Post ) {
+				$service_id = (int) $service->ID;
+				if ( $wpml_active && has_filter( 'wpml_object_id' ) ) {
+					$translated_id = apply_filters( 'wpml_object_id', $service_id, 'service', true, $lang );
+					if ( is_numeric( $translated_id ) && (int) $translated_id > 0 ) {
+						$service_id = (int) $translated_id;
+					}
+				} elseif ( function_exists( 'pll_get_post' ) ) {
+					$translated_id = pll_get_post( $service_id, $lang );
+					if ( is_numeric( $translated_id ) && (int) $translated_id > 0 ) {
+						$service_id = (int) $translated_id;
+					}
+				}
+
+				$service_url = get_permalink( $service_id );
+				if ( is_string( $service_url ) && '' !== trim( $service_url ) ) {
+					$cache[ $cache_key ] = $service_url;
+					return $service_url;
+				}
+			}
+		}
+	}
+
+	if ( '' === $first_candidate ) {
+		$first_candidate = home_url( '/' );
+	}
+
+	$cache[ $cache_key ] = $first_candidate;
+	return $first_candidate;
+}
+
+/**
  * Return unlocalized site base URL (without WPML/Polylang language prefix).
  *
  * @return string
@@ -217,7 +387,8 @@ function gts_strip_leading_language_prefixes( $path ) {
 		return '';
 	}
 
-	$cleaned = preg_replace( '#^(?:(?:en|fr|de|it|es|zh|ru|uk)(?:/|$))+#i', '', $path );
+	$supported = implode( '|', array_map( 'preg_quote', gts_get_supported_language_slugs() ) );
+	$cleaned   = preg_replace( '#^(?:(?:' . $supported . ')(?:/|$))+#i', '', $path );
 	return trim( (string) $cleaned, '/' );
 }
 
@@ -228,7 +399,7 @@ function gts_strip_leading_language_prefixes( $path ) {
  * @return array<int, array<string, mixed>>
  */
 function gts_get_language_switcher_items() {
-	$order = array( 'en', 'fr', 'de', 'it', 'es', 'zh', 'ru', 'uk' );
+	$order = gts_get_supported_language_slugs();
 	$names = array(
 		'en' => 'English',
 		'fr' => 'French',
@@ -244,48 +415,18 @@ function gts_get_language_switcher_items() {
 	$path        = (string) parse_url( $request_uri, PHP_URL_PATH );
 	$path        = trim( $path, '/' );
 	$query       = (string) parse_url( $request_uri, PHP_URL_QUERY );
-	$query_suffix = $query !== '' ? '?' . $query : '';
 	$base_home_url = gts_get_unlocalized_home_url();
 
 	$current_slug = 'en';
-	if ( preg_match( '#^(en|fr|de|it|es|zh|ru|uk)(?:/|$)#i', $path, $match ) ) {
+	$language_pattern = '#^(' . implode( '|', array_map( 'preg_quote', $order ) ) . ')(?:/|$)#i';
+	if ( preg_match( $language_pattern, $path, $match ) ) {
 		$current_slug = strtolower( (string) $match[1] );
 	}
-	$path_without_lang = gts_strip_leading_language_prefixes( $path );
-
-	$normalize_language_url = static function( $raw_url, $target_slug ) use ( $order, $base_home_url ) {
-		$raw_url = is_string( $raw_url ) ? $raw_url : '';
-		$parsed  = wp_parse_url( $raw_url );
-
-		$path = '';
-		if ( is_array( $parsed ) && ! empty( $parsed['path'] ) ) {
-			$path = trim( (string) $parsed['path'], '/' );
+	$fallback_url_for_slug = static function( $slug ) use ( $base_home_url ) {
+		if ( 'en' === $slug ) {
+			return $base_home_url . '/';
 		}
-
-		$clean_path = gts_strip_leading_language_prefixes( $path );
-		if ( 'en' !== $target_slug ) {
-			$clean_path = $clean_path !== '' ? $target_slug . '/' . $clean_path : $target_slug;
-		}
-
-		$normalized = $clean_path !== '' ? $base_home_url . '/' . $clean_path . '/' : $base_home_url . '/';
-
-		if ( is_array( $parsed ) && ! empty( $parsed['query'] ) ) {
-			$normalized .= '?' . $parsed['query'];
-		}
-		if ( is_array( $parsed ) && ! empty( $parsed['fragment'] ) ) {
-			$normalized .= '#' . $parsed['fragment'];
-		}
-
-		return $normalized;
-	};
-
-	$fallback_url_for_slug = static function( $slug ) use ( $path_without_lang, $query_suffix, $base_home_url ) {
-		$lang_path = $path_without_lang;
-		if ( 'en' !== $slug ) {
-			$lang_path = $lang_path !== '' ? $slug . '/' . $lang_path : $slug;
-		}
-		$url = $lang_path !== '' ? $base_home_url . '/' . $lang_path . '/' : $base_home_url . '/';
-		return $url . $query_suffix;
+		return $base_home_url . '/' . trim( (string) $slug, '/' ) . '/';
 	};
 
 	$resolve_supported_slug = static function( $value ) use ( $order ) {
@@ -308,33 +449,6 @@ function gts_get_language_switcher_items() {
 		return '';
 	};
 
-	$canonicalize_items = static function( $list ) use ( $base_home_url ) {
-		$result = array();
-		foreach ( (array) $list as $item ) {
-			$slug = isset( $item['slug'] ) ? strtolower( (string) $item['slug'] ) : 'en';
-			$url  = isset( $item['url'] ) ? (string) $item['url'] : '';
-
-			$parsed = wp_parse_url( $url );
-			$path   = is_array( $parsed ) && ! empty( $parsed['path'] ) ? (string) $parsed['path'] : '';
-			$path   = gts_strip_leading_language_prefixes( $path );
-			if ( 'en' !== $slug ) {
-				$path = $path !== '' ? $slug . '/' . $path : $slug;
-			}
-
-			$normalized = $path !== '' ? $base_home_url . '/' . $path . '/' : $base_home_url . '/';
-			if ( is_array( $parsed ) && ! empty( $parsed['query'] ) ) {
-				$normalized .= '?' . $parsed['query'];
-			}
-			if ( is_array( $parsed ) && ! empty( $parsed['fragment'] ) ) {
-				$normalized .= '#' . $parsed['fragment'];
-			}
-			$item['url'] = $normalized;
-			$result[]    = $item;
-		}
-
-		return $result;
-	};
-
 	// WPML support: generate canonical links per language to avoid duplicated slugs.
 	if ( function_exists( 'icl_object_id' ) || has_filter( 'wpml_current_language' ) ) {
 		$wpml_current = apply_filters( 'wpml_current_language', null );
@@ -343,34 +457,30 @@ function gts_get_language_switcher_items() {
 			$active_slug = $current_slug;
 		}
 
-		$current_clean_url = $path_without_lang !== '' ? $base_home_url . '/' . $path_without_lang . '/' : $base_home_url . '/';
-		$current_clean_url .= $query_suffix;
+		$current_request_url = $path !== '' ? $base_home_url . '/' . $path . '/' : $base_home_url . '/';
+		if ( '' !== $query ) {
+			$current_request_url .= '?' . $query;
+		}
 
 		foreach ( $order as $slug ) {
 			$raw_url = $fallback_url_for_slug( $slug );
-			// EN must always point to canonical no-slug URL to ensure reliable switch-back.
-			if ( 'en' !== $slug && has_filter( 'wpml_permalink' ) ) {
-				$wpml_url = apply_filters( 'wpml_permalink', $current_clean_url, $slug, true );
+			if ( has_filter( 'wpml_permalink' ) ) {
+				$wpml_url = apply_filters( 'wpml_permalink', $current_request_url, $slug, true );
 				if ( is_string( $wpml_url ) && '' !== trim( $wpml_url ) ) {
 					$raw_url = $wpml_url;
 				}
-			}
-
-			$item_url = $normalize_language_url( $raw_url, $slug );
-			if ( 'en' === $slug ) {
-				$item_url = $path_without_lang !== '' ? $base_home_url . '/' . $path_without_lang . '/' : $base_home_url . '/';
 			}
 
 			$items[] = array(
 				'slug'    => $slug,
 				'code'    => strtoupper( $slug ),
 				'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-				'url'     => $item_url,
+				'url'     => $raw_url,
 				'current' => $slug === $active_slug,
 			);
 		}
 
-		return $canonicalize_items( $items );
+		return $items;
 	}
 
 	if ( function_exists( 'pll_the_languages' ) ) {
@@ -390,17 +500,14 @@ function gts_get_language_switcher_items() {
 					continue;
 				}
 
-				$items_by_slug[ $slug ] = array(
-					'slug'    => $slug,
-					'code'    => strtoupper( $slug ),
-					'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-					'url'     => $normalize_language_url(
-						! empty( $language['url'] ) ? (string) $language['url'] : $fallback_url_for_slug( $slug ),
-						$slug
-					),
-					'current' => false,
-				);
-			}
+					$items_by_slug[ $slug ] = array(
+						'slug'    => $slug,
+						'code'    => strtoupper( $slug ),
+						'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+						'url'     => ! empty( $language['url'] ) ? (string) $language['url'] : $fallback_url_for_slug( $slug ),
+						'current' => false,
+					);
+				}
 
 			if ( ! empty( $items_by_slug ) ) {
 				$pll_current = function_exists( 'pll_current_language' ) ? sanitize_key( (string) pll_current_language( 'slug' ) ) : '';
@@ -408,33 +515,33 @@ function gts_get_language_switcher_items() {
 
 				foreach ( $order as $slug ) {
 					if ( ! isset( $items_by_slug[ $slug ] ) ) {
-						$items_by_slug[ $slug ] = array(
-							'slug'    => $slug,
-							'code'    => strtoupper( $slug ),
-							'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-							'url'     => $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
-							'current' => false,
-						);
+							$items_by_slug[ $slug ] = array(
+								'slug'    => $slug,
+								'code'    => strtoupper( $slug ),
+								'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+								'url'     => $fallback_url_for_slug( $slug ),
+								'current' => false,
+							);
+						}
+						$items_by_slug[ $slug ]['current'] = ( $slug === $active_slug );
+						$items[] = $items_by_slug[ $slug ];
 					}
-					$items_by_slug[ $slug ]['current'] = ( $slug === $active_slug );
-					$items[] = $items_by_slug[ $slug ];
+					return $items;
 				}
-				return $canonicalize_items( $items );
 			}
 		}
-	}
 
 	foreach ( $order as $slug ) {
-		$items[] = array(
-			'slug'    => $slug,
-			'code'    => strtoupper( $slug ),
-			'name'    => $names[ $slug ] ?? strtoupper( $slug ),
-			'url'     => $normalize_language_url( $fallback_url_for_slug( $slug ), $slug ),
-			'current' => $slug === $current_slug,
-		);
-	}
+			$items[] = array(
+				'slug'    => $slug,
+				'code'    => strtoupper( $slug ),
+				'name'    => $names[ $slug ] ?? strtoupper( $slug ),
+				'url'     => $fallback_url_for_slug( $slug ),
+				'current' => $slug === $current_slug,
+			);
+		}
 
-	return $canonicalize_items( $items );
+	return $items;
 }
 
 /**
@@ -539,6 +646,11 @@ function gts_redirect_en_lang_query_to_canonical() {
 		return;
 	}
 
+	// Let multilingual plugins control canonical redirects for language URLs.
+	if ( function_exists( 'pll_the_languages' ) || function_exists( 'icl_object_id' ) || has_filter( 'wpml_current_language' ) ) {
+		return;
+	}
+
 	if ( ! isset( $_GET['lang'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		return;
 	}
@@ -584,6 +696,11 @@ function gts_normalize_language_prefix_redirect() {
 		return;
 	}
 
+	// Let multilingual plugins control canonical redirects for language URLs.
+	if ( function_exists( 'pll_the_languages' ) || function_exists( 'icl_object_id' ) || has_filter( 'wpml_current_language' ) ) {
+		return;
+	}
+
 	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '';
 	if ( '' === $request_uri ) {
 		return;
@@ -595,9 +712,8 @@ function gts_normalize_language_prefix_redirect() {
 		return;
 	}
 
-	$supported = array( 'en', 'fr', 'de', 'it', 'es', 'zh', 'ru' );
+	$supported = gts_get_supported_language_slugs();
 	$segments  = explode( '/', $path );
-	$original  = $segments;
 
 	$first_lang = '';
 	$lang_count = 0;
