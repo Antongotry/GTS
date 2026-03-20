@@ -221,9 +221,25 @@ function gts_theme_get_archive_selected_filters() {
 			)
 		);
 
-		if ( ! empty( $values ) ) {
-			$selected[ $taxonomy ] = $values;
+		if ( empty( $values ) ) {
+			continue;
 		}
+
+		// Keep only slugs that exist for this taxonomy (typos / forged query args).
+		$valid_slugs = get_terms(
+			array(
+				'taxonomy'   => $taxonomy,
+				'hide_empty' => false,
+				'slug'       => $values,
+				'fields'     => 'slugs',
+			)
+		);
+
+		if ( is_wp_error( $valid_slugs ) || empty( $valid_slugs ) ) {
+			continue;
+		}
+
+		$selected[ $taxonomy ] = $valid_slugs;
 	}
 
 	return $selected;

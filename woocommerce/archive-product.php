@@ -62,6 +62,13 @@ if ( is_product_taxonomy() ) {
 					<?php if ( ! empty( $attribute_taxonomy ) ) : ?>
 						<?php foreach ( $attribute_taxonomy as $attribute ) : ?>
 							<?php
+							$attr_name = strtolower( (string) $attribute->attribute_name );
+
+							// Fleet archive: hide luggage capacity filter (requested).
+							if ( 'bags' === $attr_name ) {
+								continue;
+							}
+
 							$taxonomy = wc_attribute_taxonomy_name( $attribute->attribute_name );
 							if ( ! taxonomy_exists( $taxonomy ) ) {
 								continue;
@@ -78,25 +85,68 @@ if ( is_product_taxonomy() ) {
 								continue;
 							}
 
-							$field_name = 'gtsf_' . $taxonomy;
-							$selected   = isset( $selected_filters[ $taxonomy ] ) ? $selected_filters[ $taxonomy ] : array();
+							$field_name        = 'gtsf_' . $taxonomy;
+							$selected          = isset( $selected_filters[ $taxonomy ] ) ? $selected_filters[ $taxonomy ] : array();
+							$is_passenger_attr = in_array( $attr_name, array( 'passenger', 'passengers' ), true );
 							?>
-							<fieldset class="gts-fleet-filters__group">
-								<legend class="gts-fleet-filters__legend"><?php echo esc_html( $attribute->attribute_label ); ?></legend>
-								<div class="gts-fleet-filters__options">
-									<?php foreach ( $terms as $term ) : ?>
-										<label class="gts-fleet-filters__option">
-											<input
-												type="checkbox"
-												name="<?php echo esc_attr( $field_name ); ?>[]"
-												value="<?php echo esc_attr( $term->slug ); ?>"
-												<?php checked( in_array( $term->slug, $selected, true ) ); ?>
-											>
-											<span><?php echo esc_html( $term->name ); ?></span>
-										</label>
-									<?php endforeach; ?>
-								</div>
-							</fieldset>
+							<?php if ( $is_passenger_attr ) : ?>
+								<?php
+								$datalist_id = 'gts-fleet-passenger-datalist-' . sanitize_html_class( $taxonomy );
+								$input_id    = 'gts-fleet-passenger-input-' . sanitize_html_class( $taxonomy );
+								$sel_slug    = ! empty( $selected[0] ) ? $selected[0] : '';
+								$input_val   = '';
+								if ( $sel_slug ) {
+									$sel_term = get_term_by( 'slug', $sel_slug, $taxonomy );
+									if ( $sel_term && ! is_wp_error( $sel_term ) ) {
+										$input_val = $sel_term->slug;
+									} else {
+										$input_val = $sel_slug;
+									}
+								}
+								?>
+								<fieldset class="gts-fleet-filters__group gts-fleet-filters__group--passenger">
+									<legend class="gts-fleet-filters__legend gts-fleet-filters__legend--passenger"><?php echo esc_html( $attribute->attribute_label ); ?></legend>
+									<p class="gts-fleet-filters__hint"><?php esc_html_e( 'Type or pick a capacity; only matching vehicles are shown.', 'gts-theme' ); ?></p>
+									<div class="gts-fleet-filters__field">
+										<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $attribute->attribute_label ); ?></label>
+										<input
+											class="gts-fleet-filters__input"
+											type="text"
+											id="<?php echo esc_attr( $input_id ); ?>"
+											name="<?php echo esc_attr( $field_name ); ?>"
+											value="<?php echo esc_attr( $input_val ); ?>"
+											list="<?php echo esc_attr( $datalist_id ); ?>"
+											autocomplete="off"
+											autocapitalize="off"
+											autocorrect="off"
+											spellcheck="false"
+											placeholder="<?php esc_attr_e( 'e.g. 7', 'gts-theme' ); ?>"
+										>
+										<datalist id="<?php echo esc_attr( $datalist_id ); ?>">
+											<?php foreach ( $terms as $term ) : ?>
+												<option value="<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></option>
+											<?php endforeach; ?>
+										</datalist>
+									</div>
+								</fieldset>
+							<?php else : ?>
+								<fieldset class="gts-fleet-filters__group">
+									<legend class="gts-fleet-filters__legend"><?php echo esc_html( $attribute->attribute_label ); ?></legend>
+									<div class="gts-fleet-filters__options">
+										<?php foreach ( $terms as $term ) : ?>
+											<label class="gts-fleet-filters__option">
+												<input
+													type="checkbox"
+													name="<?php echo esc_attr( $field_name ); ?>[]"
+													value="<?php echo esc_attr( $term->slug ); ?>"
+													<?php checked( in_array( $term->slug, $selected, true ) ); ?>
+												>
+												<span><?php echo esc_html( $term->name ); ?></span>
+											</label>
+										<?php endforeach; ?>
+									</div>
+								</fieldset>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					<?php endif; ?>
 
