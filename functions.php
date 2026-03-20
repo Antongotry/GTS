@@ -907,6 +907,86 @@ function gts_normalize_language_prefix_redirect() {
 }
 add_action( 'template_redirect', 'gts_normalize_language_prefix_redirect', 1 );
 
+/**
+ * Redirect wrong language-specific Woo category base to canonical translated term URL.
+ * Example: /fr/product-category/sedan-suv/ -> /fr/categorie-produit/sedan-suv/
+ */
+function gts_redirect_product_category_base_404() {
+	if ( is_admin() || wp_doing_ajax() || ! is_404() ) {
+		return;
+	}
+
+	if ( ! taxonomy_exists( 'product_cat' ) ) {
+		return;
+	}
+
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '';
+	if ( '' === $request_uri ) {
+		return;
+	}
+
+	$path = trim( (string) parse_url( $request_uri, PHP_URL_PATH ), '/' );
+	if ( '' === $path ) {
+		return;
+	}
+
+	$supported = gts_get_supported_language_slugs();
+	$pattern   = '#^(' . implode( '|', array_map( 'preg_quote', $supported ) ) . ')/product-category/(.+)$#i';
+	if ( ! preg_match( $pattern, $path, $matches ) ) {
+		return;
+	}
+
+	$lang      = sanitize_key( strtolower( (string) $matches[1] ) );
+	$term_path = trim( (string) $matches[2], '/' );
+	if ( '' === $term_path ) {
+		return;
+	}
+
+	$parts     = explode( '/', $term_path );
+	$term_slug = sanitize_title( (string) end( $parts ) );
+	if ( '' === $term_slug ) {
+		return;
+	}
+
+	$source_term = get_term_by( 'slug', $term_slug, 'product_cat' );
+	if ( ! ( $source_term instanceof WP_Term ) ) {
+		return;
+	}
+
+	$target_term_id = 0;
+	if ( has_filter( 'wpml_object_id' ) ) {
+		$wpml_term_id = apply_filters( 'wpml_object_id', (int) $source_term->term_id, 'product_cat', false, $lang );
+		if ( is_numeric( $wpml_term_id ) && (int) $wpml_term_id > 0 ) {
+			$target_term_id = (int) $wpml_term_id;
+		}
+	} elseif ( function_exists( 'pll_get_term' ) ) {
+		$pll_term_id = pll_get_term( (int) $source_term->term_id, $lang );
+		if ( is_numeric( $pll_term_id ) && (int) $pll_term_id > 0 ) {
+			$target_term_id = (int) $pll_term_id;
+		}
+	}
+
+	if ( $target_term_id <= 0 ) {
+		return;
+	}
+
+	$target_url = get_term_link( $target_term_id, 'product_cat' );
+	if ( is_wp_error( $target_url ) || ! is_string( $target_url ) || '' === trim( $target_url ) ) {
+		return;
+	}
+
+	$current_path = '/' . trim( $path, '/' ) . '/';
+	$target_path  = (string) wp_parse_url( $target_url, PHP_URL_PATH );
+	$target_path  = '/' . trim( $target_path, '/' ) . '/';
+	if ( $current_path === $target_path ) {
+		return;
+	}
+
+	wp_safe_redirect( $target_url, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'gts_redirect_product_category_base_404', 99 );
+
 function gts_settings_page_render() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
