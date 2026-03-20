@@ -306,10 +306,13 @@ table.shop_table_responsive tr td.download-actions .button {
 }
 
 .gts-fleet-products ul.products li.product {
-  float: none;
-  width: 100%;
+  float: none !important;
+  width: 100% !important;
+  max-width: none !important;
   margin: 0;
+  flex: none !important;
   list-style: none;
+  box-sizing: border-box;
 }
 
 .gts-fleet-products .fleet-card {

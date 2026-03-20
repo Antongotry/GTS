@@ -219,7 +219,8 @@
 	height: 44px;
 }
 
-// Two cards per row on desktop — wider cards, room for action buttons (avoid 4-up squeeze).
+// Two cards per row on desktop — wider cards, room for action buttons (1920 / 1440 / …).
+// ul may still carry WooCommerce .columns-*; grid + loop_shop_columns filter keep 2-up.
 .gts-fleet-products ul.products {
 	margin: 0;
 	padding: 0;
@@ -229,11 +230,15 @@
 	gap: $spacing-lg;
 }
 
+// WooCommerce .columns-* often sets % widths; keep each cell full grid track width (1920 / 1440 / …).
 .gts-fleet-products ul.products li.product {
-	float: none;
-	width: 100%;
+	float: none !important;
+	width: 100% !important;
+	max-width: none !important;
 	margin: 0;
+	flex: none !important;
 	list-style: none;
+	box-sizing: border-box;
 }
 
 .gts-fleet-products .fleet-card {

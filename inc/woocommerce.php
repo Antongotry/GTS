@@ -174,6 +174,21 @@ function gts_theme_customize_product_archive_ui() {
 add_action( 'wp', 'gts_theme_customize_product_archive_ui' );
 
 /**
+ * Shop / category archives: force 2 columns so markup matches .gts-fleet-products grid (1920px, 1440px, etc.).
+ *
+ * @param int $columns Columns requested by WooCommerce or theme.
+ * @return int
+ */
+function gts_theme_shop_loop_columns( $columns ) {
+	if ( function_exists( 'is_shop' ) && function_exists( 'is_product_taxonomy' ) && ( is_shop() || is_product_taxonomy() ) ) {
+		return 2;
+	}
+
+	return $columns;
+}
+add_filter( 'loop_shop_columns', 'gts_theme_shop_loop_columns', 99 );
+
+/**
  * Get available attribute taxonomies for fleet archive filters.
  *
  * @return array
