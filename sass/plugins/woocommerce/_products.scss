@@ -229,6 +229,14 @@
 	gap: $spacing-lg;
 }
 
+// Fallback for archive DOM variants where parent classes differ.
+.post-type-archive-product ul.products.columns-2,
+.tax-product_cat ul.products.columns-2 {
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	gap: $spacing-lg;
+}
+
 // WooCommerce .columns-* often sets % widths; keep each cell full grid track width (1920 / 1440 / …).
 .gts-fleet-products ul.products li.product {
 	float: none !important;
@@ -238,6 +246,14 @@
 	flex: none !important;
 	list-style: none;
 	box-sizing: border-box;
+}
+
+.post-type-archive-product ul.products.columns-2 li.product,
+.tax-product_cat ul.products.columns-2 li.product {
+	float: none !important;
+	width: 100% !important;
+	max-width: none !important;
+	margin: 0;
 }
 
 .gts-fleet-products .fleet-card {
@@ -353,6 +369,12 @@
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 		gap: 16px;
 	}
+
+	.post-type-archive-product ul.products.columns-2,
+	.tax-product_cat ul.products.columns-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 16px;
+	}
 }
 
 @include md {
@@ -375,7 +397,13 @@
 	}
 
 	.gts-fleet-products ul.products {
-		grid-template-columns: 1fr !important;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 14px;
+	}
+
+	.post-type-archive-product ul.products.columns-2,
+	.tax-product_cat ul.products.columns-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 		gap: 14px;
 	}
 
@@ -459,5 +487,16 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+	}
+}
+
+@media (max-width: 640px) {
+	.gts-fleet-products ul.products {
+		grid-template-columns: 1fr !important;
+	}
+
+	.post-type-archive-product ul.products.columns-2,
+	.tax-product_cat ul.products.columns-2 {
+		grid-template-columns: 1fr !important;
 	}
 }

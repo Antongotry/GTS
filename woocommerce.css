@@ -305,6 +305,13 @@ table.shop_table_responsive tr td.download-actions .button {
   gap: 20px;
 }
 
+.post-type-archive-product ul.products.columns-2,
+.tax-product_cat ul.products.columns-2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 20px;
+}
+
 .gts-fleet-products ul.products li.product {
   float: none !important;
   width: 100% !important;
@@ -313,6 +320,14 @@ table.shop_table_responsive tr td.download-actions .button {
   flex: none !important;
   list-style: none;
   box-sizing: border-box;
+}
+
+.post-type-archive-product ul.products.columns-2 li.product,
+.tax-product_cat ul.products.columns-2 li.product {
+  float: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0;
 }
 
 .gts-fleet-products .fleet-card {
@@ -423,6 +438,11 @@ table.shop_table_responsive tr td.download-actions .button {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 16px;
   }
+  .post-type-archive-product ul.products.columns-2,
+  .tax-product_cat ul.products.columns-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px;
+  }
 }
 @media (max-width: 768px) {
   .post-type-archive-product .site-main,
@@ -440,7 +460,12 @@ table.shop_table_responsive tr td.download-actions .button {
     grid-template-columns: 1fr;
   }
   .gts-fleet-products ul.products {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px;
+  }
+  .post-type-archive-product ul.products.columns-2,
+  .tax-product_cat ul.products.columns-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 14px;
   }
   .gts-fleet-products nav.woocommerce-pagination {
@@ -514,6 +539,15 @@ table.shop_table_responsive tr td.download-actions .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+}
+@media (max-width: 640px) {
+  .gts-fleet-products ul.products {
+    grid-template-columns: 1fr !important;
+  }
+  .post-type-archive-product ul.products.columns-2,
+  .tax-product_cat ul.products.columns-2 {
+    grid-template-columns: 1fr !important;
   }
 }
 /**
