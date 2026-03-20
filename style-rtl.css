@@ -8643,12 +8643,25 @@ button.add-stop-link {
   height: 100%;
   pointer-events: auto;
   cursor: pointer;
+  container-type: inline-size;
+  container-name: fleet-card;
 }
 .fleet-card:focus-visible {
   outline: 1px solid rgba(255, 255, 255, 0.45);
   outline-offset: -1px;
 }
 
+@container fleet-card (max-width: 320px) {
+  .fleet-card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .fleet-card-action {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
 .fleet-card-media {
   height: 250px;
   background: #fff;
@@ -8726,13 +8739,16 @@ button.add-stop-link {
 .fleet-card-action.btn-secondary.btn-sm.footer-button,
 .fleet-card-action.btn-sm.footer-button-secondary,
 .fleet-card-action.btn-sm.custom-itinerary-button {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
   text-align: center;
   width: 100%;
+  min-width: 0;
   min-height: 48px;
   height: auto;
-  padding: 8px 14px;
+  padding: 8px 8px;
   line-height: 1.25;
   white-space: normal;
   word-wrap: break-word;

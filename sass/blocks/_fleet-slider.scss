@@ -120,10 +120,26 @@
 	height: 100%;
 	pointer-events: auto;
 	cursor: pointer;
+	// Let actions stack full-width when the card column is very narrow (4-up grid).
+	container-type: inline-size;
+	container-name: fleet-card;
 
 	&:focus-visible {
 		outline: 1px solid rgba(255, 255, 255, 0.45);
 		outline-offset: -1px;
+	}
+}
+
+@container fleet-card (max-width: 320px) {
+	.fleet-card-actions {
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.fleet-card-action {
+		flex: 0 0 auto;
+		width: 100%;
+		max-width: 100%;
 	}
 }
 
@@ -200,16 +216,19 @@
 	box-sizing: border-box;
 }
 
-// Beat .btn / .btn-sm (inline-flex + fixed height): grid + text-align centers 2-line labels on Book a transfer / Read more.
+// Beat .btn / .btn-sm: column flex + stretch so label uses full button width; text-align centers wrapped lines (grid place-items was shrinking the text box when narrow).
 .fleet-card-action.btn.btn-primary.btn-sm,
 .fleet-card-action.btn.btn-secondary.btn-sm {
-	display: grid;
-	place-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
 	text-align: center;
 	width: 100%;
+	min-width: 0;
 	min-height: 48px;
 	height: auto;
-	padding: 8px 14px;
+	padding: 8px 8px;
 	line-height: 1.25;
 	white-space: normal;
 	word-wrap: break-word;
