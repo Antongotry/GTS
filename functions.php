@@ -585,10 +585,51 @@ function gts_get_language_switcher_items() {
 			$active_slug = $current_slug;
 		}
 
-			$current_request_url = $path !== '' ? $base_home_url . '/' . $path . '/' : $base_home_url . '/';
-			$current_request_url .= $query_suffix;
+		$current_request_url = $path !== '' ? $base_home_url . '/' . $path . '/' : $base_home_url . '/';
+		$current_request_url .= $query_suffix;
 
-			foreach ( $order as $slug ) {
+		$wpml_urls_by_slug = array();
+		if ( has_filter( 'wpml_active_languages' ) ) {
+			$wpml_languages = apply_filters(
+				'wpml_active_languages',
+				null,
+				array(
+					'skip_missing' => 0,
+					'orderby'      => 'code',
+				)
+			);
+			if ( is_array( $wpml_languages ) ) {
+				foreach ( $wpml_languages as $lang_key => $language_data ) {
+					if ( ! is_array( $language_data ) ) {
+						continue;
+					}
+
+					$candidate_slug = $resolve_supported_slug( (string) $lang_key );
+					if ( '' === $candidate_slug ) {
+						$candidate_slug = $resolve_supported_slug( (string) ( $language_data['language_code'] ?? '' ) );
+					}
+					if ( '' === $candidate_slug ) {
+						$candidate_slug = $resolve_supported_slug( (string) ( $language_data['code'] ?? '' ) );
+					}
+					if ( '' === $candidate_slug || ! in_array( $candidate_slug, $order, true ) ) {
+						continue;
+					}
+
+					$candidate_url = ! empty( $language_data['url'] ) ? trim( (string) $language_data['url'] ) : '';
+					if ( '' !== $candidate_url && ! $is_home_fallback_url( $candidate_url ) ) {
+						$wpml_urls_by_slug[ $candidate_slug ] = $candidate_url;
+					}
+
+					if ( ! empty( $language_data['active'] ) ) {
+						$active_slug = $candidate_slug;
+					}
+				}
+			}
+		}
+
+		foreach ( $order as $slug ) {
+			$raw_url = $wpml_urls_by_slug[ $slug ] ?? '';
+			if ( '' === $raw_url ) {
 				$object_url = gts_get_current_object_language_url( $slug );
 				$raw_url    = $object_url;
 				if ( '' === $raw_url ) {
@@ -603,6 +644,7 @@ function gts_get_language_switcher_items() {
 						}
 					}
 				}
+			}
 
 			$items[] = array(
 				'slug'    => $slug,
