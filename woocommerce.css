@@ -123,7 +123,7 @@ table.shop_table_responsive tr td.download-actions .button {
 
 .gts-fleet-archive__layout {
   display: grid;
-  grid-template-columns: 292px minmax(0, 1fr);
+  grid-template-columns: 322px minmax(0, 1fr);
   gap: 24px;
   align-items: start;
 }
@@ -431,7 +431,7 @@ table.shop_table_responsive tr td.download-actions .button {
     font-size: 16px;
   }
   .gts-fleet-archive__layout {
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 264px minmax(0, 1fr);
     gap: 16px;
   }
   .gts-fleet-products ul.products {

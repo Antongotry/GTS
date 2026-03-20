@@ -46,7 +46,7 @@
 
 .gts-fleet-archive__layout {
 	display: grid;
-	grid-template-columns: 292px minmax(0, 1fr);
+	grid-template-columns: 322px minmax(0, 1fr);
 	gap: $spacing-xl;
 	align-items: start;
 }
@@ -361,7 +361,7 @@
 	}
 
 	.gts-fleet-archive__layout {
-		grid-template-columns: 240px minmax(0, 1fr);
+		grid-template-columns: 264px minmax(0, 1fr);
 		gap: 16px;
 	}
 
