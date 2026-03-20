@@ -8720,16 +8720,9 @@ button.add-stop-link {
 }
 
 .fleet-card-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   flex: 1 1 0;
   min-width: 0;
-  height: 48px;
-  padding: 0 16px;
   box-sizing: border-box;
-  line-height: 1.25;
 }
 
 .fleet-card-action.btn.btn-primary.btn-sm, .fleet-card-action.btn-primary.btn-sm.footer-button, .fleet-card-action.btn-sm.footer-button-primary, .fleet-card-action.btn-sm.booking-submit-btn, .fleet-card-action.btn-sm.final-cta-button,
@@ -8737,7 +8730,17 @@ button.add-stop-link {
 .fleet-card-action.btn-secondary.btn-sm.footer-button,
 .fleet-card-action.btn-sm.footer-button-secondary,
 .fleet-card-action.btn-sm.custom-itinerary-button {
-  padding: 0 16px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 48px;
+  height: auto;
+  padding: 8px 14px;
+  line-height: 1.25;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .fleet-card-action.btn-secondary, .fleet-card-action.footer-button-secondary, .fleet-card-action.custom-itinerary-button {
